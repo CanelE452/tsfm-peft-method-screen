@@ -19,8 +19,12 @@ def stream_forecast(m,cal,x,groups):
     z=((p-l[:,None,:])/s[:,None,:]).asinh()
     return z,p,l,s
 
-def run():
-    out=ROOT/'results/candidate_05';cache=ROOT/'.cache/candidate_05';cache.mkdir(exist_ok=True)
+def run(out=None,cache=None):
+    out=ROOT/'results/candidate_05' if out is None else out
+    cache=ROOT/'.cache/candidate_05' if cache is None else cache
+    if (out/'selection.json').exists() or (out/'status.json').exists():
+        raise FileExistsError('Existing stream results are immutable')
+    out.mkdir(parents=True,exist_ok=True);cache.mkdir(parents=True,exist_ok=True)
     panel=Panel('jena');start=time.monotonic()
     contract=dict(candidate=5,dataset='jena',manifest_hash=sha(panel.root/'manifest.json'),source_hashes=source_hashes(),arms=ARMS,origins=panel.origins['evaluation'].tolist(),lr=1e-4,lambda_preserve=1.,updates_per_origin=8,seed=30000,order='issue immutable forecast; update only labels at indices < now; advance24',supervision='latest partial and latest complete issued forecast; WAIT_FULL only latest complete; no retroactive forecast replacement',TAFAS_scope='GCM input/output equation3; fixed24 schedule replaces PAAS; issued forecasts never replaced; native probabilistic loss replaces MSE',exception='WAIT_FULL necessarily has fewer available training examples in first two origins; same 8-update opportunities once eligible',selection='single predetermined recipe; no E tuning')
     write_json(out/'contract.json',contract);seal(out/'selection.json',[dict(arm=a,lr=1e-4 if a!='F0' else 0,step='online',validation_loss=None) for a in ARMS],contract)
@@ -94,6 +98,11 @@ def run():
         rows.append(dict(arm=arm,variant='issued',**metrics,unrevealed_drift=float(np.mean(drifts)) if drifts else 0,worst5_origin_loss=float(np.mean(sorted(origin_losses)[-5:])),adaptation_seconds=adapt_seconds))
         usage.append(dict(arm=arm,wall_seconds=time.monotonic()-job_start,adaptation_seconds=adapt_seconds,optimizer_steps=updates,**guard()))
         integrity.append(dict(arm=arm,identity_max_abs=identity,checkpoint_replay_max_abs=err,metric_replay_abs=metric_error,issued_forecast_hashes_verified=30,preservation_active_updates=preserve_active,no_future_labels=True,trainable_count=sum(p.numel() for p in params)))
+        # Persist completed-arm receipts before starting the next arm.
+        csv_write(out/'metrics.csv',rows);csv_write(out/'trajectories.csv',trajectories)
+        write_json(out/'origin_losses.json',per_origin)
+        write_json(out/'completed_integrity.json',integrity)
+        write_json(out/'completed_resources.json',usage)
         attempts[-1]['status']='COMPLETE';write_json(out/'attempts.json',attempts)
         del m,cal,opt,params,final;gc.collect();torch.cuda.empty_cache()
     csv_write(out/'metrics.csv',rows);csv_write(out/'trajectories.csv',trajectories);csv_write(out/'selections.csv',[dict(arm=a,lr=1e-4,recipe='fixed') for a in ARMS]);write_json(out/'origin_losses.json',per_origin)
