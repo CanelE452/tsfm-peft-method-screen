@@ -27,7 +27,11 @@ def forecast(m,x,groups,phase=0,adapter=None,state=None,return_hidden=False):
     finally:
         if original is not None:m._prepare_patched_context=original
     h=enc.last_hidden_state[:,-3:]
-    if adapter is not None:h=adapter(h,state)
+    if adapter is not None:
+        adjusted=adapter(h,state)
+        # Preserve native head input strides: avoids GEMM layout-dependent
+        # float32 differences between a zero residual and the frozen path.
+        h=torch.empty_strided(h.size(),h.stride(),device=h.device,dtype=h.dtype).copy_(adjusted)
     z=m.output_patch_embedding(h).reshape(len(x),3,21,16).permute(0,2,1,3).reshape(len(x),21,48).float()
     raw=z.sinh()*scale[:,None,:]+loc[:,None,:]
     if not torch.isfinite(raw).all():raise FloatingPointError('Nonfinite forecast')

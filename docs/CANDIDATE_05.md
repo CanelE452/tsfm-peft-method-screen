@@ -1,0 +1,5 @@
+# Candidate 05
+
+[확인] Thirty Jena origins stride24. Immutable forecasts are issued before any updates. At each origin, use latest partially matured issued window plus most recent fully matured window; unknown labels are never loaded into optimizer target tensors. Eight updates permit preservation gradients after the first update. WAIT_FULL deliberately uses only fully matured targets. All receive same update opportunities once eligible. LR1e-4,lambda1,seed30000 fixed without E tuning. TAFAS-like uses per-channel input/output GCM equation3 with frozen base; fixed24 scheduling and native quantile loss replace PAAS/MSE, and retrospective prediction adjustment is prohibited. It is a scoped baseline, not a full published-result reproduction. Report intrinsic adaptation overhead excluding diagnostic-only forwards for baselines.
+
+See USER_PROTOCOL.md for fixed PASS thresholds. Non-PASS with a positive gain over all simple baselines is WEAK; otherwise FAIL. NO_PROBLEM, INVALID_CONSTRUCT and NOVELTY_COLLISION halt before fitting. These are development decisions, not paper evidence.

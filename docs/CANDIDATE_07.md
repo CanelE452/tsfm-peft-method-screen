@@ -1,0 +1,5 @@
+# Candidate 07
+
+[확인] Same fixed256 M5 series. Synthetic caps are max(1,60th percentile of positive train sales) per series. Observed context and supervised sales are min(y,cap); only the retained original y is used for controlled V/E truth. Censor indicator y>cap, including equality as uncensored. Quantiles sorted for monotone piecewise-linear CDF; tails extend one endpoint spacing and probabilities clamp to[0,1]; survival clipped1e-6. lambda_c=clip(0.1*train task/train survival,0.001,100); lambda_p=0.02*train task, calibrated against unit standardized correction SmoothL1=.5. Full native loss uses masked uncensored positions. Preservation only uncensored train positions. M5 original sales are not verified uncensored latent demand; results address synthetic recovery only, not real stockout identification.
+
+See USER_PROTOCOL.md for fixed PASS thresholds. Non-PASS with a positive gain over all simple baselines is WEAK; otherwise FAIL. NO_PROBLEM, INVALID_CONSTRUCT and NOVELTY_COLLISION halt before fitting. These are development decisions, not paper evidence.
