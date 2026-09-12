@@ -29,5 +29,8 @@ def guard(start=None):
     if mode=='2' and mem['Committed_AS']>mem['CommitLimit']*.95:raise MemoryError('Strict commit charge exceeds 95%')
     if mode!='2' and mem['Committed_AS']-INITIAL_COMMIT>8*2**30:raise MemoryError('Heuristic-mode commit growth exceeds 8 GiB')
     if psutil.Process().memory_info().rss>6*2**30:raise MemoryError('Process RSS exceeds 6 GiB')
-    if torch.cuda.is_available() and torch.cuda.memory_allocated()>8*2**30:raise MemoryError('GPU allocation exceeds 8 GiB')
+    if torch.cuda.is_available():
+        if torch.cuda.memory_allocated()>8*2**30:raise MemoryError('GPU allocation exceeds 8 GiB')
+        free,total=torch.cuda.mem_get_info()
+        if free<512*2**20:raise MemoryError('GPU physical headroom below 512 MiB')
     return {'rss_bytes':psutil.Process().memory_info().rss,'peak_rss_bytes':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024,'gpu_peak_bytes':torch.cuda.max_memory_allocated() if torch.cuda.is_available() else 0}

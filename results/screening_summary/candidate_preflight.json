@@ -1,0 +1,61 @@
+{
+  "checks": [
+    {
+      "arm": "STANDARD_LORA",
+      "candidate": 1,
+      "finite_gradients": true,
+      "identity": 0.0,
+      "loss": 8.447492599487305
+    },
+    {
+      "arm": "FEATURE_LORA",
+      "candidate": 1,
+      "finite_gradients": true,
+      "identity": 0.0,
+      "loss": 8.447492599487305
+    },
+    {
+      "arm": "FRESHNESS_GATED_LORA",
+      "candidate": 1,
+      "finite_gradients": true,
+      "identity": 0.0,
+      "loss": 8.447492599487305
+    },
+    {
+      "arm": "EVENT_SUMMARY_LORA",
+      "candidate": 2,
+      "finite_gradients": true,
+      "identity": 0.0,
+      "loss": 6.256110191345215
+    },
+    {
+      "arm": "DUALCLOCK_ADAPTER",
+      "candidate": 2,
+      "finite_gradients": true,
+      "identity": 0.0,
+      "loss": 6.256110191345215
+    },
+    {
+      "arm": "PHASE_AUGMENTED_ADAPTER",
+      "candidate": 3,
+      "finite_gradients": true,
+      "identity": 0.0,
+      "loss": 9.612256050109863
+    },
+    {
+      "arm": "PHASE_CONDITIONED_ADAPTER",
+      "candidate": 3,
+      "finite_gradients": true,
+      "identity": 0.0,
+      "loss": 9.612256050109863
+    },
+    {
+      "arm": "TAFAS_LIKE",
+      "candidate": 5,
+      "identity": 0.0,
+      "output_gradient_nonzero": true
+    }
+  ],
+  "scope": "forward/backward smoke only; no optimizer steps, no V/E access",
+  "status": "PASS"
+}

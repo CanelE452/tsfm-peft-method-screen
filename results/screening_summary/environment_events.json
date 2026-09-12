@@ -1,0 +1,18 @@
+[
+  {
+    "event": "external_gpu_contention",
+    "stage": "repeat common integrity audit before candidate fits",
+    "observed_external_pid": 4166702,
+    "external_application": "pallet-pose track_c train",
+    "external_gpu_mib": 8102,
+    "outcome": "common audit clone allocation OOM; process exited nonzero; no candidate fit or E started",
+    "response": "retain prior successful audit, rerun common audit after GPU is idle; no external process terminated"
+  },
+  {
+    "event": "zero_adapter_numerical_identity",
+    "stage": "candidate forward/backward smoke",
+    "cause": "native head GEMM input stride differed after adding zero residual",
+    "fix": "preserve native input strides through differentiable copy; exact F0 identity reverified for all tested adapters",
+    "optimization_steps": 0
+  }
+]
