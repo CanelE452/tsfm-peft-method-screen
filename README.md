@@ -28,10 +28,24 @@ On this machine only, kernel driver580.173.02 and globally installed userspace58
 
 See [novelty boundaries](docs/NOVELTY_BOUNDARY.md). Candidate06 is stopped for direct overlap of the central neural-copula method; its raw data preparation is not a fitted result.
 
-## Screen outcome and code version
+## Latest outcome
+
+The user-authorized Candidate05 recovery completed all five streams. Maturity-PEFT is **FAIL**: issued scaled 2-pinball 0.655929 versus TAFAS-like 0.630834, a gain of −4.2982% F0; adaptation overhead was +103.676% (limit 20%). F0 itself remains stronger at 0.583857. All seven candidates now have terminal decisions: six completed comparisons and Candidate06 stopped for novelty collision. No PASS and no Round2.
+
+See the [latest seven-candidate review](results/screening_summary/latest_review.md) and [Candidate05 recovery report](results/candidate_05_repaired/RESULT.md). The recovery used the original fixed recipe and preserved all historical results. The three previously completed prediction arrays reproduce exactly. Cumulative work is 34 standard fits and 9 stream attempts (8 completed, 1 historical abort), including 5 newly authorized recovery streams.
+
+Recovery verification and report regeneration (requires local prediction caches):
+
+```bash
+scripts/with_cuda.sh .venv/bin/python scripts/finalize_candidate_05_recovery.py
+```
+
+The same development evaluation origins were reused for implementation recovery; this is not independent holdout evidence. The recovery execution commit is recorded in its output directory.
+
+## Historical screen outcome and code version
 
 The completed screen produced 34 fits and 4 attempted streams (3 complete, 1 aborted). There were no PASS candidates; Round2 was not executed. See [ranking](results/screening_summary/ranking.md) and [all candidate metrics](results/screening_summary/all_candidates.csv).
 
-Experiment outputs correspond to execution commit `4f0854b27db6950d8e9e7ecb70355c5388ca4fe7`. Main includes a later [partial-label numerical repair](docs/POST_SCREEN_REPAIR.md), validated only with regression tests and a train-only GPU backward smoke. Candidate05 remains IMPLEMENTATION_BLOCKED; the repaired Maturity method has no new pilot result. Source verification checks the historical commit against each immutable selection contract.
+Experiment outputs correspond to execution commit `4f0854b27db6950d8e9e7ecb70355c5388ca4fe7`. The original screen was followed by a [partial-label numerical repair](docs/POST_SCREEN_REPAIR.md), initially validated with regression tests and a train-only GPU backward smoke. Its historical Candidate05 record remains IMPLEMENTATION_BLOCKED. The subsequent authorized recovery above provides the repaired pilot result in a separate directory. Source verification checks the historical commit against each immutable selection contract.
 
 To inspect the existing results, run `render_results.py` and `verify_all.py` through the wrapper. Final verification requires the local ignored prediction caches; these are not included in Git. The setup commands above describe a fresh environment, not authorization to overwrite terminal results or relabel them as runs of the repaired implementation.

@@ -1,5 +1,7 @@
 # Post-screen numerical repair
 
+Update 2026-09-13: the user subsequently authorized completion (“나머지해줘”). All five repaired streams have now completed; the result is FAIL. See [recovery report](../results/candidate_05_repaired/RESULT.md) and [recovery contract](CANDIDATE_05_RECOVERY.md). The account below describes the historical state before this separately recorded recovery.
+
 All Round 0 / Round 1 results were executed from commit `4f0854b27db6950d8e9e7ecb70355c5388ca4fe7`. Every sealed contract's source hash matches that historical commit; `results/screening_summary/execution_source.json` records the proof.
 
 Candidate05 stopped during the first partial-label TAFAS-like update. The native task formula normalized NaN targets before masking. Although the forward loss was finite, the gradient into trainable input-normalization location/scale contained `0 * NaN`. Standard attention LoRA keeps those input statistics outside its gradient path; completed offline fits are not affected by this specific issue.

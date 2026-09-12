@@ -1,0 +1,52 @@
+{
+  "fit_count": 0,
+  "stream_count": 5,
+  "streams": [
+    {
+      "adaptation_seconds": 0.0,
+      "arm": "F0",
+      "gpu_peak_bytes": 516553728,
+      "optimizer_steps": 0,
+      "peak_rss_bytes": 1691652096,
+      "rss_bytes": 1579294720,
+      "wall_seconds": 1.8152360660023987
+    },
+    {
+      "adaptation_seconds": 22.622282557655126,
+      "arm": "IMMEDIATE_LORA",
+      "gpu_peak_bytes": 706403328,
+      "optimizer_steps": 232,
+      "peak_rss_bytes": 2060554240,
+      "rss_bytes": 1826562048,
+      "wall_seconds": 26.316452376078814
+    },
+    {
+      "adaptation_seconds": 21.65275417873636,
+      "arm": "WAIT_FULL",
+      "gpu_peak_bytes": 635014144,
+      "optimizer_steps": 224,
+      "peak_rss_bytes": 2598461440,
+      "rss_bytes": 2122170368,
+      "wall_seconds": 25.22490113088861
+    },
+    {
+      "adaptation_seconds": 11.827870193403214,
+      "arm": "TAFAS_LIKE",
+      "gpu_peak_bytes": 663313408,
+      "optimizer_steps": 232,
+      "peak_rss_bytes": 2598461440,
+      "rss_bytes": 1902137344,
+      "wall_seconds": 14.441695985849947
+    },
+    {
+      "adaptation_seconds": 24.090493894647807,
+      "arm": "MATURITY_PEFT",
+      "gpu_peak_bytes": 707079680,
+      "optimizer_steps": 232,
+      "peak_rss_bytes": 2598461440,
+      "rss_bytes": 1986793472,
+      "wall_seconds": 26.823607257101685
+    }
+  ],
+  "wall_seconds": 95.50588476099074
+}

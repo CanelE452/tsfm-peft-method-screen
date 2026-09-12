@@ -27,3 +27,7 @@ for i in range(1,8):
 assert counts['fit']<=38 and counts['stream']<=5
 print('ARTIFACT VERIFICATION PASS',counts,'max metric replay error',max(errors,default=0),'blocked candidates',blocked)
 print('Candidate-level integrity failures remain explicitly recorded; artifact verification does not turn them into PASS.')
+
+if (ROOT/'results/candidate_05_repaired/status.json').exists():
+    print('Above counts and blocked list describe the historical screen; checking the separately authorized recovery.',flush=True)
+    subprocess.run([sys.executable,str(ROOT/'scripts/finalize_candidate_05_recovery.py'),'--verify-only'],cwd=ROOT,check=True)
