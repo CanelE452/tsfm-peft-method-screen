@@ -1,0 +1,38 @@
+{
+  "f0_primary": 0.6637851417747509,
+  "fit_count": 12,
+  "mean_gain_percent_f0": -0.17081259336132498,
+  "new_source_eligible_for_review": false,
+  "round2_executed": false,
+  "scope": "Fixed-budget revised development candidate; reused development E, no statistical significance or novelty certification",
+  "seeds": [
+    {
+      "baseline_primary": 0.6404601079155101,
+      "clean_degradation_percent_f0": 0.17626693350866796,
+      "gain_over_f0": 3.4192097345765715,
+      "gain_percent_f0": -0.09473361716478312,
+      "gains_percent_f0": {
+        "FEATURE_LORA": 1.0646235412922436,
+        "STANDARD_LORA": -0.09473361716478312
+      },
+      "proposed_primary": 0.6410889355905157,
+      "seed": 30000,
+      "strongest_baseline": "STANDARD_LORA"
+    },
+    {
+      "baseline_primary": 0.6525542672661115,
+      "clean_degradation_percent_f0": 0.521507099323521,
+      "gain_over_f0": 1.4450526759266824,
+      "gain_percent_f0": -0.24689156955786684,
+      "gains_percent_f0": {
+        "FEATURE_LORA": -0.24689156955786684,
+        "STANDARD_LORA": 0.12330096484394056
+      },
+      "proposed_primary": 0.6541930968211311,
+      "seed": 30001,
+      "strongest_baseline": "FEATURE_LORA"
+    }
+  ],
+  "stream_count": 0,
+  "verdict": "FAIL"
+}

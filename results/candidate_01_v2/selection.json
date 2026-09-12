@@ -1,0 +1,60 @@
+{
+  "contract_hash": "cd912b56e93385c24632e129c9e4cc358e901146da785f959b79e3cf9a02c5e0",
+  "seal_hash": "b5ac517d2f56e00fc5cfb43c2633f78dbaba7b2098f9fac322c75b7787dd23a7",
+  "winners": [
+    {
+      "arm": "STANDARD_LORA",
+      "checkpoint": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/candidate_01_v2/30000_STANDARD_LORA_R0/best.pt",
+      "checkpoint_sha256": "c3dc4b0308d35add8616ddd1f2dcc82d5bdc07f75a5c343a64d0ba683edb5467",
+      "recipe": "R0",
+      "seed": 30000,
+      "step": 180,
+      "validation_loss": 0.512642028167006
+    },
+    {
+      "arm": "FEATURE_LORA",
+      "checkpoint": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/candidate_01_v2/30000_FEATURE_LORA_R0/best.pt",
+      "checkpoint_sha256": "1833297d1f47db3fd82b9d965b92dc1363073b5b6e77f6376f944c19db0ab51c",
+      "recipe": "R0",
+      "seed": 30000,
+      "step": 60,
+      "validation_loss": 0.5149358936061534
+    },
+    {
+      "arm": "AFFINE_V2",
+      "checkpoint": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/candidate_01_v2/30000_AFFINE_V2_R0/best.pt",
+      "checkpoint_sha256": "f80fb7184194586c352d4e6914927b7e81913075612f53fb71838888a5b01c71",
+      "recipe": "R0",
+      "seed": 30000,
+      "step": 120,
+      "validation_loss": 0.5132049295893212
+    },
+    {
+      "arm": "STANDARD_LORA",
+      "checkpoint": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/candidate_01_v2/30001_STANDARD_LORA_R1/best.pt",
+      "checkpoint_sha256": "a5814f77b02b1fa3911dd8b9257aa7d6ac9052560f1bad80dac9e2f7876528f3",
+      "recipe": "R1",
+      "seed": 30001,
+      "step": 15,
+      "validation_loss": 0.5143015885929396
+    },
+    {
+      "arm": "FEATURE_LORA",
+      "checkpoint": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/candidate_01_v2/30001_FEATURE_LORA_R1/best.pt",
+      "checkpoint_sha256": "1e93f7cb6599c1b83021ff97722ca04c8e8d1345a406c9ca6d8aec8a259b6119",
+      "recipe": "R1",
+      "seed": 30001,
+      "step": 15,
+      "validation_loss": 0.5143348027786936
+    },
+    {
+      "arm": "AFFINE_V2",
+      "checkpoint": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/candidate_01_v2/30001_AFFINE_V2_R1/best.pt",
+      "checkpoint_sha256": "754b3ff3adfc7b0b2330f0f7f40d125da30f3c0d016fa5d9ddc5bdd4474b21d2",
+      "recipe": "R1",
+      "seed": 30001,
+      "step": 15,
+      "validation_loss": 0.5139874313726893
+    }
+  ]
+}

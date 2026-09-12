@@ -28,7 +28,20 @@ On this machine only, kernel driver580.173.02 and globally installed userspace58
 
 See [novelty boundaries](docs/NOVELTY_BOUNDARY.md). Candidate06 is stopped for direct overlap of the central neural-copula method; its raw data preparation is not a fitted result.
 
-## Latest outcome
+## Freshness v2: latest additional experiment
+
+The authorized asynchronous Freshness v2 experiment completed **12/12 fits** (3 arms × 2 recipes × 2 seeds), 4,320 updates. **FAIL**: Affine loses to Standard on seed30000 (−0.094734%F0) and Feature on seed30001 (−0.246892%F0); the two-seed mean gain is −0.170813%F0. Seed30001 clean degradation is 0.521507%F0, exceeding the 0.5% limit. The conditional scale/shift branches were active and trained. No further tuning or new-source experiment was launched.
+
+See the [v2 report](results/candidate_01_v2/RESULT.md), [two-seed summary](results/screening_summary/freshness_v2_review.md), and [prespecified protocol](docs/CANDIDATE_01_V2.md). The v2 execution revision is `ebb1ee89ee64266fe1eebed41d0b6017f68250c3`. It reuses development E and is not independent holdout evidence. All original results remain unchanged. Cumulative work: 46 standard fits + 9 stream attempts (8 complete, 1 historical abort).
+
+```bash
+scripts/with_cuda.sh .venv/bin/python scripts/finalize_candidate_01_v2.py
+scripts/with_cuda.sh .venv/bin/python scripts/verify_all.py
+```
+
+Verification requires the local ignored prediction/checkpoint caches. It checks the original screen, the Candidate05 recovery and the v2 experiment separately.
+
+## Original seven-candidate outcome
 
 The user-authorized Candidate05 recovery completed all five streams. Maturity-PEFT is **FAIL**: issued scaled 2-pinball 0.655929 versus TAFAS-like 0.630834, a gain of −4.2982% F0; adaptation overhead was +103.676% (limit 20%). F0 itself remains stronger at 0.583857. All seven candidates now have terminal decisions: six completed comparisons and Candidate06 stopped for novelty collision. No PASS and no Round2.
 

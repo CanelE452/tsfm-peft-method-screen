@@ -31,3 +31,6 @@ print('Candidate-level integrity failures remain explicitly recorded; artifact v
 if (ROOT/'results/candidate_05_repaired/status.json').exists():
     print('Above counts and blocked list describe the historical screen; checking the separately authorized recovery.',flush=True)
     subprocess.run([sys.executable,str(ROOT/'scripts/finalize_candidate_05_recovery.py'),'--verify-only'],cwd=ROOT,check=True)
+
+if (ROOT/'results/candidate_01_v2/status.json').exists():
+    subprocess.run([sys.executable,str(ROOT/'scripts/finalize_candidate_01_v2.py'),'--verify-only'],cwd=ROOT,check=True)

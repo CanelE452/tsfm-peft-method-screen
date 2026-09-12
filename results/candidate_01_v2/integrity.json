@@ -1,0 +1,249 @@
+{
+  "fits": [
+    {
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "conditional_smoke": null,
+      "fit": "30000_STANDARD_LORA_R0",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "optimizer_covers_all_trainables": true,
+      "selected_probe": {
+        "train_state_replacement_prediction_max_abs": 0.0
+      },
+      "trainable_count": 1179648,
+      "trainable_tensors": 192
+    },
+    {
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "conditional_smoke": null,
+      "fit": "30000_STANDARD_LORA_R1",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "optimizer_covers_all_trainables": true,
+      "selected_probe": {
+        "train_state_replacement_prediction_max_abs": 0.0
+      },
+      "trainable_count": 1179648,
+      "trainable_tensors": 192
+    },
+    {
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "conditional_smoke": {
+        "train_state_replacement_prediction_max_abs": 0.00555419921875
+      },
+      "fit": "30000_FEATURE_LORA_R0",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "optimizer_covers_all_trainables": true,
+      "selected_probe": {
+        "train_state_replacement_prediction_max_abs": 0.53924560546875
+      },
+      "trainable_count": 1182720,
+      "trainable_tensors": 384
+    },
+    {
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "conditional_smoke": {
+        "train_state_replacement_prediction_max_abs": 0.07061767578125
+      },
+      "fit": "30000_FEATURE_LORA_R1",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "optimizer_covers_all_trainables": true,
+      "selected_probe": {
+        "train_state_replacement_prediction_max_abs": 0.0
+      },
+      "trainable_count": 1182720,
+      "trainable_tensors": 384
+    },
+    {
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "conditional_smoke": {
+        "multiplier_max": 1.0015275478363037,
+        "multiplier_mean": 0.9999908804893494,
+        "multiplier_min": 0.9985873699188232,
+        "shift_abs_max": 0.0031833460088819265,
+        "train_state_replacement_prediction_max_abs": 0.00323486328125
+      },
+      "fit": "30000_AFFINE_V2_R0",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "optimizer_covers_all_trainables": true,
+      "selected_probe": {
+        "multiplier_max": 1.0286835432052612,
+        "multiplier_mean": 1.0125854015350342,
+        "multiplier_min": 0.9960041046142578,
+        "shift_abs_max": 0.05608794093132019,
+        "train_state_replacement_prediction_max_abs": 1.010894775390625
+      },
+      "trainable_count": 1184256,
+      "trainable_tensors": 288
+    },
+    {
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "conditional_smoke": {
+        "multiplier_max": 1.0051826238632202,
+        "multiplier_mean": 0.9999701380729675,
+        "multiplier_min": 0.9952629804611206,
+        "shift_abs_max": 0.010629119351506233,
+        "train_state_replacement_prediction_max_abs": 0.036376953125
+      },
+      "fit": "30000_AFFINE_V2_R1",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "optimizer_covers_all_trainables": true,
+      "selected_probe": {
+        "multiplier_max": 1.020599126815796,
+        "multiplier_mean": 1.0045052766799927,
+        "multiplier_min": 0.9878520965576172,
+        "shift_abs_max": 0.04210469499230385,
+        "train_state_replacement_prediction_max_abs": 0.551116943359375
+      },
+      "trainable_count": 1184256,
+      "trainable_tensors": 288
+    },
+    {
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "conditional_smoke": null,
+      "fit": "30001_STANDARD_LORA_R0",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "optimizer_covers_all_trainables": true,
+      "selected_probe": {
+        "train_state_replacement_prediction_max_abs": 0.0
+      },
+      "trainable_count": 1179648,
+      "trainable_tensors": 192
+    },
+    {
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "conditional_smoke": null,
+      "fit": "30001_STANDARD_LORA_R1",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "optimizer_covers_all_trainables": true,
+      "selected_probe": {
+        "train_state_replacement_prediction_max_abs": 0.0
+      },
+      "trainable_count": 1179648,
+      "trainable_tensors": 192
+    },
+    {
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "conditional_smoke": {
+        "train_state_replacement_prediction_max_abs": 0.00970458984375
+      },
+      "fit": "30001_FEATURE_LORA_R0",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "optimizer_covers_all_trainables": true,
+      "selected_probe": {
+        "train_state_replacement_prediction_max_abs": 0.08530807495117188
+      },
+      "trainable_count": 1182720,
+      "trainable_tensors": 384
+    },
+    {
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "conditional_smoke": {
+        "train_state_replacement_prediction_max_abs": 0.0699462890625
+      },
+      "fit": "30001_FEATURE_LORA_R1",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "optimizer_covers_all_trainables": true,
+      "selected_probe": {
+        "train_state_replacement_prediction_max_abs": 0.17544174194335938
+      },
+      "trainable_count": 1182720,
+      "trainable_tensors": 384
+    },
+    {
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "conditional_smoke": {
+        "multiplier_max": 1.0015407800674438,
+        "multiplier_mean": 1.0001747608184814,
+        "multiplier_min": 0.998611569404602,
+        "shift_abs_max": 0.003096075030043721,
+        "train_state_replacement_prediction_max_abs": 0.005859375
+      },
+      "fit": "30001_AFFINE_V2_R0",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "optimizer_covers_all_trainables": true,
+      "selected_probe": {
+        "multiplier_max": 1.014203429222107,
+        "multiplier_mean": 1.0054576396942139,
+        "multiplier_min": 0.9963414072990417,
+        "shift_abs_max": 0.02689426951110363,
+        "train_state_replacement_prediction_max_abs": 0.3182373046875
+      },
+      "trainable_count": 1184256,
+      "trainable_tensors": 288
+    },
+    {
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "conditional_smoke": {
+        "multiplier_max": 1.0052357912063599,
+        "multiplier_mean": 1.000576376914978,
+        "multiplier_min": 0.9950684905052185,
+        "shift_abs_max": 0.010454060509800911,
+        "train_state_replacement_prediction_max_abs": 0.05063819885253906
+      },
+      "fit": "30001_AFFINE_V2_R1",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "optimizer_covers_all_trainables": true,
+      "selected_probe": {
+        "multiplier_max": 1.0100313425064087,
+        "multiplier_mean": 1.0017036199569702,
+        "multiplier_min": 0.9908633232116699,
+        "shift_abs_max": 0.02032764069736004,
+        "train_state_replacement_prediction_max_abs": 0.17816162109375
+      },
+      "trainable_count": 1184256,
+      "trainable_tensors": 288
+    }
+  ],
+  "metric_replay_max_abs": 2.220446049250313e-16,
+  "saved_predictions": 35,
+  "selection_before_e": true,
+  "source_unchanged": true,
+  "status": "PASS"
+}
