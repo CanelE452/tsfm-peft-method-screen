@@ -39,7 +39,11 @@ def forecast(m,x,groups,phase=0,adapter=None,state=None,return_hidden=False):
     return out+(h.detach(),) if return_hidden else out
 
 def native_loss(z,y,loc,scale):
-    norm=((y-loc)/scale).asinh()[:,None,:];valid=torch.isfinite(norm)
+    observed=torch.isfinite(y)
+    # Sanitize before nonlinear normalization. Masking NaNs afterwards gives
+    # 0*NaN gradients when an input calibrator makes loc/scale trainable.
+    safe_y=torch.where(observed,y,loc.detach())
+    norm=((safe_y-loc)/scale).asinh()[:,None,:];valid=observed[:,None,:]&torch.isfinite(norm)
     v=torch.where(valid,norm,0.);e=v-z
     q=torch.as_tensor(QUANTILES,device=z.device)[None,:,None]
     return (2*torch.maximum(q*e,(q-1)*e)*valid).mean(-1).sum(-1).mean()

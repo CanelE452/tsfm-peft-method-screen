@@ -22,3 +22,26 @@ def test_immutable_selection(tmp_path):
     p=tmp_path/'selection.json';seal(p,records,{'a':1});require_seal(p,{'a':1})
     with pytest.raises(FileExistsError):seal(p,records,{'a':1})
     with pytest.raises(AssertionError):require_seal(p,{'a':2})
+
+
+def test_partial_targets_have_finite_input_normalization_gradients():
+    from tsfm_peft_screen.backbone import native_loss
+    z=torch.zeros(2,21,48,requires_grad=True);loc=torch.zeros(2,1,requires_grad=True);scale=torch.ones(2,1,requires_grad=True)
+    y=torch.ones(2,48);y[:,24:]=float('nan')
+    native_loss(z,y,loc,scale).backward()
+    assert torch.isfinite(z.grad).all() and torch.isfinite(loc.grad).all() and torch.isfinite(scale.grad).all()
+    assert torch.equal(z.grad[...,24:],torch.zeros_like(z.grad[...,24:]))
+
+
+def test_nan_sanitization_preserves_frozen_input_loss_and_lora_gradient():
+    from tsfm_peft_screen.backbone import native_loss,QUANTILES
+    torch.manual_seed(33);values=torch.randn(3,21,48);y=torch.randn(3,48);y[0,24:]=float('nan');loc=torch.randn(3,1);scale=torch.rand(3,1)+.5
+    results=[]
+    for legacy in [True,False]:
+        z=values.clone().requires_grad_()
+        if legacy:
+            norm=((y-loc)/scale).asinh()[:,None,:];valid=torch.isfinite(norm);v=torch.where(valid,norm,0.);e=v-z;q=torch.tensor(QUANTILES)[None,:,None]
+            loss=(2*torch.maximum(q*e,(q-1)*e)*valid).mean(-1).sum(-1).mean()
+        else:loss=native_loss(z,y,loc,scale)
+        loss.backward();results.append((loss.detach(),z.grad))
+    assert all(torch.equal(a,b) for a,b in zip(*results))

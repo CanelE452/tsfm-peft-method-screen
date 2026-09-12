@@ -81,3 +81,24 @@ def test_data_e_unavailable_before_seal(tmp_path,monkeypatch):
     np.savez(d/'fit.npz',values=np.ones((500,4)),scale=np.ones(4),rms_scale=np.ones(4),caps=np.ones(4),zero_fraction=np.zeros(4),channels=np.array(['a','b','c','d']))
     p=Panel('jena');x,y=p.window(336);assert x.shape==(4,336) and y.shape==(4,48)
     with pytest.raises(AssertionError):p.window(500)
+
+
+def test_runner_zero_weight_native_loss_lora_gradient_and_adam_update():
+    from tsfm_peft_screen.backbone import native_loss
+    results=[]
+    for add_zero_revision in [False,True]:
+        torch.manual_seed(1729)
+        base=nn.Linear(8,21*48);base.requires_grad_(False);layer=LowRank(base)
+        x=torch.randn(8,8)*.1;y=torch.randn(8,48)
+        params=[p for p in layer.parameters() if p.requires_grad]
+        optimizer=torch.optim.AdamW(params,lr=1e-4,weight_decay=0)
+        z=layer(x).reshape(8,21,48);raw=z.sinh();f0=base(x).reshape(8,21,48).sinh().detach()
+        loss=native_loss(z,y,torch.zeros(8,1),torch.ones(8,1))
+        if add_zero_revision:
+            # Exact expression used by common_fit, including the zero-weight
+            # autograd branch (the helper's fast bypass is tested separately).
+            loss=loss+0.*regularizer('FR_LORA',raw,f0,torch.ones(8))
+        loss.backward();gradients=[p.grad.clone() for p in params]
+        torch.nn.utils.clip_grad_norm_(params,1.);optimizer.step()
+        results.append([loss.detach()]+gradients+[p.detach().clone() for p in params])
+    for a,b in zip(*results):assert torch.equal(a,b)
