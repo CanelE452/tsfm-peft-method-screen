@@ -1,0 +1,105 @@
+{
+  "fits": [
+    {
+      "adapter_trainable_count": 0,
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "fit": "NAIVE_LORA_3e-05",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "trainable_count": 1179648,
+      "trainable_tensors": 192
+    },
+    {
+      "adapter_trainable_count": 0,
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "fit": "NAIVE_LORA_0.0001",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "trainable_count": 1179648,
+      "trainable_tensors": 192
+    },
+    {
+      "adapter_trainable_count": 0,
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "fit": "DROP_CENSORED_LORA_3e-05",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "trainable_count": 1179648,
+      "trainable_tensors": 192
+    },
+    {
+      "adapter_trainable_count": 0,
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "fit": "DROP_CENSORED_LORA_0.0001",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "trainable_count": 1179648,
+      "trainable_tensors": 192
+    },
+    {
+      "adapter_trainable_count": 0,
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "fit": "CENSORED_LOSS_LORA_3e-05",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "trainable_count": 1179648,
+      "trainable_tensors": 192
+    },
+    {
+      "adapter_trainable_count": 0,
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "fit": "CENSORED_LOSS_LORA_0.0001",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "trainable_count": 1179648,
+      "trainable_tensors": 192
+    },
+    {
+      "adapter_trainable_count": 0,
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "fit": "CENSOR_PRESERVE_LORA_3e-05",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "trainable_count": 1179648,
+      "trainable_tensors": 192
+    },
+    {
+      "adapter_trainable_count": 0,
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "fit": "CENSOR_PRESERVE_LORA_0.0001",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "trainable_count": 1179648,
+      "trainable_tensors": 192
+    }
+  ],
+  "metric_replay_max_abs": 1.1102230246251565e-16,
+  "no_future_context": true,
+  "saved_predictions": 5,
+  "selection_seal_before_e": true,
+  "status": "PASS"
+}

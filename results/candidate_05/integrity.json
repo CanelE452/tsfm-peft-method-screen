@@ -1,0 +1,34 @@
+{
+  "completed_stream_checks": [
+    {
+      "arm": "F0",
+      "checkpoint_sha256": "b9fa1a03d17400c7de52c991066347a277e420bb0aa7dca6fcb2c8857dd166d4",
+      "issued_cache_matches_e_cache": true,
+      "issued_count": 30,
+      "issued_files_have_no_targets": true,
+      "metric_replay_abs": 0.0
+    },
+    {
+      "arm": "IMMEDIATE_LORA",
+      "checkpoint_sha256": "952c4f2d31ffa85f314cc3e3abf8c38f48646b2c890206dcba83233e6b130153",
+      "issued_cache_matches_e_cache": true,
+      "issued_count": 30,
+      "issued_files_have_no_targets": true,
+      "metric_replay_abs": 1.1102230246251565e-16
+    },
+    {
+      "arm": "WAIT_FULL",
+      "checkpoint_sha256": "015c891948b525422a2459d2c3472e64f45d34bd292caafc351b339b5289398a",
+      "issued_cache_matches_e_cache": true,
+      "issued_count": 30,
+      "issued_files_have_no_targets": true,
+      "metric_replay_abs": 1.1102230246251565e-16
+    }
+  ],
+  "failed_gate": "finite gradient in TAFAS input GCM with partial targets",
+  "maturity_not_run": true,
+  "metric_replay_max_abs": 1.1102230246251565e-16,
+  "scope": "Reconstruction of preserved receipts only; no new GPU inference, optimization, or E opening",
+  "selection_seal_before_e": true,
+  "status": "FAIL"
+}

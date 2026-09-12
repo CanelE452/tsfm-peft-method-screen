@@ -1,0 +1,81 @@
+{
+  "fits": [
+    {
+      "adapter_trainable_count": 0,
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "fit": "STANDARD_LORA_3e-05",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "trainable_count": 1179648,
+      "trainable_tensors": 192
+    },
+    {
+      "adapter_trainable_count": 0,
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "fit": "STANDARD_LORA_0.0001",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "trainable_count": 1179648,
+      "trainable_tensors": 192
+    },
+    {
+      "adapter_trainable_count": 0,
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "fit": "FEATURE_LORA_3e-05",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "trainable_count": 1182720,
+      "trainable_tensors": 384
+    },
+    {
+      "adapter_trainable_count": 0,
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "fit": "FEATURE_LORA_0.0001",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "trainable_count": 1182720,
+      "trainable_tensors": 384
+    },
+    {
+      "adapter_trainable_count": 0,
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "fit": "FRESHNESS_GATED_LORA_3e-05",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "trainable_count": 1182720,
+      "trainable_tensors": 384
+    },
+    {
+      "adapter_trainable_count": 0,
+      "base_frozen": true,
+      "checkpoint_replay_max_abs": 0.0,
+      "fit": "FRESHNESS_GATED_LORA_0.0001",
+      "frozen_unchanged": true,
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "modules": 96,
+      "trainable_count": 1182720,
+      "trainable_tensors": 384
+    }
+  ],
+  "metric_replay_max_abs": 2.220446049250313e-16,
+  "no_future_context": true,
+  "saved_predictions": 20,
+  "selection_seal_before_e": true,
+  "status": "PASS"
+}

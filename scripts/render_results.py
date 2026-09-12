@@ -1,5 +1,5 @@
 # Presentation only: consumes sealed results; no training or model imports.
-import csv,json,math
+import csv,hashlib,json,math
 from pathlib import Path
 import numpy as np
 import matplotlib
@@ -53,6 +53,19 @@ for i in range(1,8):
         rr=read(out/'origin_losses.json');
         for a,v in rr.items():ax.plot(np.arange(1,31),np.cumsum(v)/np.arange(1,31),label=a,lw=1.3)
         ax.set_xlabel('Issued origin');ax.set_ylabel('Cumulative prequential loss');ax.legend(fontsize=7)
+    elif i==3 and status.get('diagnostics'):
+        d=status['diagnostics'];values=[d['baseline_phase_variance'],d['proposed_phase_variance']]
+        ax.bar(['Phase augmented','Phase conditioned'],values,color=['#7d91ad','#157f78']);ax.set_ylabel('Mean normalized phase variance')
+        for j,value in enumerate(values):ax.text(j,value*1.02,f'{value:.8f}',ha='center')
+        ax.set_ylim(0,max(values)*1.3)
+        ax.text(.02,.96,f"Reduction {d['variance_reduction_percent']:.3f}% (required >=30%)\nCanonical degradation {d['canonical_degradation_percent']:.3f}% (limit 0.5%)",transform=ax.transAxes,va='top',fontsize=9)
+    elif i==4 and status.get('diagnostics'):
+        d=status['diagnostics'];arms=list(d);xx=np.arange(len(arms));ax.bar(xx-.18,[d[a]['raw_revision'] for a in arms],.36,label='Raw revision',color='#7d91ad');ax.bar(xx+.18,[d[a]['correction_revision'] for a in arms],.36,label='F0-correction revision',color='#157f78');ax.set_xticks(xx,[a.replace('_',' ') for a in arms],rotation=15,ha='right',fontsize=8);ax.set_ylabel('Train-scale-normalized SmoothL1');ax.legend(fontsize=8)
+    elif i==7 and rows:
+        ax.remove();axes=fig.subplots(1,2);arms=[row['arm'] for row in rows];labels=[a.replace('_LORA','').replace('_',' ') for a in arms]
+        for axis,metric,title in zip(axes,['censored_pinball','censored_underprediction_bias'],['Censored-position 2-pinball','Censored underprediction bias']):
+            values=[float(row[metric]) for row in rows];axis.barh(labels,values,color=['#157f78' if a==status.get('proposed') else '#7d91ad' for a in arms]);axis.invert_yaxis();axis.set_title(title,fontsize=9);axis.tick_params(axis='y',labelsize=7)
+        ax=axes[0]
     elif trajectory:
         keys=list(dict.fromkeys((row['arm'],row.get('lr','')) for row in trajectory))
         for arm,lr in keys:
@@ -63,8 +76,15 @@ for i in range(1,8):
         d=gate['degradation_percent'];ax.bar(list(d),list(d.values()),color='#7d91ad');ax.axhline(1,color='gray',ls='--');ax.set_ylabel('F0 degradation (%)');ax.tick_params(axis='x',rotation=25)
     else:
         ax.axis('off');ax.text(.5,.5,'No method-specific experiment executed\nGate evidence is in RESULT.md',ha='center',va='center')
-    ax.set_title('Diagnostics / validation only',loc='left');fig.tight_layout();fig.savefig(figdir/'diagnostics.png');plt.close(fig)
+    fig.suptitle('Method diagnostics',x=.12,ha='left');fig.tight_layout();fig.savefig(figdir/'diagnostics.png');plt.close(fig)
     reason=status.get('reason',status.get('error','Fixed PASS threshold evaluation; see diagnostics.'))
+    d=status.get('diagnostics',{})
+    if i==1 and rows:reason=f"Feature baseline stronger; clean degradation {d['clean_degradation_percent']:.3f}% exceeds 0.5%."
+    if i==2 and rows:reason=f"Gain {status['gain_percent_f0']:.4f}% is below 1%; excluding the top10% improved series removes the gain."
+    if i==3 and rows:reason=f"Phase augmentation baseline stronger; variance reduction {d['variance_reduction_percent']:.3f}% is below 30%."
+    if i==4 and rows:reason='Every V-selected checkpoint is step0; no forecast improvement over any baseline or F0.'
+    if i==7 and rows:reason=f"Censor-only baseline stronger on primary and censored-position loss (censored gain {d['censored_pinball_gain_percent']:.3f}%). Tiny bias improvement is insufficient."
+
     text=f'''# Candidate {i:02}: {NAMES[i]}
 
 [문제]
@@ -74,7 +94,7 @@ for i in range(1,8):
 [확인] The recipe is documented in [CANDIDATE_{i:02}](../../docs/CANDIDATE_{i:02}.md). Proposed: {status.get('proposed',NAMES[i])}.
 
 [강한 단순 baseline]
-[확인] Strongest observed simple baseline: {status.get('strongest_baseline','not evaluated')}. All prespecified baseline arms remain in the raw table.
+[확인] Strongest observed simple baseline: {status.get('strongest_baseline') or 'not established (comparison incomplete / not executed)'}. All prespecified baseline arms remain in the raw table.
 
 [데이터]
 [확인] Dataset: {contract.get('dataset','not evaluated')}. Train/V/E manifests and input hashes are in screening_summary. E opened only after a saved selection seal, when executed.
@@ -89,18 +109,20 @@ for i in range(1,8):
 {table(rows)}
 
 [relative 결과]
-[확인] Gain vs strongest simple baseline (% F0): {status.get('gain_percent_f0','not evaluated')}.
+[확인] Gain vs strongest simple baseline (% F0): {status.get('gain_percent_f0') if status.get('gain_percent_f0') is not None else 'not evaluated'}.
 [확인] Diagnostics: {json.dumps(status.get('diagnostics',{}),ensure_ascii=False)}
 
 [성공/실패 판정]
 [판정] {status['verdict']}. {reason}
 
 [말할 수 없는 것]
-[미검증] A one-seed development screen is not paper-level evidence, cross-dataset robustness or novelty certification. Evaluation origins overlap in time; no independent-sample significance claim is made. Prior training-data overlap of the TSFM is not excluded. Candidate06 is stopped for core-mechanism overlap, not proven exact algebraic identity. Candidate07 recovers synthetically capped recorded M5 sales, not verified real latent demand. TAFAS-like is a scoped adaptation, not full reproduction.
+[미검증] A one-seed development screen is not paper-level evidence, cross-dataset robustness or novelty certification. Some evaluation horizons overlap; no independent-sample significance claim is made. TSFM pretraining overlap is not excluded. See the candidate-specific scope in its protocol document. No unmeasured primary benefit is inferred from diagnostics.
 
 [Round2 추천 여부]
 [판정] {'Eligible for review, subject to max-two overall ranking.' if status.get('round2_recommended') else 'Not recommended from this screen.'} Round2 not executed.
 '''
+    if i==5:
+        text=text.replace('[Round2 추천 여부]', '[수치 버그 수정]\n[확인] 실행 종료 후 NaN label을 정규화 전에 처리하도록 수정했습니다. 회귀 테스트와 train-only GPU gradient smoke를 통과했으나 stream은 재실행하지 않았습니다. 원래 실행 코드와 결과는 보존했습니다. [상세](../../docs/POST_SCREEN_REPAIR.md).\n\n[Round2 추천 여부]')
     (out/'RESULT.md').write_text(text)
     f=status.get('fit_count') or 0;s=status.get('stream_count') or 0;cost=resources.get('wall_seconds',0);totalfits+=f;totalstreams+=s;wall+=cost
     for u in resources.get('fits',[])+resources.get('streams',[]):updates+=u.get('optimizer_steps',0);peak=max(peak,u.get('gpu_peak_bytes',0))
@@ -114,11 +136,18 @@ assert totalfits<=38 and totalstreams<=5
 # then explicit forecast evidence and novelty/robustness rationale. No score sum.
 priority={'PASS':0,'WEAK':1,'FAIL':2,'NO_PROBLEM':3,'INVALID_CONSTRUCT':4,'IMPLEMENTATION_BLOCKED':5,'NOVELTY_COLLISION':6}
 ranking=sorted(summary,key=lambda row:(priority[row['verdict']],-(row['proposed_gain'] if row['proposed_gain'] is not None else -1e9)))
+review=read(summary_dir/'editorial_review.json')
+if review and len(summary)==7:
+    for key,value in review['source_status_hashes'].items():assert hashlib.sha256((ROOT/f'results/candidate_{int(key):02}/status.json').read_bytes()).hexdigest()==value,'Editorial review is stale'
+    by_id={int(row['candidate'][:2]):row for row in summary};ranking=[by_id[i] for i in review['candidate_order']]
 lines=['# Round 1 review ranking','', 'Development evidence only. No weighted score sum. PASS requires all candidate-specific conditions; raw gain alone does not justify advancement.','']
 for idx,row in enumerate(ranking,1):
-    lines.append(f"{idx}. **{row['candidate']} — {row['verdict']}**. Forecast gain: {row['proposed_gain']}% F0; specificity: {row['method_specificity']}; novelty risk: {row['novelty_risk']}. {row['major_failure_mode']}")
+    lines.append(f"{idx}. **{row['candidate']} — {row['verdict']}**. Forecast gain: {str(row['proposed_gain'])+'% F0' if row['proposed_gain'] is not None else 'not measured'}; specificity: {row['method_specificity']}; novelty risk: {row['novelty_risk']}. {review['reasons'][str(int(row['candidate'][:2]))] if review else row['major_failure_mode']}")
 (summary_dir/'ranking.md').write_text('\n'.join(lines)+'\n')
-recommended=[row['candidate'] for row in ranking if row['verdict']=='PASS'][:2]
-dump(summary_dir/'compute_summary.json',dict(fit_count=totalfits,stream_count=totalstreams,optimizer_steps=updates,candidate_wall_seconds=wall,peak_gpu_allocated_bytes=peak,fit_cap=38,stream_cap=5,round2_executed=False))
+recommended=review['round2_recommendations'] if review else []
+assert len(recommended)<=2
+lines.extend(['',review['rationale'] if review else 'Editorial review pending.','','Round2 recommendation: none. No next dataset/seed assigned. Round2 not executed.'])
+(summary_dir/'ranking.md').write_text('\n'.join(lines)+'\n')
+dump(summary_dir/'compute_summary.json',dict(fit_count=totalfits,stream_count=totalstreams,optimizer_steps=updates,candidate_wall_seconds=wall,peak_gpu_allocated_bytes=peak,fit_cap=38,stream_cap=5,round2_executed=False,peak_gpu_allocated_scope='maximum recorded across completed standard fits; Candidate05 stream peaks unavailable after abort',common_smoke_excluded=True))
 dump(summary_dir/'integrity_summary.json',all_integrity)
-dump(summary_dir/'final_verdict.json',dict(complete=len(summary)==7,ranking=[row['candidate'] for row in ranking],round2_recommendations=recommended,round2_executed=False,reason='Only candidates passing all prespecified criteria are eligible; at most two.',final_paper_evidence=False))
+dump(summary_dir/'final_verdict.json',dict(complete=len(summary)==7,ranking=[row['candidate'] for row in ranking],round2_recommendations=recommended,round2_executed=False,reason='Only candidates passing all prespecified criteria are eligible; at most two.',final_paper_evidence=False,screen_complete_with_stops=True,completed_standard_fits=totalfits,attempted_streams=totalstreams,completed_streams=3,proposed_maturity_executed=False,candidate05_repair='post-screen train-only gradient smoke; no new pilot',next_dataset_seed=None))

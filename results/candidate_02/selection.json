@@ -1,0 +1,30 @@
+{
+  "contract_hash": "6686a0fbbd5d9a77c2ff6f82244318047c17ac2c9615e7c3626ec7f6933d24b7",
+  "seal_hash": "0a1a208beb9db1a6dc32743b72ee1ff8c90f93a09fa159bf0433c106c7dfe4c5",
+  "winners": [
+    {
+      "arm": "STANDARD_LORA",
+      "checkpoint": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/candidate_02/STANDARD_LORA_0.0001/best.pt",
+      "checkpoint_sha256": "d89ff29ba878244df8284b0dc9512a3590ea3118abbb9625054ed341fe558e7a",
+      "lr": 0.0001,
+      "step": 360,
+      "validation_loss": 0.463587285336927
+    },
+    {
+      "arm": "EVENT_SUMMARY_LORA",
+      "checkpoint": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/candidate_02/EVENT_SUMMARY_LORA_0.0001/best.pt",
+      "checkpoint_sha256": "7a6c6143b6a1a54ef2e7a70bb30cd979764c295b8ea4df5ea334d1b516348007",
+      "lr": 0.0001,
+      "step": 360,
+      "validation_loss": 0.4634900214223502
+    },
+    {
+      "arm": "DUALCLOCK_ADAPTER",
+      "checkpoint": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/candidate_02/DUALCLOCK_ADAPTER_0.0001/best.pt",
+      "checkpoint_sha256": "c2139c4bd325ebbe2deebe7c06f6a92c4996d54f573e23568b2f8a0945502927",
+      "lr": 0.0001,
+      "step": 360,
+      "validation_loss": 0.4634599404090297
+    }
+  ]
+}

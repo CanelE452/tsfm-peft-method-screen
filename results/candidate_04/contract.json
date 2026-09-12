@@ -1,30 +1,63 @@
 {
-  "checkpoint_replay_max_abs": 0.0,
-  "cuda_note": "Official 580.173.02 runfile extracted only; matching local userspace, no system driver modifications",
-  "cuda_userspace": {
-    "libcuda.so.580.173.02": "266916dac6c5e7e4655526570cf303a6cc017880d2552960abc66017a7c98cf4",
-    "libnvidia-gpucomp.so.580.173.02": "57d031b477d37f182a2c3d3ff0845b42c0e903b5cc1f00ee8a2f057ea75cf89e",
-    "libnvidia-ml.so.580.173.02": "82d7b58d3f870b0635e8999c56eb8fd2d795c920daa2661e628ca523eee5f557",
-    "libnvidia-nvvm.so.580.173.02": "e1af0a510cbdc3f267694e7e8efa23b836656be2657d6938cfc74389d513ec19",
-    "libnvidia-ptxjitcompiler.so.580.173.02": "338d27084175dd855fc07fdf79b0692ddd61d57b994a2a133fc83139e4833b41"
+  "arms": [
+    "STANDARD_LORA",
+    "RAW_STABILITY_LORA",
+    "F0_ANCHOR_LORA",
+    "FR_LORA"
+  ],
+  "candidate": 4,
+  "common": {
+    "checkpoints": [
+      0,
+      4,
+      8,
+      15,
+      30,
+      60,
+      120,
+      180,
+      240,
+      360
+    ],
+    "commit_fraction_limit": 0.95,
+    "context": 336,
+    "effective_batch_series": 8,
+    "fit_cap": 38,
+    "gpu_allocated_limit_gib": 8,
+    "gradient_clip": 1.0,
+    "horizon": 48,
+    "job_timeout_seconds": 7200,
+    "lrs": [
+      3e-05,
+      0.0001
+    ],
+    "max_steps": 360,
+    "optimizer": "AdamW",
+    "ram_available_min_gib": 2,
+    "round2": false,
+    "seed": 30000,
+    "stream_cap": 5,
+    "weight_decay": 0
   },
-  "frozen_unchanged": true,
-  "gpu": "NVIDIA GeForce RTX 3080",
-  "identity_max_abs": 0.0,
-  "metric_replay_abs": 5.551115123125783e-17,
-  "model": "amazon/chronos-2",
-  "model_files": {
-    "config.json": "ef1143bfdc9c0376d9a056eefca46cb4b1ec3d0ffacd541ff56feb40fb708031",
-    "model.safetensors": "ddcda3c7508bf2528087723e98a20707cc04b7f370ae275a9fd88078ddba4f42"
+  "dataset": "jena",
+  "effect_denominator": "F0 primary",
+  "effective_batch_series": 8,
+  "evaluation_variants": [
+    "clean"
+  ],
+  "manifest_hash": "17120fbfb12b23dbf385fe953a4e9e93647a7fd0c33c2c848109a0b153d5891f",
+  "recipe": {
+    "lambda": 0.19077316137896977,
+    "train_raw_stability": 0.3924967646598816,
+    "train_task": 7.4877848625183105
   },
-  "native_loss_parity_abs": 0.0,
-  "python": "3.11.15",
-  "resources": {
-    "gpu_peak_bytes": 1174753280,
-    "peak_rss_bytes": 1777856512,
-    "rss_bytes": 1779195904
+  "round0": {
+    "reason": "Data/construct unit tests pass; no numerical F0 problem threshold specified",
+    "status": "PASS"
   },
-  "revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+  "sampling_hash": "7c2b9349be5fa0ec682d497c22d1e7ef226f3025db0435b395c5cb3e68b4c0be",
+  "seed": 30000,
+  "selection": "lowest V scaled 2pinball, then earliest step, then lowest LR",
   "source_hashes": {
     "configs/candidate_01.yaml": "b0c979594d5a6170323c15609257561c9be37a72d747c970b557d566c8bc2a92",
     "configs/candidate_02.yaml": "63341468e48dcca94b730ddd5371361bda53e79f2d7f1320ed1bfba5768c0eb0",
@@ -56,13 +89,7 @@
     "src/tsfm_peft_screen/runners/streaming_eval.py": "4f610dd3e9f12a7d97bfb77f2c95ea9aa04aeaf014cfbc694163b5e96201a316",
     "src/tsfm_peft_screen/selection.py": "e337fa7dd125c87f038672582a0ffaefd261db5079af9faa165a7d8f556a191d"
   },
-  "status": "PASS",
-  "torch": "2.8.0+cu128",
-  "trainable_audit": {
-    "base_frozen": true,
-    "head_frozen": true,
-    "modules": 96,
-    "trainable_count": 1179648,
-    "trainable_tensors": 192
-  }
+  "validation_variants": [
+    "clean"
+  ]
 }

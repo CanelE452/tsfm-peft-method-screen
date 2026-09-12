@@ -1,0 +1,33 @@
+{
+  "candidate_order": [
+    2,
+    3,
+    7,
+    4,
+    1,
+    5,
+    6
+  ],
+  "reasons": {
+    "2": "Only positive method-specific mean gain, but 0.0140% F0 is far below 1%; removing the best 10% of series removes the benefit. WEAK, not an advancement.",
+    "3": "The construct is valid and sensitivity is large, but ordinary phase augmentation suffices: conditioning loses primary accuracy and reduces phase variance only 0.276%. Six fits; novelty boundary remains uncertain.",
+    "7": "Censor-only is stronger on both primary and censored-position loss. Tiny underprediction-bias improvement cannot justify preservation. Ground truth is synthetically capped recorded sales, not verified latent demand.",
+    "4": "All four validation-selected checkpoints are step 0. Eight fits produce no adaptation benefit or FR-specific evidence.",
+    "1": "Gating loses to equal-information features by 0.735% F0 and violates the clean-loss limit. Strong observation-process degradation did not translate into method value.",
+    "5": "The comparison is incomplete because a partial-label gradient integrity gate failed. The implementation is repaired, but there is no proposed-stream result. Needs a new Round 1 before any Round 2 consideration.",
+    "6": "Excluded for direct overlap of the central frozen-marginal/context-conditioned neural-copula approach. Covariance and hidden-feature substitutions were not treated as a new method."
+  },
+  "source_status_hashes": {
+    "1": "25d245153540fa2e4fc1db739d2d16733322520c004c4c21b257c6b8f00b4f4c",
+    "2": "8ed7552772557a1cdf3e342080c65e5dee736ed1a15de0c7c5f5b5d7a0338df9",
+    "3": "785cb98592d39b186324180561ef8c4790d15d8b54a34bb6ffc3ef03fc7c1fb1",
+    "4": "3ac187f66a214ba423ae6af6b2b08dffaa6d24f03d2cb09b3c9f4b31b3452ecb",
+    "5": "110777e2412030b07c7e5074dbe55863673414a5292b4694ab9d4e937c0b3890",
+    "6": "ae03749cf420c63d2977f0b231dae0ca04ecdbf22bd4cf8e1af25faa264cb054",
+    "7": "aae86616d53e457482738b2f05408fa535410e7a2a643ead609d5310416d3426"
+  },
+  "round2_recommendations": [],
+  "rationale": "No PASS candidate. Ordering expresses follow-up priority, not cross-dataset statistical superiority; ranks 2\u20135 all remain STOP. No weighted score sum or automatic winner.",
+  "next_dataset_seed": null,
+  "round2_executed": false
+}

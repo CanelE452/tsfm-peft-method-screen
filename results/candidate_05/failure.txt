@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/home/minjae/Documents/github/tsfm-peft-method-screen/src/tsfm_peft_screen/runners/dispatch.py", line 16, in run
+    stream()
+  File "/home/minjae/Documents/github/tsfm-peft-method-screen/src/tsfm_peft_screen/runners/streaming_eval.py", line 75, in run
+    if any(p.grad is not None and not torch.isfinite(p.grad).all() for p in params):raise FloatingPointError('Nonfinite stream gradient')
+                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FloatingPointError: Nonfinite stream gradient

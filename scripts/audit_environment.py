@@ -1,4 +1,4 @@
-import json,platform,subprocess
+import json,platform,subprocess,sys
 from pathlib import Path
 import numpy as np
 import torch
@@ -11,7 +11,7 @@ m=load_base();x=torch.randn(8,336,device='cuda');x[0,10:20]=float('nan');groups=
 y=torch.randn(8,48,device='cuda')
 with torch.no_grad():
     z,f0,l,s=forecast(m,x,groups);official=m(context=x,group_ids=groups,num_output_patches=3,future_target=y)
-    official_loss=float(official.loss);ours=float(native_loss(z,y,l,s))
+    official_loss=float(official.loss);ours=float(native_loss(z,y,l,s));official_prediction_error=float((f0-official.quantile_preds).abs().max());assert official_prediction_error<=1e-6
 attach(m)
 with torch.no_grad():initial=forecast(m,x,groups)[1]
 identity=float((initial-f0).abs().max());assert identity<=1e-6;assert abs(official_loss-ours)<=1e-6
@@ -29,5 +29,6 @@ assert np.array_equal(expected,actual)
 p=actual.reshape(2,4,21,48);target=y.cpu().numpy().reshape(2,4,48);sc=np.array([1.,2.,3.,4.]);np.savez_compressed(cache/'prediction.npz',prediction=p,target=target,scale=sc)
 metric_error=replay(cache/'prediction.npz')
 modelroot=Path.home()/'.cache/huggingface/hub/models--amazon--chronos-2/snapshots'/REVISION
-record=dict(status='PASS',model=MODEL_ID,revision=REVISION,model_files={p.name:sha(p) for p in modelroot.iterdir() if p.is_file()},identity_max_abs=identity,native_loss_parity_abs=abs(official_loss-ours),checkpoint_replay_max_abs=float(np.max(abs(actual-expected))),metric_replay_abs=metric_error,frozen_unchanged=True,trainable_audit=audit(m),python=platform.python_version(),torch=torch.__version__,gpu=torch.cuda.get_device_name(),resources=guard(),source_hashes=source_hashes(),cuda_userspace={p.name:sha(p) for p in (ROOT/'.cache/nvidia-580.173.02').glob('*.580.173.02')},cuda_note='Official 580.173.02 runfile extracted only; matching local userspace, no system driver modifications')
-write_json(ROOT/'results/screening_summary/common_integrity.json',record);print(json.dumps(record,indent=2))
+record=dict(status='PASS',model=MODEL_ID,revision=REVISION,model_files={p.name:sha(p) for p in modelroot.iterdir() if p.is_file()},identity_max_abs=identity,official_f0_prediction_max_abs=official_prediction_error,native_loss_parity_abs=abs(official_loss-ours),checkpoint_replay_max_abs=float(np.max(abs(actual-expected))),metric_replay_abs=metric_error,frozen_unchanged=True,trainable_audit=audit(m),python=platform.python_version(),torch=torch.__version__,gpu=torch.cuda.get_device_name(),resources=guard(),source_hashes=source_hashes(),cuda_userspace={p.name:sha(p) for p in (ROOT/'.cache/nvidia-580.173.02').glob('*.580.173.02')},cuda_note='Official 580.173.02 runfile extracted only; matching local userspace, no system driver modifications')
+record['scope']='post-screen numerical repair; no repeated candidate fit or E prediction' if '--repaired' in sys.argv else 'pre-screen baseline integrity'
+write_json(ROOT/'results/screening_summary'/('common_integrity_repaired.json' if '--repaired' in sys.argv else 'common_integrity.json'),record);print(json.dumps(record,indent=2))

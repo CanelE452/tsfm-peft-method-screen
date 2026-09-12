@@ -1,0 +1,38 @@
+{
+  "completed_stream_count": 3,
+  "failed_stream_count": 1,
+  "fit_count": 0,
+  "not_started": [
+    "MATURITY_PEFT"
+  ],
+  "resource_limitation": "Per-stream timing/peak memory lost on worker abort; only supervisor wall time and stdout-confirmed optimizer counts are recoverable",
+  "stream_count": 4,
+  "streams": [
+    {
+      "arm": "F0",
+      "completed": true,
+      "measurement_limit": "Individual wall/peak-memory measurements were not incrementally persisted by the aborted worker",
+      "optimizer_steps": 0
+    },
+    {
+      "arm": "IMMEDIATE_LORA",
+      "completed": true,
+      "measurement_limit": "Individual wall/peak-memory measurements were not incrementally persisted by the aborted worker",
+      "optimizer_steps": 232
+    },
+    {
+      "arm": "WAIT_FULL",
+      "completed": true,
+      "measurement_limit": "Individual wall/peak-memory measurements were not incrementally persisted by the aborted worker",
+      "optimizer_steps": 224
+    },
+    {
+      "arm": "TAFAS_LIKE",
+      "completed": false,
+      "error": "Nonfinite gradient before first optimizer.step",
+      "issued_count": 2,
+      "optimizer_steps": 0
+    }
+  ],
+  "wall_seconds": 58.0021999431774
+}

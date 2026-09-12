@@ -1,0 +1,30 @@
+{
+  "contract_hash": "2973c7cc4a51bc7f5d0e1f41751f1b0b760cbd452ca89dc88ab90f86c0cfb50e",
+  "seal_hash": "ed38af022d6459fefcbf802cf74ea521d7b68c28b8c795001c575f8a2198b151",
+  "winners": [
+    {
+      "arm": "STANDARD_LORA",
+      "checkpoint": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/candidate_01/STANDARD_LORA_3e-05/best.pt",
+      "checkpoint_sha256": "f0ae8c7930d6fb98f1dfcbb258f9189936cde9ba5d23fcc3f15888a8640f1b2d",
+      "lr": 3e-05,
+      "step": 180,
+      "validation_loss": 0.5471599166598187
+    },
+    {
+      "arm": "FEATURE_LORA",
+      "checkpoint": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/candidate_01/FEATURE_LORA_3e-05/best.pt",
+      "checkpoint_sha256": "03c528a0f575a5ddf62218eff76e4964551342c21e04b70e190bdc52dcaa9e3f",
+      "lr": 3e-05,
+      "step": 120,
+      "validation_loss": 0.5474998122351187
+    },
+    {
+      "arm": "FRESHNESS_GATED_LORA",
+      "checkpoint": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/candidate_01/FRESHNESS_GATED_LORA_3e-05/best.pt",
+      "checkpoint_sha256": "d647175e2906e115727ec77a2cef0d91447e77110376e7af427810227b2374cf",
+      "lr": 3e-05,
+      "step": 180,
+      "validation_loss": 0.547199681483631
+    }
+  ]
+}

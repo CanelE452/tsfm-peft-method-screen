@@ -18,13 +18,15 @@
     "model.safetensors": "ddcda3c7508bf2528087723e98a20707cc04b7f370ae275a9fd88078ddba4f42"
   },
   "native_loss_parity_abs": 0.0,
+  "official_f0_prediction_max_abs": 0.0,
   "python": "3.11.15",
   "resources": {
     "gpu_peak_bytes": 1174753280,
-    "peak_rss_bytes": 1777856512,
-    "rss_bytes": 1779195904
+    "peak_rss_bytes": 1655508992,
+    "rss_bytes": 1656889344
   },
   "revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+  "scope": "post-screen numerical repair; no repeated candidate fit or E prediction",
   "source_hashes": {
     "configs/candidate_01.yaml": "b0c979594d5a6170323c15609257561c9be37a72d747c970b557d566c8bc2a92",
     "configs/candidate_02.yaml": "63341468e48dcca94b730ddd5371361bda53e79f2d7f1320ed1bfba5768c0eb0",
@@ -36,7 +38,7 @@
     "configs/chronos2.yaml": "29b387521493b227176405c0c33591633fa42c0db07b4c9f5f82bce82ff74047",
     "configs/common_screen.yaml": "11f7acffcd9f4beda47aaf0e48439218379cb3ae89c47e2ef7d1649f185df826",
     "src/tsfm_peft_screen/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "src/tsfm_peft_screen/backbone.py": "ab4e79e6b25d956b314c0cb0ed81fdd390bfa7198a3562e801f4a6c70fb1a3b2",
+    "src/tsfm_peft_screen/backbone.py": "d3973b52080e095c0a214031bcc53b4d92dcaa7a2d87ff36c23647aa291a1a11",
     "src/tsfm_peft_screen/candidates/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "src/tsfm_peft_screen/candidates/censor.py": "a09fc77bef22b0be31e834205619da13bbb6c855550be349ea9c7814b8673c22",
     "src/tsfm_peft_screen/candidates/dualclock.py": "a26c8575172d7b2f68352d9ac9bd9941b5a6ef1bf4dfe0f4b0cf1ab7c69188ff",

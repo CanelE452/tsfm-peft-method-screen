@@ -27,3 +27,11 @@ Model: `amazon/chronos-2`, revision `29ec3766d36d6f73f0696f85560a422f50e8498c`. 
 On this machine only, kernel driver580.173.02 and globally installed userspace580.178.04 disagree. Matching official580.173.02 libraries were extracted (not installed) into ignored `.cache/nvidia-580.173.02`; the wrapper uses them only when the kernel version matches. Other machines can use their normal working CUDA installation. No system driver or unrelated repository is modified.
 
 See [novelty boundaries](docs/NOVELTY_BOUNDARY.md). Candidate06 is stopped for direct overlap of the central neural-copula method; its raw data preparation is not a fitted result.
+
+## Screen outcome and code version
+
+The completed screen produced 34 fits and 4 attempted streams (3 complete, 1 aborted). There were no PASS candidates; Round2 was not executed. See [ranking](results/screening_summary/ranking.md) and [all candidate metrics](results/screening_summary/all_candidates.csv).
+
+Experiment outputs correspond to execution commit `4f0854b27db6950d8e9e7ecb70355c5388ca4fe7`. Main includes a later [partial-label numerical repair](docs/POST_SCREEN_REPAIR.md), validated only with regression tests and a train-only GPU backward smoke. Candidate05 remains IMPLEMENTATION_BLOCKED; the repaired Maturity method has no new pilot result. Source verification checks the historical commit against each immutable selection contract.
+
+To inspect the existing results, run `render_results.py` and `verify_all.py` through the wrapper. Final verification requires the local ignored prediction caches; these are not included in Git. The setup commands above describe a fresh environment, not authorization to overwrite terminal results or relabel them as runs of the repaired implementation.

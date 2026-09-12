@@ -1,0 +1,27 @@
+{
+  "baseline_primary": 0.52062265836078,
+  "diagnostics": {
+    "censored_bias_baseline": 3.8031907081604004,
+    "censored_bias_proposed": 3.802339553833008,
+    "censored_fraction": 0.0991482204861111,
+    "censored_pinball_gain_percent": -0.4148071903445583,
+    "uncensored_degradation_percent": -0.09679681214494222
+  },
+  "f0_primary": 0.524918064010481,
+  "fit_count": 8,
+  "gain_percent_f0": -0.03215830206879511,
+  "gains_percent_f0": {
+    "CENSORED_LOSS_LORA": -0.03215830206879511,
+    "DROP_CENSORED_LORA": 0.741437741633373,
+    "F0": 0.7861419135654726,
+    "NAIVE_LORA": 0.04783626455890746
+  },
+  "novelty_collision": false,
+  "problem_gate": "PASS",
+  "proposed": "CENSOR_PRESERVE_LORA",
+  "proposed_primary": 0.5207914630974182,
+  "round2_recommended": false,
+  "stream_count": 0,
+  "strongest_baseline": "CENSORED_LOSS_LORA",
+  "verdict": "FAIL"
+}

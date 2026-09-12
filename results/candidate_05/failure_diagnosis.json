@@ -1,0 +1,18 @@
+{
+  "executed_native_loss": {
+    "finite_loc_gradient": false,
+    "finite_loss": true,
+    "finite_prediction_gradient": true,
+    "finite_scale_gradient": false
+  },
+  "next_action": "A separately reviewed fresh Round1 run would be needed for method evidence; current repair has no new streaming result.",
+  "root_cause": "Unrevealed targets are NaN. Masking after normalization leaves 0*NaN derivatives into trainable input-normalization loc/scale of the TAFAS input GCM. Frozen-input LoRA paths do not differentiate loc/scale.",
+  "sanitized_target_formula_cpu_probe": {
+    "finite_loc_gradient": true,
+    "finite_loss": true,
+    "finite_prediction_gradient": true,
+    "finite_scale_gradient": true
+  },
+  "scope": "Historical execution source and sealed recipes preserved. Main now sanitizes labels before normalization; train-only GPU gradient verification is in repair_verification.json. No stream was repeated and the Maturity stream was not reached.",
+  "status": "REPRODUCED_ON_CPU"
+}

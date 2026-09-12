@@ -1,0 +1,55 @@
+{
+  "fit_count": 6,
+  "fits": [
+    {
+      "fit": "STANDARD_LORA_3e-05",
+      "gpu_peak_bytes": 706250240,
+      "optimizer_steps": 360,
+      "peak_rss_bytes": 2337136640,
+      "rss_bytes": 1968300032,
+      "wall_seconds": 51.41057304292917
+    },
+    {
+      "fit": "STANDARD_LORA_0.0001",
+      "gpu_peak_bytes": 706251776,
+      "optimizer_steps": 360,
+      "peak_rss_bytes": 2444455936,
+      "rss_bytes": 1968316416,
+      "wall_seconds": 52.84362344723195
+    },
+    {
+      "fit": "FEATURE_LORA_3e-05",
+      "gpu_peak_bytes": 707390464,
+      "optimizer_steps": 360,
+      "peak_rss_bytes": 2444492800,
+      "rss_bytes": 1968996352,
+      "wall_seconds": 67.33078988874331
+    },
+    {
+      "fit": "FEATURE_LORA_0.0001",
+      "gpu_peak_bytes": 706669568,
+      "optimizer_steps": 360,
+      "peak_rss_bytes": 2445017088,
+      "rss_bytes": 1969029120,
+      "wall_seconds": 66.16773964790627
+    },
+    {
+      "fit": "FRESHNESS_GATED_LORA_3e-05",
+      "gpu_peak_bytes": 708586496,
+      "optimizer_steps": 360,
+      "peak_rss_bytes": 2445017088,
+      "rss_bytes": 1978060800,
+      "wall_seconds": 67.77780556492507
+    },
+    {
+      "fit": "FRESHNESS_GATED_LORA_0.0001",
+      "gpu_peak_bytes": 708586496,
+      "optimizer_steps": 360,
+      "peak_rss_bytes": 2453954560,
+      "rss_bytes": 1978068992,
+      "wall_seconds": 69.01445329096168
+    }
+  ],
+  "stream_count": 0,
+  "wall_seconds": 405.9298628368415
+}

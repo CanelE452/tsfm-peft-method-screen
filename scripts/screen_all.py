@@ -4,6 +4,8 @@ from pathlib import Path
 from tsfm_peft_screen.reproducibility import ROOT,write_json
 import fcntl
 lock=open(ROOT/'.cache/gpu.lock','w');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+if all((ROOT/'results'/f'candidate_{i:02}'/'status.json').exists() for i in range(1,8)):
+    print('All candidates have terminal verdicts. No rerun or Round2 launched.');raise SystemExit(0)
 def wait_gpu():
     idle_since=None
     while True:

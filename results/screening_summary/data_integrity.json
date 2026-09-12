@@ -1,0 +1,31 @@
+{
+  "datasets": {
+    "electricity": {
+      "input_manifest_sha256": "9df0e7016391cc2a47abff929693ed5aa5c75d1bcad9678ad359fd86061d2c68",
+      "no_future_index_assertions": true,
+      "train_validation_targets_finite": true,
+      "unique_channels": 4
+    },
+    "ettm2": {
+      "input_manifest_sha256": "4c3a89f793b53aaf38ec1b22d749174d83258afa361a40e3dc2a4d88b8e4d1b8",
+      "no_future_index_assertions": true,
+      "timestamps_strict_15min": true,
+      "train_validation_targets_finite": true,
+      "unique_channels": 7
+    },
+    "jena": {
+      "input_manifest_sha256": "17120fbfb12b23dbf385fe953a4e9e93647a7fd0c33c2c848109a0b153d5891f",
+      "no_future_index_assertions": true,
+      "train_validation_targets_finite": true,
+      "unique_channels": 4
+    },
+    "m5": {
+      "input_manifest_sha256": "3d08b5793c5a266a5f2bed9d9068d3925552d452fac0355e1bdc1ef019f927db",
+      "no_future_index_assertions": true,
+      "train_validation_targets_finite": true,
+      "unique_channels": 256
+    }
+  },
+  "scope": "train/V target integrity; full raw ETT timestamp metadata only, no E target scores",
+  "status": "PASS"
+}
