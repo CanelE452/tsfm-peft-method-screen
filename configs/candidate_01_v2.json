@@ -1,0 +1,25 @@
+{
+  "arms": ["STANDARD_LORA", "FEATURE_LORA", "AFFINE_V2"],
+  "seeds": [30000, 30001],
+  "recipes": [
+    {"id": "R0", "lora_lr": 0.00003, "conditional_lr": 0.0003},
+    {"id": "R1", "lora_lr": 0.0001, "conditional_lr": 0.001}
+  ],
+  "max_steps": 360,
+  "checkpoints": [0,4,8,15,30,60,120,180,240,360],
+  "effective_batch_series": 8,
+  "optimizer": "AdamW",
+  "weight_decay": 0,
+  "gradient_clip": 1.0,
+  "fit_cap": 12,
+  "context": 336,
+  "horizon": 48,
+  "clean_train_fraction": 0.25,
+  "validation": "equal mean clean, refresh_train, block_train, combined_train",
+  "selection": "per arm and seed: minimum V loss, earliest step, recipe id; seal all six winners before E",
+  "problem_gate": "gate split F0 mean degradation >=2% and at least two corruptions >=1%; no E",
+  "pass": "each seed gain vs strongest simple baseline >0; two-seed mean gain >=1% F0; clean degradation vs strongest clean baseline <=0.5% F0 on each seed",
+  "evaluation": "equal mean of four declared unseen corruption variants; clean reported separately",
+  "round2_executed": false,
+  "stop": "one fixed revision; no LR or threshold expansion; no new source without subsequent review"
+}
