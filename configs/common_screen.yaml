@@ -1,0 +1,33 @@
+{
+  "context": 336,
+  "horizon": 48,
+  "seed": 30000,
+  "lrs": [
+    3e-05,
+    0.0001
+  ],
+  "checkpoints": [
+    0,
+    4,
+    8,
+    15,
+    30,
+    60,
+    120,
+    180,
+    240,
+    360
+  ],
+  "max_steps": 360,
+  "effective_batch_series": 8,
+  "optimizer": "AdamW",
+  "weight_decay": 0,
+  "gradient_clip": 1.0,
+  "fit_cap": 38,
+  "stream_cap": 5,
+  "round2": false,
+  "job_timeout_seconds": 7200,
+  "gpu_allocated_limit_gib": 8,
+  "ram_available_min_gib": 2,
+  "commit_fraction_limit": 0.95
+}
