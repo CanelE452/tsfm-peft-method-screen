@@ -7,3 +7,5 @@ Default effective batch is eight series; multivariate groups never cross origins
 Resource guards abort unsafe/nonfinite jobs and retain failure receipts. Completed selections are immutable. All fit counts include unsuccessful attempted fits and are capped. Round 2 is never launched by this repository.
 
 Earlier FR-LoRA pilot E results are known; Jena uses a fresh August–November 2021 interval in this screen. Historical benchmark datasets may overlap foundation-model pretraining: results are development evidence, not proof of unseen-pretraining generalization.
+
+Memory guard uses strict CommitLimit only in Linux overcommit mode 2. This host uses heuristic mode 0, with baseline Committed_AS already above CommitLimit; here an 8 GiB growth limit, 6 GiB process RSS cap and 2 GiB available-RAM floor apply. No system setting is modified.
