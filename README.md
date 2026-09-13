@@ -37,8 +37,7 @@ It specifies 32 fit attempts (2 datasets × 2 seeds × 4 arms × 2 learning rate
 Each method can select checkpoint off or on using train-only resource measurements;
 checkpointing is not forced when it makes a feasible baseline slower.
 
-**Design only: zero new fits or GPU runs.** The equal-time runner and Head/Side
-checkpoint implementation are pending. [CPU audit and fixed fit order](research/forecast_query_equal_time_plan/)
+**Runner implemented; new experiment not yet completed.** The [execution implementation](docs/FORECAST_QUERY_EQUAL_TIME_EXECUTION.md) adds Head/Side checkpointing, a measured training clock, selection seals, and independent result replay. [CPU audit and fixed fit order](research/forecast_query_equal_time_plan/)
 verify budgets and nonoverlap of proposed E targets with recorded prior scoring windows.
 Reused Train/V data are development data; E is a later unscored portion of the same
 sources, not external replication. Historical FAIL remains unchanged.
