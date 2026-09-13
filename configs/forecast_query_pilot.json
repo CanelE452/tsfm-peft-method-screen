@@ -1,0 +1,18 @@
+{
+ "datasets":["ettm2","electricity"], "arms":["standard","head","side","query"], "seed":30000,
+ "recipes":{"standard":[0.00003,0.0001],"query":[0.00003,0.0001],"head":[0.0003,0.001],"side":[0.0003,0.001]},
+ "steps":240,"checkpoints":[0,30,60,120,180,240],"context":4096,"horizon":48,"batch_origins":2,"channels":4,
+ "train_origins":{"start":4096,"stop_inclusive":5952,"stride":32},
+ "validation_origins":{"start":6000,"stop_inclusive":6960,"stride":96},
+ "evaluation_origins":{"start":7200,"stop_inclusive":8640,"stride":96},
+ "optimizer":"AdamW","weight_decay":0,"gradient_clip":1,"precision":"BF16 autocast, FP32 parameters and AdamW states",
+ "parameters_per_arm":1179648,"fit_cap":16,
+ "training_loss":"native asinh-space 2-pinball; no labels in frozen cache",
+ "selection":"minimum validation raw-scale equal-channel scaled2pinball; earliest step then recipe index; all8 dataset-arm selections sealed before E arrays opened",
+ "primary":"raw-scale equal-channel scaled2pinball, quantiles sorted for scoring; native loss also reported",
+ "pass":"both datasets: selected query step>0 and beats F0; E loss<=1.01 selected standard; query real training-step peak<=0.80 selected standard; E loss<=0.995 min(selected head,selected side)",
+ "memory_measurement":"full forward + cache generation + loss backward + clipping + optimizer.step; allocated/reserved; no cross-window persistent cache; complete fitting wall time includes validation and checkpoint copies",
+ "smoke":"FP32 initial query versus F0 relative L2<=1e-5 and max_abs<=1e-4; BF16 relative<=0.02; nonzero B-gradient, parameter update and forecast effect; no trainable past graph; group isolation and missing-key mask checks",
+ "stop":"minimum implementation checks then16 fixed fits; no gradient approximation gate; no second seed, more recipes, or fixed-memory batch experiment unless the fixed-batch quality/resource gate passes; no independent holdout claim",
+ "gpu":"30s startup idle with no external compute PID, free>=4GiB, utilization<=20%; every<=5s at step boundaries monitor free/used/util/PIDs; pause if external compute or free<1GiB; existing per-step memory guard; never kill external jobs"
+}
