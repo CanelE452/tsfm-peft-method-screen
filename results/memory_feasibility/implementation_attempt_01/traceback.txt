@@ -1,0 +1,18 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+COMPARE ettm2 1024 0 exact peakMiB 922.5 graderr 0.0
+COMPARE ettm2 1024 0 checkpoint peakMiB 588.8 graderr 0.0
+Traceback (most recent call last):
+  File "/home/minjae/Documents/github/tsfm-peft-method-screen/scripts/compare_memory_feasibility.py", line 51, in <module>
+    z,p,l,s=forward(m,x,g);loss=native_loss(z,y,l,s);loss.backward()
+            ^^^^^^^^^^^^^^
+  File "/home/minjae/Documents/github/tsfm-peft-method-screen/src/tsfm_peft_screen/memory/common.py", line 29, in forward
+    enc,(loc,scale),_,count=m.encode(context=x,group_ids=groups,num_output_patches=3)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/lib/python3.11/site-packages/chronos/chronos2/model.py", line 593, in encode
+    patched_context, attention_mask, loc_scale = self._prepare_patched_context(
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/lib/python3.11/site-packages/chronos/chronos2/model.py", line 408, in _prepare_patched_context
+    context, loc_scale = self.instance_norm(context)
+    ^^^^^^^^^^^^^^^^^^
+ValueError: too many values to unpack (expected 2)

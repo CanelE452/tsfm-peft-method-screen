@@ -1,0 +1,71 @@
+{
+  "compression": "Recognizable d768 hidden storage only: temporal adjacent-pair means FP16 vs INT8 per-channel scales, same retained bytes including last4 exact tokens and explicit temporal padding. Other large float32 nonparameter storage uses FP16 in both; ReLU sign preserved. Generic FP16 compresses all large nonparameter storage. No official method reproduction.",
+  "contexts": [
+    1024,
+    4096
+  ],
+  "data_scope": "fit.npz only; no E or V evaluation",
+  "execution_commit": "914f6d7cd4f3afdb2039b4a1b18aa3bc511126ff",
+  "gate": {
+    "full_and_A_relative_gradient_error_max": 0.01,
+    "peak_reduction_min": 0.3,
+    "required": "both datasets at context4096; all conditions; forward exact; checkpoint gradient parity; no learning if any fails",
+    "temporal_vs_byte_matched_int8_error_ratio_max": 0.9
+  },
+  "measurement": "Optimizer states omitted for ALL Stage-B arms. Same fixed warmed adapters. Timings include hooks/compression/reconstruction and exact checkpoint recomputation. Three rotated-order repeats. Stage-A timing/peaks not direct denominators.",
+  "methods": [
+    "exact",
+    "checkpoint",
+    "fp16",
+    "int8",
+    "temporal"
+  ],
+  "optimizer_updates": 0,
+  "origins": [
+    4352,
+    4608
+  ],
+  "repeats": 3,
+  "source_hashes": {
+    "configs/candidate_01.yaml": "b0c979594d5a6170323c15609257561c9be37a72d747c970b557d566c8bc2a92",
+    "configs/candidate_01_v2.json": "036882fd37215df26fd76d6a067b0ab5e560a0c1df5e8354b4493b9e156364a1",
+    "configs/candidate_02.yaml": "63341468e48dcca94b730ddd5371361bda53e79f2d7f1320ed1bfba5768c0eb0",
+    "configs/candidate_03.yaml": "2345fe804aa70529354a5726c68a8db85b798a31aaaaaa475ce40b60fa2a7d2a",
+    "configs/candidate_04.yaml": "e45ac10c5ed0a5e14afcd6b4eadf9de0c4eb8f04ab5fa464e6b60895f7c1915b",
+    "configs/candidate_05.yaml": "a3ac02b1241eb626c763f21dc2c9d9fe6ebacac52b63b21aaed4dc2853337b6f",
+    "configs/candidate_06.yaml": "b1f6cd61bc0a9b79e9297a165ac937e941555b04ba7d339bdff27b1fae5b396b",
+    "configs/candidate_07.yaml": "7b20049e5deb407c33069b2dd4097899ee2d9bc16eea9c521e714bbb94e2b1c6",
+    "configs/chronos2.yaml": "29b387521493b227176405c0c33591633fa42c0db07b4c9f5f82bce82ff74047",
+    "configs/common_screen.yaml": "11f7acffcd9f4beda47aaf0e48439218379cb3ae89c47e2ef7d1649f185df826",
+    "src/tsfm_peft_screen/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/tsfm_peft_screen/backbone.py": "d3973b52080e095c0a214031bcc53b4d92dcaa7a2d87ff36c23647aa291a1a11",
+    "src/tsfm_peft_screen/candidates/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/tsfm_peft_screen/candidates/censor.py": "a09fc77bef22b0be31e834205619da13bbb6c855550be349ea9c7814b8673c22",
+    "src/tsfm_peft_screen/candidates/dualclock.py": "a26c8575172d7b2f68352d9ac9bd9941b5a6ef1bf4dfe0f4b0cf1ab7c69188ff",
+    "src/tsfm_peft_screen/candidates/fr_lora.py": "30cc289e06cf086f730af0fb1c47f0a8c2ad6e623b89ebfa3990075a05f02e08",
+    "src/tsfm_peft_screen/candidates/freshness.py": "3a842ea5d51032b1756be4f6b1bafebc5f0f3aadfe199fbc956d51b873c307b9",
+    "src/tsfm_peft_screen/candidates/freshness_v2.py": "d3dae68c400252c95f23a427b57c0059d86f023ebb30e5cc73729d26ecff5d4c",
+    "src/tsfm_peft_screen/candidates/jointpath.py": "63bf85925bd781e8b6fa4a83a317cedcc763d9f893bf19ee54c8b09864be2587",
+    "src/tsfm_peft_screen/candidates/maturity.py": "4d33903036625d2f65c369e4cc4d563809d009c0403068060d34593b34a99a1a",
+    "src/tsfm_peft_screen/candidates/patchphase.py": "1455f2d5792a33a0981b93642433ec8f413bf0608f35d0358dcd9d0af5c442e2",
+    "src/tsfm_peft_screen/data.py": "e3c2431f738270de71028cdc32f0cd03129536e93c4f6a90c52c4c4082d9b07e",
+    "src/tsfm_peft_screen/lora.py": "da57597a8f0e51c7cc2e676efcca000b3c0951c0a2e90d6c21315f98a3ca403f",
+    "src/tsfm_peft_screen/memory/__init__.py": "8d724194d3c043621d5a8fd9fa93b350adfc455a2440eaf67fc5e50226c37bc8",
+    "src/tsfm_peft_screen/memory/common.py": "5aa2423d0e32124eb9986ffd892a6a42f792272f564447766da4eab751aef51e",
+    "src/tsfm_peft_screen/memory/compression.py": "9f44e56fceff48bb80edf8239c1faca43d8c4b30dc38d0c9c9a1d94d70f69311",
+    "src/tsfm_peft_screen/metrics.py": "ec68e4fa6647f834727e8686858ccb79bf8fa25c98e1ff5ac6d23d8455022ded",
+    "src/tsfm_peft_screen/reproducibility.py": "3907170a45350abe77f55ff72e871211830addf946223d76dda490bc970b4bcc",
+    "src/tsfm_peft_screen/runners/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/tsfm_peft_screen/runners/common_eval.py": "4e425b0c94723ef1e89b8fdafe8285c113d636fec6a08328db215d484076c264",
+    "src/tsfm_peft_screen/runners/common_fit.py": "d8e6ac2b4da0c1791cac36bb05e09eba5b986689e3f5737be32510a3a77d8e48",
+    "src/tsfm_peft_screen/runners/dispatch.py": "a6ab8d958d71c7b90d8c1049a5e7f29f542b716fe14cce04b8f07f543993e23f",
+    "src/tsfm_peft_screen/runners/freshness_v2.py": "1ad69ecc69604142867619f156d59892d801ba9f19f37e12adbcbea56336a23a",
+    "src/tsfm_peft_screen/runners/streaming_eval.py": "9e309462f0fb70c7eded0426231aac4b7518b3f41e6cbc81b94cf5d792dc28b7",
+    "src/tsfm_peft_screen/selection.py": "e337fa7dd125c87f038672582a0ffaefd261db5079af9faa165a7d8f556a191d"
+  },
+  "stage": "B_gradient_memory",
+  "warm_checkpoint_hashes": {
+    "electricity": "e4bddc5f1a6d2eab504ca5be51c6187fa59b83e554e02679cd584e66241ffe20",
+    "ettm2": "06f3e7cae083782d9df68f8882a30988576d658c0a2b537a9f6741a16185f444"
+  }
+}

@@ -56,3 +56,10 @@ def test_checkpoint_gradients_and_restore():
     with checkpoint_blocks(m):actual=run()
     for a,b in zip(actual,expected):assert torch.equal(a,b)
     assert [b.forward for b in m.encoder.block]==originals
+
+
+def test_observer_hooks_do_not_replace_module_output():
+    m=nn.Sequential(nn.Linear(3,3),nn.ReLU());x=torch.randn(2,3)
+    expected=m(x)
+    with CompressedSaved(m,'fp16',2,12) as c:actual=m(x)
+    assert torch.equal(expected,actual) and not c.stack

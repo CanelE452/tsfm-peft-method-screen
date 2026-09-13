@@ -91,10 +91,13 @@ class CompressedSaved:
         payload,shape,stride,offset=packed
         return payload.unpack().as_strided(shape,stride,offset)
 
+    def leave(self,module,args,out):
+        self.stack.pop()
+
     def __enter__(self):
         for name,module in self.m.named_modules():
             self.handles.append(module.register_forward_pre_hook(lambda mod,args,n=name:self.stack.append(n)))
-            self.handles.append(module.register_forward_hook(lambda mod,args,out:self.stack.pop()))
+            self.handles.append(module.register_forward_hook(self.leave))
         self.ctx=torch.autograd.graph.saved_tensors_hooks(self.pack,self.unpack);self.ctx.__enter__();return self
 
     def __exit__(self,*args):

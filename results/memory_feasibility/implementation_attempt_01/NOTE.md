@@ -1,0 +1,1 @@
+The first Stage-B attempt stopped after two exact control passes, before any compression result. A forward observer hook accidentally returned its popped module name and replaced module outputs. Repaired to return None; added a regression test. No gate, data, warm state, or candidate primitive changed. No optimizer updates. Original contract/status/traceback preserved.
