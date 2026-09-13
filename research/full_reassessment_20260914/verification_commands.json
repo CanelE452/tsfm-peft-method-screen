@@ -1,0 +1,35 @@
+{
+  "date": "2026-09-14",
+  "new_training": false,
+  "commands": [
+    {
+      "command": "CUDA_VISIBLE_DEVICES='' scripts/with_cuda.sh .venv/bin/python scripts/verify_all.py",
+      "observed_exit_code": 0,
+      "output_file": "historical_verification.txt",
+      "output_sha256": "e90c6b5d65317d9eb5c82462cc7a31ff653f455e8106aea3bcfdfdbfef45affd"
+    },
+    {
+      "command": "CUDA_VISIBLE_DEVICES='' scripts/with_cuda.sh .venv/bin/python scripts/finalize_overnight.py --verify-only",
+      "observed_exit_code": 0,
+      "output_file": "overnight_verification.txt",
+      "output_sha256": "772c5fc5293964125a5a203714e285bb131af3f18665ac6ef4250b588d4dade9"
+    },
+    {
+      "command": "CUDA_VISIBLE_DEVICES='' MPLCONFIGDIR=/tmp/tsfm-review-mpl scripts/with_cuda.sh .venv/bin/python scripts/finalize_calibration_anchor.py --verify-only",
+      "observed_exit_code": 0,
+      "output_file": "calibration_verification.txt",
+      "output_sha256": "4e1789fd38e6440256ca56ae640f00baba18510412d25aac29dbda308cd1bc5a"
+    },
+    {
+      "command": "CUDA_VISIBLE_DEVICES='' MPLCONFIGDIR=/tmp/tsfm-review-mpl scripts/with_cuda.sh .venv/bin/python -m pytest -q -p no:cacheprovider tests automation/overnight_followup/test_watch.py",
+      "observed_exit_code": 0,
+      "output_file": "tests.txt",
+      "output_sha256": "33a76f9271211339b5a2f2732650be72b7c7696182d76a01d719fc5b93301cf5"
+    }
+  ],
+  "notes": [
+    "verify_all includes 61 default tests; the explicit final test run includes all 65 tests.",
+    "The initial read-only run emitted a pytest cache permission warning and a matplotlib temporary-cache notice; all verification subprocesses exited zero.",
+    "No GPU model was trained or new checkpoint selected during this reassessment."
+  ]
+}

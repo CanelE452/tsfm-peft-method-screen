@@ -1,0 +1,21 @@
+.............................................................            [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.11/site-packages/_pytest/cacheprovider.py:469
+  /home/minjae/Documents/github/tsfm-peft-method-screen/.venv/lib/python3.11/site-packages/_pytest/cacheprovider.py:469: PytestCacheWarning: cache could not write path /home/minjae/Documents/github/tsfm-peft-method-screen/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/home/minjae/Documents/github/tsfm-peft-method-screen/.pytest_cache/v/cache/nodeids'
+    config.cache.set("cache/nodeids", sorted(self.cached_nodeids))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+61 passed, 1 warning in 3.73s
+ARTIFACT VERIFICATION PASS {'fit': 34, 'stream': 4} max metric replay error 2.220446049250313e-16 blocked candidates [5]
+Candidate-level integrity failures remain explicitly recorded; artifact verification does not turn them into PASS.
+Above counts and blocked list describe the historical screen; checking the separately authorized recovery.
+/home/minjae/.config/matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /tmp/matplotlib-d_mk5z38 because there was an issue with the default path (/home/minjae/.config/matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+REPAIRED CANDIDATE05 VERIFICATION PASS; 5 completed streams; verdict FAIL
+V2 VERIFICATION PASS: 12 fits, 4320 updates, 35 E prediction caches, all original artifacts unchanged; verdict FAIL
+MEMORY FEASIBILITY VERIFICATION PASS: STOP
+LOCAL BACKWARD VERIFICATION PASS: STOP 128 stochastic gradient-cache replays, max error 3.552713678800501e-15
+FORECAST QUERY VERIFICATION PASS: FAIL 16 fits,3840 updates,106 caches
+BLOCK SHAPE VERIFIED STOP 224 prediction caches; historical files unchanged
+CHECKPOINT DIAGNOSTIC REPLAY PASS {'passed': True, 'execution_source_files_verified': 48, 'gpu': {'samples': 92, 'active_samples': 85, 'min_active_free_mib': 6899.0, 'max_active_used_mib': 2955.0, 'external_compute_seen': False, 'oom': False}, 'parity_pairs_replayed': 16, 'raw_cache_files': 32, 'historical_files_unchanged': 230, 'all_initial_states_identical': True, 'max_parity_absolute_error': 0.0, 'max_parity_relative_error': 0.0, 'fits': 0, 'evaluation_accesses': 0}
+EQUAL TIME VERIFIED STOP_CURRENT_QUERY {'passed': True, 'execution_source_files': 50, 'parity_pairs': 32, 'max_parity_error': 0.0, 'prediction_caches_replayed': 166, 'checkpoint_reloads': 16, 'max_primary_replay_error': 1.1102230246251565e-16, 'historical_files_unchanged': 242, 'counts': {'completed_fits': 32, 'evaluation_open_events': 2, 'fit_attempts': 32, 'preflight_bf16_updates': 48, 'preflight_fp32_updates': 16, 'preflight_warmup_updates': 16, 'training_optimizer_updates': 12120}, 'gpu_samples': 367, 'min_observed_active_free_mib': 7182.0, 'external_compute_seen': True, 'external_compute_seen_while_active': False}

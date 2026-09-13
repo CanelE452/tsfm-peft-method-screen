@@ -1,0 +1,177 @@
+{
+  "status": "VERIFIED_RETROSPECTIVE_ARITHMETIC",
+  "input_commit": "c7b0f2f029d0aaf25c9797332fa1ba299a91612c",
+  "total_completed_fits": 270,
+  "total_stream_attempts": 9,
+  "completed_streams": 8,
+  "historical_aborted_streams": 1,
+  "new_fits": 0,
+  "new_optimizer_updates": 0,
+  "historical_result_files_unchanged": 700,
+  "source_hashes": {
+    "results/candidate_01/status.json": "25d245153540fa2e4fc1db739d2d16733322520c004c4c21b257c6b8f00b4f4c",
+    "results/candidate_01/selections.csv": "3e2302446d6577c9172e3ac116636bae31231d2dc95881a14981d876ac64360c",
+    "results/candidate_01/trajectories.csv": "09d907dc71b6d946dd27c13d10dd885e9eaa3a858d05423005d3bc11de306277",
+    "results/candidate_02/status.json": "8ed7552772557a1cdf3e342080c65e5dee736ed1a15de0c7c5f5b5d7a0338df9",
+    "results/candidate_02/selections.csv": "6a8c288d5b4c498ab1edbfdefbb989a0cd4d16c1d0af0c8b20d5531b15dfa3a4",
+    "results/candidate_02/trajectories.csv": "8fcccd8109b161ab266e521320cd587e9aadd97778750d0a8a75b929c95f6b0a",
+    "results/candidate_03/status.json": "785cb98592d39b186324180561ef8c4790d15d8b54a34bb6ffc3ef03fc7c1fb1",
+    "results/candidate_03/selections.csv": "1ee968481c57a56face62fe129e9ce69e9728772203b7766d0db86256149cb78",
+    "results/candidate_03/trajectories.csv": "2b590c4a72cac444458818583851cef8a87c1a5836b3c27ffca7da0795fc8717",
+    "results/candidate_04/status.json": "3ac187f66a214ba423ae6af6b2b08dffaa6d24f03d2cb09b3c9f4b31b3452ecb",
+    "results/candidate_04/selections.csv": "bc99af152dbf130ab710f31d8e31f90ed8bed0169e9df3df95321ecd7bf0c8e7",
+    "results/candidate_04/trajectories.csv": "c40cb1ffb9f675ec6bdf45a1dea91044674614d815bd3fe1bd0bb0342125f5c4",
+    "results/candidate_05/status.json": "110777e2412030b07c7e5074dbe55863673414a5292b4694ab9d4e937c0b3890",
+    "results/candidate_05_repaired/status.json": "24eefbfc58d0052f4ac9c7b715797d60b6e2db520cb07a00144469a916216afd",
+    "results/candidate_06/status.json": "ae03749cf420c63d2977f0b231dae0ca04ecdbf22bd4cf8e1af25faa264cb054",
+    "results/candidate_07/status.json": "aae86616d53e457482738b2f05408fa535410e7a2a643ead609d5310416d3426",
+    "results/candidate_07/selections.csv": "1cd670dfc8ea142e6c79542d7921a1e63f7562293a23b05f0e180dd71bd17ffd",
+    "results/candidate_07/trajectories.csv": "b13ea3a105f91bacb1c103430dd8b3714942079ac918a2eedeb9fbefcb7c7c42",
+    "results/candidate_01_v2/status.json": "957bff55df806bbf1bc177c4bec8c851e0438924e78c7ef1bebefa0b22b7fef9",
+    "results/memory_feasibility/verification.json": "2a18d6f6e992615c267482bb00d697d454ba0c9ec9f2490e2c599a922c122ba7",
+    "results/local_backward_feasibility/verification.json": "cd3afbdf1128b31df5015761b1a2e38bfbc976b84dbbbdc9bb2cf10c3286e368",
+    "results/forecast_query_checkpoint_diagnostic/verification.json": "b953cac30fd82b76c02ed3cf4ab4f7f2a2ac446adcb4ca720c60aefe63a7d429",
+    "results/forecast_query_pilot/fits.json": "2d0e4457494620e99ccdc21b939b39d08a0bd02d253a18ff71220c819db94f57",
+    "results/block_shape_pilot/fits.json": "d1b71b42cf8b6e1a402c5b1de03e3b5447351d1301b40b97a5eca3dce88513b1",
+    "results/forecast_query_equal_time/fits.json": "bca4643c26d47ab9e92dbbd9a6ee555820fa66cad552791591ed31a396ac97e3",
+    "results/overnight_20260913/anchor/evaluation.json": "3ab3bf9eeb4e14f34ef04d42901944f6e8612b5ebcf5019826883fe2fd3c2c86",
+    "results/overnight_20260913/anchor/fits.json": "972e7e63aecdea5c23c75abd39c50ab0fb97d26d6292842e77fffc342ba260af",
+    "results/overnight_20260913/drift/evaluation.json": "684ecd9532eea5c7ec086a13c95754cc31175ca707a15650be10975e79302eec",
+    "results/overnight_20260913/drift/fits.json": "a9171fc3b283b8cbbfab18acd53ce47a4158bf9391d48ad817bcddef4765f2ff",
+    "results/calibration_anchor_20260914/calibration/evaluation.json": "f9acd3f0f069ebf0eb1d8a156bbe09d1abdd66b7a15c6419f7904803c0d377a0",
+    "results/calibration_anchor_20260914/calibration/fits.json": "e415dde2bc0607593261bee2fb463d964f3e9b38a68318aa77d273fab4eb630b",
+    "results/forecast_query_equal_time/evaluation.json": "bccd34f715cf523ffe470a4b3da2c520396b12da4937e458fc77d6aa7aeece75",
+    "results/block_shape_pilot/evaluation.json": "d8df4797c65fdc8015620059cbf87160814fe7fdb2a377961c58f86e966b6a3b",
+    "results/overnight_20260913/distill/fits.json": "92fdc2c0b48a38c68a385728d5cdc33140fa1e5c25f410d7646ec84c878edcf5",
+    "results/overnight_20260913/verification.json": "32b78f24908ec5315a46a3374ba76de757e681858b31025f408c4abe3f2bf499",
+    "results/calibration_anchor_20260914/verification.json": "4c714c9a3c4a5af722c32897988f30a5a69a42df228d7a3d6043e88d064df2df",
+    "results/candidate_05_repaired/origin_losses.json": "04380615d477b8703c10148ccd2a88ab8a62169e5b0cd0eebdb1ffec86e7e80f"
+  },
+  "group_means": {
+    "overnight_20260913/anchor": {
+      "etth1": {
+        "l2_anchor": 0.31954282003193024,
+        "F0": 0.32076846729266495,
+        "raw": 0.3198252748017154,
+        "native": 0.3204826279772473,
+        "prediction_anchor": 0.31891690533496553
+      },
+      "traffic": {
+        "l2_anchor": 0.1470123500741135,
+        "F0": 0.1499550865285997,
+        "raw": 0.1476602080669891,
+        "native": 0.14594576899163775,
+        "prediction_anchor": 0.14544845216738103
+      }
+    },
+    "overnight_20260913/drift": {
+      "etth1": {
+        "F0": 0.32076846729266495,
+        "moment_gate": 0.3198405672884175,
+        "raw": 0.3198252748017154,
+        "native": 0.3204826279772473,
+        "drift_gate": 0.3197872706428698
+      },
+      "traffic": {
+        "F0": 0.1499550865285997,
+        "moment_gate": 0.14791199733367344,
+        "raw": 0.1476602080669891,
+        "native": 0.14594576899163775,
+        "drift_gate": 0.14781627446720694
+      }
+    },
+    "calibration_anchor_20260914/calibration": {
+      "etth1": {
+        "l2_anchor": 0.2950884060533763,
+        "F0": 0.29798098084933927,
+        "native": 0.28928752531373036,
+        "raw": 0.2978906376457479,
+        "calibration_anchor": 0.29262200463518784,
+        "shuffled_anchor": 0.29253521639446267,
+        "full_anchor": 0.2925961162121711,
+        "weighted_loss": 0.29887090278003375
+      },
+      "traffic": {
+        "l2_anchor": 0.1635931369345041,
+        "F0": 0.1672720086139561,
+        "native": 0.15946702077345942,
+        "raw": 0.1619832489372786,
+        "calibration_anchor": 0.16047696297174777,
+        "shuffled_anchor": 0.1604014635524919,
+        "full_anchor": 0.16029565476563445,
+        "weighted_loss": 0.1621433010548353
+      }
+    },
+    "forecast_query_equal_time": {
+      "electricity": {
+        "query": 0.08496542109226268,
+        "head": 0.08708946220613872,
+        "F0": 0.08708946220613872,
+        "query_initial": 0.08705064107784687,
+        "standard": 0.08399511258068981,
+        "side": 0.08577529160150814
+      },
+      "ettm2": {
+        "query": 0.2629483630674117,
+        "head": 0.26490089700287267,
+        "F0": 0.26379622199707303,
+        "query_initial": 0.26378568731375396,
+        "standard": 0.2619812034237132,
+        "side": 0.2641414325201507
+      }
+    },
+    "block_shape_pilot": {
+      "electricity": {
+        "lora": 0.176574632233273,
+        "split": 0.17704738689699795,
+        "F0": 0.1771234212305578,
+        "anchor": 0.17704758069831808,
+        "center": 0.17705877874897225,
+        "pooled": 0.17704725947183897,
+        "block": 0.17705007202772172,
+        "blend": 0.176574632233273,
+        "calibration": 0.17712342116209379
+      },
+      "ettm2": {
+        "lora": 0.27190112231185665,
+        "split": 0.2728573918040087,
+        "F0": 0.27264369449671844,
+        "anchor": 0.27287549351375834,
+        "center": 0.2723562745889383,
+        "pooled": 0.27295075268959124,
+        "block": 0.27299562261376864,
+        "blend": 0.27247331847846734,
+        "calibration": 0.2754954240237972
+      }
+    }
+  },
+  "maturity_chronological_means": {
+    "all": {
+      "F0": 0.583857106954235,
+      "IMMEDIATE_LORA": 0.6467702002324904,
+      "MATURITY_PEFT": 0.6559293501433892,
+      "TAFAS_LIKE": 0.6308337959621865,
+      "WAIT_FULL": 0.6624827902964066
+    },
+    "first25": {
+      "F0": 0.590882875861067,
+      "IMMEDIATE_LORA": 0.590846312680848,
+      "MATURITY_PEFT": 0.5960788657882065,
+      "TAFAS_LIKE": 0.6257680191939368,
+      "WAIT_FULL": 0.6083744292968464
+    },
+    "last5": {
+      "F0": 0.5487282624200743,
+      "IMMEDIATE_LORA": 0.9263896379907026,
+      "MATURITY_PEFT": 0.9551817719193028,
+      "TAFAS_LIKE": 0.6561626798034348,
+      "WAIT_FULL": 0.9330245952942077
+    }
+  },
+  "limitations": [
+    "No new selection or PASS verdict.",
+    "All E observations are development evidence.",
+    "Pairwise seed means differ from per-seed E-oracle gates.",
+    "Prediction and gradient replay is recorded separately in verification_commands.json."
+  ]
+}

@@ -4,6 +4,21 @@ Independent Chronos-2 development screen. Round 0 and Round 1 only; Round 2 requ
 
 No prior experiment outputs are used as new evidence. Raw data and cached model weights may be reused with provenance hashes. All source is local to this repository.
 
+## Full retrospective reassessment — 2026-09-14
+
+All completed experiments were rechecked: **270 fits and 9 stream attempts**
+(8 completed, 1 historical abort), including controls. Historical verification,
+all overnight/calibration prediction replays, and 65 tests pass. All 700 existing
+result files are unchanged; no new training was performed.
+
+The review distinguishes small positive signals, missing method-specific gains,
+resource tradeoffs, and stops before learning. Uniform prediction anchoring and
+DualClock merit bounded diagnostics, while no candidate has established a
+publication-level advantage. Anchoring improves raw-loss LoRA in both recorded
+stages, but native-loss LoRA wins the later stage. Historical STOP/FAIL decisions
+remain unchanged. See the [full Korean reassessment](research/full_reassessment_20260914/REPORT.md)
+and its reproducible comparisons. No new experiment or automatic continuation is running.
+
 ## Completed calibration-aware anchoring follow-up
 
 **56/56 fits, 50,400 updates, PILOT_STOP.** The proposed calibration-weighted anchor is
