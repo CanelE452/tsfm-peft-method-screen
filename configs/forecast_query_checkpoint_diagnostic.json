@@ -1,0 +1,25 @@
+{
+  "seed": 30000,
+  "arms": ["standard", "query"],
+  "checkpoint": [false, true],
+  "datasets": ["ettm2", "electricity"],
+  "origins": [4352, 4608],
+  "context": 4096,
+  "horizon": 48,
+  "channels": 4,
+  "repeats": 3,
+  "lr": 0.00003,
+  "shared_state_warmup_updates": 2,
+  "kernel_warmup_updates_per_variant": 1,
+  "measured_updates_cap": 24,
+  "fp32_equivalence_updates_cap": 8,
+  "instrumented_backward_only_cap": 4,
+  "startup_timeout_seconds": 600,
+  "total_timeout_seconds": 1800,
+  "tolerances": {
+    "fp32": {"relative_l2": 0.00001, "max_absolute": 0.00001},
+    "bf16": {"relative_l2": 0.0001, "max_absolute": 0.0001}
+  },
+  "scope": "Train batches only. No fitting trajectories, V selection or E access. Shared LoRA/Adam/RNG state across all four variants. Historical results immutable.",
+  "decision": "Numerical parity required. Report resource ratios without changing old FAIL. >=20% peak reduction vs checkpointed standard is the old memory target, not a new overall PASS. Lower memory and <=5% time overhead vs standard supports further study; time-only benefit is reported separately. No automatic expanded fits; side remains a required subsequent comparator."
+}

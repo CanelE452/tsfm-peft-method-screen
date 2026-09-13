@@ -28,6 +28,15 @@ On this machine only, kernel driver580.173.02 and globally installed userspace58
 
 See [novelty boundaries](docs/NOVELTY_BOUNDARY.md). Candidate06 is stopped for direct overlap of the central neural-copula method; its raw data preparation is not a fitted result.
 
+## Current action: forecast-query checkpoint diagnostic
+
+The user approved a bounded return to the unresolved forecast-query storage comparison.
+The [fixed diagnostic protocol](docs/FORECAST_QUERY_CHECKPOINT_DIAGNOSTIC.md) compares
+Standard/Query × checkpoint off/on using 24 BF16 measurements, with separately counted
+warmup and FP32 equivalence checks. No new fits, validation selection or E access.
+The future-covariate direction below is deferred pending this diagnostic.
+Historical FAIL/STOP results remain unchanged.
+
 ## Research reassessment after the latest STOP
 
 A [Korean deep reassessment](research/peft_rethink_2026_09_13/REPORT.md) audits the failed recommendations and primary literature, then proposes a conditional next problem: representing temporally correlated uncertainty in future covariates with a single-pass PEFT model. It includes exact illustrative counterexamples and a staged comparison plan. Ordinary covariate adapters and ensemble distillation are established prior work; the new method, novelty and predictive benefit are **not yet validated**.
