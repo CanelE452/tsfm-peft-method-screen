@@ -57,7 +57,7 @@ class CompressedSaved:
 
     def pack(self,t):
         s=t.untyped_storage()
-        if t.device.type!='cuda' or t.dtype!=torch.float32 or s._cdata in self.excluded or s.nbytes()<65536:return t
+        if t.dtype!=torch.float32 or s._cdata in self.excluded or s.nbytes()<65536:return t
         key=(s._cdata,t._version)
         payload=self.cache.get(key)
         if payload is None:
@@ -78,7 +78,7 @@ class CompressedSaved:
             else:
                 data=flat.half()
                 # Preserve sign/zero status for saved ReLU outputs, including underflow.
-                data=torch.where((flat!=0)&(data==0),torch.copysign(torch.full_like(data,2**-24),flat),data)
+                data=torch.where((flat!=0)&(data==0),torch.copysign(torch.full_like(data,2**-24),data),data)
                 payload=Payload(StorageWeakRef(s),'fp16',data)
             self.cache[key]=payload
             self.stats['unique_compressed']+=1;self.stats['original_bytes']+=s.nbytes();self.stats['payload_bytes']+=payload.nbytes()
