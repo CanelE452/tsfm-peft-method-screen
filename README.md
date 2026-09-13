@@ -28,7 +28,19 @@ On this machine only, kernel driver580.173.02 and globally installed userspace58
 
 See [novelty boundaries](docs/NOVELTY_BOUNDARY.md). Candidate06 is stopped for direct overlap of the central neural-copula method; its raw data preparation is not a fitted result.
 
-## Local residual-corrected LoRA: latest diagnostic
+## Frozen-past forecast-token adaptation: latest actual-learning pilot
+
+**16/16 fits completed; FAIL on the fixed memory/quality gate.** Two datasets × four arms × two arm-appropriate recipes × first seed,3,840 actual optimizer updates (plus8 discarded smoke updates). The query candidate improves development primary loss by0.519% versus Standard on ETTm2, but is0.326% worse on Electricity. Its real optimizer-step peak is987.7MiB versus770.9MiB for Standard LoRA+BF16+checkpoint: **28.13% higher**, failing the required20% reduction. Selected query checkpoints are180/30, so this is actual adaptation evidence rather than an initial-state selection. It is one-seed development evidence, not an independent holdout or confirmed novel method.
+
+GPU occupancy was monitored throughout:127 samples, minimum observed active free memory8,034MiB, maximum device use1,819MiB, no external compute PID and no contention pauses. A graphics-only startup wait was preserved and corrected before model execution. All arms have1,179,648 trainable parameters. Full cache/frozen forward/branch/clipping/optimizer-step costs count; the query branch was not checkpointed in this fixed implementation. See the [report](results/forecast_query_pilot/RESULT.md), [protocol](docs/FORECAST_QUERY_PROTOCOL.md), [GPU timeline](results/forecast_query_pilot/gpu_monitor.json), and [verification](results/forecast_query_pilot/verification.json).
+
+```bash
+scripts/with_cuda.sh .venv/bin/python scripts/finalize_forecast_query_pilot.py --verify-only
+```
+
+All106 saved V/E prediction caches replay, all8 validation selections were sealed before E arrays opened, and all prior results remain unchanged. Cumulative completed fits:62; stream attempts:9 (8 complete,1 historical abort). No second-seed or fixed-memory batch expansion followed this failed gate.
+
+## Local residual-corrected LoRA: completed diagnostic
 
 **STOP before learning.** Custom local backward preserves exact forward, B-gradient and input propagation; keeping every detail reproduces A-gradient to1.51e-7 relative error. At context4096 the sampled residual candidate reduces peak by9.02–9.06%, but A-gradient RMS error is12.94% on ETTm2 and36.33% on Electricity. Generic local FP16 reduces peak by10.98–11.02% with0.00618–0.01098% A-error. BF16 autocast plus checkpointing uses735–736MiB and takes0.879–0.888× FP32 standard forward/backward time, dominating the proposed candidate's memory/time in this setup.
 

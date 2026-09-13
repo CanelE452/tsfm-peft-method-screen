@@ -1,0 +1,138 @@
+[
+  {
+    "arm": "F0",
+    "dataset": "ettm2",
+    "metrics": {
+      "interval80_coverage": 0.7841796875,
+      "interval80_width": 3.6929199757675333,
+      "median_mae": 1.2747249275756378,
+      "native_loss": 2.7947996258735657,
+      "qmean_mse": 3.939501427240841,
+      "scaled_2pinball": 0.1840172883487859
+    }
+  },
+  {
+    "arm": "standard",
+    "dataset": "ettm2",
+    "fit": "ettm2_standard_r0",
+    "metrics": {
+      "interval80_coverage": 0.7841796875,
+      "interval80_width": 3.6929199757675333,
+      "median_mae": 1.2747249275756378,
+      "native_loss": 2.7947996258735657,
+      "qmean_mse": 3.939501427240841,
+      "scaled_2pinball": 0.1840172883487859
+    },
+    "step": 0
+  },
+  {
+    "arm": "head",
+    "dataset": "ettm2",
+    "fit": "ettm2_head_r0",
+    "metrics": {
+      "interval80_coverage": 0.6477864583333334,
+      "interval80_width": 2.8686908362433314,
+      "median_mae": 1.2923008617945013,
+      "native_loss": 2.8616188168525696,
+      "qmean_mse": 3.8976607676771047,
+      "scaled_2pinball": 0.18898423617412188
+    },
+    "step": 30
+  },
+  {
+    "arm": "side",
+    "dataset": "ettm2",
+    "fit": "ettm2_side_r0",
+    "metrics": {
+      "interval80_coverage": 0.7145182291666666,
+      "interval80_width": 3.1337967799045146,
+      "median_mae": 1.27278650784865,
+      "native_loss": 2.800698548555374,
+      "qmean_mse": 3.932589379648755,
+      "scaled_2pinball": 0.18490303033821598
+    },
+    "step": 30
+  },
+  {
+    "arm": "query",
+    "dataset": "ettm2",
+    "fit": "ettm2_query_r0",
+    "metrics": {
+      "interval80_coverage": 0.767578125,
+      "interval80_width": 3.5532201409029462,
+      "median_mae": 1.2684352306338649,
+      "native_loss": 2.7821173667907715,
+      "qmean_mse": 3.880073903056224,
+      "scaled_2pinball": 0.1830627100300215
+    },
+    "step": 180
+  },
+  {
+    "arm": "F0",
+    "dataset": "electricity",
+    "metrics": {
+      "interval80_coverage": 0.8069661458333334,
+      "interval80_width": 32.85221345458801,
+      "median_mae": 10.74777167585368,
+      "native_loss": 3.271186411380768,
+      "qmean_mse": 659.3416948508335,
+      "scaled_2pinball": 0.09946141663082084
+    }
+  },
+  {
+    "arm": "standard",
+    "dataset": "electricity",
+    "fit": "electricity_standard_r0",
+    "metrics": {
+      "interval80_coverage": 0.810546875,
+      "interval80_width": 32.074861987338714,
+      "median_mae": 10.693327859509736,
+      "native_loss": 3.26862570643425,
+      "qmean_mse": 640.2316393993061,
+      "scaled_2pinball": 0.09893512950764019
+    },
+    "step": 30
+  },
+  {
+    "arm": "head",
+    "dataset": "electricity",
+    "fit": "electricity_head_r0",
+    "metrics": {
+      "interval80_coverage": 0.8069661458333334,
+      "interval80_width": 32.85221345458801,
+      "median_mae": 10.74777167585368,
+      "native_loss": 3.271186411380768,
+      "qmean_mse": 659.3416948508335,
+      "scaled_2pinball": 0.09946141663082084
+    },
+    "step": 0
+  },
+  {
+    "arm": "side",
+    "dataset": "electricity",
+    "fit": "electricity_side_r0",
+    "metrics": {
+      "interval80_coverage": 0.7864583333333334,
+      "interval80_width": 31.326535061777882,
+      "median_mae": 10.638159071560949,
+      "native_loss": 3.2748218774795532,
+      "qmean_mse": 637.9009464888873,
+      "scaled_2pinball": 0.09920106063892492
+    },
+    "step": 30
+  },
+  {
+    "arm": "query",
+    "dataset": "electricity",
+    "fit": "electricity_query_r0",
+    "metrics": {
+      "interval80_coverage": 0.806640625,
+      "interval80_width": 32.525750673220806,
+      "median_mae": 10.714883434741449,
+      "native_loss": 3.2737231254577637,
+      "qmean_mse": 653.8852021349909,
+      "scaled_2pinball": 0.09925743045834869
+    },
+    "step": 30
+  }
+]

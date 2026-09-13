@@ -40,3 +40,6 @@ if (ROOT/'results/memory_feasibility/verification.json').exists():
 
 if (ROOT/'results/local_backward_feasibility/verification.json').exists():
     subprocess.run([sys.executable,str(ROOT/'scripts/finalize_local_backward.py'),'--verify-only'],cwd=ROOT,check=True)
+
+if (ROOT/'results/forecast_query_pilot/verification.json').exists():
+    subprocess.run([sys.executable,str(ROOT/'scripts/finalize_forecast_query_pilot.py'),'--verify-only'],cwd=ROOT,check=True)
