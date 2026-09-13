@@ -4,6 +4,26 @@ Independent Chronos-2 development screen. Round 0 and Round 1 only; Round 2 requ
 
 No prior experiment outputs are used as new evidence. Raw data and cached model weights may be reused with provenance hashes. All source is local to this repository.
 
+## Overnight PEFT mechanism pilots
+
+Three new development pilots are implemented: prediction anchoring, drift-conditioned LoRA,
+and multi-context distribution distillation. They use ETTh1/Traffic, two seeds, fixed controls,
+and a maximum of 96 fits / 86,400 training updates. All V selections are sealed before any E
+scoring. A teacher headroom gate can stop distillation before its candidate fits.
+Known ingredients are explicitly acknowledged; PILOT_PASS is a continuation signal, not a
+publication or novelty claim. Historical results and their criteria remain unchanged.
+
+GPU smoke: 24 actual updates, all twelve topic/arm combinations passed. The serial queue
+waits for GPU availability, preserves failed attempts, continues with the next topic, and has
+an eight-hour wall cap. See [the fixed protocol](docs/OVERNIGHT_20260913.md).
+
+    scripts/with_cuda.sh .venv/bin/python scripts/overnight_queue.py start
+    scripts/with_cuda.sh .venv/bin/python scripts/overnight_queue.py status
+
+Execution state is read from results/overnight_20260913/queue_status.json; writing this
+implementation does not by itself mean the experiment has completed. The queue generates
+REPORT.md, ranking.csv, and independent verification.json when it finishes.
+
 ## Reproduce
 
 ```bash

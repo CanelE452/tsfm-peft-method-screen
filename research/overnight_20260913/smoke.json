@@ -1,0 +1,290 @@
+{
+  "gpu_log_sha256": "2207e0b4a67edb7a3a624a043df16faac704f59183f8f167031c7b25fa172fe7",
+  "records": [
+    {
+      "arm": "native",
+      "frozen_parameters_unchanged": true,
+      "parameters": 1179648,
+      "steps": [
+        {
+          "loss": 0.2199171483516693,
+          "peak_allocated_bytes": 1082498560,
+          "regularizer": 0.0,
+          "seconds": 0.2126023331657052
+        },
+        {
+          "loss": 0.21562454104423523,
+          "peak_allocated_bytes": 1093856768,
+          "regularizer": 0.0,
+          "seconds": 0.11721339682117105
+        }
+      ],
+      "topic": "anchor",
+      "trained_parameters_changed": true,
+      "trained_prediction_changed": true,
+      "zero_init_bitexact": true
+    },
+    {
+      "arm": "raw",
+      "frozen_parameters_unchanged": true,
+      "parameters": 1179648,
+      "steps": [
+        {
+          "loss": 0.2359933853149414,
+          "peak_allocated_bytes": 1098181632,
+          "regularizer": 0.0,
+          "seconds": 0.1983164860866964
+        },
+        {
+          "loss": 0.2312423288822174,
+          "peak_allocated_bytes": 1098181632,
+          "regularizer": 0.0,
+          "seconds": 0.12263472797349095
+        }
+      ],
+      "topic": "anchor",
+      "trained_parameters_changed": true,
+      "trained_prediction_changed": true,
+      "zero_init_bitexact": true
+    },
+    {
+      "arm": "l2_anchor",
+      "frozen_parameters_unchanged": true,
+      "parameters": 1179648,
+      "steps": [
+        {
+          "loss": 0.2359933853149414,
+          "peak_allocated_bytes": 1104226304,
+          "regularizer": 0.0,
+          "seconds": 0.1456937538459897
+        },
+        {
+          "loss": 0.2312423288822174,
+          "peak_allocated_bytes": 1105992704,
+          "regularizer": 5.807008346891962e-05,
+          "seconds": 0.12814175197854638
+        }
+      ],
+      "topic": "anchor",
+      "trained_parameters_changed": true,
+      "trained_prediction_changed": true,
+      "zero_init_bitexact": true
+    },
+    {
+      "arm": "prediction_anchor",
+      "frozen_parameters_unchanged": true,
+      "parameters": 1179648,
+      "steps": [
+        {
+          "loss": 0.2359933853149414,
+          "peak_allocated_bytes": 1094052864,
+          "regularizer": 0.0,
+          "seconds": 0.12690502498298883
+        },
+        {
+          "loss": 0.2312423288822174,
+          "peak_allocated_bytes": 1094052864,
+          "regularizer": 0.0007726330077275634,
+          "seconds": 0.11518801702186465
+        }
+      ],
+      "topic": "anchor",
+      "trained_parameters_changed": true,
+      "trained_prediction_changed": true,
+      "zero_init_bitexact": true
+    },
+    {
+      "arm": "native",
+      "frozen_parameters_unchanged": true,
+      "parameters": 1179648,
+      "steps": [
+        {
+          "loss": 0.2199171483516693,
+          "peak_allocated_bytes": 1094052864,
+          "regularizer": 0.0,
+          "seconds": 0.13213472114875913
+        },
+        {
+          "loss": 0.21562454104423523,
+          "peak_allocated_bytes": 1094052864,
+          "regularizer": 0.0,
+          "seconds": 0.11973640276119113
+        }
+      ],
+      "topic": "drift",
+      "trained_parameters_changed": true,
+      "trained_prediction_changed": true,
+      "zero_init_bitexact": true
+    },
+    {
+      "arm": "raw",
+      "frozen_parameters_unchanged": true,
+      "parameters": 1179648,
+      "steps": [
+        {
+          "loss": 0.2359933853149414,
+          "peak_allocated_bytes": 1096150016,
+          "regularizer": 0.0,
+          "seconds": 0.12598380213603377
+        },
+        {
+          "loss": 0.2312423288822174,
+          "peak_allocated_bytes": 1096150016,
+          "regularizer": 0.0,
+          "seconds": 0.11506914207711816
+        }
+      ],
+      "topic": "drift",
+      "trained_parameters_changed": true,
+      "trained_prediction_changed": true,
+      "zero_init_bitexact": true
+    },
+    {
+      "arm": "moment_gate",
+      "frozen_parameters_unchanged": true,
+      "parameters": 1185024,
+      "steps": [
+        {
+          "loss": 0.2359933853149414,
+          "peak_allocated_bytes": 1097330176,
+          "regularizer": 0.0,
+          "seconds": 0.18929569888859987
+        },
+        {
+          "loss": 0.2312423288822174,
+          "peak_allocated_bytes": 1097526784,
+          "regularizer": 0.0,
+          "seconds": 0.17982929991558194
+        }
+      ],
+      "topic": "drift",
+      "trained_parameters_changed": true,
+      "trained_prediction_changed": true,
+      "zero_init_bitexact": true
+    },
+    {
+      "arm": "drift_gate",
+      "frozen_parameters_unchanged": true,
+      "parameters": 1185024,
+      "steps": [
+        {
+          "loss": 0.2359933853149414,
+          "peak_allocated_bytes": 1096314368,
+          "regularizer": 0.0,
+          "seconds": 0.17917849496006966
+        },
+        {
+          "loss": 0.2312423288822174,
+          "peak_allocated_bytes": 1096314368,
+          "regularizer": 0.0,
+          "seconds": 0.17579580983147025
+        }
+      ],
+      "topic": "drift",
+      "trained_parameters_changed": true,
+      "trained_prediction_changed": true,
+      "zero_init_bitexact": true
+    },
+    {
+      "arm": "raw",
+      "frozen_parameters_unchanged": true,
+      "parameters": 1179648,
+      "steps": [
+        {
+          "loss": 0.2359933853149414,
+          "peak_allocated_bytes": 1096150016,
+          "regularizer": 0.0,
+          "seconds": 0.1346046798862517
+        },
+        {
+          "loss": 0.2312423288822174,
+          "peak_allocated_bytes": 1095953408,
+          "regularizer": 0.0,
+          "seconds": 0.11360520636662841
+        }
+      ],
+      "topic": "distill",
+      "trained_parameters_changed": true,
+      "trained_prediction_changed": true,
+      "zero_init_bitexact": true
+    },
+    {
+      "arm": "uniform_distill",
+      "frozen_parameters_unchanged": true,
+      "parameters": 1179648,
+      "steps": [
+        {
+          "loss": 0.2359933853149414,
+          "peak_allocated_bytes": 1095560192,
+          "regularizer": 0.012814116664230824,
+          "seconds": 0.1296073542907834
+        },
+        {
+          "loss": 0.2315138727426529,
+          "peak_allocated_bytes": 1095560192,
+          "regularizer": 0.01266323309391737,
+          "seconds": 0.12009824207052588
+        }
+      ],
+      "topic": "distill",
+      "trained_parameters_changed": true,
+      "trained_prediction_changed": true,
+      "zero_init_bitexact": true
+    },
+    {
+      "arm": "reversed_distill",
+      "frozen_parameters_unchanged": true,
+      "parameters": 1179648,
+      "steps": [
+        {
+          "loss": 0.2359933853149414,
+          "peak_allocated_bytes": 1095691264,
+          "regularizer": 0.012834012508392334,
+          "seconds": 0.12281115725636482
+        },
+        {
+          "loss": 0.2315073013305664,
+          "peak_allocated_bytes": 1095691264,
+          "regularizer": 0.012665805406868458,
+          "seconds": 0.11669427715241909
+        }
+      ],
+      "topic": "distill",
+      "trained_parameters_changed": true,
+      "trained_prediction_changed": true,
+      "zero_init_bitexact": true
+    },
+    {
+      "arm": "temporal_distill",
+      "frozen_parameters_unchanged": true,
+      "parameters": 1179648,
+      "steps": [
+        {
+          "loss": 0.2359933853149414,
+          "peak_allocated_bytes": 1094478848,
+          "regularizer": 0.012719588354229927,
+          "seconds": 0.12861378025263548
+        },
+        {
+          "loss": 0.2314659059047699,
+          "peak_allocated_bytes": 1094478848,
+          "regularizer": 0.012574642896652222,
+          "seconds": 0.12321669375523925
+        }
+      ],
+      "topic": "distill",
+      "trained_parameters_changed": true,
+      "trained_prediction_changed": true,
+      "zero_init_bitexact": true
+    }
+  ],
+  "scope": "ETTh1 training prefix only; same production objectives; no fit/V/E selection.",
+  "source_hashes": {
+    "configs/overnight_20260913.json": "2c6500a1821f4b281f8e1d18695dc40227b666f78c2790918440bb1c980661bd",
+    "scripts/run_overnight_topic.py": "427ccb14133bc176c6769f0b37c68bbb348c316fb3b98a5779b456a64b0d49e6",
+    "scripts/smoke_overnight.py": "8c226b0a12364441b92825709fbb807ef6fc22a7cd1055d87426601d85e926ad",
+    "src/tsfm_peft_screen/overnight/methods.py": "a344e4059f238105a42dad1a8f4ae292643352fbf604a63243b250a62d5950de"
+  },
+  "status": "PASS",
+  "updates": 24
+}
