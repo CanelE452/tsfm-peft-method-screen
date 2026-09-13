@@ -1,0 +1,46 @@
+{
+  "checks": [
+    {
+      "dataset": "etth1",
+      "gain_vs_best": -0.01152652302528856,
+      "mean_pass": false,
+      "means": {
+        "F0": 0.29798098084933927,
+        "calibration_anchor": 0.29262200463518784,
+        "full_anchor": 0.2925961162121711,
+        "l2_anchor": 0.2950884060533763,
+        "native": 0.28928752531373036,
+        "raw": 0.2978906376457479,
+        "shuffled_anchor": 0.29253521639446267,
+        "weighted_loss": 0.29887090278003375
+      },
+      "seed_checks": [
+        false,
+        true
+      ]
+    },
+    {
+      "dataset": "traffic",
+      "gain_vs_best": -0.006333235507817392,
+      "mean_pass": false,
+      "means": {
+        "F0": 0.1672720086139561,
+        "calibration_anchor": 0.16047696297174777,
+        "full_anchor": 0.16029565476563445,
+        "l2_anchor": 0.1635931369345041,
+        "native": 0.15946702077345942,
+        "raw": 0.1619832489372786,
+        "shuffled_anchor": 0.1604014635524919,
+        "weighted_loss": 0.1621433010548353
+      },
+      "seed_checks": [
+        true,
+        true
+      ]
+    }
+  ],
+  "fits_attempted": 56,
+  "novelty_status": "UNRESOLVED_KNOWN_INGREDIENTS",
+  "scope": "Development continuation only. Not a publication PASS or a revision of historical FAIL.",
+  "verdict": "PILOT_STOP"
+}

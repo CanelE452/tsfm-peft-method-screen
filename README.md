@@ -4,6 +4,19 @@ Independent Chronos-2 development screen. Round 0 and Round 1 only; Round 2 requ
 
 No prior experiment outputs are used as new evidence. Raw data and cached model weights may be reused with provenance hashes. All source is local to this repository.
 
+## Completed calibration-aware anchoring follow-up
+
+**56/56 fits, 50,400 updates, PILOT_STOP.** The proposed calibration-weighted anchor is
+1.153% worse than native LoRA on ETTh1 and 0.633% worse on Traffic. Its mean score also
+does not beat uniform or shuffled anchoring. All 286 prediction caches replay and all
+514 historical result files remain unchanged. The eight-origin E tail per dataset is
+limited development evidence, not independent-source confirmation.
+
+See [the completed report](results/calibration_anchor_20260914/REPORT.md) and
+[the full follow-up outcome](automation/overnight_followup/FOLLOWUP_RESULT.md).
+The single authorized follow-up batch is complete; no further training or recursive
+research continuation is running.
+
 ## Overnight result and authorized follow-up
 
 The overnight screen completed **72 fits / 64,800 updates**, with all 376 saved predictions
