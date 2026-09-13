@@ -1,0 +1,77 @@
+{
+  "decisions": [
+    {
+      "block_to_strongest_baseline_ratio": 1.0040728295436405,
+      "checks": {
+        "active_shape": true,
+        "coverage": true,
+        "f0_safety": true,
+        "primary": false
+      },
+      "coverage_error_difference": 0.0021972656250000555,
+      "dataset": "ettm2",
+      "pass_gate": false,
+      "per_seed": [
+        {
+          "baseline_coverage_error": 0.08678385416666667,
+          "baseline_loss": 0.272617985959232,
+          "block_coverage_error": 0.09101562500000004,
+          "block_loss": 0.27388384305881197,
+          "f0_ratio": 1.0045486053304213,
+          "seed": 30000,
+          "selected_step": 120,
+          "shape_displacement": 0.012657130137085915,
+          "strongest_baseline": "center"
+        },
+        {
+          "baseline_coverage_error": 0.0864583333333333,
+          "baseline_loss": 0.27115855012699486,
+          "block_coverage_error": 0.08662109375000004,
+          "block_loss": 0.27210740216872525,
+          "f0_ratio": 0.9980329920008488,
+          "seed": 30001,
+          "selected_step": 30,
+          "shape_displacement": 0.0024033314548432827,
+          "strongest_baseline": "lora"
+        }
+      ]
+    },
+    {
+      "block_to_strongest_baseline_ratio": 1.0026925713418484,
+      "checks": {
+        "active_shape": true,
+        "coverage": true,
+        "f0_safety": true,
+        "primary": false
+      },
+      "coverage_error_difference": -0.00390625,
+      "dataset": "electricity",
+      "pass_gate": false,
+      "per_seed": [
+        {
+          "baseline_coverage_error": 0.006315104166666585,
+          "baseline_loss": 0.1770260884383185,
+          "block_coverage_error": 0.0022460937499998446,
+          "block_loss": 0.17706313777827176,
+          "f0_ratio": 0.9996596528462062,
+          "seed": 30000,
+          "selected_step": 30,
+          "shape_displacement": 0.0042939139530062675,
+          "strongest_baseline": "lora"
+        },
+        {
+          "baseline_coverage_error": 0.006640624999999845,
+          "baseline_loss": 0.1761231760282275,
+          "block_coverage_error": 0.0028971354166665853,
+          "block_loss": 0.17703700627717167,
+          "f0_ratio": 0.9995121201206155,
+          "seed": 30001,
+          "selected_step": 30,
+          "shape_displacement": 0.0027771613094955683,
+          "strongest_baseline": "lora"
+        }
+      ]
+    }
+  ],
+  "verdict": "STOP"
+}

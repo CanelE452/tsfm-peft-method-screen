@@ -111,7 +111,12 @@ lines=['# Block-conditioned shape adaptation: first pilot', '',
 for r in evaluation:
     m=r['metrics']
     lines.append(f"| {r['dataset']} | {r['seed'] if r['seed'] is not None else 'shared'} | {r['arm']} | {r.get('step','—')} | {m['scaled_2pinball']:.8f} | {m['interval80_coverage']:.4f} | {m['interval80_width']:.4f} |")
-lines+=['','## Fixed decision','']
+lines+=['', '## What this pilot established', '',
+'The update mechanism was active: every selected candidate had a nonzero shape change. It nevertheless failed the primary criterion on both datasets. This is a learning-quality failure under the fixed protocol, not an implementation block or GPU capacity failure.',
+'Conservative LoRA has lower seed-mean primary loss than the block candidate on both datasets. Relative to pooled acceptance, the block variability penalty changes heldout loss very little and provides no gain here. Preventing some training shape steps was therefore insufficient to improve generalization.',
+'The ETTm2 scalar calibration baseline illustrates a tradeoff: 80% coverage approaches its nominal target, but its primary loss worsens. Coverage alone would give a misleading success signal. On Electricity, F0 already has coverage near 80%.',
+'These findings reject this particular first rule as a current lead; they do not establish that every form of uncertainty-aware PEFT must fail.',
+'', '## Fixed decision','']
 for d in decisions:
     lines.append(f"- {d['dataset']}: block / strongest baseline seed-mean primary ratio **{d['block_to_strongest_baseline_ratio']:.6f}** (required <=0.995), coverage-error difference {d['coverage_error_difference']:+.6f}. Checks: {d['checks']}.")
     for r in d['per_seed']:
@@ -141,9 +146,12 @@ fig,axs=plt.subplots(1,2,figsize=(12,4))
 for ax,name in zip(axs,cfg['datasets']):
     arms=['F0','lora','split','center','anchor','pooled','block','blend','calibration']
     losses=[np.mean([r['metrics']['scaled_2pinball'] for r in evaluation if r['dataset']==name and r['arm']==a]) for a in arms]
-    ax.bar(arms,losses,color=['#167d9a' if a=='block' else '#a4adb5' for a in arms])
+    reference=losses[0]
+    gains=[100*(reference-loss)/reference for loss in losses]
+    ax.bar(arms,gains,color=['#167d9a' if a=='block' else '#a4adb5' for a in arms])
     ax.set_title(name+' — later chronological evaluation')
-    ax.set_ylabel('Scaled 2-pinball (lower better)')
+    ax.axhline(0,color='black',linewidth=.7)
+    ax.set_ylabel('Primary loss reduction vs F0 (%) ↑')
     ax.tick_params(axis='x',rotation=55)
 fig.tight_layout()
 (OUT/'figures').mkdir(exist_ok=True)

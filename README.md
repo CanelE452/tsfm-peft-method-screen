@@ -28,11 +28,15 @@ On this machine only, kernel driver580.173.02 and globally installed userspace58
 
 See [novelty boundaries](docs/NOVELTY_BOUNDARY.md). Candidate06 is stopped for direct overlap of the central neural-copula method; its raw data preparation is not a fitted result.
 
-## Block-conditioned distribution adaptation: preregistered pilot
+## Block-conditioned distribution adaptation: completed 48-fit pilot
 
-A new, separately authorized method-development pilot tests temporal-block acceptance of shape-only adapter updates against unconstrained adaptation, fixed shape, anchoring, pooled acceptance and conservative LoRA. The fixed budget is 48 fits (two datasets × two seeds × six arms × two recipes), followed by a sealed evaluation on later chronological periods. Prediction blending and scalar calibration provide additional simple baselines.
+**48/48 fits completed; STOP** on the preregistered continuation gate. Two datasets × two seeds × six arms × two recipes, 5,760 proposed training iterations. On later chronological evaluation periods, the candidate's seed-mean primary loss is 0.407% worse on ETTm2 and 0.269% worse on Electricity than the predeclared conservative strongest-baseline comparator. All four selected candidate models have nonzero shape adaptation; safety and coverage conditions pass, but neither dataset meets the required 0.5% primary improvement.
 
-This is an unvalidated learning-rule hypothesis. Monotone output adapters and stochastic step acceptance are established prior work; no novelty or performance success is claimed in advance. See the [fixed protocol and literature boundaries](docs/BLOCK_SHAPE_PROTOCOL.md).
+The block rule selectively accepts shape updates and restores rejected Adam states, but shows no additional gain over pooled acceptance in this pilot. Conservative LoRA has lower seed-mean primary loss on both datasets. This is a completed learning comparison, not a GPU or implementation failure. GPU monitoring recorded 109 samples and at least 8,168MiB observed active free VRAM, with no external compute during active work. Startup waited for transient external work to leave.
+
+All 39 tests pass; 224 prediction caches replay independently, all cached metrics replay exactly, and 215 historical result files are unchanged. The new heldout periods belong to existing source series, not external datasets. Architecture ingredients overlap prior work; no publication or novelty PASS is claimed. No further tuning followed this result.
+
+See the [result and comparisons](results/block_shape_pilot/RESULT.md), [fixed protocol and literature boundaries](docs/BLOCK_SHAPE_PROTOCOL.md), and [verification](results/block_shape_pilot/verification.json).
 
 ## Frozen-past forecast-token adaptation: latest actual-learning pilot
 
