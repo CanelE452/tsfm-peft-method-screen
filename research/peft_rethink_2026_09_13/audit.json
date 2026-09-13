@@ -1,0 +1,422 @@
+{
+  "datasets": {
+    "electricity": {
+      "F0": 0.1771234212305578,
+      "block_vs_pooled_percent": 0.0015885904651291582,
+      "improvement_vs_F0_percent": {
+        "anchor": 0.042817901615054166,
+        "block": 0.04141135165891161,
+        "center": 0.03649572774534945,
+        "lora": 0.3098342350616962,
+        "pooled": 0.04299925904191455,
+        "split": 0.04292731759109188
+      },
+      "mean_primary": {
+        "anchor": 0.17704758069831808,
+        "block": 0.17705007202772172,
+        "center": 0.17705877874897225,
+        "lora": 0.176574632233273,
+        "pooled": 0.17704725947183897,
+        "split": 0.17704738689699795
+      }
+    },
+    "ettm2": {
+      "F0": 0.27264369449671844,
+      "block_vs_pooled_percent": 0.0164388351141298,
+      "improvement_vs_F0_percent": {
+        "anchor": -0.0850190272941346,
+        "block": -0.12907986656351594,
+        "center": 0.10541960572779695,
+        "lora": 0.27235993344079595,
+        "pooled": -0.11262251761941841,
+        "split": -0.07837969907381576
+      },
+      "mean_primary": {
+        "anchor": 0.27287549351375834,
+        "block": 0.27299562261376864,
+        "center": 0.2723562745889383,
+        "lora": 0.27190112231185665,
+        "pooled": 0.27295075268959124,
+        "split": 0.2728573918040087
+      }
+    }
+  },
+  "input_hashes": {
+    ".cache/block_shape_pilot/electricity_V_features.pt": "94551e9f6ec081416b2536a51b91d8ddfc4fb3e77a17d8f16cd89e4d1c921b4d",
+    ".cache/block_shape_pilot/ettm2_V_features.pt": "843077a35d47a732507ae4a63d66adb2eeb6bbd9c01cf7e182ca3b6ee3e94f4f",
+    "results/block_shape_pilot/evaluation.json": "d8df4797c65fdc8015620059cbf87160814fe7fdb2a377961c58f86e966b6a3b",
+    "results/block_shape_pilot/selection_seal.json": "03fc43d94d227c4524c30af760203fdbea1207a02fb97c2e561ab90db837be90",
+    "results/block_shape_pilot/trajectories.json": "e6248348a6e008b524d03999dee5f8ffce6d966326b81cc431eaf89a20affa89"
+  },
+  "native_objective_caveat": "Reconstructed from sorted raw quantiles and cached context normalization; not unsorted LoRA training loss. Cannot attribute training failure causally to objective mismatch.",
+  "native_selection_mismatch_count": 6,
+  "native_vs_primary_V_selection": [
+    {
+      "arm": "lora",
+      "dataset": "ettm2",
+      "different": false,
+      "native_choice": [
+        0,
+        0
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.0,
+      "raw_choice": [
+        0,
+        0
+      ],
+      "seed": 30000
+    },
+    {
+      "arm": "split",
+      "dataset": "ettm2",
+      "different": false,
+      "native_choice": [
+        0,
+        120
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.0,
+      "raw_choice": [
+        0,
+        120
+      ],
+      "seed": 30000
+    },
+    {
+      "arm": "center",
+      "dataset": "ettm2",
+      "different": true,
+      "native_choice": [
+        0,
+        120
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.0889284839229676,
+      "raw_choice": [
+        1,
+        60
+      ],
+      "seed": 30000
+    },
+    {
+      "arm": "anchor",
+      "dataset": "ettm2",
+      "different": false,
+      "native_choice": [
+        0,
+        120
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.0,
+      "raw_choice": [
+        0,
+        120
+      ],
+      "seed": 30000
+    },
+    {
+      "arm": "pooled",
+      "dataset": "ettm2",
+      "different": false,
+      "native_choice": [
+        0,
+        120
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.0,
+      "raw_choice": [
+        0,
+        120
+      ],
+      "seed": 30000
+    },
+    {
+      "arm": "block",
+      "dataset": "ettm2",
+      "different": false,
+      "native_choice": [
+        0,
+        120
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.0,
+      "raw_choice": [
+        0,
+        120
+      ],
+      "seed": 30000
+    },
+    {
+      "arm": "lora",
+      "dataset": "ettm2",
+      "different": false,
+      "native_choice": [
+        1,
+        30
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.0,
+      "raw_choice": [
+        1,
+        30
+      ],
+      "seed": 30001
+    },
+    {
+      "arm": "split",
+      "dataset": "ettm2",
+      "different": false,
+      "native_choice": [
+        1,
+        30
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.0,
+      "raw_choice": [
+        1,
+        30
+      ],
+      "seed": 30001
+    },
+    {
+      "arm": "center",
+      "dataset": "ettm2",
+      "different": false,
+      "native_choice": [
+        1,
+        30
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.0,
+      "raw_choice": [
+        1,
+        30
+      ],
+      "seed": 30001
+    },
+    {
+      "arm": "anchor",
+      "dataset": "ettm2",
+      "different": false,
+      "native_choice": [
+        1,
+        30
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.0,
+      "raw_choice": [
+        1,
+        30
+      ],
+      "seed": 30001
+    },
+    {
+      "arm": "pooled",
+      "dataset": "ettm2",
+      "different": false,
+      "native_choice": [
+        1,
+        30
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.0,
+      "raw_choice": [
+        1,
+        30
+      ],
+      "seed": 30001
+    },
+    {
+      "arm": "block",
+      "dataset": "ettm2",
+      "different": false,
+      "native_choice": [
+        1,
+        30
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.0,
+      "raw_choice": [
+        1,
+        30
+      ],
+      "seed": 30001
+    },
+    {
+      "arm": "lora",
+      "dataset": "electricity",
+      "different": false,
+      "native_choice": [
+        1,
+        120
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.0,
+      "raw_choice": [
+        1,
+        120
+      ],
+      "seed": 30000
+    },
+    {
+      "arm": "split",
+      "dataset": "electricity",
+      "different": false,
+      "native_choice": [
+        0,
+        30
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.0,
+      "raw_choice": [
+        0,
+        30
+      ],
+      "seed": 30000
+    },
+    {
+      "arm": "center",
+      "dataset": "electricity",
+      "different": false,
+      "native_choice": [
+        0,
+        30
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.0,
+      "raw_choice": [
+        0,
+        30
+      ],
+      "seed": 30000
+    },
+    {
+      "arm": "anchor",
+      "dataset": "electricity",
+      "different": false,
+      "native_choice": [
+        0,
+        30
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.0,
+      "raw_choice": [
+        0,
+        30
+      ],
+      "seed": 30000
+    },
+    {
+      "arm": "pooled",
+      "dataset": "electricity",
+      "different": false,
+      "native_choice": [
+        0,
+        30
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.0,
+      "raw_choice": [
+        0,
+        30
+      ],
+      "seed": 30000
+    },
+    {
+      "arm": "block",
+      "dataset": "electricity",
+      "different": false,
+      "native_choice": [
+        0,
+        30
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.0,
+      "raw_choice": [
+        0,
+        30
+      ],
+      "seed": 30000
+    },
+    {
+      "arm": "lora",
+      "dataset": "electricity",
+      "different": false,
+      "native_choice": [
+        1,
+        120
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.0,
+      "raw_choice": [
+        1,
+        120
+      ],
+      "seed": 30001
+    },
+    {
+      "arm": "split",
+      "dataset": "electricity",
+      "different": true,
+      "native_choice": [
+        0,
+        60
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.030368996651586322,
+      "raw_choice": [
+        0,
+        30
+      ],
+      "seed": 30001
+    },
+    {
+      "arm": "center",
+      "dataset": "electricity",
+      "different": true,
+      "native_choice": [
+        0,
+        60
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.01119159968554495,
+      "raw_choice": [
+        0,
+        30
+      ],
+      "seed": 30001
+    },
+    {
+      "arm": "anchor",
+      "dataset": "electricity",
+      "different": true,
+      "native_choice": [
+        0,
+        60
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.028637889345972667,
+      "raw_choice": [
+        0,
+        30
+      ],
+      "seed": 30001
+    },
+    {
+      "arm": "pooled",
+      "dataset": "electricity",
+      "different": true,
+      "native_choice": [
+        0,
+        60
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.039398631082221414,
+      "raw_choice": [
+        0,
+        30
+      ],
+      "seed": 30001
+    },
+    {
+      "arm": "block",
+      "dataset": "electricity",
+      "different": true,
+      "native_choice": [
+        0,
+        60
+      ],
+      "raw_V_penalty_if_native_selected_percent": 0.04107054127975296,
+      "raw_choice": [
+        0,
+        30
+      ],
+      "seed": 30001
+    }
+  ],
+  "scope": "Retrospective CPU calculations on existing predictions; zero new fits or GPU work.",
+  "selected_steps": {
+    "0": 1,
+    "120": 6,
+    "30": 16,
+    "60": 1
+  }
+}

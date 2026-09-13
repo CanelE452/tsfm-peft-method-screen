@@ -1,0 +1,25 @@
+dataset,seed,arm,raw_choice,native_choice,different,raw_V_penalty_if_native_selected_percent
+ettm2,30000,lora,"[0, 0]","[0, 0]",False,0.0
+ettm2,30000,split,"[0, 120]","[0, 120]",False,0.0
+ettm2,30000,center,"[1, 60]","[0, 120]",True,0.0889284839229676
+ettm2,30000,anchor,"[0, 120]","[0, 120]",False,0.0
+ettm2,30000,pooled,"[0, 120]","[0, 120]",False,0.0
+ettm2,30000,block,"[0, 120]","[0, 120]",False,0.0
+ettm2,30001,lora,"[1, 30]","[1, 30]",False,0.0
+ettm2,30001,split,"[1, 30]","[1, 30]",False,0.0
+ettm2,30001,center,"[1, 30]","[1, 30]",False,0.0
+ettm2,30001,anchor,"[1, 30]","[1, 30]",False,0.0
+ettm2,30001,pooled,"[1, 30]","[1, 30]",False,0.0
+ettm2,30001,block,"[1, 30]","[1, 30]",False,0.0
+electricity,30000,lora,"[1, 120]","[1, 120]",False,0.0
+electricity,30000,split,"[0, 30]","[0, 30]",False,0.0
+electricity,30000,center,"[0, 30]","[0, 30]",False,0.0
+electricity,30000,anchor,"[0, 30]","[0, 30]",False,0.0
+electricity,30000,pooled,"[0, 30]","[0, 30]",False,0.0
+electricity,30000,block,"[0, 30]","[0, 30]",False,0.0
+electricity,30001,lora,"[1, 120]","[1, 120]",False,0.0
+electricity,30001,split,"[0, 30]","[0, 60]",True,0.030368996651586322
+electricity,30001,center,"[0, 30]","[0, 60]",True,0.01119159968554495
+electricity,30001,anchor,"[0, 30]","[0, 60]",True,0.028637889345972667
+electricity,30001,pooled,"[0, 30]","[0, 60]",True,0.039398631082221414
+electricity,30001,block,"[0, 30]","[0, 60]",True,0.04107054127975296

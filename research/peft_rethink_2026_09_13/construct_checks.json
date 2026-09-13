@@ -1,0 +1,73 @@
+{
+  "correlation_counterexample": {
+    "opposite_direction": {
+      "cross_covariance": [
+        [
+          1.0,
+          -1.0
+        ],
+        [
+          -1.0,
+          1.0
+        ]
+      ],
+      "marginal_variance": [
+        1.0,
+        1.0
+      ],
+      "mean": [
+        0.0,
+        0.0
+      ],
+      "nonlinear_response_samples": [
+        0.0,
+        0.0
+      ],
+      "response_mean": 0.0
+    },
+    "same_direction": {
+      "cross_covariance": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "marginal_variance": [
+        1.0,
+        1.0
+      ],
+      "mean": [
+        0.0,
+        0.0
+      ],
+      "nonlinear_response_samples": [
+        4.0,
+        4.0
+      ],
+      "response_mean": 4.0
+    }
+  },
+  "quantile_mixture_counterexample": {
+    "average_component_quantiles": [
+      5.1,
+      5.5,
+      5.9
+    ],
+    "components": "Uniform[0,1] and Uniform[10,11], equal weights",
+    "mixture_quantiles_generalized_inverse": [
+      0.2,
+      1.0,
+      10.8
+    ],
+    "quantile_levels": [
+      0.1,
+      0.5,
+      0.9
+    ]
+  },
+  "scope": "Exact toy counterexamples, not empirical Chronos performance or novelty proof."
+}

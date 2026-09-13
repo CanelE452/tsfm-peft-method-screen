@@ -28,6 +28,12 @@ On this machine only, kernel driver580.173.02 and globally installed userspace58
 
 See [novelty boundaries](docs/NOVELTY_BOUNDARY.md). Candidate06 is stopped for direct overlap of the central neural-copula method; its raw data preparation is not a fitted result.
 
+## Research reassessment after the latest STOP
+
+A [Korean deep reassessment](research/peft_rethink_2026_09_13/REPORT.md) audits the failed recommendations and primary literature, then proposes a conditional next problem: representing temporally correlated uncertainty in future covariates with a single-pass PEFT model. It includes exact illustrative counterexamples and a staged comparison plan. Ordinary covariate adapters and ensemble distillation are established prior work; the new method, novelty and predictive benefit are **not yet validated**.
+
+The recommendation is to verify that a legal-input multi-scenario reference actually improves prediction before implementing another candidate. This reassessment adds **zero fits and zero GPU jobs**. Existing STOP/FAIL outcomes remain unchanged. Supporting chart data and sources are provided as CSV files alongside the report.
+
 ## Block-conditioned distribution adaptation: completed 48-fit pilot
 
 **48/48 fits completed; STOP** on the preregistered continuation gate. Two datasets × two seeds × six arms × two recipes, 5,760 proposed training iterations. On later chronological evaluation periods, the candidate's seed-mean primary loss is 0.407% worse on ETTm2 and 0.269% worse on Electricity than the predeclared conservative strongest-baseline comparator. All four selected candidate models have nonzero shape adaptation; safety and coverage conditions pass, but neither dataset meets the required 0.5% primary improvement.
