@@ -28,14 +28,23 @@ On this machine only, kernel driver580.173.02 and globally installed userspace58
 
 See [novelty boundaries](docs/NOVELTY_BOUNDARY.md). Candidate06 is stopped for direct overlap of the central neural-copula method; its raw data preparation is not a fitted result.
 
-## Current action: forecast-query checkpoint diagnostic
+## Forecast-query checkpoint diagnostic: completed
 
-The user approved a bounded return to the unresolved forecast-query storage comparison.
-The [fixed diagnostic protocol](docs/FORECAST_QUERY_CHECKPOINT_DIAGNOSTIC.md) compares
-Standard/Query × checkpoint off/on using 24 BF16 measurements, with separately counted
-warmup and FP32 equivalence checks. No new fits, validation selection or E access.
-The future-covariate direction below is deferred pending this diagnostic.
-Historical FAIL/STOP results remain unchanged.
+**TRADEOFF_ONLY; original FAIL unchanged.** The [24-measurement diagnostic](results/forecast_query_checkpoint_diagnostic/RESULT.md)
+compared Standard/Query × checkpoint off/on from identical warmed LoRA/Adam/RNG state.
+With checkpointing on both, Query uses 683.82 versus 732.88MiB peak allocated memory
+(6.69% less), but takes 15.88–18.59% longer per step on the two fixed train batches.
+The original 20% memory reduction target is unmet. Query-on now peaks during the
+frozen encoder/cache pass, rather than its trainable branch.
+
+All 16 on/off numerical pairs replay exactly: outputs, gradients, actual updates,
+Adam state and RNG. Counts: 24 BF16 measured updates + 8 FP32 equivalence updates +
+6 warmups, and 4 backward-only inventories; **zero new fits or V/E accesses**.
+No expanded learning followed. Strong side comparison and new quality evidence remain
+outstanding; this diagnostic does not establish a methods-paper contribution.
+See the [fixed protocol](docs/FORECAST_QUERY_CHECKPOINT_DIAGNOSTIC.md) and
+[verification](results/forecast_query_checkpoint_diagnostic/verification.json).
+The future-covariate proposal below remains a deferred, unvalidated research direction.
 
 ## Research reassessment after the latest STOP
 

@@ -1,0 +1,115 @@
+{
+  "counts": {
+    "evaluation_accesses": 0,
+    "fits": 0,
+    "fp32_equivalence_optimizer_updates": 8,
+    "instrumented_backward_only": 4,
+    "measured_optimizer_updates": 24,
+    "warmup_optimizer_updates": 6
+  },
+  "decisions": [
+    {
+      "dataset": "ettm2",
+      "memory_reduced_and_time_overhead_le_5_percent": false,
+      "old_20_percent_memory_target_met": false,
+      "query_checkpoint_memory_ratio": 0.7197388626556946,
+      "query_checkpoint_time_ratio": 1.507551018503454,
+      "query_on_vs_standard_on_memory_ratio": 0.9330648331367886,
+      "query_on_vs_standard_on_time_ratio": 1.1587687164360614
+    },
+    {
+      "dataset": "electricity",
+      "memory_reduced_and_time_overhead_le_5_percent": false,
+      "old_20_percent_memory_target_met": false,
+      "query_checkpoint_memory_ratio": 0.7213522512109544,
+      "query_checkpoint_time_ratio": 1.523933553679571,
+      "query_on_vs_standard_on_memory_ratio": 0.9330648331367886,
+      "query_on_vs_standard_on_time_ratio": 1.1858850638964935
+    }
+  ],
+  "note": "Fixed train-state resource diagnosis only. No new quality gate, side comparison or paper PASS.",
+  "original_forecast_query_verdict": "FAIL",
+  "resources": [
+    {
+      "arm": "standard",
+      "checkpoint": false,
+      "dataset": "ettm2",
+      "max_seconds": 0.1207515699788928,
+      "median_seconds": 0.12051607994362712,
+      "min_seconds": 0.11874449206516147,
+      "peak_allocated_mib": 1831.1845703125,
+      "peak_reserved_mib": 1886.0
+    },
+    {
+      "arm": "standard",
+      "checkpoint": true,
+      "dataset": "ettm2",
+      "max_seconds": 0.18679305259138346,
+      "median_seconds": 0.1777921780012548,
+      "min_seconds": 0.17371576698496938,
+      "peak_allocated_mib": 732.8759765625,
+      "peak_reserved_mib": 784.0
+    },
+    {
+      "arm": "query",
+      "checkpoint": false,
+      "dataset": "ettm2",
+      "max_seconds": 0.14606745215132833,
+      "median_seconds": 0.13665873417630792,
+      "min_seconds": 0.1298644058406353,
+      "peak_allocated_mib": 950.095703125,
+      "peak_reserved_mib": 960.0
+    },
+    {
+      "arm": "query",
+      "checkpoint": true,
+      "dataset": "ettm2",
+      "max_seconds": 0.21583489468321204,
+      "median_seconds": 0.20602001389488578,
+      "min_seconds": 0.20303027192130685,
+      "peak_allocated_mib": 683.82080078125,
+      "peak_reserved_mib": 730.0
+    },
+    {
+      "arm": "standard",
+      "checkpoint": false,
+      "dataset": "electricity",
+      "max_seconds": 0.12199447164312005,
+      "median_seconds": 0.12073337892070413,
+      "min_seconds": 0.11583924992009997,
+      "peak_allocated_mib": 1831.1845703125,
+      "peak_reserved_mib": 1886.0
+    },
+    {
+      "arm": "standard",
+      "checkpoint": true,
+      "dataset": "electricity",
+      "max_seconds": 0.17149355495348573,
+      "median_seconds": 0.17091173492372036,
+      "min_seconds": 0.16807551495730877,
+      "peak_allocated_mib": 732.8759765625,
+      "peak_reserved_mib": 784.0
+    },
+    {
+      "arm": "query",
+      "checkpoint": false,
+      "dataset": "electricity",
+      "max_seconds": 0.13919492112472653,
+      "median_seconds": 0.13299902295693755,
+      "min_seconds": 0.13223888911306858,
+      "peak_allocated_mib": 947.970703125,
+      "peak_reserved_mib": 960.0
+    },
+    {
+      "arm": "query",
+      "checkpoint": true,
+      "dataset": "electricity",
+      "max_seconds": 0.2038346640765667,
+      "median_seconds": 0.2026816736906767,
+      "min_seconds": 0.2008600952103734,
+      "peak_allocated_mib": 683.82080078125,
+      "peak_reserved_mib": 730.0
+    }
+  ],
+  "verdict": "TRADEOFF_ONLY"
+}

@@ -1,5 +1,7 @@
 """CPU-only independent replay of every stored CP parity pair and resource summary."""
 import csv
+import hashlib
+import subprocess
 import json
 from pathlib import Path
 import sys
@@ -23,6 +25,12 @@ def main():
                                    fp32_equivalence_optimizer_updates=8, instrumented_backward_only=4,
                                    fits=0, evaluation_accesses=0)
     assert sha(CACHE/'shared_state.pt') == contract['shared_state_sha256']
+    execution_sources = dict(contract['source_hashes'])
+    execution_sources['scripts/run_forecast_query_checkpoint_diagnostic.py'] = contract['runner_sha256']
+    execution_sources['docs/FORECAST_QUERY_CHECKPOINT_DIAGNOSTIC.md'] = contract['protocol_sha256']
+    for path, expected in execution_sources.items():
+        payload = subprocess.check_output(['git','show',f"{contract['execution_commit']}:{path}"],cwd=ROOT)
+        assert hashlib.sha256(payload).hexdigest() == expected
     old = contract['historical_result_hashes']
     assert all(sha(ROOT/p) == h for p,h in old.items())
     replay = []
@@ -76,7 +84,15 @@ def main():
         verdict = 'STOP_CURRENT_QUERY_STORAGE'
     else:
         verdict = 'TRADEOFF_ONLY'
-    verification = dict(passed=True, parity_pairs_replayed=len(replay), raw_cache_files=32,
+    monitor = json.loads((OUT/'gpu_monitor.json').read_text())
+    active = [r for r in monitor if r['phase'] != 'startup_wait']
+    assert active and not any(r['external_pids'] for r in active)
+    gpu = dict(samples=len(monitor), active_samples=len(active),
+               min_active_free_mib=min(r['free_mib'] for r in active),
+               max_active_used_mib=max(r['used_mib'] for r in active),
+               external_compute_seen=any(r['external_pids'] for r in monitor),
+               oom=False)
+    verification = dict(passed=True, execution_source_files_verified=len(execution_sources), gpu=gpu, parity_pairs_replayed=len(replay), raw_cache_files=32,
                         historical_files_unchanged=len(old), all_initial_states_identical=True,
                         max_parity_absolute_error=max(v['max_absolute'] for r in replay for v in r['errors'].values()),
                         max_parity_relative_error=max(v['relative_l2'] for r in replay for v in r['errors'].values()),
@@ -138,7 +154,20 @@ def main():
                     +(f" 과거 K/V unique={cache['kv_unique_bytes']/2**20:.2f}MiB, 전체 cache unique={cache['all_unique_bytes']/2**20:.2f}MiB." if cache else ''))
     text += ['', '이 계측은 nested checkpoint hook 내부를 모두 볼 수 없고 연산별 전체 임시 메모리를 분해한 profiler가 아니다.',
              '따라서 saved-storage union을 peak와 동일시하거나, 전체 peak 차이를 K/V만으로 설명하지 않는다.',
+             '', '## GPU 감시', '',
+             f"총 {gpu['samples']}회 점검, 실행 단계 {gpu['active_samples']}회. "
+             f"실행 단계 관측 최소 free={gpu['min_active_free_mib']:.0f}MiB. 외부 compute PID와 OOM은 없었다.",
+             '점검은 step 경계에서 수행하므로 모든 순간의 다른 프로세스 상태를 보장하는 연속 profiler는 아니다.',
              '', '## 해석과 다음 범위', '',
+             '이번 결과는 두 데이터셋 모두 TRADEOFF_ONLY다. 같은 checkpoint-on 비교에서 '
+             '메모리 약 6.69% 감소와 step 시간 약 15.88~18.59% 증가가 관찰됐다.',
+             'query 자체 checkpointing은 memory를 약 28% 줄였지만 step 시간은 약 51~52% 늘렸다.',
+             '새로운 관찰은 query-on의 peak가 학습 branch가 아니라 frozen encoder+cache 단계에서 발생한다는 점이다. '
+             '현재 측정의 그 단계가 그대로 유지된다면 query branch 저장값만 더 줄여도 '
+             'standard-on 대비 20% 감소 목표인 약 586.30MiB에 도달할 수 없다. '
+             '이는 모든 구현의 수학적 하한이 아니라 이번 고정 상태의 단계별 측정에 근거한 조건부 판단이다.',
+             '현재 증거로 장기 fit이나 논문 방법 확장을 진행하지 않는다. '
+             'side 대조와 품질 우위는 여전히 미검증이며, 기존 FAIL을 뒤집을 근거가 부족하다.',
              'checkpointing은 기존 기술이며 이번 진단은 새 PEFT 방법의 성공 증거가 아니다.',
              'RESOURCE_SIGNAL_ONLY이면 동등한 저장 전략에서 자원 이점이 남는다는 개발 근거만 얻은 것이다.',
              'TRADEOFF_ONLY이면 메모리/시간 교환을 확인한 것이며, 목표를 바꿔 과거 FAIL을 PASS로 바꾸지 않는다.',
