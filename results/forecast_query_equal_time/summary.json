@@ -1,0 +1,224 @@
+{
+  "active_training_seconds": 961.4974978491664,
+  "complete_experiment_wall_seconds": 1374.6497552492656,
+  "counts": {
+    "completed_fits": 32,
+    "evaluation_open_events": 2,
+    "fit_attempts": 32,
+    "preflight_bf16_updates": 48,
+    "preflight_fp32_updates": 16,
+    "preflight_warmup_updates": 16,
+    "training_optimizer_updates": 12120
+  },
+  "decisions": [
+    {
+      "baseline_mean": 0.2619812034237132,
+      "continuation_gate": false,
+      "dataset": "ettm2",
+      "query_gain_vs_best_seed_mean": -0.0036917138751144662,
+      "query_mean": 0.2629483630674117,
+      "seeds": [
+        {
+          "best_baseline_loss": 0.25973042403473656,
+          "improves_own_initial": true,
+          "loss_ratio": 1.0115053647273642,
+          "nonzero_selection": true,
+          "query_loss": 0.26271871729404916,
+          "seed": 30000
+        },
+        {
+          "best_baseline_loss": 0.26379622199707303,
+          "improves_own_initial": true,
+          "loss_ratio": 0.997656474563515,
+          "nonzero_selection": true,
+          "query_loss": 0.26317800884077425,
+          "seed": 30001
+        }
+      ],
+      "strongest_baseline": "standard"
+    },
+    {
+      "baseline_mean": 0.08399511258068981,
+      "continuation_gate": false,
+      "dataset": "electricity",
+      "query_gain_vs_best_seed_mean": -0.011551963938863041,
+      "query_mean": 0.08496542109226268,
+      "seeds": [
+        {
+          "best_baseline_loss": 0.08417055632922868,
+          "improves_own_initial": true,
+          "loss_ratio": 1.0086754428263445,
+          "nonzero_selection": true,
+          "query_loss": 0.0849007731783245,
+          "seed": 30000
+        },
+        {
+          "best_baseline_loss": 0.08381966883215095,
+          "improves_own_initial": true,
+          "loss_ratio": 1.0144405267989516,
+          "nonzero_selection": true,
+          "query_loss": 0.08503006900620086,
+          "seed": 30001
+        }
+      ],
+      "strongest_baseline": "standard"
+    }
+  ],
+  "metrics": [
+    {
+      "arm": "F0",
+      "dataset": "ettm2",
+      "mean_loss": 0.26379622199707303,
+      "seed30000_loss": 0.26379622199707303,
+      "seed30001_loss": 0.26379622199707303
+    },
+    {
+      "arm": "standard",
+      "dataset": "ettm2",
+      "mean_loss": 0.2619812034237132,
+      "seed30000_loss": 0.25973042403473656,
+      "seed30001_loss": 0.26423198281268984
+    },
+    {
+      "arm": "head",
+      "dataset": "ettm2",
+      "mean_loss": 0.26490089700287267,
+      "seed30000_loss": 0.26600557200867236,
+      "seed30001_loss": 0.26379622199707303
+    },
+    {
+      "arm": "side",
+      "dataset": "ettm2",
+      "mean_loss": 0.2641414325201507,
+      "seed30000_loss": 0.26379622199707303,
+      "seed30001_loss": 0.2644866430432284
+    },
+    {
+      "arm": "query",
+      "dataset": "ettm2",
+      "mean_loss": 0.2629483630674117,
+      "seed30000_loss": 0.26271871729404916,
+      "seed30001_loss": 0.26317800884077425
+    },
+    {
+      "arm": "F0",
+      "dataset": "electricity",
+      "mean_loss": 0.08708946220613872,
+      "seed30000_loss": 0.08708946220613872,
+      "seed30001_loss": 0.08708946220613872
+    },
+    {
+      "arm": "standard",
+      "dataset": "electricity",
+      "mean_loss": 0.08399511258068981,
+      "seed30000_loss": 0.08417055632922868,
+      "seed30001_loss": 0.08381966883215095
+    },
+    {
+      "arm": "head",
+      "dataset": "electricity",
+      "mean_loss": 0.08708946220613872,
+      "seed30000_loss": 0.08708946220613872,
+      "seed30001_loss": 0.08708946220613872
+    },
+    {
+      "arm": "side",
+      "dataset": "electricity",
+      "mean_loss": 0.08577529160150814,
+      "seed30000_loss": 0.08708946220613872,
+      "seed30001_loss": 0.08446112099687755
+    },
+    {
+      "arm": "query",
+      "dataset": "electricity",
+      "mean_loss": 0.08496542109226268,
+      "seed30000_loss": 0.0849007731783245,
+      "seed30001_loss": 0.08503006900620086
+    }
+  ],
+  "original_forecast_query_verdict": "FAIL",
+  "total_fit_wall_seconds": 1084.6269819536246,
+  "training_resources": [
+    {
+      "arm": "standard",
+      "dataset": "ettm2",
+      "max_active_seconds": 30.11047455109656,
+      "max_updates": 251,
+      "median_step_seconds": 0.12079490395262837,
+      "min_active_seconds": 30.061746439896524,
+      "min_updates": 245,
+      "peak_allocated_mib": 1830.3095703125
+    },
+    {
+      "arm": "head",
+      "dataset": "ettm2",
+      "max_active_seconds": 30.010905004572123,
+      "max_updates": 702,
+      "median_step_seconds": 0.043921006843447685,
+      "min_active_seconds": 30.001243352424353,
+      "min_updates": 654,
+      "peak_allocated_mib": 610.83642578125
+    },
+    {
+      "arm": "side",
+      "dataset": "ettm2",
+      "max_active_seconds": 30.076254398096353,
+      "max_updates": 379,
+      "median_step_seconds": 0.08017867780290544,
+      "min_active_seconds": 30.045336531009525,
+      "min_updates": 366,
+      "peak_allocated_mib": 758.99609375
+    },
+    {
+      "arm": "query",
+      "dataset": "ettm2",
+      "max_active_seconds": 30.077295468654484,
+      "max_updates": 218,
+      "median_step_seconds": 0.13851088215596974,
+      "min_active_seconds": 30.006932641379535,
+      "min_updates": 211,
+      "peak_allocated_mib": 947.970703125
+    },
+    {
+      "arm": "standard",
+      "dataset": "electricity",
+      "max_active_seconds": 30.091857148800045,
+      "max_updates": 250,
+      "median_step_seconds": 0.12190699484199286,
+      "min_active_seconds": 30.02555378479883,
+      "min_updates": 237,
+      "peak_allocated_mib": 1830.3095703125
+    },
+    {
+      "arm": "head",
+      "dataset": "electricity",
+      "max_active_seconds": 30.027564940042794,
+      "max_updates": 684,
+      "median_step_seconds": 0.04402596247382462,
+      "min_active_seconds": 30.00826591346413,
+      "min_updates": 665,
+      "peak_allocated_mib": 611.58642578125
+    },
+    {
+      "arm": "side",
+      "dataset": "electricity",
+      "max_active_seconds": 30.066288729198277,
+      "max_updates": 380,
+      "median_step_seconds": 0.07931117014959455,
+      "min_active_seconds": 30.001838935073465,
+      "min_updates": 372,
+      "peak_allocated_mib": 758.99609375
+    },
+    {
+      "arm": "query",
+      "dataset": "electricity",
+      "max_active_seconds": 30.08716007275507,
+      "max_updates": 222,
+      "median_step_seconds": 0.13615015288814902,
+      "min_active_seconds": 30.039982875343412,
+      "min_updates": 216,
+      "peak_allocated_mib": 947.970703125
+    }
+  ],
+  "verdict": "STOP_CURRENT_QUERY"
+}

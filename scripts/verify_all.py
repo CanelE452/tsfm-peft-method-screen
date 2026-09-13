@@ -49,3 +49,6 @@ if (ROOT/'results/block_shape_pilot/verification.json').exists():
 
 if (ROOT/'results/forecast_query_checkpoint_diagnostic/verification.json').exists():
     subprocess.run([sys.executable,str(ROOT/'scripts/finalize_forecast_query_checkpoint_diagnostic.py'),'--verify-only'],cwd=ROOT,check=True)
+
+if (ROOT/'results/forecast_query_equal_time/verification.json').exists():
+    subprocess.run([sys.executable,str(ROOT/'scripts/finalize_forecast_query_equal_time.py'),'--verify-only'],cwd=ROOT,check=True)

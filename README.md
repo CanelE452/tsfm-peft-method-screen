@@ -28,19 +28,30 @@ On this machine only, kernel driver580.173.02 and globally installed userspace58
 
 See [novelty boundaries](docs/NOVELTY_BOUNDARY.md). Candidate06 is stopped for direct overlap of the central neural-copula method; its raw data preparation is not a fitted result.
 
-## Next comparison design: equal training time with strong Side baseline
+## Equal training time comparison: completed 32-fit pilot
 
-The [fixed plan](docs/FORECAST_QUERY_EQUAL_TIME_PLAN.md) compares Standard, Head, Side,
-and Query against F0 under a common nominal active-training time budget.
-It specifies 32 fit attempts (2 datasets × 2 seeds × 4 arms × 2 learning rates),
-30 seconds per recipe, and a separately accounted 80-update storage/numerical preflight.
-Each method can select checkpoint off or on using train-only resource measurements;
-checkpointing is not forced when it makes a feasible baseline slower.
+**32/32 fits completed; STOP_CURRENT_QUERY.** Standard LoRA, Head, Side and Query
+were compared on two datasets × two seeds × two learning rates with a nominal
+30-second active-training budget per fit. Query's seed-mean primary loss is lower
+than F0 and Side on both datasets, but is **0.3692% worse than Standard on ETTm2**
+and **1.1552% worse on Electricity**. Neither dataset meets the fixed continuation
+gate. All four selected Query models improve their own initial E predictions.
 
-**Runner implemented; new experiment not yet completed.** The [execution implementation](docs/FORECAST_QUERY_EQUAL_TIME_EXECUTION.md) adds Head/Side checkpointing, a measured training clock, selection seals, and independent result replay. [CPU audit and fixed fit order](research/forecast_query_equal_time_plan/)
-verify budgets and nonoverlap of proposed E targets with recorded prior scoring windows.
-Reused Train/V data are development data; E is a later unscored portion of the same
-sources, not external replication. Historical FAIL remains unchanged.
+The runner completed **12,120 training updates plus 80 separate preflight updates**.
+Actual active training totals 961.50 seconds. Storage options were selected using
+train-only timings under a common memory cap, so feasible fast Standard-off was
+allowed. The original forecast-query memory/quality FAIL remains unchanged.
+
+All 166 prediction caches, 16 selected-checkpoint reloads, and 32 numerical parity
+pairs verify. GPU monitoring observed no external compute during active execution;
+the runner first waited for an unrelated job to finish. This is a limited
+development comparison on later unscored portions of the same sources, not
+external replication or a publication PASS.
+
+See the [results](results/forecast_query_equal_time/RESULT.md),
+[verification](results/forecast_query_equal_time/verification.json),
+[fixed plan](docs/FORECAST_QUERY_EQUAL_TIME_PLAN.md), and
+[execution implementation](docs/FORECAST_QUERY_EQUAL_TIME_EXECUTION.md).
 
 ## Forecast-query checkpoint diagnostic: completed
 

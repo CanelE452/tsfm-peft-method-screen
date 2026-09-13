@@ -1,0 +1,62 @@
+{
+  "choices": [
+    {
+      "arm": "standard",
+      "checkpoint": false,
+      "dataset": "ettm2",
+      "median_seconds": 0.1321849850937724,
+      "peak_allocated_bytes": 1920136192
+    },
+    {
+      "arm": "standard",
+      "checkpoint": false,
+      "dataset": "electricity",
+      "median_seconds": 0.13199607096612453,
+      "peak_allocated_bytes": 1920136192
+    },
+    {
+      "arm": "head",
+      "checkpoint": false,
+      "dataset": "ettm2",
+      "median_seconds": 0.041559833101928234,
+      "peak_allocated_bytes": 640934400
+    },
+    {
+      "arm": "head",
+      "checkpoint": true,
+      "dataset": "electricity",
+      "median_seconds": 0.043573715724051,
+      "peak_allocated_bytes": 640934400
+    },
+    {
+      "arm": "side",
+      "checkpoint": false,
+      "dataset": "ettm2",
+      "median_seconds": 0.09189055813476443,
+      "peak_allocated_bytes": 795865088
+    },
+    {
+      "arm": "side",
+      "checkpoint": false,
+      "dataset": "electricity",
+      "median_seconds": 0.09246882004663348,
+      "peak_allocated_bytes": 795865088
+    },
+    {
+      "arm": "query",
+      "checkpoint": false,
+      "dataset": "ettm2",
+      "median_seconds": 0.1474060039035976,
+      "peak_allocated_bytes": 995133440
+    },
+    {
+      "arm": "query",
+      "checkpoint": false,
+      "dataset": "electricity",
+      "median_seconds": 0.15985066629946232,
+      "peak_allocated_bytes": 995133440
+    }
+  ],
+  "measurements_sha256": "89f299ca01e4a7b26d35bac74c5f69ed5b23a364a21fca2e04aecbc21fdb3e26",
+  "seal_sha256": "2d5f418bf2e98a6706360c2d7d3859263005b78173eda47e6216e8dab93efedf"
+}

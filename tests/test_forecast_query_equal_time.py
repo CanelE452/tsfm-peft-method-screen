@@ -85,3 +85,11 @@ def test_evaluation_requires_complete_intact_selection_seal(tmp_path,monkeypatch
     (cache/'weights.pt').write_bytes(b'changed')
     with pytest.raises(AssertionError):
         runner.require_selection_seal()
+
+
+def test_update_cap_at_intermediate_checkpoint_is_also_enforced():
+    clock=TrainingClock(boundaries=(1.,2.),max_updates=1)
+    with pytest.raises(RuntimeError,match='update cap'):
+        clock.add(1.)
+    final=TrainingClock(boundaries=(1.,),max_updates=1)
+    assert final.add(1.)==1. and final.complete

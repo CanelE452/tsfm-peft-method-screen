@@ -114,6 +114,7 @@ def main():
     for s in seal['selections']:
         candidates=[r['best'] for r in fits if all(r[k]==s[k] for k in ('dataset','seed','arm'))]
         assert min(candidates,key=lambda r:(r['metrics']['scaled_2pinball'],r['nominal_seconds'],r['lr']))==s
+    assert len({r['prediction_file'] for r in trajectories+ev+reloads})==166
     max_metric_error=0.
     for r in trajectories+ev+reloads:
         path=CACHE/r['prediction_file']
@@ -128,6 +129,16 @@ def main():
         chosen=next(s for s in seal['selections'] if s['fit']==r['fit'])
         with np.load(CACHE/r['prediction_file']) as a,np.load(CACHE/chosen['prediction_file']) as b:
             assert np.array_equal(a['prediction'],b['prediction'])
+    resources=[]
+    for name in cfg['datasets']:
+        for arm in cfg['arms']:
+            rr=[r for r in fits if r['dataset']==name and r['arm']==arm]
+            resources.append(dict(dataset=name,arm=arm,min_updates=min(r['updates'] for r in rr),
+                                  max_updates=max(r['updates'] for r in rr),
+                                  median_step_seconds=float(np.median([s['seconds'] for r in rr for s in r['step_resources']])),
+                                  peak_allocated_mib=max(r['peak_allocated_bytes'] for r in rr)/2**20,
+                                  min_active_seconds=min(r['active_seconds'] for r in rr),
+                                  max_active_seconds=max(r['active_seconds'] for r in rr)))
     summaries=[]
     decisions=[]
     paired=[]
@@ -158,7 +169,7 @@ def main():
                 q=lookup[('query',seed)]
                 b=lookup[('F0',None)] if arm=='F0' else lookup[(arm,seed)]
                 with np.load(CACHE/q['prediction_file']) as qa,np.load(CACHE/b['prediction_file']) as ba:
-                    assert np.array_equal(qa['target'],ba['target'])
+                    assert np.array_equal(qa['target'],ba['target'],equal_nan=True)
                     diff=[independent(qa['prediction'][i:i+1],qa['target'][i:i+1],qa['scale'])-
                           independent(ba['prediction'][i:i+1],ba['target'][i:i+1],ba['scale']) for i in range(16)]
                 diffs.append(diff)
@@ -169,7 +180,7 @@ def main():
             paired.append(dict(dataset=name,baseline=arm,seed_origin_loss_differences=diffs,
                                seed_mean_difference=float(by_origin.mean()),
                                descriptive_95_percent_interval=np.quantile(draws,[.025,.975]).tolist(),
-                               independent_blocks=4,scope='Descriptive only; overlapping contexts and tiny number of blocks.'))
+                               chronological_blocks=4,scope='Descriptive only; overlapping contexts and tiny number of blocks.'))
     verdict='CONTINUE_CANDIDATE_VALIDATION' if all(d['continuation_gate'] for d in decisions) else 'STOP_CURRENT_QUERY'
     monitor=read('gpu_monitor.json')
     active=[r for r in monitor if r['phase']!='startup_wait']
@@ -179,17 +190,22 @@ def main():
                       historical_files_unchanged=len(contract['historical_result_hashes']),
                       counts=counts,gpu_samples=len(monitor),
                       min_observed_active_free_mib=min(r['free_mib'] for r in active),
-                      external_compute_seen=any(r['external_pids'] for r in monitor))
-    summary=dict(verdict=verdict,original_forecast_query_verdict='FAIL',decisions=decisions,metrics=summaries,
+                      external_compute_seen=any(r['external_pids'] for r in monitor),
+                      external_compute_seen_while_active=any(r['external_pids'] for r in active))
+    summary=dict(verdict=verdict,original_forecast_query_verdict='FAIL',decisions=decisions,metrics=summaries,training_resources=resources,
                  counts=counts,active_training_seconds=sum(r['active_seconds'] for r in fits),
                  total_fit_wall_seconds=sum(r['total_fit_wall_seconds'] for r in fits),
                  complete_experiment_wall_seconds=status['elapsed_wall_seconds'])
     if '--verify-only' in sys.argv:
+        assert status['verdict']==verdict and status['independent_finalization_complete']
         assert read('summary.json')==summary
         assert read('verification.json')==verification
         assert read('paired_differences.json')==paired
         print('EQUAL TIME VERIFIED',verdict,verification)
         return
+    status['verdict']=verdict
+    status['independent_finalization_complete']=True
+    write_json(OUT/'status.json',status)
     write_json(OUT/'summary.json',summary)
     write_json(OUT/'verification.json',verification)
     write_json(OUT/'paired_differences.json',paired)
@@ -197,6 +213,10 @@ def main():
         w=csv.DictWriter(f,fieldnames=list(summaries[0]),lineterminator='\n')
         w.writeheader()
         w.writerows(summaries)
+    with (OUT/'training_resources.csv').open('w',newline='') as f:
+        w=csv.DictWriter(f,fieldnames=list(resources[0]),lineterminator='\n')
+        w.writeheader()
+        w.writerows(resources)
     lines=['# Forecast-query 동일 학습 시간 비교 결과','',f'판정: **{verdict}**. 기존 메모리·품질 gate의 FAIL은 유지한다.','',
            '## 범위와 실행','',f"실행 commit: {contract['execution_commit']}. 고정 계획 commit: {contract['plan_commit']}.",
            f"32/32 fits 완료, 실제 학습 updates={counts['training_optimizer_updates']}. Preflight80 updates는 별도다.",
@@ -208,7 +228,15 @@ def main():
            '| 데이터 | 방식 | seed30000 | seed30001 | 평균 |','|---|---|---:|---:|---:|']
     for r in summaries:
         lines.append(f"| {r['dataset']} | {r['arm']} | {r['seed30000_loss']:.8f} | {r['seed30001_loss']:.8f} | {r['mean_loss']:.8f} |")
-    lines+=['','## 데이터셋별 고정 판정','']
+    lines+=['',
+            'Query는 두 데이터셋 모두 F0와 Side보다 평균 손실이 낮았으나, Standard LoRA보다 '
+            'ETTm2 약0.3692%, Electricity 약1.1552% 높은 손실을 얻었다.',
+            '네 Query 선택 모두 시간>0이고 자체 초기 E 예측보다 개선되어 실제 학습 효과는 확인됐다. '
+            '두 데이터셋에서 요구한0.5% 우위는 충족하지 못했으며, ETTm2 seed30000 및 '
+            'Electricity seed30001은 해당 seed 최선 baseline 대비1% 악화 제한도 넘었다.',
+            '따라서 이 예산·데이터·recipe 범위에서 현재 Query의 추가 확장을 중단한다. '
+            '전체 연구 질문의 불가능성이나 모든 예산의 성능 우위를 증명한 결과는 아니다.',
+            '', '## 데이터셋별 고정 판정','']
     for d in decisions:
         lines.append(f"- {d['dataset']}: 최선 기준선={d['strongest_baseline']}, Query 평균 개선율={100*d['query_gain_vs_best_seed_mean']:.4f}%, 지속 gate={d['continuation_gate']}.")
         for r in d['seeds']:
@@ -218,6 +246,11 @@ def main():
             '|---|---|---|---:|---:|']
     for r in storage['choices']:
         lines.append(f"| {r['dataset']} | {r['arm']} | {r['checkpoint']} | {r['median_seconds']:.5f} | {r['peak_allocated_bytes']/2**20:.2f} |")
+    lines+=['','### 실제 30초 학습에서의 비용','',
+            '| 데이터 | 방식 | updates 범위 | step 중앙값 s | 최대 peak MiB |',
+            '|---|---|---:|---:|---:|']
+    for r in resources:
+        lines.append(f"| {r['dataset']} | {r['arm']} | {r['min_updates']}–{r['max_updates']} | {r['median_step_seconds']:.5f} | {r['peak_allocated_mib']:.2f} |")
     lines+=['','학습 중 각 fit의 실제 업데이트 수·peak·validation/checkpoint/wall 비용은 fits.json에 전부 기록했다.',
             'Preflight3회 시간 차이는 공유 데스크톱의 작은 표본이며 확정적 시스템 우위가 아니다.','',
             '## 무결성','',
@@ -225,7 +258,7 @@ def main():
             f"166개 prediction cache와16개 선택 checkpoint replay; primary 최대 오차={max_metric_error:.3g}.",
             f"기존 결과 {verification['historical_files_unchanged']}개 파일과 frozen backbone 파라미터 불변.",
             f"GPU 점검 {len(monitor)}회, 실행 단계 최소 관측 free={verification['min_observed_active_free_mib']:.0f}MiB, "
-            f"외부 compute 관측(대기 포함)={verification['external_compute_seen']}.",
+            f"외부 compute 관측(대기 포함)={verification['external_compute_seen']}; 실행 단계={verification['external_compute_seen_while_active']}.",
             '모든16 선택을 봉인한 뒤에만 E 평가를 열었다. raw 파일 mechanical staging과 E scoring은 구분한다.','',
             '## 해석의 한계','',
             'Train/V 일부는 과거 실험의 개발 데이터다. E는 기록상 이전 scoring과 겹치지 않는 이후 구간이며 같은 원천의16 origins뿐이다.',

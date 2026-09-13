@@ -24,3 +24,8 @@ check/clipping/optimizer/synchronize 시간을 누적한다.
 실제 GPU parity와 fit 상태는 결과 파일에 별도로 기록한다.
 GPU가 다른 compute 작업에 사용 중이면 시작하지 않고 최대1시간 대기한다.
 전체 실행은2시간 timeout이며 중단된 시도도 status와 fit attempt에 남긴다.
+
+실행 후 유지보수: intermediate checkpoint에서 update 상한에 동시에 도달하는
+경우에도 즉시 INVALID_TIMING으로 종료하도록 CPU guard와 테스트를 보강했다.
+보고된 실행은7918edd에 고정되며, 모든 fit이702 updates 이하라 이 경계 경로는
+실행되지 않았다. 이 유지보수 변경으로 GPU fit을 다시 실행하거나 결과를 변경하지 않는다.

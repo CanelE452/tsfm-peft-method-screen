@@ -58,6 +58,8 @@ class TrainingClock:
     def add(self, seconds):
         if self.complete:
             raise RuntimeError('No updates after the final time checkpoint')
+        if self.updates >= self.max_updates:
+            raise RuntimeError('INVALID_TIMING: update cap before time budget')
         if not np.isfinite(seconds) or seconds <= 0:
             raise ValueError('Invalid measured step time')
         self.elapsed += seconds
@@ -67,6 +69,8 @@ class TrainingClock:
             if self.elapsed-boundary > self.tolerance:
                 raise RuntimeError('INVALID_TIMING: checkpoint overshoot')
             self.index += 1
+            if self.updates >= self.max_updates and not self.complete:
+                raise RuntimeError('INVALID_TIMING: update cap before time budget')
             return boundary
         if self.updates >= self.max_updates:
             raise RuntimeError('INVALID_TIMING: update cap before time budget')
