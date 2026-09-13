@@ -4,6 +4,22 @@ Independent Chronos-2 development screen. Round 0 and Round 1 only; Round 2 requ
 
 No prior experiment outputs are used as new evidence. Raw data and cached model weights may be reused with provenance hashes. All source is local to this repository.
 
+## Bounded anchoring / DualClock diagnostics
+
+The user-authorized follow-up is implemented: **44 fits maximum / 46,080 training
+updates**, using train/V only. Four anchoring factorial cells on two datasets and
+seeds are followed serially by a fourfold budget extension for all three DualClock
+comparison arms. Fixed-endpoint comparisons distinguish learning from selecting
+among additional V checkpoints; event ablations are diagnostic only.
+
+All 69 CPU tests and 14 actual GPU smoke updates pass. These are preflight results,
+not completed-fit claims. The queue records live status and independently finalizes
+both jobs; it does not open E, relabel old outcomes, or launch another research cycle.
+See the [fixed protocol](docs/REASSESSMENT_DIAGNOSTICS_PROTOCOL.md).
+
+    scripts/with_cuda.sh .venv/bin/python scripts/run_reassessment_diagnostics.py start
+    scripts/with_cuda.sh .venv/bin/python scripts/run_reassessment_diagnostics.py status
+
 ## Full retrospective reassessment — 2026-09-14
 
 All completed experiments were rechecked: **270 fits and 9 stream attempts**

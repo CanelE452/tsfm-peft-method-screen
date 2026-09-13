@@ -1,0 +1,45 @@
+{
+  "run_id": "reassessment_diagnostics_20260914",
+  "scope": "Train/V diagnostics only. Reused development data; no E access, no scientific PASS/FAIL, no automatic further research.",
+  "topics": {
+    "anchor": {
+      "datasets": ["etth1", "traffic"],
+      "arms": ["native", "native_anchor", "raw", "raw_anchor"],
+      "seeds": [33000, 33001],
+      "learning_rates": [0.00003, 0.0001],
+      "steps": 900,
+      "checkpoints": [0, 150, 450, 900],
+      "context": 1024,
+      "precision": "BF16 autocast; FP32 parameters and AdamW",
+      "anchor_coefficient": 0.1,
+      "train_origins": [2048, 9472, 32],
+      "validation_origins": [10752, 12192, 96],
+      "fit_cap": 32
+    },
+    "dualclock": {
+      "datasets": ["m5"],
+      "arms": ["standard", "summary", "dualclock"],
+      "seeds": [30000, 30001],
+      "learning_rates": [0.00003, 0.0001],
+      "steps": 1440,
+      "checkpoints": [0, 4, 8, 15, 30, 60, 120, 180, 240, 360, 720, 1080, 1440],
+      "context": 336,
+      "precision": "FP32, same native loss scaling as original Candidate02",
+      "fit_cap": 12,
+      "validation_ablations": ["zero_events", "rotate_events", "drop_adapter"],
+      "historical_budget": 360
+    }
+  },
+  "horizon": 48,
+  "max_fit_attempts": 44,
+  "max_training_updates": 46080,
+  "max_queue_wall_seconds": 14400,
+  "max_fit_wall_seconds": 1800,
+  "smoke_steps_per_arm": 2,
+  "retries": 0,
+  "startup_idle_seconds": 30,
+  "startup_free_mib": 4096,
+  "startup_utilization_below_percent": 90,
+  "pause_free_mib_below": 1024,
+  "diagnostic_policy": "Report every dataset/seed and fixed checkpoint; paired factorial effects, V-selected checkpoints and fixed-final effects separately. DualClock 360-vs-1440 selection and event ablations are adaptive V diagnostics, not fresh test evidence. No all-dataset improvement gate."
+}
