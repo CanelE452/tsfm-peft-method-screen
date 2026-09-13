@@ -1,0 +1,77 @@
+{
+  "run_id": "calibration_anchor_20260914",
+  "datasets": [
+    "etth1",
+    "traffic"
+  ],
+  "topics": [
+    "calibration"
+  ],
+  "seeds": [
+    32000,
+    32001
+  ],
+  "learning_rates": [
+    3e-05,
+    0.0001
+  ],
+  "context": 1024,
+  "teacher_contexts": [
+    256,
+    512,
+    1024
+  ],
+  "horizon": 48,
+  "channels": 4,
+  "batch_origins": 2,
+  "train_origins": [
+    2048,
+    9472,
+    32
+  ],
+  "validation_origins": [
+    10752,
+    12192,
+    96
+  ],
+  "evaluation_origins": [
+    16512,
+    17184,
+    96
+  ],
+  "checkpoints": [
+    0,
+    150,
+    450,
+    900
+  ],
+  "max_fits_per_topic": 56,
+  "max_total_fit_attempts": 56,
+  "max_training_updates": 50400,
+  "smoke_updates": 14,
+  "training_budget": "Matched 900 optimizer updates and identical minibatch streams; total active time, frozen passes and teacher-cache time reported separately. Not an equal-time claim.",
+  "l2_anchor_coefficient": 0.01,
+  "prediction_anchor_coefficient": 0.1,
+  "distillation_coefficient": 0.2,
+  "teacher_headroom_gain": 0.01,
+  "teacher_samples_per_component": 256,
+  "gate": {
+    "min_gain": 0.01,
+    "max_seed_ratio": 1.01,
+    "require_both_datasets": true
+  },
+  "startup_idle_seconds": 30,
+  "startup_free_mib": 4096,
+  "startup_utilization_below_percent": 90,
+  "pause_free_mib_below": 1024,
+  "max_queue_wall_seconds": 28800,
+  "max_phase_wall_seconds": 25200,
+  "max_fit_wall_seconds": 1200,
+  "maximum_attempt_retries": 0,
+  "novelty_status": "UNRESOLVED_KNOWN_INGREDIENTS",
+  "scope": "Adaptive development follow-up. Existing train/V reused; new eight E origins per dataset after all parent targets. Adjacent same-series holdout, not independent source replication.",
+  "data_receipt": "research/overnight_20260913/data_receipt.json",
+  "primary_hypothesis": "Train-only quantile/patch calibration reliability allocates a fixed mean function-preservation penalty; known ingredients, novelty unresolved.",
+  "calibration_weight_formula": "clip_min(exp(-4*abs(coverage-q)/sqrt(q*(1-q))),0.1), normalized to channel mean1; train origins[::2], 16-step patches",
+  "shuffled_control": "Roll quantile axis by7 and horizon axis by16, preserving each channel weight distribution"
+}

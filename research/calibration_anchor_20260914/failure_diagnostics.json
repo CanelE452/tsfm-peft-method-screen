@@ -1,0 +1,379 @@
+{
+  "automatic_continuation": {
+    "detected_completion": true,
+    "exit_code": 1,
+    "reason": "Installed Codex CLI rejected gpt-6-astra: newer CLI required; no subsequent training was started automatically.",
+    "recovery": "User returned; work continued directly in the existing conversation. Failed trigger and logs preserved.",
+    "triggered_once": true
+  },
+  "counterfactual_V_recombination": [
+    {
+      "arm": "native",
+      "dataset": "etth1",
+      "frozen_median": 0.2964093097803816,
+      "frozen_spread": 0.28497703540515285,
+      "frozen_spread_gain_percent": 0.11825386318706776,
+      "frozen_standardized_shape": 0.2851917135054015,
+      "frozen_standardized_shape_gain_percent": 0.04301122660167467,
+      "original": 0.2853144307417351
+    },
+    {
+      "arm": "raw",
+      "dataset": "etth1",
+      "frozen_median": 0.2952740624150788,
+      "frozen_spread": 0.2876445438566667,
+      "frozen_spread_gain_percent": 0.19174523154870116,
+      "frozen_standardized_shape": 0.28811157675417426,
+      "frozen_standardized_shape_gain_percent": 0.029691963321543113,
+      "original": 0.2881971481456954
+    },
+    {
+      "arm": "prediction_anchor",
+      "dataset": "etth1",
+      "frozen_median": 0.29553964987352704,
+      "frozen_spread": 0.2857807855908528,
+      "frozen_spread_gain_percent": 0.1748691236172717,
+      "frozen_standardized_shape": 0.2860168451070144,
+      "frozen_standardized_shape_gain_percent": 0.09241196315167288,
+      "original": 0.28628140337200864
+    },
+    {
+      "arm": "native",
+      "dataset": "traffic",
+      "frozen_median": 0.11064022858203035,
+      "frozen_spread": 0.10974672561482617,
+      "frozen_spread_gain_percent": -2.770703796975349,
+      "frozen_standardized_shape": 0.10710474819684662,
+      "frozen_standardized_shape_gain_percent": -0.29666298035537775,
+      "original": 0.1067879478879818
+    },
+    {
+      "arm": "raw",
+      "dataset": "traffic",
+      "frozen_median": 0.11066720937301147,
+      "frozen_spread": 0.11075421052324375,
+      "frozen_spread_gain_percent": -2.6928810674312853,
+      "frozen_standardized_shape": 0.1083864802155538,
+      "frozen_standardized_shape_gain_percent": -0.4974878111511982,
+      "original": 0.10784993991016684
+    },
+    {
+      "arm": "prediction_anchor",
+      "dataset": "traffic",
+      "frozen_median": 0.11114833586243301,
+      "frozen_spread": 0.11025114330939528,
+      "frozen_spread_gain_percent": -2.026001959628987,
+      "frozen_standardized_shape": 0.10846111766093819,
+      "frozen_standardized_shape_gain_percent": -0.36951881727498304,
+      "original": 0.10806180894260752
+    }
+  ],
+  "learning": [
+    {
+      "arm": "l2_anchor",
+      "best_steps": [
+        450,
+        150,
+        450,
+        0
+      ],
+      "dataset": "etth1",
+      "median_final_V_regression_percent": 7.077210793360944,
+      "median_last100_regularizer_to_loss": 0.05477252263819721,
+      "topic": "anchor"
+    },
+    {
+      "arm": "native",
+      "best_steps": [
+        450,
+        150,
+        450,
+        150
+      ],
+      "dataset": "etth1",
+      "median_final_V_regression_percent": 31.757371794932197,
+      "median_last100_regularizer_to_loss": 0.0,
+      "topic": "anchor"
+    },
+    {
+      "arm": "prediction_anchor",
+      "best_steps": [
+        450,
+        150,
+        450,
+        150
+      ],
+      "dataset": "etth1",
+      "median_final_V_regression_percent": 17.424527741226804,
+      "median_last100_regularizer_to_loss": 0.11148759729645077,
+      "topic": "anchor"
+    },
+    {
+      "arm": "raw",
+      "best_steps": [
+        450,
+        150,
+        150,
+        0
+      ],
+      "dataset": "etth1",
+      "median_final_V_regression_percent": 30.44550303057423,
+      "median_last100_regularizer_to_loss": 0.0,
+      "topic": "anchor"
+    },
+    {
+      "arm": "l2_anchor",
+      "best_steps": [
+        900,
+        450,
+        900,
+        900
+      ],
+      "dataset": "traffic",
+      "median_final_V_regression_percent": 0.0,
+      "median_last100_regularizer_to_loss": 0.02709380574218928,
+      "topic": "anchor"
+    },
+    {
+      "arm": "native",
+      "best_steps": [
+        900,
+        450,
+        900,
+        450
+      ],
+      "dataset": "traffic",
+      "median_final_V_regression_percent": 1.307590958002891,
+      "median_last100_regularizer_to_loss": 0.0,
+      "topic": "anchor"
+    },
+    {
+      "arm": "prediction_anchor",
+      "best_steps": [
+        900,
+        450,
+        900,
+        450
+      ],
+      "dataset": "traffic",
+      "median_final_V_regression_percent": 0.9501214199787666,
+      "median_last100_regularizer_to_loss": 0.058835330958599566,
+      "topic": "anchor"
+    },
+    {
+      "arm": "raw",
+      "best_steps": [
+        450,
+        450,
+        900,
+        150
+      ],
+      "dataset": "traffic",
+      "median_final_V_regression_percent": 2.662635909698441,
+      "median_last100_regularizer_to_loss": 0.0,
+      "topic": "anchor"
+    },
+    {
+      "arm": "drift_gate",
+      "best_steps": [
+        450,
+        150,
+        150,
+        0
+      ],
+      "dataset": "etth1",
+      "median_final_V_regression_percent": 30.89991665053937,
+      "median_last100_regularizer_to_loss": 0.0,
+      "topic": "drift"
+    },
+    {
+      "arm": "moment_gate",
+      "best_steps": [
+        450,
+        150,
+        150,
+        0
+      ],
+      "dataset": "etth1",
+      "median_final_V_regression_percent": 28.823736634875154,
+      "median_last100_regularizer_to_loss": 0.0,
+      "topic": "drift"
+    },
+    {
+      "arm": "native",
+      "best_steps": [
+        450,
+        150,
+        450,
+        150
+      ],
+      "dataset": "etth1",
+      "median_final_V_regression_percent": 31.757371794932197,
+      "median_last100_regularizer_to_loss": 0.0,
+      "topic": "drift"
+    },
+    {
+      "arm": "raw",
+      "best_steps": [
+        450,
+        150,
+        150,
+        0
+      ],
+      "dataset": "etth1",
+      "median_final_V_regression_percent": 30.44550303057423,
+      "median_last100_regularizer_to_loss": 0.0,
+      "topic": "drift"
+    },
+    {
+      "arm": "drift_gate",
+      "best_steps": [
+        450,
+        450,
+        900,
+        150
+      ],
+      "dataset": "traffic",
+      "median_final_V_regression_percent": 2.7226363158623035,
+      "median_last100_regularizer_to_loss": 0.0,
+      "topic": "drift"
+    },
+    {
+      "arm": "moment_gate",
+      "best_steps": [
+        450,
+        450,
+        900,
+        150
+      ],
+      "dataset": "traffic",
+      "median_final_V_regression_percent": 2.5018954872424004,
+      "median_last100_regularizer_to_loss": 0.0,
+      "topic": "drift"
+    },
+    {
+      "arm": "native",
+      "best_steps": [
+        900,
+        450,
+        900,
+        450
+      ],
+      "dataset": "traffic",
+      "median_final_V_regression_percent": 1.307590958002891,
+      "median_last100_regularizer_to_loss": 0.0,
+      "topic": "drift"
+    },
+    {
+      "arm": "raw",
+      "best_steps": [
+        450,
+        450,
+        900,
+        150
+      ],
+      "dataset": "traffic",
+      "median_final_V_regression_percent": 2.662635909698441,
+      "median_last100_regularizer_to_loss": 0.0,
+      "topic": "drift"
+    },
+    {
+      "arm": "raw",
+      "best_steps": [
+        450,
+        150,
+        150,
+        0
+      ],
+      "dataset": "etth1",
+      "median_final_V_regression_percent": 30.44550303057423,
+      "median_last100_regularizer_to_loss": 0.0,
+      "topic": "distill"
+    },
+    {
+      "arm": "raw",
+      "best_steps": [
+        450,
+        450,
+        900,
+        150
+      ],
+      "dataset": "traffic",
+      "median_final_V_regression_percent": 2.662635909698441,
+      "median_last100_regularizer_to_loss": 0.0,
+      "topic": "distill"
+    }
+  ],
+  "parent_totals": {
+    "active_seconds": 7835.741065484472,
+    "fits_attempted": 72,
+    "fits_completed": 72,
+    "teacher_cache_wall_seconds": 32.47093795565888,
+    "training_updates": 64800
+  },
+  "parent_verification_sha256": "32b78f24908ec5315a46a3374ba76de757e681858b31025f408c4abe3f2bf499",
+  "scope": "Post-hoc development diagnosis. Recombined V predictions are not trained models, new E results, or proof of causal mechanisms.",
+  "selected_gate_weights": [
+    {
+      "arm": "drift_gate",
+      "condition_weight_L2": 0.11265479307038724,
+      "dataset": "etth1",
+      "seed": 31000,
+      "step": 150
+    },
+    {
+      "arm": "moment_gate",
+      "condition_weight_L2": 0.19150844126953784,
+      "dataset": "etth1",
+      "seed": 31000,
+      "step": 150
+    },
+    {
+      "arm": "drift_gate",
+      "condition_weight_L2": 0.038883022836003055,
+      "dataset": "etth1",
+      "seed": 31001,
+      "step": 150
+    },
+    {
+      "arm": "moment_gate",
+      "condition_weight_L2": 0.07472553104208236,
+      "dataset": "etth1",
+      "seed": 31001,
+      "step": 150
+    },
+    {
+      "arm": "drift_gate",
+      "condition_weight_L2": 0.2781465724642957,
+      "dataset": "traffic",
+      "seed": 31000,
+      "step": 450
+    },
+    {
+      "arm": "moment_gate",
+      "condition_weight_L2": 0.560575599769821,
+      "dataset": "traffic",
+      "seed": 31000,
+      "step": 450
+    },
+    {
+      "arm": "drift_gate",
+      "condition_weight_L2": 0.1979282335994843,
+      "dataset": "traffic",
+      "seed": 31001,
+      "step": 150
+    },
+    {
+      "arm": "moment_gate",
+      "condition_weight_L2": 0.20535160060911034,
+      "dataset": "traffic",
+      "seed": 31001,
+      "step": 150
+    }
+  ],
+  "verdicts": {
+    "anchor": "PILOT_STOP",
+    "distill": "STOP_NO_TEACHER_HEADROOM",
+    "drift": "PILOT_STOP"
+  }
+}

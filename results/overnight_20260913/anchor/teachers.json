@@ -1,0 +1,72 @@
+{
+  "etth1": {
+    "train": [
+      {
+        "context": 1024,
+        "evaluated_origins": 233,
+        "inference_wall_seconds": 3.6725532482378185,
+        "metrics": {
+          "interval80_coverage": 0.7733592632331903,
+          "interval80_width": 3.9814309683271016,
+          "median_mae": 1.404604541153012,
+          "qmean_mse": 5.824588707733459,
+          "scaled_2pinball": 0.2500046386403113
+        },
+        "prediction_file": "anchor/etth1_teacher_train_1024.npz",
+        "prediction_sha256": "c11d24e4f3c2b642ba0edf44757e0865191b3ec307d5567ffb31e913853bd03a"
+      }
+    ],
+    "validation": [
+      {
+        "context": 1024,
+        "evaluated_origins": 16,
+        "inference_wall_seconds": 0.22769209276884794,
+        "metrics": {
+          "interval80_coverage": 0.7949218749999999,
+          "interval80_width": 4.9994415839810245,
+          "median_mae": 1.7712945468738326,
+          "qmean_mse": 9.34135940965886,
+          "scaled_2pinball": 0.2926780037484361
+        },
+        "prediction_file": "anchor/etth1_teacher_validation_1024.npz",
+        "prediction_sha256": "a85c7d8a47737b6afa72d72c1ed73a16ce09e3f9c5136c86f0a04471a2860cfe"
+      }
+    ],
+    "wall_seconds": 3.915089681278914
+  },
+  "traffic": {
+    "train": [
+      {
+        "context": 1024,
+        "evaluated_origins": 233,
+        "inference_wall_seconds": 3.347457925323397,
+        "metrics": {
+          "interval80_coverage": 0.7732027896995708,
+          "interval80_width": 0.03339470786258854,
+          "median_mae": 0.011825785998890323,
+          "qmean_mse": 0.0009199587329591625,
+          "scaled_2pinball": 0.13962769285921148
+        },
+        "prediction_file": "anchor/traffic_teacher_train_1024.npz",
+        "prediction_sha256": "31e7ff0fb2a35969a6c3b46c64cd8662374496866a288100369814eedc049b34"
+      }
+    ],
+    "validation": [
+      {
+        "context": 1024,
+        "evaluated_origins": 16,
+        "inference_wall_seconds": 0.22466476121917367,
+        "metrics": {
+          "interval80_coverage": 0.81640625,
+          "interval80_width": 0.03200503960276062,
+          "median_mae": 0.009519929275559964,
+          "qmean_mse": 0.0005832538490671704,
+          "scaled_2pinball": 0.11214482098068845
+        },
+        "prediction_file": "anchor/traffic_teacher_validation_1024.npz",
+        "prediction_sha256": "91f96ff7212a35dc75bd72eea0ea38e48f59cd3c7397fb96ec43a4690497f778"
+      }
+    ],
+    "wall_seconds": 3.586524859070778
+  }
+}

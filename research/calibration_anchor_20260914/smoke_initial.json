@@ -1,0 +1,175 @@
+{
+  "gpu_log_sha256": "6ea1a21e2d80b11e98574f0cee1d5a609920a5caa501c098d461c45c4cb8b4aa",
+  "records": [
+    {
+      "arm": "native",
+      "frozen_parameters_unchanged": true,
+      "parameters": 1179648,
+      "steps": [
+        {
+          "loss": 0.2199171483516693,
+          "peak_allocated_bytes": 1082498048,
+          "regularizer": 0.0,
+          "seconds": 0.205267489887774
+        },
+        {
+          "loss": 0.21562454104423523,
+          "peak_allocated_bytes": 1093856256,
+          "regularizer": 0.0,
+          "seconds": 0.11898461915552616
+        }
+      ],
+      "topic": "calibration",
+      "trained_parameters_changed": true,
+      "trained_prediction_changed": true,
+      "zero_init_bitexact": true
+    },
+    {
+      "arm": "raw",
+      "frozen_parameters_unchanged": true,
+      "parameters": 1179648,
+      "steps": [
+        {
+          "loss": 0.2359933853149414,
+          "peak_allocated_bytes": 1098181120,
+          "regularizer": 0.0,
+          "seconds": 0.1770994709804654
+        },
+        {
+          "loss": 0.2312423288822174,
+          "peak_allocated_bytes": 1098181120,
+          "regularizer": 0.0,
+          "seconds": 0.12362192664295435
+        }
+      ],
+      "topic": "calibration",
+      "trained_parameters_changed": true,
+      "trained_prediction_changed": true,
+      "zero_init_bitexact": true
+    },
+    {
+      "arm": "l2_anchor",
+      "frozen_parameters_unchanged": true,
+      "parameters": 1179648,
+      "steps": [
+        {
+          "loss": 0.2359933853149414,
+          "peak_allocated_bytes": 1101742080,
+          "regularizer": 0.0,
+          "seconds": 0.14840995706617832
+        },
+        {
+          "loss": 0.2312423288822174,
+          "peak_allocated_bytes": 1103895040,
+          "regularizer": 5.807008346891962e-05,
+          "seconds": 0.13103783829137683
+        }
+      ],
+      "topic": "calibration",
+      "trained_parameters_changed": true,
+      "trained_prediction_changed": true,
+      "zero_init_bitexact": true
+    },
+    {
+      "arm": "full_anchor",
+      "frozen_parameters_unchanged": true,
+      "parameters": 1179648,
+      "steps": [
+        {
+          "loss": 0.2359933853149414,
+          "peak_allocated_bytes": 1094609408,
+          "regularizer": 0.0,
+          "seconds": 0.13423128705471754
+        },
+        {
+          "loss": 0.2312423288822174,
+          "peak_allocated_bytes": 1094609408,
+          "regularizer": 0.0007726330077275634,
+          "seconds": 0.12166552012786269
+        }
+      ],
+      "topic": "calibration",
+      "trained_parameters_changed": true,
+      "trained_prediction_changed": true,
+      "zero_init_bitexact": true
+    },
+    {
+      "arm": "weighted_loss",
+      "frozen_parameters_unchanged": true,
+      "parameters": 1179648,
+      "steps": [
+        {
+          "loss": 0.19053779542446136,
+          "peak_allocated_bytes": 1094478336,
+          "regularizer": 0.0,
+          "seconds": 0.16618698509410024
+        },
+        {
+          "loss": 0.18667006492614746,
+          "peak_allocated_bytes": 1094478336,
+          "regularizer": 0.0,
+          "seconds": 0.14840203989297152
+        }
+      ],
+      "topic": "calibration",
+      "trained_parameters_changed": true,
+      "trained_prediction_changed": true,
+      "zero_init_bitexact": true
+    },
+    {
+      "arm": "shuffled_anchor",
+      "frozen_parameters_unchanged": true,
+      "parameters": 1179648,
+      "steps": [
+        {
+          "loss": 0.2359933853149414,
+          "peak_allocated_bytes": 1094478336,
+          "regularizer": 0.0,
+          "seconds": 0.13385129580274224
+        },
+        {
+          "loss": 0.2312423288822174,
+          "peak_allocated_bytes": 1094478336,
+          "regularizer": 0.00083186972187832,
+          "seconds": 0.12055798899382353
+        }
+      ],
+      "topic": "calibration",
+      "trained_parameters_changed": true,
+      "trained_prediction_changed": true,
+      "zero_init_bitexact": true
+    },
+    {
+      "arm": "calibration_anchor",
+      "frozen_parameters_unchanged": true,
+      "parameters": 1179648,
+      "steps": [
+        {
+          "loss": 0.2359933853149414,
+          "peak_allocated_bytes": 1094052352,
+          "regularizer": 0.0,
+          "seconds": 0.13341121096163988
+        },
+        {
+          "loss": 0.2312423288822174,
+          "peak_allocated_bytes": 1094052352,
+          "regularizer": 0.0007254377705976367,
+          "seconds": 0.11503401305526495
+        }
+      ],
+      "topic": "calibration",
+      "trained_parameters_changed": true,
+      "trained_prediction_changed": true,
+      "zero_init_bitexact": true
+    }
+  ],
+  "scope": "ETTh1 training prefix only; same production objectives; no fit/V/E selection.",
+  "source_hashes": {
+    "configs/calibration_anchor_20260914.json": "ce5972e51490ed9fb1907824c75d238edfe1df7b2e7786e9857013f0d687be93",
+    "scripts/run_calibration_anchor_followup.py": "1c7677ee285b5221d2b18c2a0a62ae69395128bfb068a213876eb31693a09615",
+    "scripts/smoke_calibration_anchor.py": "033d25297e2959fcbc3b499c736595b4961a20d20edaba93db98161a8935b63b",
+    "src/tsfm_peft_screen/calibration_anchor/method.py": "95e5fce44fcb748bb86b78d80ec1160c41e23e11e5aef1fdfb207ab460bd4593"
+  },
+  "status": "PASS",
+  "updates": 14
+}

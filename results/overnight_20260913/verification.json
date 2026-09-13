@@ -1,0 +1,162 @@
+{
+  "all_historical_files_unchanged": 262,
+  "max_primary_replay_error": 2.220446049250313e-16,
+  "replayed_prediction_files": 376,
+  "scope": "PILOT_PASS means follow-up signal only; novelty, replication and publication claims remain unresolved.",
+  "status": "VERIFIED",
+  "topics": [
+    {
+      "checks": [
+        {
+          "dataset": "etth1",
+          "gain_vs_best": 0.0019587819150564956,
+          "mean_pass": false,
+          "means": {
+            "F0": 0.32076846729266495,
+            "l2_anchor": 0.31954282003193024,
+            "native": 0.3204826279772473,
+            "prediction_anchor": 0.31891690533496553,
+            "raw": 0.3198252748017154
+          },
+          "seed_checks": [
+            true,
+            true
+          ]
+        },
+        {
+          "dataset": "traffic",
+          "gain_vs_best": 0.0034075453347689466,
+          "mean_pass": false,
+          "means": {
+            "F0": 0.1499550865285997,
+            "l2_anchor": 0.1470123500741135,
+            "native": 0.14594576899163775,
+            "prediction_anchor": 0.14544845216738103,
+            "raw": 0.1476602080669891
+          },
+          "seed_checks": [
+            true,
+            true
+          ]
+        }
+      ],
+      "novelty_status": "UNRESOLVED_KNOWN_INGREDIENTS",
+      "paired_intervals": [
+        {
+          "baseline": "l2_anchor",
+          "chronological_blocks": 4,
+          "dataset": "etth1",
+          "descriptive_95_interval": [
+            -0.004881529502155934,
+            0.0036297001082263858
+          ],
+          "mean_loss_difference": -0.0006259146969647741
+        },
+        {
+          "baseline": "native",
+          "chronological_blocks": 4,
+          "dataset": "traffic",
+          "descriptive_95_interval": [
+            -0.001388729577449155,
+            0.00022900551704082097
+          ],
+          "mean_loss_difference": -0.0004973168242567033
+        }
+      ],
+      "scope": "Development continuation only. Not a publication PASS or a revision of historical FAIL.",
+      "topic": "anchor",
+      "verdict": "PILOT_STOP"
+    },
+    {
+      "checks": [
+        {
+          "dataset": "etth1",
+          "gain_vs_best": 0.00011882787834438524,
+          "mean_pass": false,
+          "means": {
+            "F0": 0.32076846729266495,
+            "drift_gate": 0.3197872706428698,
+            "moment_gate": 0.3198405672884175,
+            "native": 0.3204826279772473,
+            "raw": 0.3198252748017154
+          },
+          "seed_checks": [
+            false,
+            true
+          ]
+        },
+        {
+          "dataset": "traffic",
+          "gain_vs_best": -0.012816441946161383,
+          "mean_pass": false,
+          "means": {
+            "F0": 0.1499550865285997,
+            "drift_gate": 0.14781627446720694,
+            "moment_gate": 0.14791199733367344,
+            "native": 0.14594576899163775,
+            "raw": 0.1476602080669891
+          },
+          "seed_checks": [
+            true,
+            false
+          ]
+        }
+      ],
+      "novelty_status": "UNRESOLVED_KNOWN_INGREDIENTS",
+      "paired_intervals": [
+        {
+          "baseline": "raw",
+          "chronological_blocks": 4,
+          "dataset": "etth1",
+          "descriptive_95_interval": [
+            -5.976322021364333e-05,
+            -4.375884887637162e-06
+          ],
+          "mean_loss_difference": -3.80041588455525e-05
+        },
+        {
+          "baseline": "native",
+          "chronological_blocks": 4,
+          "dataset": "traffic",
+          "descriptive_95_interval": [
+            0.0007199408411665332,
+            0.003021070109971878
+          ],
+          "mean_loss_difference": 0.0018705054755692055
+        }
+      ],
+      "scope": "Development continuation only. Not a publication PASS or a revision of historical FAIL.",
+      "topic": "drift",
+      "verdict": "PILOT_STOP"
+    },
+    {
+      "headroom": [
+        {
+          "best_component": 0.2926780037484361,
+          "dataset": "etth1",
+          "gain": -0.04083581138270498,
+          "passed": false,
+          "raw_lora_mean": 0.2881971481456954,
+          "teacher": 0.29996591252840654
+        },
+        {
+          "best_component": 0.11214482098068845,
+          "dataset": "traffic",
+          "gain": -0.04218868698944678,
+          "passed": false,
+          "raw_lora_mean": 0.10784993991016684,
+          "teacher": 0.11239998726686751
+        }
+      ],
+      "topic": "distill",
+      "verdict": "STOP_NO_TEACHER_HEADROOM"
+    }
+  ],
+  "totals": {
+    "active_seconds": 7835.741065484472,
+    "fits_attempted": 72,
+    "fits_completed": 72,
+    "teacher_cache_wall_seconds": 32.47093795565888,
+    "training_updates": 64800
+  }
+}

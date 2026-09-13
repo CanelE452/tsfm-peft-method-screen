@@ -1,0 +1,232 @@
+{
+  "etth1": {
+    "train": [
+      {
+        "context": 256,
+        "evaluated_origins": 233,
+        "inference_wall_seconds": 3.2570045571774244,
+        "metrics": {
+          "interval80_coverage": 0.7696709585121604,
+          "interval80_width": 4.087490050771919,
+          "median_mae": 1.4357129091032026,
+          "qmean_mse": 6.020026440657646,
+          "scaled_2pinball": 0.2586961070237809
+        },
+        "prediction_file": "distill/etth1_teacher_train_256.npz",
+        "prediction_sha256": "0bbd59fda648f8e7999e65b4715f8e334fc3532ee800b081b92e2d9f788f9d56"
+      },
+      {
+        "context": 512,
+        "evaluated_origins": 233,
+        "inference_wall_seconds": 3.071005057077855,
+        "metrics": {
+          "interval80_coverage": 0.7618696351931331,
+          "interval80_width": 3.9383691462446198,
+          "median_mae": 1.4390285803028082,
+          "qmean_mse": 6.167486743334607,
+          "scaled_2pinball": 0.25692772900980615
+        },
+        "prediction_file": "distill/etth1_teacher_train_512.npz",
+        "prediction_sha256": "27713e01e0e4e403e947215afa0a22af0a4939eebe01ed7acc19cce42da7c295"
+      },
+      {
+        "context": 1024,
+        "evaluated_origins": 233,
+        "inference_wall_seconds": 2.9929684158414602,
+        "metrics": {
+          "interval80_coverage": 0.7733592632331903,
+          "interval80_width": 3.9814309683271016,
+          "median_mae": 1.404604541153012,
+          "qmean_mse": 5.824588707733459,
+          "scaled_2pinball": 0.2500046386403113
+        },
+        "prediction_file": "distill/etth1_teacher_train_1024.npz",
+        "prediction_sha256": "c11d24e4f3c2b642ba0edf44757e0865191b3ec307d5567ffb31e913853bd03a"
+      },
+      {
+        "context": "mixture",
+        "metrics": {
+          "interval80_coverage": 0.791152539341917,
+          "interval80_width": 4.123238006839246,
+          "median_mae": 1.405310790519084,
+          "qmean_mse": 5.798237538236243,
+          "scaled_2pinball": 0.25042821096989176
+        },
+        "prediction_file": "distill/etth1_teacher_train_mixture.npz",
+        "prediction_sha256": "98e6d55d7bb9bed8810ac10b50f9d7964fcf837c128be2dfeebba94dcec112e2"
+      }
+    ],
+    "validation": [
+      {
+        "context": 256,
+        "evaluated_origins": 16,
+        "inference_wall_seconds": 0.24438544502481818,
+        "metrics": {
+          "interval80_coverage": 0.7662760416666667,
+          "interval80_width": 5.13477733527543,
+          "median_mae": 1.8576134560159212,
+          "qmean_mse": 9.706580174226174,
+          "scaled_2pinball": 0.3123363640100833
+        },
+        "prediction_file": "distill/etth1_teacher_validation_256.npz",
+        "prediction_sha256": "6200d19d52c9fbd5b56a9eb0a5421ab451ff49e6be38b6bbdb274af4330dc0dd"
+      },
+      {
+        "context": 512,
+        "evaluated_origins": 16,
+        "inference_wall_seconds": 0.20593225862830877,
+        "metrics": {
+          "interval80_coverage": 0.7574869791666666,
+          "interval80_width": 5.021372694713742,
+          "median_mae": 1.8913324885385616,
+          "qmean_mse": 11.120123587775003,
+          "scaled_2pinball": 0.31964564072647983
+        },
+        "prediction_file": "distill/etth1_teacher_validation_512.npz",
+        "prediction_sha256": "074b4b54548a92eb718df74cf4b5b969ca12a49abdef6a6cae76d0643db96838"
+      },
+      {
+        "context": 1024,
+        "evaluated_origins": 16,
+        "inference_wall_seconds": 0.20291792787611485,
+        "metrics": {
+          "interval80_coverage": 0.7949218749999999,
+          "interval80_width": 4.9994415839810245,
+          "median_mae": 1.7712945468738326,
+          "qmean_mse": 9.34135940965886,
+          "scaled_2pinball": 0.2926780037484361
+        },
+        "prediction_file": "distill/etth1_teacher_validation_1024.npz",
+        "prediction_sha256": "a85c7d8a47737b6afa72d72c1ed73a16ce09e3f9c5136c86f0a04471a2860cfe"
+      },
+      {
+        "context": "mixture",
+        "metrics": {
+          "interval80_coverage": 0.8004557291666666,
+          "interval80_width": 5.254966772962993,
+          "median_mae": 1.8018777196277633,
+          "qmean_mse": 9.63154928511604,
+          "scaled_2pinball": 0.29996591252840654
+        },
+        "prediction_file": "distill/etth1_teacher_validation_mixture.npz",
+        "prediction_sha256": "fde2adc7eb881b11a02854fbd330c887718ed7ca05beea7cc22426860a5f8fba"
+      }
+    ],
+    "wall_seconds": 12.692510019987822
+  },
+  "traffic": {
+    "train": [
+      {
+        "context": 256,
+        "evaluated_origins": 233,
+        "inference_wall_seconds": 3.0156953781843185,
+        "metrics": {
+          "interval80_coverage": 0.8207930972818311,
+          "interval80_width": 0.039575365818989496,
+          "median_mae": 0.013132254104088855,
+          "qmean_mse": 0.0010817128523370003,
+          "scaled_2pinball": 0.15445466481096634
+        },
+        "prediction_file": "distill/traffic_teacher_train_256.npz",
+        "prediction_sha256": "6a843a286bc488a624aa471e5f703f7df9d24d8dd1136e2a313f5578606d6aec"
+      },
+      {
+        "context": 512,
+        "evaluated_origins": 233,
+        "inference_wall_seconds": 3.0882896771654487,
+        "metrics": {
+          "interval80_coverage": 0.7886713161659514,
+          "interval80_width": 0.03446623766548314,
+          "median_mae": 0.012077911380126087,
+          "qmean_mse": 0.0009648401865063654,
+          "scaled_2pinball": 0.14313129973252312
+        },
+        "prediction_file": "distill/traffic_teacher_train_512.npz",
+        "prediction_sha256": "5137201369820bf5a6e6026664af2f953dda268893384551ddb897a31a6fa057"
+      },
+      {
+        "context": 1024,
+        "evaluated_origins": 233,
+        "inference_wall_seconds": 3.0664633787237108,
+        "metrics": {
+          "interval80_coverage": 0.7732027896995708,
+          "interval80_width": 0.03339470786258854,
+          "median_mae": 0.011825785998890323,
+          "qmean_mse": 0.0009199587329591625,
+          "scaled_2pinball": 0.13962769285921148
+        },
+        "prediction_file": "distill/traffic_teacher_train_1024.npz",
+        "prediction_sha256": "31e7ff0fb2a35969a6c3b46c64cd8662374496866a288100369814eedc049b34"
+      },
+      {
+        "context": "mixture",
+        "metrics": {
+          "interval80_coverage": 0.8344062947067239,
+          "interval80_width": 0.03755439227518158,
+          "median_mae": 0.011939275671083487,
+          "qmean_mse": 0.0009439591748016816,
+          "scaled_2pinball": 0.14090605404656198
+        },
+        "prediction_file": "distill/traffic_teacher_train_mixture.npz",
+        "prediction_sha256": "01b2761655fa8247549b1c7c0472a6774a45360bb27e62105aa2a433f432eee1"
+      }
+    ],
+    "validation": [
+      {
+        "context": 256,
+        "evaluated_origins": 16,
+        "inference_wall_seconds": 0.20834867795929313,
+        "metrics": {
+          "interval80_coverage": 0.837890625,
+          "interval80_width": 0.03501091465962721,
+          "median_mae": 0.010397814311014978,
+          "qmean_mse": 0.0006849490374566889,
+          "scaled_2pinball": 0.12277199923074723
+        },
+        "prediction_file": "distill/traffic_teacher_validation_256.npz",
+        "prediction_sha256": "3e627d35ac1563be781fcc848c64fdd8a8ca34c5966ee8d84011c2dc1e39b75b"
+      },
+      {
+        "context": 512,
+        "evaluated_origins": 16,
+        "inference_wall_seconds": 0.2022452768869698,
+        "metrics": {
+          "interval80_coverage": 0.806640625,
+          "interval80_width": 0.031643204833623415,
+          "median_mae": 0.009702730923663692,
+          "qmean_mse": 0.0005779632724624221,
+          "scaled_2pinball": 0.11330165530172302
+        },
+        "prediction_file": "distill/traffic_teacher_validation_512.npz",
+        "prediction_sha256": "362784ad1173d7fa80f3749ee4275e716c71f9fa99f359ca5ed7eb9b314d7fd6"
+      },
+      {
+        "context": 1024,
+        "evaluated_origins": 16,
+        "inference_wall_seconds": 0.21272439090535045,
+        "metrics": {
+          "interval80_coverage": 0.81640625,
+          "interval80_width": 0.03200503960276062,
+          "median_mae": 0.009519929275559964,
+          "qmean_mse": 0.0005832538490671704,
+          "scaled_2pinball": 0.11214482098068845
+        },
+        "prediction_file": "distill/traffic_teacher_validation_1024.npz",
+        "prediction_sha256": "91f96ff7212a35dc75bd72eea0ea38e48f59cd3c7397fb96ec43a4690497f778"
+      },
+      {
+        "context": "mixture",
+        "metrics": {
+          "interval80_coverage": 0.8460286458333333,
+          "interval80_width": 0.03424417170852697,
+          "median_mae": 0.009567668062724504,
+          "qmean_mse": 0.0005759953827175261,
+          "scaled_2pinball": 0.11239998726686751
+        },
+        "prediction_file": "distill/traffic_teacher_validation_mixture.npz",
+        "prediction_sha256": "49bb83fefaa06a907bbfa8ff0ad1e8137c392e43e5c0de85eef9a4757e0e4814"
+      }
+    ],
+    "wall_seconds": 12.27681339532137
+  }
+}

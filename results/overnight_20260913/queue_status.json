@@ -1,0 +1,62 @@
+{
+  "current_job": null,
+  "finished_unix": 1789309792.3953912,
+  "independent_finalization_exit_code": 0,
+  "jobs": [
+    {
+      "exit_code": 0,
+      "finished_unix": 1789304795.5884547,
+      "log": ".cache/overnight_20260913_anchor_train.log",
+      "phase": "train",
+      "pid": 1693558,
+      "started_unix": 1789301315.2632027,
+      "topic": "anchor",
+      "wall_seconds": 3480.3252587588504
+    },
+    {
+      "exit_code": 0,
+      "finished_unix": 1789308780.9633946,
+      "log": ".cache/overnight_20260913_drift_train.log",
+      "phase": "train",
+      "pid": 1780632,
+      "started_unix": 1789304795.592469,
+      "topic": "drift",
+      "wall_seconds": 3985.370993626304
+    },
+    {
+      "exit_code": 0,
+      "finished_unix": 1789309651.0615218,
+      "log": ".cache/overnight_20260913_distill_train.log",
+      "phase": "train",
+      "pid": 1880122,
+      "started_unix": 1789308780.9667645,
+      "topic": "distill",
+      "wall_seconds": 870.0948139852844
+    },
+    {
+      "exit_code": 0,
+      "finished_unix": 1789309716.0859907,
+      "log": ".cache/overnight_20260913_anchor_evaluate.log",
+      "phase": "evaluate",
+      "pid": 1901830,
+      "started_unix": 1789309651.072951,
+      "topic": "anchor",
+      "wall_seconds": 65.0130845750682
+    },
+    {
+      "exit_code": 0,
+      "finished_unix": 1789309781.1064365,
+      "log": ".cache/overnight_20260913_drift_evaluate.log",
+      "phase": "evaluate",
+      "pid": 1903572,
+      "started_unix": 1789309716.0886114,
+      "topic": "drift",
+      "wall_seconds": 65.01785686099902
+    }
+  ],
+  "maximum_wall_seconds": 28800,
+  "pid": 1693432,
+  "started_unix": 1789301315.2627144,
+  "status": "COMPLETE",
+  "wall_seconds": 8477.132680126
+}

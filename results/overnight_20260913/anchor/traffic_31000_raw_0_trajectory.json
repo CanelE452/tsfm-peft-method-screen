@@ -1,0 +1,90 @@
+[
+  {
+    "arm": "raw",
+    "checkpoint_file": "anchor/traffic_31000_raw_0_V_0.pt",
+    "checkpoint_sha256": "3a40c54f1561a375c97824c1806ca5a894f468146d03500741499886fb00e91a",
+    "dataset": "traffic",
+    "evaluated_origins": 16,
+    "fit_id": "traffic_31000_raw_0",
+    "inference_wall_seconds": 0.32293006405234337,
+    "lr": 3e-05,
+    "metrics": {
+      "interval80_coverage": 0.81640625,
+      "interval80_width": 0.03200503960276062,
+      "median_mae": 0.009519929275559964,
+      "qmean_mse": 0.0005832538490671704,
+      "scaled_2pinball": 0.11214482098068845
+    },
+    "prediction_file": "anchor/traffic_31000_raw_0_V_0.npz",
+    "prediction_sha256": "91f96ff7212a35dc75bd72eea0ea38e48f59cd3c7397fb96ec43a4690497f778",
+    "recipe": 0,
+    "seed": 31000,
+    "step": 0
+  },
+  {
+    "arm": "raw",
+    "checkpoint_file": "anchor/traffic_31000_raw_0_V_150.pt",
+    "checkpoint_sha256": "85ad62961e0607fac1d449eff9b3245ff0149945f59dd6531450e60fbc1ed590",
+    "dataset": "traffic",
+    "evaluated_origins": 16,
+    "fit_id": "traffic_31000_raw_0",
+    "inference_wall_seconds": 0.32120413100346923,
+    "lr": 3e-05,
+    "metrics": {
+      "interval80_coverage": 0.8307291666666666,
+      "interval80_width": 0.032148962490585596,
+      "median_mae": 0.009370883982152614,
+      "qmean_mse": 0.0005650804262433907,
+      "scaled_2pinball": 0.11001247406991548
+    },
+    "prediction_file": "anchor/traffic_31000_raw_0_V_150.npz",
+    "prediction_sha256": "d42911209d69d4719e0102e30d5e8e5119a70cd62b75633619aa7f50dc87c7f2",
+    "recipe": 0,
+    "seed": 31000,
+    "step": 150
+  },
+  {
+    "arm": "raw",
+    "checkpoint_file": "anchor/traffic_31000_raw_0_V_450.pt",
+    "checkpoint_sha256": "27d6506b0b11486a0cd2de3bd7d152486082de2b1f1036227393d181a247f810",
+    "dataset": "traffic",
+    "evaluated_origins": 16,
+    "fit_id": "traffic_31000_raw_0",
+    "inference_wall_seconds": 0.37867712788283825,
+    "lr": 3e-05,
+    "metrics": {
+      "interval80_coverage": 0.8115234375,
+      "interval80_width": 0.031218837610746657,
+      "median_mae": 0.009313775005693971,
+      "qmean_mse": 0.0005497251664297558,
+      "scaled_2pinball": 0.10770703847231192
+    },
+    "prediction_file": "anchor/traffic_31000_raw_0_V_450.npz",
+    "prediction_sha256": "5d03493f4a8fdcbe0a985e94764b1c3aecda0fe256052e0e5db8b9074b23ad48",
+    "recipe": 0,
+    "seed": 31000,
+    "step": 450
+  },
+  {
+    "arm": "raw",
+    "checkpoint_file": "anchor/traffic_31000_raw_0_V_900.pt",
+    "checkpoint_sha256": "29e9ed577c88a9e1de54b22e1c5d7b234204ad684280d860f9697b00da0b4846",
+    "dataset": "traffic",
+    "evaluated_origins": 16,
+    "fit_id": "traffic_31000_raw_0",
+    "inference_wall_seconds": 0.3317732848227024,
+    "lr": 3e-05,
+    "metrics": {
+      "interval80_coverage": 0.8063151041666667,
+      "interval80_width": 0.03033941073893705,
+      "median_mae": 0.009303999802114049,
+      "qmean_mse": 0.0005557693455890976,
+      "scaled_2pinball": 0.10820972453695918
+    },
+    "prediction_file": "anchor/traffic_31000_raw_0_V_900.npz",
+    "prediction_sha256": "589230eccccbf4794fbd78e65f89746f0c7cf5320601be49c1b01d1d581f0f10",
+    "recipe": 0,
+    "seed": 31000,
+    "step": 900
+  }
+]

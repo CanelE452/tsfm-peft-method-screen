@@ -1,0 +1,40 @@
+{
+  "checks": [
+    {
+      "dataset": "etth1",
+      "gain_vs_best": 0.00011882787834438524,
+      "mean_pass": false,
+      "means": {
+        "F0": 0.32076846729266495,
+        "drift_gate": 0.3197872706428698,
+        "moment_gate": 0.3198405672884175,
+        "native": 0.3204826279772473,
+        "raw": 0.3198252748017154
+      },
+      "seed_checks": [
+        false,
+        true
+      ]
+    },
+    {
+      "dataset": "traffic",
+      "gain_vs_best": -0.012816441946161383,
+      "mean_pass": false,
+      "means": {
+        "F0": 0.1499550865285997,
+        "drift_gate": 0.14781627446720694,
+        "moment_gate": 0.14791199733367344,
+        "native": 0.14594576899163775,
+        "raw": 0.1476602080669891
+      },
+      "seed_checks": [
+        true,
+        false
+      ]
+    }
+  ],
+  "fits_attempted": 32,
+  "novelty_status": "UNRESOLVED_KNOWN_INGREDIENTS",
+  "scope": "Development continuation only. Not a publication PASS or a revision of historical FAIL.",
+  "verdict": "PILOT_STOP"
+}

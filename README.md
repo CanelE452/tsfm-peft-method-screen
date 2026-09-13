@@ -4,6 +4,30 @@ Independent Chronos-2 development screen. Round 0 and Round 1 only; Round 2 requ
 
 No prior experiment outputs are used as new evidence. Raw data and cached model weights may be reused with provenance hashes. All source is local to this repository.
 
+## Overnight result and authorized follow-up
+
+The overnight screen completed **72 fits / 64,800 updates**, with all 376 saved predictions
+independently verified. All three topics stopped: prediction anchoring improved the strongest
+control by 0.196% / 0.341% but missed the fixed 1% gate; drift conditioning lost on Traffic;
+the context-mixture teacher did not pass its validation headroom gate.
+See [the completed report](results/overnight_20260913/REPORT.md).
+
+Completion was detected automatically, but resuming the conversation failed because the
+installed Codex CLI did not support the configured model. No follow-up training was launched
+by that failed resume. The user returned and the authorized follow-up was implemented directly.
+
+The new candidate allocates a function-preservation penalty by train-only quantile calibration.
+It has six controls, a fixed maximum of 56 fits / 50,400 updates, and a separate eight-origin
+evaluation tail per dataset. This is a small adaptive development follow-up, not independent
+replication or a novelty claim. See [failure analysis](research/calibration_anchor_20260914/FAILURE_ANALYSIS.md)
+and [the fixed protocol](docs/CALIBRATION_ANCHOR_FOLLOWUP.md).
+
+    scripts/with_cuda.sh .venv/bin/python scripts/calibration_anchor_queue.py start
+    scripts/with_cuda.sh .venv/bin/python scripts/calibration_anchor_queue.py status
+
+The authoritative live state is results/calibration_anchor_20260914/queue_status.json.
+No further recursive research continuation is scheduled.
+
 ## Overnight PEFT mechanism pilots
 
 Three new development pilots are implemented: prediction anchoring, drift-conditioned LoRA,
