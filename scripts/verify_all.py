@@ -34,3 +34,6 @@ if (ROOT/'results/candidate_05_repaired/status.json').exists():
 
 if (ROOT/'results/candidate_01_v2/status.json').exists():
     subprocess.run([sys.executable,str(ROOT/'scripts/finalize_candidate_01_v2.py'),'--verify-only'],cwd=ROOT,check=True)
+
+if (ROOT/'results/memory_feasibility/verification.json').exists():
+    subprocess.run([sys.executable,str(ROOT/'scripts/finalize_memory_feasibility.py'),'--verify-only'],cwd=ROOT,check=True)

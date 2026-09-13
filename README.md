@@ -28,7 +28,17 @@ On this machine only, kernel driver580.173.02 and globally installed userspace58
 
 See [novelty boundaries](docs/NOVELTY_BOUNDARY.md). Candidate06 is stopped for direct overlap of the central neural-copula method; its raw data preparation is not a fitted result.
 
-## Freshness v2: latest additional experiment
+## Memory-efficient PEFT: latest train-only feasibility study
+
+**Bottleneck confirmed; temporal pair-mean primitive STOP.** At context4096, generic FP16 saved activations reduce measured forward/backward peak by32.57% with0.0895–0.1299% full-gradient relative error. Matched-byte INT8 reduces peak by42.41% with0.8968–1.0392% error; temporal pair means have66.24–77.10% error at essentially the same peak. Exact block checkpointing reduces peak by61.45% with exact gradients, at1.41–1.42× step time. These fixed-state gradient diagnostics are not forecasting-accuracy results, and Stage-B peaks omit optimizer states for all arms.
+
+The two-dataset diagnostic completed8 warmup updates,8 context profiles and60 measured comparison backwards. No learning pilot or new V/E evaluation followed the failed temporal gate. One interrupted implementation attempt is preserved separately. Historical fits and results remain unchanged. See the [full report](results/memory_feasibility/RESULT.md), [fixed protocol](docs/MEMORY_FEASIBILITY_PROTOCOL.md), and [verification receipt](results/memory_feasibility/verification.json).
+
+```bash
+scripts/with_cuda.sh .venv/bin/python scripts/finalize_memory_feasibility.py --verify-only
+```
+
+## Freshness v2: completed additional experiment
 
 The authorized asynchronous Freshness v2 experiment completed **12/12 fits** (3 arms × 2 recipes × 2 seeds), 4,320 updates. **FAIL**: Affine loses to Standard on seed30000 (−0.094734%F0) and Feature on seed30001 (−0.246892%F0); the two-seed mean gain is −0.170813%F0. Seed30001 clean degradation is 0.521507%F0, exceeding the 0.5% limit. The conditional scale/shift branches were active and trained. No further tuning or new-source experiment was launched.
 
