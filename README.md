@@ -28,6 +28,21 @@ On this machine only, kernel driver580.173.02 and globally installed userspace58
 
 See [novelty boundaries](docs/NOVELTY_BOUNDARY.md). Candidate06 is stopped for direct overlap of the central neural-copula method; its raw data preparation is not a fitted result.
 
+## Next comparison design: equal training time with strong Side baseline
+
+The [fixed plan](docs/FORECAST_QUERY_EQUAL_TIME_PLAN.md) compares Standard, Head, Side,
+and Query against F0 under a common nominal active-training time budget.
+It specifies 32 fit attempts (2 datasets × 2 seeds × 4 arms × 2 learning rates),
+30 seconds per recipe, and a separately accounted 80-update storage/numerical preflight.
+Each method can select checkpoint off or on using train-only resource measurements;
+checkpointing is not forced when it makes a feasible baseline slower.
+
+**Design only: zero new fits or GPU runs.** The equal-time runner and Head/Side
+checkpoint implementation are pending. [CPU audit and fixed fit order](research/forecast_query_equal_time_plan/)
+verify budgets and nonoverlap of proposed E targets with recorded prior scoring windows.
+Reused Train/V data are development data; E is a later unscored portion of the same
+sources, not external replication. Historical FAIL remains unchanged.
+
 ## Forecast-query checkpoint diagnostic: completed
 
 **TRADEOFF_ONLY; original FAIL unchanged.** The [24-measurement diagnostic](results/forecast_query_checkpoint_diagnostic/RESULT.md)
