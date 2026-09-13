@@ -28,6 +28,12 @@ On this machine only, kernel driver580.173.02 and globally installed userspace58
 
 See [novelty boundaries](docs/NOVELTY_BOUNDARY.md). Candidate06 is stopped for direct overlap of the central neural-copula method; its raw data preparation is not a fitted result.
 
+## Block-conditioned distribution adaptation: preregistered pilot
+
+A new, separately authorized method-development pilot tests temporal-block acceptance of shape-only adapter updates against unconstrained adaptation, fixed shape, anchoring, pooled acceptance and conservative LoRA. The fixed budget is 48 fits (two datasets × two seeds × six arms × two recipes), followed by a sealed evaluation on later chronological periods. Prediction blending and scalar calibration provide additional simple baselines.
+
+This is an unvalidated learning-rule hypothesis. Monotone output adapters and stochastic step acceptance are established prior work; no novelty or performance success is claimed in advance. See the [fixed protocol and literature boundaries](docs/BLOCK_SHAPE_PROTOCOL.md).
+
 ## Frozen-past forecast-token adaptation: latest actual-learning pilot
 
 **16/16 fits completed; FAIL on the fixed memory/quality gate.** Two datasets × four arms × two arm-appropriate recipes × first seed,3,840 actual optimizer updates (plus8 discarded smoke updates). The query candidate improves development primary loss by0.519% versus Standard on ETTm2, but is0.326% worse on Electricity. Its real optimizer-step peak is987.7MiB versus770.9MiB for Standard LoRA+BF16+checkpoint: **28.13% higher**, failing the required20% reduction. Selected query checkpoints are180/30, so this is actual adaptation evidence rather than an initial-state selection. It is one-seed development evidence, not an independent holdout or confirmed novel method.

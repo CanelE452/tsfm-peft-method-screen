@@ -1,0 +1,23 @@
+{
+  "datasets": ["ettm2", "electricity"],
+  "seeds": [30000, 30001],
+  "arms": ["lora", "split", "center", "anchor", "pooled", "block"],
+  "learning_rates": {"lora": [0.00001, 0.00003], "split": [0.0003, 0.001], "center": [0.0003, 0.001], "anchor": [0.0003, 0.001], "pooled": [0.0003, 0.001], "block": [0.0003, 0.001]},
+  "steps": 120,
+  "checkpoints": [0, 30, 60, 120],
+  "context": 4096, "horizon": 48, "channels": 4, "batch_origins": 2,
+  "train_block_start": 10240, "train_blocks": 8, "train_block_length": 512,
+  "train_within_block_origins": [0, 32, 64, 96, 128, 160, 192, 224, 256, 288, 320, 352, 384, 416, 448],
+  "validation_origins": [16384, 16480, 16576, 16672, 16768, 16864, 16960, 17056, 17152, 17248, 17344, 17440, 17536, 17632, 17728, 17824],
+  "evaluation_origins": [20480, 20576, 20672, 20768, 20864, 20960, 21056, 21152, 21248, 21344, 21440, 21536, 21632, 21728, 21824, 21920, 22016, 22112, 22208, 22304, 22400, 22496, 22592, 22688, 22784, 22880, 22976, 23072, 23168, 23264, 23360, 23456],
+  "anchor_lambda": 1.0,
+  "block_margin": 1.0,
+  "blend_alpha": [0.25, 0.5, 1.0],
+  "calibration_shift": [-0.2, 0.0, 0.2],
+  "calibration_width": [0.8, 1.0, 1.2],
+  "fit_cap": 48,
+  "gpu_startup_timeout_seconds": 43200,
+  "continuation_gate": "For each dataset, seed-mean block loss <=0.995 times seed-mean best baseline (best chosen separately per seed from F0, lora, split, center, anchor, pooled, blend, calibration); each seed block/F0 <=1.01; seed-mean absolute 80% coverage error <= strongest baseline error +0.01; selected block step>0 and nonzero shape displacement in every dataset/seed. Otherwise STOP. This is a research continuation gate, not publication PASS.",
+  "evaluation_scope": "Later chronological periods not scored in previous repository runs; same source series, potential foundation pretraining overlap, only two datasets. New holdout within this pilot, not external replication.",
+  "stop": "One preregistered 48-fit pilot, 5760 proposed training iterations. No recipe expansion or post-E method tuning in this run."
+}

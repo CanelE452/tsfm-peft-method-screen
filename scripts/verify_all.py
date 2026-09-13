@@ -43,3 +43,6 @@ if (ROOT/'results/local_backward_feasibility/verification.json').exists():
 
 if (ROOT/'results/forecast_query_pilot/verification.json').exists():
     subprocess.run([sys.executable,str(ROOT/'scripts/finalize_forecast_query_pilot.py'),'--verify-only'],cwd=ROOT,check=True)
+
+if (ROOT/'results/block_shape_pilot/verification.json').exists():
+    subprocess.run([sys.executable,str(ROOT/'scripts/finalize_block_shape_pilot.py'),'--verify-only'],cwd=ROOT,check=True)
