@@ -37,3 +37,6 @@ if (ROOT/'results/candidate_01_v2/status.json').exists():
 
 if (ROOT/'results/memory_feasibility/verification.json').exists():
     subprocess.run([sys.executable,str(ROOT/'scripts/finalize_memory_feasibility.py'),'--verify-only'],cwd=ROOT,check=True)
+
+if (ROOT/'results/local_backward_feasibility/verification.json').exists():
+    subprocess.run([sys.executable,str(ROOT/'scripts/finalize_local_backward.py'),'--verify-only'],cwd=ROOT,check=True)

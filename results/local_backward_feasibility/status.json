@@ -1,0 +1,27 @@
+{
+  "completed_backward_passes": 216,
+  "decisions": [
+    {
+      "A_rms_error_ratio_vs_local_fp16": 2092.943896277491,
+      "dataset": "ettm2",
+      "dominated_by_checkpoint": true,
+      "pass_gate": false,
+      "peak_reduction": 0.09056945989568022,
+      "time_ratio": 1.021543921905333
+    },
+    {
+      "A_rms_error_ratio_vs_local_fp16": 3308.105480170216,
+      "dataset": "electricity",
+      "dominated_by_checkpoint": true,
+      "pass_gate": false,
+      "peak_reduction": 0.09023576227577856,
+      "time_ratio": 1.038726292601918
+    }
+  ],
+  "e_access": false,
+  "optimizer_updates": 0,
+  "parameter_state_unchanged": true,
+  "status": "COMPLETE",
+  "verdict": "STOP",
+  "wall_seconds": 76.4935038946569
+}

@@ -28,7 +28,17 @@ On this machine only, kernel driver580.173.02 and globally installed userspace58
 
 See [novelty boundaries](docs/NOVELTY_BOUNDARY.md). Candidate06 is stopped for direct overlap of the central neural-copula method; its raw data preparation is not a fitted result.
 
-## Memory-efficient PEFT: latest train-only feasibility study
+## Local residual-corrected LoRA: latest diagnostic
+
+**STOP before learning.** Custom local backward preserves exact forward, B-gradient and input propagation; keeping every detail reproduces A-gradient to1.51e-7 relative error. At context4096 the sampled residual candidate reduces peak by9.02–9.06%, but A-gradient RMS error is12.94% on ETTm2 and36.33% on Electricity. Generic local FP16 reduces peak by10.98–11.02% with0.00618–0.01098% A-error. BF16 autocast plus checkpointing uses735–736MiB and takes0.879–0.888× FP32 standard forward/backward time, dominating the proposed candidate's memory/time in this setup.
+
+The diagnosis completed32 cases,216 backwards and128 stochastic gradient-cache replays, with **zero optimizer updates and zero new fits**. Learning was authorized conditionally (maximum16 fits), but the fixed prerequisite failed. These are fixed-state gradient measurements, not forecasting-quality results. All arms retain FP32 AdamW moment buffers; no optimizer-step peak was measured. CARE/PRAC controls are explicitly scoped primitives, not official reproductions or matched-byte claims. See the [report](results/local_backward_feasibility/RESULT.md), [fixed protocol](docs/LOCAL_BACKWARD_PROTOCOL.md), and [verification](results/local_backward_feasibility/verification.json).
+
+```bash
+scripts/with_cuda.sh .venv/bin/python scripts/finalize_local_backward.py --verify-only
+```
+
+## Memory-efficient PEFT: completed global-compression feasibility study
 
 **Bottleneck confirmed; temporal pair-mean primitive STOP.** At context4096, generic FP16 saved activations reduce measured forward/backward peak by32.57% with0.0895–0.1299% full-gradient relative error. Matched-byte INT8 reduces peak by42.41% with0.8968–1.0392% error; temporal pair means have66.24–77.10% error at essentially the same peak. Exact block checkpointing reduces peak by61.45% with exact gradients, at1.41–1.42× step time. These fixed-state gradient diagnostics are not forecasting-accuracy results, and Stage-B peaks omit optimizer states for all arms.
 
