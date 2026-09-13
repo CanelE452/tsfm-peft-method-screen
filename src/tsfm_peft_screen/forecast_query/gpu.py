@@ -15,7 +15,7 @@ class GPUWatch:
         idle=None
         while True:
             r=self.read('startup_wait')
-            good=not r['external_pids'] and r['free_mib']>=4096 and r['utilization_percent']<=20
+            good=not r['external_pids'] and r['free_mib']>=4096 and r['utilization_percent']<90
             if good:
                 if idle is None:idle=time.monotonic()
                 if time.monotonic()-idle>=30:return

@@ -14,5 +14,5 @@
  "memory_measurement":"full forward + cache generation + loss backward + clipping + optimizer.step; allocated/reserved; no cross-window persistent cache; complete fitting wall time includes validation and checkpoint copies",
  "smoke":"FP32 initial query versus F0 relative L2<=1e-5 and max_abs<=1e-4; BF16 relative<=0.02; nonzero B-gradient, parameter update and forecast effect; no trainable past graph; group isolation and missing-key mask checks",
  "stop":"minimum implementation checks then16 fixed fits; no gradient approximation gate; no second seed, more recipes, or fixed-memory batch experiment unless the fixed-batch quality/resource gate passes; no independent holdout claim",
- "gpu":"30s startup idle with no external compute PID, free>=4GiB, utilization<=20%; every<=5s at step boundaries monitor free/used/util/PIDs; pause if external compute or free<1GiB; existing per-step memory guard; never kill external jobs"
+ "gpu":"30s startup idle with no external compute PID, free>=4GiB, utilization<90%; every<=5s at step boundaries monitor free/used/util/PIDs; pause if external compute or free<1GiB; existing per-step memory guard; never kill external jobs"
 }
