@@ -4,7 +4,11 @@ Independent Chronos-2 development screen. Round 0 and Round 1 only; Round 2 requ
 
 No prior experiment outputs are used as new evidence. Raw data and cached model weights may be reused with provenance hashes. All source is local to this repository.
 
-## Latest completed work — 2026-09-14
+## Latest completed work — 2026-09-15
+
+The [Query resource-constrained pilot](results/query_budget_pilot_20260915/REPORT.md) stopped at **INCONCLUSIVE_NUMERICS** after 120 disposable A updates; B ran 0 fits / 0 updates. All 24 nonidentity checkpoint comparisons passed, but 4 of 6 FP32 origin-microbatch comparisons exceeded the fixed tolerance. Repeated timing and new forecasting scores were not measured, so neither a resource advantage nor a forecasting failure is established. The 42 stored comparisons were independently replayed, 117 CPU tests passed, and 1,217 historical result files remain unchanged. No follow-up training is running.
+
+## Previous completed work — 2026-09-14
 
 The [censor-tail controlled pilot](results/censor_tail_controlled_v1/FINAL_REVIEW.md) completed 6 fits / 2,160 updates plus 6 smoke updates. TAIL improved over DROP by 0.001729% but was 0.675272% worse than NAIVE on reused E_dev. Numerical checks pass; additional forecasting value was not established in this setting. No follow-up training is running.
 

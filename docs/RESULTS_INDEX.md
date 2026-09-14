@@ -1,9 +1,10 @@
 # 완료 작업과 검증 기록
 
-2026-09-14 기준. 표의 링크는 완료된 실행 또는 검토 결과다. 과거 FAIL/STOP은 당시 고정 실험의 판정으로 보존한다. 최신 재검토의 후속 연구 우선순위는 방법론 성공이나 새로운 실험 실행을 뜻하지 않는다.
+2026-09-15 기준. 표의 링크는 완료된 실행 또는 검토 결과다. 과거 FAIL/STOP은 당시 고정 실험의 판정으로 보존한다. 최신 재검토의 후속 연구 우선순위는 방법론 성공이나 새로운 실험 실행을 뜻하지 않는다.
 
 | 완료 작업 | 결과 | 검증 기록 |
 | --- | --- | --- |
+| Query 자원 제약 파일럿: A 폐기용 120 updates, B 0 fits; INCONCLUSIVE_NUMERICS | [수치 중단 보고](../results/query_budget_pilot_20260915/REPORT.md), [실제 측정표](../results/query_budget_pilot_20260915/resource_measurements.csv) | [종료 검증](../results/query_budget_pilot_20260915/completion_verification.json), [42개 비교 재계산](../results/query_budget_pilot_20260915/independent_verification.json), [117개 CPU 검사](../results/query_budget_pilot_20260915/cpu_tests.json) |
 | Censor tail 통제 파일럿: 6 fits / 2,160 updates, smoke 6 updates | [최종 검토](../results/censor_tail_controlled_v1/FINAL_REVIEW.md), [전체 표/그림](../results/censor_tail_controlled_v1/REPORT.md) | [독립 재계산](../results/censor_tail_controlled_v1/verification.json), [완료 교차 검산](../results/censor_tail_controlled_v1/completion_audit.json) |
 | 최신 Anchor / PatchPhase / Query / FR / Censor 재검토 | [최종 평가](../research/reopen_review_20260914/FINAL_ASSESSMENT.md), [방법별 판정](../research/reopen_review_20260914/METHOD_REOPEN_MATRIX.csv) | [978개 독립 검사](../research/reopen_review_20260914/verification.json) |
 | PatchPhase v2: 12 fits / 8,640 updates | [결과 및 한계](../research/reopen_review_20260914/PATCHPHASE_V2_RESULT.md) | [예측 재생·체크포인트 증거](../research/reopen_review_20260914/patch_evidence.json) |
@@ -23,7 +24,9 @@
 - [`f18d125`](https://github.com/CanelE452/tsfm-peft-method-screen/commit/f18d125): 완료된 12-fit PatchPhase v2 결과.
 - [`b6dad71`](https://github.com/CanelE452/tsfm-peft-method-screen/commit/b6dad71): 최신 재검토, Query 자원 비교, FR / Censor 진단과 최종 검증.
 
-최신 연구 작업 종료 시 CPU 테스트 98개가 통과했다. 재검토 검증 기록에는 독립 검사 978개와 기존 결과 파일 1,091개의 해시 보존이 기록되어 있다. 이 수치는 당시 검증 범위이며, 이 색인을 작성하면서 학습을 다시 실행한 것은 아니다.
+2026-09-14 재검토 작업 종료 시 CPU 테스트 98개가 통과했다. 재검토 검증 기록에는 독립 검사 978개와 기존 결과 파일 1,091개의 해시 보존이 기록되어 있다. 이 수치는 당시 검증 범위이며, 이 색인을 작성하면서 학습을 다시 실행한 것은 아니다.
+
+Query 자원 제약 파일럿은 117개 CPU 검사와 42개 저장 비교 재계산을 완료했고, 이전 결과 파일 1,217개가 보존됐다. 이는 기록된 수치 중단의 검증이며 예측 PASS가 아니다. B와 신규 V/E scoring은 실행하지 않았다.
 
 ## GitHub에서 확인할 수 있는 범위
 

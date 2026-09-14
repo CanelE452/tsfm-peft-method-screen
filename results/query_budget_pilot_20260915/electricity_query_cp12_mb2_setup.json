@@ -1,0 +1,134 @@
+{
+  "cold": {
+    "cpu_export_seconds": 0.0,
+    "gradient_norm": 2.2770016193389893,
+    "loss": 3.99574613571167,
+    "nvml_end_used_mib": 1490,
+    "nvml_start_used_mib": 1288,
+    "peak_allocated": 707600896,
+    "peak_reserved": 765460480,
+    "phase_peaks": [
+      {
+        "peak_allocated": 549884928,
+        "peak_reserved": 553648128,
+        "phase": "batch_and_transfer",
+        "start_allocated": 549751296
+      },
+      {
+        "peak_allocated": 707600896,
+        "peak_reserved": 748683264,
+        "phase": "frozen_encoder_and_cache",
+        "start_allocated": 549884416
+      },
+      {
+        "peak_allocated": 652355584,
+        "peak_reserved": 750780416,
+        "phase": "query_branch",
+        "start_allocated": 632849408
+      },
+      {
+        "peak_allocated": 645151232,
+        "peak_reserved": 752877568,
+        "phase": "output_head",
+        "start_allocated": 636487168
+      },
+      {
+        "peak_allocated": 659017728,
+        "peak_reserved": 752877568,
+        "phase": "backward",
+        "start_allocated": 635315712
+      },
+      {
+        "peak_allocated": 568691200,
+        "peak_reserved": 765460480,
+        "phase": "clip_and_optimizer",
+        "start_allocated": 554534912
+      }
+    ],
+    "physical_free_mib": 8364,
+    "precision": "bf16",
+    "process_nvml_mib": 1058,
+    "seconds": 0.22251167500508018,
+    "start_allocated": 549751296,
+    "start_reserved": 553648128
+  },
+  "evaluation_peak": 639044096,
+  "fp32": {
+    "cpu_export_seconds": 0.02762856299523264,
+    "gradient_norm": 2.260918617248535,
+    "loss": 3.980829954147339,
+    "nvml_end_used_mib": 1576,
+    "nvml_start_used_mib": 1304,
+    "peak_allocated": 794780672,
+    "peak_reserved": 855638016,
+    "phase_peaks": [],
+    "physical_free_mib": 8278,
+    "precision": "fp32",
+    "process_nvml_mib": 1144,
+    "seconds": 0.21128340701397974,
+    "start_allocated": 559188480,
+    "start_reserved": 570425344
+  },
+  "initial_state_sha256": "33102572ffb8967adf755db34f5550950f27e47e1e32d5b8a236655418074ac7",
+  "kernel": {
+    "cpu_export_seconds": 0.0,
+    "gradient_norm": 2.2770016193389893,
+    "loss": 3.99574613571167,
+    "nvml_end_used_mib": 1490,
+    "nvml_start_used_mib": 1300,
+    "peak_allocated": 717038080,
+    "peak_reserved": 765460480,
+    "phase_peaks": [
+      {
+        "peak_allocated": 559322112,
+        "peak_reserved": 566231040,
+        "phase": "batch_and_transfer",
+        "start_allocated": 559188480
+      },
+      {
+        "peak_allocated": 717038080,
+        "peak_reserved": 759169024,
+        "phase": "frozen_encoder_and_cache",
+        "start_allocated": 559321600
+      },
+      {
+        "peak_allocated": 661792768,
+        "peak_reserved": 761266176,
+        "phase": "query_branch",
+        "start_allocated": 642286592
+      },
+      {
+        "peak_allocated": 654588416,
+        "peak_reserved": 761266176,
+        "phase": "output_head",
+        "start_allocated": 645924352
+      },
+      {
+        "peak_allocated": 668454912,
+        "peak_reserved": 763363328,
+        "phase": "backward",
+        "start_allocated": 644752896
+      },
+      {
+        "peak_allocated": 568691200,
+        "peak_reserved": 765460480,
+        "phase": "clip_and_optimizer",
+        "start_allocated": 563972096
+      }
+    ],
+    "physical_free_mib": 8364,
+    "precision": "bf16",
+    "process_nvml_mib": 1058,
+    "seconds": 0.22420791100012138,
+    "start_allocated": 559188480,
+    "start_reserved": 566231040
+  },
+  "load_peak": 549751296,
+  "option": {
+    "arm": "query",
+    "cp": 12,
+    "dataset": "electricity",
+    "id": "electricity_query_cp12_mb2",
+    "micro": 2
+  }
+}

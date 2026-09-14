@@ -1,0 +1,122 @@
+{
+  "cold": {
+    "cpu_export_seconds": 0.0,
+    "gradient_norm": 2.694204807281494,
+    "loss": 2.4962990283966064,
+    "nvml_end_used_mib": 1832,
+    "nvml_start_used_mib": 1288,
+    "peak_allocated": 1073214464,
+    "peak_reserved": 1124073472,
+    "phase_peaks": [
+      {
+        "peak_allocated": 549884928,
+        "peak_reserved": 553648128,
+        "phase": "batch_and_transfer",
+        "start_allocated": 549751296
+      },
+      {
+        "peak_allocated": 1011090944,
+        "peak_reserved": 1042284544,
+        "phase": "standard_encoder",
+        "start_allocated": 549884416
+      },
+      {
+        "peak_allocated": 964109312,
+        "peak_reserved": 1042284544,
+        "phase": "output_head",
+        "start_allocated": 955543552
+      },
+      {
+        "peak_allocated": 1073214464,
+        "peak_reserved": 1115684864,
+        "phase": "backward",
+        "start_allocated": 954960384
+      },
+      {
+        "peak_allocated": 568691200,
+        "peak_reserved": 1124073472,
+        "phase": "clip_and_optimizer",
+        "start_allocated": 554534912
+      }
+    ],
+    "physical_free_mib": 8022,
+    "precision": "bf16",
+    "process_nvml_mib": 1398,
+    "seconds": 0.18311679898761213,
+    "start_allocated": 549751296,
+    "start_reserved": 553648128
+  },
+  "evaluation_peak": 602245632,
+  "fp32": {
+    "cpu_export_seconds": 0.026354370987974107,
+    "gradient_norm": 2.56622314453125,
+    "loss": 2.457408905029297,
+    "nvml_end_used_mib": 1969,
+    "nvml_start_used_mib": 1301,
+    "peak_allocated": 1160152576,
+    "peak_reserved": 1268776960,
+    "phase_peaks": [],
+    "physical_free_mib": 7885,
+    "precision": "fp32",
+    "process_nvml_mib": 1536,
+    "seconds": 0.2909316690056585,
+    "start_allocated": 559188480,
+    "start_reserved": 568328192
+  },
+  "initial_state_sha256": "6f78dd1f302b447a01bb20c98466a7a0aa86fcc5fb2264b230215488f971932a",
+  "kernel": {
+    "cpu_export_seconds": 0.0,
+    "gradient_norm": 2.694204807281494,
+    "loss": 2.4962990283966064,
+    "nvml_end_used_mib": 1831,
+    "nvml_start_used_mib": 1300,
+    "peak_allocated": 1082651648,
+    "peak_reserved": 1124073472,
+    "phase_peaks": [
+      {
+        "peak_allocated": 559322112,
+        "peak_reserved": 566231040,
+        "phase": "batch_and_transfer",
+        "start_allocated": 559188480
+      },
+      {
+        "peak_allocated": 1020528128,
+        "peak_reserved": 1052770304,
+        "phase": "standard_encoder",
+        "start_allocated": 559321600
+      },
+      {
+        "peak_allocated": 973546496,
+        "peak_reserved": 1052770304,
+        "phase": "output_head",
+        "start_allocated": 964980736
+      },
+      {
+        "peak_allocated": 1082651648,
+        "peak_reserved": 1124073472,
+        "phase": "backward",
+        "start_allocated": 964397568
+      },
+      {
+        "peak_allocated": 568691200,
+        "peak_reserved": 1124073472,
+        "phase": "clip_and_optimizer",
+        "start_allocated": 563972096
+      }
+    ],
+    "physical_free_mib": 8023,
+    "precision": "bf16",
+    "process_nvml_mib": 1398,
+    "seconds": 0.177756926001166,
+    "start_allocated": 559188480,
+    "start_reserved": 566231040
+  },
+  "load_peak": 549751296,
+  "option": {
+    "arm": "standard",
+    "cp": 9,
+    "dataset": "ettm2",
+    "id": "ettm2_standard_cp9_mb2",
+    "micro": 2
+  }
+}

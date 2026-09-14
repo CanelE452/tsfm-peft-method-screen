@@ -1,8 +1,10 @@
 {
-  "A_update_attempts": 0,
-  "A_updates": 0,
+  "A_update_attempts": 120,
+  "A_updates": 120,
   "B_fit_attempts": 0,
   "B_fits_completed": 0,
   "B_updates": 0,
-  "status": "PREPARED"
+  "error": "NumericalError('FP32_CP_OR_MICROBATCH_EQUIVALENCE_FAILED')",
+  "status": "INCONCLUSIVE_NUMERICS",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/minjae/Documents/github/tsfm-peft-method-screen/scripts/run_query_budget_pilot.py\", line 299, in profile\n    if not all(p['passed'] for p in parity):raise NumericalError('FP32_CP_OR_MICROBATCH_EQUIVALENCE_FAILED')\n                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nNumericalError: FP32_CP_OR_MICROBATCH_EQUIVALENCE_FAILED\n"
 }

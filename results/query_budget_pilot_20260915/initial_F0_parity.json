@@ -1,0 +1,170 @@
+[
+  {
+    "arm": "standard",
+    "dataset": "ettm2",
+    "precision": "fp32",
+    "raw": {
+      "max_absolute": 0.0,
+      "relative_l2": 0.0
+    },
+    "trainable_parameters": 1179648,
+    "z": {
+      "max_absolute": 0.0,
+      "relative_l2": 0.0
+    }
+  },
+  {
+    "arm": "standard",
+    "dataset": "ettm2",
+    "precision": "bf16",
+    "raw": {
+      "max_absolute": 0.0,
+      "relative_l2": 0.0
+    },
+    "trainable_parameters": 1179648,
+    "z": {
+      "max_absolute": 0.0,
+      "relative_l2": 0.0
+    }
+  },
+  {
+    "arm": "side",
+    "dataset": "ettm2",
+    "precision": "fp32",
+    "raw": {
+      "max_absolute": 7.62939453125e-06,
+      "relative_l2": 3.186572904281862e-08
+    },
+    "trainable_parameters": 1179648,
+    "z": {
+      "max_absolute": 4.76837158203125e-07,
+      "relative_l2": 9.267693285690567e-08
+    }
+  },
+  {
+    "arm": "side",
+    "dataset": "ettm2",
+    "precision": "bf16",
+    "raw": {
+      "max_absolute": 0.0,
+      "relative_l2": 0.0
+    },
+    "trainable_parameters": 1179648,
+    "z": {
+      "max_absolute": 0.0,
+      "relative_l2": 0.0
+    }
+  },
+  {
+    "arm": "query",
+    "dataset": "ettm2",
+    "precision": "fp32",
+    "raw": {
+      "max_absolute": 7.62939453125e-06,
+      "relative_l2": 3.3699318306942755e-08
+    },
+    "trainable_parameters": 1179648,
+    "z": {
+      "max_absolute": 4.76837158203125e-07,
+      "relative_l2": 1.0032255665234928e-07
+    }
+  },
+  {
+    "arm": "query",
+    "dataset": "ettm2",
+    "precision": "bf16",
+    "raw": {
+      "max_absolute": 0.2650604248046875,
+      "relative_l2": 0.0004778861547562596
+    },
+    "trainable_parameters": 1179648,
+    "z": {
+      "max_absolute": 0.015625,
+      "relative_l2": 0.002228273137373458
+    }
+  },
+  {
+    "arm": "standard",
+    "dataset": "electricity",
+    "precision": "fp32",
+    "raw": {
+      "max_absolute": 0.0,
+      "relative_l2": 0.0
+    },
+    "trainable_parameters": 1179648,
+    "z": {
+      "max_absolute": 0.0,
+      "relative_l2": 0.0
+    }
+  },
+  {
+    "arm": "standard",
+    "dataset": "electricity",
+    "precision": "bf16",
+    "raw": {
+      "max_absolute": 0.0,
+      "relative_l2": 0.0
+    },
+    "trainable_parameters": 1179648,
+    "z": {
+      "max_absolute": 0.0,
+      "relative_l2": 0.0
+    }
+  },
+  {
+    "arm": "side",
+    "dataset": "electricity",
+    "precision": "fp32",
+    "raw": {
+      "max_absolute": 0.00048828125,
+      "relative_l2": 8.04065665945603e-08
+    },
+    "trainable_parameters": 1179648,
+    "z": {
+      "max_absolute": 7.152557373046875e-07,
+      "relative_l2": 9.654282661080091e-08
+    }
+  },
+  {
+    "arm": "side",
+    "dataset": "electricity",
+    "precision": "bf16",
+    "raw": {
+      "max_absolute": 0.0,
+      "relative_l2": 0.0
+    },
+    "trainable_parameters": 1179648,
+    "z": {
+      "max_absolute": 0.0,
+      "relative_l2": 0.0
+    }
+  },
+  {
+    "arm": "query",
+    "dataset": "electricity",
+    "precision": "fp32",
+    "raw": {
+      "max_absolute": 0.0003662109375,
+      "relative_l2": 8.205401776715543e-08
+    },
+    "trainable_parameters": 1179648,
+    "z": {
+      "max_absolute": 1.1920928955078125e-06,
+      "relative_l2": 1.37623479703777e-07
+    }
+  },
+  {
+    "arm": "query",
+    "dataset": "electricity",
+    "precision": "bf16",
+    "raw": {
+      "max_absolute": 21.885986328125,
+      "relative_l2": 0.0018054498663781524
+    },
+    "trainable_parameters": 1179648,
+    "z": {
+      "max_absolute": 0.03125,
+      "relative_l2": 0.002675951626193674
+    }
+  }
+]

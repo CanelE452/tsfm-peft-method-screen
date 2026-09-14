@@ -1,0 +1,170 @@
+{
+  "cold": {
+    "cpu_export_seconds": 0.0,
+    "gradient_norm": 2.695345878601074,
+    "loss": 2.497696876525879,
+    "nvml_end_used_mib": 1984,
+    "nvml_start_used_mib": 1285,
+    "peak_allocated": 1240754176,
+    "peak_reserved": 1285554176,
+    "phase_peaks": [
+      {
+        "peak_allocated": 549818880,
+        "peak_reserved": 553648128,
+        "phase": "batch_and_transfer",
+        "start_allocated": 549751296
+      },
+      {
+        "peak_allocated": 1195323904,
+        "peak_reserved": 1210056704,
+        "phase": "standard_encoder",
+        "start_allocated": 549818368
+      },
+      {
+        "peak_allocated": 1176013824,
+        "peak_reserved": 1212153856,
+        "phase": "output_head",
+        "start_allocated": 1167556608
+      },
+      {
+        "peak_allocated": 1236002304,
+        "peak_reserved": 1275068416,
+        "phase": "backward",
+        "start_allocated": 1171211264
+      },
+      {
+        "peak_allocated": 554570752,
+        "peak_reserved": 1275068416,
+        "phase": "batch_and_transfer",
+        "start_allocated": 554503168
+      },
+      {
+        "peak_allocated": 1200501760,
+        "peak_reserved": 1279262720,
+        "phase": "standard_encoder",
+        "start_allocated": 554570240
+      },
+      {
+        "peak_allocated": 1181396480,
+        "peak_reserved": 1279262720,
+        "phase": "output_head",
+        "start_allocated": 1172939264
+      },
+      {
+        "peak_allocated": 1240754176,
+        "peak_reserved": 1279262720,
+        "phase": "backward",
+        "start_allocated": 1176593920
+      },
+      {
+        "peak_allocated": 568692736,
+        "peak_reserved": 1285554176,
+        "phase": "clip_and_optimizer",
+        "start_allocated": 554536448
+      }
+    ],
+    "physical_free_mib": 7870,
+    "precision": "bf16",
+    "process_nvml_mib": 1552,
+    "seconds": 0.25850910000735894,
+    "start_allocated": 549751296,
+    "start_reserved": 553648128
+  },
+  "evaluation_peak": 602245632,
+  "fp32": {
+    "cpu_export_seconds": 0.028370635001920164,
+    "gradient_norm": 2.566218137741089,
+    "loss": 2.4574086666107178,
+    "nvml_end_used_mib": 2022,
+    "nvml_start_used_mib": 1302,
+    "peak_allocated": 1212964864,
+    "peak_reserved": 1325400064,
+    "phase_peaks": [],
+    "physical_free_mib": 7832,
+    "precision": "fp32",
+    "process_nvml_mib": 1590,
+    "seconds": 0.28389272901404183,
+    "start_allocated": 559188480,
+    "start_reserved": 570425344
+  },
+  "initial_state_sha256": "6f78dd1f302b447a01bb20c98466a7a0aa86fcc5fb2264b230215488f971932a",
+  "kernel": {
+    "cpu_export_seconds": 0.0,
+    "gradient_norm": 2.695345878601074,
+    "loss": 2.497696876525879,
+    "nvml_end_used_mib": 1988,
+    "nvml_start_used_mib": 1300,
+    "peak_allocated": 1250191360,
+    "peak_reserved": 1289748480,
+    "phase_peaks": [
+      {
+        "peak_allocated": 559256064,
+        "peak_reserved": 568328192,
+        "phase": "batch_and_transfer",
+        "start_allocated": 559188480
+      },
+      {
+        "peak_allocated": 1204761088,
+        "peak_reserved": 1220542464,
+        "phase": "standard_encoder",
+        "start_allocated": 559255552
+      },
+      {
+        "peak_allocated": 1185451008,
+        "peak_reserved": 1220542464,
+        "phase": "output_head",
+        "start_allocated": 1176993792
+      },
+      {
+        "peak_allocated": 1245439488,
+        "peak_reserved": 1283457024,
+        "phase": "backward",
+        "start_allocated": 1180648448
+      },
+      {
+        "peak_allocated": 564007936,
+        "peak_reserved": 1283457024,
+        "phase": "batch_and_transfer",
+        "start_allocated": 563940352
+      },
+      {
+        "peak_allocated": 1209938944,
+        "peak_reserved": 1287651328,
+        "phase": "standard_encoder",
+        "start_allocated": 564007424
+      },
+      {
+        "peak_allocated": 1190833664,
+        "peak_reserved": 1289748480,
+        "phase": "output_head",
+        "start_allocated": 1182376448
+      },
+      {
+        "peak_allocated": 1250191360,
+        "peak_reserved": 1289748480,
+        "phase": "backward",
+        "start_allocated": 1186031104
+      },
+      {
+        "peak_allocated": 568692736,
+        "peak_reserved": 1289748480,
+        "phase": "clip_and_optimizer",
+        "start_allocated": 563973632
+      }
+    ],
+    "physical_free_mib": 7866,
+    "precision": "bf16",
+    "process_nvml_mib": 1556,
+    "seconds": 0.25044929499563295,
+    "start_allocated": 559188480,
+    "start_reserved": 568328192
+  },
+  "load_peak": 549751296,
+  "option": {
+    "arm": "standard",
+    "cp": 3,
+    "dataset": "ettm2",
+    "id": "ettm2_standard_cp3_mb1",
+    "micro": 1
+  }
+}

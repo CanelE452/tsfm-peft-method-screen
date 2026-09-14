@@ -1,0 +1,2018 @@
+[
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56972364639557,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999996515185818,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.4574086666107178,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 3228.142836763102,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.5662182807161082,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.07115481478848511,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 74.82620693903644,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "ettm2_standard_cp0_mb1",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "ettm2_standard_cp0_mb1_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "microbatch",
+    "metrics": {
+      "adam": {
+        "max_absolute": 1.631269697099924e-07,
+        "reference_norm": 41.56972364685823,
+        "relative_l2": 9.092376970664097e-08
+      },
+      "clipped_gradient": {
+        "max_absolute": 1.6312114894390106e-06,
+        "reference_norm": 0.9999996600550529,
+        "relative_l2": 3.7796536415505915e-05
+      },
+      "loss": {
+        "max_absolute": 2.384185791015625e-07,
+        "reference_norm": 2.457408905029297,
+        "relative_l2": 9.702031217255645e-08
+      },
+      "raw": {
+        "max_absolute": 1.1444091796875e-05,
+        "reference_norm": 3228.142828365484,
+        "relative_l2": 4.029466897778121e-08
+      },
+      "raw_gradient": {
+        "max_absolute": 4.194676876068115e-06,
+        "reference_norm": 2.5662232073278672,
+        "relative_l2": 3.784510616151414e-05
+      },
+      "update": {
+        "max_absolute": 8.473580237478018e-07,
+        "reference_norm": 0.07115482449479663,
+        "relative_l2": 5.361744498231507e-05
+      },
+      "z": {
+        "max_absolute": 7.152557373046875e-07,
+        "reference_norm": 74.82620624703392,
+        "relative_l2": 1.4219589845963757e-07
+      }
+    },
+    "microbatch_comparison": true,
+    "option": "ettm2_standard_cp0_mb1",
+    "passed": false,
+    "precision": "fp32",
+    "reference": "ettm2_standard_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56972364685823,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999996600550529,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.457408905029297,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 3228.142828365484,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.5662232073278672,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.07115482449479663,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 74.82620624703392,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "ettm2_standard_cp0_mb2",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "ettm2_standard_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56972364639557,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999996515185818,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.4574086666107178,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 3228.142836763102,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.5662182807161082,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.07115481478848511,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 74.82620693903644,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "ettm2_standard_cp3_mb1",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "ettm2_standard_cp0_mb1_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56972364685823,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999996600550529,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.457408905029297,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 3228.142828365484,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.5662232073278672,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.07115482449479663,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 74.82620624703392,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "ettm2_standard_cp3_mb2",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "ettm2_standard_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56972364639557,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999996515185818,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.4574086666107178,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 3228.142836763102,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.5662182807161082,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.07115481478848511,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 74.82620693903644,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "ettm2_standard_cp6_mb1",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "ettm2_standard_cp0_mb1_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56972364685823,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999996600550529,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.457408905029297,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 3228.142828365484,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.5662232073278672,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.07115482449479663,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 74.82620624703392,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "ettm2_standard_cp6_mb2",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "ettm2_standard_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56972364639557,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999996515185818,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.4574086666107178,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 3228.142836763102,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.5662182807161082,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.07115481478848511,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 74.82620693903644,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "ettm2_standard_cp9_mb1",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "ettm2_standard_cp0_mb1_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56972364685823,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999996600550529,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.457408905029297,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 3228.142828365484,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.5662232073278672,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.07115482449479663,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 74.82620624703392,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "ettm2_standard_cp9_mb2",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "ettm2_standard_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56972364639557,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999996515185818,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.4574086666107178,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 3228.142836763102,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.5662182807161082,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.07115481478848511,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 74.82620693903644,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "ettm2_standard_cp12_mb1",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "ettm2_standard_cp0_mb1_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56972364685823,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999996600550529,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.457408905029297,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 3228.142828365484,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.5662232073278672,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.07115482449479663,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 74.82620624703392,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "ettm2_standard_cp12_mb2",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "ettm2_standard_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 27.65902069596016,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999999619918015,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.972342014312744,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 3186.412063278378,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 13.228545566716072,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.6530093527301974,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 72.31526018245293,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "ettm2_side_cp0_mb1",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "ettm2_side_cp0_mb1_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "microbatch",
+    "metrics": {
+      "adam": {
+        "max_absolute": 6.984919309616089e-10,
+        "reference_norm": 27.659020695954666,
+        "relative_l2": 4.846418820851077e-10
+      },
+      "clipped_gradient": {
+        "max_absolute": 7.450580596923828e-09,
+        "reference_norm": 0.9999999430752101,
+        "relative_l2": 1.260880482695553e-07
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.972342014312744,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 7.62939453125e-06,
+        "reference_norm": 3186.4120617449566,
+        "relative_l2": 3.553825956027434e-08
+      },
+      "raw_gradient": {
+        "max_absolute": 8.940696716308594e-08,
+        "reference_norm": 13.228545313135085,
+        "relative_l2": 1.218617140563872e-07
+      },
+      "update": {
+        "max_absolute": 6.388872861862183e-07,
+        "reference_norm": 0.6530093532887165,
+        "relative_l2": 2.304394212914741e-06
+      },
+      "z": {
+        "max_absolute": 5.364418029785156e-07,
+        "reference_norm": 72.31526107715833,
+        "relative_l2": 1.36641377458091e-07
+      }
+    },
+    "microbatch_comparison": true,
+    "option": "ettm2_side_cp0_mb1",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "ettm2_side_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 27.659020695954666,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999999430752101,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.972342014312744,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 3186.4120617449566,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 13.228545313135085,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.6530093532887165,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 72.31526107715833,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "ettm2_side_cp0_mb2",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "ettm2_side_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 27.65902069596016,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999999619918015,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.972342014312744,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 3186.412063278378,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 13.228545566716072,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.6530093527301974,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 72.31526018245293,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "ettm2_side_cp12_mb1",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "ettm2_side_cp0_mb1_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 27.659020695954666,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999999430752101,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.972342014312744,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 3186.4120617449566,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 13.228545313135085,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.6530093532887165,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 72.31526107715833,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "ettm2_side_cp12_mb2",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "ettm2_side_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56967913381983,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999991768375883,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.5593652725219727,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 3222.518287685137,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 1.1813417847565948,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.06883998879628599,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 74.60884095454561,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "ettm2_query_cp0_mb1",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "ettm2_query_cp0_mb1_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "microbatch",
+    "metrics": {
+      "adam": {
+        "max_absolute": 3.259629011154175e-09,
+        "reference_norm": 41.56967913380428,
+        "relative_l2": 1.3998629080482978e-09
+      },
+      "clipped_gradient": {
+        "max_absolute": 3.3527612686157227e-08,
+        "reference_norm": 0.9999991476419045,
+        "relative_l2": 5.775121397977818e-07
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.5593652725219727,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 7.62939453125e-06,
+        "reference_norm": 3222.5182878232417,
+        "relative_l2": 3.6558859169849536e-08
+      },
+      "raw_gradient": {
+        "max_absolute": 3.91155481338501e-08,
+        "reference_norm": 1.1813417488078737,
+        "relative_l2": 5.76745882466218e-07
+      },
+      "update": {
+        "max_absolute": 1.862645149230957e-08,
+        "reference_norm": 0.06883998806550219,
+        "relative_l2": 2.391332196427471e-06
+      },
+      "z": {
+        "max_absolute": 6.109476089477539e-07,
+        "reference_norm": 74.60884073833178,
+        "relative_l2": 1.3213265437600057e-07
+      }
+    },
+    "microbatch_comparison": true,
+    "option": "ettm2_query_cp0_mb1",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "ettm2_query_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56967913380428,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999991476419045,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.5593652725219727,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 3222.5182878232417,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 1.1813417488078737,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.06883998806550219,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 74.60884073833178,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "ettm2_query_cp0_mb2",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "ettm2_query_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56967913381983,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999991768375883,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.5593652725219727,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 3222.518287685137,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 1.1813417847565948,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.06883998879628599,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 74.60884095454561,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "ettm2_query_cp12_mb1",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "ettm2_query_cp0_mb1_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56967913380428,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999991476419045,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.5593652725219727,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 3222.5182878232417,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 1.1813417488078737,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.06883998806550219,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 74.60884073833178,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "ettm2_query_cp12_mb2",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "ettm2_query_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56971209417862,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999998466106294,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 3.6125199794769287,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 29462.571914303324,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 9.627356235568309,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.0716438508476535,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 99.48360273660023,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "electricity_standard_cp0_mb1",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "electricity_standard_cp0_mb1_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "microbatch",
+    "metrics": {
+      "adam": {
+        "max_absolute": 1.0367875802330673e-07,
+        "reference_norm": 41.56971209421503,
+        "relative_l2": 8.605284066669988e-08
+      },
+      "clipped_gradient": {
+        "max_absolute": 1.0366784408688545e-06,
+        "reference_norm": 0.9999998963394301,
+        "relative_l2": 3.577182601086688e-05
+      },
+      "loss": {
+        "max_absolute": 7.152557373046875e-07,
+        "reference_norm": 3.612520694732666,
+        "relative_l2": 1.9799353353119487e-07
+      },
+      "raw": {
+        "max_absolute": 0.00048828125,
+        "reference_norm": 29462.571111846093,
+        "relative_l2": 1.1771006105138378e-07
+      },
+      "raw_gradient": {
+        "max_absolute": 9.953975677490234e-06,
+        "reference_norm": 9.627341518210692,
+        "relative_l2": 3.580436331012271e-05
+      },
+      "update": {
+        "max_absolute": 6.863847374916077e-07,
+        "reference_norm": 0.0716438461183946,
+        "relative_l2": 3.9329564337505345e-05
+      },
+      "z": {
+        "max_absolute": 2.6226043701171875e-06,
+        "reference_norm": 99.4836002289235,
+        "relative_l2": 2.8962130450435713e-07
+      }
+    },
+    "microbatch_comparison": true,
+    "option": "electricity_standard_cp0_mb1",
+    "passed": false,
+    "precision": "fp32",
+    "reference": "electricity_standard_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56971209421503,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999998963394301,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 3.612520694732666,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 29462.571111846093,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 9.627341518210692,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.0716438461183946,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 99.4836002289235,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "electricity_standard_cp0_mb2",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "electricity_standard_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56971209417862,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999998466106294,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 3.6125199794769287,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 29462.571914303324,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 9.627356235568309,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.0716438508476535,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 99.48360273660023,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "electricity_standard_cp3_mb1",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "electricity_standard_cp0_mb1_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56971209421503,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999998963394301,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 3.612520694732666,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 29462.571111846093,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 9.627341518210692,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.0716438461183946,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 99.4836002289235,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "electricity_standard_cp3_mb2",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "electricity_standard_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56971209417862,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999998466106294,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 3.6125199794769287,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 29462.571914303324,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 9.627356235568309,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.0716438508476535,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 99.48360273660023,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "electricity_standard_cp6_mb1",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "electricity_standard_cp0_mb1_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56971209421503,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999998963394301,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 3.612520694732666,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 29462.571111846093,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 9.627341518210692,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.0716438461183946,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 99.4836002289235,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "electricity_standard_cp6_mb2",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "electricity_standard_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56971209417862,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999998466106294,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 3.6125199794769287,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 29462.571914303324,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 9.627356235568309,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.0716438508476535,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 99.48360273660023,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "electricity_standard_cp9_mb1",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "electricity_standard_cp0_mb1_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56971209421503,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999998963394301,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 3.612520694732666,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 29462.571111846093,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 9.627341518210692,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.0716438461183946,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 99.4836002289235,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "electricity_standard_cp9_mb2",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "electricity_standard_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56971209417862,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999998466106294,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 3.6125199794769287,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 29462.571914303324,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 9.627356235568309,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.0716438508476535,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 99.48360273660023,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "electricity_standard_cp12_mb1",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "electricity_standard_cp0_mb1_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56971209421503,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999998963394301,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 3.612520694732666,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 29462.571111846093,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 9.627341518210692,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.0716438461183946,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 99.4836002289235,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "electricity_standard_cp12_mb2",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "electricity_standard_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 27.65899292712668,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999998110415694,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 4.083759307861328,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 29232.388382273875,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 4.573992309840751,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.6560733958463879,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 100.90426530187459,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "electricity_side_cp0_mb1",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "electricity_side_cp0_mb1_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "microbatch",
+    "metrics": {
+      "adam": {
+        "max_absolute": 1.1641532182693481e-09,
+        "reference_norm": 27.658992927119645,
+        "relative_l2": 7.597381030153028e-10
+      },
+      "clipped_gradient": {
+        "max_absolute": 1.1175870895385742e-08,
+        "reference_norm": 0.9999997828231294,
+        "relative_l2": 2.0358660767109635e-07
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 4.083759307861328,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.00048828125,
+        "reference_norm": 29232.38821309482,
+        "relative_l2": 1.3311525382270693e-07
+      },
+      "raw_gradient": {
+        "max_absolute": 5.21540641784668e-08,
+        "reference_norm": 4.573992182658582,
+        "relative_l2": 2.0140425629976996e-07
+      },
+      "update": {
+        "max_absolute": 4.470348358154297e-07,
+        "reference_norm": 0.656073394999933,
+        "relative_l2": 2.3107452481870045e-06
+      },
+      "z": {
+        "max_absolute": 4.410743713378906e-06,
+        "reference_norm": 100.90426146073776,
+        "relative_l2": 3.104188454621974e-07
+      }
+    },
+    "microbatch_comparison": true,
+    "option": "electricity_side_cp0_mb1",
+    "passed": false,
+    "precision": "fp32",
+    "reference": "electricity_side_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 27.658992927119645,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999997828231294,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 4.083759307861328,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 29232.38821309482,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 4.573992182658582,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.656073394999933,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 100.90426146073776,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "electricity_side_cp0_mb2",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "electricity_side_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 27.65899292712668,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999998110415694,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 4.083759307861328,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 29232.388382273875,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 4.573992309840751,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.6560733958463879,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 100.90426530187459,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "electricity_side_cp12_mb1",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "electricity_side_cp0_mb1_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 27.658992927119645,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999997828231294,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 4.083759307861328,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 29232.38821309482,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 4.573992182658582,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.656073394999933,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 100.90426146073776,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "electricity_side_cp12_mb2",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "electricity_side_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56966308951463,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999995539757123,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 3.9808292388916016,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 29401.077989322777,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.2609199528012844,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.07327948328605674,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 100.45999880260102,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "electricity_query_cp0_mb1",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "electricity_query_cp0_mb1_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "microbatch",
+    "metrics": {
+      "adam": {
+        "max_absolute": 7.450580596923828e-09,
+        "reference_norm": 41.569663089550225,
+        "relative_l2": 3.1039954510835245e-09
+      },
+      "clipped_gradient": {
+        "max_absolute": 7.450580596923828e-08,
+        "reference_norm": 0.9999996151532081,
+        "relative_l2": 1.2885104883255448e-06
+      },
+      "loss": {
+        "max_absolute": 7.152557373046875e-07,
+        "reference_norm": 3.980829954147339,
+        "relative_l2": 1.7967502896211738e-07
+      },
+      "raw": {
+        "max_absolute": 0.000732421875,
+        "reference_norm": 29401.077397715337,
+        "relative_l2": 1.383779364974655e-07
+      },
+      "raw_gradient": {
+        "max_absolute": 1.564621925354004e-07,
+        "reference_norm": 2.2609187202138856,
+        "relative_l2": 1.3970745401380165e-06
+      },
+      "update": {
+        "max_absolute": 6.705522537231445e-08,
+        "reference_norm": 0.07327948335989887,
+        "relative_l2": 3.45382332861599e-06
+      },
+      "z": {
+        "max_absolute": 3.337860107421875e-06,
+        "reference_norm": 100.4599936014551,
+        "relative_l2": 3.2575066307239684e-07
+      }
+    },
+    "microbatch_comparison": true,
+    "option": "electricity_query_cp0_mb1",
+    "passed": false,
+    "precision": "fp32",
+    "reference": "electricity_query_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.569663089550225,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999996151532081,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 3.980829954147339,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 29401.077397715337,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.2609187202138856,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.07327948335989887,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 100.4599936014551,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "electricity_query_cp0_mb2",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "electricity_query_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.56966308951463,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999995539757123,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 3.9808292388916016,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 29401.077989322777,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.2609199528012844,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.07327948328605674,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 100.45999880260102,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "electricity_query_cp12_mb1",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "electricity_query_cp0_mb1_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  },
+  {
+    "kind": "checkpoint",
+    "metrics": {
+      "adam": {
+        "max_absolute": 0.0,
+        "reference_norm": 41.569663089550225,
+        "relative_l2": 0.0
+      },
+      "clipped_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.9999996151532081,
+        "relative_l2": 0.0
+      },
+      "loss": {
+        "max_absolute": 0.0,
+        "reference_norm": 3.980829954147339,
+        "relative_l2": 0.0
+      },
+      "raw": {
+        "max_absolute": 0.0,
+        "reference_norm": 29401.077397715337,
+        "relative_l2": 0.0
+      },
+      "raw_gradient": {
+        "max_absolute": 0.0,
+        "reference_norm": 2.2609187202138856,
+        "relative_l2": 0.0
+      },
+      "update": {
+        "max_absolute": 0.0,
+        "reference_norm": 0.07327948335989887,
+        "relative_l2": 0.0
+      },
+      "z": {
+        "max_absolute": 0.0,
+        "reference_norm": 100.4599936014551,
+        "relative_l2": 0.0
+      }
+    },
+    "microbatch_comparison": false,
+    "option": "electricity_query_cp12_mb2",
+    "passed": true,
+    "precision": "fp32",
+    "reference": "electricity_query_cp0_mb2_fp32",
+    "requires_raw_error_investigation": false,
+    "rng_equal": true,
+    "update": 0
+  }
+]
