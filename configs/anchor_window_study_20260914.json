@@ -1,0 +1,140 @@
+{
+  "run_id": "anchor_window_study_20260914",
+  "scope": "Optimization-window-budget intervention with all V choices sealed before heldout E; descriptive operating-regime evidence, not a novelty/publication PASS.",
+  "topics": {
+    "anchor": {
+      "datasets": [
+        "beijing_32",
+        "beijing_233",
+        "ettm2_later_32",
+        "ettm2_later_233",
+        "electricity_new_32",
+        "electricity_new_233"
+      ],
+      "arms": [
+        "native",
+        "native_anchor"
+      ],
+      "seeds": [
+        34000,
+        34001
+      ],
+      "learning_rates": [
+        3e-05,
+        0.0001
+      ],
+      "steps": 900,
+      "checkpoints": [
+        0,
+        150,
+        450,
+        900
+      ],
+      "context": 1024,
+      "precision": "BF16 autocast; FP32 parameters and AdamW",
+      "anchor_coefficient": 0.1,
+      "fit_cap": 48
+    }
+  },
+  "horizon": 48,
+  "max_fit_attempts": 48,
+  "max_training_updates": 43200,
+  "max_queue_wall_seconds": 28800,
+  "max_fit_wall_seconds": 1800,
+  "smoke_steps_per_arm": 2,
+  "retries": 0,
+  "startup_idle_seconds": 30,
+  "startup_free_mib": 4096,
+  "startup_utilization_below_percent": 90,
+  "pause_free_mib_below": 1024,
+  "data": {
+    "beijing": {
+      "train": [
+        2048,
+        9472,
+        32
+      ],
+      "validation": [
+        10752,
+        12192,
+        96
+      ],
+      "evaluation": [
+        13312,
+        16288,
+        96
+      ],
+      "raw_path": "data/raw/anchor_window_study_20260914/beijing_pm25.zip",
+      "raw_sha256": "40cdd29c24918e855133dce280ff59779bb0b5852898e05bafcf422a4cc0a175",
+      "channels": [
+        "pm2.5",
+        "DEWP",
+        "TEMP",
+        "PRES"
+      ],
+      "source_url": "https://archive.ics.uci.edu/dataset/381/beijing%2Bpm2%2B5%2Bdata",
+      "novelty_scope": "New dataset within this project; pretraining overlap unknown"
+    },
+    "ettm2_later": {
+      "train": [
+        28672,
+        36096,
+        32
+      ],
+      "validation": [
+        37376,
+        38816,
+        96
+      ],
+      "evaluation": [
+        39936,
+        42912,
+        96
+      ],
+      "raw_path": "data/raw/ETTm2.csv",
+      "raw_sha256": "db973ca252c6410a30d0469b13d696cf919648d0f3fd588c60f03fdbdbadd1fd",
+      "channels": [
+        "HUFL",
+        "HULL",
+        "MUFL",
+        "MULL"
+      ],
+      "source_url": "https://github.com/zhouhaoyi/ETDataset",
+      "novelty_scope": "Later chronology of existing ETTm2 source"
+    },
+    "electricity_new": {
+      "train": [
+        2048,
+        9472,
+        32
+      ],
+      "validation": [
+        10752,
+        12192,
+        96
+      ],
+      "evaluation": [
+        13312,
+        16288,
+        96
+      ],
+      "raw_path": "data/raw/electricity.txt.gz",
+      "raw_sha256": "3c4c069588198c1fcc95cace7bb69c99922129edfd673b7286661dad20badefa",
+      "channels": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_url": "https://github.com/laiguokun/multivariate-time-series-data",
+      "novelty_scope": "Unused zero-based columns 4 through 7; existing source"
+    }
+  },
+  "interpretation": {
+    "primary": "Dataset-balanced macro relative E gain and paired sparse-minus-dense interaction; report all six cells and both seeds.",
+    "conditional_followup_signal": "Sparse macro gain > 0; mean sparse-minus-dense gain > 0; interaction positive for at least two of three sources. Descriptive prioritization only, not statistical significance or publication PASS.",
+    "uncertainty": "2000 resamples of four chronological 8-origin blocks, paired across arms, channels and seeds. Budgets share E. Descriptive only.",
+    "policy_baseline": "Choose plain or anchor by V only, exact ties favor plain. Additional arm-selection budget is disclosed.",
+    "window_budget_limitation": "Common train-only scales and overlapping context exposure: not a strict label-scarcity intervention."
+  }
+}
