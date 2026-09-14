@@ -27,3 +27,7 @@
 ## GitHub에서 확인할 수 있는 범위
 
 코드, 고정 프로토콜, 결과 표, 보고서, 실행 기록, 검증 결과와 해시 manifest를 보관한다. `.gitignore`에 포함된 원시 데이터, 모델 가중치, `.cache`의 예측 배열과 체크포인트는 로컬에 남아 있다. 따라서 GitHub에서는 실행 근거와 검증 범위를 검토할 수 있고, 전체 수치 재생에는 해당 로컬 자료가 필요하다. 이후 완료 작업도 검증 후 commit/push하고 이 색인을 갱신한다.
+
+## 준비 완료, 아직 실모델 실행 전
+
+- [Censor tail 통제 파일럿 상태](../results/censor_tail_controlled_v1/STATUS.md): 새 꼬리 손실과 최대 6-fit 실행기, 준비/CPU 검증 완료. 본학습 0 fits, smoke 0 updates. RustDesk compute 프로세스의 예외 허용 여부를 확인 중이다. 완료 실험으로 집계하지 않는다.

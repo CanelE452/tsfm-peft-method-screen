@@ -1,0 +1,55 @@
+{
+  "E_scope": "previously used synthetic-censoring development evaluation",
+  "arms": [
+    "NAIVE",
+    "DROP",
+    "TAIL"
+  ],
+  "batch": 8,
+  "bootstrap": {
+    "interval": "percentile95",
+    "iterations": 2000,
+    "seed": 41002,
+    "unit": "series; retain both optimizer seeds and all origins/horizons"
+  },
+  "checkpoints": [
+    0,
+    4,
+    8,
+    15,
+    30,
+    60,
+    120,
+    180,
+    240,
+    360
+  ],
+  "context": 336,
+  "fit_cap_seconds": 1800,
+  "horizon": 48,
+  "lambda_rule": "clip(0.1*mean(first16 F0 DROP)/mean(first16 F0 survival),0.001,100)",
+  "lora_scale": 2,
+  "lr": 0.0001,
+  "max_fits": 6,
+  "max_smoke_updates": 6,
+  "max_updates": 2160,
+  "precision": "FP32 model; FP64 log-survival",
+  "primary": "V-selected E_dev equal-series scaled 2-pinball",
+  "rank": 8,
+  "schema": {
+    "prediction": "prediction[O,I,21,48],target[O,I,48],censored[O,I,48],scale[I],caps[I],origins[O]",
+    "train_observed": "observed[T,I],censored[T,I],caps[I],scale[I],channels[I]; T=1400; no original target",
+    "validation_scoring": "context[O,I,336] capped; target[O,I,48] original; scale,caps,origins,channels"
+  },
+  "secondary": "fixed step360 E_dev",
+  "seeds": [
+    41000,
+    41001
+  ],
+  "selection": "minimum clean V primary; exact ties earliest step",
+  "steps": 360,
+  "trainable_parameters": 1179648,
+  "trainable_tensors": 192,
+  "wait_cap_seconds": 900,
+  "wall_cap_seconds": 7200
+}
