@@ -1,0 +1,60 @@
+{
+  "arms": [
+    {
+      "arm": "NAIVE",
+      "base_frozen": true,
+      "frozen_unchanged": true,
+      "gradient_norms": [
+        0.938572108745575,
+        7.966907978057861
+      ],
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "initial_hash": "14b83af5fda41a184f2c277f0dfe5ca355bdac372be3476e07f4100714cde3ad",
+      "modules": 96,
+      "shared_task_and_gradient_exact": true,
+      "trainable_count": 1179648,
+      "trainable_tensors": 192,
+      "validation_reload_max_abs": 0.0
+    },
+    {
+      "arm": "DROP",
+      "base_frozen": true,
+      "frozen_unchanged": true,
+      "gradient_norms": [
+        1.1673825979232788,
+        8.770801544189453
+      ],
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "initial_hash": "14b83af5fda41a184f2c277f0dfe5ca355bdac372be3476e07f4100714cde3ad",
+      "modules": 96,
+      "shared_task_and_gradient_exact": true,
+      "trainable_count": 1179648,
+      "trainable_tensors": 192,
+      "validation_reload_max_abs": 0.0
+    },
+    {
+      "arm": "TAIL",
+      "base_frozen": true,
+      "frozen_unchanged": true,
+      "gradient_norms": [
+        1.1668286323547363,
+        8.770588874816895
+      ],
+      "head_frozen": true,
+      "identity_max_abs": 0.0,
+      "initial_hash": "14b83af5fda41a184f2c277f0dfe5ca355bdac372be3476e07f4100714cde3ad",
+      "modules": 96,
+      "shared_task_and_gradient_exact": true,
+      "trainable_count": 1179648,
+      "trainable_tensors": 192,
+      "validation_reload_max_abs": 0.0
+    }
+  ],
+  "execution_commit": "948906855711677bcd9239a2b4684f18ad715306",
+  "historical_checkpoint_replays": 0,
+  "leakage_scope": "Prepare metamorphic generator test + isolated capped training schema + actual model shared task/gradient; clean V scoring separate",
+  "smoke_updates": 6,
+  "status": "VERIFIED"
+}
