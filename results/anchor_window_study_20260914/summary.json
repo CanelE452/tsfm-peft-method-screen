@@ -1,0 +1,141 @@
+{
+  "cells": [
+    {
+      "anchor_gain_percent": 0.18142099282523194,
+      "anchor_loss": 0.21012304504411228,
+      "anchor_vs_f0_percent": 0.5726733556697283,
+      "dataset": "beijing_32",
+      "descriptive_block_interval_percent": [
+        -0.1768994530113588,
+        0.8169807506346771
+      ],
+      "f0_loss": 0.21133329451344984,
+      "plain_loss": 0.21050494520565058,
+      "plain_vs_f0_percent": 0.3919634668575811,
+      "policy_gain_percent": 0.18142099282523194,
+      "seed_gains_percent": [
+        99.73694935420336,
+        99.90021673913509
+      ],
+      "source": "beijing",
+      "training_windows": 32,
+      "validation_policy_loss": 0.21012304504411228
+    },
+    {
+      "anchor_gain_percent": 4.1724540327110144,
+      "anchor_loss": 0.21094123876371135,
+      "anchor_vs_f0_percent": 0.18551537307035515,
+      "dataset": "beijing_233",
+      "descriptive_block_interval_percent": [
+        1.4628326412195802,
+        7.7789785535065885
+      ],
+      "f0_loss": 0.21133329451344984,
+      "plain_loss": 0.2201258903527768,
+      "plain_vs_f0_percent": -4.160535073079719,
+      "policy_gain_percent": 4.1724540327110144,
+      "seed_gains_percent": [
+        97.15041511740033,
+        94.54939014672249
+      ],
+      "source": "beijing",
+      "training_windows": 233,
+      "validation_policy_loss": 0.21094123876371135
+    },
+    {
+      "anchor_gain_percent": 0.0,
+      "anchor_loss": 0.1292031730692813,
+      "anchor_vs_f0_percent": 0.0,
+      "dataset": "ettm2_later_32",
+      "descriptive_block_interval_percent": [
+        0.0,
+        0.0
+      ],
+      "f0_loss": 0.1292031730692813,
+      "plain_loss": 0.1292031730692813,
+      "plain_vs_f0_percent": 0.0,
+      "policy_gain_percent": 0.0,
+      "seed_gains_percent": [
+        100.0,
+        100.0
+      ],
+      "source": "ettm2_later",
+      "training_windows": 32,
+      "validation_policy_loss": 0.1292031730692813
+    },
+    {
+      "anchor_gain_percent": 0.0,
+      "anchor_loss": 0.1292031730692813,
+      "anchor_vs_f0_percent": 0.0,
+      "dataset": "ettm2_later_233",
+      "descriptive_block_interval_percent": [
+        0.0,
+        0.0
+      ],
+      "f0_loss": 0.1292031730692813,
+      "plain_loss": 0.1292031730692813,
+      "plain_vs_f0_percent": 0.0,
+      "policy_gain_percent": 0.0,
+      "seed_gains_percent": [
+        100.0,
+        100.0
+      ],
+      "source": "ettm2_later",
+      "training_windows": 233,
+      "validation_policy_loss": 0.1292031730692813
+    },
+    {
+      "anchor_gain_percent": -0.22146624967538386,
+      "anchor_loss": 0.21992891035254997,
+      "anchor_vs_f0_percent": 0.8269960832795076,
+      "dataset": "electricity_new_32",
+      "descriptive_block_interval_percent": [
+        -0.9434896758518496,
+        0.3583186503604563
+      ],
+      "f0_loss": 0.22176288069002428,
+      "plain_loss": 0.21944291835109958,
+      "plain_vs_f0_percent": 1.0461454738079023,
+      "policy_gain_percent": -0.08069484980204322,
+      "seed_gains_percent": [
+        100.28101089440187,
+        100.16169576190165
+      ],
+      "source": "electricity_new",
+      "training_windows": 32,
+      "validation_policy_loss": 0.2196199974844642
+    },
+    {
+      "anchor_gain_percent": -1.1676521692977726,
+      "anchor_loss": 0.22347274459788138,
+      "anchor_vs_f0_percent": -0.771032511183467,
+      "dataset": "electricity_new_233",
+      "descriptive_block_interval_percent": [
+        -4.493968091478995,
+        0.9158288895678934
+      ],
+      "f0_loss": 0.22176288069002428,
+      "plain_loss": 0.2208934771204472,
+      "plain_vs_f0_percent": 0.39204197152917786,
+      "policy_gain_percent": -0.6786471931811588,
+      "seed_gains_percent": [
+        100.97464977800475,
+        101.36198994327941
+      ],
+      "source": "electricity_new",
+      "training_windows": 233,
+      "validation_policy_loss": 0.2223925645028454
+    }
+  ],
+  "decision": "WINDOW_BUDGET_HYPOTHESIS_NOT_SUPPORTED",
+  "macro_anchor_gain_percent": 0.4941261010938483,
+  "mean_interaction_percentage_points": -1.0149490400877978,
+  "scope": "Optimization-window-budget intervention with all V choices sealed before heldout E; descriptive operating-regime evidence, not a novelty/publication PASS.",
+  "sparse_macro_gain_percent": -0.013348418950050641,
+  "sparse_minus_dense_gain_percentage_points": {
+    "beijing": -3.9910330398857825,
+    "electricity_new": 0.9461859196223887,
+    "ettm2_later": 0.0
+  },
+  "warning": "Descriptive adaptive research follow-up; neither outcome is a publication or novelty PASS."
+}
