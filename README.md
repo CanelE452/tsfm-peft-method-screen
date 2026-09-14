@@ -6,6 +6,8 @@ No prior experiment outputs are used as new evidence. Raw data and cached model 
 
 ## Latest completed work — 2026-09-14
 
+The [censor-tail controlled pilot](results/censor_tail_controlled_v1/FINAL_REVIEW.md) completed 6 fits / 2,160 updates plus 6 smoke updates. TAIL improved over DROP by 0.001729% but was 0.675272% worse than NAIVE on reused E_dev. Numerical checks pass; additional forecasting value was not established in this setting. No follow-up training is running.
+
 See the [completed-work and verification index](docs/RESULTS_INDEX.md) for the
 latest temporal diagnostics, future-selection comparison and bounded PEFT reopen
 review, including the completed 12-fit PatchPhase v2 experiment. The index links

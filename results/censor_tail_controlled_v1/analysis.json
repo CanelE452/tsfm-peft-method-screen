@@ -1,0 +1,81 @@
+{
+  "bootstrap_indices_sha256": "ce9e188864e38226926ae2af667e24d8ec8429137345c147ce84a40212e0ac24",
+  "comparisons": [
+    {
+      "CI95_lower": 0.00155892009658112,
+      "CI95_upper": 0.0018859409819608922,
+      "TAIL_primary": 0.8133446307325636,
+      "absolute_reduction": 1.4063743331229879e-05,
+      "baseline_primary": 0.8133586944758947,
+      "comparison": "TAIL_vs_DROP",
+      "gain_percent": 0.001729094854047113,
+      "role": "selected"
+    },
+    {
+      "CI95_lower": -0.8903976452118932,
+      "CI95_upper": -0.46901255489200355,
+      "TAIL_primary": 0.8133446307325636,
+      "absolute_reduction": -0.0054554458366790565,
+      "baseline_primary": 0.8078891848958845,
+      "comparison": "TAIL_vs_NAIVE",
+      "gain_percent": -0.6752715519248077,
+      "role": "selected"
+    },
+    {
+      "CI95_lower": -0.059774666337849204,
+      "CI95_upper": 0.11634210275219795,
+      "TAIL_primary": 0.8133446307325636,
+      "absolute_reduction": 0.0002044546312974526,
+      "baseline_primary": 0.8135490853638611,
+      "comparison": "TAIL_vs_F0",
+      "gain_percent": 0.02513119797879641,
+      "role": "selected"
+    },
+    {
+      "CI95_lower": -0.020715796246511882,
+      "CI95_upper": -0.008294665080252624,
+      "TAIL_primary": 0.8343216371356104,
+      "absolute_reduction": -0.00011988141272076643,
+      "baseline_primary": 0.8342017557228896,
+      "comparison": "TAIL_vs_DROP",
+      "gain_percent": -0.014370793623768554,
+      "role": "endpoint"
+    },
+    {
+      "CI95_lower": -3.7197904181989365,
+      "CI95_upper": -2.835219879031384,
+      "TAIL_primary": 0.8343216371356104,
+      "absolute_reduction": -0.026432452239725818,
+      "baseline_primary": 0.8078891848958845,
+      "comparison": "TAIL_vs_NAIVE",
+      "gain_percent": -3.2717918167368887,
+      "role": "endpoint"
+    },
+    {
+      "CI95_lower": -3.1066450222488275,
+      "CI95_upper": -2.0208589519639535,
+      "TAIL_primary": 0.8343216371356104,
+      "absolute_reduction": -0.020772551771749307,
+      "baseline_primary": 0.8135490853638611,
+      "comparison": "TAIL_vs_F0",
+      "gain_percent": -2.553324949343253,
+      "role": "endpoint"
+    }
+  ],
+  "seed_gains": [
+    {
+      "TAIL_primary": 0.8133747949164299,
+      "gain_vs_DROP_percent": 0.0017743512346532473,
+      "gain_vs_F0_percent": 0.021423470392467087,
+      "gain_vs_NAIVE_percent": -0.6734566493970542,
+      "seed": 41000
+    },
+    {
+      "TAIL_primary": 0.8133144665486971,
+      "gain_vs_DROP_percent": 0.001683835075579106,
+      "gain_vs_F0_percent": 0.028838925565139378,
+      "gain_vs_NAIVE_percent": -0.6770866545198371,
+      "seed": 41001
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "E_access_after_all_selections": true,
+  "E_prediction_replays": 13,
+  "V_prediction_replays": 60,
+  "additional_model_forward": 0,
+  "additional_updates": 0,
+  "bootstrap_samples": 2000,
+  "checkpoint_hashes": 60,
+  "fits": 6,
+  "historical_files_unchanged": 1131,
+  "independent_primary_max_abs": 1.1102230246251565e-16,
+  "limitations": "Cached tensor/scalar replay; selected checkpoint GPU reloads were performed before E access. Paired series CI is descriptive; no store/date clustering.",
+  "selected_V_disk_reloads": [
+    {
+      "arm": "NAIVE",
+      "prediction_max_abs": 0.0,
+      "primary_abs": 0.0,
+      "seed": 41000
+    },
+    {
+      "arm": "DROP",
+      "prediction_max_abs": 0.0,
+      "primary_abs": 0.0,
+      "seed": 41000
+    },
+    {
+      "arm": "TAIL",
+      "prediction_max_abs": 0.0,
+      "primary_abs": 0.0,
+      "seed": 41000
+    },
+    {
+      "arm": "NAIVE",
+      "prediction_max_abs": 0.0,
+      "primary_abs": 0.0,
+      "seed": 41001
+    },
+    {
+      "arm": "DROP",
+      "prediction_max_abs": 0.0,
+      "primary_abs": 0.0,
+      "seed": 41001
+    },
+    {
+      "arm": "TAIL",
+      "prediction_max_abs": 0.0,
+      "primary_abs": 0.0,
+      "seed": 41001
+    }
+  ],
+  "smoke_updates": 6,
+  "sources_unchanged": true,
+  "status": "VERIFIED",
+  "updates": 2160
+}

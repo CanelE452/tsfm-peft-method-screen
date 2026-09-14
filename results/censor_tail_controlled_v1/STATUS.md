@@ -1,11 +1,12 @@
-# Censor tail controlled v1 — 실제 학습 실행 중
+# Censor tail controlled v1 — 완료
 
-본학습 전 CPU 검사와 실제 모델 smoke 6 updates가 통과했다. 세 arm의 초기 LoRA/F0 예측 일치, 고정 가중치 보존, V checkpoint reload 및 동일 task gradient를 확인했다. 본학습은 최대 6 fits / 2,160 updates이며 자동 추가 학습은 없다.
+본학습 6/6 fits, 2,160 updates, smoke 6 updates 완료. 추가 실행 없음.
 
-- 최신 실제 진행 수: [status.json](status.json). 이 문서는 단계 설명이며 live count는 실행기가 기록한다.
-- 사전검사: [preflight.json](preflight.json), [CPU 검사](prepare_cpu_validation.json).
-- 고정 lambda: [lambda.json](lambda.json). 첫 16개 F0 train batches만 사용했으며 V/E로 조절하지 않는다.
-- GPU 예외 근거: [사용자 학습 우선 지시](GPU_AUTHORIZATION.md).
-- [실행 프로토콜](PROTOCOL.md), [manifest](manifest.json), [고정 설정](config.json).
+TAIL은 DROP 대비 평균 +0.001729%, NAIVE 대비 -0.675272%, F0 대비 +0.025131%다. 두 seed 모두 DROP보다 작게 개선했지만 NAIVE를 넘지 못하여 사전 판정은 **현재 설정에서 추가 가치 미확보**다. 구현 검증과 예측 가설 판정을 구분한다.
 
-6개 V 선택을 모두 봉인하고 disk reload를 확인한 뒤 reused E_dev를 평가한다. 보고와 독립 검증까지 실행 명령을 연결했다. 완료 숫자와 성능은 종료 후 결과 문서에서 확정한다.
+- [최종 결과·해석](FINAL_REVIEW.md), [전체 표/그림 보고서](REPORT.md).
+- [수치 검증](verification.json), [실제 업데이트·lambda·gradient 교차 검산](completion_audit.json).
+- [학습 이력](fits.json), [선택 봉인](selection_seal.json), [예측 파일과 해시](prediction_index.json).
+- [GPU 동시 사용 승인 범위](GPU_AUTHORIZATION.md).
+
+초기 environment_status.json은 준비 당시 대기 상태를 보존한 기록이다. 이후 사용자 지시에 따라 실행했으며, 현재 종료 상태는 status.json이다. 대용량 캐시는 로컬에 보관한다.

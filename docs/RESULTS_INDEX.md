@@ -4,6 +4,7 @@
 
 | 완료 작업 | 결과 | 검증 기록 |
 | --- | --- | --- |
+| Censor tail 통제 파일럿: 6 fits / 2,160 updates, smoke 6 updates | [최종 검토](../results/censor_tail_controlled_v1/FINAL_REVIEW.md), [전체 표/그림](../results/censor_tail_controlled_v1/REPORT.md) | [독립 재계산](../results/censor_tail_controlled_v1/verification.json), [완료 교차 검산](../results/censor_tail_controlled_v1/completion_audit.json) |
 | 최신 Anchor / PatchPhase / Query / FR / Censor 재검토 | [최종 평가](../research/reopen_review_20260914/FINAL_ASSESSMENT.md), [방법별 판정](../research/reopen_review_20260914/METHOD_REOPEN_MATRIX.csv) | [978개 독립 검사](../research/reopen_review_20260914/verification.json) |
 | PatchPhase v2: 12 fits / 8,640 updates | [결과 및 한계](../research/reopen_review_20260914/PATCHPHASE_V2_RESULT.md) | [예측 재생·체크포인트 증거](../research/reopen_review_20260914/patch_evidence.json) |
 | Query: 18개 자원 측정점, 신규 forecasting fits 0 | [자원 비교](../research/reopen_review_20260914/QUERY_RESOURCE_FRONTIER.md), [그래프](../results/reopen_query_resource_20260914/quality_memory_time.png) | [수치 동등성](../results/reopen_query_resource_20260914/parity.json), [실행 기록](../results/reopen_query_resource_20260914/receipt.json) |
@@ -27,7 +28,3 @@
 ## GitHub에서 확인할 수 있는 범위
 
 코드, 고정 프로토콜, 결과 표, 보고서, 실행 기록, 검증 결과와 해시 manifest를 보관한다. `.gitignore`에 포함된 원시 데이터, 모델 가중치, `.cache`의 예측 배열과 체크포인트는 로컬에 남아 있다. 따라서 GitHub에서는 실행 근거와 검증 범위를 검토할 수 있고, 전체 수치 재생에는 해당 로컬 자료가 필요하다. 이후 완료 작업도 검증 후 commit/push하고 이 색인을 갱신한다.
-
-## 준비 완료, 아직 실모델 실행 전
-
-- [Censor tail 통제 파일럿 상태](../results/censor_tail_controlled_v1/STATUS.md): 새 꼬리 손실과 최대 6-fit 실행기, 준비/CPU 검증 완료. 본학습 0 fits, smoke 0 updates. RustDesk compute 프로세스의 예외 허용 여부를 확인 중이다. 완료 실험으로 집계하지 않는다.

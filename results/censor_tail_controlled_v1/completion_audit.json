@@ -1,0 +1,61 @@
+{
+  "TAIL": [
+    {
+      "censored_occurrences": 7957,
+      "clipping_fraction": 0.8083333333333333,
+      "floored_gap_fraction": 0.06330903606887017,
+      "largest_common_shift_gradient": -0.5083096322033895,
+      "lower_tail_occurrences": 0,
+      "maximum_proxy_knot_shift": 0.010443376995833916,
+      "median_weighted_survival_to_task": 8.708314000631143e-05,
+      "seed": 41000,
+      "strong_gradient_batches": 95,
+      "strong_upper_occurrences": 337,
+      "task_mean": 5.230842864678966,
+      "upper_tail_occurrences": 440,
+      "weighted_survival_mean": 0.29429420211996543
+    },
+    {
+      "censored_occurrences": 7957,
+      "clipping_fraction": 0.8305555555555556,
+      "floored_gap_fraction": 0.06367977881110971,
+      "largest_common_shift_gradient": -0.4862770383776393,
+      "lower_tail_occurrences": 0,
+      "maximum_proxy_knot_shift": 0.010443378347250672,
+      "median_weighted_survival_to_task": 8.781062118653915e-05,
+      "seed": 41001,
+      "strong_gradient_batches": 97,
+      "strong_upper_occurrences": 339,
+      "task_mean": 5.229855652070707,
+      "upper_tail_occurrences": 437,
+      "weighted_survival_mean": 0.2943093778949497
+    }
+  ],
+  "all_updates_changed_parameters": true,
+  "calibration": {
+    "C0": 221.00914258221866,
+    "T0": 5.368707925081253,
+    "clipped": false,
+    "lambda_c": 0.0024291791110333883,
+    "largest_batch_share": 0.7065630875841162,
+    "survival_batch_max": 2498.5104346753697,
+    "survival_batch_median": 0.1566779131009085
+  },
+  "disallowed_compute_samples": 0,
+  "fit_update_rows": {
+    "41000_DROP": 360,
+    "41000_NAIVE": 360,
+    "41000_TAIL": 360,
+    "41001_DROP": 360,
+    "41001_NAIVE": 360,
+    "41001_TAIL": 360
+  },
+  "initial_tensors_equal_within_seed": true,
+  "lambda_recalculated": true,
+  "main_model_backwards": 2160,
+  "main_model_forwards": 5424,
+  "min_free_gpu_mib": 8121,
+  "output_only_backwards": 192,
+  "resources_total_seconds": 451.51528801199674,
+  "status": "VERIFIED"
+}
