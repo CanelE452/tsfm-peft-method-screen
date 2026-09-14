@@ -1,0 +1,3290 @@
+[
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native",
+    "budget": 32,
+    "candidate_ids": [
+      "beijing_32_34000_native_0_step0",
+      "beijing_32_34000_native_0_step150",
+      "beijing_32_34000_native_0_step450",
+      "beijing_32_34000_native_0_step900",
+      "beijing_32_34000_native_1_step150",
+      "beijing_32_34000_native_1_step450",
+      "beijing_32_34000_native_1_step900"
+    ],
+    "dataset": "beijing_32",
+    "origins": [
+      10752,
+      10848,
+      10944,
+      11040,
+      11136,
+      11232,
+      11328,
+      11424,
+      11520,
+      11616,
+      11712,
+      11808,
+      11904,
+      12000,
+      12096,
+      12192
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34000,
+    "selections": {
+      "ALL8": {
+        "id": "beijing_32_34000_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "33038be5b5f2b781a5f9c5b39c72870574903f1006032b91c45b81c6cb1bdc84",
+        "step": 150
+      },
+      "FIXED": {
+        "id": "beijing_32_34000_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "33038be5b5f2b781a5f9c5b39c72870574903f1006032b91c45b81c6cb1bdc84",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "beijing_32_34000_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "33038be5b5f2b781a5f9c5b39c72870574903f1006032b91c45b81c6cb1bdc84",
+        "step": 150
+      },
+      "SPREAD4": {
+        "id": "beijing_32_34000_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "33038be5b5f2b781a5f9c5b39c72870574903f1006032b91c45b81c6cb1bdc84",
+        "step": 150
+      }
+    },
+    "source": "beijing",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 9520
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native_anchor",
+    "budget": 32,
+    "candidate_ids": [
+      "beijing_32_34000_native_anchor_0_step0",
+      "beijing_32_34000_native_anchor_0_step150",
+      "beijing_32_34000_native_anchor_0_step450",
+      "beijing_32_34000_native_anchor_0_step900",
+      "beijing_32_34000_native_anchor_1_step150",
+      "beijing_32_34000_native_anchor_1_step450",
+      "beijing_32_34000_native_anchor_1_step900"
+    ],
+    "dataset": "beijing_32",
+    "origins": [
+      10752,
+      10848,
+      10944,
+      11040,
+      11136,
+      11232,
+      11328,
+      11424,
+      11520,
+      11616,
+      11712,
+      11808,
+      11904,
+      12000,
+      12096,
+      12192
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34000,
+    "selections": {
+      "ALL8": {
+        "id": "beijing_32_34000_native_anchor_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "b882736220f1c74cc3bd023cbf12fd91de3155206719e866fa310b372a974b43",
+        "step": 150
+      },
+      "FIXED": {
+        "id": "beijing_32_34000_native_anchor_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "b882736220f1c74cc3bd023cbf12fd91de3155206719e866fa310b372a974b43",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "beijing_32_34000_native_anchor_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "b882736220f1c74cc3bd023cbf12fd91de3155206719e866fa310b372a974b43",
+        "step": 150
+      },
+      "SPREAD4": {
+        "id": "beijing_32_34000_native_anchor_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "b882736220f1c74cc3bd023cbf12fd91de3155206719e866fa310b372a974b43",
+        "step": 150
+      }
+    },
+    "source": "beijing",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 9520
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native",
+    "budget": 32,
+    "candidate_ids": [
+      "beijing_32_34001_native_0_step0",
+      "beijing_32_34001_native_0_step150",
+      "beijing_32_34001_native_0_step450",
+      "beijing_32_34001_native_0_step900",
+      "beijing_32_34001_native_1_step150",
+      "beijing_32_34001_native_1_step450",
+      "beijing_32_34001_native_1_step900"
+    ],
+    "dataset": "beijing_32",
+    "origins": [
+      10752,
+      10848,
+      10944,
+      11040,
+      11136,
+      11232,
+      11328,
+      11424,
+      11520,
+      11616,
+      11712,
+      11808,
+      11904,
+      12000,
+      12096,
+      12192
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34001,
+    "selections": {
+      "ALL8": {
+        "id": "beijing_32_34001_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "7e7f75711109d48810cc3e94f4f2a4513d4d9d469f0820e62f0748c1daa935c5",
+        "step": 150
+      },
+      "FIXED": {
+        "id": "beijing_32_34001_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "7e7f75711109d48810cc3e94f4f2a4513d4d9d469f0820e62f0748c1daa935c5",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "beijing_32_34001_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "7e7f75711109d48810cc3e94f4f2a4513d4d9d469f0820e62f0748c1daa935c5",
+        "step": 150
+      },
+      "SPREAD4": {
+        "id": "beijing_32_34001_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "7e7f75711109d48810cc3e94f4f2a4513d4d9d469f0820e62f0748c1daa935c5",
+        "step": 150
+      }
+    },
+    "source": "beijing",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 9520
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native_anchor",
+    "budget": 32,
+    "candidate_ids": [
+      "beijing_32_34001_native_anchor_0_step0",
+      "beijing_32_34001_native_anchor_0_step150",
+      "beijing_32_34001_native_anchor_0_step450",
+      "beijing_32_34001_native_anchor_0_step900",
+      "beijing_32_34001_native_anchor_1_step150",
+      "beijing_32_34001_native_anchor_1_step450",
+      "beijing_32_34001_native_anchor_1_step900"
+    ],
+    "dataset": "beijing_32",
+    "origins": [
+      10752,
+      10848,
+      10944,
+      11040,
+      11136,
+      11232,
+      11328,
+      11424,
+      11520,
+      11616,
+      11712,
+      11808,
+      11904,
+      12000,
+      12096,
+      12192
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34001,
+    "selections": {
+      "ALL8": {
+        "id": "beijing_32_34001_native_anchor_1_step150",
+        "lr": 0.0001,
+        "prediction_hash": "9706ccca865d89e124193c8e0d1f85a740ad012d602d28fbb2fd3c17f23ce37e",
+        "step": 150
+      },
+      "FIXED": {
+        "id": "beijing_32_34001_native_anchor_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "464998188796f3a764dede484fdd05347d3a6d38270e03badef33ba7156844b5",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "beijing_32_34001_native_anchor_1_step150",
+        "lr": 0.0001,
+        "prediction_hash": "9706ccca865d89e124193c8e0d1f85a740ad012d602d28fbb2fd3c17f23ce37e",
+        "step": 150
+      },
+      "SPREAD4": {
+        "id": "beijing_32_34001_native_anchor_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "464998188796f3a764dede484fdd05347d3a6d38270e03badef33ba7156844b5",
+        "step": 150
+      }
+    },
+    "source": "beijing",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 9520
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native",
+    "budget": 233,
+    "candidate_ids": [
+      "beijing_233_34000_native_0_step0",
+      "beijing_233_34000_native_0_step150",
+      "beijing_233_34000_native_0_step450",
+      "beijing_233_34000_native_0_step900",
+      "beijing_233_34000_native_1_step150",
+      "beijing_233_34000_native_1_step450",
+      "beijing_233_34000_native_1_step900"
+    ],
+    "dataset": "beijing_233",
+    "origins": [
+      10752,
+      10848,
+      10944,
+      11040,
+      11136,
+      11232,
+      11328,
+      11424,
+      11520,
+      11616,
+      11712,
+      11808,
+      11904,
+      12000,
+      12096,
+      12192
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34000,
+    "selections": {
+      "ALL8": {
+        "id": "beijing_233_34000_native_1_step450",
+        "lr": 0.0001,
+        "prediction_hash": "1c6bdf9dce742a66d313a5d1e27ec7028f640f74ff7dc0a8f94810143e5cff0d",
+        "step": 450
+      },
+      "FIXED": {
+        "id": "beijing_233_34000_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "505c606c7ccecc8463cf0658dbc14745362860c9f90ab57bb62bb284adb12bf1",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "beijing_233_34000_native_1_step450",
+        "lr": 0.0001,
+        "prediction_hash": "1c6bdf9dce742a66d313a5d1e27ec7028f640f74ff7dc0a8f94810143e5cff0d",
+        "step": 450
+      },
+      "SPREAD4": {
+        "id": "beijing_233_34000_native_1_step450",
+        "lr": 0.0001,
+        "prediction_hash": "1c6bdf9dce742a66d313a5d1e27ec7028f640f74ff7dc0a8f94810143e5cff0d",
+        "step": 450
+      }
+    },
+    "source": "beijing",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 9520
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native_anchor",
+    "budget": 233,
+    "candidate_ids": [
+      "beijing_233_34000_native_anchor_0_step0",
+      "beijing_233_34000_native_anchor_0_step150",
+      "beijing_233_34000_native_anchor_0_step450",
+      "beijing_233_34000_native_anchor_0_step900",
+      "beijing_233_34000_native_anchor_1_step150",
+      "beijing_233_34000_native_anchor_1_step450",
+      "beijing_233_34000_native_anchor_1_step900"
+    ],
+    "dataset": "beijing_233",
+    "origins": [
+      10752,
+      10848,
+      10944,
+      11040,
+      11136,
+      11232,
+      11328,
+      11424,
+      11520,
+      11616,
+      11712,
+      11808,
+      11904,
+      12000,
+      12096,
+      12192
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34000,
+    "selections": {
+      "ALL8": {
+        "id": "beijing_233_34000_native_anchor_1_step450",
+        "lr": 0.0001,
+        "prediction_hash": "6b295ad915381f3bd79a1e0b8a663e604896abae17e189ac42022f5a07f2eb41",
+        "step": 450
+      },
+      "FIXED": {
+        "id": "beijing_233_34000_native_anchor_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "738dea2a6771277fa3d194a132c87c83108b40f4f190747b6b0a6591bfb63627",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "beijing_233_34000_native_anchor_1_step450",
+        "lr": 0.0001,
+        "prediction_hash": "6b295ad915381f3bd79a1e0b8a663e604896abae17e189ac42022f5a07f2eb41",
+        "step": 450
+      },
+      "SPREAD4": {
+        "id": "beijing_233_34000_native_anchor_1_step450",
+        "lr": 0.0001,
+        "prediction_hash": "6b295ad915381f3bd79a1e0b8a663e604896abae17e189ac42022f5a07f2eb41",
+        "step": 450
+      }
+    },
+    "source": "beijing",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 9520
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native",
+    "budget": 233,
+    "candidate_ids": [
+      "beijing_233_34001_native_0_step0",
+      "beijing_233_34001_native_0_step150",
+      "beijing_233_34001_native_0_step450",
+      "beijing_233_34001_native_0_step900",
+      "beijing_233_34001_native_1_step150",
+      "beijing_233_34001_native_1_step450",
+      "beijing_233_34001_native_1_step900"
+    ],
+    "dataset": "beijing_233",
+    "origins": [
+      10752,
+      10848,
+      10944,
+      11040,
+      11136,
+      11232,
+      11328,
+      11424,
+      11520,
+      11616,
+      11712,
+      11808,
+      11904,
+      12000,
+      12096,
+      12192
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34001,
+    "selections": {
+      "ALL8": {
+        "id": "beijing_233_34001_native_0_step900",
+        "lr": 3e-05,
+        "prediction_hash": "e738ee851e74836940ecf09772458bdfce858cda8c64fe0baf03b27bdbc769fe",
+        "step": 900
+      },
+      "FIXED": {
+        "id": "beijing_233_34001_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "37d4292a34d43c09990fad691ab037e352d2590fb9cd558e56985c6eebc7e278",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "beijing_233_34001_native_1_step450",
+        "lr": 0.0001,
+        "prediction_hash": "1f42c6b883efdcc93bec3f244e26e81722cea52ee0615ce29c5b46f412d860bb",
+        "step": 450
+      },
+      "SPREAD4": {
+        "id": "beijing_233_34001_native_0_step450",
+        "lr": 3e-05,
+        "prediction_hash": "d66188e282b405738256a2d325ba0189e58c79af7fc5e6b991dd67c2b7025f56",
+        "step": 450
+      }
+    },
+    "source": "beijing",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 9520
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native_anchor",
+    "budget": 233,
+    "candidate_ids": [
+      "beijing_233_34001_native_anchor_0_step0",
+      "beijing_233_34001_native_anchor_0_step150",
+      "beijing_233_34001_native_anchor_0_step450",
+      "beijing_233_34001_native_anchor_0_step900",
+      "beijing_233_34001_native_anchor_1_step150",
+      "beijing_233_34001_native_anchor_1_step450",
+      "beijing_233_34001_native_anchor_1_step900"
+    ],
+    "dataset": "beijing_233",
+    "origins": [
+      10752,
+      10848,
+      10944,
+      11040,
+      11136,
+      11232,
+      11328,
+      11424,
+      11520,
+      11616,
+      11712,
+      11808,
+      11904,
+      12000,
+      12096,
+      12192
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34001,
+    "selections": {
+      "ALL8": {
+        "id": "beijing_233_34001_native_anchor_0_step900",
+        "lr": 3e-05,
+        "prediction_hash": "fc7468f1c780ed90c7fcb5ba0033a186e36fc1a32f0386d583c0edeca817fad1",
+        "step": 900
+      },
+      "FIXED": {
+        "id": "beijing_233_34001_native_anchor_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "5f3ea6c6bb2c1f8ebcb67e6db5c9e590a3e1248e03e6e0552b6a3d75f80d3f98",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "beijing_233_34001_native_anchor_1_step450",
+        "lr": 0.0001,
+        "prediction_hash": "ade7683cfc3b85d39a4e2a02e9b6d25e6b76643b6210172877100978a4f117ac",
+        "step": 450
+      },
+      "SPREAD4": {
+        "id": "beijing_233_34001_native_anchor_1_step450",
+        "lr": 0.0001,
+        "prediction_hash": "ade7683cfc3b85d39a4e2a02e9b6d25e6b76643b6210172877100978a4f117ac",
+        "step": 450
+      }
+    },
+    "source": "beijing",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 9520
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native",
+    "budget": 32,
+    "candidate_ids": [
+      "ettm2_later_32_34000_native_0_step0",
+      "ettm2_later_32_34000_native_0_step150",
+      "ettm2_later_32_34000_native_0_step450",
+      "ettm2_later_32_34000_native_0_step900",
+      "ettm2_later_32_34000_native_1_step150",
+      "ettm2_later_32_34000_native_1_step450",
+      "ettm2_later_32_34000_native_1_step900"
+    ],
+    "dataset": "ettm2_later_32",
+    "origins": [
+      37376,
+      37472,
+      37568,
+      37664,
+      37760,
+      37856,
+      37952,
+      38048,
+      38144,
+      38240,
+      38336,
+      38432,
+      38528,
+      38624,
+      38720,
+      38816
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34000,
+    "selections": {
+      "ALL8": {
+        "id": "ettm2_later_32_34000_native_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      },
+      "FIXED": {
+        "id": "ettm2_later_32_34000_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "e780ec81a6ffced82fc43518ce7e4426d61afb4bdd787691e83ad371b364b5f2",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "ettm2_later_32_34000_native_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      },
+      "SPREAD4": {
+        "id": "ettm2_later_32_34000_native_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      }
+    },
+    "source": "ettm2_later",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 36144
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native_anchor",
+    "budget": 32,
+    "candidate_ids": [
+      "ettm2_later_32_34000_native_anchor_0_step0",
+      "ettm2_later_32_34000_native_anchor_0_step150",
+      "ettm2_later_32_34000_native_anchor_0_step450",
+      "ettm2_later_32_34000_native_anchor_0_step900",
+      "ettm2_later_32_34000_native_anchor_1_step150",
+      "ettm2_later_32_34000_native_anchor_1_step450",
+      "ettm2_later_32_34000_native_anchor_1_step900"
+    ],
+    "dataset": "ettm2_later_32",
+    "origins": [
+      37376,
+      37472,
+      37568,
+      37664,
+      37760,
+      37856,
+      37952,
+      38048,
+      38144,
+      38240,
+      38336,
+      38432,
+      38528,
+      38624,
+      38720,
+      38816
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34000,
+    "selections": {
+      "ALL8": {
+        "id": "ettm2_later_32_34000_native_anchor_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      },
+      "FIXED": {
+        "id": "ettm2_later_32_34000_native_anchor_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "387700d7cb259c94ce94f151f4c9e2a5544098afe04a7d459f6e7a58318ac5e0",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "ettm2_later_32_34000_native_anchor_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      },
+      "SPREAD4": {
+        "id": "ettm2_later_32_34000_native_anchor_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      }
+    },
+    "source": "ettm2_later",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 36144
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native",
+    "budget": 32,
+    "candidate_ids": [
+      "ettm2_later_32_34001_native_0_step0",
+      "ettm2_later_32_34001_native_0_step150",
+      "ettm2_later_32_34001_native_0_step450",
+      "ettm2_later_32_34001_native_0_step900",
+      "ettm2_later_32_34001_native_1_step150",
+      "ettm2_later_32_34001_native_1_step450",
+      "ettm2_later_32_34001_native_1_step900"
+    ],
+    "dataset": "ettm2_later_32",
+    "origins": [
+      37376,
+      37472,
+      37568,
+      37664,
+      37760,
+      37856,
+      37952,
+      38048,
+      38144,
+      38240,
+      38336,
+      38432,
+      38528,
+      38624,
+      38720,
+      38816
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34001,
+    "selections": {
+      "ALL8": {
+        "id": "ettm2_later_32_34001_native_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      },
+      "FIXED": {
+        "id": "ettm2_later_32_34001_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "7a9e6ff35c83171dc62d731ff30357f79b071428b60d777d5b3d35391f4e9834",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "ettm2_later_32_34001_native_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      },
+      "SPREAD4": {
+        "id": "ettm2_later_32_34001_native_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      }
+    },
+    "source": "ettm2_later",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 36144
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native_anchor",
+    "budget": 32,
+    "candidate_ids": [
+      "ettm2_later_32_34001_native_anchor_0_step0",
+      "ettm2_later_32_34001_native_anchor_0_step150",
+      "ettm2_later_32_34001_native_anchor_0_step450",
+      "ettm2_later_32_34001_native_anchor_0_step900",
+      "ettm2_later_32_34001_native_anchor_1_step150",
+      "ettm2_later_32_34001_native_anchor_1_step450",
+      "ettm2_later_32_34001_native_anchor_1_step900"
+    ],
+    "dataset": "ettm2_later_32",
+    "origins": [
+      37376,
+      37472,
+      37568,
+      37664,
+      37760,
+      37856,
+      37952,
+      38048,
+      38144,
+      38240,
+      38336,
+      38432,
+      38528,
+      38624,
+      38720,
+      38816
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34001,
+    "selections": {
+      "ALL8": {
+        "id": "ettm2_later_32_34001_native_anchor_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      },
+      "FIXED": {
+        "id": "ettm2_later_32_34001_native_anchor_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "17068e1670dbd42f225f699d7570fecac2703a8693a6170fc6f315353ae9d6ee",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "ettm2_later_32_34001_native_anchor_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      },
+      "SPREAD4": {
+        "id": "ettm2_later_32_34001_native_anchor_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      }
+    },
+    "source": "ettm2_later",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 36144
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native",
+    "budget": 233,
+    "candidate_ids": [
+      "ettm2_later_233_34000_native_0_step0",
+      "ettm2_later_233_34000_native_0_step150",
+      "ettm2_later_233_34000_native_0_step450",
+      "ettm2_later_233_34000_native_0_step900",
+      "ettm2_later_233_34000_native_1_step150",
+      "ettm2_later_233_34000_native_1_step450",
+      "ettm2_later_233_34000_native_1_step900"
+    ],
+    "dataset": "ettm2_later_233",
+    "origins": [
+      37376,
+      37472,
+      37568,
+      37664,
+      37760,
+      37856,
+      37952,
+      38048,
+      38144,
+      38240,
+      38336,
+      38432,
+      38528,
+      38624,
+      38720,
+      38816
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34000,
+    "selections": {
+      "ALL8": {
+        "id": "ettm2_later_233_34000_native_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      },
+      "FIXED": {
+        "id": "ettm2_later_233_34000_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "08f09ac479ea41b9034e34f221f4789dee4e27faff5afc2535e3ea1dc232ce0f",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "ettm2_later_233_34000_native_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      },
+      "SPREAD4": {
+        "id": "ettm2_later_233_34000_native_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      }
+    },
+    "source": "ettm2_later",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 36144
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native_anchor",
+    "budget": 233,
+    "candidate_ids": [
+      "ettm2_later_233_34000_native_anchor_0_step0",
+      "ettm2_later_233_34000_native_anchor_0_step150",
+      "ettm2_later_233_34000_native_anchor_0_step450",
+      "ettm2_later_233_34000_native_anchor_0_step900",
+      "ettm2_later_233_34000_native_anchor_1_step150",
+      "ettm2_later_233_34000_native_anchor_1_step450",
+      "ettm2_later_233_34000_native_anchor_1_step900"
+    ],
+    "dataset": "ettm2_later_233",
+    "origins": [
+      37376,
+      37472,
+      37568,
+      37664,
+      37760,
+      37856,
+      37952,
+      38048,
+      38144,
+      38240,
+      38336,
+      38432,
+      38528,
+      38624,
+      38720,
+      38816
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34000,
+    "selections": {
+      "ALL8": {
+        "id": "ettm2_later_233_34000_native_anchor_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      },
+      "FIXED": {
+        "id": "ettm2_later_233_34000_native_anchor_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "605622a2d8f339f6b6a572066c2272ac3651ea63001610a4595352b3fd1128c4",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "ettm2_later_233_34000_native_anchor_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      },
+      "SPREAD4": {
+        "id": "ettm2_later_233_34000_native_anchor_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      }
+    },
+    "source": "ettm2_later",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 36144
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native",
+    "budget": 233,
+    "candidate_ids": [
+      "ettm2_later_233_34001_native_0_step0",
+      "ettm2_later_233_34001_native_0_step150",
+      "ettm2_later_233_34001_native_0_step450",
+      "ettm2_later_233_34001_native_0_step900",
+      "ettm2_later_233_34001_native_1_step150",
+      "ettm2_later_233_34001_native_1_step450",
+      "ettm2_later_233_34001_native_1_step900"
+    ],
+    "dataset": "ettm2_later_233",
+    "origins": [
+      37376,
+      37472,
+      37568,
+      37664,
+      37760,
+      37856,
+      37952,
+      38048,
+      38144,
+      38240,
+      38336,
+      38432,
+      38528,
+      38624,
+      38720,
+      38816
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34001,
+    "selections": {
+      "ALL8": {
+        "id": "ettm2_later_233_34001_native_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      },
+      "FIXED": {
+        "id": "ettm2_later_233_34001_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "1473665539b465658064196749d99afd5e0f22af97ef76c26d214a933344f14f",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "ettm2_later_233_34001_native_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      },
+      "SPREAD4": {
+        "id": "ettm2_later_233_34001_native_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      }
+    },
+    "source": "ettm2_later",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 36144
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native_anchor",
+    "budget": 233,
+    "candidate_ids": [
+      "ettm2_later_233_34001_native_anchor_0_step0",
+      "ettm2_later_233_34001_native_anchor_0_step150",
+      "ettm2_later_233_34001_native_anchor_0_step450",
+      "ettm2_later_233_34001_native_anchor_0_step900",
+      "ettm2_later_233_34001_native_anchor_1_step150",
+      "ettm2_later_233_34001_native_anchor_1_step450",
+      "ettm2_later_233_34001_native_anchor_1_step900"
+    ],
+    "dataset": "ettm2_later_233",
+    "origins": [
+      37376,
+      37472,
+      37568,
+      37664,
+      37760,
+      37856,
+      37952,
+      38048,
+      38144,
+      38240,
+      38336,
+      38432,
+      38528,
+      38624,
+      38720,
+      38816
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34001,
+    "selections": {
+      "ALL8": {
+        "id": "ettm2_later_233_34001_native_anchor_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      },
+      "FIXED": {
+        "id": "ettm2_later_233_34001_native_anchor_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "5cae48002bad626c684ca1bacb6e4161c794abffc091b6ee265c65492aebc74f",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "ettm2_later_233_34001_native_anchor_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      },
+      "SPREAD4": {
+        "id": "ettm2_later_233_34001_native_anchor_0_step0",
+        "lr": 3e-05,
+        "prediction_hash": "c60863e06ad57257a3e10d3831b28f66e0d7ad50d1ac9ea82bb42f55c0680dd5",
+        "step": 0
+      }
+    },
+    "source": "ettm2_later",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 36144
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native",
+    "budget": 32,
+    "candidate_ids": [
+      "electricity_new_32_34000_native_0_step0",
+      "electricity_new_32_34000_native_0_step150",
+      "electricity_new_32_34000_native_0_step450",
+      "electricity_new_32_34000_native_0_step900",
+      "electricity_new_32_34000_native_1_step150",
+      "electricity_new_32_34000_native_1_step450",
+      "electricity_new_32_34000_native_1_step900"
+    ],
+    "dataset": "electricity_new_32",
+    "origins": [
+      10752,
+      10848,
+      10944,
+      11040,
+      11136,
+      11232,
+      11328,
+      11424,
+      11520,
+      11616,
+      11712,
+      11808,
+      11904,
+      12000,
+      12096,
+      12192
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34000,
+    "selections": {
+      "ALL8": {
+        "id": "electricity_new_32_34000_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "5a5ef7b315557c4a8d4fe4ae066b74e3aee8a1fe4a22d54b68ae1ace9cfb61c8",
+        "step": 150
+      },
+      "FIXED": {
+        "id": "electricity_new_32_34000_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "5a5ef7b315557c4a8d4fe4ae066b74e3aee8a1fe4a22d54b68ae1ace9cfb61c8",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "electricity_new_32_34000_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "5a5ef7b315557c4a8d4fe4ae066b74e3aee8a1fe4a22d54b68ae1ace9cfb61c8",
+        "step": 150
+      },
+      "SPREAD4": {
+        "id": "electricity_new_32_34000_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "5a5ef7b315557c4a8d4fe4ae066b74e3aee8a1fe4a22d54b68ae1ace9cfb61c8",
+        "step": 150
+      }
+    },
+    "source": "electricity_new",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 9520
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native_anchor",
+    "budget": 32,
+    "candidate_ids": [
+      "electricity_new_32_34000_native_anchor_0_step0",
+      "electricity_new_32_34000_native_anchor_0_step150",
+      "electricity_new_32_34000_native_anchor_0_step450",
+      "electricity_new_32_34000_native_anchor_0_step900",
+      "electricity_new_32_34000_native_anchor_1_step150",
+      "electricity_new_32_34000_native_anchor_1_step450",
+      "electricity_new_32_34000_native_anchor_1_step900"
+    ],
+    "dataset": "electricity_new_32",
+    "origins": [
+      10752,
+      10848,
+      10944,
+      11040,
+      11136,
+      11232,
+      11328,
+      11424,
+      11520,
+      11616,
+      11712,
+      11808,
+      11904,
+      12000,
+      12096,
+      12192
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34000,
+    "selections": {
+      "ALL8": {
+        "id": "electricity_new_32_34000_native_anchor_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "9ad25dbe19a3460092698a60a7b396485fd88637239fd3a2f372532aaabb7a87",
+        "step": 150
+      },
+      "FIXED": {
+        "id": "electricity_new_32_34000_native_anchor_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "9ad25dbe19a3460092698a60a7b396485fd88637239fd3a2f372532aaabb7a87",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "electricity_new_32_34000_native_anchor_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "9ad25dbe19a3460092698a60a7b396485fd88637239fd3a2f372532aaabb7a87",
+        "step": 150
+      },
+      "SPREAD4": {
+        "id": "electricity_new_32_34000_native_anchor_1_step150",
+        "lr": 0.0001,
+        "prediction_hash": "f01a45ba1a56ebb6ad6dc20e35f7d7780a8a45ef7d53dcbf529fc22d6add69df",
+        "step": 150
+      }
+    },
+    "source": "electricity_new",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 9520
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native",
+    "budget": 32,
+    "candidate_ids": [
+      "electricity_new_32_34001_native_0_step0",
+      "electricity_new_32_34001_native_0_step150",
+      "electricity_new_32_34001_native_0_step450",
+      "electricity_new_32_34001_native_0_step900",
+      "electricity_new_32_34001_native_1_step150",
+      "electricity_new_32_34001_native_1_step450",
+      "electricity_new_32_34001_native_1_step900"
+    ],
+    "dataset": "electricity_new_32",
+    "origins": [
+      10752,
+      10848,
+      10944,
+      11040,
+      11136,
+      11232,
+      11328,
+      11424,
+      11520,
+      11616,
+      11712,
+      11808,
+      11904,
+      12000,
+      12096,
+      12192
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34001,
+    "selections": {
+      "ALL8": {
+        "id": "electricity_new_32_34001_native_1_step150",
+        "lr": 0.0001,
+        "prediction_hash": "35533d54eb9df3b7e627463267acc3cdd73d6ee8cfcd16e2b25a47e5d3099722",
+        "step": 150
+      },
+      "FIXED": {
+        "id": "electricity_new_32_34001_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "33b088864e3edfd281c1d0eda7de3045b04656b24cf8d5225edca36e77df661a",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "electricity_new_32_34001_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "33b088864e3edfd281c1d0eda7de3045b04656b24cf8d5225edca36e77df661a",
+        "step": 150
+      },
+      "SPREAD4": {
+        "id": "electricity_new_32_34001_native_1_step150",
+        "lr": 0.0001,
+        "prediction_hash": "35533d54eb9df3b7e627463267acc3cdd73d6ee8cfcd16e2b25a47e5d3099722",
+        "step": 150
+      }
+    },
+    "source": "electricity_new",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 9520
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native_anchor",
+    "budget": 32,
+    "candidate_ids": [
+      "electricity_new_32_34001_native_anchor_0_step0",
+      "electricity_new_32_34001_native_anchor_0_step150",
+      "electricity_new_32_34001_native_anchor_0_step450",
+      "electricity_new_32_34001_native_anchor_0_step900",
+      "electricity_new_32_34001_native_anchor_1_step150",
+      "electricity_new_32_34001_native_anchor_1_step450",
+      "electricity_new_32_34001_native_anchor_1_step900"
+    ],
+    "dataset": "electricity_new_32",
+    "origins": [
+      10752,
+      10848,
+      10944,
+      11040,
+      11136,
+      11232,
+      11328,
+      11424,
+      11520,
+      11616,
+      11712,
+      11808,
+      11904,
+      12000,
+      12096,
+      12192
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34001,
+    "selections": {
+      "ALL8": {
+        "id": "electricity_new_32_34001_native_anchor_1_step150",
+        "lr": 0.0001,
+        "prediction_hash": "70768229913fd7336b568fd39dc8c744d9af8b3affa8cdb90513ea477dbe855d",
+        "step": 150
+      },
+      "FIXED": {
+        "id": "electricity_new_32_34001_native_anchor_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "5d63203be1ff714419de4166eb99fcc8701eca172e109a8cdd88f977243eadc2",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "electricity_new_32_34001_native_anchor_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "5d63203be1ff714419de4166eb99fcc8701eca172e109a8cdd88f977243eadc2",
+        "step": 150
+      },
+      "SPREAD4": {
+        "id": "electricity_new_32_34001_native_anchor_1_step150",
+        "lr": 0.0001,
+        "prediction_hash": "70768229913fd7336b568fd39dc8c744d9af8b3affa8cdb90513ea477dbe855d",
+        "step": 150
+      }
+    },
+    "source": "electricity_new",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 9520
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native",
+    "budget": 233,
+    "candidate_ids": [
+      "electricity_new_233_34000_native_0_step0",
+      "electricity_new_233_34000_native_0_step150",
+      "electricity_new_233_34000_native_0_step450",
+      "electricity_new_233_34000_native_0_step900",
+      "electricity_new_233_34000_native_1_step150",
+      "electricity_new_233_34000_native_1_step450",
+      "electricity_new_233_34000_native_1_step900"
+    ],
+    "dataset": "electricity_new_233",
+    "origins": [
+      10752,
+      10848,
+      10944,
+      11040,
+      11136,
+      11232,
+      11328,
+      11424,
+      11520,
+      11616,
+      11712,
+      11808,
+      11904,
+      12000,
+      12096,
+      12192
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34000,
+    "selections": {
+      "ALL8": {
+        "id": "electricity_new_233_34000_native_0_step900",
+        "lr": 3e-05,
+        "prediction_hash": "9aacc44e470c4003c2c0ad8892f8a223ad45e9445661678505243273d7bc237c",
+        "step": 900
+      },
+      "FIXED": {
+        "id": "electricity_new_233_34000_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "360287e7592561b8e0fba502defb2fc4e63ff55b53aab81f56c2574fbf0326f6",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "electricity_new_233_34000_native_0_step450",
+        "lr": 3e-05,
+        "prediction_hash": "a8dd6c69a9a688619f2003965822fdc0f3a236f00e2b54541925f1d35c2626a2",
+        "step": 450
+      },
+      "SPREAD4": {
+        "id": "electricity_new_233_34000_native_1_step150",
+        "lr": 0.0001,
+        "prediction_hash": "d8cfe65d0c27a21e55fa8bc17bc9c804b2b4e33bf9c9431c0ce25259b35748ad",
+        "step": 150
+      }
+    },
+    "source": "electricity_new",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 9520
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native_anchor",
+    "budget": 233,
+    "candidate_ids": [
+      "electricity_new_233_34000_native_anchor_0_step0",
+      "electricity_new_233_34000_native_anchor_0_step150",
+      "electricity_new_233_34000_native_anchor_0_step450",
+      "electricity_new_233_34000_native_anchor_0_step900",
+      "electricity_new_233_34000_native_anchor_1_step150",
+      "electricity_new_233_34000_native_anchor_1_step450",
+      "electricity_new_233_34000_native_anchor_1_step900"
+    ],
+    "dataset": "electricity_new_233",
+    "origins": [
+      10752,
+      10848,
+      10944,
+      11040,
+      11136,
+      11232,
+      11328,
+      11424,
+      11520,
+      11616,
+      11712,
+      11808,
+      11904,
+      12000,
+      12096,
+      12192
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34000,
+    "selections": {
+      "ALL8": {
+        "id": "electricity_new_233_34000_native_anchor_0_step900",
+        "lr": 3e-05,
+        "prediction_hash": "a54a8b6f96432833c53bafb653d946deb8d927e18ea6f1a07df7269476e916ce",
+        "step": 900
+      },
+      "FIXED": {
+        "id": "electricity_new_233_34000_native_anchor_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "c984b879984df8f7715a355260093c7d89df0d0cf2d727c0332b583056bb1d00",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "electricity_new_233_34000_native_anchor_0_step450",
+        "lr": 3e-05,
+        "prediction_hash": "a78a26cfcb11203750b2306a543979b3d2a989b36fdf156570212f4568753b89",
+        "step": 450
+      },
+      "SPREAD4": {
+        "id": "electricity_new_233_34000_native_anchor_0_step450",
+        "lr": 3e-05,
+        "prediction_hash": "a78a26cfcb11203750b2306a543979b3d2a989b36fdf156570212f4568753b89",
+        "step": 450
+      }
+    },
+    "source": "electricity_new",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 9520
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native",
+    "budget": 233,
+    "candidate_ids": [
+      "electricity_new_233_34001_native_0_step0",
+      "electricity_new_233_34001_native_0_step150",
+      "electricity_new_233_34001_native_0_step450",
+      "electricity_new_233_34001_native_0_step900",
+      "electricity_new_233_34001_native_1_step150",
+      "electricity_new_233_34001_native_1_step450",
+      "electricity_new_233_34001_native_1_step900"
+    ],
+    "dataset": "electricity_new_233",
+    "origins": [
+      10752,
+      10848,
+      10944,
+      11040,
+      11136,
+      11232,
+      11328,
+      11424,
+      11520,
+      11616,
+      11712,
+      11808,
+      11904,
+      12000,
+      12096,
+      12192
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34001,
+    "selections": {
+      "ALL8": {
+        "id": "electricity_new_233_34001_native_0_step900",
+        "lr": 3e-05,
+        "prediction_hash": "45b5383611101098b22e94c3b6d2c580e122dc963bea73de243f43ba150cb3a9",
+        "step": 900
+      },
+      "FIXED": {
+        "id": "electricity_new_233_34001_native_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "390eabdd912f7f3f7d9e119b1175faf74fa4cc1ceb184a98c288699856075441",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "electricity_new_233_34001_native_1_step450",
+        "lr": 0.0001,
+        "prediction_hash": "71d5f522ccffa067e37441fd4798503b09061e65fa0f1e9720db0dbe7b53d6fe",
+        "step": 450
+      },
+      "SPREAD4": {
+        "id": "electricity_new_233_34001_native_1_step150",
+        "lr": 0.0001,
+        "prediction_hash": "319da2ad7e78804722d429536aa179961fffc8c03ed7d8a5a29b45e912ff6bef",
+        "step": 150
+      }
+    },
+    "source": "electricity_new",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 9520
+  },
+  {
+    "active_channels_by_block": {
+      "D_back4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_diag": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "D_front4": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "arm": "native_anchor",
+    "budget": 233,
+    "candidate_ids": [
+      "electricity_new_233_34001_native_anchor_0_step0",
+      "electricity_new_233_34001_native_anchor_0_step150",
+      "electricity_new_233_34001_native_anchor_0_step450",
+      "electricity_new_233_34001_native_anchor_0_step900",
+      "electricity_new_233_34001_native_anchor_1_step150",
+      "electricity_new_233_34001_native_anchor_1_step450",
+      "electricity_new_233_34001_native_anchor_1_step900"
+    ],
+    "dataset": "electricity_new_233",
+    "origins": [
+      10752,
+      10848,
+      10944,
+      11040,
+      11136,
+      11232,
+      11328,
+      11424,
+      11520,
+      11616,
+      11712,
+      11808,
+      11904,
+      12000,
+      12096,
+      12192
+    ],
+    "scope": "D_diag reuses historical V; no independent holdout",
+    "seed": 34001,
+    "selections": {
+      "ALL8": {
+        "id": "electricity_new_233_34001_native_anchor_0_step900",
+        "lr": 3e-05,
+        "prediction_hash": "570146db1c8a4cc7833cde5faa73ec7998f4b85deb7175fb99cc78ce4345ab8a",
+        "step": 900
+      },
+      "FIXED": {
+        "id": "electricity_new_233_34001_native_anchor_0_step150",
+        "lr": 3e-05,
+        "prediction_hash": "4a532938986ad7bf16c2bc1124a4c7a636a502cb040222a23371e51783063e31",
+        "step": 150
+      },
+      "FROZEN": {
+        "id": "F0",
+        "lr": 0.0,
+        "step": 0
+      },
+      "RECENT4": {
+        "id": "electricity_new_233_34001_native_anchor_1_step450",
+        "lr": 0.0001,
+        "prediction_hash": "09633129b0a7f9df91b0d9b152750583f7af1d034edaac3b0a4e54eeaa792ea5",
+        "step": 450
+      },
+      "SPREAD4": {
+        "id": "electricity_new_233_34001_native_anchor_1_step150",
+        "lr": 0.0001,
+        "prediction_hash": "3d579f818d6291b094209a8a9ca78cd634ee394f671424a87e0476c2fa2388bf",
+        "step": 150
+      }
+    },
+    "source": "electricity_new",
+    "splits": {
+      "ALL8": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "D_diag": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "RECENT4": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "SPREAD4": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    "train_last_target_exclusive": 9520
+  }
+]

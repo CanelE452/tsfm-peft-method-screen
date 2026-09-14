@@ -1,0 +1,187 @@
+{
+  "cells": [
+    {
+      "anchor_mean": 0.21012304504411228,
+      "anchor_vs_f0_percent": 0.5726733556697294,
+      "budget": 32,
+      "dataset": "beijing_32",
+      "f0_loss": 0.21133329451344984,
+      "gain_of_mean_losses": 0.1814209928252316,
+      "mean_seed_gains": 0.18141695333077842,
+      "plain_mean": 0.21050494520565058,
+      "plain_vs_f0_percent": 0.39196346685758304,
+      "source": "beijing"
+    },
+    {
+      "anchor_mean": 0.21094123876371135,
+      "anchor_vs_f0_percent": 0.18551537307035368,
+      "budget": 233,
+      "dataset": "beijing_233",
+      "f0_loss": 0.21133329451344984,
+      "gain_of_mean_losses": 4.17245403271101,
+      "mean_seed_gains": 4.150097367938582,
+      "plain_mean": 0.2201258903527768,
+      "plain_vs_f0_percent": -4.1605350730797275,
+      "source": "beijing"
+    },
+    {
+      "anchor_mean": 0.1292031730692813,
+      "anchor_vs_f0_percent": 0.0,
+      "budget": 32,
+      "dataset": "ettm2_later_32",
+      "f0_loss": 0.1292031730692813,
+      "gain_of_mean_losses": 0.0,
+      "mean_seed_gains": 0.0,
+      "plain_mean": 0.1292031730692813,
+      "plain_vs_f0_percent": 0.0,
+      "source": "ettm2_later"
+    },
+    {
+      "anchor_mean": 0.1292031730692813,
+      "anchor_vs_f0_percent": 0.0,
+      "budget": 233,
+      "dataset": "ettm2_later_233",
+      "f0_loss": 0.1292031730692813,
+      "gain_of_mean_losses": 0.0,
+      "mean_seed_gains": 0.0,
+      "plain_mean": 0.1292031730692813,
+      "plain_vs_f0_percent": 0.0,
+      "source": "ettm2_later"
+    },
+    {
+      "anchor_mean": 0.21992891035254997,
+      "anchor_vs_f0_percent": 0.8269960832795114,
+      "budget": 32,
+      "dataset": "electricity_new_32",
+      "f0_loss": 0.22176288069002428,
+      "gain_of_mean_losses": -0.22146624967537978,
+      "mean_seed_gains": -0.2213533281517679,
+      "plain_mean": 0.21944291835109958,
+      "plain_vs_f0_percent": 1.0461454738079001,
+      "source": "electricity_new"
+    },
+    {
+      "anchor_mean": 0.22347274459788138,
+      "anchor_vs_f0_percent": -0.7710325111834719,
+      "budget": 233,
+      "dataset": "electricity_new_233",
+      "f0_loss": 0.22176288069002428,
+      "gain_of_mean_losses": -1.1676521692977684,
+      "mean_seed_gains": -1.168319860642078,
+      "plain_mean": 0.2208934771204472,
+      "plain_vs_f0_percent": 0.39204197152917836,
+      "source": "electricity_new"
+    }
+  ],
+  "decision": "WINDOW_BUDGET_HYPOTHESIS_NOT_SUPPORTED",
+  "decision_unchanged": true,
+  "dependency_explanation": "Decision uses sparse macro and source interactions computed from mean arm losses. Erroneous seed ratio column is not an input.",
+  "historical_code_excerpt": "            seed_gains_percent=[100*(1/y['metrics']['scaled_2pinball']*x['metrics']['scaled_2pinball']) for x,y in zip(a,p)],\n    macro = float(np.mean([c['anchor_gain_percent'] for c in cells]))\n    sparse = float(np.mean([c['anchor_gain_percent'] for c in cells if c['training_windows']==32]))\n    interaction = float(np.mean(list(contrast.values())))\n    support = sparse>0 and interaction>0 and sum(v>0 for v in contrast.values())>=2\n        decision='CONDITIONAL_FOLLOWUP_SIGNAL' if support else 'WINDOW_BUDGET_HYPOTHESIS_NOT_SUPPORTED',\n        write_json(OUT/'next_action.json',dict(decision=summary['decision'],automatic_new_training=False,",
+  "interaction": {
+    "beijing": -3.9910330398857785,
+    "electricity_new": 0.9461859196223886,
+    "ettm2_later": 0.0
+  },
+  "mean_interaction": -1.0149490400877965,
+  "missing_E_caches": [],
+  "seeds": [
+    {
+      "anchor_loss": 0.2099615996407505,
+      "corrected_gain_percent": 0.2630506457966447,
+      "dataset": "beijing_32",
+      "old_ratio_percent": 99.73694935420336,
+      "plain_loss": 0.2105153616590959,
+      "seed": 34000
+    },
+    {
+      "anchor_loss": 0.21028449044747408,
+      "corrected_gain_percent": 0.09978326086491214,
+      "dataset": "beijing_32",
+      "old_ratio_percent": 99.90021673913509,
+      "plain_loss": 0.21049452875220526,
+      "seed": 34001
+    },
+    {
+      "anchor_loss": 0.21017693885234523,
+      "corrected_gain_percent": 2.8495848825996686,
+      "dataset": "beijing_233",
+      "old_ratio_percent": 97.15041511740033,
+      "plain_loss": 0.21634178155426229,
+      "seed": 34000
+    },
+    {
+      "anchor_loss": 0.2117055386750775,
+      "corrected_gain_percent": 5.450609853277497,
+      "dataset": "beijing_233",
+      "old_ratio_percent": 94.5493901467225,
+      "plain_loss": 0.22390999915129134,
+      "seed": 34001
+    },
+    {
+      "anchor_loss": 0.1292031730692813,
+      "corrected_gain_percent": 0.0,
+      "dataset": "ettm2_later_32",
+      "old_ratio_percent": 100.0,
+      "plain_loss": 0.1292031730692813,
+      "seed": 34000
+    },
+    {
+      "anchor_loss": 0.1292031730692813,
+      "corrected_gain_percent": 0.0,
+      "dataset": "ettm2_later_32",
+      "old_ratio_percent": 100.0,
+      "plain_loss": 0.1292031730692813,
+      "seed": 34001
+    },
+    {
+      "anchor_loss": 0.1292031730692813,
+      "corrected_gain_percent": 0.0,
+      "dataset": "ettm2_later_233",
+      "old_ratio_percent": 100.0,
+      "plain_loss": 0.1292031730692813,
+      "seed": 34000
+    },
+    {
+      "anchor_loss": 0.1292031730692813,
+      "corrected_gain_percent": 0.0,
+      "dataset": "ettm2_later_233",
+      "old_ratio_percent": 100.0,
+      "plain_loss": 0.1292031730692813,
+      "seed": 34001
+    },
+    {
+      "anchor_loss": 0.22047611183093946,
+      "corrected_gain_percent": -0.2810108944018697,
+      "dataset": "electricity_new_32",
+      "old_ratio_percent": 100.28101089440187,
+      "plain_loss": 0.21985828609476793,
+      "seed": 34000
+    },
+    {
+      "anchor_loss": 0.21938170887416047,
+      "corrected_gain_percent": -0.16169576190166604,
+      "dataset": "electricity_new_32",
+      "old_ratio_percent": 100.16169576190165,
+      "plain_loss": 0.21902755060743123,
+      "seed": 34001
+    },
+    {
+      "anchor_loss": 0.22381538323789169,
+      "corrected_gain_percent": -0.9746497780047526,
+      "dataset": "electricity_new_233",
+      "old_ratio_percent": 100.97464977800476,
+      "plain_loss": 0.22165502304781973,
+      "seed": 34000
+    },
+    {
+      "anchor_loss": 0.22313010595787108,
+      "corrected_gain_percent": -1.3619899432794034,
+      "dataset": "electricity_new_233",
+      "old_ratio_percent": 101.36198994327941,
+      "plain_loss": 0.22013193119307467,
+      "seed": 34001
+    }
+  ],
+  "source_balanced_macro": 0.4941261010938489,
+  "sparse_macro": -0.013348418950049392
+}

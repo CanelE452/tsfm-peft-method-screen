@@ -1,0 +1,2547 @@
+{
+  "electricity_caveat": "Historical Electricity columns 0..3 were trained/evaluated at overlapping dates. Current columns 4..7 are different series, not a new independent source. Earlier loaders inspected: data.py, run_block_shape_pilot.py and original staged manifest.",
+  "origin_metadata": [
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_0_V_0.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_0_V_150.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_0_V_450.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_0_V_900.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_0_best_reload.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_1_V_0.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_1_V_150.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_1_V_450.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_1_V_900.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_1_best_reload.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 16288,
+      "minimum": 13312,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_1_selected_E.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_anchor_0_V_0.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_anchor_0_V_150.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_anchor_0_V_450.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_anchor_0_V_900.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_anchor_0_best_reload.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_anchor_1_V_0.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_anchor_1_V_150.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_anchor_1_V_450.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_anchor_1_V_900.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_anchor_1_best_reload.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 16288,
+      "minimum": 13312,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_anchor_1_selected_E.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_0_V_0.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_0_V_150.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_0_V_450.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_0_V_900.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_0_best_reload.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 16288,
+      "minimum": 13312,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_0_selected_E.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_1_V_0.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_1_V_150.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_1_V_450.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_1_V_900.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_1_best_reload.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_anchor_0_V_0.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_anchor_0_V_150.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_anchor_0_V_450.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_anchor_0_V_900.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_anchor_0_best_reload.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 16288,
+      "minimum": 13312,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_anchor_0_selected_E.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_anchor_1_V_0.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_anchor_1_V_150.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_anchor_1_V_450.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_anchor_1_V_900.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_34001_native_anchor_1_best_reload.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 16288,
+      "minimum": 13312,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_F0_E.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_F0_V.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 9472,
+      "minimum": 2048,
+      "n": 233,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_233_F0_train.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_0_V_0.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_0_V_150.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_0_V_450.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_0_V_900.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_0_best_reload.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 16288,
+      "minimum": 13312,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_0_selected_E.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_1_V_0.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_1_V_150.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_1_V_450.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_1_V_900.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_1_best_reload.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_anchor_0_V_0.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_anchor_0_V_150.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_anchor_0_V_450.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_anchor_0_V_900.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_anchor_0_best_reload.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 16288,
+      "minimum": 13312,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_anchor_0_selected_E.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_anchor_1_V_0.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_anchor_1_V_150.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_anchor_1_V_450.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_anchor_1_V_900.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34000_native_anchor_1_best_reload.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_0_V_0.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_0_V_150.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_0_V_450.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_0_V_900.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_0_best_reload.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 16288,
+      "minimum": 13312,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_0_selected_E.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_1_V_0.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_1_V_150.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_1_V_450.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_1_V_900.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_1_best_reload.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_anchor_0_V_0.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_anchor_0_V_150.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_anchor_0_V_450.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_anchor_0_V_900.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_anchor_0_best_reload.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 16288,
+      "minimum": 13312,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_anchor_0_selected_E.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_anchor_1_V_0.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_anchor_1_V_150.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_anchor_1_V_450.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_anchor_1_V_900.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_34001_native_anchor_1_best_reload.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 16288,
+      "minimum": 13312,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_F0_E.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_F0_V.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 9472,
+      "minimum": 2048,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/beijing_32_F0_train.npz",
+      "source": "beijing"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_0_V_0.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_0_V_150.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_0_V_450.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_0_V_900.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_0_best_reload.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 16288,
+      "minimum": 13312,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_0_selected_E.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_1_V_0.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_1_V_150.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_1_V_450.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_1_V_900.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_1_best_reload.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_anchor_0_V_0.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_anchor_0_V_150.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_anchor_0_V_450.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_anchor_0_V_900.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_anchor_0_best_reload.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 16288,
+      "minimum": 13312,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_anchor_0_selected_E.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_anchor_1_V_0.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_anchor_1_V_150.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_anchor_1_V_450.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_anchor_1_V_900.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34000_native_anchor_1_best_reload.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_0_V_0.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_0_V_150.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_0_V_450.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_0_V_900.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_0_best_reload.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_1_V_0.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_1_V_150.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_1_V_450.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_1_V_900.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_1_best_reload.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 16288,
+      "minimum": 13312,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_1_selected_E.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_anchor_0_V_0.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_anchor_0_V_150.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_anchor_0_V_450.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_anchor_0_V_900.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_anchor_0_best_reload.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 16288,
+      "minimum": 13312,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_anchor_0_selected_E.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_anchor_1_V_0.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_anchor_1_V_150.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_anchor_1_V_450.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_anchor_1_V_900.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_34001_native_anchor_1_best_reload.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 16288,
+      "minimum": 13312,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_F0_E.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_F0_V.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 9472,
+      "minimum": 2048,
+      "n": 233,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_233_F0_train.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_0_V_0.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_0_V_150.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_0_V_450.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_0_V_900.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_0_best_reload.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 16288,
+      "minimum": 13312,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_0_selected_E.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_1_V_0.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_1_V_150.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_1_V_450.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_1_V_900.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_1_best_reload.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_anchor_0_V_0.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_anchor_0_V_150.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_anchor_0_V_450.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_anchor_0_V_900.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_anchor_0_best_reload.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 16288,
+      "minimum": 13312,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_anchor_0_selected_E.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_anchor_1_V_0.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_anchor_1_V_150.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_anchor_1_V_450.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_anchor_1_V_900.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34000_native_anchor_1_best_reload.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_0_V_0.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_0_V_150.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_0_V_450.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_0_V_900.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_0_best_reload.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 16288,
+      "minimum": 13312,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_0_selected_E.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_1_V_0.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_1_V_150.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_1_V_450.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_1_V_900.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_1_best_reload.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_anchor_0_V_0.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_anchor_0_V_150.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_anchor_0_V_450.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_anchor_0_V_900.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_anchor_0_best_reload.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 16288,
+      "minimum": 13312,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_anchor_0_selected_E.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_anchor_1_V_0.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_anchor_1_V_150.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_anchor_1_V_450.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_anchor_1_V_900.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_34001_native_anchor_1_best_reload.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 16288,
+      "minimum": 13312,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_F0_E.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 12192,
+      "minimum": 10752,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_F0_V.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 9472,
+      "minimum": 2048,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/electricity_new_32_F0_train.npz",
+      "source": "electricity_new"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_0_V_0.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_0_V_150.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_0_V_450.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_0_V_900.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_0_best_reload.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 42912,
+      "minimum": 39936,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_0_selected_E.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_1_V_0.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_1_V_150.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_1_V_450.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_1_V_900.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_1_best_reload.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_anchor_0_V_0.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_anchor_0_V_150.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_anchor_0_V_450.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_anchor_0_V_900.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_anchor_0_best_reload.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 42912,
+      "minimum": 39936,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_anchor_0_selected_E.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_anchor_1_V_0.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_anchor_1_V_150.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_anchor_1_V_450.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_anchor_1_V_900.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34000_native_anchor_1_best_reload.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_0_V_0.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_0_V_150.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_0_V_450.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_0_V_900.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_0_best_reload.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 42912,
+      "minimum": 39936,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_0_selected_E.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_1_V_0.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_1_V_150.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_1_V_450.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_1_V_900.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_1_best_reload.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_anchor_0_V_0.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_anchor_0_V_150.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_anchor_0_V_450.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_anchor_0_V_900.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_anchor_0_best_reload.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 42912,
+      "minimum": 39936,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_anchor_0_selected_E.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_anchor_1_V_0.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_anchor_1_V_150.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_anchor_1_V_450.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_anchor_1_V_900.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_34001_native_anchor_1_best_reload.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 42912,
+      "minimum": 39936,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_F0_E.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_F0_V.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 36096,
+      "minimum": 28672,
+      "n": 233,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_233_F0_train.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_0_V_0.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_0_V_150.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_0_V_450.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_0_V_900.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_0_best_reload.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 42912,
+      "minimum": 39936,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_0_selected_E.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_1_V_0.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_1_V_150.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_1_V_450.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_1_V_900.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_1_best_reload.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_anchor_0_V_0.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_anchor_0_V_150.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_anchor_0_V_450.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_anchor_0_V_900.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_anchor_0_best_reload.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 42912,
+      "minimum": 39936,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_anchor_0_selected_E.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_anchor_1_V_0.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_anchor_1_V_150.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_anchor_1_V_450.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_anchor_1_V_900.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34000_native_anchor_1_best_reload.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_0_V_0.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_0_V_150.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_0_V_450.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_0_V_900.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_0_best_reload.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 42912,
+      "minimum": 39936,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_0_selected_E.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_1_V_0.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_1_V_150.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_1_V_450.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_1_V_900.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_1_best_reload.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_anchor_0_V_0.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_anchor_0_V_150.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_anchor_0_V_450.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_anchor_0_V_900.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_anchor_0_best_reload.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 42912,
+      "minimum": 39936,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_anchor_0_selected_E.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_anchor_1_V_0.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_anchor_1_V_150.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_anchor_1_V_450.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_anchor_1_V_900.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_34001_native_anchor_1_best_reload.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 42912,
+      "minimum": 39936,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_F0_E.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 38816,
+      "minimum": 37376,
+      "n": 16,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_F0_V.npz",
+      "source": "ettm2_later"
+    },
+    {
+      "different_electricity_channels": false,
+      "key": "origins",
+      "maximum": 36096,
+      "minimum": 28672,
+      "n": 32,
+      "path": ".cache/anchor_window_study_20260914/anchor/ettm2_later_32_F0_train.npz",
+      "source": "ettm2_later"
+    }
+  ],
+  "overlaps": [],
+  "scope": "This checkout prediction-origin metadata, source/config history and original window-study ranges; pretraining and external experiments unknown. Raw schema/missingness was mechanically inspected earlier; unused means not scored/trained on these target series/time windows here, not never read as raw bytes.",
+  "status": "PASS",
+  "unknown": []
+}

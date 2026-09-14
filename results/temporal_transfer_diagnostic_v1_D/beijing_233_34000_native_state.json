@@ -1,0 +1,1062 @@
+{
+  "coordinate_order": [
+    "core.encoder.block.0.layer.0.self_attention.q.lora_A",
+    "core.encoder.block.0.layer.0.self_attention.q.lora_B",
+    "core.encoder.block.0.layer.0.self_attention.k.lora_A",
+    "core.encoder.block.0.layer.0.self_attention.k.lora_B",
+    "core.encoder.block.0.layer.0.self_attention.v.lora_A",
+    "core.encoder.block.0.layer.0.self_attention.v.lora_B",
+    "core.encoder.block.0.layer.0.self_attention.o.lora_A",
+    "core.encoder.block.0.layer.0.self_attention.o.lora_B",
+    "core.encoder.block.0.layer.1.self_attention.q.lora_A",
+    "core.encoder.block.0.layer.1.self_attention.q.lora_B",
+    "core.encoder.block.0.layer.1.self_attention.k.lora_A",
+    "core.encoder.block.0.layer.1.self_attention.k.lora_B",
+    "core.encoder.block.0.layer.1.self_attention.v.lora_A",
+    "core.encoder.block.0.layer.1.self_attention.v.lora_B",
+    "core.encoder.block.0.layer.1.self_attention.o.lora_A",
+    "core.encoder.block.0.layer.1.self_attention.o.lora_B",
+    "core.encoder.block.1.layer.0.self_attention.q.lora_A",
+    "core.encoder.block.1.layer.0.self_attention.q.lora_B",
+    "core.encoder.block.1.layer.0.self_attention.k.lora_A",
+    "core.encoder.block.1.layer.0.self_attention.k.lora_B",
+    "core.encoder.block.1.layer.0.self_attention.v.lora_A",
+    "core.encoder.block.1.layer.0.self_attention.v.lora_B",
+    "core.encoder.block.1.layer.0.self_attention.o.lora_A",
+    "core.encoder.block.1.layer.0.self_attention.o.lora_B",
+    "core.encoder.block.1.layer.1.self_attention.q.lora_A",
+    "core.encoder.block.1.layer.1.self_attention.q.lora_B",
+    "core.encoder.block.1.layer.1.self_attention.k.lora_A",
+    "core.encoder.block.1.layer.1.self_attention.k.lora_B",
+    "core.encoder.block.1.layer.1.self_attention.v.lora_A",
+    "core.encoder.block.1.layer.1.self_attention.v.lora_B",
+    "core.encoder.block.1.layer.1.self_attention.o.lora_A",
+    "core.encoder.block.1.layer.1.self_attention.o.lora_B",
+    "core.encoder.block.2.layer.0.self_attention.q.lora_A",
+    "core.encoder.block.2.layer.0.self_attention.q.lora_B",
+    "core.encoder.block.2.layer.0.self_attention.k.lora_A",
+    "core.encoder.block.2.layer.0.self_attention.k.lora_B",
+    "core.encoder.block.2.layer.0.self_attention.v.lora_A",
+    "core.encoder.block.2.layer.0.self_attention.v.lora_B",
+    "core.encoder.block.2.layer.0.self_attention.o.lora_A",
+    "core.encoder.block.2.layer.0.self_attention.o.lora_B",
+    "core.encoder.block.2.layer.1.self_attention.q.lora_A",
+    "core.encoder.block.2.layer.1.self_attention.q.lora_B",
+    "core.encoder.block.2.layer.1.self_attention.k.lora_A",
+    "core.encoder.block.2.layer.1.self_attention.k.lora_B",
+    "core.encoder.block.2.layer.1.self_attention.v.lora_A",
+    "core.encoder.block.2.layer.1.self_attention.v.lora_B",
+    "core.encoder.block.2.layer.1.self_attention.o.lora_A",
+    "core.encoder.block.2.layer.1.self_attention.o.lora_B",
+    "core.encoder.block.3.layer.0.self_attention.q.lora_A",
+    "core.encoder.block.3.layer.0.self_attention.q.lora_B",
+    "core.encoder.block.3.layer.0.self_attention.k.lora_A",
+    "core.encoder.block.3.layer.0.self_attention.k.lora_B",
+    "core.encoder.block.3.layer.0.self_attention.v.lora_A",
+    "core.encoder.block.3.layer.0.self_attention.v.lora_B",
+    "core.encoder.block.3.layer.0.self_attention.o.lora_A",
+    "core.encoder.block.3.layer.0.self_attention.o.lora_B",
+    "core.encoder.block.3.layer.1.self_attention.q.lora_A",
+    "core.encoder.block.3.layer.1.self_attention.q.lora_B",
+    "core.encoder.block.3.layer.1.self_attention.k.lora_A",
+    "core.encoder.block.3.layer.1.self_attention.k.lora_B",
+    "core.encoder.block.3.layer.1.self_attention.v.lora_A",
+    "core.encoder.block.3.layer.1.self_attention.v.lora_B",
+    "core.encoder.block.3.layer.1.self_attention.o.lora_A",
+    "core.encoder.block.3.layer.1.self_attention.o.lora_B",
+    "core.encoder.block.4.layer.0.self_attention.q.lora_A",
+    "core.encoder.block.4.layer.0.self_attention.q.lora_B",
+    "core.encoder.block.4.layer.0.self_attention.k.lora_A",
+    "core.encoder.block.4.layer.0.self_attention.k.lora_B",
+    "core.encoder.block.4.layer.0.self_attention.v.lora_A",
+    "core.encoder.block.4.layer.0.self_attention.v.lora_B",
+    "core.encoder.block.4.layer.0.self_attention.o.lora_A",
+    "core.encoder.block.4.layer.0.self_attention.o.lora_B",
+    "core.encoder.block.4.layer.1.self_attention.q.lora_A",
+    "core.encoder.block.4.layer.1.self_attention.q.lora_B",
+    "core.encoder.block.4.layer.1.self_attention.k.lora_A",
+    "core.encoder.block.4.layer.1.self_attention.k.lora_B",
+    "core.encoder.block.4.layer.1.self_attention.v.lora_A",
+    "core.encoder.block.4.layer.1.self_attention.v.lora_B",
+    "core.encoder.block.4.layer.1.self_attention.o.lora_A",
+    "core.encoder.block.4.layer.1.self_attention.o.lora_B",
+    "core.encoder.block.5.layer.0.self_attention.q.lora_A",
+    "core.encoder.block.5.layer.0.self_attention.q.lora_B",
+    "core.encoder.block.5.layer.0.self_attention.k.lora_A",
+    "core.encoder.block.5.layer.0.self_attention.k.lora_B",
+    "core.encoder.block.5.layer.0.self_attention.v.lora_A",
+    "core.encoder.block.5.layer.0.self_attention.v.lora_B",
+    "core.encoder.block.5.layer.0.self_attention.o.lora_A",
+    "core.encoder.block.5.layer.0.self_attention.o.lora_B",
+    "core.encoder.block.5.layer.1.self_attention.q.lora_A",
+    "core.encoder.block.5.layer.1.self_attention.q.lora_B",
+    "core.encoder.block.5.layer.1.self_attention.k.lora_A",
+    "core.encoder.block.5.layer.1.self_attention.k.lora_B",
+    "core.encoder.block.5.layer.1.self_attention.v.lora_A",
+    "core.encoder.block.5.layer.1.self_attention.v.lora_B",
+    "core.encoder.block.5.layer.1.self_attention.o.lora_A",
+    "core.encoder.block.5.layer.1.self_attention.o.lora_B",
+    "core.encoder.block.6.layer.0.self_attention.q.lora_A",
+    "core.encoder.block.6.layer.0.self_attention.q.lora_B",
+    "core.encoder.block.6.layer.0.self_attention.k.lora_A",
+    "core.encoder.block.6.layer.0.self_attention.k.lora_B",
+    "core.encoder.block.6.layer.0.self_attention.v.lora_A",
+    "core.encoder.block.6.layer.0.self_attention.v.lora_B",
+    "core.encoder.block.6.layer.0.self_attention.o.lora_A",
+    "core.encoder.block.6.layer.0.self_attention.o.lora_B",
+    "core.encoder.block.6.layer.1.self_attention.q.lora_A",
+    "core.encoder.block.6.layer.1.self_attention.q.lora_B",
+    "core.encoder.block.6.layer.1.self_attention.k.lora_A",
+    "core.encoder.block.6.layer.1.self_attention.k.lora_B",
+    "core.encoder.block.6.layer.1.self_attention.v.lora_A",
+    "core.encoder.block.6.layer.1.self_attention.v.lora_B",
+    "core.encoder.block.6.layer.1.self_attention.o.lora_A",
+    "core.encoder.block.6.layer.1.self_attention.o.lora_B",
+    "core.encoder.block.7.layer.0.self_attention.q.lora_A",
+    "core.encoder.block.7.layer.0.self_attention.q.lora_B",
+    "core.encoder.block.7.layer.0.self_attention.k.lora_A",
+    "core.encoder.block.7.layer.0.self_attention.k.lora_B",
+    "core.encoder.block.7.layer.0.self_attention.v.lora_A",
+    "core.encoder.block.7.layer.0.self_attention.v.lora_B",
+    "core.encoder.block.7.layer.0.self_attention.o.lora_A",
+    "core.encoder.block.7.layer.0.self_attention.o.lora_B",
+    "core.encoder.block.7.layer.1.self_attention.q.lora_A",
+    "core.encoder.block.7.layer.1.self_attention.q.lora_B",
+    "core.encoder.block.7.layer.1.self_attention.k.lora_A",
+    "core.encoder.block.7.layer.1.self_attention.k.lora_B",
+    "core.encoder.block.7.layer.1.self_attention.v.lora_A",
+    "core.encoder.block.7.layer.1.self_attention.v.lora_B",
+    "core.encoder.block.7.layer.1.self_attention.o.lora_A",
+    "core.encoder.block.7.layer.1.self_attention.o.lora_B",
+    "core.encoder.block.8.layer.0.self_attention.q.lora_A",
+    "core.encoder.block.8.layer.0.self_attention.q.lora_B",
+    "core.encoder.block.8.layer.0.self_attention.k.lora_A",
+    "core.encoder.block.8.layer.0.self_attention.k.lora_B",
+    "core.encoder.block.8.layer.0.self_attention.v.lora_A",
+    "core.encoder.block.8.layer.0.self_attention.v.lora_B",
+    "core.encoder.block.8.layer.0.self_attention.o.lora_A",
+    "core.encoder.block.8.layer.0.self_attention.o.lora_B",
+    "core.encoder.block.8.layer.1.self_attention.q.lora_A",
+    "core.encoder.block.8.layer.1.self_attention.q.lora_B",
+    "core.encoder.block.8.layer.1.self_attention.k.lora_A",
+    "core.encoder.block.8.layer.1.self_attention.k.lora_B",
+    "core.encoder.block.8.layer.1.self_attention.v.lora_A",
+    "core.encoder.block.8.layer.1.self_attention.v.lora_B",
+    "core.encoder.block.8.layer.1.self_attention.o.lora_A",
+    "core.encoder.block.8.layer.1.self_attention.o.lora_B",
+    "core.encoder.block.9.layer.0.self_attention.q.lora_A",
+    "core.encoder.block.9.layer.0.self_attention.q.lora_B",
+    "core.encoder.block.9.layer.0.self_attention.k.lora_A",
+    "core.encoder.block.9.layer.0.self_attention.k.lora_B",
+    "core.encoder.block.9.layer.0.self_attention.v.lora_A",
+    "core.encoder.block.9.layer.0.self_attention.v.lora_B",
+    "core.encoder.block.9.layer.0.self_attention.o.lora_A",
+    "core.encoder.block.9.layer.0.self_attention.o.lora_B",
+    "core.encoder.block.9.layer.1.self_attention.q.lora_A",
+    "core.encoder.block.9.layer.1.self_attention.q.lora_B",
+    "core.encoder.block.9.layer.1.self_attention.k.lora_A",
+    "core.encoder.block.9.layer.1.self_attention.k.lora_B",
+    "core.encoder.block.9.layer.1.self_attention.v.lora_A",
+    "core.encoder.block.9.layer.1.self_attention.v.lora_B",
+    "core.encoder.block.9.layer.1.self_attention.o.lora_A",
+    "core.encoder.block.9.layer.1.self_attention.o.lora_B",
+    "core.encoder.block.10.layer.0.self_attention.q.lora_A",
+    "core.encoder.block.10.layer.0.self_attention.q.lora_B",
+    "core.encoder.block.10.layer.0.self_attention.k.lora_A",
+    "core.encoder.block.10.layer.0.self_attention.k.lora_B",
+    "core.encoder.block.10.layer.0.self_attention.v.lora_A",
+    "core.encoder.block.10.layer.0.self_attention.v.lora_B",
+    "core.encoder.block.10.layer.0.self_attention.o.lora_A",
+    "core.encoder.block.10.layer.0.self_attention.o.lora_B",
+    "core.encoder.block.10.layer.1.self_attention.q.lora_A",
+    "core.encoder.block.10.layer.1.self_attention.q.lora_B",
+    "core.encoder.block.10.layer.1.self_attention.k.lora_A",
+    "core.encoder.block.10.layer.1.self_attention.k.lora_B",
+    "core.encoder.block.10.layer.1.self_attention.v.lora_A",
+    "core.encoder.block.10.layer.1.self_attention.v.lora_B",
+    "core.encoder.block.10.layer.1.self_attention.o.lora_A",
+    "core.encoder.block.10.layer.1.self_attention.o.lora_B",
+    "core.encoder.block.11.layer.0.self_attention.q.lora_A",
+    "core.encoder.block.11.layer.0.self_attention.q.lora_B",
+    "core.encoder.block.11.layer.0.self_attention.k.lora_A",
+    "core.encoder.block.11.layer.0.self_attention.k.lora_B",
+    "core.encoder.block.11.layer.0.self_attention.v.lora_A",
+    "core.encoder.block.11.layer.0.self_attention.v.lora_B",
+    "core.encoder.block.11.layer.0.self_attention.o.lora_A",
+    "core.encoder.block.11.layer.0.self_attention.o.lora_B",
+    "core.encoder.block.11.layer.1.self_attention.q.lora_A",
+    "core.encoder.block.11.layer.1.self_attention.q.lora_B",
+    "core.encoder.block.11.layer.1.self_attention.k.lora_A",
+    "core.encoder.block.11.layer.1.self_attention.k.lora_B",
+    "core.encoder.block.11.layer.1.self_attention.v.lora_A",
+    "core.encoder.block.11.layer.1.self_attention.v.lora_B",
+    "core.encoder.block.11.layer.1.self_attention.o.lora_A",
+    "core.encoder.block.11.layer.1.self_attention.o.lora_B"
+  ],
+  "coordinate_shapes": {
+    "core.encoder.block.0.layer.0.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.0.layer.0.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.0.layer.0.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.0.layer.0.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.0.layer.0.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.0.layer.0.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.0.layer.0.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.0.layer.0.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.0.layer.1.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.0.layer.1.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.0.layer.1.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.0.layer.1.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.0.layer.1.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.0.layer.1.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.0.layer.1.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.0.layer.1.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.1.layer.0.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.1.layer.0.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.1.layer.0.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.1.layer.0.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.1.layer.0.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.1.layer.0.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.1.layer.0.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.1.layer.0.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.1.layer.1.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.1.layer.1.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.1.layer.1.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.1.layer.1.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.1.layer.1.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.1.layer.1.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.1.layer.1.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.1.layer.1.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.10.layer.0.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.10.layer.0.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.10.layer.0.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.10.layer.0.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.10.layer.0.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.10.layer.0.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.10.layer.0.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.10.layer.0.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.10.layer.1.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.10.layer.1.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.10.layer.1.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.10.layer.1.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.10.layer.1.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.10.layer.1.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.10.layer.1.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.10.layer.1.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.11.layer.0.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.11.layer.0.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.11.layer.0.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.11.layer.0.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.11.layer.0.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.11.layer.0.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.11.layer.0.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.11.layer.0.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.11.layer.1.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.11.layer.1.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.11.layer.1.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.11.layer.1.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.11.layer.1.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.11.layer.1.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.11.layer.1.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.11.layer.1.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.2.layer.0.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.2.layer.0.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.2.layer.0.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.2.layer.0.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.2.layer.0.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.2.layer.0.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.2.layer.0.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.2.layer.0.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.2.layer.1.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.2.layer.1.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.2.layer.1.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.2.layer.1.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.2.layer.1.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.2.layer.1.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.2.layer.1.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.2.layer.1.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.3.layer.0.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.3.layer.0.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.3.layer.0.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.3.layer.0.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.3.layer.0.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.3.layer.0.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.3.layer.0.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.3.layer.0.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.3.layer.1.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.3.layer.1.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.3.layer.1.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.3.layer.1.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.3.layer.1.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.3.layer.1.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.3.layer.1.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.3.layer.1.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.4.layer.0.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.4.layer.0.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.4.layer.0.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.4.layer.0.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.4.layer.0.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.4.layer.0.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.4.layer.0.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.4.layer.0.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.4.layer.1.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.4.layer.1.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.4.layer.1.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.4.layer.1.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.4.layer.1.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.4.layer.1.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.4.layer.1.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.4.layer.1.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.5.layer.0.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.5.layer.0.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.5.layer.0.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.5.layer.0.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.5.layer.0.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.5.layer.0.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.5.layer.0.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.5.layer.0.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.5.layer.1.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.5.layer.1.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.5.layer.1.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.5.layer.1.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.5.layer.1.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.5.layer.1.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.5.layer.1.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.5.layer.1.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.6.layer.0.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.6.layer.0.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.6.layer.0.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.6.layer.0.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.6.layer.0.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.6.layer.0.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.6.layer.0.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.6.layer.0.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.6.layer.1.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.6.layer.1.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.6.layer.1.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.6.layer.1.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.6.layer.1.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.6.layer.1.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.6.layer.1.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.6.layer.1.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.7.layer.0.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.7.layer.0.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.7.layer.0.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.7.layer.0.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.7.layer.0.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.7.layer.0.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.7.layer.0.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.7.layer.0.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.7.layer.1.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.7.layer.1.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.7.layer.1.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.7.layer.1.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.7.layer.1.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.7.layer.1.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.7.layer.1.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.7.layer.1.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.8.layer.0.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.8.layer.0.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.8.layer.0.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.8.layer.0.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.8.layer.0.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.8.layer.0.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.8.layer.0.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.8.layer.0.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.8.layer.1.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.8.layer.1.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.8.layer.1.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.8.layer.1.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.8.layer.1.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.8.layer.1.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.8.layer.1.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.8.layer.1.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.9.layer.0.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.9.layer.0.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.9.layer.0.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.9.layer.0.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.9.layer.0.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.9.layer.0.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.9.layer.0.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.9.layer.0.self_attention.v.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.9.layer.1.self_attention.k.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.9.layer.1.self_attention.k.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.9.layer.1.self_attention.o.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.9.layer.1.self_attention.o.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.9.layer.1.self_attention.q.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.9.layer.1.self_attention.q.lora_B": [
+      768,
+      8
+    ],
+    "core.encoder.block.9.layer.1.self_attention.v.lora_A": [
+      8,
+      768
+    ],
+    "core.encoder.block.9.layer.1.self_attention.v.lora_B": [
+      768,
+      8
+    ]
+  },
+  "diagnostics": {
+    "D": {
+      "metric_error": 2.7755575615628914e-17,
+      "missing_targets": 1,
+      "sort_ties": 0,
+      "target_ties": 0
+    },
+    "S": {
+      "metric_error": 0.0,
+      "missing_targets": 34,
+      "sort_ties": 0,
+      "target_ties": 0
+    },
+    "T": {
+      "metric_error": 2.7755575615628914e-17,
+      "missing_targets": 0,
+      "sort_ties": 0,
+      "target_ties": 0
+    },
+    "anchor_loss": 0.004057100508362055,
+    "native_loss": 0.2239866703748703
+  },
+  "frozen_hash": "4d140458735d0a742730aa75874e0e31e82b0ab20adf68c5db570a985d97399b",
+  "gradient_file": ".cache/temporal_transfer_diagnostic_v1_D/beijing_233_34000_native_gradients.npz",
+  "gradient_sha256": "51bf1ec547e46cd0d9dd010271ccf9c79fa24123a57fe92920d179743d1abc0e",
+  "seconds": 8.069695920001323,
+  "state": {
+    "D_context_intervals": [
+      [
+        11072,
+        12096
+      ],
+      [
+        11168,
+        12192
+      ]
+    ],
+    "D_probe_origins": [
+      12096,
+      12192
+    ],
+    "S_context_intervals": [
+      [
+        10304,
+        11328
+      ],
+      [
+        10400,
+        11424
+      ]
+    ],
+    "S_probe_origins": [
+      11328,
+      11424
+    ],
+    "arm": "native",
+    "available": true,
+    "budget": 233,
+    "channels": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "checkpoint_file": ".cache/anchor_window_study_20260914/anchor/beijing_233_34000_native_0_V_450.pt",
+    "checkpoint_sha256": "9210d42e5da5fa5c40f937944ce8e0fba01bd770ad67e49acfac3b64754a5f68",
+    "dataset": "beijing_233",
+    "development_file": "data/processed/anchor_window_study_20260914/beijing_development.npz",
+    "lr": 3e-05,
+    "model_revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+    "scale": [
+      91.44184586689721,
+      14.591262213468674,
+      12.361013236800593,
+      10.041996353100474
+    ],
+    "seed": 34000,
+    "source": "beijing",
+    "step": 450,
+    "target_horizon": 48,
+    "train_context_intervals": [
+      [
+        8416,
+        9440
+      ],
+      [
+        8448,
+        9472
+      ]
+    ],
+    "train_origins": [
+      9440,
+      9472
+    ]
+  },
+  "trainable_hash": "5d9bab21a386d398dc194b01d6da77bf17d39f96977d365933e19a1b724038fc"
+}
