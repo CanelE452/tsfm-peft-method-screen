@@ -1,0 +1,84 @@
+{
+  "V_E_array_access": false,
+  "blocks": {
+    "0": [],
+    "12": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "3": [
+      0,
+      5,
+      11
+    ],
+    "6": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      11
+    ],
+    "9": [
+      0,
+      1,
+      2,
+      4,
+      5,
+      6,
+      8,
+      9,
+      11
+    ]
+  },
+  "channels": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "code_sha256": "b2cb4c38a4e22ab8d650118ccffd7e9dab5d86b780f6d96103b7382608c5f0e5",
+  "configs": {
+    "head": [
+      0
+    ],
+    "query": [
+      0,
+      12
+    ],
+    "side": [
+      0
+    ],
+    "standard": [
+      0,
+      3,
+      6,
+      9,
+      12
+    ]
+  },
+  "context": 4096,
+  "execution_commit": "f18d125cd48a53721c12903d5b568eeee2f1170b",
+  "lr": 3e-05,
+  "new_fits": 0,
+  "new_quality_scores": 0,
+  "optimizer_updates_cap": 158,
+  "origins": [
+    17408,
+    18432
+  ],
+  "precision": "BF16; inherited equivalence absolute/relative tolerance1e-4 for each tensor category",
+  "quality_json_sha256": "bccd34f715cf523ffe470a4b3da2c520396b12da4937e458fc77d6aa7aeece75",
+  "seed": 30000,
+  "warmup": "one shared no-CP update; three-step equivalence from shared state; one config warmup then 3 measured updates"
+}

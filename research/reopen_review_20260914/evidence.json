@@ -1,0 +1,222 @@
+{
+  "FR": [
+    {
+      "FR_range": 0.06927735179970584,
+      "dataset": "etth1",
+      "mean_F0_future_loss": 0.2828035147633982,
+      "mean_future_loss": 0.27859921929478626,
+      "reason": "Positive retrospective adaptation with nonzero varying correction revision",
+      "seed": 33000,
+      "verdict": "FR_REOPEN_POSSIBLE"
+    },
+    {
+      "FR_range": 0.020698208524431116,
+      "dataset": "etth1",
+      "mean_F0_future_loss": 0.2828035147633982,
+      "mean_future_loss": 0.27908951070257204,
+      "reason": "Positive retrospective adaptation with nonzero varying correction revision",
+      "seed": 33001,
+      "verdict": "FR_REOPEN_POSSIBLE"
+    },
+    {
+      "FR_range": 0.01168377383192535,
+      "dataset": "traffic",
+      "mean_F0_future_loss": 0.10880127701563466,
+      "mean_future_loss": 0.10489498760975906,
+      "reason": "Positive retrospective adaptation with nonzero varying correction revision",
+      "seed": 33000,
+      "verdict": "FR_REOPEN_POSSIBLE"
+    },
+    {
+      "FR_range": 0.0090613412698188,
+      "dataset": "traffic",
+      "mean_F0_future_loss": 0.10880127701563466,
+      "mean_future_loss": 0.10420846268341195,
+      "reason": "Positive retrospective adaptation with nonzero varying correction revision",
+      "seed": 33001,
+      "verdict": "FR_REOPEN_POSSIBLE"
+    }
+  ],
+  "anchor": {
+    "budget": {
+      "233": 1.0016006211377473,
+      "32": -0.013348418950050641
+    },
+    "cache_replays": 30,
+    "interaction": -1.0149490400877978,
+    "macro": 0.4941261010938483,
+    "max_error": 8.326672684688674e-17,
+    "new_fits": 0,
+    "original_summary_sha256": "f8746dcbf7eff855baa083604cb7b108a7f3586a6633fb6172fd030ab7377dee",
+    "original_verdict": "WINDOW_BUDGET_HYPOTHESIS_NOT_SUPPORTED",
+    "verdict": "ANCHOR_CONDITIONAL"
+  },
+  "assessment": {
+    "automatic_followup": false,
+    "censor_reason": "217/7957 and 222/7957 censored train occurrences have saturated zero-gradient censor terms. Those occurrences contribute 18.2471% and 18.5491% of the censor loss component. This loss concentration makes the implementation limitation material to that component; it does not establish how much total training failure it caused.",
+    "censor_verdict": "CENSOR_IMPLEMENTATION_LIMIT_MATERIAL",
+    "final_priorities": [
+      {
+        "method": "Forecast-Query PEFT",
+        "scope": "Efficiency-method candidate: retains measured quality-memory-time Pareto points even after Standard partial checkpointing and Side. Needs independent resource replication and novelty audit; no forecasting-quality superiority claim."
+      },
+      {
+        "method": "Censor tail-loss correction",
+        "scope": "Implementation/method-design candidate only: a concrete zero-gradient tail failure affects substantial censor-loss mass. First establish a correct tail model and strong censored-loss control; no v2 implementation or training in this review."
+      }
+    ],
+    "not_prioritized": {
+      "FR-LoRA": "Positive entry demonstrated in four adapted states; no FR intervention benefit measured.",
+      "PatchPhase v2": "Mixed accuracy: -1.3821% and +0.0008758% versus augmented; tiny positive variance effects do not establish consistent added value.",
+      "Uniform anchoring": "Conditional source/budget effects justify keeping a baseline, not a new-method novelty claim."
+    }
+  },
+  "censor": [
+    {
+      "arm": "CENSORED_LOSS_LORA",
+      "checkpoint_step": 60,
+      "interpretation": "Report continuous fractions; no fabricated materiality cutoff. Snapshot limitation, not historical gradient trajectory.",
+      "lower_bound_minus_upper_support_quantiles": {
+        "0": -494.97467041015625,
+        "0.25": -1.57291841506958,
+        "0.5": -0.9022889137268066,
+        "0.75": -0.38953065872192383,
+        "0.9": -0.19352519512176514,
+        "0.99": 1.999899983406067,
+        "1": 12.999899864196777
+      },
+      "saturated_fraction": 0.02727158476812869,
+      "saturated_zero_gradient_fraction": 0.02727158476812869,
+      "saturated_zero_loss_fraction": 0.18247092961162018,
+      "total_censored_positions": 7957,
+      "zero_gradient_fraction": 0.02727158476812869
+    },
+    {
+      "arm": "CENSOR_PRESERVE_LORA",
+      "checkpoint_step": 60,
+      "interpretation": "Report continuous fractions; no fabricated materiality cutoff. Snapshot limitation, not historical gradient trajectory.",
+      "lower_bound_minus_upper_support_quantiles": {
+        "0": -478.702392578125,
+        "0.25": -1.4450750350952148,
+        "0.5": -0.8383536338806152,
+        "0.75": -0.3672604560852051,
+        "0.9": -0.18585839271545407,
+        "0.99": 1.999899983406067,
+        "1": 12.999899864196777
+      },
+      "saturated_fraction": 0.027899962297348247,
+      "saturated_zero_gradient_fraction": 0.027899962297348247,
+      "saturated_zero_loss_fraction": 0.18549104903423883,
+      "total_censored_positions": 7957,
+      "zero_gradient_fraction": 0.027899962297348247
+    }
+  ],
+  "documentation_note": "Prior archived CSV CRLF and original proposal final blank line were preserved byte-for-byte to retain historical hashes; new code and final working diff checked.",
+  "explicit_scope": "Original verdicts preserved. No excluded fits, no v3/v4, no PR/branch/force push, no auto follow-up.",
+  "main_before_final_archive": "f18d125cd48a53721c12903d5b568eeee2f1170b",
+  "patch": {
+    "cache_replays": 366,
+    "max_error": 1.6653345369377348e-16,
+    "pairs": [
+      {
+        "augmented_canonical": 0.3135022319353353,
+        "augmented_gain_vs_standard": -0.038190891914103506,
+        "augmented_primary": 0.31814400851914937,
+        "augmented_variance": 0.04187046630981383,
+        "canonical_degradation": -1.2064138607886352,
+        "conditioned_canonical": 0.30972009755538565,
+        "conditioned_gain_vs_augmented": -1.3820729057597418,
+        "conditioned_primary": 0.3225409906621905,
+        "conditioned_variance": 0.041688901261902986,
+        "seed": 30000,
+        "standard_primary": 0.3180225528697204,
+        "variance_reduction": 0.4336351225882749
+      },
+      {
+        "augmented_canonical": 0.308975430869577,
+        "augmented_gain_vs_standard": -0.0191800397268324,
+        "augmented_primary": 0.31755755389621837,
+        "augmented_variance": 0.040215810761896655,
+        "canonical_degradation": -0.0014880691965070162,
+        "conditioned_canonical": 0.30897083310136547,
+        "conditioned_gain_vs_augmented": 0.0008758101997115131,
+        "conditioned_primary": 0.3175547726947714,
+        "conditioned_variance": 0.040191549483312064,
+        "seed": 30001,
+        "standard_primary": 0.31749665791109966,
+        "variance_reduction": 0.06032771222301806
+      }
+    ],
+    "verdict": "PATCH_V2_MIXED"
+  },
+  "query_verdict": "QUERY_RESOURCE_FRONTIER",
+  "receipts": {
+    "censor": {
+      "cdf_tensor_backward": 720,
+      "exit_code": 0,
+      "forward": 720,
+      "historical_files_unchanged": 1110,
+      "model_backward": 0,
+      "new_fits": 0,
+      "optimizer_updates": 0,
+      "resources": {
+        "gpu_peak_bytes": 524349440,
+        "peak_rss_bytes": 2598580224,
+        "rss_bytes": 2122559488
+      },
+      "seconds": 31.78228113899968,
+      "status": "COMPLETED"
+    },
+    "fr": {
+      "cdf_tensor_backward": 0,
+      "exit_code": 0,
+      "forward": 48,
+      "historical_files_unchanged": 1105,
+      "model_backward": 0,
+      "new_fits": 0,
+      "optimizer_updates": 0,
+      "resources": {
+        "gpu_peak_bytes": 540337664,
+        "peak_rss_bytes": 2424717312,
+        "rss_bytes": 1638912000
+      },
+      "seconds": 9.648773438999342,
+      "status": "COMPLETED"
+    },
+    "patch": {
+      "counts": {
+        "evaluation_opens": 1,
+        "fits_completed": 12,
+        "fits_started": 12,
+        "forward": 13728,
+        "updates": 8640
+      },
+      "exit_code": 0,
+      "historical_files_unchanged": 1091,
+      "resources": {
+        "gpu_peak_bytes": 693916672,
+        "peak_rss_bytes": 2437947392,
+        "rss_bytes": 1952571392
+      },
+      "seconds": 1011.5662147060011,
+      "status": "COMPLETED"
+    },
+    "query": {
+      "V_E_array_reads": 0,
+      "configurations": 18,
+      "exit_code": 0,
+      "failures": [],
+      "new_fits": 0,
+      "new_quality_scores": 0,
+      "optimizer_updates": 134,
+      "resources": {
+        "gpu_peak_bytes": 640573952,
+        "peak_rss_bytes": 2589593600,
+        "rss_bytes": 2036682752
+      },
+      "seconds": 40.28836364900053,
+      "status": "COMPLETED"
+    }
+  },
+  "tests_passed": 98
+}

@@ -1,0 +1,14 @@
+{
+  "censor_verdict": "CENSOR_IMPLEMENTATION_LIMIT_MATERIAL",
+  "censor_reason": "217/7957 and 222/7957 censored train occurrences have saturated zero-gradient censor terms. Those occurrences contribute 18.2471% and 18.5491% of the censor loss component. This loss concentration makes the implementation limitation material to that component; it does not establish how much total training failure it caused.",
+  "final_priorities": [
+    {"method": "Forecast-Query PEFT", "scope": "Efficiency-method candidate: retains measured quality-memory-time Pareto points even after Standard partial checkpointing and Side. Needs independent resource replication and novelty audit; no forecasting-quality superiority claim."},
+    {"method": "Censor tail-loss correction", "scope": "Implementation/method-design candidate only: a concrete zero-gradient tail failure affects substantial censor-loss mass. First establish a correct tail model and strong censored-loss control; no v2 implementation or training in this review."}
+  ],
+  "not_prioritized": {
+    "PatchPhase v2": "Mixed accuracy: -1.3821% and +0.0008758% versus augmented; tiny positive variance effects do not establish consistent added value.",
+    "FR-LoRA": "Positive entry demonstrated in four adapted states; no FR intervention benefit measured.",
+    "Uniform anchoring": "Conditional source/budget effects justify keeping a baseline, not a new-method novelty claim."
+  },
+  "automatic_followup": false
+}

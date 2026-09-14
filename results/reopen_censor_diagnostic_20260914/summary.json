@@ -1,0 +1,42 @@
+{
+  "states": [
+    {
+      "arm": "CENSORED_LOSS_LORA",
+      "checkpoint_step": 60,
+      "interpretation": "Report continuous fractions; no fabricated materiality cutoff. Snapshot limitation, not historical gradient trajectory.",
+      "lower_bound_minus_upper_support_quantiles": {
+        "0": -494.97467041015625,
+        "0.25": -1.57291841506958,
+        "0.5": -0.9022889137268066,
+        "0.75": -0.38953065872192383,
+        "0.9": -0.19352519512176514,
+        "0.99": 1.999899983406067,
+        "1": 12.999899864196777
+      },
+      "saturated_fraction": 0.02727158476812869,
+      "saturated_zero_gradient_fraction": 0.02727158476812869,
+      "saturated_zero_loss_fraction": 0.18247092961162018,
+      "total_censored_positions": 7957,
+      "zero_gradient_fraction": 0.02727158476812869
+    },
+    {
+      "arm": "CENSOR_PRESERVE_LORA",
+      "checkpoint_step": 60,
+      "interpretation": "Report continuous fractions; no fabricated materiality cutoff. Snapshot limitation, not historical gradient trajectory.",
+      "lower_bound_minus_upper_support_quantiles": {
+        "0": -478.702392578125,
+        "0.25": -1.4450750350952148,
+        "0.5": -0.8383536338806152,
+        "0.75": -0.3672604560852051,
+        "0.9": -0.18585839271545407,
+        "0.99": 1.999899983406067,
+        "1": 12.999899864196777
+      },
+      "saturated_fraction": 0.027899962297348247,
+      "saturated_zero_gradient_fraction": 0.027899962297348247,
+      "saturated_zero_loss_fraction": 0.18549104903423883,
+      "total_censored_positions": 7957,
+      "zero_gradient_fraction": 0.027899962297348247
+    }
+  ]
+}
