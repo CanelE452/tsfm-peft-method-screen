@@ -1,0 +1,674 @@
+[
+  {
+    "active_seconds": 131.50798732601106,
+    "arm": "standard",
+    "best": {
+      "arm": "standard",
+      "checkpoint_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30000_standard_0_V_1440.pt",
+      "checkpoint_sha256": "a6ab76115b9fb752a68fdbf52563bb87661c12da84ee43ba61b4987b098c4983",
+      "dataset": "m5",
+      "fit_id": "m5_30000_standard_0",
+      "lr": 3e-05,
+      "metrics": {
+        "interval80_coverage": 0.8427897135416667,
+        "interval80_width": 1.882772257249565,
+        "median_mae": 0.6672189519610954,
+        "qmean_mse": 2.378099422716236,
+        "scaled_2pinball": 0.46357620005230527
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30000_standard_0_V_1440.npz",
+      "prediction_sha256": "a1613fe11edd8ffcf3bfdf0aa653a072441dc7f1597024dea3517c0b46c5cbff",
+      "recipe": 0,
+      "seed": 30000,
+      "step": 1440,
+      "wall_seconds": 1.5607265010476112
+    },
+    "dataset": "m5",
+    "final_parameters_sha256": "350aab78451eca48631a8b92addcf069b1cba459a2d0a195fb921e476e2ef16f",
+    "fit_id": "m5_30000_standard_0",
+    "fit_receipt_sha256": "f2735bd58837aa251544a4e505ebf07cbb4d052480748ced865cdd0d14b6204c",
+    "frozen_sha256": "b03cfe1ef853adbfca37c2e1dbab565e845900bad836158f631c4f71ecaa39ae",
+    "initial_parameters_sha256": "5847b343b0572e8b7fbccab5e341033e03661deb7659f8298d02069a9deeb8f0",
+    "lr": 3e-05,
+    "recipe": 0,
+    "reload": {
+      "metrics": {
+        "interval80_coverage": 0.8427897135416667,
+        "interval80_width": 1.882772257249565,
+        "median_mae": 0.6672189519610954,
+        "qmean_mse": 2.378099422716236,
+        "scaled_2pinball": 0.46357620005230527
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30000_standard_0_best_reload.npz",
+      "prediction_sha256": "a1613fe11edd8ffcf3bfdf0aa653a072441dc7f1597024dea3517c0b46c5cbff",
+      "wall_seconds": 1.5740437973290682
+    },
+    "sample_sequence_sha256": "7851821e5ec1b81a15c6afa004f98313eefa9974df3b3b57ddaa6f63c7226b0e",
+    "seed": 30000,
+    "selected_adapter_parameter_change_norms": {},
+    "topic": "dualclock",
+    "trainable_parameters": 1179648,
+    "updates": 1440,
+    "wall_seconds": 156.4703497160226
+  },
+  {
+    "active_seconds": 131.86984811350703,
+    "arm": "standard",
+    "best": {
+      "arm": "standard",
+      "checkpoint_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30000_standard_1_V_1080.pt",
+      "checkpoint_sha256": "e0e1608a1571bd778caf69ba95af9060f312c09b1e05f2c004972d34c76e9bb9",
+      "dataset": "m5",
+      "fit_id": "m5_30000_standard_1",
+      "lr": 0.0001,
+      "metrics": {
+        "interval80_coverage": 0.8560709635416668,
+        "interval80_width": 1.9383550374305094,
+        "median_mae": 0.6661861952660155,
+        "qmean_mse": 2.371095576189683,
+        "scaled_2pinball": 0.46318626736084956
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30000_standard_1_V_1080.npz",
+      "prediction_sha256": "49fd54db08727898c027ce4fa4423a1e7fc581b82c6b944a2609388a0adcd0e0",
+      "recipe": 1,
+      "seed": 30000,
+      "step": 1080,
+      "wall_seconds": 1.5881094690412283
+    },
+    "dataset": "m5",
+    "final_parameters_sha256": "794d96cf41bd190103fee07b41393ac4aecc3bf7f383b93d941a7ab0eacf6a0a",
+    "fit_id": "m5_30000_standard_1",
+    "fit_receipt_sha256": "e84df98443a836d0a9cbf40cd8aa6fafe8cd87be9e501cc3df372369d5bcf056",
+    "frozen_sha256": "b03cfe1ef853adbfca37c2e1dbab565e845900bad836158f631c4f71ecaa39ae",
+    "initial_parameters_sha256": "5847b343b0572e8b7fbccab5e341033e03661deb7659f8298d02069a9deeb8f0",
+    "lr": 0.0001,
+    "recipe": 1,
+    "reload": {
+      "metrics": {
+        "interval80_coverage": 0.8560709635416668,
+        "interval80_width": 1.9383550374305094,
+        "median_mae": 0.6661861952660155,
+        "qmean_mse": 2.371095576189683,
+        "scaled_2pinball": 0.46318626736084956
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30000_standard_1_best_reload.npz",
+      "prediction_sha256": "49fd54db08727898c027ce4fa4423a1e7fc581b82c6b944a2609388a0adcd0e0",
+      "wall_seconds": 1.6207426469773054
+    },
+    "sample_sequence_sha256": "7851821e5ec1b81a15c6afa004f98313eefa9974df3b3b57ddaa6f63c7226b0e",
+    "seed": 30000,
+    "selected_adapter_parameter_change_norms": {},
+    "topic": "dualclock",
+    "trainable_parameters": 1179648,
+    "updates": 1440,
+    "wall_seconds": 157.19322835747153
+  },
+  {
+    "active_seconds": 136.50687235593796,
+    "arm": "summary",
+    "best": {
+      "arm": "summary",
+      "checkpoint_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30000_summary_0_V_1080.pt",
+      "checkpoint_sha256": "d15d625218e44b42faa184507bc4d0eefabd11cad2aabd90ebeb6ca55c3a2030",
+      "dataset": "m5",
+      "fit_id": "m5_30000_summary_0",
+      "lr": 3e-05,
+      "metrics": {
+        "interval80_coverage": 0.8275390625000001,
+        "interval80_width": 1.9057782402571233,
+        "median_mae": 0.6664195575500003,
+        "qmean_mse": 2.375611293554389,
+        "scaled_2pinball": 0.4635680925796236
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30000_summary_0_V_1080.npz",
+      "prediction_sha256": "54f6968f839cccd687154a72b35b4166bdfddd9320d7487026af52aec2c8c28c",
+      "recipe": 0,
+      "seed": 30000,
+      "step": 1080,
+      "wall_seconds": 2.012970113195479
+    },
+    "dataset": "m5",
+    "final_parameters_sha256": "08b93387f88673de3e6f3fe3ee44e87aaee6f79d3704222e8095dad654321407",
+    "fit_id": "m5_30000_summary_0",
+    "fit_receipt_sha256": "6bb01190b66dcea4ef97a03b7b6279b6e31c9fcb282e6ecbeddc999fa3fd2659",
+    "frozen_sha256": "b03cfe1ef853adbfca37c2e1dbab565e845900bad836158f631c4f71ecaa39ae",
+    "initial_parameters_sha256": "1dbebc49bbd934b6c9b11ad6bc7d71e6ed40ffa11deed70378a3179d56ce9f15",
+    "lr": 3e-05,
+    "recipe": 0,
+    "reload": {
+      "metrics": {
+        "interval80_coverage": 0.8275390625000001,
+        "interval80_width": 1.9057782402571233,
+        "median_mae": 0.6664195575500003,
+        "qmean_mse": 2.375611293554389,
+        "scaled_2pinball": 0.4635680925796236
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30000_summary_0_best_reload.npz",
+      "prediction_sha256": "54f6968f839cccd687154a72b35b4166bdfddd9320d7487026af52aec2c8c28c",
+      "wall_seconds": 2.143830943852663
+    },
+    "sample_sequence_sha256": "7851821e5ec1b81a15c6afa004f98313eefa9974df3b3b57ddaa6f63c7226b0e",
+    "seed": 30000,
+    "selected_adapter_parameter_change_norms": {
+      "adapter.down.weight": 0.29217904806137085,
+      "adapter.encoder.bias": 0.032631952315568924,
+      "adapter.encoder.weight": 0.0518558993935585,
+      "adapter.up.weight": 0.20591337978839874
+    },
+    "topic": "dualclock",
+    "trainable_parameters": 1192352,
+    "updates": 1440,
+    "wall_seconds": 168.12441401183605
+  },
+  {
+    "active_seconds": 137.07281325757504,
+    "arm": "summary",
+    "best": {
+      "arm": "summary",
+      "checkpoint_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30000_summary_1_V_1080.pt",
+      "checkpoint_sha256": "4c6c589f822d898c440d2cbf6b0b2a4666057f662b5c98a90bcf600199a99f84",
+      "dataset": "m5",
+      "fit_id": "m5_30000_summary_1",
+      "lr": 0.0001,
+      "metrics": {
+        "interval80_coverage": 0.8632486979166667,
+        "interval80_width": 1.9297283797484974,
+        "median_mae": 0.6662160921153792,
+        "qmean_mse": 2.3703967010593585,
+        "scaled_2pinball": 0.46321164776307766
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30000_summary_1_V_1080.npz",
+      "prediction_sha256": "06a547ec10c1e8e7bb672d2af669e429dc792077ff05b2a0b99243b098be5d10",
+      "recipe": 1,
+      "seed": 30000,
+      "step": 1080,
+      "wall_seconds": 2.004646437242627
+    },
+    "dataset": "m5",
+    "final_parameters_sha256": "493117e9964194a8a65d883ab3f52cf576cb933f3bb6ce79bb99a245b903107f",
+    "fit_id": "m5_30000_summary_1",
+    "fit_receipt_sha256": "8eba36cfa44c39dcd485645e475f5f9ee39c59cee7d1b539dce0317349aaf37f",
+    "frozen_sha256": "b03cfe1ef853adbfca37c2e1dbab565e845900bad836158f631c4f71ecaa39ae",
+    "initial_parameters_sha256": "1dbebc49bbd934b6c9b11ad6bc7d71e6ed40ffa11deed70378a3179d56ce9f15",
+    "lr": 0.0001,
+    "recipe": 1,
+    "reload": {
+      "metrics": {
+        "interval80_coverage": 0.8632486979166667,
+        "interval80_width": 1.9297283797484974,
+        "median_mae": 0.6662160921153792,
+        "qmean_mse": 2.3703967010593585,
+        "scaled_2pinball": 0.46321164776307766
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30000_summary_1_best_reload.npz",
+      "prediction_sha256": "06a547ec10c1e8e7bb672d2af669e429dc792077ff05b2a0b99243b098be5d10",
+      "wall_seconds": 2.054324835538864
+    },
+    "sample_sequence_sha256": "7851821e5ec1b81a15c6afa004f98313eefa9974df3b3b57ddaa6f63c7226b0e",
+    "seed": 30000,
+    "selected_adapter_parameter_change_norms": {
+      "adapter.down.weight": 0.36575964093208313,
+      "adapter.encoder.bias": 0.02495064027607441,
+      "adapter.encoder.weight": 0.05433868616819382,
+      "adapter.up.weight": 0.4132450222969055
+    },
+    "topic": "dualclock",
+    "trainable_parameters": 1192352,
+    "updates": 1440,
+    "wall_seconds": 168.8497730512172
+  },
+  {
+    "active_seconds": 139.19636061880738,
+    "arm": "dualclock",
+    "best": {
+      "arm": "dualclock",
+      "checkpoint_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30000_dualclock_0_V_1080.pt",
+      "checkpoint_sha256": "d0b6455762072fd1f9b200d3134fe40717e213e7d99d75274aa4f6a9c7f1e652",
+      "dataset": "m5",
+      "fit_id": "m5_30000_dualclock_0",
+      "lr": 3e-05,
+      "metrics": {
+        "interval80_coverage": 0.8326009114583333,
+        "interval80_width": 1.9056809758280848,
+        "median_mae": 0.6664370805801957,
+        "qmean_mse": 2.375465597316518,
+        "scaled_2pinball": 0.4635660929566592
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30000_dualclock_0_V_1080.npz",
+      "prediction_sha256": "d1882cf3835953ee968881965ec286e72e96b4ccce44fe5ab1ca59765892b2cf",
+      "recipe": 0,
+      "seed": 30000,
+      "step": 1080,
+      "wall_seconds": 2.0564051494002342
+    },
+    "dataset": "m5",
+    "final_parameters_sha256": "83b508895693b50295bcf26123e819045b6ee457c1df06eef49aaa7e3c07eaca",
+    "fit_id": "m5_30000_dualclock_0",
+    "fit_receipt_sha256": "f154ef4b9e0c5c1c4a5d77edcb0b312dac541e37efde322b5f648cf314569754",
+    "frozen_sha256": "b03cfe1ef853adbfca37c2e1dbab565e845900bad836158f631c4f71ecaa39ae",
+    "initial_parameters_sha256": "859b609242a90eafccfdda1845723d2af1a6142210964c99842159d66675e9a3",
+    "lr": 3e-05,
+    "recipe": 0,
+    "reload": {
+      "metrics": {
+        "interval80_coverage": 0.8326009114583333,
+        "interval80_width": 1.9056809758280848,
+        "median_mae": 0.6664370805801957,
+        "qmean_mse": 2.375465597316518,
+        "scaled_2pinball": 0.4635660929566592
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30000_dualclock_0_best_reload.npz",
+      "prediction_sha256": "d1882cf3835953ee968881965ec286e72e96b4ccce44fe5ab1ca59765892b2cf",
+      "wall_seconds": 2.0626806737855077
+    },
+    "sample_sequence_sha256": "7851821e5ec1b81a15c6afa004f98313eefa9974df3b3b57ddaa6f63c7226b0e",
+    "seed": 30000,
+    "selected_adapter_parameter_change_norms": {
+      "adapter.down.weight": 0.29795512557029724,
+      "adapter.encoder.bias_hh_l0": 0.04630828648805618,
+      "adapter.encoder.bias_ih_l0": 0.04631967842578888,
+      "adapter.encoder.weight_hh_l0": 0.20364166796207428,
+      "adapter.encoder.weight_ih_l0": 0.07799527049064636,
+      "adapter.up.weight": 0.21543611586093903
+    },
+    "topic": "dualclock",
+    "trainable_parameters": 1195840,
+    "updates": 1440,
+    "wall_seconds": 171.44308107160032
+  },
+  {
+    "active_seconds": 139.67925083823502,
+    "arm": "dualclock",
+    "best": {
+      "arm": "dualclock",
+      "checkpoint_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30000_dualclock_1_V_1080.pt",
+      "checkpoint_sha256": "f64e765a96b4f3a9bcbf2a8451be001a929a9efb03432c32ceaa593fa1b771de",
+      "dataset": "m5",
+      "fit_id": "m5_30000_dualclock_1",
+      "lr": 0.0001,
+      "metrics": {
+        "interval80_coverage": 0.8609374999999999,
+        "interval80_width": 1.9299954110543345,
+        "median_mae": 0.6661001224356204,
+        "qmean_mse": 2.3701727656276206,
+        "scaled_2pinball": 0.463189700424237
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30000_dualclock_1_V_1080.npz",
+      "prediction_sha256": "38073d7b6d582ea29138f20d41e5220c838223f3a3ed26d568efeb28dfcb8884",
+      "recipe": 1,
+      "seed": 30000,
+      "step": 1080,
+      "wall_seconds": 2.1356545882299542
+    },
+    "dataset": "m5",
+    "final_parameters_sha256": "9b8d79d4776e836eef3e2ddbd8ed2602ecea63696c9f223db9c50267f04121de",
+    "fit_id": "m5_30000_dualclock_1",
+    "fit_receipt_sha256": "5ede4e5e4a1b7bf40cb6a1d954ab1bcce882d05f272d842bdd0057698e3188ad",
+    "frozen_sha256": "b03cfe1ef853adbfca37c2e1dbab565e845900bad836158f631c4f71ecaa39ae",
+    "initial_parameters_sha256": "859b609242a90eafccfdda1845723d2af1a6142210964c99842159d66675e9a3",
+    "lr": 0.0001,
+    "recipe": 1,
+    "reload": {
+      "metrics": {
+        "interval80_coverage": 0.8609374999999999,
+        "interval80_width": 1.9299954110543345,
+        "median_mae": 0.6661001224356204,
+        "qmean_mse": 2.3701727656276206,
+        "scaled_2pinball": 0.463189700424237
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30000_dualclock_1_best_reload.npz",
+      "prediction_sha256": "38073d7b6d582ea29138f20d41e5220c838223f3a3ed26d568efeb28dfcb8884",
+      "wall_seconds": 2.1326188649982214
+    },
+    "sample_sequence_sha256": "7851821e5ec1b81a15c6afa004f98313eefa9974df3b3b57ddaa6f63c7226b0e",
+    "seed": 30000,
+    "selected_adapter_parameter_change_norms": {
+      "adapter.down.weight": 0.3671518564224243,
+      "adapter.encoder.bias_hh_l0": 0.0668555200099945,
+      "adapter.encoder.bias_ih_l0": 0.06690358370542526,
+      "adapter.encoder.weight_hh_l0": 0.3144740164279938,
+      "adapter.encoder.weight_ih_l0": 0.11820613592863083,
+      "adapter.up.weight": 0.40704622864723206
+    },
+    "topic": "dualclock",
+    "trainable_parameters": 1195840,
+    "updates": 1440,
+    "wall_seconds": 172.84730190318078
+  },
+  {
+    "active_seconds": 130.47027101181448,
+    "arm": "standard",
+    "best": {
+      "arm": "standard",
+      "checkpoint_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30001_standard_0_V_1080.pt",
+      "checkpoint_sha256": "56520e4174a0127101382568098114c7ebd6f7860053387fb928fc2e39c5742c",
+      "dataset": "m5",
+      "fit_id": "m5_30001_standard_0",
+      "lr": 3e-05,
+      "metrics": {
+        "interval80_coverage": 0.8646321614583333,
+        "interval80_width": 1.9044303729645757,
+        "median_mae": 0.6673743897130897,
+        "qmean_mse": 2.3895835867491084,
+        "scaled_2pinball": 0.4634942715779249
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30001_standard_0_V_1080.npz",
+      "prediction_sha256": "6de9026f2a41c083f35e3a80e31a2f63c5ebd228b5f5a68786821654f5711ec3",
+      "recipe": 0,
+      "seed": 30001,
+      "step": 1080,
+      "wall_seconds": 1.5552454367280006
+    },
+    "dataset": "m5",
+    "final_parameters_sha256": "776026c606be27d2f6f0d43e4d12fb9461b854e18cf20358d4ccd965e6e21ca8",
+    "fit_id": "m5_30001_standard_0",
+    "fit_receipt_sha256": "09ec7bd7284d289796d92a19b717feb2aef58a1ba60eb98575d6159f396c0ca2",
+    "frozen_sha256": "b03cfe1ef853adbfca37c2e1dbab565e845900bad836158f631c4f71ecaa39ae",
+    "initial_parameters_sha256": "f2b6bb52d63b3cf95c6f17b4c23ee8c75a897848e2b1184ad758c805086ef3b0",
+    "lr": 3e-05,
+    "recipe": 0,
+    "reload": {
+      "metrics": {
+        "interval80_coverage": 0.8646321614583333,
+        "interval80_width": 1.9044303729645757,
+        "median_mae": 0.6673743897130897,
+        "qmean_mse": 2.3895835867491084,
+        "scaled_2pinball": 0.4634942715779249
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30001_standard_0_best_reload.npz",
+      "prediction_sha256": "6de9026f2a41c083f35e3a80e31a2f63c5ebd228b5f5a68786821654f5711ec3",
+      "wall_seconds": 1.5460310140624642
+    },
+    "sample_sequence_sha256": "93075a5e487b541279b2f5a8a6ed63e04f20fb17c3dc7912d4d14e664565165c",
+    "seed": 30001,
+    "selected_adapter_parameter_change_norms": {},
+    "topic": "dualclock",
+    "trainable_parameters": 1179648,
+    "updates": 1440,
+    "wall_seconds": 155.47682671435177
+  },
+  {
+    "active_seconds": 130.26668129395694,
+    "arm": "standard",
+    "best": {
+      "arm": "standard",
+      "checkpoint_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30001_standard_1_V_360.pt",
+      "checkpoint_sha256": "2adef24f07081cda2b2e7e5b97e6c88260a83ad8e12fbfcea41b39814a9fbde2",
+      "dataset": "m5",
+      "fit_id": "m5_30001_standard_1",
+      "lr": 0.0001,
+      "metrics": {
+        "interval80_coverage": 0.8655436197916666,
+        "interval80_width": 1.9533043678075679,
+        "median_mae": 0.6663761338249735,
+        "qmean_mse": 2.404362018146947,
+        "scaled_2pinball": 0.46315221063759665
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30001_standard_1_V_360.npz",
+      "prediction_sha256": "c27b1ed03689240300f276059b5ab7c8feb984bf49dffa2410908c391de65ff0",
+      "recipe": 1,
+      "seed": 30001,
+      "step": 360,
+      "wall_seconds": 1.5358185190707445
+    },
+    "dataset": "m5",
+    "final_parameters_sha256": "05ac2d82d3c230b897a1814242cb4438d4d773f93a2442f81c3b58510765a4bb",
+    "fit_id": "m5_30001_standard_1",
+    "fit_receipt_sha256": "24bce6e32ee005589dff806ebea03ecd9645dd319085515650149f908e8a5ba1",
+    "frozen_sha256": "b03cfe1ef853adbfca37c2e1dbab565e845900bad836158f631c4f71ecaa39ae",
+    "initial_parameters_sha256": "f2b6bb52d63b3cf95c6f17b4c23ee8c75a897848e2b1184ad758c805086ef3b0",
+    "lr": 0.0001,
+    "recipe": 1,
+    "reload": {
+      "metrics": {
+        "interval80_coverage": 0.8655436197916666,
+        "interval80_width": 1.9533043678075679,
+        "median_mae": 0.6663761338249735,
+        "qmean_mse": 2.404362018146947,
+        "scaled_2pinball": 0.46315221063759665
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30001_standard_1_best_reload.npz",
+      "prediction_sha256": "c27b1ed03689240300f276059b5ab7c8feb984bf49dffa2410908c391de65ff0",
+      "wall_seconds": 1.5379639957100153
+    },
+    "sample_sequence_sha256": "93075a5e487b541279b2f5a8a6ed63e04f20fb17c3dc7912d4d14e664565165c",
+    "seed": 30001,
+    "selected_adapter_parameter_change_norms": {},
+    "topic": "dualclock",
+    "trainable_parameters": 1179648,
+    "updates": 1440,
+    "wall_seconds": 155.14400647580624
+  },
+  {
+    "active_seconds": 135.34554435126483,
+    "arm": "summary",
+    "best": {
+      "arm": "summary",
+      "checkpoint_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30001_summary_0_V_1080.pt",
+      "checkpoint_sha256": "cfefbeb4828ef7f27a854f3f2128c598782222a8c41db93b751b6742cec9f8a5",
+      "dataset": "m5",
+      "fit_id": "m5_30001_summary_0",
+      "lr": 3e-05,
+      "metrics": {
+        "interval80_coverage": 0.8598307291666666,
+        "interval80_width": 1.9036281130888129,
+        "median_mae": 0.6672877271070439,
+        "qmean_mse": 2.3888240868626056,
+        "scaled_2pinball": 0.46344383293781743
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30001_summary_0_V_1080.npz",
+      "prediction_sha256": "83be4b0eb24b1d3acf1db48f46e9db32f4a93bdd960b4797c1bb415b35254daf",
+      "recipe": 0,
+      "seed": 30001,
+      "step": 1080,
+      "wall_seconds": 2.084220092743635
+    },
+    "dataset": "m5",
+    "final_parameters_sha256": "7ca02ae71a2c04b7d3bc9d4e08cfc3d9f434fbe75d7bd036bf8512c048862473",
+    "fit_id": "m5_30001_summary_0",
+    "fit_receipt_sha256": "214a283479a1984446ef38e3c07276e03204248e14cf0fe184bae844314d7542",
+    "frozen_sha256": "b03cfe1ef853adbfca37c2e1dbab565e845900bad836158f631c4f71ecaa39ae",
+    "initial_parameters_sha256": "1a2f45403e23a0841b1aa2b6ac252e0bc28bbc2f70d293065dd240724214cd99",
+    "lr": 3e-05,
+    "recipe": 0,
+    "reload": {
+      "metrics": {
+        "interval80_coverage": 0.8598307291666666,
+        "interval80_width": 1.9036281130888129,
+        "median_mae": 0.6672877271070439,
+        "qmean_mse": 2.3888240868626056,
+        "scaled_2pinball": 0.46344383293781743
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30001_summary_0_best_reload.npz",
+      "prediction_sha256": "83be4b0eb24b1d3acf1db48f46e9db32f4a93bdd960b4797c1bb415b35254daf",
+      "wall_seconds": 2.0039729801937938
+    },
+    "sample_sequence_sha256": "93075a5e487b541279b2f5a8a6ed63e04f20fb17c3dc7912d4d14e664565165c",
+    "seed": 30001,
+    "selected_adapter_parameter_change_norms": {
+      "adapter.down.weight": 0.28256431221961975,
+      "adapter.encoder.bias": 0.02419651485979557,
+      "adapter.encoder.weight": 0.04370838776230812,
+      "adapter.up.weight": 0.23366327583789825
+    },
+    "topic": "dualclock",
+    "trainable_parameters": 1192352,
+    "updates": 1440,
+    "wall_seconds": 166.8916352801025
+  },
+  {
+    "active_seconds": 135.05614321492612,
+    "arm": "summary",
+    "best": {
+      "arm": "summary",
+      "checkpoint_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30001_summary_1_V_360.pt",
+      "checkpoint_sha256": "2da45b4df0a6109b2f18a60ed931e7489e1246d0c26a816cce392218c7596fb0",
+      "dataset": "m5",
+      "fit_id": "m5_30001_summary_1",
+      "lr": 0.0001,
+      "metrics": {
+        "interval80_coverage": 0.8593587239583333,
+        "interval80_width": 1.9450808486553748,
+        "median_mae": 0.6663725771954059,
+        "qmean_mse": 2.4017095142613103,
+        "scaled_2pinball": 0.4631007003139119
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30001_summary_1_V_360.npz",
+      "prediction_sha256": "1f3b28c9ea514e8967112c5ba3116dcfec4b14d45ea0d1f0de3be71f73967749",
+      "recipe": 1,
+      "seed": 30001,
+      "step": 360,
+      "wall_seconds": 1.9949459182098508
+    },
+    "dataset": "m5",
+    "final_parameters_sha256": "ab23ce4c4a5b2940cf7ef76dbce5681143fe9ea9e4921b165faf31a0e57b2c4b",
+    "fit_id": "m5_30001_summary_1",
+    "fit_receipt_sha256": "af6ed4974a8ecde85d89996353bcfdc7e609eded647c7b1930d1634879de5bbf",
+    "frozen_sha256": "b03cfe1ef853adbfca37c2e1dbab565e845900bad836158f631c4f71ecaa39ae",
+    "initial_parameters_sha256": "1a2f45403e23a0841b1aa2b6ac252e0bc28bbc2f70d293065dd240724214cd99",
+    "lr": 0.0001,
+    "recipe": 1,
+    "reload": {
+      "metrics": {
+        "interval80_coverage": 0.8593587239583333,
+        "interval80_width": 1.9450808486553748,
+        "median_mae": 0.6663725771954059,
+        "qmean_mse": 2.4017095142613103,
+        "scaled_2pinball": 0.4631007003139119
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30001_summary_1_best_reload.npz",
+      "prediction_sha256": "1f3b28c9ea514e8967112c5ba3116dcfec4b14d45ea0d1f0de3be71f73967749",
+      "wall_seconds": 2.0302080176770687
+    },
+    "sample_sequence_sha256": "93075a5e487b541279b2f5a8a6ed63e04f20fb17c3dc7912d4d14e664565165c",
+    "seed": 30001,
+    "selected_adapter_parameter_change_norms": {
+      "adapter.down.weight": 0.3012072741985321,
+      "adapter.encoder.bias": 0.023520881310105324,
+      "adapter.encoder.weight": 0.040884096175432205,
+      "adapter.up.weight": 0.2957836389541626
+    },
+    "topic": "dualclock",
+    "trainable_parameters": 1192352,
+    "updates": 1440,
+    "wall_seconds": 166.431552156806
+  },
+  {
+    "active_seconds": 139.7754753222689,
+    "arm": "dualclock",
+    "best": {
+      "arm": "dualclock",
+      "checkpoint_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30001_dualclock_0_V_1080.pt",
+      "checkpoint_sha256": "d8e538464450e543cb9ff63a56ed03db76f48755d68446442699ecf2f0fb9bc2",
+      "dataset": "m5",
+      "fit_id": "m5_30001_dualclock_0",
+      "lr": 3e-05,
+      "metrics": {
+        "interval80_coverage": 0.8576497395833333,
+        "interval80_width": 1.9054972343533194,
+        "median_mae": 0.6672158280011137,
+        "qmean_mse": 2.389457980094365,
+        "scaled_2pinball": 0.46341360360842676
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30001_dualclock_0_V_1080.npz",
+      "prediction_sha256": "c2a355dff4ff191df4423b35c977769684e368c8c4aedfadb99c76dee8dc5f0b",
+      "recipe": 0,
+      "seed": 30001,
+      "step": 1080,
+      "wall_seconds": 2.1627605566754937
+    },
+    "dataset": "m5",
+    "final_parameters_sha256": "6fad686967f0480b276381d5f457eaaa14ca7b9ee85870cabb527d14e975edd6",
+    "fit_id": "m5_30001_dualclock_0",
+    "fit_receipt_sha256": "4e1e09c4429384df525e60a7c7d718752c35c5d072c5e3d530f7e2b6f1dd1709",
+    "frozen_sha256": "b03cfe1ef853adbfca37c2e1dbab565e845900bad836158f631c4f71ecaa39ae",
+    "initial_parameters_sha256": "367411c4fc9717c4639cfc8305850d4c12a063a5e4be849b8ef74af0c254f01b",
+    "lr": 3e-05,
+    "recipe": 0,
+    "reload": {
+      "metrics": {
+        "interval80_coverage": 0.8576497395833333,
+        "interval80_width": 1.9054972343533194,
+        "median_mae": 0.6672158280011137,
+        "qmean_mse": 2.389457980094365,
+        "scaled_2pinball": 0.46341360360842676
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30001_dualclock_0_best_reload.npz",
+      "prediction_sha256": "c2a355dff4ff191df4423b35c977769684e368c8c4aedfadb99c76dee8dc5f0b",
+      "wall_seconds": 2.1304112477228045
+    },
+    "sample_sequence_sha256": "93075a5e487b541279b2f5a8a6ed63e04f20fb17c3dc7912d4d14e664565165c",
+    "seed": 30001,
+    "selected_adapter_parameter_change_norms": {
+      "adapter.down.weight": 0.3192249834537506,
+      "adapter.encoder.bias_hh_l0": 0.041643302887678146,
+      "adapter.encoder.bias_ih_l0": 0.041667092591524124,
+      "adapter.encoder.weight_hh_l0": 0.22441048920154572,
+      "adapter.encoder.weight_ih_l0": 0.07512909919023514,
+      "adapter.up.weight": 0.2134057581424713
+    },
+    "topic": "dualclock",
+    "trainable_parameters": 1195840,
+    "updates": 1440,
+    "wall_seconds": 172.79237860348076
+  },
+  {
+    "active_seconds": 140.1414147093892,
+    "arm": "dualclock",
+    "best": {
+      "arm": "dualclock",
+      "checkpoint_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30001_dualclock_1_V_360.pt",
+      "checkpoint_sha256": "bbbf79d612d63fa8e672120b1fcc2d2dd82c6608617e474f942d9ca469e2aed3",
+      "dataset": "m5",
+      "fit_id": "m5_30001_dualclock_1",
+      "lr": 0.0001,
+      "metrics": {
+        "interval80_coverage": 0.8542805989583333,
+        "interval80_width": 1.945860503131791,
+        "median_mae": 0.6663938145254271,
+        "qmean_mse": 2.402360887409335,
+        "scaled_2pinball": 0.4630817861816092
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30001_dualclock_1_V_360.npz",
+      "prediction_sha256": "37602b29e3918d47bbad48cd40638d0721068d524923dd5877f66f3ad512a680",
+      "recipe": 1,
+      "seed": 30001,
+      "step": 360,
+      "wall_seconds": 2.1077589206397533
+    },
+    "dataset": "m5",
+    "final_parameters_sha256": "b70798b9da677c28a4bd52ccd3b5b6cc0cda61bd24d11d645c2072f945dce176",
+    "fit_id": "m5_30001_dualclock_1",
+    "fit_receipt_sha256": "749e8cd436fa26d97a9b881c712d875878ac98f23abbc38bff9fec50bb6c81f0",
+    "frozen_sha256": "b03cfe1ef853adbfca37c2e1dbab565e845900bad836158f631c4f71ecaa39ae",
+    "initial_parameters_sha256": "367411c4fc9717c4639cfc8305850d4c12a063a5e4be849b8ef74af0c254f01b",
+    "lr": 0.0001,
+    "recipe": 1,
+    "reload": {
+      "metrics": {
+        "interval80_coverage": 0.8542805989583333,
+        "interval80_width": 1.945860503131791,
+        "median_mae": 0.6663938145254271,
+        "qmean_mse": 2.402360887409335,
+        "scaled_2pinball": 0.4630817861816092
+      },
+      "prediction_file": ".cache/reassessment_diagnostics_20260914/dualclock/m5_30001_dualclock_1_best_reload.npz",
+      "prediction_sha256": "37602b29e3918d47bbad48cd40638d0721068d524923dd5877f66f3ad512a680",
+      "wall_seconds": 2.1103077409788966
+    },
+    "sample_sequence_sha256": "93075a5e487b541279b2f5a8a6ed63e04f20fb17c3dc7912d4d14e664565165c",
+    "seed": 30001,
+    "selected_adapter_parameter_change_norms": {
+      "adapter.down.weight": 0.3022495210170746,
+      "adapter.encoder.bias_hh_l0": 0.03262180835008621,
+      "adapter.encoder.bias_ih_l0": 0.03274523466825485,
+      "adapter.encoder.weight_hh_l0": 0.1907031536102295,
+      "adapter.encoder.weight_ih_l0": 0.06464085727930069,
+      "adapter.up.weight": 0.2695459723472595
+    },
+    "topic": "dualclock",
+    "trainable_parameters": 1195840,
+    "updates": 1440,
+    "wall_seconds": 172.66087599284947
+  }
+]
