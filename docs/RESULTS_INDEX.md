@@ -1,0 +1,29 @@
+# 완료 작업과 검증 기록
+
+2026-09-14 기준. 표의 링크는 완료된 실행 또는 검토 결과다. 과거 FAIL/STOP은 당시 고정 실험의 판정으로 보존한다. 최신 재검토의 후속 연구 우선순위는 방법론 성공이나 새로운 실험 실행을 뜻하지 않는다.
+
+| 완료 작업 | 결과 | 검증 기록 |
+| --- | --- | --- |
+| 최신 Anchor / PatchPhase / Query / FR / Censor 재검토 | [최종 평가](../research/reopen_review_20260914/FINAL_ASSESSMENT.md), [방법별 판정](../research/reopen_review_20260914/METHOD_REOPEN_MATRIX.csv) | [978개 독립 검사](../research/reopen_review_20260914/verification.json) |
+| PatchPhase v2: 12 fits / 8,640 updates | [결과 및 한계](../research/reopen_review_20260914/PATCHPHASE_V2_RESULT.md) | [예측 재생·체크포인트 증거](../research/reopen_review_20260914/patch_evidence.json) |
+| Query: 18개 자원 측정점, 신규 forecasting fits 0 | [자원 비교](../research/reopen_review_20260914/QUERY_RESOURCE_FRONTIER.md), [그래프](../results/reopen_query_resource_20260914/quality_memory_time.png) | [수치 동등성](../results/reopen_query_resource_20260914/parity.json), [실행 기록](../results/reopen_query_resource_20260914/receipt.json) |
+| FR 진입 조건 / Censor tail-gradient 진단: 신규 fits 0 | [FR](../research/reopen_review_20260914/FR_ENTRY_DIAGNOSTIC.md), [Censor](../research/reopen_review_20260914/CENSOR_TAIL_DIAGNOSTIC.md) | [통합 검증과 제한](../research/reopen_review_20260914/verification.json) |
+| 미래 구간의 validation 선택 전달 비교: 신규 fits 0 | [최종 검토](../results/future_selection_transfer_v1/FINAL_REVIEW.md) | [최종 검증](../results/future_selection_transfer_v1/final_validation.json), [산출물 검증](../results/future_selection_transfer_v1/artifact_verification.json) |
+| 시간적 전달 실패 A–C 분석 | [보고서](../results/temporal_transfer_diagnostic_v1/REPORT.md), [기존 gain 계산 정정](../results/temporal_transfer_diagnostic_v1/ERRATUM.md) | [산출물 검증](../results/temporal_transfer_diagnostic_v1/artifact_verification.json) |
+| 시간적 전달 실패 D: 12개 상태의 gradient / perturbation 진단 | [최종 검토](../results/temporal_transfer_diagnostic_v1_D/FINAL_REVIEW.md) | [결과·검증 파일](../results/temporal_transfer_diagnostic_v1_D/) |
+| Anchoring window-budget: 48 fits / 43,200 updates | [원래 보고서](../results/anchor_window_study_20260914/REPORT.md), [후속 효과 재검토](../research/reopen_review_20260914/ANCHOR_REVIEW.md) | [원래 검증](../results/anchor_window_study_20260914/verification.json), [재검토 증거](../research/reopen_review_20260914/anchor_evidence.json) |
+| 더 이전의 전체 방법 재평가 | [전체 재평가](../research/full_reassessment_20260914/REPORT.md) | 해당 보고서의 비교·검증 링크 |
+| 초기 7개 후보 및 이후 pilot / memory / calibration 연구 | [단계별 결과 안내](../README.md), [7개 후보 검토](../results/screening_summary/latest_review.md) | README의 각 결과 옆 verification 링크 |
+
+## 이전 작업의 업로드 이력
+
+- [`3750490`](https://github.com/CanelE452/tsfm-peft-method-screen/commit/3750490): 완료된 48-fit anchoring 연구.
+- [`a45780b`](https://github.com/CanelE452/tsfm-peft-method-screen/commit/a45780b): 시간적 전달 진단과 미래 구간 비교를 포함한 이전 로컬 작업 보관, PatchPhase v2 사전 계획.
+- [`f18d125`](https://github.com/CanelE452/tsfm-peft-method-screen/commit/f18d125): 완료된 12-fit PatchPhase v2 결과.
+- [`b6dad71`](https://github.com/CanelE452/tsfm-peft-method-screen/commit/b6dad71): 최신 재검토, Query 자원 비교, FR / Censor 진단과 최종 검증.
+
+최신 연구 작업 종료 시 CPU 테스트 98개가 통과했다. 재검토 검증 기록에는 독립 검사 978개와 기존 결과 파일 1,091개의 해시 보존이 기록되어 있다. 이 수치는 당시 검증 범위이며, 이 색인을 작성하면서 학습을 다시 실행한 것은 아니다.
+
+## GitHub에서 확인할 수 있는 범위
+
+코드, 고정 프로토콜, 결과 표, 보고서, 실행 기록, 검증 결과와 해시 manifest를 보관한다. `.gitignore`에 포함된 원시 데이터, 모델 가중치, `.cache`의 예측 배열과 체크포인트는 로컬에 남아 있다. 따라서 GitHub에서는 실행 근거와 검증 범위를 검토할 수 있고, 전체 수치 재생에는 해당 로컬 자료가 필요하다. 이후 완료 작업도 검증 후 commit/push하고 이 색인을 갱신한다.

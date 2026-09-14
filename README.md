@@ -4,6 +4,15 @@ Independent Chronos-2 development screen. Round 0 and Round 1 only; Round 2 requ
 
 No prior experiment outputs are used as new evidence. Raw data and cached model weights may be reused with provenance hashes. All source is local to this repository.
 
+## Latest completed work — 2026-09-14
+
+See the [completed-work and verification index](docs/RESULTS_INDEX.md) for the
+latest temporal diagnostics, future-selection comparison and bounded PEFT reopen
+review, including the completed 12-fit PatchPhase v2 experiment. The index links
+reports, verification records and archival commits. Sections below retain earlier
+stage-specific summaries; their preflight counts and cumulative totals describe
+those stages, not the current repository total.
+
 ## Bounded anchoring / DualClock diagnostics
 
 The user-authorized follow-up is implemented: **44 fits maximum / 46,080 training
