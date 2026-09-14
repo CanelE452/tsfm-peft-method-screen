@@ -1,5 +1,5 @@
 """Bounded checkpoint diagnostics only: no FR/Censor optimizer or fits."""
-import argparse,fcntl,gc,json,time
+import argparse,fcntl,gc,json,time,csv
 from pathlib import Path
 import numpy as np
 import torch
@@ -14,6 +14,9 @@ from tsfm_peft_screen.reproducibility import ROOT,sha,write_json,seed_all,guard
 
 
 def read(p):return json.loads(Path(p).read_text())
+def csv_write(path,rows):
+    with open(path,'w',newline='') as f:
+        w=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator='\n');w.writeheader();w.writerows(rows)
 def huber(v):return np.where(abs(v)<1,.5*v*v,abs(v)-.5)
 
 
@@ -71,7 +74,7 @@ def main(mode):
                 states.append(dict(dataset=ds,seed=seed,mean_future_loss=native,mean_F0_future_loss=f0mean,FR_range=variation,
                     verdict='FR_REOPEN_POSSIBLE' if native<f0mean and variation>0 else 'FR_NO_ENTRY',
                     reason='Positive retrospective adaptation with nonzero varying correction revision' if native<f0mean and variation>0 else 'Positive entry not established on the fixed diagnostic pairs; not a universal FR refutation'))
-                G.csv_write(out/'pair_diagnostics.csv',rows);save(states=len(states));del m,ps,x,g;gc.collect();torch.cuda.empty_cache()
+                csv_write(out/'pair_diagnostics.csv',rows);save(states=len(states));del m,ps,x,g;gc.collect();torch.cuda.empty_cache()
         else:
             panel=Panel('m5');schedule=read(ROOT/'results/candidate_07/sampling_manifest.json');selected=read(ROOT/'results/candidate_07/selection.json')['winners']
             assert len(schedule)==360
@@ -102,7 +105,7 @@ def main(mode):
                     zero_gradient_fraction=zero/total,saturated_zero_gradient_fraction=both/total,saturated_zero_loss_fraction=badloss/allloss,
                     lower_bound_minus_upper_support_quantiles={str(q):float(np.quantile(distances,q)) for q in [0,.25,.5,.75,.9,.99,1]},
                     interpretation='Report continuous fractions; no fabricated materiality cutoff. Snapshot limitation, not historical gradient trajectory.'))
-                G.csv_write(out/'batch_diagnostics.csv',rows);save(states=len(states));del m,a;gc.collect();torch.cuda.empty_cache()
+                csv_write(out/'batch_diagnostics.csv',rows);save(states=len(states));del m,a;gc.collect();torch.cuda.empty_cache()
         write_json(out/'summary.json',dict(states=states))
         assert all(sha(ROOT/p)==h for p,h in history.items())
         save('COMPLETED',historical_files_unchanged=len(history),resources=guard(start),exit_code=0)
