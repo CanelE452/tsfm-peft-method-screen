@@ -1,0 +1,18 @@
+{
+  "cpu_toy_optimizer_updates": 30,
+  "executions": [
+    {
+      "stage": "initial_structure_tests",
+      "optimizer_updates": 15,
+      "description": "Five tiny FP64 channel blocks, three AdamW updates each"
+    },
+    {
+      "stage": "prepare_regression",
+      "optimizer_updates": 15,
+      "description": "Same active-path unit test repeated once with data/metric tests"
+    }
+  ],
+  "real_model_cpu_optimizer_updates": 0,
+  "real_model_gpu_updates": 0,
+  "scope": "Toy updates explicitly counted; remaining real-model structural attempt cap42, combined cap72"
+}
