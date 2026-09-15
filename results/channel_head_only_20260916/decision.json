@@ -1,0 +1,41 @@
+{
+  "additional_fits_launched": 0,
+  "evidence": "EXPOSED_DEVELOPMENT_COMPONENT_ABLATION",
+  "execution": "COMPLETE",
+  "new_method_topic": "NOT_ESTABLISHED",
+  "novelty": "DIRECT_EQUIVALENCE_LINEAR_PROBING",
+  "source_comparisons": [
+    {
+      "both_seeds_lora_better": true,
+      "dataset": "electricity",
+      "head_mean_mse": 0.29723049093971776,
+      "lora_added_gain_percent": 5.793629224654537,
+      "lora_head_mean_mse": 0.2800100583520501,
+      "role": "selected"
+    },
+    {
+      "both_seeds_lora_better": true,
+      "dataset": "electricity",
+      "head_mean_mse": 0.3451496194641022,
+      "lora_added_gain_percent": 9.50111803816856,
+      "lora_head_mean_mse": 0.31235654671052826,
+      "role": "matched_old_epoch"
+    },
+    {
+      "both_seeds_lora_better": true,
+      "dataset": "traffic",
+      "head_mean_mse": 0.436876492272291,
+      "lora_added_gain_percent": 11.520140927392612,
+      "lora_head_mean_mse": 0.38654770468387356,
+      "role": "selected"
+    },
+    {
+      "both_seeds_lora_better": true,
+      "dataset": "traffic",
+      "head_mean_mse": 0.5539857806176713,
+      "lora_added_gain_percent": 8.469804226981035,
+      "lora_head_mean_mse": 0.5070642695540419,
+      "role": "matched_old_epoch"
+    }
+  ]
+}

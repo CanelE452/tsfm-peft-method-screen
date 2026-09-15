@@ -1,0 +1,72 @@
+[
+  {
+    "changes": {
+      "head.linear.bias": 0.01168811302250048,
+      "head.linear.weight": 1.1998984570293978
+    },
+    "dataset": "electricity",
+    "frozen_and_buffers_unchanged": true,
+    "initial_bf16_LH_exact": true,
+    "steps": [
+      {
+        "external_compute_contaminated": false,
+        "free_mib": 8415,
+        "gradient_norm": 4.249534606933594,
+        "loss": 1.5570194721221924,
+        "lr": 0.001,
+        "nvml_used_mib": 1438,
+        "origins": 8,
+        "peak_allocated": 262009856,
+        "peak_reserved": 335544320,
+        "seconds": 0.13255191800999455
+      },
+      {
+        "external_compute_contaminated": false,
+        "free_mib": 8403,
+        "gradient_norm": 5.063308238983154,
+        "loss": 1.4926528930664062,
+        "lr": 0.001,
+        "nvml_used_mib": 1450,
+        "origins": 8,
+        "peak_allocated": 300283904,
+        "peak_reserved": 348127232,
+        "seconds": 0.019736826012376696
+      }
+    ]
+  },
+  {
+    "changes": {
+      "head.linear.bias": 0.011546716546266452,
+      "head.linear.weight": 1.197767181062709
+    },
+    "dataset": "traffic",
+    "frozen_and_buffers_unchanged": true,
+    "initial_bf16_LH_exact": true,
+    "steps": [
+      {
+        "external_compute_contaminated": false,
+        "free_mib": 8415,
+        "gradient_norm": 2.8358511924743652,
+        "loss": 1.2800718545913696,
+        "lr": 0.001,
+        "nvml_used_mib": 1438,
+        "origins": 8,
+        "peak_allocated": 295564288,
+        "peak_reserved": 335544320,
+        "seconds": 0.021728981024352834
+      },
+      {
+        "external_compute_contaminated": false,
+        "free_mib": 8403,
+        "gradient_norm": 3.0314784049987793,
+        "loss": 1.006299376487732,
+        "lr": 0.001,
+        "nvml_used_mib": 1450,
+        "origins": 8,
+        "peak_allocated": 300283904,
+        "peak_reserved": 348127232,
+        "seconds": 0.022660330025246367
+      }
+    ]
+  }
+]
