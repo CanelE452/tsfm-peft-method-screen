@@ -1,0 +1,29 @@
+{
+  "features": [
+    "temperature_2m",
+    "wind_speed_10m",
+    "shortwave_radiation"
+  ],
+  "mean": [
+    8.581932327216713,
+    17.04440869710275,
+    106.18856956845238
+  ],
+  "n_values_per_feature": 2688,
+  "policy": "TRAIN past arrays only; overlapping contexts retain their frequency",
+  "source_ids": [
+    "C_0301",
+    "C_0308",
+    "C_0315",
+    "C_0322",
+    "C_0401",
+    "C_0408",
+    "C_0415",
+    "C_0422"
+  ],
+  "std": [
+    3.6122642711266626,
+    6.993389824849058,
+    154.73649570156235
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "at": 1789513607.4615734,
+  "fits_sha256": "66fc2746d925125db7e5362b163a04fbf986cae1af0fc7cb4e2e2f6666ef7552",
+  "rule": "minimum V primary; earlier step breaks ties",
+  "selections": [
+    {
+      "arm": "STD",
+      "checkpoint": {
+        "at": 1789513464.1108844,
+        "elapsed_seconds": 0.13724405798711814,
+        "path": ".cache/covariate_lora_controls_20260916/STD_61710_0.pt",
+        "sha256": "173736357246d2c742278e580ccbac6b1f001271e7b3ef4d339db5ac9875f5c1",
+        "step": 0,
+        "validation_primary": 0.1315677771081988
+      },
+      "id": "STD_61710",
+      "seed": 61710
+    },
+    {
+      "arm": "EXODROP",
+      "checkpoint": {
+        "at": 1789513488.148621,
+        "elapsed_seconds": 0.138454946980346,
+        "path": ".cache/covariate_lora_controls_20260916/EXODROP_61710_0.pt",
+        "sha256": "b77d35e0a47bc0c1e8d4958b34ca81a9eebac061d6b33b052816e063dc57f755",
+        "step": 0,
+        "validation_primary": 0.1315677771081988
+      },
+      "id": "EXODROP_61710",
+      "seed": 61710
+    },
+    {
+      "arm": "VINTAGE",
+      "checkpoint": {
+        "at": 1789513534.4694254,
+        "elapsed_seconds": 22.470326845010277,
+        "path": ".cache/covariate_lora_controls_20260916/VINTAGE_61710_120.pt",
+        "sha256": "7c3feda6f4006c387fae131e6a73782992c5c22b60165cf00dd8e7dc523fcb4b",
+        "step": 120,
+        "validation_primary": 0.1304524256479565
+      },
+      "id": "VINTAGE_61710",
+      "seed": 61710
+    },
+    {
+      "arm": "STD",
+      "checkpoint": {
+        "at": 1789513535.9901872,
+        "elapsed_seconds": 0.13794994697673246,
+        "path": ".cache/covariate_lora_controls_20260916/STD_61711_0.pt",
+        "sha256": "342013a0abbd7fd5319bb0bff2f05e53a68e8c953c13ef6ca946b1b1dfab0302",
+        "step": 0,
+        "validation_primary": 0.1315677771081988
+      },
+      "id": "STD_61711",
+      "seed": 61711
+    },
+    {
+      "arm": "EXODROP",
+      "checkpoint": {
+        "at": 1789513560.1070008,
+        "elapsed_seconds": 0.13979663600912318,
+        "path": ".cache/covariate_lora_controls_20260916/EXODROP_61711_0.pt",
+        "sha256": "0baf9378c599af9e727e3a3d9dd90e29ff80d6f909746629d3b49d6ad1ed3d8a",
+        "step": 0,
+        "validation_primary": 0.1315677771081988
+      },
+      "id": "EXODROP_61711",
+      "seed": 61711
+    },
+    {
+      "arm": "VINTAGE",
+      "checkpoint": {
+        "at": 1789513606.9590683,
+        "elapsed_seconds": 22.84802474200842,
+        "path": ".cache/covariate_lora_controls_20260916/VINTAGE_61711_120.pt",
+        "sha256": "d09fcc63dde3f317ad7cf22d5958c0214e57dc6d79f79407d0c67229401ac2d7",
+        "step": 120,
+        "validation_primary": 0.13135929030917465
+      },
+      "id": "VINTAGE_61711",
+      "seed": 61711
+    }
+  ]
+}

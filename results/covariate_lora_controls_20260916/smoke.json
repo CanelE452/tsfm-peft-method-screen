@@ -1,0 +1,92 @@
+[
+  {
+    "arm": "STD",
+    "buffers_unchanged": true,
+    "changed_tensors": 192,
+    "curve": [
+      {
+        "contaminated": false,
+        "free_mib": 8477,
+        "gradient_norm": 0.8870195150375366,
+        "id": "C_0301",
+        "loss": 1.0507924556732178,
+        "path_index": 0,
+        "seconds": 0.16266588601865806,
+        "step": 1
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8474,
+        "gradient_norm": 0.8766752481460571,
+        "id": "C_0301",
+        "loss": 1.0376429557800293,
+        "path_index": 0,
+        "seconds": 0.10021936098928563,
+        "step": 2
+      }
+    ],
+    "frozen_unchanged": true,
+    "init_normalized_max_abs": 0.0,
+    "updates": 2
+  },
+  {
+    "arm": "EXODROP",
+    "buffers_unchanged": true,
+    "changed_tensors": 192,
+    "curve": [
+      {
+        "contaminated": false,
+        "free_mib": 8475,
+        "gradient_norm": 0.8870195746421814,
+        "id": "C_0301",
+        "loss": 1.0507926940917969,
+        "path_index": 0,
+        "seconds": 0.10589746700134128,
+        "step": 1
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8473,
+        "gradient_norm": 0.6621853709220886,
+        "id": "C_0301",
+        "loss": 1.6599924564361572,
+        "path_index": 0,
+        "seconds": 0.10163194499909878,
+        "step": 2
+      }
+    ],
+    "frozen_unchanged": true,
+    "init_normalized_max_abs": 0.0,
+    "updates": 2
+  },
+  {
+    "arm": "VINTAGE",
+    "buffers_unchanged": true,
+    "changed_tensors": 192,
+    "curve": [
+      {
+        "contaminated": false,
+        "free_mib": 8476,
+        "gradient_norm": 0.8870195150375366,
+        "id": "C_0301",
+        "loss": 1.0507924556732178,
+        "path_index": 0,
+        "seconds": 0.10676196598797105,
+        "step": 1
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8474,
+        "gradient_norm": 0.8766752481460571,
+        "id": "C_0301",
+        "loss": 1.0376429557800293,
+        "path_index": 0,
+        "seconds": 0.09960312998737209,
+        "step": 2
+      }
+    ],
+    "frozen_unchanged": true,
+    "init_normalized_max_abs": 0.0,
+    "updates": 2
+  }
+]
