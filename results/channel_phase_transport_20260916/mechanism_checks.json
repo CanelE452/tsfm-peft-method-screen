@@ -1,0 +1,26 @@
+{
+  "channel_permutation_equivariant": true,
+  "conditioned_differs_from_uniform": true,
+  "fp64": [
+    {
+      "arm": "POINTWISE",
+      "initial_identity_exact": true,
+      "max_gradient_diff": 7.105427357601002e-15,
+      "max_output_diff": 2.220446049250313e-16
+    },
+    {
+      "arm": "UNIFORM",
+      "initial_identity_exact": true,
+      "max_gradient_diff": 3.552713678800501e-15,
+      "max_output_diff": 2.220446049250313e-16
+    },
+    {
+      "arm": "CONDITIONED",
+      "initial_identity_exact": true,
+      "max_gradient_diff": 5.329070518200751e-15,
+      "max_output_diff": 2.220446049250313e-16
+    }
+  ],
+  "repeated_cycle_reduces_to_uniform": true,
+  "uniform_differs_from_pointwise": true
+}

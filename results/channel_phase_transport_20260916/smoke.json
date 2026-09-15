@@ -1,0 +1,230 @@
+[
+  {
+    "arm": "POINTWISE",
+    "changes": {
+      "adapter.down.weight": 0.06649460369495058,
+      "adapter.up.weight": 0.13371959899291172,
+      "head.linear.bias": 0.011565409958370557,
+      "head.linear.weight": 1.19972805270031
+    },
+    "dataset": "electricity",
+    "frozen_and_buffers_unchanged": true,
+    "initial_bf16_LH_exact": true,
+    "steps": [
+      {
+        "external_compute_contaminated": false,
+        "free_mib": 8732,
+        "gradient_norm": 4.231894493103027,
+        "loss": 1.5602649450302124,
+        "lr": 0.001,
+        "nvml_used_mib": 1121,
+        "origins": 8,
+        "peak_allocated": 262075392,
+        "peak_reserved": 335544320,
+        "seconds": 0.12295317801181227
+      },
+      {
+        "external_compute_contaminated": false,
+        "free_mib": 8732,
+        "gradient_norm": 5.103438377380371,
+        "loss": 1.4961097240447998,
+        "lr": 0.001,
+        "nvml_used_mib": 1121,
+        "origins": 8,
+        "peak_allocated": 300480512,
+        "peak_reserved": 335544320,
+        "seconds": 0.024103525007376447
+      }
+    ]
+  },
+  {
+    "arm": "UNIFORM",
+    "changes": {
+      "adapter.down.weight": 0.06649701741561402,
+      "adapter.up.weight": 0.13414046024996354,
+      "head.linear.bias": 0.011565652224244107,
+      "head.linear.weight": 1.1997356037915565
+    },
+    "dataset": "electricity",
+    "frozen_and_buffers_unchanged": true,
+    "initial_bf16_LH_exact": true,
+    "steps": [
+      {
+        "external_compute_contaminated": false,
+        "free_mib": 8732,
+        "gradient_norm": 4.231884956359863,
+        "loss": 1.5602649450302124,
+        "lr": 0.001,
+        "nvml_used_mib": 1121,
+        "origins": 8,
+        "peak_allocated": 295629824,
+        "peak_reserved": 335544320,
+        "seconds": 0.01964626699918881
+      },
+      {
+        "external_compute_contaminated": false,
+        "free_mib": 8732,
+        "gradient_norm": 5.103311061859131,
+        "loss": 1.4960683584213257,
+        "lr": 0.001,
+        "nvml_used_mib": 1121,
+        "origins": 8,
+        "peak_allocated": 300480512,
+        "peak_reserved": 335544320,
+        "seconds": 0.02223441601381637
+      }
+    ]
+  },
+  {
+    "arm": "CONDITIONED",
+    "changes": {
+      "adapter.down.weight": 0.06650541386554433,
+      "adapter.up.weight": 0.1340571132094222,
+      "head.linear.bias": 0.011565724715111598,
+      "head.linear.weight": 1.1997344343994558
+    },
+    "dataset": "electricity",
+    "frozen_and_buffers_unchanged": true,
+    "initial_bf16_LH_exact": true,
+    "steps": [
+      {
+        "external_compute_contaminated": false,
+        "free_mib": 8730,
+        "gradient_norm": 4.2318854331970215,
+        "loss": 1.5602649450302124,
+        "lr": 0.001,
+        "nvml_used_mib": 1123,
+        "origins": 8,
+        "peak_allocated": 295629824,
+        "peak_reserved": 335544320,
+        "seconds": 0.01957182600745
+      },
+      {
+        "external_compute_contaminated": false,
+        "free_mib": 8730,
+        "gradient_norm": 5.103537559509277,
+        "loss": 1.4961304664611816,
+        "lr": 0.001,
+        "nvml_used_mib": 1123,
+        "origins": 8,
+        "peak_allocated": 300480512,
+        "peak_reserved": 335544320,
+        "seconds": 0.023759907024214044
+      }
+    ]
+  },
+  {
+    "arm": "POINTWISE",
+    "changes": {
+      "adapter.down.weight": 0.06680123029330114,
+      "adapter.up.weight": 0.1274315157141724,
+      "head.linear.bias": 0.011527844832382533,
+      "head.linear.weight": 1.1948103623795934
+    },
+    "dataset": "traffic",
+    "frozen_and_buffers_unchanged": true,
+    "initial_bf16_LH_exact": true,
+    "steps": [
+      {
+        "external_compute_contaminated": false,
+        "free_mib": 8731,
+        "gradient_norm": 2.8458614349365234,
+        "loss": 1.2792809009552002,
+        "lr": 0.001,
+        "nvml_used_mib": 1123,
+        "origins": 8,
+        "peak_allocated": 295629824,
+        "peak_reserved": 335544320,
+        "seconds": 0.021379281010013074
+      },
+      {
+        "external_compute_contaminated": false,
+        "free_mib": 8731,
+        "gradient_norm": 3.0380795001983643,
+        "loss": 1.0050599575042725,
+        "lr": 0.001,
+        "nvml_used_mib": 1123,
+        "origins": 8,
+        "peak_allocated": 300480512,
+        "peak_reserved": 335544320,
+        "seconds": 0.020164018991636112
+      }
+    ]
+  },
+  {
+    "arm": "UNIFORM",
+    "changes": {
+      "adapter.down.weight": 0.06680712364821524,
+      "adapter.up.weight": 0.1278761955215506,
+      "head.linear.bias": 0.011528044156458929,
+      "head.linear.weight": 1.1948180124679755
+    },
+    "dataset": "traffic",
+    "frozen_and_buffers_unchanged": true,
+    "initial_bf16_LH_exact": true,
+    "steps": [
+      {
+        "external_compute_contaminated": false,
+        "free_mib": 8730,
+        "gradient_norm": 2.845853328704834,
+        "loss": 1.2792809009552002,
+        "lr": 0.001,
+        "nvml_used_mib": 1123,
+        "origins": 8,
+        "peak_allocated": 295629824,
+        "peak_reserved": 335544320,
+        "seconds": 0.019923940999433398
+      },
+      {
+        "external_compute_contaminated": false,
+        "free_mib": 8730,
+        "gradient_norm": 3.0379087924957275,
+        "loss": 1.0050251483917236,
+        "lr": 0.001,
+        "nvml_used_mib": 1123,
+        "origins": 8,
+        "peak_allocated": 300480512,
+        "peak_reserved": 335544320,
+        "seconds": 0.027095560013549402
+      }
+    ]
+  },
+  {
+    "arm": "CONDITIONED",
+    "changes": {
+      "adapter.down.weight": 0.06677347301061208,
+      "adapter.up.weight": 0.1277196352258044,
+      "head.linear.bias": 0.011528017988340022,
+      "head.linear.weight": 1.1948253840170355
+    },
+    "dataset": "traffic",
+    "frozen_and_buffers_unchanged": true,
+    "initial_bf16_LH_exact": true,
+    "steps": [
+      {
+        "external_compute_contaminated": false,
+        "free_mib": 8730,
+        "gradient_norm": 2.8458549976348877,
+        "loss": 1.2792809009552002,
+        "lr": 0.001,
+        "nvml_used_mib": 1123,
+        "origins": 8,
+        "peak_allocated": 295629824,
+        "peak_reserved": 335544320,
+        "seconds": 0.02093454700661823
+      },
+      {
+        "external_compute_contaminated": false,
+        "free_mib": 8730,
+        "gradient_norm": 3.037777900695801,
+        "loss": 1.0050160884857178,
+        "lr": 0.001,
+        "nvml_used_mib": 1123,
+        "origins": 8,
+        "peak_allocated": 300480512,
+        "peak_reserved": 335544320,
+        "seconds": 0.021990300010656938
+      }
+    ]
+  }
+]

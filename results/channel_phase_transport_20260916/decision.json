@@ -1,0 +1,56 @@
+{
+  "additional_fits_launched": 0,
+  "component_comparisons": [
+    {
+      "baseline": "POINTWISE",
+      "both_seeds_positive": false,
+      "dataset": "electricity",
+      "gain_percent": -0.03944081400916456,
+      "meets_predeclared_component_condition": false
+    },
+    {
+      "baseline": "UNIFORM",
+      "both_seeds_positive": true,
+      "dataset": "electricity",
+      "gain_percent": 0.10911147302023559,
+      "meets_predeclared_component_condition": false
+    },
+    {
+      "baseline": "POINTWISE",
+      "both_seeds_positive": false,
+      "dataset": "traffic",
+      "gain_percent": -0.12788278304618939,
+      "meets_predeclared_component_condition": false
+    },
+    {
+      "baseline": "UNIFORM",
+      "both_seeds_positive": false,
+      "dataset": "traffic",
+      "gain_percent": 0.05141453832473144,
+      "meets_predeclared_component_condition": false
+    }
+  ],
+  "component_signal": false,
+  "execution": "COMPLETE",
+  "exposure": "DISCOVERY_REUSED_E",
+  "independent_screen_pass": "NOT_EVALUATED",
+  "new_method_topic": "NOT_CONFIRMED",
+  "novelty": "UNRESOLVED_PRIOR_COMPONENTS_KNOWN",
+  "resource_comparisons": [
+    {
+      "dataset": "electricity",
+      "meets_predeclared_resource_condition": false,
+      "mse_ratio_to_LH": 1.0363115251252104,
+      "trainable_reduction_percent": 20.427533492923438,
+      "worst_peak_ratio_to_LH": 0.26781979769967534
+    },
+    {
+      "dataset": "traffic",
+      "meets_predeclared_resource_condition": false,
+      "mse_ratio_to_LH": 1.0898428851673172,
+      "trainable_reduction_percent": 20.427533492923438,
+      "worst_peak_ratio_to_LH": 0.2683217558539064
+    }
+  ],
+  "resource_signal": false
+}

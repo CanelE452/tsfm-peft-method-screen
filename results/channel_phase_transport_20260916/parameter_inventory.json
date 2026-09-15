@@ -1,0 +1,2286 @@
+{
+  "additional_optimizer_updates": 0,
+  "note": "CPU shape/count inspection; frozen zero-LoRA modules remain resident in candidate.",
+  "rows": [
+    {
+      "arm": "BALANCED_LH",
+      "parameters": [
+        {
+          "name": "patch_embedding.mask_embedding",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "patch_embedding.value_embedding.weight",
+          "numel": 4096,
+          "shape": [
+            512,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.embed_tokens.weight",
+          "numel": 16449536,
+          "shape": [
+            32128,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.q.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.q.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.q.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.k.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.k.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.k.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.v.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.v.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.v.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.o.weight",
+          "numel": 196608,
+          "shape": [
+            512,
+            384
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.relative_attention_bias.weight",
+          "numel": 192,
+          "shape": [
+            32,
+            6
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.1.DenseReluDense.wi_0.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.1.DenseReluDense.wi_1.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.1.DenseReluDense.wo.weight",
+          "numel": 524288,
+          "shape": [
+            512,
+            1024
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.1.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.SelfAttention.q.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.SelfAttention.q.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.SelfAttention.q.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.SelfAttention.k.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.SelfAttention.k.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.SelfAttention.k.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.SelfAttention.v.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.SelfAttention.v.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.SelfAttention.v.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.SelfAttention.o.weight",
+          "numel": 196608,
+          "shape": [
+            512,
+            384
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.1.DenseReluDense.wi_0.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.1.DenseReluDense.wi_1.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.1.DenseReluDense.wo.weight",
+          "numel": 524288,
+          "shape": [
+            512,
+            1024
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.1.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.SelfAttention.q.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.SelfAttention.q.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.SelfAttention.q.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.SelfAttention.k.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.SelfAttention.k.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.SelfAttention.k.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.SelfAttention.v.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.SelfAttention.v.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.SelfAttention.v.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.SelfAttention.o.weight",
+          "numel": 196608,
+          "shape": [
+            512,
+            384
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.1.DenseReluDense.wi_0.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.1.DenseReluDense.wi_1.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.1.DenseReluDense.wo.weight",
+          "numel": 524288,
+          "shape": [
+            512,
+            1024
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.1.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.SelfAttention.q.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.SelfAttention.q.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.SelfAttention.q.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.SelfAttention.k.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.SelfAttention.k.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.SelfAttention.k.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.SelfAttention.v.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.SelfAttention.v.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.SelfAttention.v.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.SelfAttention.o.weight",
+          "numel": 196608,
+          "shape": [
+            512,
+            384
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.1.DenseReluDense.wi_0.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.1.DenseReluDense.wi_1.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.1.DenseReluDense.wo.weight",
+          "numel": 524288,
+          "shape": [
+            512,
+            1024
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.1.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.SelfAttention.q.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.SelfAttention.q.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.SelfAttention.q.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.SelfAttention.k.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.SelfAttention.k.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.SelfAttention.k.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.SelfAttention.v.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.SelfAttention.v.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.SelfAttention.v.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.SelfAttention.o.weight",
+          "numel": 196608,
+          "shape": [
+            512,
+            384
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.1.DenseReluDense.wi_0.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.1.DenseReluDense.wi_1.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.1.DenseReluDense.wo.weight",
+          "numel": 524288,
+          "shape": [
+            512,
+            1024
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.1.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.SelfAttention.q.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.SelfAttention.q.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.SelfAttention.q.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.SelfAttention.k.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.SelfAttention.k.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.SelfAttention.k.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.SelfAttention.v.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.SelfAttention.v.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.SelfAttention.v.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.SelfAttention.o.weight",
+          "numel": 196608,
+          "shape": [
+            512,
+            384
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.1.DenseReluDense.wi_0.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.1.DenseReluDense.wi_1.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.1.DenseReluDense.wo.weight",
+          "numel": 524288,
+          "shape": [
+            512,
+            1024
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.1.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.SelfAttention.q.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.SelfAttention.q.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.SelfAttention.q.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.SelfAttention.k.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.SelfAttention.k.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.SelfAttention.k.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.SelfAttention.v.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.SelfAttention.v.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.SelfAttention.v.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.SelfAttention.o.weight",
+          "numel": 196608,
+          "shape": [
+            512,
+            384
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.1.DenseReluDense.wi_0.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.1.DenseReluDense.wi_1.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.1.DenseReluDense.wo.weight",
+          "numel": 524288,
+          "shape": [
+            512,
+            1024
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.1.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.SelfAttention.q.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.SelfAttention.q.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.SelfAttention.q.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.SelfAttention.k.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.SelfAttention.k.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.SelfAttention.k.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.SelfAttention.v.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.SelfAttention.v.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.SelfAttention.v.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": true
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.SelfAttention.o.weight",
+          "numel": 196608,
+          "shape": [
+            512,
+            384
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.1.DenseReluDense.wi_0.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.1.DenseReluDense.wi_1.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.1.DenseReluDense.wo.weight",
+          "numel": 524288,
+          "shape": [
+            512,
+            1024
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.1.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.final_layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "head.linear.weight",
+          "numel": 589824,
+          "shape": [
+            96,
+            6144
+          ],
+          "trainable": true
+        },
+        {
+          "name": "head.linear.bias",
+          "numel": 96,
+          "shape": [
+            96
+          ],
+          "trainable": true
+        }
+      ],
+      "total_parameters": 36099360,
+      "trainable_parameters": 761952
+    },
+    {
+      "arm": "CONDITIONED",
+      "parameters": [
+        {
+          "name": "patch_embedding.mask_embedding",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "patch_embedding.value_embedding.weight",
+          "numel": 4096,
+          "shape": [
+            512,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.embed_tokens.weight",
+          "numel": 16449536,
+          "shape": [
+            32128,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.q.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.q.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.q.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.k.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.k.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.k.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.v.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.v.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.v.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.o.weight",
+          "numel": 196608,
+          "shape": [
+            512,
+            384
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.SelfAttention.relative_attention_bias.weight",
+          "numel": 192,
+          "shape": [
+            32,
+            6
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.0.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.1.DenseReluDense.wi_0.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.1.DenseReluDense.wi_1.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.1.DenseReluDense.wo.weight",
+          "numel": 524288,
+          "shape": [
+            512,
+            1024
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.0.layer.1.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.SelfAttention.q.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.SelfAttention.q.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.SelfAttention.q.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.SelfAttention.k.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.SelfAttention.k.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.SelfAttention.k.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.SelfAttention.v.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.SelfAttention.v.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.SelfAttention.v.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.SelfAttention.o.weight",
+          "numel": 196608,
+          "shape": [
+            512,
+            384
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.0.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.1.DenseReluDense.wi_0.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.1.DenseReluDense.wi_1.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.1.DenseReluDense.wo.weight",
+          "numel": 524288,
+          "shape": [
+            512,
+            1024
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.1.layer.1.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.SelfAttention.q.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.SelfAttention.q.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.SelfAttention.q.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.SelfAttention.k.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.SelfAttention.k.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.SelfAttention.k.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.SelfAttention.v.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.SelfAttention.v.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.SelfAttention.v.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.SelfAttention.o.weight",
+          "numel": 196608,
+          "shape": [
+            512,
+            384
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.0.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.1.DenseReluDense.wi_0.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.1.DenseReluDense.wi_1.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.1.DenseReluDense.wo.weight",
+          "numel": 524288,
+          "shape": [
+            512,
+            1024
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.2.layer.1.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.SelfAttention.q.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.SelfAttention.q.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.SelfAttention.q.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.SelfAttention.k.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.SelfAttention.k.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.SelfAttention.k.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.SelfAttention.v.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.SelfAttention.v.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.SelfAttention.v.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.SelfAttention.o.weight",
+          "numel": 196608,
+          "shape": [
+            512,
+            384
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.0.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.1.DenseReluDense.wi_0.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.1.DenseReluDense.wi_1.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.1.DenseReluDense.wo.weight",
+          "numel": 524288,
+          "shape": [
+            512,
+            1024
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.3.layer.1.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.SelfAttention.q.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.SelfAttention.q.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.SelfAttention.q.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.SelfAttention.k.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.SelfAttention.k.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.SelfAttention.k.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.SelfAttention.v.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.SelfAttention.v.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.SelfAttention.v.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.SelfAttention.o.weight",
+          "numel": 196608,
+          "shape": [
+            512,
+            384
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.0.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.1.DenseReluDense.wi_0.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.1.DenseReluDense.wi_1.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.1.DenseReluDense.wo.weight",
+          "numel": 524288,
+          "shape": [
+            512,
+            1024
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.4.layer.1.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.SelfAttention.q.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.SelfAttention.q.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.SelfAttention.q.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.SelfAttention.k.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.SelfAttention.k.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.SelfAttention.k.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.SelfAttention.v.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.SelfAttention.v.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.SelfAttention.v.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.SelfAttention.o.weight",
+          "numel": 196608,
+          "shape": [
+            512,
+            384
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.0.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.1.DenseReluDense.wi_0.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.1.DenseReluDense.wi_1.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.1.DenseReluDense.wo.weight",
+          "numel": 524288,
+          "shape": [
+            512,
+            1024
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.5.layer.1.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.SelfAttention.q.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.SelfAttention.q.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.SelfAttention.q.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.SelfAttention.k.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.SelfAttention.k.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.SelfAttention.k.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.SelfAttention.v.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.SelfAttention.v.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.SelfAttention.v.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.SelfAttention.o.weight",
+          "numel": 196608,
+          "shape": [
+            512,
+            384
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.0.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.1.DenseReluDense.wi_0.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.1.DenseReluDense.wi_1.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.1.DenseReluDense.wo.weight",
+          "numel": 524288,
+          "shape": [
+            512,
+            1024
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.6.layer.1.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.SelfAttention.q.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.SelfAttention.q.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.SelfAttention.q.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.SelfAttention.k.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.SelfAttention.k.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.SelfAttention.k.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.SelfAttention.v.base_layer.weight",
+          "numel": 196608,
+          "shape": [
+            384,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.SelfAttention.v.lora_A.default.weight",
+          "numel": 4096,
+          "shape": [
+            8,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.SelfAttention.v.lora_B.default.weight",
+          "numel": 3072,
+          "shape": [
+            384,
+            8
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.SelfAttention.o.weight",
+          "numel": 196608,
+          "shape": [
+            512,
+            384
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.0.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.1.DenseReluDense.wi_0.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.1.DenseReluDense.wi_1.weight",
+          "numel": 524288,
+          "shape": [
+            1024,
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.1.DenseReluDense.wo.weight",
+          "numel": 524288,
+          "shape": [
+            512,
+            1024
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.block.7.layer.1.layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "encoder.base_model.model.final_layer_norm.weight",
+          "numel": 512,
+          "shape": [
+            512
+          ],
+          "trainable": false
+        },
+        {
+          "name": "head.linear.weight",
+          "numel": 589824,
+          "shape": [
+            96,
+            6144
+          ],
+          "trainable": true
+        },
+        {
+          "name": "head.linear.bias",
+          "numel": 96,
+          "shape": [
+            96
+          ],
+          "trainable": true
+        },
+        {
+          "name": "adapter.down.weight",
+          "numel": 8192,
+          "shape": [
+            16,
+            512
+          ],
+          "trainable": true
+        },
+        {
+          "name": "adapter.up.weight",
+          "numel": 8192,
+          "shape": [
+            512,
+            16
+          ],
+          "trainable": true
+        }
+      ],
+      "total_parameters": 36115744,
+      "trainable_parameters": 606304
+    }
+  ]
+}
