@@ -1,0 +1,535 @@
+{
+  "failed_comparisons": [
+    {
+      "arm": "standard",
+      "dataset": "ettm2",
+      "gates": {
+        "raw_gradient": false,
+        "raw_scaled_max": false,
+        "update": false
+      },
+      "kind": "microbatch",
+      "largest_update_tensors": [
+        [
+          "base.encoder.block.1.layer.0.self_attention.v.lora_A",
+          {
+            "max_absolute": 0.00012566708028316498,
+            "reference_norm": 0.005476119660282313,
+            "relative_l2": 0.06339051035126168,
+            "rms_error": 4.4286521947149785e-06,
+            "rms_reference": 6.98630153026814e-05
+          }
+        ],
+        [
+          "base.encoder.block.3.layer.0.self_attention.q.lora_A",
+          {
+            "max_absolute": 8.529983460903168e-05,
+            "reference_norm": 0.004836987964246852,
+            "relative_l2": 0.05324707806000607,
+            "rms_error": 3.285830708038099e-06,
+            "rms_reference": 6.170912710618932e-05
+          }
+        ],
+        [
+          "base.encoder.block.6.layer.0.self_attention.v.lora_A",
+          {
+            "max_absolute": 7.212907075881958e-05,
+            "reference_norm": 0.005275740893515849,
+            "relative_l2": 0.04613875187417245,
+            "rms_error": 3.105443959751191e-06,
+            "rms_reference": 6.730663127212933e-05
+          }
+        ]
+      ],
+      "pinball_sign_flips": 10,
+      "precision": "bf16"
+    },
+    {
+      "arm": "standard",
+      "dataset": "ettm2",
+      "gates": {
+        "raw_gradient": false,
+        "raw_scaled_max": false,
+        "update": false
+      },
+      "kind": "microbatch",
+      "largest_update_tensors": [
+        [
+          "base.encoder.block.2.layer.0.self_attention.k.lora_A",
+          {
+            "max_absolute": 0.00011529587209224701,
+            "reference_norm": 0.004643612794450971,
+            "relative_l2": 0.0790767967725284,
+            "rms_error": 4.684674970559978e-06,
+            "rms_reference": 5.9242093278460334e-05
+          }
+        ],
+        [
+          "base.encoder.block.3.layer.0.self_attention.q.lora_A",
+          {
+            "max_absolute": 9.88934189081192e-05,
+            "reference_norm": 0.004557280763383734,
+            "relative_l2": 0.06961356561545078,
+            "rms_error": 4.047380740016114e-06,
+            "rms_reference": 5.8140690025476816e-05
+          }
+        ],
+        [
+          "base.encoder.block.1.layer.0.self_attention.v.lora_A",
+          {
+            "max_absolute": 9.560585021972656e-05,
+            "reference_norm": 0.00423044518735859,
+            "relative_l2": 0.06937346461135084,
+            "rms_error": 3.744155292445976e-06,
+            "rms_reference": 5.3971000488756905e-05
+          }
+        ]
+      ],
+      "pinball_sign_flips": 3,
+      "precision": "bf16"
+    },
+    {
+      "arm": "side",
+      "dataset": "ettm2",
+      "gates": {
+        "raw_gradient": false,
+        "raw_scaled_max": false,
+        "update": false
+      },
+      "kind": "microbatch",
+      "largest_update_tensors": [
+        [
+          "adapter.layers.10.q.weight",
+          {
+            "max_absolute": 0.0013714171946048737,
+            "reference_norm": 0.038137868917897055,
+            "relative_l2": 0.5527837192420557,
+            "rms_error": 0.00032940614100626767,
+            "rms_reference": 0.0005959042018421415
+          }
+        ],
+        [
+          "adapter.layers.10.k.weight",
+          {
+            "max_absolute": 0.0013823676854372025,
+            "reference_norm": 0.038273790211088336,
+            "relative_l2": 0.5503249447712639,
+            "rms_error": 0.000329109710689127,
+            "rms_reference": 0.0005980279720482553
+          }
+        ],
+        [
+          "adapter.layers.6.q.weight",
+          {
+            "max_absolute": 0.0013380944728851318,
+            "reference_norm": 0.03527726578591901,
+            "relative_l2": 0.5060029829237609,
+            "rms_error": 0.00027891252682920865,
+            "rms_reference": 0.0005512072779049846
+          }
+        ]
+      ],
+      "pinball_sign_flips": 8,
+      "precision": "bf16"
+    },
+    {
+      "arm": "side",
+      "dataset": "ettm2",
+      "gates": {
+        "raw_scaled_max": false,
+        "update": false
+      },
+      "kind": "microbatch",
+      "largest_update_tensors": [
+        [
+          "adapter.layers.11.k.weight",
+          {
+            "max_absolute": 0.0013188570737838745,
+            "reference_norm": 0.03908344060192352,
+            "relative_l2": 0.3774048848722185,
+            "rms_error": 0.00023047314688717406,
+            "rms_reference": 0.0006106787594050551
+          }
+        ],
+        [
+          "adapter.layers.11.q.weight",
+          {
+            "max_absolute": 0.0013150330632925034,
+            "reference_norm": 0.0391742551823386,
+            "relative_l2": 0.36726178732778936,
+            "rms_error": 0.0002248001089921967,
+            "rms_reference": 0.0006120977372240407
+          }
+        ],
+        [
+          "adapter.layers.9.q.weight",
+          {
+            "max_absolute": 0.0012863371521234512,
+            "reference_norm": 0.03844626598602416,
+            "relative_l2": 0.3286888671655727,
+            "rms_error": 0.00019745093146394642,
+            "rms_reference": 0.0006007229060316275
+          }
+        ]
+      ],
+      "pinball_sign_flips": 1,
+      "precision": "bf16"
+    },
+    {
+      "arm": "query",
+      "dataset": "ettm2",
+      "gates": {
+        "raw_gradient": false,
+        "raw_scaled_max": false,
+        "update": false
+      },
+      "kind": "microbatch",
+      "largest_update_tensors": [
+        [
+          "base.encoder.block.5.layer.0.self_attention.q.lora_A",
+          {
+            "max_absolute": 0.0001225937157869339,
+            "reference_norm": 0.0049198920991575575,
+            "relative_l2": 0.05884030185173326,
+            "rms_error": 3.693217345639199e-06,
+            "rms_reference": 6.276679808586686e-05
+          }
+        ],
+        [
+          "base.encoder.block.7.layer.0.self_attention.q.lora_A",
+          {
+            "max_absolute": 0.00010596541687846184,
+            "reference_norm": 0.004826572986420862,
+            "relative_l2": 0.051391863442645125,
+            "rms_error": 3.1645185051410874e-06,
+            "rms_reference": 6.157625532829309e-05
+          }
+        ],
+        [
+          "base.encoder.block.7.layer.0.self_attention.k.lora_A",
+          {
+            "max_absolute": 7.637776434421539e-05,
+            "reference_norm": 0.004939637048579068,
+            "relative_l2": 0.04962095501325683,
+            "rms_error": 3.127048047602488e-06,
+            "rms_reference": 6.301869939357395e-05
+          }
+        ]
+      ],
+      "pinball_sign_flips": 7,
+      "precision": "bf16"
+    },
+    {
+      "arm": "query",
+      "dataset": "ettm2",
+      "gates": {
+        "raw_gradient": false,
+        "raw_scaled_max": false,
+        "update": false
+      },
+      "kind": "microbatch",
+      "largest_update_tensors": [
+        [
+          "base.encoder.block.10.layer.0.self_attention.k.lora_A",
+          {
+            "max_absolute": 0.0001241285353899002,
+            "reference_norm": 0.0046265540720399016,
+            "relative_l2": 0.07993730851499485,
+            "rms_error": 4.718256645434849e-06,
+            "rms_reference": 5.9024462207778564e-05
+          }
+        ],
+        [
+          "base.encoder.block.9.layer.0.self_attention.k.lora_A",
+          {
+            "max_absolute": 0.00012297183275222778,
+            "reference_norm": 0.004918046500743139,
+            "relative_l2": 0.0632047787319355,
+            "rms_error": 3.9656733839755e-06,
+            "rms_reference": 6.274325238594281e-05
+          }
+        ],
+        [
+          "base.encoder.block.10.layer.1.self_attention.k.lora_B",
+          {
+            "max_absolute": 0.00011366729449946433,
+            "reference_norm": 0.004446044874064626,
+            "relative_l2": 0.06082995709695799,
+            "rms_error": 3.450370629961353e-06,
+            "rms_reference": 5.6721569348828555e-05
+          }
+        ]
+      ],
+      "pinball_sign_flips": 2,
+      "precision": "bf16"
+    },
+    {
+      "arm": "standard",
+      "dataset": "electricity",
+      "gates": {
+        "raw_gradient": false,
+        "raw_scaled_max": false,
+        "update": false
+      },
+      "kind": "microbatch",
+      "largest_update_tensors": [
+        [
+          "base.encoder.block.3.layer.0.self_attention.k.lora_A",
+          {
+            "max_absolute": 0.00012206844985485077,
+            "reference_norm": 0.004804690574658209,
+            "relative_l2": 0.11050634824216055,
+            "rms_error": 6.773716998143659e-06,
+            "rms_reference": 6.129708479100155e-05
+          }
+        ],
+        [
+          "base.encoder.block.3.layer.0.self_attention.q.lora_A",
+          {
+            "max_absolute": 0.0001287306658923626,
+            "reference_norm": 0.004796978317077665,
+            "relative_l2": 0.08830774151673373,
+            "rms_error": 5.404318421493892e-06,
+            "rms_reference": 6.119869366684923e-05
+          }
+        ],
+        [
+          "base.encoder.block.2.layer.0.self_attention.v.lora_A",
+          {
+            "max_absolute": 0.00010643154382705688,
+            "reference_norm": 0.004673760406904973,
+            "relative_l2": 0.08942975192330664,
+            "rms_error": 5.332401816668404e-06,
+            "rms_reference": 5.962670925489513e-05
+          }
+        ]
+      ],
+      "pinball_sign_flips": 34,
+      "precision": "bf16"
+    },
+    {
+      "arm": "standard",
+      "dataset": "electricity",
+      "gates": {
+        "raw_gradient": false,
+        "raw_scaled_max": false,
+        "update": false
+      },
+      "kind": "microbatch",
+      "largest_update_tensors": [
+        [
+          "base.encoder.block.4.layer.0.self_attention.v.lora_A",
+          {
+            "max_absolute": 0.00012359023094177246,
+            "reference_norm": 0.004748594424193574,
+            "relative_l2": 0.10334321451441163,
+            "rms_error": 6.260679056566858e-06,
+            "rms_reference": 6.058142361822682e-05
+          }
+        ],
+        [
+          "base.encoder.block.3.layer.0.self_attention.k.lora_A",
+          {
+            "max_absolute": 0.00012633949518203735,
+            "reference_norm": 0.004774740777448753,
+            "relative_l2": 0.09554755722330874,
+            "rms_error": 5.820278731058628e-06,
+            "rms_reference": 6.091499249379843e-05
+          }
+        ],
+        [
+          "base.encoder.block.9.layer.0.self_attention.k.lora_A",
+          {
+            "max_absolute": 0.00012873858213424683,
+            "reference_norm": 0.004966984307364565,
+            "relative_l2": 0.08719232887715916,
+            "rms_error": 5.525167671800226e-06,
+            "rms_reference": 6.336758913257557e-05
+          }
+        ]
+      ],
+      "pinball_sign_flips": 23,
+      "precision": "bf16"
+    },
+    {
+      "arm": "side",
+      "dataset": "electricity",
+      "gates": {
+        "raw_gradient": false,
+        "raw_scaled_max": false,
+        "update": false
+      },
+      "kind": "microbatch",
+      "largest_update_tensors": [
+        [
+          "adapter.layers.11.q.weight",
+          {
+            "max_absolute": 0.00134957954287529,
+            "reference_norm": 0.03847111102907061,
+            "relative_l2": 0.28639877404413616,
+            "rms_error": 0.00017215748491940106,
+            "rms_reference": 0.0006011111098292283
+          }
+        ],
+        [
+          "adapter.layers.10.k.weight",
+          {
+            "max_absolute": 0.001312069594860077,
+            "reference_norm": 0.038545245000763756,
+            "relative_l2": 0.25741381598239693,
+            "rms_error": 0.00015503247818160948,
+            "rms_reference": 0.0006022694531369337
+          }
+        ],
+        [
+          "adapter.layers.11.lateral.weight",
+          {
+            "max_absolute": 0.0014559496194124222,
+            "reference_norm": 0.12814600233382129,
+            "relative_l2": 0.2607810787987764,
+            "rms_error": 0.00015073376360018548,
+            "rms_reference": 0.0005780088198672397
+          }
+        ]
+      ],
+      "pinball_sign_flips": 36,
+      "precision": "bf16"
+    },
+    {
+      "arm": "side",
+      "dataset": "electricity",
+      "gates": {
+        "raw_gradient": false,
+        "raw_scaled_max": false,
+        "update": false
+      },
+      "kind": "microbatch",
+      "largest_update_tensors": [
+        [
+          "adapter.layers.11.q.weight",
+          {
+            "max_absolute": 0.0013073086738586426,
+            "reference_norm": 0.03855206313292266,
+            "relative_l2": 0.27419355271025436,
+            "rms_error": 0.00016516761179259507,
+            "rms_reference": 0.0006023759864519166
+          }
+        ],
+        [
+          "adapter.layers.9.q.weight",
+          {
+            "max_absolute": 0.0012126713991165161,
+            "reference_norm": 0.037103142053052526,
+            "relative_l2": 0.2444016538855616,
+            "rms_error": 0.00014168858253307763,
+            "rms_reference": 0.0005797365945789457
+          }
+        ],
+        [
+          "adapter.layers.11.k.weight",
+          {
+            "max_absolute": 0.001362379640340805,
+            "reference_norm": 0.03992463367057429,
+            "relative_l2": 0.21469875159082139,
+            "rms_error": 0.00013393389073114334,
+            "rms_reference": 0.0006238224011027233
+          }
+        ]
+      ],
+      "pinball_sign_flips": 18,
+      "precision": "bf16"
+    },
+    {
+      "arm": "query",
+      "dataset": "electricity",
+      "gates": {
+        "raw_gradient": false,
+        "raw_scaled_max": false,
+        "update": false
+      },
+      "kind": "microbatch",
+      "largest_update_tensors": [
+        [
+          "base.encoder.block.11.layer.1.self_attention.o.lora_A",
+          {
+            "max_absolute": 0.0001278882846236229,
+            "reference_norm": 0.0049005918534475055,
+            "relative_l2": 0.09350975747726965,
+            "rms_error": 5.8462833568334275e-06,
+            "rms_reference": 6.252057020097119e-05
+          }
+        ],
+        [
+          "base.encoder.block.9.layer.0.self_attention.q.lora_A",
+          {
+            "max_absolute": 8.407514542341232e-05,
+            "reference_norm": 0.00486611742011925,
+            "relative_l2": 0.062020542649585654,
+            "rms_error": 3.850282031716697e-06,
+            "rms_reference": 6.208075368625336e-05
+          }
+        ],
+        [
+          "base.encoder.block.9.layer.1.self_attention.v.lora_A",
+          {
+            "max_absolute": 0.00010139122605323792,
+            "reference_norm": 0.004107304222455169,
+            "relative_l2": 0.07315731327175909,
+            "rms_error": 3.833443049081198e-06,
+            "rms_reference": 5.2399997726010274e-05
+          }
+        ]
+      ],
+      "pinball_sign_flips": 31,
+      "precision": "bf16"
+    },
+    {
+      "arm": "query",
+      "dataset": "electricity",
+      "gates": {
+        "raw_gradient": false,
+        "raw_scaled_max": false,
+        "update": false
+      },
+      "kind": "microbatch",
+      "largest_update_tensors": [
+        [
+          "base.encoder.block.10.layer.1.self_attention.v.lora_A",
+          {
+            "max_absolute": 0.0001221969723701477,
+            "reference_norm": 0.004514797751415532,
+            "relative_l2": 0.12212058067800527,
+            "rms_error": 7.033986933797058e-06,
+            "rms_reference": 5.759870199392138e-05
+          }
+        ],
+        [
+          "base.encoder.block.4.layer.0.self_attention.q.lora_A",
+          {
+            "max_absolute": 0.00011447817087173462,
+            "reference_norm": 0.00477085479463026,
+            "relative_l2": 0.08102675326558001,
+            "rms_error": 4.931727049599565e-06,
+            "rms_reference": 6.086541606122275e-05
+          }
+        ],
+        [
+          "base.encoder.block.3.layer.1.self_attention.v.lora_A",
+          {
+            "max_absolute": 8.296966552734375e-05,
+            "reference_norm": 0.003555645514343401,
+            "relative_l2": 0.1029074166101383,
+            "rms_error": 4.668093315921042e-06,
+            "rms_reference": 4.536206883519363e-05
+          }
+        ]
+      ],
+      "pinball_sign_flips": 23,
+      "precision": "bf16"
+    }
+  ],
+  "reason": "FP64 semantic and real group isolation pass; same-shape checkpoint and different-shape errors separated. No demonstrated semantic bug warrants a training-code patch; no tolerance changes or repeated N1.",
+  "remaining_numeric_updates": 12,
+  "repair_count": 0,
+  "semantic_bug_identified": false
+}

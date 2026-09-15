@@ -1,0 +1,18 @@
+{
+  "actual_model_updates": 0,
+  "checks": [
+    {
+      "optimizer": "SGD",
+      "passed": true
+    },
+    {
+      "optimizer": "Adam",
+      "passed": true
+    }
+  ],
+  "cpu_toy_optimizer_updates": 4,
+  "group_isolation": true,
+  "group_renumbering": true,
+  "missing_native_denominator": true,
+  "scope": "Small FP64 attention/normalization/native pinball; not full Chronos FP64 proof"
+}
