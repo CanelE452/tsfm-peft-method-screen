@@ -1,0 +1,68 @@
+{
+  "status": "COMPLETE",
+  "neural_fits": 0,
+  "optimizer_updates": 0,
+  "target_forecasts": 233,
+  "pipeline_calls": 128,
+  "primitive_forwards": 128,
+  "statistical_postprocessors": 7,
+  "width_grid_evaluations": 30,
+  "score_rows": 336,
+  "independent_scalar_max_error": 2.4424906541753444e-15,
+  "mixture_cdf_checks": 14112,
+  "raw_quantile_crossings": 26,
+  "sorted_for_all_methods": true,
+  "calibration_sha256": "1150517daf5e8251671fc086d0a17e415e09f7d8c12b230c0d5de9eb35694814",
+  "selection_before_D_scores": true,
+  "frozen_unchanged": true,
+  "buffers_unchanged": true,
+  "replay": [
+    {
+      "name": "F0",
+      "raw_max_abs": 0.0,
+      "normalized_max_abs": 0.0,
+      "exact": true
+    },
+    {
+      "name": "PAST",
+      "raw_max_abs": 0.0,
+      "normalized_max_abs": 0.0,
+      "exact": true
+    },
+    {
+      "name": "MEAN_INPUT",
+      "raw_max_abs": 0.0,
+      "normalized_max_abs": 0.0,
+      "exact": true
+    },
+    {
+      "name": "PATHS",
+      "raw_max_abs": 0.0,
+      "normalized_max_abs": 0.0,
+      "exact": true
+    }
+  ],
+  "historical_files_preserved": 2221,
+  "timing": {
+    "LATEST": {
+      "n": 5,
+      "median_seconds": 0.022545109008206055,
+      "min_seconds": 0.020834237977396697,
+      "max_seconds": 0.023387235996779054,
+      "peak_allocated": 516363264,
+      "peak_reserved": 538968064,
+      "contaminated": false
+    },
+    "PATHS": {
+      "n": 5,
+      "median_seconds": 0.02353945598588325,
+      "min_seconds": 0.02270302001852542,
+      "max_seconds": 0.026267608016496524,
+      "peak_allocated": 528073216,
+      "peak_reserved": 538968064,
+      "contaminated": false
+    }
+  },
+  "mixture_cpu_seconds": 1.6182445570302662,
+  "postprocessor_selection_seconds": 0.009927253995556384
+}

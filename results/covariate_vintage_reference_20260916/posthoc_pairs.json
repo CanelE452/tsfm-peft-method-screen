@@ -1,0 +1,89 @@
+{
+  "scope": "DESCRIPTIVE_NO_RESELECTION_NO_NEW_FORECASTS",
+  "pairs": [
+    {
+      "candidate": "LATEST",
+      "baseline": "F0",
+      "candidate_primary": 0.14947867852478464,
+      "baseline_primary": 0.18172125309349865,
+      "gain_percent": 17.74287488108211,
+      "positive_months": 3,
+      "ci_low": -0.4909944037878539,
+      "ci_high": 30.704816548006065,
+      "monthly_gain_percent": [
+        25.67678654518081,
+        37.77162084208591,
+        2.5960465860428594,
+        -4.837548957690537
+      ]
+    },
+    {
+      "candidate": "MIXTURE",
+      "baseline": "LATEST",
+      "candidate_primary": 0.1478150751287946,
+      "baseline_primary": 0.14947867852478464,
+      "gain_percent": 1.1129369167618073,
+      "positive_months": 2,
+      "ci_low": -4.288123175837614,
+      "ci_high": 6.585725975999169,
+      "monthly_gain_percent": [
+        0.9381318921502614,
+        -6.524313713348017,
+        8.880212901361345,
+        -2.418975222005849
+      ]
+    },
+    {
+      "candidate": "MIXTURE",
+      "baseline": "MEAN_INPUT",
+      "candidate_primary": 0.1478150751287946,
+      "baseline_primary": 0.1515656252969188,
+      "gain_percent": 2.474538775383158,
+      "positive_months": 3,
+      "ci_low": 0.14049572184841067,
+      "ci_high": 4.764947117265704,
+      "monthly_gain_percent": [
+        0.7493465065692199,
+        -0.8250321750965959,
+        5.720425716304209,
+        3.628241862147395
+      ]
+    },
+    {
+      "candidate": "MIXTURE_CAL",
+      "baseline": "MIXTURE",
+      "candidate_primary": 0.14979930881096806,
+      "baseline_primary": 0.1478150751287946,
+      "gain_percent": -1.3423757221274968,
+      "positive_months": 1,
+      "ci_low": -3.11923629485375,
+      "ci_high": -0.1835805057765687,
+      "monthly_gain_percent": [
+        -0.9139519093370274,
+        -4.2667617012348185,
+        0.10030938426052566,
+        -1.0604988215517825
+      ]
+    }
+  ],
+  "batched_four_vs_single_latency_ratio": 1.0441047757770996,
+  "prior_decision_unchanged": {
+    "execution": "COMPLETE",
+    "predictive_evidence": "NO_ADDED_VALUE_IN_THIS_REFERENCE",
+    "novelty": "KNOWN_VINTAGE_MIXTURE_REFERENCE_NOT_NEW_PEFT",
+    "topic": "NOT_CONFIRMED",
+    "strongest_baseline": {
+      "baseline": "LATEST",
+      "baseline_primary": 0.14947867852478466,
+      "candidate_primary": 0.14979930881096806,
+      "gain_percent": -0.21449901039246602,
+      "positive_months": 2,
+      "ci_low": -7.08609231925494,
+      "ci_high": 6.438005924890698
+    },
+    "teacher_signal": false,
+    "student_fits": 0,
+    "scope": "ONE_TARGET_SIMULATED_AS_OF_DISCOVERY",
+    "automatic_student_training": false
+  }
+}
