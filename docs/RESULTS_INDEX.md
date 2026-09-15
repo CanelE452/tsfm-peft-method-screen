@@ -2,6 +2,8 @@
 
 2026-09-15 기준. 표의 링크는 완료된 실행 또는 검토 결과다. 과거 FAIL/STOP은 당시 고정 실험의 판정으로 보존한다. 최신 재검토의 후속 연구 우선순위는 방법론 성공이나 새로운 실험 실행을 뜻하지 않는다.
 
+진행 중: [Q/C 승인 재개](../results/priority12_resume_20260915/LIVE_PROGRESS.md). Q180-update 진단은 종료했고 C24-fit 배치는 실행 중이다. 아래 표는 이전 완료 작업을 보존한다.
+
 | 완료 작업 | 결과 | 검증 기록 |
 | --- | --- | --- |
 | Q v2 + 채널 공유 독립 파일럿: BLOCKED_GPU_BUSY / BLOCKED_GPU_BUSY; 신규 본학습 0 fits | [통합 한국어 보고서](../results/priority12_20260915/REPORT.md), [Q](../results/query_budget_numeric_v2_20260915/REPORT.md), [C](../results/channel_basis_pilot_20260915/REPORT.md) | [완료 검증](../results/priority12_20260915/completion_verification.json), [C 실제 CPU 모델 비교](../results/channel_basis_pilot_20260915/initial_cpu_parity.json) |
