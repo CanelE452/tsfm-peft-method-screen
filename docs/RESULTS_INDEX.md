@@ -3,6 +3,8 @@
 2026-09-16 기준. 표의 링크는 완료된 실행 또는 검토 결과다. 과거 FAIL/STOP은 당시 고정 실험의 판정으로 보존한다. 최신 재검토의 후속 연구 우선순위는 방법론 성공이나 새로운 실험 실행을 뜻하지 않는다.
 
 
+[확인] 예보 신뢰도 사후 진단은 0fits·0추론으로 저장112개 경로를 검산했다. 예보 불일치가 큰 D13원점에서도 최신기상 평균손실0.148347이 F0 0.169632보다 낮아, 불일치만으로 기상을 차단하는 gate를 정당화하지 못했다. 오래된 예보의 손해와 기상오차/부하손해의 불일치를 구분했다. [한국어 보고서](../research/covariate_reliability_diagnostic_20260916/REPORT.md), [가까운 선행](../research/covariate_reliability_diagnostic_20260916/LITERATURE_BOUNDARY.md).
+
 [확인] 예보 vintage 참조 비교는 0 neural fits·233개 예측·128호출을 완료했다. 최신 기상 입력이 F0보다17.743% 좋았고 원본 혼합은 최신경로보다1.113% 좋았으나, 사전 주 비교인 보정혼합은 최신경로보다0.214% 악화했다. teacher 신호 조건은 미충족이며 학생 학습은 실행하지 않았다. [한국어 보고서](../results/covariate_vintage_reference_20260916/REPORT.md), [양성 신호와 한계](../results/covariate_vintage_reference_20260916/INTERPRETATION.md).
 
 [확인] 미래 공변량 제안의 데이터 감사는 0fits로 Liander 공식 예제 한 타깃을 검증했다. 333원점의 시간 선택은 일관됐지만 15원점에 기상 결측이 있고 과거 날씨 공개시각은 없었다. 실제 앙상블·예측 이득·신규성은 미확인이다. [한국어 보고서](../research/covariate_availability_audit_20260916/REPORT.md), [검증](../research/covariate_availability_audit_20260916/verification.json).
