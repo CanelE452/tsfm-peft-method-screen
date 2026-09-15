@@ -1,0 +1,78 @@
+[
+  {
+    "arm": "CAPACITY_MATCHED",
+    "changes": {
+      "adapter.down.weight": 0.21543807499637124,
+      "adapter.up.weight": 0.4308854025907297,
+      "head.linear.bias": 0.011507265128598369,
+      "head.linear.weight": 1.1990661454080667
+    },
+    "dataset": "electricity",
+    "frozen_and_buffers_unchanged": true,
+    "initial_bf16_LH_exact": true,
+    "steps": [
+      {
+        "external_compute_contaminated": false,
+        "free_mib": 8735,
+        "gradient_norm": 4.2333221435546875,
+        "loss": 1.5602649450302124,
+        "lr": 0.001,
+        "nvml_used_mib": 1119,
+        "origins": 8,
+        "peak_allocated": 262697984,
+        "peak_reserved": 335544320,
+        "seconds": 0.11296087401569821
+      },
+      {
+        "external_compute_contaminated": false,
+        "free_mib": 8735,
+        "gradient_norm": 5.128574848175049,
+        "loss": 1.501922607421875,
+        "lr": 0.001,
+        "nvml_used_mib": 1119,
+        "origins": 8,
+        "peak_allocated": 302348288,
+        "peak_reserved": 335544320,
+        "seconds": 0.021123729995451868
+      }
+    ]
+  },
+  {
+    "arm": "CAPACITY_MATCHED",
+    "changes": {
+      "adapter.down.weight": 0.21622274116578322,
+      "adapter.up.weight": 0.4125085109676467,
+      "head.linear.bias": 0.011433375055803949,
+      "head.linear.weight": 1.1928253088533505
+    },
+    "dataset": "traffic",
+    "frozen_and_buffers_unchanged": true,
+    "initial_bf16_LH_exact": true,
+    "steps": [
+      {
+        "external_compute_contaminated": false,
+        "free_mib": 8736,
+        "gradient_norm": 2.846841335296631,
+        "loss": 1.2792809009552002,
+        "lr": 0.001,
+        "nvml_used_mib": 1118,
+        "origins": 8,
+        "peak_allocated": 296252416,
+        "peak_reserved": 335544320,
+        "seconds": 0.02288463999866508
+      },
+      {
+        "external_compute_contaminated": false,
+        "free_mib": 8736,
+        "gradient_norm": 3.0802876949310303,
+        "loss": 1.0122387409210205,
+        "lr": 0.001,
+        "nvml_used_mib": 1118,
+        "origins": 8,
+        "peak_allocated": 302348288,
+        "peak_reserved": 335544320,
+        "seconds": 0.01932592800585553
+      }
+    ]
+  }
+]

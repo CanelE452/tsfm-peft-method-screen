@@ -1,0 +1,118 @@
+{
+  "additional_fits_launched": 0,
+  "execution": "COMPLETE",
+  "exposure": "DISCOVERY_REUSED_E",
+  "independent_screen_pass": "NOT_EVALUATED",
+  "macro_comparisons": [
+    {
+      "baseline": "BALANCED_LH",
+      "baseline_mse": 0.2800100583520501,
+      "both_seeds_improved": false,
+      "capacity_mse": 0.290153909336907,
+      "dataset": "electricity",
+      "gain_percent": -3.622673786990625,
+      "role": "selected"
+    },
+    {
+      "baseline": "HEAD_ONLY",
+      "baseline_mse": 0.29723049093971776,
+      "both_seeds_improved": true,
+      "capacity_mse": 0.290153909336907,
+      "dataset": "electricity",
+      "gain_percent": 2.3808397249009006,
+      "role": "selected"
+    },
+    {
+      "baseline": "POINTWISE",
+      "baseline_mse": 0.2900632473153296,
+      "both_seeds_improved": false,
+      "capacity_mse": 0.290153909336907,
+      "dataset": "electricity",
+      "gain_percent": -0.0312559493201877,
+      "role": "selected"
+    },
+    {
+      "baseline": "BALANCED_LH",
+      "baseline_mse": 0.31235654671052826,
+      "both_seeds_improved": false,
+      "capacity_mse": 0.32541886621290916,
+      "dataset": "electricity",
+      "gain_percent": -4.181861926680286,
+      "role": "matched_old_epoch"
+    },
+    {
+      "baseline": "HEAD_ONLY",
+      "baseline_mse": 0.3451496194641022,
+      "both_seeds_improved": true,
+      "capacity_mse": 0.32541886621290916,
+      "dataset": "electricity",
+      "gain_percent": 5.7165797493353985,
+      "role": "matched_old_epoch"
+    },
+    {
+      "baseline": "POINTWISE",
+      "baseline_mse": 0.33237864620592256,
+      "both_seeds_improved": true,
+      "capacity_mse": 0.32541886621290916,
+      "dataset": "electricity",
+      "gain_percent": 2.0939311452341367,
+      "role": "matched_old_epoch"
+    },
+    {
+      "baseline": "BALANCED_LH",
+      "baseline_mse": 0.38654770468387356,
+      "both_seeds_improved": false,
+      "capacity_mse": 0.40727004847823034,
+      "dataset": "traffic",
+      "gain_percent": -5.360876172141269,
+      "role": "selected"
+    },
+    {
+      "baseline": "HEAD_ONLY",
+      "baseline_mse": 0.436876492272291,
+      "both_seeds_improved": true,
+      "capacity_mse": 0.40727004847823034,
+      "dataset": "traffic",
+      "gain_percent": 6.776845245225027,
+      "role": "selected"
+    },
+    {
+      "baseline": "POINTWISE",
+      "baseline_mse": 0.4207382139900875,
+      "both_seeds_improved": true,
+      "capacity_mse": 0.40727004847823034,
+      "dataset": "traffic",
+      "gain_percent": 3.201079688990278,
+      "role": "selected"
+    },
+    {
+      "baseline": "BALANCED_LH",
+      "baseline_mse": 0.5070642695540419,
+      "both_seeds_improved": false,
+      "capacity_mse": 0.5241927521495725,
+      "dataset": "traffic",
+      "gain_percent": -3.3779707275755997,
+      "role": "matched_old_epoch"
+    },
+    {
+      "baseline": "HEAD_ONLY",
+      "baseline_mse": 0.5539857806176713,
+      "both_seeds_improved": true,
+      "capacity_mse": 0.5241927521495725,
+      "dataset": "traffic",
+      "gain_percent": 5.3779410068758144,
+      "role": "matched_old_epoch"
+    },
+    {
+      "baseline": "POINTWISE",
+      "baseline_mse": 0.5323618232210927,
+      "both_seeds_improved": false,
+      "capacity_mse": 0.5241927521495725,
+      "dataset": "traffic",
+      "gain_percent": 1.5344960354393309,
+      "role": "matched_old_epoch"
+    }
+  ],
+  "new_method_topic": "NOT_CONFIRMED",
+  "novelty": "KNOWN_CAPACITY_CONTROL"
+}
