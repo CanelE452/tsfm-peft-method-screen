@@ -1,0 +1,15 @@
+# Python 3.10 is the tested interpreter version.
+# Install a CUDA-appropriate PyTorch build first when using a GPU:
+# https://pytorch.org/get-started/locally/
+torch>=2.4,<2.8
+momentfm==0.1.4
+peft==0.12.0
+transformers==4.44.2
+accelerate>=0.33,<2
+huggingface-hub>=0.23,<1
+numpy>=1.25,<3
+pandas>=2.0,<3
+scikit-learn>=1.2,<2
+sktime>=0.16,<1
+patool>=1.12,<5
+tqdm>=4.64,<5

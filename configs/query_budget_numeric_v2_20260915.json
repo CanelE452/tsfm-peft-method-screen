@@ -1,0 +1,155 @@
+{
+  "run_id": "query_budget_numeric_v2_20260915",
+  "datasets": [
+    "ettm2",
+    "electricity"
+  ],
+  "arms": [
+    "standard",
+    "side",
+    "query"
+  ],
+  "seeds": [
+    39000,
+    39001
+  ],
+  "resource_seed": 39000,
+  "context": 4096,
+  "horizon": 48,
+  "channels": 4,
+  "effective_origins": 2,
+  "trainable_parameters": 1179648,
+  "budgets_gib": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "feasibility_fraction": 0.95,
+  "speed_signal_percent": 5,
+  "learning_rates": {
+    "standard": 0.0001,
+    "query": 0.0001,
+    "side": 0.001
+  },
+  "optimizer": {
+    "name": "AdamW",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "clip": 1
+  },
+  "precision": "BF16 autocast cache_enabled=True; FP32 parameters/Adam",
+  "cp_blocks": {
+    "standard": [
+      0,
+      3,
+      6,
+      9,
+      12
+    ],
+    "side": [
+      0,
+      12
+    ],
+    "query": [
+      0,
+      12
+    ]
+  },
+  "microbatch_origins": [
+    1,
+    2
+  ],
+  "profile_order_seeds": [
+    59000,
+    59001,
+    59002
+  ],
+  "fit_order_seed": 59010,
+  "A_updates_max": 512,
+  "A_updates_planned": 444,
+  "B_attempts_max": 12,
+  "B_updates_max_per_fit": 8192,
+  "active_seconds": 120,
+  "time_checkpoints": [
+    0,
+    30,
+    60,
+    120
+  ],
+  "overshoot_seconds": 1.0,
+  "gpu": {
+    "startup_idle_seconds": 30,
+    "startup_free_mib": 4096,
+    "pause_free_mib": 1024,
+    "wait_seconds_cap": 600,
+    "wall_seconds_cap": 14400,
+    "compute_exceptions": []
+  },
+  "train_origins": [
+    16384,
+    22528,
+    32
+  ],
+  "validation_origins": [
+    23040,
+    23712,
+    96
+  ],
+  "evaluation_origins": [
+    24576,
+    26016,
+    96
+  ],
+  "train_scale_interval": [
+    16384,
+    22576
+  ],
+  "bootstrap": {
+    "resamples": 1000,
+    "origin_blocks": 4,
+    "origins_per_block": 4,
+    "seed": 59100
+  },
+  "E_scope": "Previously evaluated development period; no independent test claim",
+  "numeric_updates_max": 192,
+  "numeric_updates_planned": 180,
+  "numeric_pairs": [
+    [
+      17280,
+      18944
+    ],
+    [
+      20544,
+      22016
+    ]
+  ],
+  "path_pairs": [
+    [
+      17280,
+      18944
+    ],
+    [
+      20544,
+      22016
+    ],
+    [
+      17408,
+      18432
+    ],
+    [
+      19456,
+      20480
+    ],
+    [
+      17280,
+      18944
+    ]
+  ],
+  "numeric_policy": "User v2 fixed after observing v1 stop; no adaptive thresholds",
+  "backend": "highest matmul, TF32 disabled, FP16/BF16 reduction reduced precision disabled"
+}
