@@ -3,6 +3,8 @@
 2026-09-16 기준. 표의 링크는 완료된 실행 또는 검토 결과다. 과거 FAIL/STOP은 당시 고정 실험의 판정으로 보존한다. 최신 재검토의 후속 연구 우선순위는 방법론 성공이나 새로운 실험 실행을 뜻하지 않는다.
 
 
+[확인] 저장 LoRA4개에서 Q/K·V 유지/제거의16개 V 예측을 신규학습0회로 완료했다. 양쪽 제거 모두 악화하고 V 제거 비용이 더 컸다. 시간 관계만의 적응을 정답으로 선택할 근거는 없으며, 공동 적응한 checkpoint의 제거 진단이라는 한계가 있다. [한국어 보고서](../results/lora_projection_diagnostic_20260916/REPORT.md).
+
 [확인] 동일 용량 마지막 adapter4/4fits·4632updates를 완료했다. 작은 adapter 대비 교통3.201% 개선했지만, LoRA 대비 전력3.623%·교통5.361% 악화했다. 학습 파라미터 수는 같고 peak allocated는 약73% 작았다. 알려진 용량 대조이며 새 방법론 주제 미확보다. [최종 판단](../results/channel_capacity_match_20260916/FINAL_DECISION.md).
 
 [확인] 같은 시간대 입력 조건화 후보와 두 동일용량 대조12/12fits·15240updates를 완료했다. 후보는 일반 adapter 대비 전력0.039%/교통0.128% 악화했고, LH 대비 메모리약73% 절감과 MSE3.631%/8.984% 악화가 함께 나타났다. 실행은정상완료, 후보추가가치는미확인이다. [최종 판단](../results/channel_phase_transport_20260916/FINAL_DECISION.md).
@@ -24,6 +26,7 @@
 
 | 완료 작업 | 결과 | 검증 기록 |
 | --- | --- | --- |
+| LoRA projection 진단:0fits·16개 V 예측, Q/K와V 공동 의존 | [한국어 REPORT](../results/lora_projection_diagnostic_20260916/REPORT.md), [원점수](../results/lora_projection_diagnostic_20260916/macro_scores.csv), [구성요소 분해](../results/lora_projection_diagnostic_20260916/effects.csv) | [16개 독립 검산·4개exact재생](../results/lora_projection_diagnostic_20260916/verification.json), [사전 프로토콜](../results/lora_projection_diagnostic_20260916/PROTOCOL.md) |
 | 동일 용량 대조:4/4fits·4632updates, LoRA 대비 정확도·메모리 절충 | [한국어 REPORT](../results/channel_capacity_match_20260916/REPORT.md), [원점수](../results/channel_capacity_match_20260916/macro_comparisons.csv), [다음 연구 질문](../results/channel_capacity_match_20260916/INTERPRETATION.md) | [113개 예측·4개 checkpoint 검산](../results/channel_capacity_match_20260916/verification.json), [실행정책 재검산](../results/channel_capacity_match_20260916/completion_audit.json) |
 | 같은위상 입력 조건화:12/12fits·15240updates, 고유 추가 가치 미확인 | [한국어 REPORT](../results/channel_phase_transport_20260916/REPORT.md), [최종 판단](../results/channel_phase_transport_20260916/FINAL_DECISION.md), [원점수](../results/channel_phase_transport_20260916/macro_scores.csv) | [304개 예측·12개 checkpoint 검산](../results/channel_phase_transport_20260916/verification.json), [용량 교란·원인 구분](../results/channel_phase_transport_20260916/INTERPRETATION.md) |
 | 균형 표본 head-only 대조: 4/4fits·5080updates, LoRA의 추가 이득 확인 | [한국어 REPORT](../results/channel_head_only_20260916/REPORT.md), [원점수](../results/channel_head_only_20260916/comparisons.csv), [연구 판단](../results/channel_head_only_20260916/INTERPRETATION.md) | [104개 예측·4개 checkpoint 검산](../results/channel_head_only_20260916/verification.json), [사전 프로토콜](../results/channel_head_only_20260916/PROTOCOL.md) |
