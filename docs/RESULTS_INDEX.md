@@ -82,3 +82,7 @@ Query 자원 제약 파일럿은 117개 CPU 검사와 42개 저장 비교 재계
 ## GitHub에서 확인할 수 있는 범위
 
 코드, 고정 프로토콜, 결과 표, 보고서, 실행 기록, 검증 결과와 해시 manifest를 보관한다. `.gitignore`에 포함된 원시 데이터, 모델 가중치, `.cache`의 예측 배열과 체크포인트는 로컬에 남아 있다. 따라서 GitHub에서는 실행 근거와 검증 범위를 검토할 수 있고, 전체 수치 재생에는 해당 로컬 자료가 필요하다. 이후 완료 작업도 검증 후 commit/push하고 이 색인을 갱신한다.
+
+## 예보 순서 대조 완료 (2026-09-16)
+
+신규 4 fits·480 updates, smoke 4 updates. [REPORT](../results/covariate_order_control_20260916/REPORT.md), [해석](../results/covariate_order_control_20260916/INTERPRETATION.md), [4,032개 지표 및 16개 복원 검산](../results/covariate_order_control_20260916/verification.json). 동일 입력 멀티셋의 순서 효과는 작은 개발 차이이며 신규 방법 PASS가 아니다.

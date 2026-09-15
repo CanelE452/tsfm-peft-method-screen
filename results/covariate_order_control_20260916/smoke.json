@@ -1,0 +1,60 @@
+[
+  {
+    "arm": "REVERSE",
+    "buffers_unchanged": true,
+    "changed_tensors": 192,
+    "curve": [
+      {
+        "contaminated": false,
+        "free_mib": 8432,
+        "gradient_norm": 0.35932016372680664,
+        "id": "C_0401",
+        "loss": 0.5913005471229553,
+        "path_index": 2,
+        "seconds": 0.16759270400507376,
+        "step": 1
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.7257323265075684,
+        "id": "C_0301",
+        "loss": 0.810705304145813,
+        "path_index": 2,
+        "seconds": 0.10577302999445237,
+        "step": 2
+      }
+    ],
+    "frozen_unchanged": true,
+    "initial_normalized_max_abs": 0.0
+  },
+  {
+    "arm": "SHUFFLE",
+    "buffers_unchanged": true,
+    "changed_tensors": 192,
+    "curve": [
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.35932016372680664,
+        "id": "C_0401",
+        "loss": 0.5913005471229553,
+        "path_index": 2,
+        "seconds": 0.1117163049930241,
+        "step": 1
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8277486562728882,
+        "id": "C_0301",
+        "loss": 0.8612662553787231,
+        "path_index": 1,
+        "seconds": 0.10367631699773483,
+        "step": 2
+      }
+    ],
+    "frozen_unchanged": true,
+    "initial_normalized_max_abs": 0.0
+  }
+]

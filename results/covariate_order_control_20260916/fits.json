@@ -1,0 +1,5014 @@
+[
+  {
+    "arm": "REVERSE",
+    "buffers_unchanged": true,
+    "changed_tensors": 192,
+    "checkpoints": [
+      {
+        "at": 1789514856.05444,
+        "elapsed_seconds": 0.15231495001353323,
+        "path": ".cache/covariate_order_control_20260916/REVERSE_61710_0.pt",
+        "sha256": "9bfc4ecffa056b1c9b895f9074c7a6926e1fbca5ee3c85a34800e92253c831c9",
+        "step": 0,
+        "validation_primary": 0.1315677771081988
+      },
+      {
+        "at": 1789514863.8978326,
+        "elapsed_seconds": 7.995707779016811,
+        "path": ".cache/covariate_order_control_20260916/REVERSE_61710_40.pt",
+        "sha256": "244dea70b6c9d58422c52b14cbf418683b648e7741959377c7aefc2f502f1550",
+        "step": 40,
+        "validation_primary": 0.13326770126878335
+      },
+      {
+        "at": 1789514871.6590104,
+        "elapsed_seconds": 15.756885049020639,
+        "path": ".cache/covariate_order_control_20260916/REVERSE_61710_80.pt",
+        "sha256": "72cbeced95e2cd8666c1fd8a3b1d9d7615f2ef6e833896b433b1c18b05f29e1c",
+        "step": 80,
+        "validation_primary": 0.1359876857093128
+      },
+      {
+        "at": 1789514879.4656198,
+        "elapsed_seconds": 23.56349473001319,
+        "path": ".cache/covariate_order_control_20260916/REVERSE_61710_120.pt",
+        "sha256": "d0a3e808f898c0796c1542315ea32334011e2e96fbc0327300ebb532d386802f",
+        "step": 120,
+        "validation_primary": 0.13033140376928243
+      }
+    ],
+    "curve": [
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.35932016372680664,
+        "id": "C_0401",
+        "loss": 0.5913005471229553,
+        "path_index": 2,
+        "seconds": 0.1081361590186134,
+        "step": 1
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.7257323265075684,
+        "id": "C_0301",
+        "loss": 0.810705304145813,
+        "path_index": 2,
+        "seconds": 0.11149498599115759,
+        "step": 2
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.20104378461837769,
+        "id": "C_0322",
+        "loss": 0.28160127997398376,
+        "path_index": 2,
+        "seconds": 0.11120347797987051,
+        "step": 3
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8458004593849182,
+        "id": "C_0308",
+        "loss": 0.6245225667953491,
+        "path_index": 2,
+        "seconds": 0.10973440899397247,
+        "step": 4
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6241360306739807,
+        "id": "C_0422",
+        "loss": 0.6055412292480469,
+        "path_index": 2,
+        "seconds": 0.11487180000403896,
+        "step": 5
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.38126200437545776,
+        "id": "C_0415",
+        "loss": 0.5747196674346924,
+        "path_index": 2,
+        "seconds": 0.10570935398573056,
+        "step": 6
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6022913455963135,
+        "id": "C_0408",
+        "loss": 0.6269779205322266,
+        "path_index": 2,
+        "seconds": 0.10560076398542151,
+        "step": 7
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5333245396614075,
+        "id": "C_0315",
+        "loss": 0.35174888372421265,
+        "path_index": 2,
+        "seconds": 0.11334555500070564,
+        "step": 8
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.28522080183029175,
+        "id": "C_0322",
+        "loss": 0.30353784561157227,
+        "path_index": 1,
+        "seconds": 0.10668739798711613,
+        "step": 9
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8981343507766724,
+        "id": "C_0301",
+        "loss": 0.8244010210037231,
+        "path_index": 1,
+        "seconds": 0.10980881401337683,
+        "step": 10
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.3733740448951721,
+        "id": "C_0401",
+        "loss": 0.542914628982544,
+        "path_index": 1,
+        "seconds": 0.11110241900314577,
+        "step": 11
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5121021270751953,
+        "id": "C_0408",
+        "loss": 0.5494810342788696,
+        "path_index": 1,
+        "seconds": 0.1116584430274088,
+        "step": 12
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5329629182815552,
+        "id": "C_0415",
+        "loss": 0.475872278213501,
+        "path_index": 1,
+        "seconds": 0.10941670800093561,
+        "step": 13
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.555712878704071,
+        "id": "C_0422",
+        "loss": 0.42285364866256714,
+        "path_index": 1,
+        "seconds": 0.11350519102416001,
+        "step": 14
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8344341516494751,
+        "id": "C_0308",
+        "loss": 0.5240731239318848,
+        "path_index": 1,
+        "seconds": 0.1139902189897839,
+        "step": 15
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9103912115097046,
+        "id": "C_0315",
+        "loss": 0.545682430267334,
+        "path_index": 1,
+        "seconds": 0.11203989799832925,
+        "step": 16
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.5925670266151428,
+        "id": "C_0315",
+        "loss": 0.30419597029685974,
+        "path_index": 0,
+        "seconds": 0.11326513299718499,
+        "step": 17
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.38905566930770874,
+        "id": "C_0408",
+        "loss": 0.4721776247024536,
+        "path_index": 0,
+        "seconds": 0.1136127820063848,
+        "step": 18
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.45407232642173767,
+        "id": "C_0401",
+        "loss": 0.5652574896812439,
+        "path_index": 0,
+        "seconds": 0.10982558102114126,
+        "step": 19
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.5632645487785339,
+        "id": "C_0422",
+        "loss": 0.31689026951789856,
+        "path_index": 0,
+        "seconds": 0.10680754197528586,
+        "step": 20
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.23256784677505493,
+        "id": "C_0322",
+        "loss": 0.24516665935516357,
+        "path_index": 0,
+        "seconds": 0.11316813301527873,
+        "step": 21
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9340316653251648,
+        "id": "C_0308",
+        "loss": 0.5038003325462341,
+        "path_index": 0,
+        "seconds": 0.11127891001524404,
+        "step": 22
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5745477080345154,
+        "id": "C_0415",
+        "loss": 0.4039003252983093,
+        "path_index": 0,
+        "seconds": 0.10413875599624589,
+        "step": 23
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.2138111591339111,
+        "id": "C_0301",
+        "loss": 0.954862654209137,
+        "path_index": 0,
+        "seconds": 0.10785818699514493,
+        "step": 24
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.7027957439422607,
+        "id": "C_0315",
+        "loss": 0.4390113055706024,
+        "path_index": 3,
+        "seconds": 0.11230345600051805,
+        "step": 25
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.3475413918495178,
+        "id": "C_0322",
+        "loss": 0.2923928201198578,
+        "path_index": 3,
+        "seconds": 0.10391387701383792,
+        "step": 26
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6656217575073242,
+        "id": "C_0408",
+        "loss": 0.7204877138137817,
+        "path_index": 3,
+        "seconds": 0.10624719099723734,
+        "step": 27
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9407682418823242,
+        "id": "C_0301",
+        "loss": 0.6777600049972534,
+        "path_index": 3,
+        "seconds": 0.10471421998227015,
+        "step": 28
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5983021259307861,
+        "id": "C_0422",
+        "loss": 0.3142423927783966,
+        "path_index": 3,
+        "seconds": 0.10547372899600305,
+        "step": 29
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.7057808041572571,
+        "id": "C_0415",
+        "loss": 0.5513732433319092,
+        "path_index": 3,
+        "seconds": 0.11324894599965774,
+        "step": 30
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9039444923400879,
+        "id": "C_0401",
+        "loss": 0.7457279562950134,
+        "path_index": 3,
+        "seconds": 0.10592560999793932,
+        "step": 31
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.0590306520462036,
+        "id": "C_0308",
+        "loss": 0.9568266272544861,
+        "path_index": 3,
+        "seconds": 0.11818614200456068,
+        "step": 32
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8623784780502319,
+        "id": "C_0422",
+        "loss": 0.5462666749954224,
+        "path_index": 2,
+        "seconds": 0.11687849799636751,
+        "step": 33
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9053686857223511,
+        "id": "C_0301",
+        "loss": 0.6748297214508057,
+        "path_index": 2,
+        "seconds": 0.11332516500260681,
+        "step": 34
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.2914274334907532,
+        "id": "C_0322",
+        "loss": 0.26741620898246765,
+        "path_index": 2,
+        "seconds": 0.10491403701598756,
+        "step": 35
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.584500253200531,
+        "id": "C_0315",
+        "loss": 0.27874523401260376,
+        "path_index": 2,
+        "seconds": 0.10695085898623802,
+        "step": 36
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9228069186210632,
+        "id": "C_0408",
+        "loss": 0.6163125038146973,
+        "path_index": 2,
+        "seconds": 0.1068812710000202,
+        "step": 37
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 1.1716413497924805,
+        "id": "C_0308",
+        "loss": 0.43282613158226013,
+        "path_index": 2,
+        "seconds": 0.10513543800334446,
+        "step": 38
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.5765009522438049,
+        "id": "C_0401",
+        "loss": 0.5453801155090332,
+        "path_index": 2,
+        "seconds": 0.10923576899222098,
+        "step": 39
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.6314975619316101,
+        "id": "C_0415",
+        "loss": 0.5456498861312866,
+        "path_index": 2,
+        "seconds": 0.10742824801127426,
+        "step": 40
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.4629112184047699,
+        "id": "C_0322",
+        "loss": 0.2731793522834778,
+        "path_index": 1,
+        "seconds": 0.10771591099910438,
+        "step": 41
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9995841979980469,
+        "id": "C_0308",
+        "loss": 0.36133432388305664,
+        "path_index": 1,
+        "seconds": 0.10967707901727408,
+        "step": 42
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5479006767272949,
+        "id": "C_0401",
+        "loss": 0.5129350423812866,
+        "path_index": 1,
+        "seconds": 0.10540990499430336,
+        "step": 43
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8898740410804749,
+        "id": "C_0422",
+        "loss": 0.34364792704582214,
+        "path_index": 1,
+        "seconds": 0.11068064699065872,
+        "step": 44
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.2388865947723389,
+        "id": "C_0315",
+        "loss": 0.4102581739425659,
+        "path_index": 1,
+        "seconds": 0.10947452200343832,
+        "step": 45
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.0130743980407715,
+        "id": "C_0415",
+        "loss": 0.43268948793411255,
+        "path_index": 1,
+        "seconds": 0.10623496599146165,
+        "step": 46
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1558600664138794,
+        "id": "C_0301",
+        "loss": 0.6107001900672913,
+        "path_index": 1,
+        "seconds": 0.10962211800506338,
+        "step": 47
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9726386070251465,
+        "id": "C_0408",
+        "loss": 0.5431594252586365,
+        "path_index": 1,
+        "seconds": 0.1153013740258757,
+        "step": 48
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.688614010810852,
+        "id": "C_0408",
+        "loss": 0.4726064205169678,
+        "path_index": 0,
+        "seconds": 0.10832506100996397,
+        "step": 49
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8782439231872559,
+        "id": "C_0308",
+        "loss": 0.32758018374443054,
+        "path_index": 0,
+        "seconds": 0.10845422101556323,
+        "step": 50
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.7609664797782898,
+        "id": "C_0422",
+        "loss": 0.23933780193328857,
+        "path_index": 0,
+        "seconds": 0.10626816199510358,
+        "step": 51
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.4070320427417755,
+        "id": "C_0322",
+        "loss": 0.2346707582473755,
+        "path_index": 0,
+        "seconds": 0.10877946697291918,
+        "step": 52
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8290388584136963,
+        "id": "C_0415",
+        "loss": 0.3387913703918457,
+        "path_index": 0,
+        "seconds": 0.10428463298012502,
+        "step": 53
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.7308329343795776,
+        "id": "C_0401",
+        "loss": 0.5266194343566895,
+        "path_index": 0,
+        "seconds": 0.10501834398019128,
+        "step": 54
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.3861413896083832,
+        "id": "C_0315",
+        "loss": 0.21679645776748657,
+        "path_index": 0,
+        "seconds": 0.10748766898177564,
+        "step": 55
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.9532885551452637,
+        "id": "C_0301",
+        "loss": 0.7115933299064636,
+        "path_index": 0,
+        "seconds": 0.10943807699368335,
+        "step": 56
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.3712095022201538,
+        "id": "C_0308",
+        "loss": 0.7941800355911255,
+        "path_index": 3,
+        "seconds": 0.10515749600017443,
+        "step": 57
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.9608256220817566,
+        "id": "C_0301",
+        "loss": 0.5493392944335938,
+        "path_index": 3,
+        "seconds": 0.11211315798573196,
+        "step": 58
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 1.3641138076782227,
+        "id": "C_0401",
+        "loss": 0.6841083765029907,
+        "path_index": 3,
+        "seconds": 0.10577426801319234,
+        "step": 59
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 1.0705206394195557,
+        "id": "C_0315",
+        "loss": 0.3811921179294586,
+        "path_index": 3,
+        "seconds": 0.10577459598425776,
+        "step": 60
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.538386344909668,
+        "id": "C_0322",
+        "loss": 0.2592914402484894,
+        "path_index": 3,
+        "seconds": 0.10497766599291936,
+        "step": 61
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.0407617092132568,
+        "id": "C_0415",
+        "loss": 0.4594977796077728,
+        "path_index": 3,
+        "seconds": 0.10727774898987263,
+        "step": 62
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1683517694473267,
+        "id": "C_0408",
+        "loss": 0.7291749119758606,
+        "path_index": 3,
+        "seconds": 0.10478988301474601,
+        "step": 63
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.003166675567627,
+        "id": "C_0422",
+        "loss": 0.2677723467350006,
+        "path_index": 3,
+        "seconds": 0.10497884100186639,
+        "step": 64
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1896575689315796,
+        "id": "C_0301",
+        "loss": 0.5815467834472656,
+        "path_index": 2,
+        "seconds": 0.10588451699004509,
+        "step": 65
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8110227584838867,
+        "id": "C_0308",
+        "loss": 0.26583483815193176,
+        "path_index": 2,
+        "seconds": 0.10564985100063495,
+        "step": 66
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8258605599403381,
+        "id": "C_0401",
+        "loss": 0.514738142490387,
+        "path_index": 2,
+        "seconds": 0.11474286302109249,
+        "step": 67
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9203346967697144,
+        "id": "C_0415",
+        "loss": 0.5130391120910645,
+        "path_index": 2,
+        "seconds": 0.1082698590180371,
+        "step": 68
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.2920318841934204,
+        "id": "C_0408",
+        "loss": 0.5892090797424316,
+        "path_index": 2,
+        "seconds": 0.11210760698304512,
+        "step": 69
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1780880689620972,
+        "id": "C_0422",
+        "loss": 0.4412154257297516,
+        "path_index": 2,
+        "seconds": 0.1065753189905081,
+        "step": 70
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.3993740975856781,
+        "id": "C_0315",
+        "loss": 0.22808416187763214,
+        "path_index": 2,
+        "seconds": 0.11384895700030029,
+        "step": 71
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.602689802646637,
+        "id": "C_0322",
+        "loss": 0.2580501139163971,
+        "path_index": 2,
+        "seconds": 0.10819256500690244,
+        "step": 72
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8507195711135864,
+        "id": "C_0401",
+        "loss": 0.5020582675933838,
+        "path_index": 1,
+        "seconds": 0.10889958098414354,
+        "step": 73
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.0878256559371948,
+        "id": "C_0301",
+        "loss": 0.49946245551109314,
+        "path_index": 1,
+        "seconds": 0.11085371000808664,
+        "step": 74
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9755111932754517,
+        "id": "C_0422",
+        "loss": 0.26116305589675903,
+        "path_index": 1,
+        "seconds": 0.11180224901181646,
+        "step": 75
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.3109204769134521,
+        "id": "C_0315",
+        "loss": 0.33647266030311584,
+        "path_index": 1,
+        "seconds": 0.1113189970201347,
+        "step": 76
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6076112985610962,
+        "id": "C_0322",
+        "loss": 0.2392788529396057,
+        "path_index": 1,
+        "seconds": 0.11062652597320266,
+        "step": 77
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.2868175506591797,
+        "id": "C_0415",
+        "loss": 0.3502672016620636,
+        "path_index": 1,
+        "seconds": 0.10628703399561346,
+        "step": 78
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.6804418563842773,
+        "id": "C_0308",
+        "loss": 0.2536783218383789,
+        "path_index": 1,
+        "seconds": 0.10232303701923229,
+        "step": 79
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 1.3327934741973877,
+        "id": "C_0408",
+        "loss": 0.5100955963134766,
+        "path_index": 1,
+        "seconds": 0.10600983200129122,
+        "step": 80
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.5890728235244751,
+        "id": "C_0315",
+        "loss": 0.22113549709320068,
+        "path_index": 0,
+        "seconds": 0.10528552700998262,
+        "step": 81
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8623369932174683,
+        "id": "C_0415",
+        "loss": 0.2825964093208313,
+        "path_index": 0,
+        "seconds": 0.10940978201688267,
+        "step": 82
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9389380812644958,
+        "id": "C_0401",
+        "loss": 0.5011957287788391,
+        "path_index": 0,
+        "seconds": 0.10963445500237867,
+        "step": 83
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.7755712270736694,
+        "id": "C_0308",
+        "loss": 0.26370304822921753,
+        "path_index": 0,
+        "seconds": 0.11173712799791247,
+        "step": 84
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.610909104347229,
+        "id": "C_0322",
+        "loss": 0.23439443111419678,
+        "path_index": 0,
+        "seconds": 0.10694060698733665,
+        "step": 85
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9353694319725037,
+        "id": "C_0408",
+        "loss": 0.44802379608154297,
+        "path_index": 0,
+        "seconds": 0.11050082900328562,
+        "step": 86
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 2.3413920402526855,
+        "id": "C_0301",
+        "loss": 0.607323944568634,
+        "path_index": 0,
+        "seconds": 0.11296890600351617,
+        "step": 87
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.7864301204681396,
+        "id": "C_0422",
+        "loss": 0.19430488348007202,
+        "path_index": 0,
+        "seconds": 0.11638438201043755,
+        "step": 88
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.6748018264770508,
+        "id": "C_0308",
+        "loss": 0.6921809911727905,
+        "path_index": 3,
+        "seconds": 0.11043416199390776,
+        "step": 89
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6407867074012756,
+        "id": "C_0322",
+        "loss": 0.2441815435886383,
+        "path_index": 3,
+        "seconds": 0.10750525598996319,
+        "step": 90
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.4220728874206543,
+        "id": "C_0301",
+        "loss": 0.48370686173439026,
+        "path_index": 3,
+        "seconds": 0.10550932300975546,
+        "step": 91
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.456474781036377,
+        "id": "C_0408",
+        "loss": 0.6748033761978149,
+        "path_index": 3,
+        "seconds": 0.1060854019888211,
+        "step": 92
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.3044381141662598,
+        "id": "C_0315",
+        "loss": 0.36791226267814636,
+        "path_index": 3,
+        "seconds": 0.10627158798160963,
+        "step": 93
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.0186066627502441,
+        "id": "C_0422",
+        "loss": 0.2228682041168213,
+        "path_index": 3,
+        "seconds": 0.11053857000661083,
+        "step": 94
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.7651140689849854,
+        "id": "C_0401",
+        "loss": 0.6395165324211121,
+        "path_index": 3,
+        "seconds": 0.1080134240037296,
+        "step": 95
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.2018275260925293,
+        "id": "C_0415",
+        "loss": 0.3943508267402649,
+        "path_index": 3,
+        "seconds": 0.10883779701543972,
+        "step": 96
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.3564441204071045,
+        "id": "C_0408",
+        "loss": 0.5275598764419556,
+        "path_index": 2,
+        "seconds": 0.10923099200590514,
+        "step": 97
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9368721842765808,
+        "id": "C_0401",
+        "loss": 0.48444870114326477,
+        "path_index": 2,
+        "seconds": 0.10690184400300495,
+        "step": 98
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.6811829805374146,
+        "id": "C_0308",
+        "loss": 0.22217532992362976,
+        "path_index": 2,
+        "seconds": 0.10697000799700618,
+        "step": 99
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 1.124629259109497,
+        "id": "C_0422",
+        "loss": 0.4055131673812866,
+        "path_index": 2,
+        "seconds": 0.1054602829972282,
+        "step": 100
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 1.5078507661819458,
+        "id": "C_0301",
+        "loss": 0.5241215229034424,
+        "path_index": 2,
+        "seconds": 0.10724541201489046,
+        "step": 101
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 1.0588570833206177,
+        "id": "C_0415",
+        "loss": 0.46500033140182495,
+        "path_index": 2,
+        "seconds": 0.10837802098831162,
+        "step": 102
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6865292191505432,
+        "id": "C_0322",
+        "loss": 0.23897309601306915,
+        "path_index": 2,
+        "seconds": 0.10545629501575604,
+        "step": 103
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.44950369000434875,
+        "id": "C_0315",
+        "loss": 0.22014567255973816,
+        "path_index": 2,
+        "seconds": 0.10731443998520263,
+        "step": 104
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1838176250457764,
+        "id": "C_0301",
+        "loss": 0.44739288091659546,
+        "path_index": 1,
+        "seconds": 0.11314635700546205,
+        "step": 105
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6639685034751892,
+        "id": "C_0322",
+        "loss": 0.22837913036346436,
+        "path_index": 1,
+        "seconds": 0.10941000300226733,
+        "step": 106
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.2578067779541016,
+        "id": "C_0408",
+        "loss": 0.43520861864089966,
+        "path_index": 1,
+        "seconds": 0.10802401299588382,
+        "step": 107
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5904911756515503,
+        "id": "C_0308",
+        "loss": 0.21908646821975708,
+        "path_index": 1,
+        "seconds": 0.10550245200283825,
+        "step": 108
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.4907654523849487,
+        "id": "C_0315",
+        "loss": 0.3390604257583618,
+        "path_index": 1,
+        "seconds": 0.10630658699665219,
+        "step": 109
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1872355937957764,
+        "id": "C_0415",
+        "loss": 0.28609681129455566,
+        "path_index": 1,
+        "seconds": 0.10256435899646021,
+        "step": 110
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9711523652076721,
+        "id": "C_0422",
+        "loss": 0.21526062488555908,
+        "path_index": 1,
+        "seconds": 0.10634042401215993,
+        "step": 111
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.0192302465438843,
+        "id": "C_0401",
+        "loss": 0.46728062629699707,
+        "path_index": 1,
+        "seconds": 0.10529804200632498,
+        "step": 112
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.0310159921646118,
+        "id": "C_0401",
+        "loss": 0.46415194869041443,
+        "path_index": 0,
+        "seconds": 0.10184025898342952,
+        "step": 113
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1048921346664429,
+        "id": "C_0408",
+        "loss": 0.40177828073501587,
+        "path_index": 0,
+        "seconds": 0.1034430600120686,
+        "step": 114
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.707673192024231,
+        "id": "C_0322",
+        "loss": 0.22781872749328613,
+        "path_index": 0,
+        "seconds": 0.10517479400732554,
+        "step": 115
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8712406754493713,
+        "id": "C_0422",
+        "loss": 0.17995990812778473,
+        "path_index": 0,
+        "seconds": 0.10822623400599696,
+        "step": 116
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8774214386940002,
+        "id": "C_0415",
+        "loss": 0.2395869493484497,
+        "path_index": 0,
+        "seconds": 0.10321846898295917,
+        "step": 117
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 2.54109263420105,
+        "id": "C_0301",
+        "loss": 0.5992841720581055,
+        "path_index": 0,
+        "seconds": 0.10327997501008213,
+        "step": 118
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8064190745353699,
+        "id": "C_0315",
+        "loss": 0.21888794004917145,
+        "path_index": 0,
+        "seconds": 0.10595896997256204,
+        "step": 119
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.7239648699760437,
+        "id": "C_0308",
+        "loss": 0.22162701189517975,
+        "path_index": 0,
+        "seconds": 0.10246513699530624,
+        "step": 120
+      }
+    ],
+    "frozen_unchanged": true,
+    "id": "REVERSE_61710",
+    "initial_hash": "c90838ea41fb576c429a8de9ae2fedaec20d1f918f7fd552c03af02404f102f4",
+    "optimizer_seconds": 13.008644960005768,
+    "peak_allocated_bytes": 617917440,
+    "peak_reserved_bytes": 627048448,
+    "seconds": 23.564435247011716,
+    "seed": 61710,
+    "status": "COMPLETE",
+    "trainable_parameters": 147456,
+    "trainable_tensors": 192,
+    "updates": 120
+  },
+  {
+    "arm": "SHUFFLE",
+    "buffers_unchanged": true,
+    "changed_tensors": 192,
+    "checkpoints": [
+      {
+        "at": 1789514880.898063,
+        "elapsed_seconds": 0.14735178998671472,
+        "path": ".cache/covariate_order_control_20260916/SHUFFLE_61710_0.pt",
+        "sha256": "53e2e685d50379a196a360bdc0548c94942135e8b0f8c5cda55496712fa3f8c7",
+        "step": 0,
+        "validation_primary": 0.1315677771081988
+      },
+      {
+        "at": 1789514888.6266909,
+        "elapsed_seconds": 7.87597969500348,
+        "path": ".cache/covariate_order_control_20260916/SHUFFLE_61710_40.pt",
+        "sha256": "d238434deffe214ca8775912f13d129f98019cdc8045f0e176a95e308e37f143",
+        "step": 40,
+        "validation_primary": 0.1331917354783108
+      },
+      {
+        "at": 1789514896.3177717,
+        "elapsed_seconds": 15.56706070099608,
+        "path": ".cache/covariate_order_control_20260916/SHUFFLE_61710_80.pt",
+        "sha256": "34d94d57b8410e5cc82d9d5742288046b646d0ed2830248e2fe4a26c60083740",
+        "step": 80,
+        "validation_primary": 0.1361696710732003
+      },
+      {
+        "at": 1789514904.0920832,
+        "elapsed_seconds": 23.341372046998003,
+        "path": ".cache/covariate_order_control_20260916/SHUFFLE_61710_120.pt",
+        "sha256": "a425d5ecfaeb75882196e2a7dafe229c531e6538befc5adc9ea820d76618182c",
+        "step": 120,
+        "validation_primary": 0.1246341457518167
+      }
+    ],
+    "curve": [
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.35932016372680664,
+        "id": "C_0401",
+        "loss": 0.5913005471229553,
+        "path_index": 2,
+        "seconds": 0.11271201699855737,
+        "step": 1
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8277486562728882,
+        "id": "C_0301",
+        "loss": 0.8612662553787231,
+        "path_index": 1,
+        "seconds": 0.10394585499307141,
+        "step": 2
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.1950504183769226,
+        "id": "C_0322",
+        "loss": 0.2516857981681824,
+        "path_index": 0,
+        "seconds": 0.10557614400750026,
+        "step": 3
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.7973269820213318,
+        "id": "C_0308",
+        "loss": 1.0763278007507324,
+        "path_index": 3,
+        "seconds": 0.10709593500359915,
+        "step": 4
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.49928051233291626,
+        "id": "C_0422",
+        "loss": 0.339303195476532,
+        "path_index": 0,
+        "seconds": 0.10477371799061075,
+        "step": 5
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.4811507761478424,
+        "id": "C_0415",
+        "loss": 0.4794953167438507,
+        "path_index": 1,
+        "seconds": 0.10439661197597161,
+        "step": 6
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5968009829521179,
+        "id": "C_0408",
+        "loss": 0.6269415020942688,
+        "path_index": 2,
+        "seconds": 0.10697346401866525,
+        "step": 7
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8157964944839478,
+        "id": "C_0315",
+        "loss": 0.5646583437919617,
+        "path_index": 1,
+        "seconds": 0.1039716649975162,
+        "step": 8
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.2788594365119934,
+        "id": "C_0322",
+        "loss": 0.3050602376461029,
+        "path_index": 3,
+        "seconds": 0.10596162397996522,
+        "step": 9
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9398938417434692,
+        "id": "C_0301",
+        "loss": 1.0120818614959717,
+        "path_index": 0,
+        "seconds": 0.10214177201851271,
+        "step": 10
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.37441590428352356,
+        "id": "C_0401",
+        "loss": 0.577282190322876,
+        "path_index": 2,
+        "seconds": 0.11224484298145398,
+        "step": 11
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.3514695167541504,
+        "id": "C_0408",
+        "loss": 0.47408416867256165,
+        "path_index": 0,
+        "seconds": 0.1108612600073684,
+        "step": 12
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.4086437523365021,
+        "id": "C_0415",
+        "loss": 0.5693375468254089,
+        "path_index": 2,
+        "seconds": 0.10820064999279566,
+        "step": 13
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.4690147340297699,
+        "id": "C_0422",
+        "loss": 0.330048531293869,
+        "path_index": 3,
+        "seconds": 0.1076164869882632,
+        "step": 14
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.8670501112937927,
+        "id": "C_0308",
+        "loss": 1.0352561473846436,
+        "path_index": 3,
+        "seconds": 0.10754194200853817,
+        "step": 15
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.8963039517402649,
+        "id": "C_0315",
+        "loss": 0.5397632122039795,
+        "path_index": 1,
+        "seconds": 0.10353697801474482,
+        "step": 16
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9141179919242859,
+        "id": "C_0315",
+        "loss": 0.5345773100852966,
+        "path_index": 1,
+        "seconds": 0.10772325799916871,
+        "step": 17
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.38209623098373413,
+        "id": "C_0408",
+        "loss": 0.4726310968399048,
+        "path_index": 0,
+        "seconds": 0.10521082900231704,
+        "step": 18
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.41959497332572937,
+        "id": "C_0401",
+        "loss": 0.5690704584121704,
+        "path_index": 2,
+        "seconds": 0.10774988299817778,
+        "step": 19
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5663172006607056,
+        "id": "C_0422",
+        "loss": 0.3147102892398834,
+        "path_index": 0,
+        "seconds": 0.11633409498608671,
+        "step": 20
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.23466235399246216,
+        "id": "C_0322",
+        "loss": 0.27600324153900146,
+        "path_index": 2,
+        "seconds": 0.10956592799630016,
+        "step": 21
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9813412427902222,
+        "id": "C_0308",
+        "loss": 0.5528725981712341,
+        "path_index": 2,
+        "seconds": 0.1082075519952923,
+        "step": 22
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6176804900169373,
+        "id": "C_0415",
+        "loss": 0.4600957930088043,
+        "path_index": 1,
+        "seconds": 0.10860342701198533,
+        "step": 23
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8788465261459351,
+        "id": "C_0301",
+        "loss": 0.7027978301048279,
+        "path_index": 3,
+        "seconds": 0.10406058398075402,
+        "step": 24
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5570614337921143,
+        "id": "C_0315",
+        "loss": 0.2766905426979065,
+        "path_index": 0,
+        "seconds": 0.10324695802410133,
+        "step": 25
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.38466018438339233,
+        "id": "C_0322",
+        "loss": 0.2920466363430023,
+        "path_index": 1,
+        "seconds": 0.10397997099789791,
+        "step": 26
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.7900955677032471,
+        "id": "C_0408",
+        "loss": 0.6235942840576172,
+        "path_index": 2,
+        "seconds": 0.10683061499730684,
+        "step": 27
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9501646757125854,
+        "id": "C_0301",
+        "loss": 0.6817350387573242,
+        "path_index": 3,
+        "seconds": 0.10692720199585892,
+        "step": 28
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8131299614906311,
+        "id": "C_0422",
+        "loss": 0.568243682384491,
+        "path_index": 2,
+        "seconds": 0.10578699901816435,
+        "step": 29
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6413599848747253,
+        "id": "C_0415",
+        "loss": 0.3866792321205139,
+        "path_index": 0,
+        "seconds": 0.10510409300331958,
+        "step": 30
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.4901197552680969,
+        "id": "C_0401",
+        "loss": 0.5272555351257324,
+        "path_index": 1,
+        "seconds": 0.10677640800713561,
+        "step": 31
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.102216362953186,
+        "id": "C_0308",
+        "loss": 0.9417361617088318,
+        "path_index": 3,
+        "seconds": 0.10844815999735147,
+        "step": 32
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.7574633359909058,
+        "id": "C_0422",
+        "loss": 0.38228729367256165,
+        "path_index": 1,
+        "seconds": 0.10395659299683757,
+        "step": 33
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.9474980235099792,
+        "id": "C_0301",
+        "loss": 0.6434780359268188,
+        "path_index": 3,
+        "seconds": 0.10889389898511581,
+        "step": 34
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.4010608494281769,
+        "id": "C_0322",
+        "loss": 0.28409624099731445,
+        "path_index": 3,
+        "seconds": 0.10557726299157366,
+        "step": 35
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.5162124037742615,
+        "id": "C_0315",
+        "loss": 0.27701038122177124,
+        "path_index": 2,
+        "seconds": 0.10491179197560996,
+        "step": 36
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.9598916172981262,
+        "id": "C_0408",
+        "loss": 0.6219318509101868,
+        "path_index": 2,
+        "seconds": 0.10876450900104828,
+        "step": 37
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.0458767414093018,
+        "id": "C_0308",
+        "loss": 0.3969998359680176,
+        "path_index": 1,
+        "seconds": 0.10525783899356611,
+        "step": 38
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.0426247119903564,
+        "id": "C_0401",
+        "loss": 0.7333011627197266,
+        "path_index": 3,
+        "seconds": 0.11060022897436284,
+        "step": 39
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8503779172897339,
+        "id": "C_0415",
+        "loss": 0.528152346611023,
+        "path_index": 3,
+        "seconds": 0.10480928799370304,
+        "step": 40
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.46654996275901794,
+        "id": "C_0322",
+        "loss": 0.2732740342617035,
+        "path_index": 1,
+        "seconds": 0.10496111700194888,
+        "step": 41
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.0561379194259644,
+        "id": "C_0308",
+        "loss": 0.36643555760383606,
+        "path_index": 1,
+        "seconds": 0.11106755398213863,
+        "step": 42
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6452178955078125,
+        "id": "C_0401",
+        "loss": 0.5418424010276794,
+        "path_index": 0,
+        "seconds": 0.10835301599581726,
+        "step": 43
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8823307156562805,
+        "id": "C_0422",
+        "loss": 0.3416619300842285,
+        "path_index": 1,
+        "seconds": 0.10653383401222527,
+        "step": 44
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.49409428238868713,
+        "id": "C_0315",
+        "loss": 0.2550674080848694,
+        "path_index": 2,
+        "seconds": 0.14831371800391935,
+        "step": 45
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.7892143726348877,
+        "id": "C_0415",
+        "loss": 0.35036736726760864,
+        "path_index": 0,
+        "seconds": 0.10246796999126673,
+        "step": 46
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.7410436868667603,
+        "id": "C_0301",
+        "loss": 0.7675861716270447,
+        "path_index": 0,
+        "seconds": 0.10577234599622898,
+        "step": 47
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.0372968912124634,
+        "id": "C_0408",
+        "loss": 0.5516850352287292,
+        "path_index": 1,
+        "seconds": 0.10646129300585017,
+        "step": 48
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.0155020952224731,
+        "id": "C_0408",
+        "loss": 0.739742636680603,
+        "path_index": 3,
+        "seconds": 0.10524477800936438,
+        "step": 49
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9123348593711853,
+        "id": "C_0308",
+        "loss": 0.3285678029060364,
+        "path_index": 0,
+        "seconds": 0.10320960299577564,
+        "step": 50
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.0995244979858398,
+        "id": "C_0422",
+        "loss": 0.48665890097618103,
+        "path_index": 2,
+        "seconds": 0.10372561600524932,
+        "step": 51
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5113895535469055,
+        "id": "C_0322",
+        "loss": 0.2632160484790802,
+        "path_index": 3,
+        "seconds": 0.10964357201009989,
+        "step": 52
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.003523826599121,
+        "id": "C_0415",
+        "loss": 0.48286673426628113,
+        "path_index": 3,
+        "seconds": 0.10467232100199908,
+        "step": 53
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.2733063697814941,
+        "id": "C_0401",
+        "loss": 0.6852158308029175,
+        "path_index": 3,
+        "seconds": 0.12149055799818598,
+        "step": 54
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.42461588978767395,
+        "id": "C_0315",
+        "loss": 0.21843627095222473,
+        "path_index": 0,
+        "seconds": 0.10888732501189224,
+        "step": 55
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 1.8778669834136963,
+        "id": "C_0301",
+        "loss": 0.698501706123352,
+        "path_index": 0,
+        "seconds": 0.10890631200163625,
+        "step": 56
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.7764753699302673,
+        "id": "C_0308",
+        "loss": 0.297565758228302,
+        "path_index": 0,
+        "seconds": 0.10245549702085555,
+        "step": 57
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.0955486297607422,
+        "id": "C_0301",
+        "loss": 0.557819128036499,
+        "path_index": 1,
+        "seconds": 0.1075832869973965,
+        "step": 58
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.7934665679931641,
+        "id": "C_0401",
+        "loss": 0.529038667678833,
+        "path_index": 0,
+        "seconds": 0.10505315300542861,
+        "step": 59
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1936352252960205,
+        "id": "C_0315",
+        "loss": 0.3239494264125824,
+        "path_index": 1,
+        "seconds": 0.10320142100681551,
+        "step": 60
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5213655829429626,
+        "id": "C_0322",
+        "loss": 0.24066366255283356,
+        "path_index": 0,
+        "seconds": 0.10731021701940335,
+        "step": 61
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8956305980682373,
+        "id": "C_0415",
+        "loss": 0.5246080160140991,
+        "path_index": 2,
+        "seconds": 0.11020906100748107,
+        "step": 62
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.3645564317703247,
+        "id": "C_0408",
+        "loss": 0.6041781902313232,
+        "path_index": 2,
+        "seconds": 0.10620682599255815,
+        "step": 63
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.2529139518737793,
+        "id": "C_0422",
+        "loss": 0.4430136978626251,
+        "path_index": 2,
+        "seconds": 0.10340595000889152,
+        "step": 64
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.2946081161499023,
+        "id": "C_0301",
+        "loss": 0.5969964265823364,
+        "path_index": 2,
+        "seconds": 0.10961479099933058,
+        "step": 65
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.7649416327476501,
+        "id": "C_0308",
+        "loss": 0.2614251375198364,
+        "path_index": 2,
+        "seconds": 0.10592170499148779,
+        "step": 66
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.859563946723938,
+        "id": "C_0401",
+        "loss": 0.5138894319534302,
+        "path_index": 1,
+        "seconds": 0.10347324999747798,
+        "step": 67
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.3157111406326294,
+        "id": "C_0415",
+        "loss": 0.3799038529396057,
+        "path_index": 1,
+        "seconds": 0.10694054499617778,
+        "step": 68
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.294256567955017,
+        "id": "C_0408",
+        "loss": 0.73688805103302,
+        "path_index": 3,
+        "seconds": 0.10677488398505375,
+        "step": 69
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9960500597953796,
+        "id": "C_0422",
+        "loss": 0.26427894830703735,
+        "path_index": 1,
+        "seconds": 0.10994547000154853,
+        "step": 70
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6475292444229126,
+        "id": "C_0315",
+        "loss": 0.2267363965511322,
+        "path_index": 0,
+        "seconds": 0.10516401700442657,
+        "step": 71
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6309980750083923,
+        "id": "C_0322",
+        "loss": 0.2648206055164337,
+        "path_index": 2,
+        "seconds": 0.11418961200979538,
+        "step": 72
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8680737614631653,
+        "id": "C_0401",
+        "loss": 0.506689190864563,
+        "path_index": 1,
+        "seconds": 0.10771475100773387,
+        "step": 73
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1343879699707031,
+        "id": "C_0301",
+        "loss": 0.5072504281997681,
+        "path_index": 1,
+        "seconds": 0.10858572900178842,
+        "step": 74
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8881379961967468,
+        "id": "C_0422",
+        "loss": 0.21203751862049103,
+        "path_index": 0,
+        "seconds": 0.10614253501989879,
+        "step": 75
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.5567339658737183,
+        "id": "C_0315",
+        "loss": 0.2316449135541916,
+        "path_index": 2,
+        "seconds": 0.10582706099376082,
+        "step": 76
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.6056782007217407,
+        "id": "C_0322",
+        "loss": 0.24100379645824432,
+        "path_index": 1,
+        "seconds": 0.11197267301031388,
+        "step": 77
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.9817240238189697,
+        "id": "C_0415",
+        "loss": 0.5076155662536621,
+        "path_index": 2,
+        "seconds": 0.1084144140186254,
+        "step": 78
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.698920488357544,
+        "id": "C_0308",
+        "loss": 0.2537595331668854,
+        "path_index": 1,
+        "seconds": 0.10956766601884738,
+        "step": 79
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.911315381526947,
+        "id": "C_0408",
+        "loss": 0.4615626633167267,
+        "path_index": 0,
+        "seconds": 0.10644613500335254,
+        "step": 80
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5672513246536255,
+        "id": "C_0315",
+        "loss": 0.2188338041305542,
+        "path_index": 0,
+        "seconds": 0.10934003000147641,
+        "step": 81
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1332460641860962,
+        "id": "C_0415",
+        "loss": 0.41768309473991394,
+        "path_index": 3,
+        "seconds": 0.10741459700511768,
+        "step": 82
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8898627758026123,
+        "id": "C_0401",
+        "loss": 0.5053105354309082,
+        "path_index": 2,
+        "seconds": 0.1084497070114594,
+        "step": 83
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.7350612282752991,
+        "id": "C_0308",
+        "loss": 0.24062508344650269,
+        "path_index": 2,
+        "seconds": 0.11439252700074576,
+        "step": 84
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5685542225837708,
+        "id": "C_0322",
+        "loss": 0.23468956351280212,
+        "path_index": 0,
+        "seconds": 0.10395131100085564,
+        "step": 85
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.318715214729309,
+        "id": "C_0408",
+        "loss": 0.5025416612625122,
+        "path_index": 1,
+        "seconds": 0.11254446499515325,
+        "step": 86
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1615536212921143,
+        "id": "C_0301",
+        "loss": 0.4830184578895569,
+        "path_index": 1,
+        "seconds": 0.1119485090021044,
+        "step": 87
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.7731943130493164,
+        "id": "C_0422",
+        "loss": 0.1938641220331192,
+        "path_index": 0,
+        "seconds": 0.1042224149859976,
+        "step": 88
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.7247964143753052,
+        "id": "C_0308",
+        "loss": 0.25147950649261475,
+        "path_index": 0,
+        "seconds": 0.10552292500506155,
+        "step": 89
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5570284128189087,
+        "id": "C_0322",
+        "loss": 0.22922363877296448,
+        "path_index": 0,
+        "seconds": 0.10594276699703187,
+        "step": 90
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 2.3182051181793213,
+        "id": "C_0301",
+        "loss": 0.5976220369338989,
+        "path_index": 0,
+        "seconds": 0.1093474579975009,
+        "step": 91
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9733768701553345,
+        "id": "C_0408",
+        "loss": 0.4346142113208771,
+        "path_index": 0,
+        "seconds": 0.10858124398509972,
+        "step": 92
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.3296732902526855,
+        "id": "C_0315",
+        "loss": 0.38257595896720886,
+        "path_index": 3,
+        "seconds": 0.10816051499568857,
+        "step": 93
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.0323485136032104,
+        "id": "C_0422",
+        "loss": 0.2327801138162613,
+        "path_index": 3,
+        "seconds": 0.10804816999007016,
+        "step": 94
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9175318479537964,
+        "id": "C_0401",
+        "loss": 0.48813265562057495,
+        "path_index": 1,
+        "seconds": 0.11042049300158396,
+        "step": 95
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 1.1028099060058594,
+        "id": "C_0415",
+        "loss": 0.3022380471229553,
+        "path_index": 1,
+        "seconds": 0.10378472501179203,
+        "step": 96
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 1.3363946676254272,
+        "id": "C_0408",
+        "loss": 0.6552203297615051,
+        "path_index": 3,
+        "seconds": 0.10582745500141755,
+        "step": 97
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.9896682500839233,
+        "id": "C_0401",
+        "loss": 0.4893483817577362,
+        "path_index": 0,
+        "seconds": 0.11265936601557769,
+        "step": 98
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.6651138663291931,
+        "id": "C_0308",
+        "loss": 0.23513206839561462,
+        "path_index": 0,
+        "seconds": 0.11458311500609852,
+        "step": 99
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.029316782951355,
+        "id": "C_0422",
+        "loss": 0.22190812230110168,
+        "path_index": 3,
+        "seconds": 0.10915054602082819,
+        "step": 100
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.636005163192749,
+        "id": "C_0301",
+        "loss": 0.5467595458030701,
+        "path_index": 2,
+        "seconds": 0.1227677830029279,
+        "step": 101
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.0354187488555908,
+        "id": "C_0415",
+        "loss": 0.4606793522834778,
+        "path_index": 2,
+        "seconds": 0.10956086200894788,
+        "step": 102
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6754777431488037,
+        "id": "C_0322",
+        "loss": 0.2431049346923828,
+        "path_index": 2,
+        "seconds": 0.10825295399990864,
+        "step": 103
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.397950291633606,
+        "id": "C_0315",
+        "loss": 0.3516871929168701,
+        "path_index": 3,
+        "seconds": 0.1103410969953984,
+        "step": 104
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.5595922470092773,
+        "id": "C_0301",
+        "loss": 0.5316249132156372,
+        "path_index": 2,
+        "seconds": 0.10757007700158283,
+        "step": 105
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6784850358963013,
+        "id": "C_0322",
+        "loss": 0.23891201615333557,
+        "path_index": 2,
+        "seconds": 0.10396896899328567,
+        "step": 106
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.23325514793396,
+        "id": "C_0408",
+        "loss": 0.4323428273200989,
+        "path_index": 1,
+        "seconds": 0.11036108300322667,
+        "step": 107
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5326867699623108,
+        "id": "C_0308",
+        "loss": 0.21478413045406342,
+        "path_index": 1,
+        "seconds": 0.11164801099221222,
+        "step": 108
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.3338578939437866,
+        "id": "C_0315",
+        "loss": 0.3258463740348816,
+        "path_index": 3,
+        "seconds": 0.10629345197230577,
+        "step": 109
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8882765769958496,
+        "id": "C_0415",
+        "loss": 0.2484886646270752,
+        "path_index": 0,
+        "seconds": 0.11002226499840617,
+        "step": 110
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.2212929725646973,
+        "id": "C_0422",
+        "loss": 0.4300787150859833,
+        "path_index": 2,
+        "seconds": 0.10630195800331421,
+        "step": 111
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9572303295135498,
+        "id": "C_0401",
+        "loss": 0.4599292576313019,
+        "path_index": 0,
+        "seconds": 0.10774271399714053,
+        "step": 112
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 2.11045503616333,
+        "id": "C_0401",
+        "loss": 0.6315807104110718,
+        "path_index": 3,
+        "seconds": 0.10837328797788359,
+        "step": 113
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.108128309249878,
+        "id": "C_0408",
+        "loss": 0.4032300114631653,
+        "path_index": 1,
+        "seconds": 0.11135580801055767,
+        "step": 114
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8256632089614868,
+        "id": "C_0322",
+        "loss": 0.2455325573682785,
+        "path_index": 1,
+        "seconds": 0.11214717201073654,
+        "step": 115
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.0898759365081787,
+        "id": "C_0422",
+        "loss": 0.23148852586746216,
+        "path_index": 1,
+        "seconds": 0.10760389399365522,
+        "step": 116
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.9974164962768555,
+        "id": "C_0415",
+        "loss": 0.24791443347930908,
+        "path_index": 0,
+        "seconds": 0.10543735898681916,
+        "step": 117
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 1.3196974992752075,
+        "id": "C_0301",
+        "loss": 0.4830942749977112,
+        "path_index": 2,
+        "seconds": 0.10667780201765709,
+        "step": 118
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.7672426700592041,
+        "id": "C_0315",
+        "loss": 0.23459762334823608,
+        "path_index": 2,
+        "seconds": 0.11606784301693551,
+        "step": 119
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.9297598004341125,
+        "id": "C_0308",
+        "loss": 0.22425886988639832,
+        "path_index": 2,
+        "seconds": 0.10675883901421912,
+        "step": 120
+      }
+    ],
+    "frozen_unchanged": true,
+    "id": "SHUFFLE_61710",
+    "initial_hash": "c90838ea41fb576c429a8de9ae2fedaec20d1f918f7fd552c03af02404f102f4",
+    "optimizer_seconds": 12.970255493069999,
+    "peak_allocated_bytes": 617917440,
+    "peak_reserved_bytes": 627048448,
+    "seconds": 23.343359088001307,
+    "seed": 61710,
+    "status": "COMPLETE",
+    "trainable_parameters": 147456,
+    "trainable_tensors": 192,
+    "updates": 120
+  },
+  {
+    "arm": "REVERSE",
+    "buffers_unchanged": true,
+    "changed_tensors": 192,
+    "checkpoints": [
+      {
+        "at": 1789514905.6315336,
+        "elapsed_seconds": 0.1452926220081281,
+        "path": ".cache/covariate_order_control_20260916/REVERSE_61711_0.pt",
+        "sha256": "87e128d238a9a98198af62fbcfc88e2410c958f666cc6ab58b5d605a13b1338a",
+        "step": 0,
+        "validation_primary": 0.1315677771081988
+      },
+      {
+        "at": 1789514913.4790955,
+        "elapsed_seconds": 7.992854492011247,
+        "path": ".cache/covariate_order_control_20260916/REVERSE_61711_40.pt",
+        "sha256": "be56ff1b1562413a72c210d0b37df318dd3a96227ac11ddd7fdc2a6c9c58705e",
+        "step": 40,
+        "validation_primary": 0.13423096383414568
+      },
+      {
+        "at": 1789514921.4768145,
+        "elapsed_seconds": 15.990573733026395,
+        "path": ".cache/covariate_order_control_20260916/REVERSE_61711_80.pt",
+        "sha256": "b706e524b3f31ae399d0e91605dfb2df75efd7d6becdf453f870425455b6a044",
+        "step": 80,
+        "validation_primary": 0.13654427314309844
+      },
+      {
+        "at": 1789514929.451884,
+        "elapsed_seconds": 23.965642977011157,
+        "path": ".cache/covariate_order_control_20260916/REVERSE_61711_120.pt",
+        "sha256": "c9b9051178cd64b93c95ecc6391d22e50d82f49a01fc08bdbe3222d24476a3eb",
+        "step": 120,
+        "validation_primary": 0.13233720703698307
+      }
+    ],
+    "curve": [
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.23744718730449677,
+        "id": "C_0322",
+        "loss": 0.28183117508888245,
+        "path_index": 2,
+        "seconds": 0.11016865700366907,
+        "step": 1
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8759509325027466,
+        "id": "C_0301",
+        "loss": 0.8093806505203247,
+        "path_index": 2,
+        "seconds": 0.10545440801070072,
+        "step": 2
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.4459100365638733,
+        "id": "C_0401",
+        "loss": 0.5905665159225464,
+        "path_index": 2,
+        "seconds": 0.10869346300023608,
+        "step": 3
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6621617674827576,
+        "id": "C_0408",
+        "loss": 0.6253262758255005,
+        "path_index": 2,
+        "seconds": 0.10426609899150208,
+        "step": 4
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.3925088942050934,
+        "id": "C_0415",
+        "loss": 0.5754923820495605,
+        "path_index": 2,
+        "seconds": 0.10486734000733122,
+        "step": 5
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.621637761592865,
+        "id": "C_0422",
+        "loss": 0.6045199632644653,
+        "path_index": 2,
+        "seconds": 0.10867585800588131,
+        "step": 6
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.0021246671676636,
+        "id": "C_0308",
+        "loss": 0.6195793151855469,
+        "path_index": 2,
+        "seconds": 0.11283416498918086,
+        "step": 7
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5882606506347656,
+        "id": "C_0315",
+        "loss": 0.35175928473472595,
+        "path_index": 2,
+        "seconds": 0.1088560390053317,
+        "step": 8
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.9201664328575134,
+        "id": "C_0315",
+        "loss": 0.5605955719947815,
+        "path_index": 1,
+        "seconds": 0.11360617098398507,
+        "step": 9
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.5573517680168152,
+        "id": "C_0408",
+        "loss": 0.5439367294311523,
+        "path_index": 1,
+        "seconds": 0.10987805901095271,
+        "step": 10
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.43523257970809937,
+        "id": "C_0401",
+        "loss": 0.5461634397506714,
+        "path_index": 1,
+        "seconds": 0.10781611199490726,
+        "step": 11
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.5491989850997925,
+        "id": "C_0422",
+        "loss": 0.4265381693840027,
+        "path_index": 1,
+        "seconds": 0.115990646998398,
+        "step": 12
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.34197112917900085,
+        "id": "C_0322",
+        "loss": 0.2957063913345337,
+        "path_index": 1,
+        "seconds": 0.10765259497566149,
+        "step": 13
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9989761114120483,
+        "id": "C_0308",
+        "loss": 0.5290995836257935,
+        "path_index": 1,
+        "seconds": 0.10545916101546027,
+        "step": 14
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6138760447502136,
+        "id": "C_0415",
+        "loss": 0.4784697890281677,
+        "path_index": 1,
+        "seconds": 0.10630557200056501,
+        "step": 15
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1229472160339355,
+        "id": "C_0301",
+        "loss": 0.79865562915802,
+        "path_index": 1,
+        "seconds": 0.11499122899840586,
+        "step": 16
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6026607155799866,
+        "id": "C_0315",
+        "loss": 0.29514947533607483,
+        "path_index": 0,
+        "seconds": 0.1137657180079259,
+        "step": 17
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.24720601737499237,
+        "id": "C_0322",
+        "loss": 0.24371376633644104,
+        "path_index": 0,
+        "seconds": 0.1056987940100953,
+        "step": 18
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.45951977372169495,
+        "id": "C_0408",
+        "loss": 0.4711788296699524,
+        "path_index": 0,
+        "seconds": 0.10499216601601802,
+        "step": 19
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.295195460319519,
+        "id": "C_0301",
+        "loss": 0.966669499874115,
+        "path_index": 0,
+        "seconds": 0.10357483199913986,
+        "step": 20
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5792293548583984,
+        "id": "C_0422",
+        "loss": 0.3165986239910126,
+        "path_index": 0,
+        "seconds": 0.10255555901676416,
+        "step": 21
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6029220223426819,
+        "id": "C_0415",
+        "loss": 0.40753602981567383,
+        "path_index": 0,
+        "seconds": 0.10279593500308692,
+        "step": 22
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.570199191570282,
+        "id": "C_0401",
+        "loss": 0.5636373162269592,
+        "path_index": 0,
+        "seconds": 0.10779643701971509,
+        "step": 23
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1180217266082764,
+        "id": "C_0308",
+        "loss": 0.4852876663208008,
+        "path_index": 0,
+        "seconds": 0.10635102199739777,
+        "step": 24
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5572852492332458,
+        "id": "C_0422",
+        "loss": 0.3176107406616211,
+        "path_index": 3,
+        "seconds": 0.10681816301075742,
+        "step": 25
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1024421453475952,
+        "id": "C_0301",
+        "loss": 0.669916570186615,
+        "path_index": 3,
+        "seconds": 0.10597950400551781,
+        "step": 26
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.4033152461051941,
+        "id": "C_0322",
+        "loss": 0.28372687101364136,
+        "path_index": 3,
+        "seconds": 0.10698915499961004,
+        "step": 27
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8014922738075256,
+        "id": "C_0315",
+        "loss": 0.42902082204818726,
+        "path_index": 3,
+        "seconds": 0.10406467600842007,
+        "step": 28
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.7845154404640198,
+        "id": "C_0408",
+        "loss": 0.7200256586074829,
+        "path_index": 3,
+        "seconds": 0.10933643198222853,
+        "step": 29
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 1.3055464029312134,
+        "id": "C_0308",
+        "loss": 0.9431078433990479,
+        "path_index": 3,
+        "seconds": 0.10656732501229271,
+        "step": 30
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 1.012782335281372,
+        "id": "C_0401",
+        "loss": 0.7444115877151489,
+        "path_index": 3,
+        "seconds": 0.10693006200017408,
+        "step": 31
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.7738711833953857,
+        "id": "C_0415",
+        "loss": 0.549140214920044,
+        "path_index": 3,
+        "seconds": 0.104203664988745,
+        "step": 32
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.32488593459129333,
+        "id": "C_0322",
+        "loss": 0.26320934295654297,
+        "path_index": 2,
+        "seconds": 0.10553203799645416,
+        "step": 33
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8206,
+        "gradient_norm": 1.3582583665847778,
+        "id": "C_0308",
+        "loss": 0.4399081766605377,
+        "path_index": 2,
+        "seconds": 0.12398014299105853,
+        "step": 34
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8117,
+        "gradient_norm": 0.6456273198127747,
+        "id": "C_0401",
+        "loss": 0.5523824691772461,
+        "path_index": 2,
+        "seconds": 0.12062910501845181,
+        "step": 35
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8103,
+        "gradient_norm": 0.9175759553909302,
+        "id": "C_0422",
+        "loss": 0.5307871699333191,
+        "path_index": 2,
+        "seconds": 0.1137843889882788,
+        "step": 36
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8095,
+        "gradient_norm": 0.5966959595680237,
+        "id": "C_0315",
+        "loss": 0.26553580164909363,
+        "path_index": 2,
+        "seconds": 0.12008317999425344,
+        "step": 37
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8097,
+        "gradient_norm": 0.6588535308837891,
+        "id": "C_0415",
+        "loss": 0.5481907725334167,
+        "path_index": 2,
+        "seconds": 0.10739230900071561,
+        "step": 38
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8097,
+        "gradient_norm": 0.9914870262145996,
+        "id": "C_0301",
+        "loss": 0.6309636831283569,
+        "path_index": 2,
+        "seconds": 0.11250773898791522,
+        "step": 39
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8097,
+        "gradient_norm": 1.0747472047805786,
+        "id": "C_0408",
+        "loss": 0.6067399978637695,
+        "path_index": 2,
+        "seconds": 0.11761864001164213,
+        "step": 40
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8098,
+        "gradient_norm": 0.9534687399864197,
+        "id": "C_0408",
+        "loss": 0.5368500351905823,
+        "path_index": 1,
+        "seconds": 0.10932433800189756,
+        "step": 41
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8098,
+        "gradient_norm": 1.0239832401275635,
+        "id": "C_0308",
+        "loss": 0.341180682182312,
+        "path_index": 1,
+        "seconds": 0.11202627400052734,
+        "step": 42
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8098,
+        "gradient_norm": 0.8620629906654358,
+        "id": "C_0422",
+        "loss": 0.3483079969882965,
+        "path_index": 1,
+        "seconds": 0.11364496502210386,
+        "step": 43
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8098,
+        "gradient_norm": 0.5247658491134644,
+        "id": "C_0322",
+        "loss": 0.26079559326171875,
+        "path_index": 1,
+        "seconds": 0.116005313990172,
+        "step": 44
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8099,
+        "gradient_norm": 1.079840898513794,
+        "id": "C_0415",
+        "loss": 0.4398210048675537,
+        "path_index": 1,
+        "seconds": 0.1146841139998287,
+        "step": 45
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8099,
+        "gradient_norm": 0.6839014887809753,
+        "id": "C_0401",
+        "loss": 0.5120805501937866,
+        "path_index": 1,
+        "seconds": 0.12931059297989123,
+        "step": 46
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8099,
+        "gradient_norm": 1.3138734102249146,
+        "id": "C_0315",
+        "loss": 0.38568800687789917,
+        "path_index": 1,
+        "seconds": 0.11150158999953419,
+        "step": 47
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8099,
+        "gradient_norm": 1.3300052881240845,
+        "id": "C_0301",
+        "loss": 0.5890924334526062,
+        "path_index": 1,
+        "seconds": 0.11304460500832647,
+        "step": 48
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8099,
+        "gradient_norm": 0.9617510437965393,
+        "id": "C_0308",
+        "loss": 0.32225215435028076,
+        "path_index": 0,
+        "seconds": 0.11438174502109177,
+        "step": 49
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8099,
+        "gradient_norm": 2.100691795349121,
+        "id": "C_0301",
+        "loss": 0.7389459013938904,
+        "path_index": 0,
+        "seconds": 0.11635310697602108,
+        "step": 50
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8099,
+        "gradient_norm": 0.8223851323127747,
+        "id": "C_0401",
+        "loss": 0.5287059545516968,
+        "path_index": 0,
+        "seconds": 0.11118785999133252,
+        "step": 51
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8097,
+        "gradient_norm": 0.3664363622665405,
+        "id": "C_0315",
+        "loss": 0.2134358286857605,
+        "path_index": 0,
+        "seconds": 0.11169725499348715,
+        "step": 52
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8096,
+        "gradient_norm": 0.45835480093955994,
+        "id": "C_0322",
+        "loss": 0.23686593770980835,
+        "path_index": 0,
+        "seconds": 0.11622130498290062,
+        "step": 53
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8096,
+        "gradient_norm": 0.8490388989448547,
+        "id": "C_0415",
+        "loss": 0.34194278717041016,
+        "path_index": 0,
+        "seconds": 0.11751138299587183,
+        "step": 54
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8096,
+        "gradient_norm": 0.8466582298278809,
+        "id": "C_0408",
+        "loss": 0.4670465886592865,
+        "path_index": 0,
+        "seconds": 0.11094110901467502,
+        "step": 55
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8096,
+        "gradient_norm": 0.8245513439178467,
+        "id": "C_0422",
+        "loss": 0.23817460238933563,
+        "path_index": 0,
+        "seconds": 0.11148787799174897,
+        "step": 56
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8096,
+        "gradient_norm": 1.1643049716949463,
+        "id": "C_0301",
+        "loss": 0.5367729663848877,
+        "path_index": 3,
+        "seconds": 0.11255677998997271,
+        "step": 57
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8096,
+        "gradient_norm": 1.6698404550552368,
+        "id": "C_0308",
+        "loss": 0.7558238506317139,
+        "path_index": 3,
+        "seconds": 0.11409061698941514,
+        "step": 58
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8096,
+        "gradient_norm": 1.4588160514831543,
+        "id": "C_0401",
+        "loss": 0.6695936322212219,
+        "path_index": 3,
+        "seconds": 0.11742351000430062,
+        "step": 59
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8097,
+        "gradient_norm": 1.1271345615386963,
+        "id": "C_0415",
+        "loss": 0.46745264530181885,
+        "path_index": 3,
+        "seconds": 0.11159717699047178,
+        "step": 60
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8097,
+        "gradient_norm": 1.3259360790252686,
+        "id": "C_0408",
+        "loss": 0.7247735261917114,
+        "path_index": 3,
+        "seconds": 0.12483348700334318,
+        "step": 61
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8097,
+        "gradient_norm": 0.9840384721755981,
+        "id": "C_0422",
+        "loss": 0.27270615100860596,
+        "path_index": 3,
+        "seconds": 0.11264282200136222,
+        "step": 62
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8097,
+        "gradient_norm": 1.1971265077590942,
+        "id": "C_0315",
+        "loss": 0.3728812336921692,
+        "path_index": 3,
+        "seconds": 0.11152010498335585,
+        "step": 63
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8097,
+        "gradient_norm": 0.6568002104759216,
+        "id": "C_0322",
+        "loss": 0.2538476884365082,
+        "path_index": 3,
+        "seconds": 0.11275279999244958,
+        "step": 64
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8098,
+        "gradient_norm": 0.9586188197135925,
+        "id": "C_0401",
+        "loss": 0.5162391662597656,
+        "path_index": 2,
+        "seconds": 0.10921018701628782,
+        "step": 65
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8098,
+        "gradient_norm": 1.4306919574737549,
+        "id": "C_0301",
+        "loss": 0.5721654891967773,
+        "path_index": 2,
+        "seconds": 0.11079948302358389,
+        "step": 66
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8098,
+        "gradient_norm": 1.1708377599716187,
+        "id": "C_0422",
+        "loss": 0.43917566537857056,
+        "path_index": 2,
+        "seconds": 0.10875375699833967,
+        "step": 67
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8098,
+        "gradient_norm": 0.4702054262161255,
+        "id": "C_0315",
+        "loss": 0.22406131029129028,
+        "path_index": 2,
+        "seconds": 0.10842257700278424,
+        "step": 68
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8098,
+        "gradient_norm": 0.7016599178314209,
+        "id": "C_0322",
+        "loss": 0.2555726170539856,
+        "path_index": 2,
+        "seconds": 0.1101585190044716,
+        "step": 69
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8099,
+        "gradient_norm": 1.089949131011963,
+        "id": "C_0415",
+        "loss": 0.5220308303833008,
+        "path_index": 2,
+        "seconds": 0.11164298900985159,
+        "step": 70
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8099,
+        "gradient_norm": 0.8081938028335571,
+        "id": "C_0308",
+        "loss": 0.2577624022960663,
+        "path_index": 2,
+        "seconds": 0.11118624900700524,
+        "step": 71
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8099,
+        "gradient_norm": 1.3966258764266968,
+        "id": "C_0408",
+        "loss": 0.5656297206878662,
+        "path_index": 2,
+        "seconds": 0.11158907299977727,
+        "step": 72
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8098,
+        "gradient_norm": 1.3419382572174072,
+        "id": "C_0315",
+        "loss": 0.3272918462753296,
+        "path_index": 1,
+        "seconds": 0.11360519600566477,
+        "step": 73
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8098,
+        "gradient_norm": 1.3235468864440918,
+        "id": "C_0415",
+        "loss": 0.36931735277175903,
+        "path_index": 1,
+        "seconds": 0.10713449897593819,
+        "step": 74
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8098,
+        "gradient_norm": 1.009134292602539,
+        "id": "C_0401",
+        "loss": 0.5032880306243896,
+        "path_index": 1,
+        "seconds": 0.11147082297247835,
+        "step": 75
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8098,
+        "gradient_norm": 0.7552691102027893,
+        "id": "C_0308",
+        "loss": 0.25706741213798523,
+        "path_index": 1,
+        "seconds": 0.10649330899468623,
+        "step": 76
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8098,
+        "gradient_norm": 0.6528016924858093,
+        "id": "C_0322",
+        "loss": 0.23753207921981812,
+        "path_index": 1,
+        "seconds": 0.10288750697509386,
+        "step": 77
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8098,
+        "gradient_norm": 1.4523742198944092,
+        "id": "C_0408",
+        "loss": 0.497188001871109,
+        "path_index": 1,
+        "seconds": 0.11000192601932213,
+        "step": 78
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8098,
+        "gradient_norm": 1.299214482307434,
+        "id": "C_0301",
+        "loss": 0.4847261905670166,
+        "path_index": 1,
+        "seconds": 0.10469121398637071,
+        "step": 79
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8106,
+        "gradient_norm": 1.0078037977218628,
+        "id": "C_0422",
+        "loss": 0.25658121705055237,
+        "path_index": 1,
+        "seconds": 0.10430774601991288,
+        "step": 80
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8106,
+        "gradient_norm": 0.8696171045303345,
+        "id": "C_0308",
+        "loss": 0.2656274437904358,
+        "path_index": 0,
+        "seconds": 0.10182662901934236,
+        "step": 81
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8106,
+        "gradient_norm": 0.6104922890663147,
+        "id": "C_0322",
+        "loss": 0.23735688626766205,
+        "path_index": 0,
+        "seconds": 0.10233510899706744,
+        "step": 82
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8106,
+        "gradient_norm": 2.2897191047668457,
+        "id": "C_0301",
+        "loss": 0.605891227722168,
+        "path_index": 0,
+        "seconds": 0.11058046700782143,
+        "step": 83
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8106,
+        "gradient_norm": 1.0733426809310913,
+        "id": "C_0408",
+        "loss": 0.4388410747051239,
+        "path_index": 0,
+        "seconds": 0.10335194200160913,
+        "step": 84
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8107,
+        "gradient_norm": 0.6441270709037781,
+        "id": "C_0315",
+        "loss": 0.22011005878448486,
+        "path_index": 0,
+        "seconds": 0.10744212099234574,
+        "step": 85
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8107,
+        "gradient_norm": 0.8203525543212891,
+        "id": "C_0422",
+        "loss": 0.20107272267341614,
+        "path_index": 0,
+        "seconds": 0.11027373900287785,
+        "step": 86
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8107,
+        "gradient_norm": 1.058250904083252,
+        "id": "C_0401",
+        "loss": 0.5009971857070923,
+        "path_index": 0,
+        "seconds": 0.11820052200346254,
+        "step": 87
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8107,
+        "gradient_norm": 0.8020743131637573,
+        "id": "C_0415",
+        "loss": 0.2772487998008728,
+        "path_index": 0,
+        "seconds": 0.10518324398435652,
+        "step": 88
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8107,
+        "gradient_norm": 1.6090878248214722,
+        "id": "C_0408",
+        "loss": 0.6622794270515442,
+        "path_index": 3,
+        "seconds": 0.10493802299606614,
+        "step": 89
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8107,
+        "gradient_norm": 1.8165291547775269,
+        "id": "C_0401",
+        "loss": 0.647284746170044,
+        "path_index": 3,
+        "seconds": 0.10729413898661733,
+        "step": 90
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8107,
+        "gradient_norm": 1.860823631286621,
+        "id": "C_0308",
+        "loss": 0.6733795404434204,
+        "path_index": 3,
+        "seconds": 0.11995893402490765,
+        "step": 91
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8107,
+        "gradient_norm": 0.9718677401542664,
+        "id": "C_0422",
+        "loss": 0.22727617621421814,
+        "path_index": 3,
+        "seconds": 0.11366692898445763,
+        "step": 92
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8107,
+        "gradient_norm": 1.7152807712554932,
+        "id": "C_0301",
+        "loss": 0.48195162415504456,
+        "path_index": 3,
+        "seconds": 0.13383477201568894,
+        "step": 93
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8107,
+        "gradient_norm": 1.225911259651184,
+        "id": "C_0415",
+        "loss": 0.4057331681251526,
+        "path_index": 3,
+        "seconds": 0.11287982400972396,
+        "step": 94
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8232,
+        "gradient_norm": 0.7171317934989929,
+        "id": "C_0322",
+        "loss": 0.24286755919456482,
+        "path_index": 3,
+        "seconds": 0.13684322399785742,
+        "step": 95
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.4516109228134155,
+        "id": "C_0315",
+        "loss": 0.36142897605895996,
+        "path_index": 3,
+        "seconds": 0.11131201800890267,
+        "step": 96
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.8312938213348389,
+        "id": "C_0301",
+        "loss": 0.5347081422805786,
+        "path_index": 2,
+        "seconds": 0.11731156197492965,
+        "step": 97
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.7561635971069336,
+        "id": "C_0322",
+        "loss": 0.24145352840423584,
+        "path_index": 2,
+        "seconds": 0.10767826298251748,
+        "step": 98
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.3711374998092651,
+        "id": "C_0408",
+        "loss": 0.4921107888221741,
+        "path_index": 2,
+        "seconds": 0.11586632300168276,
+        "step": 99
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8584416508674622,
+        "id": "C_0308",
+        "loss": 0.2228509485721588,
+        "path_index": 2,
+        "seconds": 0.11866413499228656,
+        "step": 100
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8416,
+        "gradient_norm": 0.47996050119400024,
+        "id": "C_0315",
+        "loss": 0.21596314013004303,
+        "path_index": 2,
+        "seconds": 0.11106584302615374,
+        "step": 101
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8207,
+        "gradient_norm": 1.0728362798690796,
+        "id": "C_0415",
+        "loss": 0.46966999769210815,
+        "path_index": 2,
+        "seconds": 0.11509393999585882,
+        "step": 102
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8415,
+        "gradient_norm": 1.2291561365127563,
+        "id": "C_0422",
+        "loss": 0.4042286276817322,
+        "path_index": 2,
+        "seconds": 0.13191677100257948,
+        "step": 103
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8207,
+        "gradient_norm": 1.1100834608078003,
+        "id": "C_0401",
+        "loss": 0.4804576635360718,
+        "path_index": 2,
+        "seconds": 0.10523202599142678,
+        "step": 104
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8428,
+        "gradient_norm": 1.0751826763153076,
+        "id": "C_0401",
+        "loss": 0.4747317135334015,
+        "path_index": 1,
+        "seconds": 0.10359110400895588,
+        "step": 105
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8205,
+        "gradient_norm": 1.304389238357544,
+        "id": "C_0408",
+        "loss": 0.4150157868862152,
+        "path_index": 1,
+        "seconds": 0.10392988097737543,
+        "step": 106
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8258,
+        "gradient_norm": 0.7277763485908508,
+        "id": "C_0322",
+        "loss": 0.22789102792739868,
+        "path_index": 1,
+        "seconds": 0.10816359502496198,
+        "step": 107
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8205,
+        "gradient_norm": 0.980950653553009,
+        "id": "C_0422",
+        "loss": 0.22638219594955444,
+        "path_index": 1,
+        "seconds": 0.10675967601127923,
+        "step": 108
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8260,
+        "gradient_norm": 1.1918612718582153,
+        "id": "C_0415",
+        "loss": 0.28856128454208374,
+        "path_index": 1,
+        "seconds": 0.10869829900912009,
+        "step": 109
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 1.423685073852539,
+        "id": "C_0301",
+        "loss": 0.43392953276634216,
+        "path_index": 1,
+        "seconds": 0.1083471890015062,
+        "step": 110
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 1.596891164779663,
+        "id": "C_0315",
+        "loss": 0.3400329053401947,
+        "path_index": 1,
+        "seconds": 0.10577106400160119,
+        "step": 111
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.7898936867713928,
+        "id": "C_0308",
+        "loss": 0.22142839431762695,
+        "path_index": 1,
+        "seconds": 0.10576130301342346,
+        "step": 112
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 1.1873915195465088,
+        "id": "C_0408",
+        "loss": 0.37859922647476196,
+        "path_index": 0,
+        "seconds": 0.10674139999900945,
+        "step": 113
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8690534830093384,
+        "id": "C_0315",
+        "loss": 0.22025850415229797,
+        "path_index": 0,
+        "seconds": 0.1055658060067799,
+        "step": 114
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 2.5917599201202393,
+        "id": "C_0301",
+        "loss": 0.5867290496826172,
+        "path_index": 0,
+        "seconds": 0.10793547000503168,
+        "step": 115
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.942431628704071,
+        "id": "C_0308",
+        "loss": 0.23027123510837555,
+        "path_index": 0,
+        "seconds": 0.10912605898920447,
+        "step": 116
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1505954265594482,
+        "id": "C_0401",
+        "loss": 0.45272594690322876,
+        "path_index": 0,
+        "seconds": 0.10393512097653002,
+        "step": 117
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8148595690727234,
+        "id": "C_0415",
+        "loss": 0.24104687571525574,
+        "path_index": 0,
+        "seconds": 0.10693356601404957,
+        "step": 118
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9260751008987427,
+        "id": "C_0422",
+        "loss": 0.1839923858642578,
+        "path_index": 0,
+        "seconds": 0.10212022499763407,
+        "step": 119
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6895673871040344,
+        "id": "C_0322",
+        "loss": 0.2315935492515564,
+        "path_index": 0,
+        "seconds": 0.10639084302238189,
+        "step": 120
+      }
+    ],
+    "frozen_unchanged": true,
+    "id": "REVERSE_61711",
+    "initial_hash": "d12b98ab4a2f2b0ee70635b9f51d157ae4c47080c13c3386f2491a2ebd9ed802",
+    "optimizer_seconds": 13.277079450053861,
+    "peak_allocated_bytes": 617917440,
+    "peak_reserved_bytes": 627048448,
+    "seconds": 23.96818493201863,
+    "seed": 61711,
+    "status": "COMPLETE",
+    "trainable_parameters": 147456,
+    "trainable_tensors": 192,
+    "updates": 120
+  },
+  {
+    "arm": "SHUFFLE",
+    "buffers_unchanged": true,
+    "changed_tensors": 192,
+    "checkpoints": [
+      {
+        "at": 1789514931.0627038,
+        "elapsed_seconds": 0.14501613099128008,
+        "path": ".cache/covariate_order_control_20260916/SHUFFLE_61711_0.pt",
+        "sha256": "a7aaf762e6ee1d0418e9affe53d5f031bc244de9da52749e7ab8f59ac8110769",
+        "step": 0,
+        "validation_primary": 0.1315677771081988
+      },
+      {
+        "at": 1789514938.7235138,
+        "elapsed_seconds": 7.805826088995673,
+        "path": ".cache/covariate_order_control_20260916/SHUFFLE_61711_40.pt",
+        "sha256": "10b5c101d263bd5c985fd2796dbeb2f217afcf4fdcc37f26a694aea0a050a999",
+        "step": 40,
+        "validation_primary": 0.1341186365544908
+      },
+      {
+        "at": 1789514946.6352725,
+        "elapsed_seconds": 15.71758478297852,
+        "path": ".cache/covariate_order_control_20260916/SHUFFLE_61711_80.pt",
+        "sha256": "ed76c8f282548d0854411d3b13b2810ae6765cd840c061b9eac020ea396a529f",
+        "step": 80,
+        "validation_primary": 0.13670931641260586
+      },
+      {
+        "at": 1789514954.376857,
+        "elapsed_seconds": 23.459169387992006,
+        "path": ".cache/covariate_order_control_20260916/SHUFFLE_61711_120.pt",
+        "sha256": "3b7073748ce999b4fa1c2f9e35320a569060afca501946a23378db5614a90b6b",
+        "step": 120,
+        "validation_primary": 0.13477446015293065
+      }
+    ],
+    "curve": [
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.23744718730449677,
+        "id": "C_0322",
+        "loss": 0.28183117508888245,
+        "path_index": 2,
+        "seconds": 0.11566889399546199,
+        "step": 1
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.8880468606948853,
+        "id": "C_0301",
+        "loss": 0.7798231840133667,
+        "path_index": 3,
+        "seconds": 0.10536507499637082,
+        "step": 2
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.44598013162612915,
+        "id": "C_0401",
+        "loss": 0.5906312465667725,
+        "path_index": 2,
+        "seconds": 0.10338587401201949,
+        "step": 3
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.538379430770874,
+        "id": "C_0408",
+        "loss": 0.5507676601409912,
+        "path_index": 1,
+        "seconds": 0.10546683400752954,
+        "step": 4
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.4909408688545227,
+        "id": "C_0415",
+        "loss": 0.4248366057872772,
+        "path_index": 0,
+        "seconds": 0.10799655201844871,
+        "step": 5
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6224058270454407,
+        "id": "C_0422",
+        "loss": 0.604508638381958,
+        "path_index": 2,
+        "seconds": 0.11031698199803941,
+        "step": 6
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9422991871833801,
+        "id": "C_0308",
+        "loss": 0.5604884624481201,
+        "path_index": 1,
+        "seconds": 0.10289086698321626,
+        "step": 7
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.626054584980011,
+        "id": "C_0315",
+        "loss": 0.3225458264350891,
+        "path_index": 0,
+        "seconds": 0.10508741499506868,
+        "step": 8
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6121773719787598,
+        "id": "C_0315",
+        "loss": 0.4664594531059265,
+        "path_index": 3,
+        "seconds": 0.10613428597571328,
+        "step": 9
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6462373733520508,
+        "id": "C_0408",
+        "loss": 0.6187823414802551,
+        "path_index": 2,
+        "seconds": 0.10459402401465923,
+        "step": 10
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.47326311469078064,
+        "id": "C_0401",
+        "loss": 0.5763830542564392,
+        "path_index": 0,
+        "seconds": 0.10763402699376456,
+        "step": 11
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.4711190164089203,
+        "id": "C_0422",
+        "loss": 0.33287346363067627,
+        "path_index": 3,
+        "seconds": 0.11053003801498562,
+        "step": 12
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.2407505065202713,
+        "id": "C_0322",
+        "loss": 0.27324971556663513,
+        "path_index": 2,
+        "seconds": 0.10364997398573905,
+        "step": 13
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.0017294883728027,
+        "id": "C_0308",
+        "loss": 0.5293680429458618,
+        "path_index": 1,
+        "seconds": 0.10448938599438407,
+        "step": 14
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5871178507804871,
+        "id": "C_0415",
+        "loss": 0.5781610012054443,
+        "path_index": 3,
+        "seconds": 0.10508646801463328,
+        "step": 15
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9605574607849121,
+        "id": "C_0301",
+        "loss": 0.7237163782119751,
+        "path_index": 3,
+        "seconds": 0.1057267340074759,
+        "step": 16
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6317964792251587,
+        "id": "C_0315",
+        "loss": 0.3285628855228424,
+        "path_index": 2,
+        "seconds": 0.10479937901254743,
+        "step": 17
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.2582220435142517,
+        "id": "C_0322",
+        "loss": 0.2708461880683899,
+        "path_index": 2,
+        "seconds": 0.10876376900705509,
+        "step": 18
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6849193572998047,
+        "id": "C_0408",
+        "loss": 0.5361202955245972,
+        "path_index": 1,
+        "seconds": 0.10381471100845374,
+        "step": 19
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9702853560447693,
+        "id": "C_0301",
+        "loss": 0.7317489385604858,
+        "path_index": 2,
+        "seconds": 0.10650797100970522,
+        "step": 20
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6302652955055237,
+        "id": "C_0422",
+        "loss": 0.4111122488975525,
+        "path_index": 1,
+        "seconds": 0.10862767201615497,
+        "step": 21
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.613670289516449,
+        "id": "C_0415",
+        "loss": 0.4069092869758606,
+        "path_index": 0,
+        "seconds": 0.10627661598846316,
+        "step": 22
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5738056898117065,
+        "id": "C_0401",
+        "loss": 0.5627259016036987,
+        "path_index": 0,
+        "seconds": 0.10300995098077692,
+        "step": 23
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 1.12024986743927,
+        "id": "C_0308",
+        "loss": 0.47170305252075195,
+        "path_index": 1,
+        "seconds": 0.10641472999122925,
+        "step": 24
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.6721665859222412,
+        "id": "C_0422",
+        "loss": 0.39994901418685913,
+        "path_index": 1,
+        "seconds": 0.10908821699558757,
+        "step": 25
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 1.114457368850708,
+        "id": "C_0301",
+        "loss": 0.6629114151000977,
+        "path_index": 3,
+        "seconds": 0.10288460701121949,
+        "step": 26
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.428465873003006,
+        "id": "C_0322",
+        "loss": 0.2815482020378113,
+        "path_index": 1,
+        "seconds": 0.1042549490230158,
+        "step": 27
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1969536542892456,
+        "id": "C_0315",
+        "loss": 0.48645567893981934,
+        "path_index": 1,
+        "seconds": 0.10316816199338064,
+        "step": 28
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5451986789703369,
+        "id": "C_0408",
+        "loss": 0.46960604190826416,
+        "path_index": 0,
+        "seconds": 0.11251258797710761,
+        "step": 29
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1406391859054565,
+        "id": "C_0308",
+        "loss": 0.439677357673645,
+        "path_index": 0,
+        "seconds": 0.10475515501457267,
+        "step": 30
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6050180792808533,
+        "id": "C_0401",
+        "loss": 0.556422233581543,
+        "path_index": 2,
+        "seconds": 0.10357602598378435,
+        "step": 31
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6023375988006592,
+        "id": "C_0415",
+        "loss": 0.5591452121734619,
+        "path_index": 2,
+        "seconds": 0.1136996459972579,
+        "step": 32
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.43978044390678406,
+        "id": "C_0322",
+        "loss": 0.273990273475647,
+        "path_index": 3,
+        "seconds": 0.11056913598440588,
+        "step": 33
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.299566626548767,
+        "id": "C_0308",
+        "loss": 0.43596160411834717,
+        "path_index": 2,
+        "seconds": 0.10452869400614873,
+        "step": 34
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6561398506164551,
+        "id": "C_0401",
+        "loss": 0.5488288402557373,
+        "path_index": 2,
+        "seconds": 0.11338539098505862,
+        "step": 35
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.7167618870735168,
+        "id": "C_0422",
+        "loss": 0.2783110737800598,
+        "path_index": 0,
+        "seconds": 0.10585388500476256,
+        "step": 36
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.908632218837738,
+        "id": "C_0315",
+        "loss": 0.39505860209465027,
+        "path_index": 3,
+        "seconds": 0.10424611700000241,
+        "step": 37
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.959974467754364,
+        "id": "C_0415",
+        "loss": 0.4560154378414154,
+        "path_index": 1,
+        "seconds": 0.11290537100285292,
+        "step": 38
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.3535276651382446,
+        "id": "C_0301",
+        "loss": 0.6319105625152588,
+        "path_index": 1,
+        "seconds": 0.10443922100239433,
+        "step": 39
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.9846880435943604,
+        "id": "C_0408",
+        "loss": 0.7248916625976562,
+        "path_index": 3,
+        "seconds": 0.10631323701818474,
+        "step": 40
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6835103631019592,
+        "id": "C_0408",
+        "loss": 0.468988299369812,
+        "path_index": 0,
+        "seconds": 0.11510679998900741,
+        "step": 41
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1951102018356323,
+        "id": "C_0308",
+        "loss": 0.36574047803878784,
+        "path_index": 2,
+        "seconds": 0.11629568401258439,
+        "step": 42
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8919776082038879,
+        "id": "C_0422",
+        "loss": 0.3433360457420349,
+        "path_index": 1,
+        "seconds": 0.11193878500489518,
+        "step": 43
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.37773555517196655,
+        "id": "C_0322",
+        "loss": 0.23384466767311096,
+        "path_index": 0,
+        "seconds": 0.10368755500530824,
+        "step": 44
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 1.1205052137374878,
+        "id": "C_0415",
+        "loss": 0.43279409408569336,
+        "path_index": 1,
+        "seconds": 0.12528456700965762,
+        "step": 45
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.6959583163261414,
+        "id": "C_0401",
+        "loss": 0.5100811719894409,
+        "path_index": 1,
+        "seconds": 0.10921564500313252,
+        "step": 46
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 1.3493708372116089,
+        "id": "C_0315",
+        "loss": 0.39246800541877747,
+        "path_index": 1,
+        "seconds": 0.10995183000341058,
+        "step": 47
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 1.320552945137024,
+        "id": "C_0301",
+        "loss": 0.5787394046783447,
+        "path_index": 1,
+        "seconds": 0.11048986698733643,
+        "step": 48
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 0.9136202931404114,
+        "id": "C_0308",
+        "loss": 0.3125563859939575,
+        "path_index": 0,
+        "seconds": 0.1097831369843334,
+        "step": 49
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 2.110069513320923,
+        "id": "C_0301",
+        "loss": 0.7318131327629089,
+        "path_index": 0,
+        "seconds": 0.11863313298090361,
+        "step": 50
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 1.3980168104171753,
+        "id": "C_0401",
+        "loss": 0.6999932527542114,
+        "path_index": 3,
+        "seconds": 0.10895183301181532,
+        "step": 51
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 1.0816487073898315,
+        "id": "C_0315",
+        "loss": 0.3613331913948059,
+        "path_index": 3,
+        "seconds": 0.10460452199913561,
+        "step": 52
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 0.5796508193016052,
+        "id": "C_0322",
+        "loss": 0.25881338119506836,
+        "path_index": 3,
+        "seconds": 0.10891190200345591,
+        "step": 53
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 0.9100874662399292,
+        "id": "C_0415",
+        "loss": 0.5380254983901978,
+        "path_index": 2,
+        "seconds": 0.11433296199538745,
+        "step": 54
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 1.2709544897079468,
+        "id": "C_0408",
+        "loss": 0.7259610891342163,
+        "path_index": 3,
+        "seconds": 0.10535905399592593,
+        "step": 55
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 0.8563536405563354,
+        "id": "C_0422",
+        "loss": 0.23659491539001465,
+        "path_index": 0,
+        "seconds": 0.10588535599526949,
+        "step": 56
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 2.120598077774048,
+        "id": "C_0301",
+        "loss": 0.6615637540817261,
+        "path_index": 0,
+        "seconds": 0.10876376298256218,
+        "step": 57
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 0.7342636585235596,
+        "id": "C_0308",
+        "loss": 0.2669406533241272,
+        "path_index": 1,
+        "seconds": 0.10641284100711346,
+        "step": 58
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 0.9221040606498718,
+        "id": "C_0401",
+        "loss": 0.5138219594955444,
+        "path_index": 2,
+        "seconds": 0.10702473000856116,
+        "step": 59
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 0.9498140215873718,
+        "id": "C_0415",
+        "loss": 0.527714192867279,
+        "path_index": 2,
+        "seconds": 0.1055352829862386,
+        "step": 60
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 1.4083198308944702,
+        "id": "C_0408",
+        "loss": 0.5934921503067017,
+        "path_index": 2,
+        "seconds": 0.10897616398870014,
+        "step": 61
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 1.0124905109405518,
+        "id": "C_0422",
+        "loss": 0.2741956114768982,
+        "path_index": 3,
+        "seconds": 0.10488846900989302,
+        "step": 62
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 0.5220969319343567,
+        "id": "C_0315",
+        "loss": 0.21780326962471008,
+        "path_index": 0,
+        "seconds": 0.10608732502441853,
+        "step": 63
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 0.5512163639068604,
+        "id": "C_0322",
+        "loss": 0.23813821375370026,
+        "path_index": 0,
+        "seconds": 0.11412695399485528,
+        "step": 64
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.5673404932022095,
+        "id": "C_0401",
+        "loss": 0.6662536859512329,
+        "path_index": 3,
+        "seconds": 0.11919558900990523,
+        "step": 65
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.7495051622390747,
+        "id": "C_0301",
+        "loss": 0.6070650219917297,
+        "path_index": 2,
+        "seconds": 0.10997628001496196,
+        "step": 66
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.7954298853874207,
+        "id": "C_0422",
+        "loss": 0.2130955457687378,
+        "path_index": 0,
+        "seconds": 0.11042923200875521,
+        "step": 67
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 0.46567755937576294,
+        "id": "C_0315",
+        "loss": 0.22514863312244415,
+        "path_index": 2,
+        "seconds": 0.11348589399131015,
+        "step": 68
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 0.6192893981933594,
+        "id": "C_0322",
+        "loss": 0.24213778972625732,
+        "path_index": 1,
+        "seconds": 0.10544386800029315,
+        "step": 69
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 1.2951241731643677,
+        "id": "C_0415",
+        "loss": 0.36905109882354736,
+        "path_index": 1,
+        "seconds": 0.10515934700379148,
+        "step": 70
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 0.7815415263175964,
+        "id": "C_0308",
+        "loss": 0.2628670036792755,
+        "path_index": 0,
+        "seconds": 0.11010478300158866,
+        "step": 71
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 1.4256336688995361,
+        "id": "C_0408",
+        "loss": 0.5203222036361694,
+        "path_index": 1,
+        "seconds": 0.11015314399264753,
+        "step": 72
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 1.4088736772537231,
+        "id": "C_0315",
+        "loss": 0.34247887134552,
+        "path_index": 1,
+        "seconds": 0.10547474899794906,
+        "step": 73
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 0.8451903462409973,
+        "id": "C_0415",
+        "loss": 0.295188307762146,
+        "path_index": 0,
+        "seconds": 0.10831555200275034,
+        "step": 74
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 1.0104931592941284,
+        "id": "C_0401",
+        "loss": 0.5150492191314697,
+        "path_index": 0,
+        "seconds": 0.10378573997877538,
+        "step": 75
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 0.7621321678161621,
+        "id": "C_0308",
+        "loss": 0.2371646910905838,
+        "path_index": 2,
+        "seconds": 0.10510663999593817,
+        "step": 76
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 0.6405304670333862,
+        "id": "C_0322",
+        "loss": 0.23523567616939545,
+        "path_index": 1,
+        "seconds": 0.10525616799714044,
+        "step": 77
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 1.4494342803955078,
+        "id": "C_0408",
+        "loss": 0.5612056255340576,
+        "path_index": 2,
+        "seconds": 0.10257225699024275,
+        "step": 78
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 1.3525736331939697,
+        "id": "C_0301",
+        "loss": 0.5023415684700012,
+        "path_index": 1,
+        "seconds": 0.11105847000726499,
+        "step": 79
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 1.20348060131073,
+        "id": "C_0422",
+        "loss": 0.44012439250946045,
+        "path_index": 2,
+        "seconds": 0.10567174799507484,
+        "step": 80
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 0.7954234480857849,
+        "id": "C_0308",
+        "loss": 0.24770592153072357,
+        "path_index": 0,
+        "seconds": 0.1089763009804301,
+        "step": 81
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 0.7168505787849426,
+        "id": "C_0322",
+        "loss": 0.25531142950057983,
+        "path_index": 2,
+        "seconds": 0.1022058610105887,
+        "step": 82
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 1.8039610385894775,
+        "id": "C_0301",
+        "loss": 0.5799099802970886,
+        "path_index": 2,
+        "seconds": 0.10706815699813887,
+        "step": 83
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.5124269723892212,
+        "id": "C_0408",
+        "loss": 0.6744378805160522,
+        "path_index": 3,
+        "seconds": 0.1102477750100661,
+        "step": 84
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5992759466171265,
+        "id": "C_0315",
+        "loss": 0.21686723828315735,
+        "path_index": 0,
+        "seconds": 0.10308765902300365,
+        "step": 85
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1722781658172607,
+        "id": "C_0422",
+        "loss": 0.4272088408470154,
+        "path_index": 2,
+        "seconds": 0.10755871899891645,
+        "step": 86
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 1.0171748399734497,
+        "id": "C_0401",
+        "loss": 0.5032740831375122,
+        "path_index": 1,
+        "seconds": 0.10936911997850984,
+        "step": 87
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 0.7829719185829163,
+        "id": "C_0415",
+        "loss": 0.2736424207687378,
+        "path_index": 0,
+        "seconds": 0.10349381799460389,
+        "step": 88
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 1.3357703685760498,
+        "id": "C_0408",
+        "loss": 0.47321581840515137,
+        "path_index": 1,
+        "seconds": 0.10738854800001718,
+        "step": 89
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 1.0467897653579712,
+        "id": "C_0401",
+        "loss": 0.5018342733383179,
+        "path_index": 0,
+        "seconds": 0.10355217900360003,
+        "step": 90
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 1.9066134691238403,
+        "id": "C_0308",
+        "loss": 0.715603232383728,
+        "path_index": 3,
+        "seconds": 0.10881335000158288,
+        "step": 91
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 0.9150261282920837,
+        "id": "C_0422",
+        "loss": 0.22157208621501923,
+        "path_index": 3,
+        "seconds": 0.10686367799644358,
+        "step": 92
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 2.3332395553588867,
+        "id": "C_0301",
+        "loss": 0.5972319841384888,
+        "path_index": 0,
+        "seconds": 0.10827086100471206,
+        "step": 93
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 1.2611223459243774,
+        "id": "C_0415",
+        "loss": 0.42064201831817627,
+        "path_index": 3,
+        "seconds": 0.1077355669985991,
+        "step": 94
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8429,
+        "gradient_norm": 0.6606086492538452,
+        "id": "C_0322",
+        "loss": 0.22570601105690002,
+        "path_index": 1,
+        "seconds": 0.10550061697722413,
+        "step": 95
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5465120077133179,
+        "id": "C_0315",
+        "loss": 0.21395772695541382,
+        "path_index": 0,
+        "seconds": 0.10556486499262974,
+        "step": 96
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 2.3427071571350098,
+        "id": "C_0301",
+        "loss": 0.5815528631210327,
+        "path_index": 0,
+        "seconds": 0.10770583699923009,
+        "step": 97
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6078199148178101,
+        "id": "C_0322",
+        "loss": 0.2339421659708023,
+        "path_index": 0,
+        "seconds": 0.10450380999827757,
+        "step": 98
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.3383662700653076,
+        "id": "C_0408",
+        "loss": 0.49549755454063416,
+        "path_index": 2,
+        "seconds": 0.10614843500661664,
+        "step": 99
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.9217472076416016,
+        "id": "C_0308",
+        "loss": 0.6817535758018494,
+        "path_index": 3,
+        "seconds": 0.10561320799752139,
+        "step": 100
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5347121357917786,
+        "id": "C_0315",
+        "loss": 0.2159632444381714,
+        "path_index": 2,
+        "seconds": 0.10900276000029407,
+        "step": 101
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.280137300491333,
+        "id": "C_0415",
+        "loss": 0.3990236520767212,
+        "path_index": 3,
+        "seconds": 0.1042557179753203,
+        "step": 102
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.952776312828064,
+        "id": "C_0422",
+        "loss": 0.2316417694091797,
+        "path_index": 1,
+        "seconds": 0.11742375901667401,
+        "step": 103
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.9260237216949463,
+        "id": "C_0401",
+        "loss": 0.6286489367485046,
+        "path_index": 3,
+        "seconds": 0.11075250801513903,
+        "step": 104
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.0941698551177979,
+        "id": "C_0401",
+        "loss": 0.4767104387283325,
+        "path_index": 1,
+        "seconds": 0.10616348599432968,
+        "step": 105
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 1.0870941877365112,
+        "id": "C_0408",
+        "loss": 0.40451812744140625,
+        "path_index": 0,
+        "seconds": 0.10683653800515458,
+        "step": 106
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.6579228639602661,
+        "id": "C_0322",
+        "loss": 0.23054386675357819,
+        "path_index": 0,
+        "seconds": 0.10230289801256731,
+        "step": 107
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8431,
+        "gradient_norm": 0.8136403560638428,
+        "id": "C_0422",
+        "loss": 0.17910397052764893,
+        "path_index": 0,
+        "seconds": 0.1076593839970883,
+        "step": 108
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1792594194412231,
+        "id": "C_0415",
+        "loss": 0.4618024230003357,
+        "path_index": 2,
+        "seconds": 0.10485747500206344,
+        "step": 109
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.6335062980651855,
+        "id": "C_0301",
+        "loss": 0.46171441674232483,
+        "path_index": 1,
+        "seconds": 0.10348613897804171,
+        "step": 110
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.5411981344223022,
+        "id": "C_0315",
+        "loss": 0.2131299078464508,
+        "path_index": 2,
+        "seconds": 0.10753030300838873,
+        "step": 111
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.9563281536102295,
+        "id": "C_0308",
+        "loss": 0.6199894547462463,
+        "path_index": 3,
+        "seconds": 0.11073279200354591,
+        "step": 112
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1503738164901733,
+        "id": "C_0408",
+        "loss": 0.38491156697273254,
+        "path_index": 0,
+        "seconds": 0.10419912199722603,
+        "step": 113
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.5680592060089111,
+        "id": "C_0315",
+        "loss": 0.32742443680763245,
+        "path_index": 1,
+        "seconds": 0.106403809011681,
+        "step": 114
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 2.4906110763549805,
+        "id": "C_0301",
+        "loss": 0.5662076473236084,
+        "path_index": 2,
+        "seconds": 0.1184105139982421,
+        "step": 115
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.6297874450683594,
+        "id": "C_0308",
+        "loss": 0.1997489333152771,
+        "path_index": 2,
+        "seconds": 0.1091604359971825,
+        "step": 116
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.1506844758987427,
+        "id": "C_0401",
+        "loss": 0.45440179109573364,
+        "path_index": 1,
+        "seconds": 0.10639807500410825,
+        "step": 117
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.3043498992919922,
+        "id": "C_0415",
+        "loss": 0.27306169271469116,
+        "path_index": 1,
+        "seconds": 0.10643686199910007,
+        "step": 118
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 1.3350517749786377,
+        "id": "C_0422",
+        "loss": 0.39509448409080505,
+        "path_index": 2,
+        "seconds": 0.1063945869973395,
+        "step": 119
+      },
+      {
+        "contaminated": false,
+        "free_mib": 8430,
+        "gradient_norm": 0.8797332048416138,
+        "id": "C_0322",
+        "loss": 0.24290785193443298,
+        "path_index": 3,
+        "seconds": 0.10309187899110839,
+        "step": 120
+      }
+    ],
+    "frozen_unchanged": true,
+    "id": "SHUFFLE_61711",
+    "initial_hash": "d12b98ab4a2f2b0ee70635b9f51d157ae4c47080c13c3386f2491a2ebd9ed802",
+    "optimizer_seconds": 12.92102366196923,
+    "peak_allocated_bytes": 617917440,
+    "peak_reserved_bytes": 627048448,
+    "seconds": 23.46238153098966,
+    "seed": 61711,
+    "status": "COMPLETE",
+    "trainable_parameters": 147456,
+    "trainable_tensors": 192,
+    "updates": 120
+  }
+]
