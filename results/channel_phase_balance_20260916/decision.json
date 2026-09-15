@@ -1,0 +1,39 @@
+{
+  "additional_fits_launched": 0,
+  "evidence": "EXPOSED_DEVELOPMENT_SAMPLING_CONTROL",
+  "execution": "COMPLETE",
+  "new_peft_topic": "NOT_ESTABLISHED",
+  "novelty": "KNOWN_SAMPLING_CONTROL",
+  "sources": [
+    {
+      "dataset": "electricity",
+      "matched_old_epoch": {
+        "balanced_mean_mse": 0.31235654671052826,
+        "both_seeds_improved": true,
+        "gain_percent": 33.45337054178523,
+        "old_mean_mse": 0.46937996597808124
+      },
+      "selected": {
+        "balanced_mean_mse": 0.2800100583520501,
+        "both_seeds_improved": true,
+        "gain_percent": 40.344693287330074,
+        "old_mean_mse": 0.46937996597808124
+      }
+    },
+    {
+      "dataset": "traffic",
+      "matched_old_epoch": {
+        "balanced_mean_mse": 0.5070642695540419,
+        "both_seeds_improved": true,
+        "gain_percent": 58.95419236229988,
+        "old_mean_mse": 1.235361901097809
+      },
+      "selected": {
+        "balanced_mean_mse": 0.38654770468387356,
+        "both_seeds_improved": true,
+        "gain_percent": 68.70975992214375,
+        "old_mean_mse": 1.235361901097809
+      }
+    }
+  ]
+}

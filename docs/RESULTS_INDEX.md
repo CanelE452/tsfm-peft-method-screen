@@ -3,6 +3,8 @@
 2026-09-16 기준. 표의 링크는 완료된 실행 또는 검토 결과다. 과거 FAIL/STOP은 당시 고정 실험의 판정으로 보존한다. 최신 재검토의 후속 연구 우선순위는 방법론 성공이나 새로운 실험 실행을 뜻하지 않는다.
 
 
+[확인] 시작 위상 균형 LoRA 대조4/4 fits·4632updates를 완료했다. 같은updates에서 전력33.453%/교통58.954%, 각V 선택에서는40.345%/68.710% 평균 MSE 개선을 확인했다. 알려진 sampling 변경의 개발 결과이며 새 PEFT 방법론 PASS는 아니다. [보고서](../results/channel_phase_balance_20260916/REPORT.md), [원인·목표 구분](../results/channel_phase_balance_20260916/INTERPRETATION.md).
+
 [확인] 최신 LH 잔차 분석은 신규학습0회로24시간대별 보정의 개발 이득(전력18~21%, 교통41~42%)과 train/V/E 예측 시작 위상 불일치를 확인했다. 추가 온라인 정답을 쓰는 통계 대조이며 독립 PEFT PASS가 아니다. [보고서](../results/channel_residual_evidence_20260916/REPORT.md), [원인·선행 검토](../results/channel_residual_evidence_20260916/INTERPRETATION.md).
 
 [확인] 최신 표현 보존 진단은 신규4 fits·2030updates를 완료했다. 알려진 ReZero 대조가 기존 SHARED보다 네 조건 모두 좋았지만, 어느 원천에서도 두 seed 모두 LH를 넘지는 못했다. 재사용 개발 자료의 원인 진단이며 새 방법론 PASS가 아니다. [한국어 보고서](../results/channel_identity_diagnostic_20260916/REPORT.md), [선행·연구 검토](../results/channel_identity_diagnostic_20260916/RESEARCH_REVIEW.md).
@@ -16,6 +18,7 @@
 
 | 완료 작업 | 결과 | 검증 기록 |
 | --- | --- | --- |
+| 시작 위상 균형 LoRA: 4/4 fits·4632updates, 두 원천·두 seed 개선 | [한국어 REPORT](../results/channel_phase_balance_20260916/REPORT.md), [같은updates·선택 원점수](../results/channel_phase_balance_20260916/comparisons.csv) | [99개 예측 원점수·4개 checkpoint 검산](../results/channel_phase_balance_20260916/verification.json), [추가 정답 시점0](../results/channel_phase_balance_20260916/target_exposure_audit.json) |
 | LH 잔차·시작 위상 감사: 신규학습0, 사후 개발 근거 | [한국어 REPORT](../results/channel_residual_evidence_20260916/REPORT.md), [판단 수정](../results/channel_residual_evidence_20260916/INTERPRETATION.md) | [32개 MSE·48개 인과성 검사](../results/channel_residual_evidence_20260916/verification.json), [시작 위상 manifest 감사](../results/channel_residual_evidence_20260916/phase_coverage_audit.json) |
 | 표현 보존 채널 진단: 4/4 fits·2030updates, 알려진 대조의 개발 신호 | [한국어 REPORT](../results/channel_identity_diagnostic_20260916/REPORT.md), [원점수·비교](../results/channel_identity_diagnostic_20260916/comparisons.csv) | [62개 예측의 MSE/MAE·4개 checkpoint 검산](../results/channel_identity_diagnostic_20260916/verification.json), [공개 모듈 구조 검사](../results/channel_identity_diagnostic_20260916/structural_probe.json) |
 | 짧은 이력 PEFT 직접 비교: 120/120 fits·19680updates, NO_METHOD_TOPIC_THIS_RUN | [한국어 REPORT](../results/building_peft_topic_decision_20260916/REPORT.md), [최종 결정](../results/building_peft_topic_decision_20260916/FINAL_DECISION.md), [추가 가치 해석](../results/building_peft_topic_decision_20260916/INTERPRETATION.md) | [3300개 원점수 검산](../results/building_peft_topic_decision_20260916/independent_cpu_verification.json), [600개 체크포인트·5100예측 복원](../results/building_peft_topic_decision_20260916/independent_gpu_verification.json), [후속 연결 완료](../results/building_peft_topic_decision_20260916/followup_connection.json) |
