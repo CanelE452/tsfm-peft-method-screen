@@ -3,6 +3,8 @@
 2026-09-16 기준. 표의 링크는 완료된 실행 또는 검토 결과다. 과거 FAIL/STOP은 당시 고정 실험의 판정으로 보존한다. 최신 재검토의 후속 연구 우선순위는 방법론 성공이나 새로운 실험 실행을 뜻하지 않는다.
 
 
+[확인] Attention prior 후속 감사는 신규학습0회로 LiSA의 공식 가산 보정 경로와 Tiny-Attention Adapter를 비교하고, 70개 공통 V 기록을 점검했다. 단일-head log-prior 보정의 연산 동치와 multi-head 확률 평균의 비동치를 확인했다. 단순 head 변형을 새 주제로 바로 학습할 근거는 부족하다. [한국어 보고서](../research/attention_prior_novelty_audit_20260916/REPORT.md).
+
 [확인] 동결 attention prior 후보와 같은 용량 SIDE의 8/8fits·9143updates 및 평가를 완료했다. PRIOR는 SIDE 대비 평균 MSE를 전력1.007%·교통1.423% 개선했지만 두 seed의 방향이 달랐다. LoRA 대비 전력0.166% 개선/교통3.668% 악화, 학습 peak allocated 약60% 절감이다. 사전 개발 조건 미충족이며 독립 PASS·새 방법론 주제는 미확보다. [최종 판단](../results/channel_attention_prior_20260916/FINAL_DECISION.md).
 
 [확인] 저장 LoRA4개에서 Q/K·V 유지/제거의16개 V 예측을 신규학습0회로 완료했다. 양쪽 제거 모두 악화하고 V 제거 비용이 더 컸다. 시간 관계만의 적응을 정답으로 선택할 근거는 없으며, 공동 적응한 checkpoint의 제거 진단이라는 한계가 있다. [한국어 보고서](../results/lora_projection_diagnostic_20260916/REPORT.md).
@@ -28,6 +30,7 @@
 
 | 완료 작업 | 결과 | 검증 기록 |
 | --- | --- | --- |
+| Attention prior 선행·학습량 감사:0fits, 가까운 기존 연산 확인 | [한국어 REPORT](../research/attention_prior_novelty_audit_20260916/REPORT.md), [공통 V 비교](../research/attention_prior_novelty_audit_20260916/validation_summary.csv) | [수식·gradient 검산](../research/attention_prior_novelty_audit_20260916/algebra.json), [입력·기존 결과 보존](../research/attention_prior_novelty_audit_20260916/verification.json) |
 | 동결 attention prior:8/8fits·9143updates, 평균 양성·seed 일관성 미확보 | [한국어 REPORT](../results/channel_attention_prior_20260916/REPORT.md), [원점수](../results/channel_attention_prior_20260916/macro_scores.csv), [구성요소 해석](../results/channel_attention_prior_20260916/INTERPRETATION.md) | [200개 예측·8개 재생 검산](../results/channel_attention_prior_20260916/verification.json), [사전 프로토콜](../results/channel_attention_prior_20260916/PROTOCOL.md) |
 | LoRA projection 진단:0fits·16개 V 예측, Q/K와V 공동 의존 | [한국어 REPORT](../results/lora_projection_diagnostic_20260916/REPORT.md), [원점수](../results/lora_projection_diagnostic_20260916/macro_scores.csv), [구성요소 분해](../results/lora_projection_diagnostic_20260916/effects.csv) | [16개 독립 검산·4개exact재생](../results/lora_projection_diagnostic_20260916/verification.json), [사전 프로토콜](../results/lora_projection_diagnostic_20260916/PROTOCOL.md) |
 | 동일 용량 대조:4/4fits·4632updates, LoRA 대비 정확도·메모리 절충 | [한국어 REPORT](../results/channel_capacity_match_20260916/REPORT.md), [원점수](../results/channel_capacity_match_20260916/macro_comparisons.csv), [다음 연구 질문](../results/channel_capacity_match_20260916/INTERPRETATION.md) | [113개 예측·4개 checkpoint 검산](../results/channel_capacity_match_20260916/verification.json), [실행정책 재검산](../results/channel_capacity_match_20260916/completion_audit.json) |
