@@ -18,7 +18,7 @@ def main():
             assert math.isclose(cross+energy,change,abs_tol=1e-12,rel_tol=1e-12)
             rows.append(dict(dataset=r['dataset'],seed=r['seed'],baseline=arm,prediction_disagreement_rms=math.sqrt(energy),disagreement_mse=energy,error_cross_term=cross,mse_change=change))
     with (OUT/'prediction_disagreement.csv').open('w') as f:
-        w=csv.DictWriter(f,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
+        w=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator='\n');w.writeheader();w.writerows(rows)
     (OUT/'diagnostic_verification.json').write_text(json.dumps(dict(source_sha256=sha(Path(__file__)),prediction_pairs=len(rows),all_mse_change_identities_verified=True,additional_fits=0,additional_inference=0,scope='Already produced selected E caches; posthoc diagnostic, not a deployment correction.'),indent=2)+'\n')
     print(json.dumps(rows),flush=True)
 if __name__=='__main__':main()

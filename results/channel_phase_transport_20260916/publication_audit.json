@@ -2,12 +2,12 @@
   "files": {
     "experiments/channel_phase_transport_20260916/checks.py": "1897ac68b5aa05f6c613f0ad0ba35143e5834f72303b5d7ab5f19613ae2d5a88",
     "experiments/channel_phase_transport_20260916/model.py": "fd668c1a23908895a4965993c1d47c4e79dc70d8dd4bce01b89bee0a168740d4",
-    "experiments/channel_phase_transport_20260916/diagnose.py": "f04a523419bd8fd3d754bff5245e9e65d3b99a856ea78af54df8330ba13dfbda",
+    "experiments/channel_phase_transport_20260916/diagnose.py": "eccb701a43ca6866db7df812e2238ab5dc6f91ed5f1658f4e943517cb126c6ec",
     "experiments/channel_phase_transport_20260916/run.py": "fd6da3abd012a9b0e9d9d28c44b0e6ce0bc5c42205495f2619cf6a96be7e10b7",
     "experiments/channel_phase_transport_20260916/report.py": "49f35c1ef787234e3490b7141d58cb580d6213da970f49dc68d8d9f90d9346f0",
     "experiments/channel_phase_transport_20260916/probe.py": "c83623ba0412c8db5928ea68383f0eaa42cdb04a1f0d66ae46e21b6f637b9a6e",
     "results/channel_phase_transport_20260916/evaluation.json": "64eda9f0690be257d80c54a02693db01ddfec8ffdcda9ff16725dc44bba2c2f2",
-    "results/channel_phase_transport_20260916/prediction_disagreement.csv": "e5eb5e3444971f8f692288c34bb94ae68d17537b7b527e901a96ab0411de23e1",
+    "results/channel_phase_transport_20260916/prediction_disagreement.csv": "68d13f3374b2eb872eec2e6087d1a8c396fdc37df92690f3b7e5105324be2111",
     "results/channel_phase_transport_20260916/04_electricity_41001_UNIFORM_steps.json": "b47dc44f4ea4d43977e5cccfa6d175a5dd8a0f07f7d03a0c9a53bf640b2f4a73",
     "results/channel_phase_transport_20260916/finite_diagnostic_wall.json": "35197fd030ff3a4eecfd23569beaba4d3bc510cdb925a0022e37c534b2c4e154",
     "results/channel_phase_transport_20260916/10_traffic_41001_UNIFORM_changes.json": "a1fc10aee160c00173df64da64c52d79dac43c9b3cffd4b8103a7e3fafcb05c3",
@@ -45,7 +45,7 @@
     "results/channel_phase_transport_20260916/RESEARCH_REVIEW.md": "a8eb5286432d586deb0cf349a3de0cb4e66741eba1962b6421af179f2e259cea",
     "results/channel_phase_transport_20260916/REPORT.md": "e0546c3f60449671131a366f4a711e8c08929129a74e34325e4977ce66776195",
     "results/channel_phase_transport_20260916/trajectory.json": "ed2ec1e1783c68894d913b5d0aac9f6d5c5392344ffde0b07d812e10204add8b",
-    "results/channel_phase_transport_20260916/diagnostic_verification.json": "dc04ce0b4dcd065c48e8df9535042bb1d6f4621f7dc0befaa9acab238173b286",
+    "results/channel_phase_transport_20260916/diagnostic_verification.json": "a90f08ebe144b5a99ddac7c7637e8f5b51619fabcae207a5bb6d49e80ac5d44a",
     "results/channel_phase_transport_20260916/residual_components.csv": "06d25898388eacaa447b67ed4573a336d714c71b7bca9d54e166968cc23ee96d",
     "results/channel_phase_transport_20260916/08_traffic_41000_CONDITIONED_steps.json": "1610f98900ee6c6a7149bcb9a67ac8b5848356bf6a403688fa85b5f3fae8b386",
     "results/channel_phase_transport_20260916/parameter_inventory.json": "f1e734369068a2fcd48e3cf023d5db7283eeb4232b0569dca63877b0982b1f01",
@@ -70,5 +70,6 @@
   "training_seal_preserved": true,
   "report_generator_sha256": "49f35c1ef787234e3490b7141d58cb580d6213da970f49dc68d8d9f90d9346f0",
   "final_report_sha256": "e0546c3f60449671131a366f4a711e8c08929129a74e34325e4977ce66776195",
-  "note": "Final decision/interpretation links appended after report generation. Local raw data, weights and prediction arrays excluded from publication. No additional fits."
+  "note": "Final decision/interpretation links appended after report generation. Local raw data, weights and prediction arrays excluded from publication. No additional fits.",
+  "format_only_fix": "Diagnostic CSV line endings normalized before push; numerical results unchanged."
 }
