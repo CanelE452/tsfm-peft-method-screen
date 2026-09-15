@@ -1,0 +1,32 @@
+{
+  "base_commit": "9051d03cebe23ae35d9689e7af576c63c4d5edd5",
+  "branch": "main",
+  "dirty": "?? experiments/\n?? research/peft_rank12_20260915/\n",
+  "disk": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme1n1p2  1.8T  1.5T  268G  85% /\n",
+  "duplicate_study": false,
+  "head": "a6998ffd0637a2c8576dbfa4dd73382ed07be44d",
+  "historical_files": 1498,
+  "previous_C": {
+    "check_update_attempts": 24,
+    "check_updates": 24,
+    "cpu_toy_optimizer_updates": 30,
+    "current_fit": "23_traffic_40000_BASIS4",
+    "fit_attempts": 24,
+    "fits_completed": 24,
+    "status": "COMPLETE",
+    "training_updates": 24576
+  },
+  "previous_Q": {
+    "A_update_attempts": 0,
+    "A_updates": 0,
+    "B_fit_attempts": 0,
+    "B_fits_completed": 0,
+    "B_updates": 0,
+    "numeric_update_attempts": 180,
+    "numeric_updates": 180,
+    "status": "INCONCLUSIVE_NUMERICS_V2"
+  },
+  "protocol_sha256": "a9d842bd3b31b3e68958c35ad2064b9bae7c4c196ba6e4c2fee95a26fcd288f4",
+  "reason": "R1 new pairs and RMS contract; R2 L96 C32 new budget/factor arms, initialization, split .7/.8, BF16 and epoch recipe differ from completed L512 C64 FP32 study.",
+  "rustdesk_exception": "User explicitly approved RustDesk only in prior turn; persists"
+}

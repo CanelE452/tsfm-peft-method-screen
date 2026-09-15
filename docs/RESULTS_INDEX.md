@@ -4,6 +4,8 @@
 
 최신 Q/C 재개 실행은 종료됐다. Q 수치 진단180 updates, C24 fits와 최종 평가·검산을 완료했으며 자동 후속 학습은 없다.
 
+진행 중: [R1/R2 새 고정 계약](../research/peft_rank12_20260915/LIVE_PROGRESS.md). 이전64채널 결과를 보존한32채널·동일 예산 비교이며 완료 결과와 구분한다.
+
 | 완료 작업 | 결과 | 검증 기록 |
 | --- | --- | --- |
 | Q/C 승인 재개 완료: Q 수치 중단180 updates, C24/24 fits·24,576 updates; 경량화 신호 관측·계수 이득 미충족 | [통합 한국어 REPORT](../results/priority12_resume_20260915/REPORT.md), [Q 진단](../results/query_budget_numeric_v2_resume_20260915/NUMERIC_RESULT.md), [C 원점수](../results/channel_basis_pilot_resume_20260915/metrics.csv) | [완료 검증](../results/priority12_resume_20260915/completion_verification.json), [172개 예측 검산](../results/channel_basis_pilot_resume_20260915/independent_verification.json) |

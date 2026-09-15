@@ -1,0 +1,19 @@
+{
+  "R1": {
+    "environment": ".venv",
+    "tests_passed": 1,
+    "seconds": 2.54,
+    "toy_optimizer_updates": 4
+  },
+  "R2": {
+    "environment": ".venv-channel",
+    "tests_passed": 4,
+    "seconds": 2.02,
+    "toy_optimizer_updates": 0
+  },
+  "preparation_error": {
+    "reason": "R1 semantic test initially collected in R2 venv without Chronos; moved to separate test file/environment",
+    "model_updates": 0,
+    "changes_to_environments": false
+  }
+}
