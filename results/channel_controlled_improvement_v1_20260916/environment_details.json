@@ -1,0 +1,25 @@
+{
+  "packages": {
+    "torch": "2.7.1",
+    "transformers": "4.44.2",
+    "peft": "0.12.0",
+    "momentfm": "0.1.4",
+    "numpy": "1.25.2",
+    "pandas": "2.3.3",
+    "matplotlib": "3.11.2"
+  },
+  "resource_api_sources": {
+    ".venv-channel/lib/python3.11/site-packages/transformers/models/t5/modeling_t5.py": {
+      "sha256": "0b2d3c1f8465f192ed152c0ea63b81d37fb79a6be6d55b42b3fbe96782b72f04",
+      "scope": "native gradient checkpointing API; non-reentrant preserve_rng_state supported; resource-only option"
+    },
+    ".venv-channel/lib/python3.11/site-packages/transformers/modeling_utils.py": {
+      "sha256": "d178a8810e5bd846ab3c36bf7391740f2208bb29a2fbceeffc217a55974252c1",
+      "scope": "native gradient checkpointing API; non-reentrant preserve_rng_state supported; resource-only option"
+    },
+    ".venv-channel/lib/python3.11/site-packages/torch/utils/checkpoint.py": {
+      "sha256": "b07acb21f5c727f3eace16249ca126a7c8a0ac8d97c83f2a13fff1b5a59a360f",
+      "scope": "native gradient checkpointing API; non-reentrant preserve_rng_state supported; resource-only option"
+    }
+  }
+}

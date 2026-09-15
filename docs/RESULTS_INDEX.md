@@ -86,3 +86,7 @@ Query 자원 제약 파일럿은 117개 CPU 검사와 42개 저장 비교 재계
 ## 예보 순서 대조 완료 (2026-09-16)
 
 신규 4 fits·480 updates, smoke 4 updates. [REPORT](../results/covariate_order_control_20260916/REPORT.md), [해석](../results/covariate_order_control_20260916/INTERPRETATION.md), [4,032개 지표 및 16개 복원 검산](../results/covariate_order_control_20260916/verification.json). 동일 입력 멀티셋의 순서 효과는 작은 개발 차이이며 신규 방법 PASS가 아니다.
+
+## MOMENT 고정 비교 진행 중 (2026-09-16)
+
+[실행 계약과 경로](CHANNEL_CONTROLLED_IMPROVEMENT_20260916.md), [기존 경로 재사용 감사](../results/channel_controlled_improvement_v1_20260916/REUSE_RECEIPT.md). 36개 경로 중 기존 8개 재사용·신규 28개, 두 LR·세 seed·20 epochs의 실행을 시작했다. 이 항목은 완료 결과가 아니며 점수·평가·최종 판정은 완료 후 별도 게시한다.
