@@ -1,0 +1,11 @@
+{
+  "allow_tf32": false,
+  "api": "legacy allow_tf32 only; no mixed fp32_precision API",
+  "bf16_reduced_precision_reduction": false,
+  "cudnn_tf32": false,
+  "deterministic": true,
+  "fp16_reduced_precision_reduction": false,
+  "matmul_precision": "highest",
+  "threads": 4,
+  "torch": "2.8.0+cu128"
+}
