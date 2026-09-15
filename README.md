@@ -4,7 +4,11 @@ Independent Chronos-2 development screen. Round 0 and Round 1 only; Round 2 requ
 
 No prior experiment outputs are used as new evidence. Raw data and cached model weights may be reused with provenance hashes. All source is local to this repository.
 
-## Latest completed execution — Q/C authorized resumption
+## Latest completed execution — R1/R2 budget study
+
+The [Korean R1/R2 report](research/peft_rank12_20260915/REPORT.md) records R1 numerical diagnosis (84 updates, FP32 passed, BF16 microbatch checks unresolved; no profile or forecasting fits) and the independent R2 32-channel matched-budget study (24/24 fits with sealed evaluation and scalar metric replay). Signals, INIT selection, resource costs and known-parameterization limits are reported separately. No automatic follow-up training is running.
+
+## Previous completed execution — Q/C authorized resumption
 
 The [Korean final report](results/priority12_resume_20260915/REPORT.md) records **Q INCONCLUSIVE_NUMERICS_V2 / C COMPLETE**. Q used 180 disposable numerical updates; resource timing and forecasting fits were not run. C completed all **24 fits / 24,576 updates**, with 24 real GPU check updates and 172 independently verified prediction records. BASIS4 reduced total trainable parameters by 64.37% versus SPECIFIC and improved its MSE, but did not beat the matched-budget sharing controls. LORA_HEAD was smaller and more accurate on both sources. This is a limited compression observation, not an established new-method advantage. RustDesk alone was the authorized GPU exception. No follow-up training is running.
 
