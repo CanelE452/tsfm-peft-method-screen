@@ -1,0 +1,614 @@
+{
+  "audited_at": 1789450649.448807,
+  "Q_numeric_updates": 180,
+  "Q_forecasting_fits": 0,
+  "C_completed_fits": 24,
+  "C_training_updates": 24576,
+  "C_evaluations_selected": 24,
+  "C_evaluations_coefficient_swap": 4,
+  "C_independent_prediction_records": 172,
+  "C_metric_max_abs_error": 2.220446049250313e-16,
+  "selected_checkpoint_replay_exact_fits": 24,
+  "frozen_weights_unchanged_fits": 24,
+  "mean_scores_recalculated": true,
+  "historical_files_unchanged": 1360,
+  "sealed_source_hashes_unchanged": true,
+  "valid_relative_markdown_links": 128,
+  "GPU_compute_at_completion": "",
+  "GPU_status_at_completion": "NVIDIA GeForce RTX 3080, 9422 MiB, 431 MiB, 24 %",
+  "gpu_logs": {
+    "results/query_budget_numeric_v2_resume_20260915/gpu_numeric.jsonl": {
+      "samples": 201,
+      "minimum_free_mib": 6555,
+      "busy_samples": 0,
+      "allowed_rustdesk_samples": 201,
+      "other_external_compute_samples": 0
+    },
+    "results/channel_basis_pilot_resume_20260915/gpu_preflight.jsonl": {
+      "samples": 88,
+      "minimum_free_mib": 5464,
+      "busy_samples": 0,
+      "allowed_rustdesk_samples": 88,
+      "other_external_compute_samples": 0
+    },
+    "results/channel_basis_pilot_resume_20260915/gpu_training.jsonl": {
+      "samples": 10306,
+      "minimum_free_mib": 5412,
+      "busy_samples": 0,
+      "allowed_rustdesk_samples": 3155,
+      "other_external_compute_samples": 0
+    }
+  },
+  "files": {
+    "README.md": {
+      "bytes": 24186,
+      "sha256": "7c662fc95084555e1c0dca68eb5b4d8b91e28b5a103a22adeea4821246148316"
+    },
+    "docs/RESULTS_INDEX.md": {
+      "bytes": 6949,
+      "sha256": "004cfc2c44631b4c658609a467ee5f566412e4b502424c28af8528bcb9bbb9e6"
+    },
+    "results/channel_basis_pilot_resume_20260915/00_electricity_40001_SPECIFIC_parameter_updates.json": {
+      "bytes": 13656,
+      "sha256": "998091d7a219bdcb520aede3bdaf2f92a3d1a2e116b8a06fed7c6ff7c9b7de32"
+    },
+    "results/channel_basis_pilot_resume_20260915/00_electricity_40001_SPECIFIC_steps.json": {
+      "bytes": 320499,
+      "sha256": "620a423ad4c0eee730d93a94db814304008559be792708e89c8a4360de40683f"
+    },
+    "results/channel_basis_pilot_resume_20260915/01_traffic_40001_SPECIFIC_parameter_updates.json": {
+      "bytes": 13657,
+      "sha256": "c50fb0a18babfc7f96d064d7bb8bb15119c5fb200e3ba96ee3cbd681181b6ed3"
+    },
+    "results/channel_basis_pilot_resume_20260915/01_traffic_40001_SPECIFIC_steps.json": {
+      "bytes": 320331,
+      "sha256": "02be8ccabf5bd383d94617780822c0375d18e8b6e1a7e7086709ecbff4dcccc4"
+    },
+    "results/channel_basis_pilot_resume_20260915/02_traffic_40000_SHARED_parameter_updates.json": {
+      "bytes": 5563,
+      "sha256": "298f38e540af9711163ef0d582a2d2d0a8633e35624b220369b411fd4e6ff858"
+    },
+    "results/channel_basis_pilot_resume_20260915/02_traffic_40000_SHARED_steps.json": {
+      "bytes": 320370,
+      "sha256": "46aa562d93c154709f354ca5f46ea193c8de42162470a6576965e7bcd176781e"
+    },
+    "results/channel_basis_pilot_resume_20260915/03_traffic_40001_SHARED_parameter_updates.json": {
+      "bytes": 5559,
+      "sha256": "7a88e2e0a84647434392afd1180dd6bc19e2c6a4aa6e23036a128c7083419637"
+    },
+    "results/channel_basis_pilot_resume_20260915/03_traffic_40001_SHARED_steps.json": {
+      "bytes": 320214,
+      "sha256": "ec3f4f1c9bb3d14848b60fd27c14b4e898c0db8db0b441f5d19c2da2b848f301"
+    },
+    "results/channel_basis_pilot_resume_20260915/04_traffic_40001_SHARED_WIDE_parameter_updates.json": {
+      "bytes": 5560,
+      "sha256": "b463071ba09a264699c6050463cb12604ba52a0720919d5a919113ce43c3c048"
+    },
+    "results/channel_basis_pilot_resume_20260915/04_traffic_40001_SHARED_WIDE_steps.json": {
+      "bytes": 320174,
+      "sha256": "14155ba5d2c9d058496edeccde6a1146d633e8da3a2dce0a0ff8de29d2e560a6"
+    },
+    "results/channel_basis_pilot_resume_20260915/05_electricity_40001_SHARED_parameter_updates.json": {
+      "bytes": 5552,
+      "sha256": "284df5f3aa83091cb0963be306df19eb685a9cc52c0d2bb35192f411fa509314"
+    },
+    "results/channel_basis_pilot_resume_20260915/05_electricity_40001_SHARED_steps.json": {
+      "bytes": 320517,
+      "sha256": "918676d454328a96fb8ad5265ee5b248a6400cae4808e600f4776f5e79e81249"
+    },
+    "results/channel_basis_pilot_resume_20260915/06_electricity_40000_SPECIFIC_parameter_updates.json": {
+      "bytes": 13665,
+      "sha256": "79e15e478ab69d8418bca2adfc0d1506c8b9a35021aa7ae0f170acc7dd80950b"
+    },
+    "results/channel_basis_pilot_resume_20260915/06_electricity_40000_SPECIFIC_steps.json": {
+      "bytes": 320499,
+      "sha256": "0a27995fb9557343fdc6754615d9d3f4b07fdd8c213cb49a19a67aa983446d70"
+    },
+    "results/channel_basis_pilot_resume_20260915/07_traffic_40000_SHARED_WIDE_parameter_updates.json": {
+      "bytes": 5557,
+      "sha256": "2a1026c1bd854247966bcd8fa1ab616a17bfa0062deceb56a9b0bd977356a548"
+    },
+    "results/channel_basis_pilot_resume_20260915/07_traffic_40000_SHARED_WIDE_steps.json": {
+      "bytes": 320223,
+      "sha256": "6737925cf3fd48b974f18260dc94df13027fa4e2bd06cbf4382eb2fbe9ec9854"
+    },
+    "results/channel_basis_pilot_resume_20260915/08_traffic_40000_LORA_HEAD_parameter_updates.json": {
+      "bytes": 5072,
+      "sha256": "d0911eefb7bbc7b6df1c1422157b6dcd118f4bb8d20e24ba28d71ee80a4e5702"
+    },
+    "results/channel_basis_pilot_resume_20260915/08_traffic_40000_LORA_HEAD_steps.json": {
+      "bytes": 320448,
+      "sha256": "7387678c55a5f58354ea812f192362aa293368b5e7971b9a16c4f33ba1424b66"
+    },
+    "results/channel_basis_pilot_resume_20260915/09_electricity_40001_LORA_HEAD_parameter_updates.json": {
+      "bytes": 5075,
+      "sha256": "ff36af92e65c71e981d85ad9a59bda729cc6d3211397c452f93a023012cdadcd"
+    },
+    "results/channel_basis_pilot_resume_20260915/09_electricity_40001_LORA_HEAD_steps.json": {
+      "bytes": 320581,
+      "sha256": "fa60ebc481f84777d80613a8d445976cb2f07132fc722a6fa53655a467ff5c98"
+    },
+    "results/channel_basis_pilot_resume_20260915/10_electricity_40000_SHARED_WIDE_parameter_updates.json": {
+      "bytes": 5557,
+      "sha256": "6c28c8c01accd26e080d963d19e74eab1402999182fc43ba26a2bbc57fb5b57f"
+    },
+    "results/channel_basis_pilot_resume_20260915/10_electricity_40000_SHARED_WIDE_steps.json": {
+      "bytes": 320340,
+      "sha256": "1e4ca83ecca8a6a8e4383e5608fea536b882f535b0a417893dd00b65f566f635"
+    },
+    "results/channel_basis_pilot_resume_20260915/11_traffic_40000_GROUP4_parameter_updates.json": {
+      "bytes": 5937,
+      "sha256": "8ca3b98aa5947324b63905b0e2740c527390372c726c45c90aa32c1c9384cb9c"
+    },
+    "results/channel_basis_pilot_resume_20260915/11_traffic_40000_GROUP4_steps.json": {
+      "bytes": 320503,
+      "sha256": "8ca5b0c91379c6c6660d767404876bd4d1fea44b7ce18a3f1ef7f37f0e0df26a"
+    },
+    "results/channel_basis_pilot_resume_20260915/12_electricity_40000_LORA_HEAD_parameter_updates.json": {
+      "bytes": 5070,
+      "sha256": "79bb7c1a1a25f87aa5887742fcc146bcc1d27c6ab4fe31030a40eef09d89adfb"
+    },
+    "results/channel_basis_pilot_resume_20260915/12_electricity_40000_LORA_HEAD_steps.json": {
+      "bytes": 320571,
+      "sha256": "6f663eb65dc733f13aa83c8e0b332128aff6619aee648ecf5606266b65bf6b1d"
+    },
+    "results/channel_basis_pilot_resume_20260915/13_electricity_40000_BASIS4_mechanism.json": {
+      "bytes": 8175,
+      "sha256": "f3e7a66faefaa3491d45abc6fc01abb4ced705e25d8e72db367b5b1e7f0e28dc"
+    },
+    "results/channel_basis_pilot_resume_20260915/13_electricity_40000_BASIS4_parameter_updates.json": {
+      "bytes": 5996,
+      "sha256": "3811ae2def81d5bfe843e77e2a11e4c270eaae54cf1ba44bcfd3c199a8ff3aca"
+    },
+    "results/channel_basis_pilot_resume_20260915/13_electricity_40000_BASIS4_steps.json": {
+      "bytes": 320360,
+      "sha256": "ce710435851c873a0eb2d5aa4f6627d5921278fd63ca35daa83a3ea75eb0b26c"
+    },
+    "results/channel_basis_pilot_resume_20260915/14_electricity_40001_BASIS4_mechanism.json": {
+      "bytes": 8127,
+      "sha256": "9a7a63930c9421235c3be9327986a1cf9e89c9923e58d5174399e1c2a8bf390b"
+    },
+    "results/channel_basis_pilot_resume_20260915/14_electricity_40001_BASIS4_parameter_updates.json": {
+      "bytes": 5995,
+      "sha256": "c68fecdd580527210f1641e594183d28175a263f653f8f13a531183c54d4f7c5"
+    },
+    "results/channel_basis_pilot_resume_20260915/14_electricity_40001_BASIS4_steps.json": {
+      "bytes": 320373,
+      "sha256": "985d92b1e1bcd8df80d1b122050a56a11b2359f9a4fd92710e5c8cd821939f49"
+    },
+    "results/channel_basis_pilot_resume_20260915/15_traffic_40001_BASIS4_mechanism.json": {
+      "bytes": 8100,
+      "sha256": "9d6b7aefb131aebd9a0d181a06bddeea7193e4d3ec157ba1789489852642767f"
+    },
+    "results/channel_basis_pilot_resume_20260915/15_traffic_40001_BASIS4_parameter_updates.json": {
+      "bytes": 5989,
+      "sha256": "487269b4f5543da4b890085ccda74d60367de2b4685bbde06e6d04b82b8496d5"
+    },
+    "results/channel_basis_pilot_resume_20260915/15_traffic_40001_BASIS4_steps.json": {
+      "bytes": 320154,
+      "sha256": "683d15507c7c5509b9325ae8c64998bc4f1e681523a0bce855958191ca181308"
+    },
+    "results/channel_basis_pilot_resume_20260915/16_traffic_40001_GROUP4_parameter_updates.json": {
+      "bytes": 5934,
+      "sha256": "c1e0e5f6dbb831ad9dc521098e637db4ed4352add2efec195d04598c4693eaef"
+    },
+    "results/channel_basis_pilot_resume_20260915/16_traffic_40001_GROUP4_steps.json": {
+      "bytes": 320253,
+      "sha256": "de7349486448c875c27c4482c418d869dc11bd6065cd3312c2ea040f5d5039ee"
+    },
+    "results/channel_basis_pilot_resume_20260915/17_electricity_40000_GROUP4_parameter_updates.json": {
+      "bytes": 5939,
+      "sha256": "0d02c4df7198b0851404efefb576f904a60a3b715f2591f32ba1090c0eafd807"
+    },
+    "results/channel_basis_pilot_resume_20260915/17_electricity_40000_GROUP4_steps.json": {
+      "bytes": 320410,
+      "sha256": "5f3033479557d9038e853fcdb75919d960d1b82fdf3bb1140901cee5f7f4622f"
+    },
+    "results/channel_basis_pilot_resume_20260915/18_traffic_40000_SPECIFIC_parameter_updates.json": {
+      "bytes": 13653,
+      "sha256": "02f0ceb213081aea11267525f7a3dab501d1efd4c231a84465199f304a02dc29"
+    },
+    "results/channel_basis_pilot_resume_20260915/18_traffic_40000_SPECIFIC_steps.json": {
+      "bytes": 320582,
+      "sha256": "628fbbe80f9dce5a31ea88ffdf86308a7c1af0158a00700665f1e25cffb74d8b"
+    },
+    "results/channel_basis_pilot_resume_20260915/19_traffic_40001_LORA_HEAD_parameter_updates.json": {
+      "bytes": 5075,
+      "sha256": "20f2e361593f5f3588082f66489d8fc2f3a0923c11f3bac89d40347b8dc87161"
+    },
+    "results/channel_basis_pilot_resume_20260915/19_traffic_40001_LORA_HEAD_steps.json": {
+      "bytes": 320404,
+      "sha256": "723c40894bf687ac238b2ae1967da25ad317fba56c490c55df4cdb70ab2e7150"
+    },
+    "results/channel_basis_pilot_resume_20260915/20_electricity_40001_GROUP4_parameter_updates.json": {
+      "bytes": 5939,
+      "sha256": "7fc4dad84e8fcc67852d5b92c29cb0907d9daadb92a320521dc98894449be8a2"
+    },
+    "results/channel_basis_pilot_resume_20260915/20_electricity_40001_GROUP4_steps.json": {
+      "bytes": 320542,
+      "sha256": "b8ed0c54ff347b62137af4790fcce66cc197bee53a47c9b3217b9b9fc20fae36"
+    },
+    "results/channel_basis_pilot_resume_20260915/21_electricity_40001_SHARED_WIDE_parameter_updates.json": {
+      "bytes": 5561,
+      "sha256": "6849ea9c8289480f2c3b654dd7594fd146e82c0023a31fb5804d46b9f9434470"
+    },
+    "results/channel_basis_pilot_resume_20260915/21_electricity_40001_SHARED_WIDE_steps.json": {
+      "bytes": 320347,
+      "sha256": "350d9b456035866e968469a3a9dc8c6ed69d701775ef80becbf82090558b7466"
+    },
+    "results/channel_basis_pilot_resume_20260915/22_electricity_40000_SHARED_parameter_updates.json": {
+      "bytes": 5555,
+      "sha256": "b07f49f0467e9e76a5343e38d1b4e7e6fbd268edbedbfeb85a1be12106af6646"
+    },
+    "results/channel_basis_pilot_resume_20260915/22_electricity_40000_SHARED_steps.json": {
+      "bytes": 320457,
+      "sha256": "75c42d98045364cf3a64f5c1a01989edf7a5d36d0179127dac0615750a1d8891"
+    },
+    "results/channel_basis_pilot_resume_20260915/23_traffic_40000_BASIS4_mechanism.json": {
+      "bytes": 8275,
+      "sha256": "3701b3811ab2162916552a04a03d0400814cb3cfc2c268ac74666f83b0da5a9b"
+    },
+    "results/channel_basis_pilot_resume_20260915/23_traffic_40000_BASIS4_parameter_updates.json": {
+      "bytes": 5999,
+      "sha256": "3da60c46ee7fdfee12e3d84e98267ca5a8ef5d87f55463c33eae824c63f4f1ec"
+    },
+    "results/channel_basis_pilot_resume_20260915/23_traffic_40000_BASIS4_steps.json": {
+      "bytes": 320201,
+      "sha256": "3f3fdaccd44496a50a3f41478c233c7880d12a6ae2175c6f55917cf9a4d4221a"
+    },
+    "results/channel_basis_pilot_resume_20260915/PROTOCOL.md": {
+      "bytes": 44572,
+      "sha256": "aa7df648cb8e6a604ac95800553623aaa312f315adf366c91e622ee2fa4e8b07"
+    },
+    "results/channel_basis_pilot_resume_20260915/REPORT.md": {
+      "bytes": 4660,
+      "sha256": "ceef5fa268e4e44b12146e63b95d7f77bfed13198eb9f0fb502cd009b26801ba"
+    },
+    "results/channel_basis_pilot_resume_20260915/RESUMPTION.md": {
+      "bytes": 579,
+      "sha256": "c0f17c44de117b83894c3344b099fa49d17318e80b5fe5ee40582375ce666016"
+    },
+    "results/channel_basis_pilot_resume_20260915/attempts.csv": {
+      "bytes": 1450,
+      "sha256": "cc714d4b95717406d191f41ceaa7811571f2d6767e5237697459b3e8d6331dff"
+    },
+    "results/channel_basis_pilot_resume_20260915/basis_gains.png": {
+      "bytes": 79094,
+      "sha256": "0be17ad5156142dc33753573f39837f64961b71f1097c47608a4341fa3c44193"
+    },
+    "results/channel_basis_pilot_resume_20260915/comparisons.csv": {
+      "bytes": 2973,
+      "sha256": "217b60c35a88b60330364fac8ddf6b68c8d1148f6966072d0c45fe4c2de64ae2"
+    },
+    "results/channel_basis_pilot_resume_20260915/completed_snapshot_04.json": {
+      "bytes": 58830,
+      "sha256": "32f8b6a6bd7a4275200df58669292775a04c96e73a38097c020d0b3029816faf"
+    },
+    "results/channel_basis_pilot_resume_20260915/completed_snapshot_08.json": {
+      "bytes": 116945,
+      "sha256": "92b0fb9d60810806f5746f50f4cf7311d83c25952b62898d7ba40ce511323de5"
+    },
+    "results/channel_basis_pilot_resume_20260915/completed_snapshot_12.json": {
+      "bytes": 175206,
+      "sha256": "e8f80647ba4acdb4823a1ea51a850bd5cb52d7188bc5e30989cbded49aa4c131"
+    },
+    "results/channel_basis_pilot_resume_20260915/completed_snapshot_16.json": {
+      "bytes": 232625,
+      "sha256": "e63f17da64be4c5983b81914605ef659d19a9e7b98a1ee89fcfe2bd817a8c82f"
+    },
+    "results/channel_basis_pilot_resume_20260915/completed_snapshot_20.json": {
+      "bytes": 291327,
+      "sha256": "cfb367251715690413137f2699bc44d8c1bb5fdf6534400e9862b42cf74a3abe"
+    },
+    "results/channel_basis_pilot_resume_20260915/constructor_counts.csv": {
+      "bytes": 410,
+      "sha256": "410f34e681881836131b79e1df1833aad18ae87085f6a77bdbd9d0adc3fdd7ae"
+    },
+    "results/channel_basis_pilot_resume_20260915/contract.json": {
+      "bytes": 235148,
+      "sha256": "8c3de3173402d3bd52c8683e715d27ce1dd0b621dff9f62446ffa500617659d2"
+    },
+    "results/channel_basis_pilot_resume_20260915/cpu_tests.json": {
+      "bytes": 153,
+      "sha256": "b7ea509446e9ae51bee6a5c8bbec935370919cd50785e06d61e10635ba991b0c"
+    },
+    "results/channel_basis_pilot_resume_20260915/cpu_update_ledger.json": {
+      "bytes": 573,
+      "sha256": "6055d57a3acf9524ee0280ecf5ac30a1acef3dd4a3a5481efb1e1b3771459a29"
+    },
+    "results/channel_basis_pilot_resume_20260915/decisions.json": {
+      "bytes": 1099,
+      "sha256": "1db848a7440800ccfd1a111d407a82e84b85a80493b08df20374d00c8f49a648"
+    },
+    "results/channel_basis_pilot_resume_20260915/evaluation.json": {
+      "bytes": 171861,
+      "sha256": "4c330acad855348950cbbcb2ea4162f07560dcd9b71938f61dcd3d53c5a6e34f"
+    },
+    "results/channel_basis_pilot_resume_20260915/evaluation_access.json": {
+      "bytes": 200,
+      "sha256": "2f9d7b04d79379dac7ed72f474ed38650578f5337c73c2ec817e7d2fb87db365"
+    },
+    "results/channel_basis_pilot_resume_20260915/execution_revision.json": {
+      "bytes": 240,
+      "sha256": "7d5bb47898596ee429e9aab0b93bb17e902f81c844724c2f482ecc506e158e8b"
+    },
+    "results/channel_basis_pilot_resume_20260915/fit_manifest.json": {
+      "bytes": 2457,
+      "sha256": "bfe1118771981c2bb149cf7c1976baadd164f496ecb978e273385c898c5f2af0"
+    },
+    "results/channel_basis_pilot_resume_20260915/fits.json": {
+      "bytes": 327354,
+      "sha256": "b3268c607afda23d17fe67e8ff9640a1973607e0795628cf66d1bb4d70efa008"
+    },
+    "results/channel_basis_pilot_resume_20260915/gpu_budget.json": {
+      "bytes": 77,
+      "sha256": "c8968945134fe4ed0c9fb779b757a7a1ab8ee0747c494a03beda467613b32149"
+    },
+    "results/channel_basis_pilot_resume_20260915/gpu_preflight.jsonl": {
+      "bytes": 27789,
+      "sha256": "2c899f6c28bdc02b607464d5df5b071ef495d9840a36a94704ef70b05e73e49f"
+    },
+    "results/channel_basis_pilot_resume_20260915/gpu_training.jsonl": {
+      "bytes": 3186802,
+      "sha256": "b9f17b251c9069692b98cdfda045e81be5965f5cdb78a757bf361ea92114d885"
+    },
+    "results/channel_basis_pilot_resume_20260915/independent_verification.json": {
+      "bytes": 28896,
+      "sha256": "b984c4a4f20f17f22d6a7e9c9ec25cb62ce5aad2edad6a8efe0af63ca76d0886"
+    },
+    "results/channel_basis_pilot_resume_20260915/initial_cpu_parity.json": {
+      "bytes": 1529,
+      "sha256": "9dd63243a873725fdabedcf8c014a93de9332d224503c0590b3a9d32636cc950"
+    },
+    "results/channel_basis_pilot_resume_20260915/leakage_checks.json": {
+      "bytes": 1347,
+      "sha256": "72beb8e51e6e841e4e859ff6649769d27bb342090a64c1fc99d22c31a7ed428d"
+    },
+    "results/channel_basis_pilot_resume_20260915/master_initial_hashes.json": {
+      "bytes": 377,
+      "sha256": "1150e72be34bc154a710c371a15a35b3aab02d46df5b3d25f05e847ab36d0222"
+    },
+    "results/channel_basis_pilot_resume_20260915/metrics.csv": {
+      "bytes": 2101,
+      "sha256": "eb03ea14b6263bbcd28d5a8f8908defd0964a771e839b36973a5141cbc1cab27"
+    },
+    "results/channel_basis_pilot_resume_20260915/parameter_counts.csv": {
+      "bytes": 787,
+      "sha256": "72dd500204da39c278ccada61c5bd7d4cf05b364f672fae7fbbfd621b48e9c5f"
+    },
+    "results/channel_basis_pilot_resume_20260915/parameter_inventory.json": {
+      "bytes": 360447,
+      "sha256": "42fa70037a892ff2e2e7efec0ab2fc86cce53e8a63e184d29ab10140cc2921f4"
+    },
+    "results/channel_basis_pilot_resume_20260915/parameters_vs_error.png": {
+      "bytes": 100186,
+      "sha256": "343cda4d0b154bc3cefac263f15fbb4b297703484b1da90c798c5ba20981dcb3"
+    },
+    "results/channel_basis_pilot_resume_20260915/per_origin_metrics.csv": {
+      "bytes": 50726,
+      "sha256": "683f7623b79dfed04573dae9c824887720289eac32c6eea6f9181733d2863817"
+    },
+    "results/channel_basis_pilot_resume_20260915/phases.json": {
+      "bytes": 189,
+      "sha256": "6ef172161b33a8eb86e693b231d4dd50d1ae6cb00cc7dc86578e2ae3740cb588"
+    },
+    "results/channel_basis_pilot_resume_20260915/preflight_measurements.json": {
+      "bytes": 9622,
+      "sha256": "3e52d1b9e7ef0fd79b429e914e1544b2cf6ad8f7a00a384eeb2ec35c0270ce27"
+    },
+    "results/channel_basis_pilot_resume_20260915/preflight_strategies.json": {
+      "bytes": 2426,
+      "sha256": "d31d722d304926cca6d46525ab0bf25e6e7cf0cb202170b2e910652d0d1ab3bb"
+    },
+    "results/channel_basis_pilot_resume_20260915/preflight_wall.json": {
+      "bytes": 171,
+      "sha256": "8537d9a1d72fa3be24507ed06b7192fa2bd3e0b542d8f6853f1d0f80774a7135"
+    },
+    "results/channel_basis_pilot_resume_20260915/resource_strategy_seal.json": {
+      "bytes": 392,
+      "sha256": "93d0cc74af01873b2fa1b9d299b34e6dc4156da32831a8d1392ddd2c8bffc6ed"
+    },
+    "results/channel_basis_pilot_resume_20260915/resources.csv": {
+      "bytes": 3523,
+      "sha256": "b4bbde51471b3b465b8b057a9b39fac54155d536e623446f7e8087185d4b97e0"
+    },
+    "results/channel_basis_pilot_resume_20260915/schedules.json": {
+      "bytes": 148917,
+      "sha256": "dee10c9c479305315806056797a2ec0f57d05d70689c07bd1b8ee005a921b20c"
+    },
+    "results/channel_basis_pilot_resume_20260915/selection_seal.json": {
+      "bytes": 162382,
+      "sha256": "b0a3ff9188aee96c942110eb282b734206c476c69a0dfc9536c1c068a4717afd"
+    },
+    "results/channel_basis_pilot_resume_20260915/status.json": {
+      "bytes": 235,
+      "sha256": "aa0994297ebdadcf05b295a68d09066e1873561e647c2a16a8f8d99a3cdd88f0"
+    },
+    "results/channel_basis_pilot_resume_20260915/training_wall.json": {
+      "bytes": 172,
+      "sha256": "4550bca79e0bc07e71b158f19a679e45be546e674d387dc1861f304b88ee6d79"
+    },
+    "results/channel_basis_pilot_resume_20260915/trajectories.csv": {
+      "bytes": 13135,
+      "sha256": "624e8009e79ac3cee8de3012e57cf7516a8c60fa0462c7d8cb0ee31cb4df0b8f"
+    },
+    "results/channel_basis_pilot_resume_20260915/trajectories.json": {
+      "bytes": 756239,
+      "sha256": "b1da848bbf299259797f5fdcc8ac5520e4412bdc5604ab0500d348516b2c7717"
+    },
+    "results/channel_basis_pilot_resume_20260915/validation_trajectories.png": {
+      "bytes": 412142,
+      "sha256": "ddac520f7f80ed3bf78d715062cbe337813831d3d5b4d5481677135beaa3e912"
+    },
+    "results/priority12_resume_20260915/LIVE_PROGRESS.md": {
+      "bytes": 1011,
+      "sha256": "8a0c3402b62d035982a109d8d64ffc85f4bb233cb62e22600f38e9afc81ee783"
+    },
+    "results/priority12_resume_20260915/REPORT.md": {
+      "bytes": 14757,
+      "sha256": "edbde1bf05e052b2b8db9a116963c8de3f5c756c68da759e7cbe3feaf163bcf1"
+    },
+    "results/priority12_resume_20260915/authorization.json": {
+      "bytes": 639,
+      "sha256": "ce85e1fa0ed5f6e21c113ff1198f48da81767dbaa806c9abf7eea9cc05f0b258"
+    },
+    "results/priority12_resume_20260915/completion_verification.json": {
+      "bytes": 415,
+      "sha256": "ae17e4e866c913212d1d4924e1f86b084a1b4da2577ade1cc9d3cfb95c835b56"
+    },
+    "results/priority12_resume_20260915/historical_hashes.json": {
+      "bytes": 190713,
+      "sha256": "1349115309fd231820ec6c59404f8109f70fb5a75c174c27c93ba625edc4f795"
+    },
+    "results/priority12_resume_20260915/runner_exit_codes.json": {
+      "bytes": 240,
+      "sha256": "25d2e7439f1a89bac41ef1e7b74500bbd96b354005ce3ea234aa7d951f854f05"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/NUMERIC_RESULT.md": {
+      "bytes": 1794,
+      "sha256": "e63fd92d2181e6663a45869f800a5616b585ce12ba2f739407233b7b762c46ff"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/PROTOCOL.md": {
+      "bytes": 44572,
+      "sha256": "aa7df648cb8e6a604ac95800553623aaa312f315adf366c91e622ee2fa4e8b07"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/REPORT.generated.txt": {
+      "bytes": 3387,
+      "sha256": "7b0085368253c20561e242f68e89491a49b43c4fadb80fcf203642f18229ee2c"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/REPORT.md": {
+      "bytes": 2442,
+      "sha256": "2c839c9f36c9f558359dbd42d9bc608f6d5e236153dbe9d72afd6f3aa50dbbd7"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/RESUMPTION.md": {
+      "bytes": 579,
+      "sha256": "c0f17c44de117b83894c3344b099fa49d17318e80b5fe5ee40582375ce666016"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/comparisons.csv": {
+      "bytes": 7,
+      "sha256": "410f0d9cd0f7d301a94ed7fe486e60b5ee007fca5b7fc1e6bda3dc8475e7525c"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/contract.json": {
+      "bytes": 214520,
+      "sha256": "97873863be9f305155dd548e165c15417acfb7bdd826822eeca3ac1defbd3eb8"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/cpu_tests.json": {
+      "bytes": 236,
+      "sha256": "f9b6b16877f816ee458b751f3df65214cb37e844df019fcd72adf6fd2e24b7b3"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/execution_revision.json": {
+      "bytes": 240,
+      "sha256": "7d5bb47898596ee429e9aab0b93bb17e902f81c844724c2f482ecc506e158e8b"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/fit_attempts.csv": {
+      "bytes": 100,
+      "sha256": "f0388e18e864c95633d4ca4603d0dc8f548c16ee0acd0df4cbd50a3d7c74aa83"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/fit_manifest.json": {
+      "bytes": 1401,
+      "sha256": "a744985269240560c182568df647be395801c74c7787c9e5c9e86ec934e444a4"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/gpu_budget.json": {
+      "bytes": 76,
+      "sha256": "aaca91efd7bf5fa69a19b587d4f5996dc21cde98023c5b45b725dec3e9081b8c"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/gpu_numeric.jsonl": {
+      "bytes": 70765,
+      "sha256": "bb40b46ca050e94db82615201394fd7c62a6f8af32db73a6f966aac6eb495b02"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/historical_parity_replay.json": {
+      "bytes": 5367,
+      "sha256": "fe327b85a009b582acd2c443b495111950f3a46f49fe740281835956521a5fbf"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/independent_verification.json": {
+      "bytes": 495,
+      "sha256": "298cdeb30e9089ac86dd64558f05265887df1f455f10ca9d9f388acfa419478a"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/leakage_checks.json": {
+      "bytes": 2011,
+      "sha256": "d30ab6d6baad6ad8b31b67864c54ce714fe9791c7c68b8c689da32fd3776d687"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/metrics.csv": {
+      "bytes": 7,
+      "sha256": "410f0d9cd0f7d301a94ed7fe486e60b5ee007fca5b7fc1e6bda3dc8475e7525c"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/numeric_artifacts.json": {
+      "bytes": 16943,
+      "sha256": "e4fd267bedda6f87ab5c9a569b94248dd7715328c4f92e4d30fb238d4c553711"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/numeric_backend.json": {
+      "bytes": 303,
+      "sha256": "312f2b57d103ed23ea6a6ce39313283da4f8e55407cc41ccf30fe11898aec962"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/numeric_checks.json": {
+      "bytes": 4865851,
+      "sha256": "ca6c33bd2be9a8c090e445f8cd4eff06869d1de475e0cb5fe0134bd3e1ee6db5"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/numeric_resources.json": {
+      "bytes": 90485,
+      "sha256": "be3f6cfa088d92d18711de4c0273b7ba180c8bdc5a354bfc0cf1a868b4eb9c9f"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/numeric_summary.csv": {
+      "bytes": 3519,
+      "sha256": "8f0b054e2c45ce1af02531b5cb7cb175e3b450c9ab6de3c8fea150f33c40b766"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/numeric_verification.json": {
+      "bytes": 220,
+      "sha256": "c947873c7e91cd78e6f9e0981f296eb91de783a693b8673d2a27fcf926c401ce"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/numeric_wall.json": {
+      "bytes": 212,
+      "sha256": "e1ff58bd507d912a8ea46af284a8f57e4d942550a0985cf9bae59b3ebe35ec5e"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/path_checks.json": {
+      "bytes": 396397,
+      "sha256": "b24c999bf932dd4a03218f3ebcfc6b0a6333dba48e84b1fab52bf00cc4b95ab6"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/per_origin_metrics.csv": {
+      "bytes": 7,
+      "sha256": "410f0d9cd0f7d301a94ed7fe486e60b5ee007fca5b7fc1e6bda3dc8475e7525c"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/phases.json": {
+      "bytes": 130,
+      "sha256": "c3bbe9eb936409f33fb6045499f6f3460aa48ab5e3090a17fc48723fab320efd"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/profile_order.json": {
+      "bytes": 3474,
+      "sha256": "2d4d9f2f5b45cb0fcc7d37a4a36794ea69492ecfb4ae84a5e5893519ce76fb5e"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/report_correction.json": {
+      "bytes": 272,
+      "sha256": "ed277beb35268185f1f80c5ec0aebf42b32f5f58d156ed96b56f12ace30212c7"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/resources.csv": {
+      "bytes": 7,
+      "sha256": "410f0d9cd0f7d301a94ed7fe486e60b5ee007fca5b7fc1e6bda3dc8475e7525c"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/schedules.json": {
+      "bytes": 1245291,
+      "sha256": "d55840faf99ff975f600c129b347584c1231c5c1afe6d7a3cf287236444d95db"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/status.json": {
+      "bytes": 213,
+      "sha256": "b8783882cbea220f912abd7893504815072071ed8e71a49cba3a1ee0a9ab63f9"
+    },
+    "results/query_budget_numeric_v2_resume_20260915/trajectories.csv": {
+      "bytes": 7,
+      "sha256": "410f0d9cd0f7d301a94ed7fe486e60b5ee007fca5b7fc1e6bda3dc8475e7525c"
+    },
+    "scripts/audit_priority12_resume.py": {
+      "bytes": 4549,
+      "sha256": "33c9e16355e334736a4ca4ce6927b1cff1610d0e9846d2e2457804f15255a912"
+    },
+    "scripts/plot_priority12_resume.py": {
+      "bytes": 3316,
+      "sha256": "95e9ff04d0295a8c9e03deee69745a663397609168e604afc0ebae71c3500ed2"
+    },
+    "scripts/report_priority12_resume.py": {
+      "bytes": 17165,
+      "sha256": "60257fd45b4a5cd176b75c51429d98cbd8cd88ae834b6ea40f3d1cef3e619f38"
+    }
+  },
+  "scope": "Code/reports/manifests/metrics are published. Ignored raw data, weights and prediction/checkpoint caches remain local. No new training or GPU inference in this audit.",
+  "automatic_followup": false
+}

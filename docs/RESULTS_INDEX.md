@@ -2,10 +2,11 @@
 
 2026-09-15 기준. 표의 링크는 완료된 실행 또는 검토 결과다. 과거 FAIL/STOP은 당시 고정 실험의 판정으로 보존한다. 최신 재검토의 후속 연구 우선순위는 방법론 성공이나 새로운 실험 실행을 뜻하지 않는다.
 
-진행 중: [Q/C 승인 재개](../results/priority12_resume_20260915/LIVE_PROGRESS.md). Q180-update 진단은 종료했고 C24-fit 배치는 실행 중이다. 아래 표는 이전 완료 작업을 보존한다.
+최신 Q/C 재개 실행은 종료됐다. Q 수치 진단180 updates, C24 fits와 최종 평가·검산을 완료했으며 자동 후속 학습은 없다.
 
 | 완료 작업 | 결과 | 검증 기록 |
 | --- | --- | --- |
+| Q/C 승인 재개 완료: Q 수치 중단180 updates, C24/24 fits·24,576 updates; 경량화 신호 관측·계수 이득 미충족 | [통합 한국어 REPORT](../results/priority12_resume_20260915/REPORT.md), [Q 진단](../results/query_budget_numeric_v2_resume_20260915/NUMERIC_RESULT.md), [C 원점수](../results/channel_basis_pilot_resume_20260915/metrics.csv) | [완료 검증](../results/priority12_resume_20260915/completion_verification.json), [172개 예측 검산](../results/channel_basis_pilot_resume_20260915/independent_verification.json) |
 | Q v2 + 채널 공유 독립 파일럿: BLOCKED_GPU_BUSY / BLOCKED_GPU_BUSY; 신규 본학습 0 fits | [통합 한국어 보고서](../results/priority12_20260915/REPORT.md), [Q](../results/query_budget_numeric_v2_20260915/REPORT.md), [C](../results/channel_basis_pilot_20260915/REPORT.md) | [완료 검증](../results/priority12_20260915/completion_verification.json), [C 실제 CPU 모델 비교](../results/channel_basis_pilot_20260915/initial_cpu_parity.json) |
 | Query 자원 제약 파일럿: A 폐기용 120 updates, B 0 fits; INCONCLUSIVE_NUMERICS | [수치 중단 보고](../results/query_budget_pilot_20260915/REPORT.md), [실제 측정표](../results/query_budget_pilot_20260915/resource_measurements.csv) | [종료 검증](../results/query_budget_pilot_20260915/completion_verification.json), [42개 비교 재계산](../results/query_budget_pilot_20260915/independent_verification.json), [117개 CPU 검사](../results/query_budget_pilot_20260915/cpu_tests.json) |
 | Censor tail 통제 파일럿: 6 fits / 2,160 updates, smoke 6 updates | [최종 검토](../results/censor_tail_controlled_v1/FINAL_REVIEW.md), [전체 표/그림](../results/censor_tail_controlled_v1/REPORT.md) | [독립 재계산](../results/censor_tail_controlled_v1/verification.json), [완료 교차 검산](../results/censor_tail_controlled_v1/completion_audit.json) |

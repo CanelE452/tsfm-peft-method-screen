@@ -1,0 +1,37 @@
+{
+  "auto_followup": false,
+  "source_decisions": [
+    {
+      "best_arm": "LORA_HEAD",
+      "coefficient_signal": false,
+      "dataset": "electricity",
+      "limited_compression_signal": true,
+      "lora_head_smaller_and_more_accurate": true,
+      "means": {
+        "BASIS4": 0.4872615320055077,
+        "GROUP4": 0.4167765636789854,
+        "LORA_HEAD": 0.31576120860128487,
+        "SHARED": 0.38767354077736266,
+        "SHARED_WIDE": 0.3937394994553296,
+        "SPECIFIC": 0.7317885475388839
+      },
+      "specific_gain_vs_lora_head": -131.75378343035206
+    },
+    {
+      "best_arm": "LORA_HEAD",
+      "coefficient_signal": false,
+      "dataset": "traffic",
+      "limited_compression_signal": true,
+      "lora_head_smaller_and_more_accurate": true,
+      "means": {
+        "BASIS4": 1.3046629831450478,
+        "GROUP4": 1.0529038298174818,
+        "LORA_HEAD": 0.6618433040512177,
+        "SHARED": 1.2735523667404487,
+        "SHARED_WIDE": 0.960338558462701,
+        "SPECIFIC": 1.658732709789081
+      },
+      "specific_gain_vs_lora_head": -150.62317615601614
+    }
+  ]
+}

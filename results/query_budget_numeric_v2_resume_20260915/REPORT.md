@@ -1,38 +1,22 @@
-# Query 자원 제약 파일럿 — simulated tensor budget / 기존 평가 구간을 재사용한 개발 비교
+# Query v2 재개 — 수치 진단 종료
 
-Q 수치 진단: 폐기용 180 updates. A: 폐기용 optimizer updates 0회 (0 attempts). B: 0/0 fits 완료, 0 updates. 종료 상태: **INCONCLUSIVE_NUMERICS_V2**.
+**180 disposable updates, INCONCLUSIVE_NUMERICS_V2. 자원 측정0, 본학습0/12 fits.**
 
-## 1. 비교 목적
+| 검사 | FP32 통과/전체 | BF16 통과/전체 |
+| --- | --- | --- |
+| 단일 업데이트 | 9/12 | 0/12 |
+| 5-step 경로 | 5/6 | 2/6 |
 
-동일 context4096, 4채널 origin 그룹, 1,179,648 학습 파라미터에서 Standard/Side/Query의 자원 제약을 비교했다. Standard에는 CP0/3/6/9/12와 origin microbatch1/2를 허용했다. Censor 재튜닝이나 새 어댑터 개발은 하지 않았으며 과거 판정은 보존한다. Query/Side의 frozen encode/cache를 매 forward 비용에 포함한다.
+origin 그룹·frozen hash·same-shape replay 검사는 통과했다. FP32에서 pinball 부호 뒤집힘이 없는 비교에서도 Standard gradient/update 차이가 기준을 넘었다. 따라서 pinball kink만으로 모든 차이를 설명할 수 없다. BF16에서는 모든 단일 비교가 기준을 넘었고 부호 뒤집힘도 관측됐다. 그 출력 미분 변화의 상한을 별도 기록했으며 파라미터 gradient 차이에 대한 인과 분해를 완료했다고 하지 않는다.
 
-## 2. 예산과 옵션
+Electricity Standard의 FP32 5-step total-delta relative-L2는 0.001180421로 지정1e-3을 넘었다. BF16 경로에서도 scaled output 차이가 지정0.05를 넘는 경우가 있었다. raw 단위 기준만 바꾸어 끝낼 문제가 아니며 이번 run에서는 허용치·정밀도·학습 설정을 추가 변경하지 않는다.
 
-1/2/4/8GiB는 실제 장비 요구가 주어지지 않아 사전에 고정한 tensor allocated 예산 시뮬레이션이다. allocated, reserved, NVML 및 실제 free VRAM은 다른 양이다. 1GiB GPU에서 실행된다는 뜻이 아니다. [전체 budget 표](resource_budget_table.csv), [timing 반복](resource_measurements.csv), [준비·cold/warm/FP32 포함 모든 실행](resource_all_executions.csv)을 구분한다.
+v2는 옛 실패를 본 후 사용자가 고정한 정책 개정이다. 기존 v1 판정은 불변이다. 새 인증 쌍과 장부는 [계약](contract.json), [단일 검사](numeric_checks.json), [연속 검사](path_checks.json), [그룹/불변 검사](leakage_checks.json), [독립 검증](numeric_verification.json)에 있다. 본 예측 비교는 미실행이므로 예측 성능 FAIL이나 Query의 전체 연구 가치를 판정하지 않는다.
 
-## 3. 수치 무결성과 Standard 대조
+Q는 종료했고 C는 성능과 독립적으로 진행한다. RustDesk만 사용자가 예외 허용했으며 GPU 사용량은 원본 로그에 남았다. 완전 유휴 GPU 시간 측정이라고 주장하지 않는다.
 
-저장 artifact로 독립 재계산한 parity 0개 중 실패 0개. 실패 옵션을 제외해서 Standard를 불가능으로 분류하지 않는다. 수치 무결성을 확보하지 못하면 이번 조합 전체의 A가 판정 불가다.
+## 보고 범위 정정
 
+자동 생성된 공통 자원 보고서에는 미실행 단계의 표 링크와 검산 건수0의 기본값이 포함돼 있었다. 이번 수치 중단에 맞게 본문을 정리했다. [원본 자동 보고서](REPORT.generated.txt)는 byte 그대로 보존했다. 자원·예측 비교는 미실행이며 수치 차이0이나 성능0을 측정한 결과가 아니다.
 
-## 4. B 실행 여부와 예측 결과
-
-예측 비교 미실행; INCONCLUSIVE_NUMERICS_V2.
-
-새 E 점수와 최강 예측 대조군은 측정하지 않았다. 과거 점수를 이번 자원 설정의 새 정확도로 가져오지 않는다.
-
-## 5. 원점수·반복·비용
-
-[metrics.csv](metrics.csv)는 새로 평가한 원점수만 담는다. [fit_attempts.csv](fit_attempts.csv), [resources.csv](resources.csv), [trajectories.csv](trajectories.csv)에 실제 시도·시간·V 기회를 구분한다. 기록이 비어 있으면 미실행이며 0 성능을 뜻하지 않는다. Native raw loss는 원천 간 직접 평균하지 않는다. 개선율은 100×(baseline−Query)/baseline이다.
-
-## 6. 한계
-
-개발 데이터 재사용, 2 seeds, 길이4096 하나, 제한된 CP/micro 옵션과 단일 LR의 비교다. 4개 시간 블록 bootstrap은 기술적 불확실성 표시이며 재사용 편향을 보정하지 않는다. 실제 소형 VRAM 장비, 다른 길이·원천, 신규성은 검증하지 않았다. F0와 각 arm의 step0 차이를 별도 저장하며 초기 반올림 차이를 모두 학습 이득으로 세지 않는다.
-
-Side는 [Ladder Side-Tuning](https://proceedings.neurips.cc/paper_files/paper/2022/hash/54801e196796134a2b0ae5e8adef502f-Abstract-Conference.html)의 원리와 관련된 저장소 대조군이며 공식 전체 재현이 아니다. [PyTorch checkpoint 설명](https://pytorch.org/blog/activation-checkpointing-techniques/)과 로컬 PyTorch API를 확인했다. Query의 큰 아이디어가 최초라는 주장을 하지 않는다.
-
-## 7. 종료와 다음 판단
-
-기록된 자원 신호와 예측 결과를 분리하여 후속 투자를 판단한다. 자동 추가 학습·seed/LR/budget 탐색은 없다.
-
-검증: 이전 파일 1360개 해시 보존, scalar metric 최대 차이 0. [independent_verification.json](independent_verification.json)은 기록의 재현성을 확인하며 실패 판정을 PASS로 바꾸지 않는다.
+[Q/C 최종 한국어 보고서](../priority12_resume_20260915/REPORT.md), [원래 실행 검증 기록](independent_verification.json), [수치 비교 검산](numeric_verification.json). 판정·실행 장부·raw 결과는 변경하지 않았다.

@@ -1,4 +1,6 @@
-# Q/C 승인 재개 — 진행 기록
+# Q/C 승인 재개 — 보존된 진행 기록
+
+**이후 실행 종료:** C24/24 fits·24,576 updates와 평가·172개 예측 검산을 완료했다. [최종 보고서](REPORT.md). 아래는 실행 중 작성한 과거 스냅샷이다.
 
 Q는180회 실제 수치 업데이트 뒤 INCONCLUSIVE_NUMERICS_V2로 종료했다. 자원/본학습은0이다. [Q 진단](../query_budget_numeric_v2_resume_20260915/NUMERIC_RESULT.md).
 

@@ -4,11 +4,11 @@ Independent Chronos-2 development screen. Round 0 and Round 1 only; Round 2 requ
 
 No prior experiment outputs are used as new evidence. Raw data and cached model weights may be reused with provenance hashes. All source is local to this repository.
 
-## Current execution — Q/C authorized resumption
+## Latest completed execution — Q/C authorized resumption
 
-The [authorized resumption](results/priority12_resume_20260915/LIVE_PROGRESS.md) completed Query numerical diagnosis (180 disposable updates, INCONCLUSIVE_NUMERICS_V2). The independent channel track passed all 24 real GPU check updates and is running its fixed 24-fit schedule. E scoring is sealed until complete source blocks finish. RustDesk alone is an explicitly authorized GPU exception.
+The [Korean final report](results/priority12_resume_20260915/REPORT.md) records **Q INCONCLUSIVE_NUMERICS_V2 / C COMPLETE**. Q used 180 disposable numerical updates; resource timing and forecasting fits were not run. C completed all **24 fits / 24,576 updates**, with 24 real GPU check updates and 172 independently verified prediction records. BASIS4 reduced total trainable parameters by 64.37% versus SPECIFIC and improved its MSE, but did not beat the matched-budget sharing controls. LORA_HEAD was smaller and more accurate on both sources. This is a limited compression observation, not an established new-method advantage. RustDesk alone was the authorized GPU exception. No follow-up training is running.
 
-## Latest bounded execution — 2026-09-15
+## Previous GPU-blocked execution — 2026-09-15
 
 The [independent Query v2 and channel sharing tracks](results/priority12_20260915/REPORT.md) ended at **BLOCKED_GPU_BUSY / BLOCKED_GPU_BUSY**. New forecasting fits: 0/12 Query and 0/24 channel. Actual GPU updates: 0 / 0. CPU model/structure checks and parameter counts are reported separately from unmeasured forecasting outcomes. Historical results are preserved; no automatic retry or follow-up training is running.
 
