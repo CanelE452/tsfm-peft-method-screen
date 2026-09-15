@@ -1,0 +1,716 @@
+{
+  "files": {
+    "experiments/channel_identity_diagnostic_20260916/model.py": "cd4117c02b1c76460109939e4e067d9746244b789b59829677f78bec3c12bb86",
+    "experiments/channel_identity_diagnostic_20260916/run.py": "f24d31f9197aaf8d4d94d1abd850b89a0d924da3639573881ab209657a8570bb",
+    "experiments/channel_identity_diagnostic_20260916/report.py": "7ad6d904d9ccf1604c5de7043a1afea906bde2faeac123e7da57dacbd9231668",
+    "results/channel_identity_diagnostic_20260916/evaluation.json": "b304393ffc28a60d42c00e83294218ccf7c05a6645532d5fa557d9ead65dc0f0",
+    "results/channel_identity_diagnostic_20260916/finite_diagnostic_wall.json": "0c190b8400d3bab217b1e3b04d9d4acbb53ce8bf77af1743b3d2884626fb81f4",
+    "results/channel_identity_diagnostic_20260916/00_electricity_41000_REZERO_SHARED_changes.json": "1a76f06e323646a8dfae5e80bbc362929a0aca4351734d35dd37280002c958cb",
+    "results/channel_identity_diagnostic_20260916/historical_hashes.json": "3efbeda2975b75d998db3105d09da1f86a033e41b9d2a1441e5f116007b2b8b9",
+    "results/channel_identity_diagnostic_20260916/seal.json": "484bd9a1e0921190af20c4ddab6871c46bf3ec402b038cbb5aafd48fa26b9a49",
+    "results/channel_identity_diagnostic_20260916/smoke.json": "9f5544e6e41f32a41ddce45d058fe56754ef42501e08278db1e9445de6292d8b",
+    "results/channel_identity_diagnostic_20260916/00_electricity_41000_REZERO_SHARED_steps.json": "6bdc8d84b30a9a46bab343afc6d0d791505f26339a0d76bb4d41204f486731da",
+    "results/channel_identity_diagnostic_20260916/03_traffic_41001_REZERO_SHARED_steps.json": "85e2ad09f25853c15c7a40f586945991a3170175543b3e701a725a244e0013ba",
+    "results/channel_identity_diagnostic_20260916/postprocessing_errors.json": "24c07d31347390188ee3b4f3ebdafebc842ae9bb41aa3cc13a46c39f1346eb91",
+    "results/channel_identity_diagnostic_20260916/02_traffic_41000_REZERO_SHARED_steps.json": "b22f7e1eff9bef1570789a8203a3909a2db98300c927fcb11b2d19f7ee2398b1",
+    "results/channel_identity_diagnostic_20260916/decision.json": "e81f9620179c9f9db47bc0d0af8af048001753dc7c98eec2e83560a3ae115b53",
+    "results/channel_identity_diagnostic_20260916/01_electricity_41001_REZERO_SHARED_changes.json": "b4ca5b997eed71f179515cec3b348a573a95f6a3c9b8e18a63256175bebb46a4",
+    "results/channel_identity_diagnostic_20260916/01_electricity_41001_REZERO_SHARED_steps.json": "0ef5e829343e74182a214bd367b73c288dee02f101c94f20dade2ab502625496",
+    "results/channel_identity_diagnostic_20260916/02_traffic_41000_REZERO_SHARED_changes.json": "b101bcd836df1793b5c728e5e23c95e9f88cb00bfd535024620640aaa1cf443a",
+    "results/channel_identity_diagnostic_20260916/fits.json": "d4349c80aaee6ef14ac002917e66587fc6197629f5c8ee3272a8a6b5acf355fb",
+    "results/channel_identity_diagnostic_20260916/verification.json": "e337a76bfba1563e9e6bd46d8d77a0ee0ebc31833eb33554286ec219a68bb2be",
+    "results/channel_identity_diagnostic_20260916/comparisons.csv": "1198491abb82e562a43829e9f2da761721c04aa18ef71d7c37247381505ff3a4",
+    "results/channel_identity_diagnostic_20260916/status.json": "d3b981abd78a314850df70667ff36db55df792cb763a399aef6bc8e473648214",
+    "results/channel_identity_diagnostic_20260916/reused_controls.json": "a12acbe34353c18d27b5c4a4fdc1d72e7ce08ee104f4dec8f0d6f0fba14a8d10",
+    "results/channel_identity_diagnostic_20260916/PROTOCOL.md": "738785315ecf4477e7d6cbf1439704220a4c7ea4aa8782e3fc7c56e3b1080b55",
+    "results/channel_identity_diagnostic_20260916/RESEARCH_REVIEW.md": "6289ec8aca9b2013390f30fe3f0b623512642842d651169e55f65665426759fe",
+    "results/channel_identity_diagnostic_20260916/REPORT.md": "e694e85419a549ea9ce5b05e9a78314d6210cc510b07b16fb44147486e534e5c",
+    "results/channel_identity_diagnostic_20260916/trajectory.json": "80cf744d9f2b1df7d43f114b6a4c59773a261e68a94d98c9ba4fdc34e96ee716",
+    "results/channel_identity_diagnostic_20260916/selection_seal.json": "5f0623440ffd5d0796fb8b12183c124868aeab44f4f02d484177e71b69d5f7dd",
+    "results/channel_identity_diagnostic_20260916/gpu_finite_diagnostic.jsonl": "fc9f28bf50b37c4e391e01a6191ad400c9411cc617e76c7aa62aae5dd6dbc0f5",
+    "results/channel_identity_diagnostic_20260916/03_traffic_41001_REZERO_SHARED_changes.json": "af85333cd99799dd589b91d8da61700b80284dff8a1eb9e58dd46b0b19aa1f40",
+    "results/channel_identity_diagnostic_20260916/structural_probe.json": "ad60100e46a765c684cddb19c7c7a3b3e1e7a8029c3fe105609f3424f6c24e7a",
+    "results/channel_identity_diagnostic_20260916/gpu_budget.json": "c3eff280bc66db0c43b4840a836c687a3a3efaae22aa1f49e2b71e83013035cc",
+    "results/channel_identity_diagnostic_20260916/cpu_checks.json": "6435d45418ab9c183d715ead96798dbf225756e6647ecf51647ed699d395ff78",
+    "README.md": "ae89a4532cc772a2ac0e470bc4d942bc021d9f2e5f403fed4129ca4a0cfb2410",
+    "docs/RESULTS_INDEX.md": "d0d949e882775d67402f352887bc7cdf3fdad6c59c03a66fd7cd0873ca68abfc"
+  },
+  "local_links": [
+    {
+      "source": "results/channel_identity_diagnostic_20260916/RESEARCH_REVIEW.md",
+      "target": "../building_peft_topic_decision_20260916/component_contributions.csv",
+      "exists": true
+    },
+    {
+      "source": "results/channel_identity_diagnostic_20260916/RESEARCH_REVIEW.md",
+      "target": "../../research/full_reassessment_20260914/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "results/channel_identity_diagnostic_20260916/REPORT.md",
+      "target": "comparisons.csv",
+      "exists": true
+    },
+    {
+      "source": "results/channel_identity_diagnostic_20260916/REPORT.md",
+      "target": "RESEARCH_REVIEW.md",
+      "exists": true
+    },
+    {
+      "source": "results/channel_identity_diagnostic_20260916/REPORT.md",
+      "target": "PROTOCOL.md",
+      "exists": true
+    },
+    {
+      "source": "results/channel_identity_diagnostic_20260916/REPORT.md",
+      "target": "verification.json",
+      "exists": true
+    },
+    {
+      "source": "results/channel_identity_diagnostic_20260916/REPORT.md",
+      "target": "decision.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/MASTER_SCREEN_PROTOCOL.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/USER_PROTOCOL.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/channel_identity_diagnostic_20260916/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/channel_identity_diagnostic_20260916/RESEARCH_REVIEW.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/channel_identity_diagnostic_20260916/verification.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/building_peft_topic_decision_20260916/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/building_peft_topic_decision_20260916/FINAL_DECISION.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/building_coldstart_coverage_v1_20260915/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "research/peft_rank12_20260915/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/priority12_resume_20260915/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/priority12_20260915/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/query_budget_pilot_20260915/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/censor_tail_controlled_v1/FINAL_REVIEW.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/RESULTS_INDEX.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/REASSESSMENT_DIAGNOSTICS_PROTOCOL.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "research/full_reassessment_20260914/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/calibration_anchor_20260914/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "automation/overnight_followup/FOLLOWUP_RESULT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/overnight_20260913/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "research/calibration_anchor_20260914/FAILURE_ANALYSIS.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/CALIBRATION_ANCHOR_FOLLOWUP.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/OVERNIGHT_20260913.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/NOVELTY_BOUNDARY.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/forecast_query_equal_time/RESULT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/forecast_query_equal_time/verification.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/FORECAST_QUERY_EQUAL_TIME_PLAN.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/FORECAST_QUERY_EQUAL_TIME_EXECUTION.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/forecast_query_checkpoint_diagnostic/RESULT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/FORECAST_QUERY_CHECKPOINT_DIAGNOSTIC.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/forecast_query_checkpoint_diagnostic/verification.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "research/peft_rethink_2026_09_13/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/block_shape_pilot/RESULT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/BLOCK_SHAPE_PROTOCOL.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/block_shape_pilot/verification.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/forecast_query_pilot/RESULT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/FORECAST_QUERY_PROTOCOL.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/forecast_query_pilot/gpu_monitor.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/forecast_query_pilot/verification.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/local_backward_feasibility/RESULT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/LOCAL_BACKWARD_PROTOCOL.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/local_backward_feasibility/verification.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/memory_feasibility/RESULT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/MEMORY_FEASIBILITY_PROTOCOL.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/memory_feasibility/verification.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/candidate_01_v2/RESULT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/screening_summary/freshness_v2_review.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/CANDIDATE_01_V2.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/screening_summary/latest_review.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/candidate_05_repaired/RESULT.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/screening_summary/ranking.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "results/screening_summary/all_candidates.csv",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/POST_SCREEN_REPAIR.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/channel_identity_diagnostic_20260916/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/channel_identity_diagnostic_20260916/RESEARCH_REVIEW.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/building_peft_topic_decision_20260916/FINAL_DECISION.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/building_peft_topic_decision_20260916/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/channel_identity_diagnostic_20260916/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/channel_identity_diagnostic_20260916/comparisons.csv",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/channel_identity_diagnostic_20260916/verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/channel_identity_diagnostic_20260916/structural_probe.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/building_peft_topic_decision_20260916/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/building_peft_topic_decision_20260916/FINAL_DECISION.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/building_peft_topic_decision_20260916/INTERPRETATION.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/building_peft_topic_decision_20260916/independent_cpu_verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/building_peft_topic_decision_20260916/independent_gpu_verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/building_peft_topic_decision_20260916/followup_connection.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/building_transfer_subspace_v1_20260915/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/building_transfer_subspace_v1_20260915/INTERPRETATION.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/building_transfer_subspace_v1_20260915/scores.csv",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/building_transfer_subspace_v1_20260915/independent_verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/building_transfer_subspace_v1_20260915/execution_summary.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/building_transfer_subspace_v1_20260915/post_run_patch.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/building_coldstart_coverage_v1_20260915/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/building_coldstart_coverage_v1_20260915/stageA_interaction.csv",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/building_coldstart_coverage_v1_20260915/independent_verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/building_coldstart_coverage_v1_20260915/publication_audit.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../research/peft_rank12_20260915/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/query_budget_repair_v2_20260915/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/channel_sharing_screen_v1_20260915/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../research/peft_rank12_20260915/completion.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/channel_sharing_screen_v1_20260915/independent_verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/priority12_resume_20260915/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/query_budget_numeric_v2_resume_20260915/NUMERIC_RESULT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/channel_basis_pilot_resume_20260915/metrics.csv",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/priority12_resume_20260915/completion_verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/channel_basis_pilot_resume_20260915/independent_verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/priority12_20260915/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/query_budget_numeric_v2_20260915/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/channel_basis_pilot_20260915/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/priority12_20260915/completion_verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/channel_basis_pilot_20260915/initial_cpu_parity.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/query_budget_pilot_20260915/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/query_budget_pilot_20260915/resource_measurements.csv",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/query_budget_pilot_20260915/completion_verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/query_budget_pilot_20260915/independent_verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/query_budget_pilot_20260915/cpu_tests.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/censor_tail_controlled_v1/FINAL_REVIEW.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/censor_tail_controlled_v1/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/censor_tail_controlled_v1/verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/censor_tail_controlled_v1/completion_audit.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../research/reopen_review_20260914/FINAL_ASSESSMENT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../research/reopen_review_20260914/METHOD_REOPEN_MATRIX.csv",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../research/reopen_review_20260914/verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../research/reopen_review_20260914/PATCHPHASE_V2_RESULT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../research/reopen_review_20260914/patch_evidence.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../research/reopen_review_20260914/QUERY_RESOURCE_FRONTIER.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/reopen_query_resource_20260914/quality_memory_time.png",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/reopen_query_resource_20260914/parity.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/reopen_query_resource_20260914/receipt.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../research/reopen_review_20260914/FR_ENTRY_DIAGNOSTIC.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../research/reopen_review_20260914/CENSOR_TAIL_DIAGNOSTIC.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../research/reopen_review_20260914/verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/future_selection_transfer_v1/FINAL_REVIEW.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/future_selection_transfer_v1/final_validation.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/future_selection_transfer_v1/artifact_verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/temporal_transfer_diagnostic_v1/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/temporal_transfer_diagnostic_v1/ERRATUM.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/temporal_transfer_diagnostic_v1/artifact_verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/temporal_transfer_diagnostic_v1_D/FINAL_REVIEW.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/temporal_transfer_diagnostic_v1_D/",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/anchor_window_study_20260914/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../research/reopen_review_20260914/ANCHOR_REVIEW.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/anchor_window_study_20260914/verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../research/reopen_review_20260914/anchor_evidence.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../research/full_reassessment_20260914/REPORT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESULTS_INDEX.md",
+      "target": "../results/screening_summary/latest_review.md",
+      "exists": true
+    }
+  ],
+  "total_bytes": 1661317,
+  "gpu_samples": 619,
+  "unapproved_compute_samples": 0,
+  "training_finished": true,
+  "raw_cache_included": false,
+  "postprocessing_error_record": "postprocessing_errors.json"
+}

@@ -4,9 +4,17 @@ Independent Chronos-2 development screen. Round 0 and Round 1 only; Round 2 requ
 
 No prior experiment outputs are used as new evidence. Raw data and cached model weights may be reused with provenance hashes. All source is local to this repository.
 
-## Latest completed execution — building cold-start coverage
+## Latest completed work — channel identity diagnostic
 
-The [Korean building cold-start report](results/building_coldstart_coverage_v1_20260915/REPORT.md) records 8 recipe fits and 16 development fits (2,880 updates), plus 2 separate smoke updates. Standard LoRA improved 12/16 development episodes, but the predefined coverage interaction was positive in only 2/4 buildings (required 3/4): STOP_NO_COVERAGE_PROBLEM_SIGNAL. Coverage-rule selection and held-out training were not run. Existing results are preserved; no automatic follow-up is running.
+The [Korean diagnostic report](results/channel_identity_diagnostic_20260916/REPORT.md) records 4/4 new fits and 2,030 optimizer updates, with four separate smoke updates. A known ReZero residual control improves on the earlier shared module in all four cells, but does not improve on LoRA+head in both seeds of either source. This is a diagnostic on reused development data, not a new-method PASS. [Research and prior-work review](results/channel_identity_diagnostic_20260916/RESEARCH_REVIEW.md), [numerical verification](results/channel_identity_diagnostic_20260916/verification.json). No training remains active.
+
+## Previous completed execution — short-history PEFT topic decision
+
+The [Korean 120-fit report](results/building_peft_topic_decision_20260916/REPORT.md) records 120/120 fits and 19,680 optimizer updates. All three methods selected ZERO; the added candidate value was zero. The result remains NO_METHOD_TOPIC_THIS_RUN, with 600 checkpoints and 5,100 forecasts independently replayed. [Final decision](results/building_peft_topic_decision_20260916/FINAL_DECISION.md).
+
+## Previous completed execution — building cold-start coverage
+
+The [Korean building cold-start report](results/building_coldstart_coverage_v1_20260915/REPORT.md) records 8 recipe fits and 16 development fits (2,880 updates), plus 2 separate smoke updates. The predefined coverage interaction was positive in 2/4 buildings (required 3/4): STOP_NO_COVERAGE_PROBLEM_SIGNAL. Its unexecuted coverage-rule stages remain unexecuted; the later, separate 120-fit comparison is documented above.
 
 ## Previous completed execution — R1/R2 budget study
 
