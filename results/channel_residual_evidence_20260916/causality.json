@@ -1,0 +1,1533 @@
+{
+  "poison_checks": [
+    {
+      "dataset": "electricity",
+      "seed": 41000,
+      "poison_start_index": 0,
+      "predictions_unchanged_through_index": 0,
+      "methods": [
+        "UNCHANGED",
+        "EXPANDING_BIAS",
+        "EXPANDING_DAILY",
+        "LAST_BIAS"
+      ]
+    },
+    {
+      "dataset": "electricity",
+      "seed": 41000,
+      "poison_start_index": 27,
+      "predictions_unchanged_through_index": 27,
+      "methods": [
+        "UNCHANGED",
+        "EXPANDING_BIAS",
+        "EXPANDING_DAILY",
+        "LAST_BIAS"
+      ]
+    },
+    {
+      "dataset": "electricity",
+      "seed": 41000,
+      "poison_start_index": 54,
+      "predictions_unchanged_through_index": 54,
+      "methods": [
+        "UNCHANGED",
+        "EXPANDING_BIAS",
+        "EXPANDING_DAILY",
+        "LAST_BIAS"
+      ]
+    },
+    {
+      "dataset": "electricity",
+      "seed": 41001,
+      "poison_start_index": 0,
+      "predictions_unchanged_through_index": 0,
+      "methods": [
+        "UNCHANGED",
+        "EXPANDING_BIAS",
+        "EXPANDING_DAILY",
+        "LAST_BIAS"
+      ]
+    },
+    {
+      "dataset": "electricity",
+      "seed": 41001,
+      "poison_start_index": 27,
+      "predictions_unchanged_through_index": 27,
+      "methods": [
+        "UNCHANGED",
+        "EXPANDING_BIAS",
+        "EXPANDING_DAILY",
+        "LAST_BIAS"
+      ]
+    },
+    {
+      "dataset": "electricity",
+      "seed": 41001,
+      "poison_start_index": 54,
+      "predictions_unchanged_through_index": 54,
+      "methods": [
+        "UNCHANGED",
+        "EXPANDING_BIAS",
+        "EXPANDING_DAILY",
+        "LAST_BIAS"
+      ]
+    },
+    {
+      "dataset": "traffic",
+      "seed": 41001,
+      "poison_start_index": 0,
+      "predictions_unchanged_through_index": 0,
+      "methods": [
+        "UNCHANGED",
+        "EXPANDING_BIAS",
+        "EXPANDING_DAILY",
+        "LAST_BIAS"
+      ]
+    },
+    {
+      "dataset": "traffic",
+      "seed": 41001,
+      "poison_start_index": 18,
+      "predictions_unchanged_through_index": 18,
+      "methods": [
+        "UNCHANGED",
+        "EXPANDING_BIAS",
+        "EXPANDING_DAILY",
+        "LAST_BIAS"
+      ]
+    },
+    {
+      "dataset": "traffic",
+      "seed": 41001,
+      "poison_start_index": 36,
+      "predictions_unchanged_through_index": 36,
+      "methods": [
+        "UNCHANGED",
+        "EXPANDING_BIAS",
+        "EXPANDING_DAILY",
+        "LAST_BIAS"
+      ]
+    },
+    {
+      "dataset": "traffic",
+      "seed": 41000,
+      "poison_start_index": 0,
+      "predictions_unchanged_through_index": 0,
+      "methods": [
+        "UNCHANGED",
+        "EXPANDING_BIAS",
+        "EXPANDING_DAILY",
+        "LAST_BIAS"
+      ]
+    },
+    {
+      "dataset": "traffic",
+      "seed": 41000,
+      "poison_start_index": 18,
+      "predictions_unchanged_through_index": 18,
+      "methods": [
+        "UNCHANGED",
+        "EXPANDING_BIAS",
+        "EXPANDING_DAILY",
+        "LAST_BIAS"
+      ]
+    },
+    {
+      "dataset": "traffic",
+      "seed": 41000,
+      "poison_start_index": 36,
+      "predictions_unchanged_through_index": 36,
+      "methods": [
+        "UNCHANGED",
+        "EXPANDING_BIAS",
+        "EXPANDING_DAILY",
+        "LAST_BIAS"
+      ]
+    }
+  ],
+  "phase_alignment_counterexample_passed": true,
+  "state_receipts": [
+    {
+      "dataset": "electricity",
+      "seed": 41000,
+      "origins": [
+        {
+          "origin": 18412,
+          "completed_forecasts": 0,
+          "latest_label_time_exclusive": null
+        },
+        {
+          "origin": 18508,
+          "completed_forecasts": 1,
+          "latest_label_time_exclusive": 18508
+        },
+        {
+          "origin": 18604,
+          "completed_forecasts": 2,
+          "latest_label_time_exclusive": 18604
+        },
+        {
+          "origin": 18700,
+          "completed_forecasts": 3,
+          "latest_label_time_exclusive": 18700
+        },
+        {
+          "origin": 18796,
+          "completed_forecasts": 4,
+          "latest_label_time_exclusive": 18796
+        },
+        {
+          "origin": 18892,
+          "completed_forecasts": 5,
+          "latest_label_time_exclusive": 18892
+        },
+        {
+          "origin": 18988,
+          "completed_forecasts": 6,
+          "latest_label_time_exclusive": 18988
+        },
+        {
+          "origin": 19084,
+          "completed_forecasts": 7,
+          "latest_label_time_exclusive": 19084
+        },
+        {
+          "origin": 19180,
+          "completed_forecasts": 8,
+          "latest_label_time_exclusive": 19180
+        },
+        {
+          "origin": 19276,
+          "completed_forecasts": 9,
+          "latest_label_time_exclusive": 19276
+        },
+        {
+          "origin": 19372,
+          "completed_forecasts": 10,
+          "latest_label_time_exclusive": 19372
+        },
+        {
+          "origin": 19468,
+          "completed_forecasts": 11,
+          "latest_label_time_exclusive": 19468
+        },
+        {
+          "origin": 19564,
+          "completed_forecasts": 12,
+          "latest_label_time_exclusive": 19564
+        },
+        {
+          "origin": 19660,
+          "completed_forecasts": 13,
+          "latest_label_time_exclusive": 19660
+        },
+        {
+          "origin": 19756,
+          "completed_forecasts": 14,
+          "latest_label_time_exclusive": 19756
+        },
+        {
+          "origin": 19852,
+          "completed_forecasts": 15,
+          "latest_label_time_exclusive": 19852
+        },
+        {
+          "origin": 19948,
+          "completed_forecasts": 16,
+          "latest_label_time_exclusive": 19948
+        },
+        {
+          "origin": 20044,
+          "completed_forecasts": 17,
+          "latest_label_time_exclusive": 20044
+        },
+        {
+          "origin": 20140,
+          "completed_forecasts": 18,
+          "latest_label_time_exclusive": 20140
+        },
+        {
+          "origin": 20236,
+          "completed_forecasts": 19,
+          "latest_label_time_exclusive": 20236
+        },
+        {
+          "origin": 20332,
+          "completed_forecasts": 20,
+          "latest_label_time_exclusive": 20332
+        },
+        {
+          "origin": 20428,
+          "completed_forecasts": 21,
+          "latest_label_time_exclusive": 20428
+        },
+        {
+          "origin": 20524,
+          "completed_forecasts": 22,
+          "latest_label_time_exclusive": 20524
+        },
+        {
+          "origin": 20620,
+          "completed_forecasts": 23,
+          "latest_label_time_exclusive": 20620
+        },
+        {
+          "origin": 20716,
+          "completed_forecasts": 24,
+          "latest_label_time_exclusive": 20716
+        },
+        {
+          "origin": 20812,
+          "completed_forecasts": 25,
+          "latest_label_time_exclusive": 20812
+        },
+        {
+          "origin": 20908,
+          "completed_forecasts": 26,
+          "latest_label_time_exclusive": 20908
+        },
+        {
+          "origin": 21043,
+          "completed_forecasts": 27,
+          "latest_label_time_exclusive": 21004
+        },
+        {
+          "origin": 21139,
+          "completed_forecasts": 28,
+          "latest_label_time_exclusive": 21139
+        },
+        {
+          "origin": 21235,
+          "completed_forecasts": 29,
+          "latest_label_time_exclusive": 21235
+        },
+        {
+          "origin": 21331,
+          "completed_forecasts": 30,
+          "latest_label_time_exclusive": 21331
+        },
+        {
+          "origin": 21427,
+          "completed_forecasts": 31,
+          "latest_label_time_exclusive": 21427
+        },
+        {
+          "origin": 21523,
+          "completed_forecasts": 32,
+          "latest_label_time_exclusive": 21523
+        },
+        {
+          "origin": 21619,
+          "completed_forecasts": 33,
+          "latest_label_time_exclusive": 21619
+        },
+        {
+          "origin": 21715,
+          "completed_forecasts": 34,
+          "latest_label_time_exclusive": 21715
+        },
+        {
+          "origin": 21811,
+          "completed_forecasts": 35,
+          "latest_label_time_exclusive": 21811
+        },
+        {
+          "origin": 21907,
+          "completed_forecasts": 36,
+          "latest_label_time_exclusive": 21907
+        },
+        {
+          "origin": 22003,
+          "completed_forecasts": 37,
+          "latest_label_time_exclusive": 22003
+        },
+        {
+          "origin": 22099,
+          "completed_forecasts": 38,
+          "latest_label_time_exclusive": 22099
+        },
+        {
+          "origin": 22195,
+          "completed_forecasts": 39,
+          "latest_label_time_exclusive": 22195
+        },
+        {
+          "origin": 22291,
+          "completed_forecasts": 40,
+          "latest_label_time_exclusive": 22291
+        },
+        {
+          "origin": 22387,
+          "completed_forecasts": 41,
+          "latest_label_time_exclusive": 22387
+        },
+        {
+          "origin": 22483,
+          "completed_forecasts": 42,
+          "latest_label_time_exclusive": 22483
+        },
+        {
+          "origin": 22579,
+          "completed_forecasts": 43,
+          "latest_label_time_exclusive": 22579
+        },
+        {
+          "origin": 22675,
+          "completed_forecasts": 44,
+          "latest_label_time_exclusive": 22675
+        },
+        {
+          "origin": 22771,
+          "completed_forecasts": 45,
+          "latest_label_time_exclusive": 22771
+        },
+        {
+          "origin": 22867,
+          "completed_forecasts": 46,
+          "latest_label_time_exclusive": 22867
+        },
+        {
+          "origin": 22963,
+          "completed_forecasts": 47,
+          "latest_label_time_exclusive": 22963
+        },
+        {
+          "origin": 23059,
+          "completed_forecasts": 48,
+          "latest_label_time_exclusive": 23059
+        },
+        {
+          "origin": 23155,
+          "completed_forecasts": 49,
+          "latest_label_time_exclusive": 23155
+        },
+        {
+          "origin": 23251,
+          "completed_forecasts": 50,
+          "latest_label_time_exclusive": 23251
+        },
+        {
+          "origin": 23347,
+          "completed_forecasts": 51,
+          "latest_label_time_exclusive": 23347
+        },
+        {
+          "origin": 23443,
+          "completed_forecasts": 52,
+          "latest_label_time_exclusive": 23443
+        },
+        {
+          "origin": 23539,
+          "completed_forecasts": 53,
+          "latest_label_time_exclusive": 23539
+        },
+        {
+          "origin": 23635,
+          "completed_forecasts": 54,
+          "latest_label_time_exclusive": 23635
+        },
+        {
+          "origin": 23731,
+          "completed_forecasts": 55,
+          "latest_label_time_exclusive": 23731
+        },
+        {
+          "origin": 23827,
+          "completed_forecasts": 56,
+          "latest_label_time_exclusive": 23827
+        },
+        {
+          "origin": 23923,
+          "completed_forecasts": 57,
+          "latest_label_time_exclusive": 23923
+        },
+        {
+          "origin": 24019,
+          "completed_forecasts": 58,
+          "latest_label_time_exclusive": 24019
+        },
+        {
+          "origin": 24115,
+          "completed_forecasts": 59,
+          "latest_label_time_exclusive": 24115
+        },
+        {
+          "origin": 24211,
+          "completed_forecasts": 60,
+          "latest_label_time_exclusive": 24211
+        },
+        {
+          "origin": 24307,
+          "completed_forecasts": 61,
+          "latest_label_time_exclusive": 24307
+        },
+        {
+          "origin": 24403,
+          "completed_forecasts": 62,
+          "latest_label_time_exclusive": 24403
+        },
+        {
+          "origin": 24499,
+          "completed_forecasts": 63,
+          "latest_label_time_exclusive": 24499
+        },
+        {
+          "origin": 24595,
+          "completed_forecasts": 64,
+          "latest_label_time_exclusive": 24595
+        },
+        {
+          "origin": 24691,
+          "completed_forecasts": 65,
+          "latest_label_time_exclusive": 24691
+        },
+        {
+          "origin": 24787,
+          "completed_forecasts": 66,
+          "latest_label_time_exclusive": 24787
+        },
+        {
+          "origin": 24883,
+          "completed_forecasts": 67,
+          "latest_label_time_exclusive": 24883
+        },
+        {
+          "origin": 24979,
+          "completed_forecasts": 68,
+          "latest_label_time_exclusive": 24979
+        },
+        {
+          "origin": 25075,
+          "completed_forecasts": 69,
+          "latest_label_time_exclusive": 25075
+        },
+        {
+          "origin": 25171,
+          "completed_forecasts": 70,
+          "latest_label_time_exclusive": 25171
+        },
+        {
+          "origin": 25267,
+          "completed_forecasts": 71,
+          "latest_label_time_exclusive": 25267
+        },
+        {
+          "origin": 25363,
+          "completed_forecasts": 72,
+          "latest_label_time_exclusive": 25363
+        },
+        {
+          "origin": 25459,
+          "completed_forecasts": 73,
+          "latest_label_time_exclusive": 25459
+        },
+        {
+          "origin": 25555,
+          "completed_forecasts": 74,
+          "latest_label_time_exclusive": 25555
+        },
+        {
+          "origin": 25651,
+          "completed_forecasts": 75,
+          "latest_label_time_exclusive": 25651
+        },
+        {
+          "origin": 25747,
+          "completed_forecasts": 76,
+          "latest_label_time_exclusive": 25747
+        },
+        {
+          "origin": 25843,
+          "completed_forecasts": 77,
+          "latest_label_time_exclusive": 25843
+        },
+        {
+          "origin": 25939,
+          "completed_forecasts": 78,
+          "latest_label_time_exclusive": 25939
+        },
+        {
+          "origin": 26035,
+          "completed_forecasts": 79,
+          "latest_label_time_exclusive": 26035
+        },
+        {
+          "origin": 26131,
+          "completed_forecasts": 80,
+          "latest_label_time_exclusive": 26131
+        }
+      ],
+      "statistics_state_scalars": 857,
+      "forecast_blocks_seen": 80
+    },
+    {
+      "dataset": "electricity",
+      "seed": 41001,
+      "origins": [
+        {
+          "origin": 18412,
+          "completed_forecasts": 0,
+          "latest_label_time_exclusive": null
+        },
+        {
+          "origin": 18508,
+          "completed_forecasts": 1,
+          "latest_label_time_exclusive": 18508
+        },
+        {
+          "origin": 18604,
+          "completed_forecasts": 2,
+          "latest_label_time_exclusive": 18604
+        },
+        {
+          "origin": 18700,
+          "completed_forecasts": 3,
+          "latest_label_time_exclusive": 18700
+        },
+        {
+          "origin": 18796,
+          "completed_forecasts": 4,
+          "latest_label_time_exclusive": 18796
+        },
+        {
+          "origin": 18892,
+          "completed_forecasts": 5,
+          "latest_label_time_exclusive": 18892
+        },
+        {
+          "origin": 18988,
+          "completed_forecasts": 6,
+          "latest_label_time_exclusive": 18988
+        },
+        {
+          "origin": 19084,
+          "completed_forecasts": 7,
+          "latest_label_time_exclusive": 19084
+        },
+        {
+          "origin": 19180,
+          "completed_forecasts": 8,
+          "latest_label_time_exclusive": 19180
+        },
+        {
+          "origin": 19276,
+          "completed_forecasts": 9,
+          "latest_label_time_exclusive": 19276
+        },
+        {
+          "origin": 19372,
+          "completed_forecasts": 10,
+          "latest_label_time_exclusive": 19372
+        },
+        {
+          "origin": 19468,
+          "completed_forecasts": 11,
+          "latest_label_time_exclusive": 19468
+        },
+        {
+          "origin": 19564,
+          "completed_forecasts": 12,
+          "latest_label_time_exclusive": 19564
+        },
+        {
+          "origin": 19660,
+          "completed_forecasts": 13,
+          "latest_label_time_exclusive": 19660
+        },
+        {
+          "origin": 19756,
+          "completed_forecasts": 14,
+          "latest_label_time_exclusive": 19756
+        },
+        {
+          "origin": 19852,
+          "completed_forecasts": 15,
+          "latest_label_time_exclusive": 19852
+        },
+        {
+          "origin": 19948,
+          "completed_forecasts": 16,
+          "latest_label_time_exclusive": 19948
+        },
+        {
+          "origin": 20044,
+          "completed_forecasts": 17,
+          "latest_label_time_exclusive": 20044
+        },
+        {
+          "origin": 20140,
+          "completed_forecasts": 18,
+          "latest_label_time_exclusive": 20140
+        },
+        {
+          "origin": 20236,
+          "completed_forecasts": 19,
+          "latest_label_time_exclusive": 20236
+        },
+        {
+          "origin": 20332,
+          "completed_forecasts": 20,
+          "latest_label_time_exclusive": 20332
+        },
+        {
+          "origin": 20428,
+          "completed_forecasts": 21,
+          "latest_label_time_exclusive": 20428
+        },
+        {
+          "origin": 20524,
+          "completed_forecasts": 22,
+          "latest_label_time_exclusive": 20524
+        },
+        {
+          "origin": 20620,
+          "completed_forecasts": 23,
+          "latest_label_time_exclusive": 20620
+        },
+        {
+          "origin": 20716,
+          "completed_forecasts": 24,
+          "latest_label_time_exclusive": 20716
+        },
+        {
+          "origin": 20812,
+          "completed_forecasts": 25,
+          "latest_label_time_exclusive": 20812
+        },
+        {
+          "origin": 20908,
+          "completed_forecasts": 26,
+          "latest_label_time_exclusive": 20908
+        },
+        {
+          "origin": 21043,
+          "completed_forecasts": 27,
+          "latest_label_time_exclusive": 21004
+        },
+        {
+          "origin": 21139,
+          "completed_forecasts": 28,
+          "latest_label_time_exclusive": 21139
+        },
+        {
+          "origin": 21235,
+          "completed_forecasts": 29,
+          "latest_label_time_exclusive": 21235
+        },
+        {
+          "origin": 21331,
+          "completed_forecasts": 30,
+          "latest_label_time_exclusive": 21331
+        },
+        {
+          "origin": 21427,
+          "completed_forecasts": 31,
+          "latest_label_time_exclusive": 21427
+        },
+        {
+          "origin": 21523,
+          "completed_forecasts": 32,
+          "latest_label_time_exclusive": 21523
+        },
+        {
+          "origin": 21619,
+          "completed_forecasts": 33,
+          "latest_label_time_exclusive": 21619
+        },
+        {
+          "origin": 21715,
+          "completed_forecasts": 34,
+          "latest_label_time_exclusive": 21715
+        },
+        {
+          "origin": 21811,
+          "completed_forecasts": 35,
+          "latest_label_time_exclusive": 21811
+        },
+        {
+          "origin": 21907,
+          "completed_forecasts": 36,
+          "latest_label_time_exclusive": 21907
+        },
+        {
+          "origin": 22003,
+          "completed_forecasts": 37,
+          "latest_label_time_exclusive": 22003
+        },
+        {
+          "origin": 22099,
+          "completed_forecasts": 38,
+          "latest_label_time_exclusive": 22099
+        },
+        {
+          "origin": 22195,
+          "completed_forecasts": 39,
+          "latest_label_time_exclusive": 22195
+        },
+        {
+          "origin": 22291,
+          "completed_forecasts": 40,
+          "latest_label_time_exclusive": 22291
+        },
+        {
+          "origin": 22387,
+          "completed_forecasts": 41,
+          "latest_label_time_exclusive": 22387
+        },
+        {
+          "origin": 22483,
+          "completed_forecasts": 42,
+          "latest_label_time_exclusive": 22483
+        },
+        {
+          "origin": 22579,
+          "completed_forecasts": 43,
+          "latest_label_time_exclusive": 22579
+        },
+        {
+          "origin": 22675,
+          "completed_forecasts": 44,
+          "latest_label_time_exclusive": 22675
+        },
+        {
+          "origin": 22771,
+          "completed_forecasts": 45,
+          "latest_label_time_exclusive": 22771
+        },
+        {
+          "origin": 22867,
+          "completed_forecasts": 46,
+          "latest_label_time_exclusive": 22867
+        },
+        {
+          "origin": 22963,
+          "completed_forecasts": 47,
+          "latest_label_time_exclusive": 22963
+        },
+        {
+          "origin": 23059,
+          "completed_forecasts": 48,
+          "latest_label_time_exclusive": 23059
+        },
+        {
+          "origin": 23155,
+          "completed_forecasts": 49,
+          "latest_label_time_exclusive": 23155
+        },
+        {
+          "origin": 23251,
+          "completed_forecasts": 50,
+          "latest_label_time_exclusive": 23251
+        },
+        {
+          "origin": 23347,
+          "completed_forecasts": 51,
+          "latest_label_time_exclusive": 23347
+        },
+        {
+          "origin": 23443,
+          "completed_forecasts": 52,
+          "latest_label_time_exclusive": 23443
+        },
+        {
+          "origin": 23539,
+          "completed_forecasts": 53,
+          "latest_label_time_exclusive": 23539
+        },
+        {
+          "origin": 23635,
+          "completed_forecasts": 54,
+          "latest_label_time_exclusive": 23635
+        },
+        {
+          "origin": 23731,
+          "completed_forecasts": 55,
+          "latest_label_time_exclusive": 23731
+        },
+        {
+          "origin": 23827,
+          "completed_forecasts": 56,
+          "latest_label_time_exclusive": 23827
+        },
+        {
+          "origin": 23923,
+          "completed_forecasts": 57,
+          "latest_label_time_exclusive": 23923
+        },
+        {
+          "origin": 24019,
+          "completed_forecasts": 58,
+          "latest_label_time_exclusive": 24019
+        },
+        {
+          "origin": 24115,
+          "completed_forecasts": 59,
+          "latest_label_time_exclusive": 24115
+        },
+        {
+          "origin": 24211,
+          "completed_forecasts": 60,
+          "latest_label_time_exclusive": 24211
+        },
+        {
+          "origin": 24307,
+          "completed_forecasts": 61,
+          "latest_label_time_exclusive": 24307
+        },
+        {
+          "origin": 24403,
+          "completed_forecasts": 62,
+          "latest_label_time_exclusive": 24403
+        },
+        {
+          "origin": 24499,
+          "completed_forecasts": 63,
+          "latest_label_time_exclusive": 24499
+        },
+        {
+          "origin": 24595,
+          "completed_forecasts": 64,
+          "latest_label_time_exclusive": 24595
+        },
+        {
+          "origin": 24691,
+          "completed_forecasts": 65,
+          "latest_label_time_exclusive": 24691
+        },
+        {
+          "origin": 24787,
+          "completed_forecasts": 66,
+          "latest_label_time_exclusive": 24787
+        },
+        {
+          "origin": 24883,
+          "completed_forecasts": 67,
+          "latest_label_time_exclusive": 24883
+        },
+        {
+          "origin": 24979,
+          "completed_forecasts": 68,
+          "latest_label_time_exclusive": 24979
+        },
+        {
+          "origin": 25075,
+          "completed_forecasts": 69,
+          "latest_label_time_exclusive": 25075
+        },
+        {
+          "origin": 25171,
+          "completed_forecasts": 70,
+          "latest_label_time_exclusive": 25171
+        },
+        {
+          "origin": 25267,
+          "completed_forecasts": 71,
+          "latest_label_time_exclusive": 25267
+        },
+        {
+          "origin": 25363,
+          "completed_forecasts": 72,
+          "latest_label_time_exclusive": 25363
+        },
+        {
+          "origin": 25459,
+          "completed_forecasts": 73,
+          "latest_label_time_exclusive": 25459
+        },
+        {
+          "origin": 25555,
+          "completed_forecasts": 74,
+          "latest_label_time_exclusive": 25555
+        },
+        {
+          "origin": 25651,
+          "completed_forecasts": 75,
+          "latest_label_time_exclusive": 25651
+        },
+        {
+          "origin": 25747,
+          "completed_forecasts": 76,
+          "latest_label_time_exclusive": 25747
+        },
+        {
+          "origin": 25843,
+          "completed_forecasts": 77,
+          "latest_label_time_exclusive": 25843
+        },
+        {
+          "origin": 25939,
+          "completed_forecasts": 78,
+          "latest_label_time_exclusive": 25939
+        },
+        {
+          "origin": 26035,
+          "completed_forecasts": 79,
+          "latest_label_time_exclusive": 26035
+        },
+        {
+          "origin": 26131,
+          "completed_forecasts": 80,
+          "latest_label_time_exclusive": 26131
+        }
+      ],
+      "statistics_state_scalars": 857,
+      "forecast_blocks_seen": 80
+    },
+    {
+      "dataset": "traffic",
+      "seed": 41001,
+      "origins": [
+        {
+          "origin": 12280,
+          "completed_forecasts": 0,
+          "latest_label_time_exclusive": null
+        },
+        {
+          "origin": 12376,
+          "completed_forecasts": 1,
+          "latest_label_time_exclusive": 12376
+        },
+        {
+          "origin": 12472,
+          "completed_forecasts": 2,
+          "latest_label_time_exclusive": 12472
+        },
+        {
+          "origin": 12568,
+          "completed_forecasts": 3,
+          "latest_label_time_exclusive": 12568
+        },
+        {
+          "origin": 12664,
+          "completed_forecasts": 4,
+          "latest_label_time_exclusive": 12664
+        },
+        {
+          "origin": 12760,
+          "completed_forecasts": 5,
+          "latest_label_time_exclusive": 12760
+        },
+        {
+          "origin": 12856,
+          "completed_forecasts": 6,
+          "latest_label_time_exclusive": 12856
+        },
+        {
+          "origin": 12952,
+          "completed_forecasts": 7,
+          "latest_label_time_exclusive": 12952
+        },
+        {
+          "origin": 13048,
+          "completed_forecasts": 8,
+          "latest_label_time_exclusive": 13048
+        },
+        {
+          "origin": 13144,
+          "completed_forecasts": 9,
+          "latest_label_time_exclusive": 13144
+        },
+        {
+          "origin": 13240,
+          "completed_forecasts": 10,
+          "latest_label_time_exclusive": 13240
+        },
+        {
+          "origin": 13336,
+          "completed_forecasts": 11,
+          "latest_label_time_exclusive": 13336
+        },
+        {
+          "origin": 13432,
+          "completed_forecasts": 12,
+          "latest_label_time_exclusive": 13432
+        },
+        {
+          "origin": 13528,
+          "completed_forecasts": 13,
+          "latest_label_time_exclusive": 13528
+        },
+        {
+          "origin": 13624,
+          "completed_forecasts": 14,
+          "latest_label_time_exclusive": 13624
+        },
+        {
+          "origin": 13720,
+          "completed_forecasts": 15,
+          "latest_label_time_exclusive": 13720
+        },
+        {
+          "origin": 13816,
+          "completed_forecasts": 16,
+          "latest_label_time_exclusive": 13816
+        },
+        {
+          "origin": 13912,
+          "completed_forecasts": 17,
+          "latest_label_time_exclusive": 13912
+        },
+        {
+          "origin": 14035,
+          "completed_forecasts": 18,
+          "latest_label_time_exclusive": 14008
+        },
+        {
+          "origin": 14131,
+          "completed_forecasts": 19,
+          "latest_label_time_exclusive": 14131
+        },
+        {
+          "origin": 14227,
+          "completed_forecasts": 20,
+          "latest_label_time_exclusive": 14227
+        },
+        {
+          "origin": 14323,
+          "completed_forecasts": 21,
+          "latest_label_time_exclusive": 14323
+        },
+        {
+          "origin": 14419,
+          "completed_forecasts": 22,
+          "latest_label_time_exclusive": 14419
+        },
+        {
+          "origin": 14515,
+          "completed_forecasts": 23,
+          "latest_label_time_exclusive": 14515
+        },
+        {
+          "origin": 14611,
+          "completed_forecasts": 24,
+          "latest_label_time_exclusive": 14611
+        },
+        {
+          "origin": 14707,
+          "completed_forecasts": 25,
+          "latest_label_time_exclusive": 14707
+        },
+        {
+          "origin": 14803,
+          "completed_forecasts": 26,
+          "latest_label_time_exclusive": 14803
+        },
+        {
+          "origin": 14899,
+          "completed_forecasts": 27,
+          "latest_label_time_exclusive": 14899
+        },
+        {
+          "origin": 14995,
+          "completed_forecasts": 28,
+          "latest_label_time_exclusive": 14995
+        },
+        {
+          "origin": 15091,
+          "completed_forecasts": 29,
+          "latest_label_time_exclusive": 15091
+        },
+        {
+          "origin": 15187,
+          "completed_forecasts": 30,
+          "latest_label_time_exclusive": 15187
+        },
+        {
+          "origin": 15283,
+          "completed_forecasts": 31,
+          "latest_label_time_exclusive": 15283
+        },
+        {
+          "origin": 15379,
+          "completed_forecasts": 32,
+          "latest_label_time_exclusive": 15379
+        },
+        {
+          "origin": 15475,
+          "completed_forecasts": 33,
+          "latest_label_time_exclusive": 15475
+        },
+        {
+          "origin": 15571,
+          "completed_forecasts": 34,
+          "latest_label_time_exclusive": 15571
+        },
+        {
+          "origin": 15667,
+          "completed_forecasts": 35,
+          "latest_label_time_exclusive": 15667
+        },
+        {
+          "origin": 15763,
+          "completed_forecasts": 36,
+          "latest_label_time_exclusive": 15763
+        },
+        {
+          "origin": 15859,
+          "completed_forecasts": 37,
+          "latest_label_time_exclusive": 15859
+        },
+        {
+          "origin": 15955,
+          "completed_forecasts": 38,
+          "latest_label_time_exclusive": 15955
+        },
+        {
+          "origin": 16051,
+          "completed_forecasts": 39,
+          "latest_label_time_exclusive": 16051
+        },
+        {
+          "origin": 16147,
+          "completed_forecasts": 40,
+          "latest_label_time_exclusive": 16147
+        },
+        {
+          "origin": 16243,
+          "completed_forecasts": 41,
+          "latest_label_time_exclusive": 16243
+        },
+        {
+          "origin": 16339,
+          "completed_forecasts": 42,
+          "latest_label_time_exclusive": 16339
+        },
+        {
+          "origin": 16435,
+          "completed_forecasts": 43,
+          "latest_label_time_exclusive": 16435
+        },
+        {
+          "origin": 16531,
+          "completed_forecasts": 44,
+          "latest_label_time_exclusive": 16531
+        },
+        {
+          "origin": 16627,
+          "completed_forecasts": 45,
+          "latest_label_time_exclusive": 16627
+        },
+        {
+          "origin": 16723,
+          "completed_forecasts": 46,
+          "latest_label_time_exclusive": 16723
+        },
+        {
+          "origin": 16819,
+          "completed_forecasts": 47,
+          "latest_label_time_exclusive": 16819
+        },
+        {
+          "origin": 16915,
+          "completed_forecasts": 48,
+          "latest_label_time_exclusive": 16915
+        },
+        {
+          "origin": 17011,
+          "completed_forecasts": 49,
+          "latest_label_time_exclusive": 17011
+        },
+        {
+          "origin": 17107,
+          "completed_forecasts": 50,
+          "latest_label_time_exclusive": 17107
+        },
+        {
+          "origin": 17203,
+          "completed_forecasts": 51,
+          "latest_label_time_exclusive": 17203
+        },
+        {
+          "origin": 17299,
+          "completed_forecasts": 52,
+          "latest_label_time_exclusive": 17299
+        },
+        {
+          "origin": 17395,
+          "completed_forecasts": 53,
+          "latest_label_time_exclusive": 17395
+        }
+      ],
+      "statistics_state_scalars": 857,
+      "forecast_blocks_seen": 53
+    },
+    {
+      "dataset": "traffic",
+      "seed": 41000,
+      "origins": [
+        {
+          "origin": 12280,
+          "completed_forecasts": 0,
+          "latest_label_time_exclusive": null
+        },
+        {
+          "origin": 12376,
+          "completed_forecasts": 1,
+          "latest_label_time_exclusive": 12376
+        },
+        {
+          "origin": 12472,
+          "completed_forecasts": 2,
+          "latest_label_time_exclusive": 12472
+        },
+        {
+          "origin": 12568,
+          "completed_forecasts": 3,
+          "latest_label_time_exclusive": 12568
+        },
+        {
+          "origin": 12664,
+          "completed_forecasts": 4,
+          "latest_label_time_exclusive": 12664
+        },
+        {
+          "origin": 12760,
+          "completed_forecasts": 5,
+          "latest_label_time_exclusive": 12760
+        },
+        {
+          "origin": 12856,
+          "completed_forecasts": 6,
+          "latest_label_time_exclusive": 12856
+        },
+        {
+          "origin": 12952,
+          "completed_forecasts": 7,
+          "latest_label_time_exclusive": 12952
+        },
+        {
+          "origin": 13048,
+          "completed_forecasts": 8,
+          "latest_label_time_exclusive": 13048
+        },
+        {
+          "origin": 13144,
+          "completed_forecasts": 9,
+          "latest_label_time_exclusive": 13144
+        },
+        {
+          "origin": 13240,
+          "completed_forecasts": 10,
+          "latest_label_time_exclusive": 13240
+        },
+        {
+          "origin": 13336,
+          "completed_forecasts": 11,
+          "latest_label_time_exclusive": 13336
+        },
+        {
+          "origin": 13432,
+          "completed_forecasts": 12,
+          "latest_label_time_exclusive": 13432
+        },
+        {
+          "origin": 13528,
+          "completed_forecasts": 13,
+          "latest_label_time_exclusive": 13528
+        },
+        {
+          "origin": 13624,
+          "completed_forecasts": 14,
+          "latest_label_time_exclusive": 13624
+        },
+        {
+          "origin": 13720,
+          "completed_forecasts": 15,
+          "latest_label_time_exclusive": 13720
+        },
+        {
+          "origin": 13816,
+          "completed_forecasts": 16,
+          "latest_label_time_exclusive": 13816
+        },
+        {
+          "origin": 13912,
+          "completed_forecasts": 17,
+          "latest_label_time_exclusive": 13912
+        },
+        {
+          "origin": 14035,
+          "completed_forecasts": 18,
+          "latest_label_time_exclusive": 14008
+        },
+        {
+          "origin": 14131,
+          "completed_forecasts": 19,
+          "latest_label_time_exclusive": 14131
+        },
+        {
+          "origin": 14227,
+          "completed_forecasts": 20,
+          "latest_label_time_exclusive": 14227
+        },
+        {
+          "origin": 14323,
+          "completed_forecasts": 21,
+          "latest_label_time_exclusive": 14323
+        },
+        {
+          "origin": 14419,
+          "completed_forecasts": 22,
+          "latest_label_time_exclusive": 14419
+        },
+        {
+          "origin": 14515,
+          "completed_forecasts": 23,
+          "latest_label_time_exclusive": 14515
+        },
+        {
+          "origin": 14611,
+          "completed_forecasts": 24,
+          "latest_label_time_exclusive": 14611
+        },
+        {
+          "origin": 14707,
+          "completed_forecasts": 25,
+          "latest_label_time_exclusive": 14707
+        },
+        {
+          "origin": 14803,
+          "completed_forecasts": 26,
+          "latest_label_time_exclusive": 14803
+        },
+        {
+          "origin": 14899,
+          "completed_forecasts": 27,
+          "latest_label_time_exclusive": 14899
+        },
+        {
+          "origin": 14995,
+          "completed_forecasts": 28,
+          "latest_label_time_exclusive": 14995
+        },
+        {
+          "origin": 15091,
+          "completed_forecasts": 29,
+          "latest_label_time_exclusive": 15091
+        },
+        {
+          "origin": 15187,
+          "completed_forecasts": 30,
+          "latest_label_time_exclusive": 15187
+        },
+        {
+          "origin": 15283,
+          "completed_forecasts": 31,
+          "latest_label_time_exclusive": 15283
+        },
+        {
+          "origin": 15379,
+          "completed_forecasts": 32,
+          "latest_label_time_exclusive": 15379
+        },
+        {
+          "origin": 15475,
+          "completed_forecasts": 33,
+          "latest_label_time_exclusive": 15475
+        },
+        {
+          "origin": 15571,
+          "completed_forecasts": 34,
+          "latest_label_time_exclusive": 15571
+        },
+        {
+          "origin": 15667,
+          "completed_forecasts": 35,
+          "latest_label_time_exclusive": 15667
+        },
+        {
+          "origin": 15763,
+          "completed_forecasts": 36,
+          "latest_label_time_exclusive": 15763
+        },
+        {
+          "origin": 15859,
+          "completed_forecasts": 37,
+          "latest_label_time_exclusive": 15859
+        },
+        {
+          "origin": 15955,
+          "completed_forecasts": 38,
+          "latest_label_time_exclusive": 15955
+        },
+        {
+          "origin": 16051,
+          "completed_forecasts": 39,
+          "latest_label_time_exclusive": 16051
+        },
+        {
+          "origin": 16147,
+          "completed_forecasts": 40,
+          "latest_label_time_exclusive": 16147
+        },
+        {
+          "origin": 16243,
+          "completed_forecasts": 41,
+          "latest_label_time_exclusive": 16243
+        },
+        {
+          "origin": 16339,
+          "completed_forecasts": 42,
+          "latest_label_time_exclusive": 16339
+        },
+        {
+          "origin": 16435,
+          "completed_forecasts": 43,
+          "latest_label_time_exclusive": 16435
+        },
+        {
+          "origin": 16531,
+          "completed_forecasts": 44,
+          "latest_label_time_exclusive": 16531
+        },
+        {
+          "origin": 16627,
+          "completed_forecasts": 45,
+          "latest_label_time_exclusive": 16627
+        },
+        {
+          "origin": 16723,
+          "completed_forecasts": 46,
+          "latest_label_time_exclusive": 16723
+        },
+        {
+          "origin": 16819,
+          "completed_forecasts": 47,
+          "latest_label_time_exclusive": 16819
+        },
+        {
+          "origin": 16915,
+          "completed_forecasts": 48,
+          "latest_label_time_exclusive": 16915
+        },
+        {
+          "origin": 17011,
+          "completed_forecasts": 49,
+          "latest_label_time_exclusive": 17011
+        },
+        {
+          "origin": 17107,
+          "completed_forecasts": 50,
+          "latest_label_time_exclusive": 17107
+        },
+        {
+          "origin": 17203,
+          "completed_forecasts": 51,
+          "latest_label_time_exclusive": 17203
+        },
+        {
+          "origin": 17299,
+          "completed_forecasts": 52,
+          "latest_label_time_exclusive": 17299
+        },
+        {
+          "origin": 17395,
+          "completed_forecasts": 53,
+          "latest_label_time_exclusive": 17395
+        }
+      ],
+      "statistics_state_scalars": 857,
+      "forecast_blocks_seen": 53
+    }
+  ]
+}

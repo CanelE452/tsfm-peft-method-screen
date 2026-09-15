@@ -4,7 +4,11 @@ Independent Chronos-2 development screen. Round 0 and Round 1 only; Round 2 requ
 
 No prior experiment outputs are used as new evidence. Raw data and cached model weights may be reused with provenance hashes. All source is local to this repository.
 
-## Latest completed work — channel identity diagnostic
+## Latest completed analysis — residual structure and forecast-origin phase
+
+The [Korean residual analysis](results/channel_residual_evidence_20260916/REPORT.md) finds that completed channel studies trained at a single forecast-origin phase, while V/E used different phases. A simple daily residual correction improves exposed E scores, but uses additional online labels and is not a new PEFT success. [Interpretation and next causal check](results/channel_residual_evidence_20260916/INTERPRETATION.md). This analysis uses zero new neural fits; the causal effect of balanced training phases remains untested.
+
+## Previous completed work — channel identity diagnostic
 
 The [Korean diagnostic report](results/channel_identity_diagnostic_20260916/REPORT.md) records 4/4 new fits and 2,030 optimizer updates, with four separate smoke updates. A known ReZero residual control improves on the earlier shared module in all four cells, but does not improve on LoRA+head in both seeds of either source. This is a diagnostic on reused development data, not a new-method PASS. [Research and prior-work review](results/channel_identity_diagnostic_20260916/RESEARCH_REVIEW.md), [numerical verification](results/channel_identity_diagnostic_20260916/verification.json). No training remains active.
 

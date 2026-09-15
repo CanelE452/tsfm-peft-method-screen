@@ -1,0 +1,66 @@
+{
+  "source": "results/channel_sharing_screen_v1_20260915/contract.json",
+  "source_sha256": "1462523c485943ab6175bfffc16e65fd5c437cb85c639ec33d54d72e968ac928",
+  "audit_code_sha256": "b7e6b152a7948a71c57247b4fe2b275f12be4a9fda160579d111caae65c1dd79",
+  "rows": [
+    {
+      "dataset": "electricity",
+      "phase_modulus": 24,
+      "splits": {
+        "evaluation": {
+          "origins": 54,
+          "origin_phase_counts": {
+            "19": 54
+          },
+          "distinct_phases": 1
+        },
+        "train": {
+          "origins": 512,
+          "origin_phase_counts": {
+            "0": 512
+          },
+          "distinct_phases": 1
+        },
+        "validation": {
+          "origins": 27,
+          "origin_phase_counts": {
+            "4": 27
+          },
+          "distinct_phases": 1
+        }
+      },
+      "all_train_targets_cover_every_phase": true
+    },
+    {
+      "dataset": "traffic",
+      "phase_modulus": 24,
+      "splits": {
+        "evaluation": {
+          "origins": 36,
+          "origin_phase_counts": {
+            "19": 36
+          },
+          "distinct_phases": 1
+        },
+        "train": {
+          "origins": 504,
+          "origin_phase_counts": {
+            "0": 504
+          },
+          "distinct_phases": 1
+        },
+        "validation": {
+          "origins": 18,
+          "origin_phase_counts": {
+            "16": 18
+          },
+          "distinct_phases": 1
+        }
+      },
+      "all_train_targets_cover_every_phase": true
+    }
+  ],
+  "interpretation": "Forecast origins, not all observed hours, have singleton phase coverage. Phase is row-index modulo24, not independently verified local civil time. Distribution mismatch is verified; causal performance impact not yet tested.",
+  "affects": "Completed 24-fit R2 and 4-fit identity diagnostic reuse this exact manifest",
+  "neural_fits": 0
+}
