@@ -1,0 +1,67 @@
+# 건물 cold-start coverage PEFT 파일럿
+
+[설계] 연구 질문: 짧은 타깃 이력에서 미래 주중·주말 상태의 관측 개수로 LoRA 보정량을 줄일 근거와 추가 가치가 있는가?
+
+[확인] 최종 상태: **EXECUTION_INCONCLUSIVE**. 실제 LoRA 시도 0 fits, 완료 0 fits, optimizer 0 updates. Smoke는 별도 장부다.
+
+## 기존 연구와 이번 질문
+
+[확인] 이전 Query R1은 BF16 수치 조건 미충족으로 종료됐고, 채널 R2는 24 fits를 끝냈지만 더 작은 LH 대비 BASIS 우위를 확보하지 못했다. 과거 결과는 변경하지 않았다.
+
+[설계] 이 파일럿은 기존 구조 재튜닝 대신 target history의 관측 범위를 먼저 검사한다. 새 adapter나 source-building transfer는 추가하지 않는다.
+
+[확인] 건물 few-shot·Chronos LoRA·cross-building transfer·시간대/계절 residual correction·관련 예시의 in-context 적응은 기존 선행이다. [선행 경계와 접근 제한](literature_boundary.md).
+
+[추정] 출력 convex mixture와 c/(c+tau) 수축식 자체는 알려진 규칙 형태다. 이번 개발 실험만으로 PEFT 학습 방법의 신규성을 확정할 수 없다.
+
+## 데이터와 실제 가용 이력
+
+[확인] 공식 BuildingsBench v1.0.0 BDG-2 평가 archive를 사용했다. Eligibility 574 건물, 선택 14 건물. [원본·버전·hash](data_manifest.json), [eligibility](eligibility.csv).
+
+[확인] 공식 전처리는 양방향 결측 보간을 포함한다. 원본 raw/cleaned가 finite이고 공식 평가값과 일치하는 구간만 사용해 보간값을 제외했다. 전처리의 전체 기간 기반 결측 필터가 만든 선택 편향은 남는다. 원본 자료를 읽은 목적은 관측 provenance 검사이며 다른 건물 값은 model input에 넣지 않았다.
+
+[설계] 건물 ID 해시 순서로 recipe4/dev4/heldout6을 분리하고 같은 물리 건물의 meter/연도를 묶었다. 첫 적격120일 구간의 동일 주·월 Wednesday/Saturday를 고정했다. 추론 context24h, adaptation3/14일, horizon24h이며 숨긴 과거와 forecast target은 adaptation·정규화·선택에 사용하지 않는다.
+
+[확인] [분할](building_split.json), [날짜·이력·coverage](episode_manifest.csv). Native model은 각 입력24h만 자체 정규화한다. 평가 scaled_RMSE 분모는 노출 H일의 population std이며 미래 target 분모를 쓰지 않는다. 제공 timestamp calendar를 그대로 썼고 metadata timezone을 기록했다. DST·운영 실제 달력까지 재구성한 결과는 아니다.
+
+## 모델·recipe 계약
+
+[설계] Chronos-2 revision29ec3766, rank8/alpha16 standard LoRA96개 projection, base와 head 고정, FP32·batch1·AdamW·clip1. Native32슬롯 중 첫24h를 평가한다. 모든 F0/LoRA 출력에 같은 사전 고정 quantile 정렬을 적용하고 원래 crossing 수도 보존한다. 단순 affine은 exposed supervised target만으로 positive OLS2파라미터를 맞춘다.
+
+[확인] 선택 recipe: LR=NOT_RUN, updates=NOT_RUN. 각14일의13개 windows 중 앞11개 fit/끝2개 inner-V. 별도4 recipe 건물만으로 LR2종×step4종을 선택했고 실제 미래 episode target은 선택에 열지 않았다. [선택 원점수](recipe_selection.csv), [고정 recipe](recipe_seal.json).
+
+## Stage A — 문제 현상
+
+[확인] NOT_RUN. 양의 상호작용 I 건물 미계산/4, 평균 I=미계산pp. 기준은 최소3/4 및 평균0.5pp다. [원점수](stageA_metrics.csv), [D3/D14/I](stageA_interaction.csv).
+
+## Stage B — 단순 규칙 이상의 가치
+
+[확인] NOT_RUN. alpha=미선택, tau=미선택. [규칙 비교](stageB_rules.csv), [판정](stageB_selection.json).
+
+[설계] F0 복귀는 uniform alpha0 및 c0 binary fallback에 포함된다. UniformShrink가 같거나 더 좋으면 coverage별 규칙 필요성이 없고, Affine이 같거나 더 좋으면 내부 PEFT를 바꿀 근거가 약하다. Stage A가 미통과하면 이 추가 가치 비교 자체를 실행하지 않는다.
+
+## Stage C — held-out
+
+[확인] NOT_RUN. Held-out 성능 평가 여부=False. A/B가 모두 통과한 경우에만6개 건물24fits를 실행하도록 제한했다.
+
+## 실제 실행과 미실행
+
+[확인] 실행 장부와 자원 수치: [fits](fit_attempts.csv), [updates](train_trajectories.csv), [자원](resource_usage.csv). Peak는 fit 시작부터 checkpoint 재로딩·평가를 포함한 torch allocated/reserved 최대이며 전체 장치 사용량은 GPU 로그에 별도 기록했다.
+
+| phase | attempted fits | complete fits | actual updates |
+| --- | ---: | ---: | ---: |
+| recipe | 0 | 0 | 0 |
+| screen | 0 | 0 | 0 |
+| heldout | 0 | 0 | 0 |
+
+[확인] 독립 저장 예측 재검산 0건, 최대 metric 절대차 0.0. 기존 결과 1624개 보존. [검산](independent_verification.json).
+
+[확인] 데이터·가중치·tensor checkpoint/예측 cache는 로컬에 남기고 GitHub에는 코드·원점수·해시·검증 범위를 올린다. GitHub 파일만으로 저장 tensor 재검산이 가능하다고 하지 않는다.
+
+## 해석·판정·한계
+
+[추정] D3/D14 상호작용은 요일 난이도와 관측 범위를 일부 분리하지만, history 길이와 supervision개수도 같이 달라지므로 coverage의 단일 인과효과는 아니다. 건물4/6개와 두 날짜, 한 seed의 작은 개발 실험이다. 같은 site가 split 양쪽에 있을 수 있고 재단 모델의 사전학습 중복은 미확인이다.
+
+[추정] A 미통과는 이번 weekday/weekend coverage 가설이 지지되지 않았다는 뜻이며 건물 cold-start 전체가 불가능하다는 뜻이 아니다. B 미통과는 이번 규칙이 단순 대조보다 추가 가치를 보이지 못했다는 뜻이다. 조건 미충족 STOP과 실행 오류 EXECUTION_INCONCLUSIVE를 구분한다.
+
+[확인] 판정: **EXECUTION_INCONCLUSIVE**. 새 상태 정의·adapter·source transfer·추가 LR/seed/dataset를 자동 실행하지 않는다.
