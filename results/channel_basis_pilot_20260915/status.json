@@ -1,9 +1,11 @@
 {
   "check_update_attempts": 0,
   "check_updates": 0,
+  "cpu_toy_optimizer_updates": 30,
+  "error": "ResourceError('BLOCKED_GPU_BUSY')",
   "fit_attempts": 0,
   "fits_completed": 0,
-  "status": "PREPARED",
-  "training_updates": 0,
-  "cpu_toy_optimizer_updates": 30
+  "status": "BLOCKED_GPU_BUSY",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/minjae/Documents/github/tsfm-peft-method-screen/scripts/run_channel_basis_pilot.py\", line 102, in preflight\n    state['status']='PREFLIGHT_WAITING_FOR_GPU';write('status.json',state);w.boundary(startup=True)\n                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/minjae/Documents/github/tsfm-peft-method-screen/scripts/priority12/common.py\", line 69, in boundary\n    self.limits();r=self.latest;good=r and time.time()-r['at']<5 and not r['busy'] and r['free_mib']>=(4096 if startup else 1024)\n    ^^^^^^^^^^^^^\n  File \"/home/minjae/Documents/github/tsfm-peft-method-screen/scripts/priority12/common.py\", line 64, in limits\n    if self.wait+self.budget['wait_seconds']>=600:raise ResourceError('BLOCKED_GPU_BUSY')\n                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npriority12.common.ResourceError: BLOCKED_GPU_BUSY\n",
+  "training_updates": 0
 }

@@ -4,7 +4,11 @@ Independent Chronos-2 development screen. Round 0 and Round 1 only; Round 2 requ
 
 No prior experiment outputs are used as new evidence. Raw data and cached model weights may be reused with provenance hashes. All source is local to this repository.
 
-## Latest completed work — 2026-09-15
+## Latest bounded execution — 2026-09-15
+
+The [independent Query v2 and channel sharing tracks](results/priority12_20260915/REPORT.md) ended at **BLOCKED_GPU_BUSY / BLOCKED_GPU_BUSY**. New forecasting fits: 0/12 Query and 0/24 channel. Actual GPU updates: 0 / 0. CPU model/structure checks and parameter counts are reported separately from unmeasured forecasting outcomes. Historical results are preserved; no automatic retry or follow-up training is running.
+
+## Previous completed work — 2026-09-15
 
 The [Query resource-constrained pilot](results/query_budget_pilot_20260915/REPORT.md) stopped at **INCONCLUSIVE_NUMERICS** after 120 disposable A updates; B ran 0 fits / 0 updates. All 24 nonidentity checkpoint comparisons passed, but 4 of 6 FP32 origin-microbatch comparisons exceeded the fixed tolerance. Repeated timing and new forecasting scores were not measured, so neither a resource advantage nor a forecasting failure is established. The 42 stored comparisons were independently replayed, 117 CPU tests passed, and 1,217 historical result files remain unchanged. No follow-up training is running.
 

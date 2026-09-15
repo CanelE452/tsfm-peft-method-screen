@@ -4,7 +4,9 @@
   "B_fit_attempts": 0,
   "B_fits_completed": 0,
   "B_updates": 0,
+  "error": "ResourceError('BLOCKED_GPU_BUSY: cumulative 600s wait cap')",
   "numeric_update_attempts": 0,
   "numeric_updates": 0,
-  "status": "PREPARED"
+  "status": "BLOCKED_GPU_BUSY",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/minjae/Documents/github/tsfm-peft-method-screen/scripts/run_query_numeric_v2.py\", line 520, in numeric\n    state['status']='NUMERIC_WAITING_FOR_GPU';save('status.json',state);w.boundary(startup=True)\n                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/minjae/Documents/github/tsfm-peft-method-screen/scripts/run_query_numeric_v2.py\", line 126, in boundary\n    self.limits();r=self.latest\n    ^^^^^^^^^^^^^\n  File \"/home/minjae/Documents/github/tsfm-peft-method-screen/scripts/run_query_numeric_v2.py\", line 121, in limits\n    if self.budget['wait_seconds']+self.wait>=600:raise ResourceError('BLOCKED_GPU_BUSY: cumulative 600s wait cap')\n                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nResourceError: BLOCKED_GPU_BUSY: cumulative 600s wait cap\n"
 }
