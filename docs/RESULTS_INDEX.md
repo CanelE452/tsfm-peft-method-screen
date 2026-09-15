@@ -3,6 +3,8 @@
 2026-09-16 기준. 표의 링크는 완료된 실행 또는 검토 결과다. 과거 FAIL/STOP은 당시 고정 실험의 판정으로 보존한다. 최신 재검토의 후속 연구 우선순위는 방법론 성공이나 새로운 실험 실행을 뜻하지 않는다.
 
 
+[확인] 저장 예측의 단순보정 대조를 신규학습0회로 완료했다. 같은 V 보정 뒤 VINTAGE는 STD 대비 최신2.326%·과거5.870% 개선했으나, 최신 월구간은0을 포함한다. 중심화 median 오차의 차이도 남았다. 기존 FR/PACE와의 겹침을 확인해 단순 consistency를 새후보로 재명명하지 않았다. [한국어 보고서](../results/covariate_calibration_control_20260916/REPORT.md), [해석·신규성 경계](../results/covariate_calibration_control_20260916/INTERPRETATION.md), [검산](../results/covariate_calibration_control_20260916/verification.json).
+
 [확인] 실제 예보 LoRA 대조6/6fits·720updates와 평가를 완료했다. 과거예보 학습 VINTAGE는 최신입력에서 INIT0 대비4.590% 개선(두seed양성)했으나95%월구간은0을 포함하고, 과거입력에서는0.609% 악화했다. 알려진 학습대조의 양성 개발신호이며 새PEFT PASS는 아니다. [한국어 보고서](../results/covariate_lora_controls_20260916/REPORT.md), [구성요소·연구 판단](../results/covariate_lora_controls_20260916/INTERPRETATION.md), [검산](../results/covariate_lora_controls_20260916/verification.json).
 
 [확인] 예보 신뢰도 사후 진단은 0fits·0추론으로 저장112개 경로를 검산했다. 예보 불일치가 큰 D13원점에서도 최신기상 평균손실0.148347이 F0 0.169632보다 낮아, 불일치만으로 기상을 차단하는 gate를 정당화하지 못했다. 오래된 예보의 손해와 기상오차/부하손해의 불일치를 구분했다. [한국어 보고서](../research/covariate_reliability_diagnostic_20260916/REPORT.md), [가까운 선행](../research/covariate_reliability_diagnostic_20260916/LITERATURE_BOUNDARY.md).
