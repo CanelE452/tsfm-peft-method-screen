@@ -164,4 +164,3 @@ Q/C는 서로 독립적으로 진행했다. Q의 예측 성공을 C의 입장 �
 ![parameters_vs_error](../channel_basis_pilot_resume_20260915/parameters_vs_error.png)
 
 ![basis_gains](../channel_basis_pilot_resume_20260915/basis_gains.png)
-

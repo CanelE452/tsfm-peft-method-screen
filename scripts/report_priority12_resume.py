@@ -107,7 +107,7 @@ def main():
         if s.get('error'):lines.append(f"{name} 종료 오류: `{s['error']}`.")
     for name in ['validation_trajectories','parameters_vs_error','basis_gains']:
         if (C/(name+'.png')).exists():lines += [f'![{name}](../channel_basis_pilot_resume_20260915/{name}.png)','']
-    (OUT/'REPORT.md').write_text('\n'.join(lines)+'\n')
+    (OUT/'REPORT.md').write_text('\n'.join(lines).rstrip()+'\n')
     summary=dict(Q_status=qs['status'],C_status=cs['status'],Q_numeric_updates=qs['numeric_updates'],Q_resource_updates=qs['A_updates'],Q_training_updates=qs['B_updates'],Q_fits=qs['B_fit_attempts'],C_check_updates=cs['check_updates'],C_training_updates=cs['training_updates'],C_fits=cs['fit_attempts'],historical_files_unchanged=len(history),new_optimizer_updates_in_reporting=0,report_source_sha256=sha(Path(__file__)))
     (OUT/'completion_verification.json').write_text(json.dumps(summary,indent=2)+'\n');print(json.dumps(summary,indent=2))
 if __name__=='__main__':main()
