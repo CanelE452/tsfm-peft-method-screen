@@ -1,0 +1,59 @@
+{
+  "alternatives": [
+    {
+      "arm": "local_r1_epoch1",
+      "macro_scaled_RMSE": 1.089206229506451,
+      "mean_steps": 7.5,
+      "rank": 1
+    },
+    {
+      "arm": "local_r1_epoch16",
+      "macro_scaled_RMSE": 1.154790890820638,
+      "mean_steps": 120.0,
+      "rank": 1
+    },
+    {
+      "arm": "local_r1_epoch4",
+      "macro_scaled_RMSE": 1.104121364384671,
+      "mean_steps": 30.0,
+      "rank": 1
+    },
+    {
+      "arm": "local_r1_fixed120",
+      "macro_scaled_RMSE": 1.2729109998441235,
+      "mean_steps": 120.0,
+      "rank": 1
+    },
+    {
+      "arm": "local_r8_epoch1",
+      "macro_scaled_RMSE": 1.1022912669738,
+      "mean_steps": 7.5,
+      "rank": 8
+    },
+    {
+      "arm": "local_r8_epoch16",
+      "macro_scaled_RMSE": 1.295754034124614,
+      "mean_steps": 120.0,
+      "rank": 8
+    },
+    {
+      "arm": "local_r8_epoch4",
+      "macro_scaled_RMSE": 1.1509721220919455,
+      "mean_steps": 30.0,
+      "rank": 8
+    },
+    {
+      "arm": "local_r8_fixed120",
+      "macro_scaled_RMSE": 1.3171881190912629,
+      "mean_steps": 120.0,
+      "rank": 8
+    }
+  ],
+  "rule": "Global equal-episode macro scaled RMSE on four tuning buildings only; tie fewer updates then smaller rank.",
+  "selected": {
+    "arm": "local_r1_epoch1",
+    "macro_scaled_RMSE": 1.089206229506451,
+    "mean_steps": 7.5,
+    "rank": 1
+  }
+}

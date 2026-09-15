@@ -1,0 +1,47 @@
+{
+  "buffers_unchanged": true,
+  "checkpoints": {
+    "0": {
+      "checkpoint_file": ".cache/building_transfer_subspace_v1_20260915/checkpoints/warm_dev_Rat_education_Debra_H3_s0.pt",
+      "checkpoint_sha256": "5004603c034c82815486a62c2455ff642a7ddb4035fbf1d313164c056c18e8d8",
+      "checkpoint_tensor_hash": "bf8b0e1172f598241194ee1fc666b622db917ef5cf1ee3173765dd6463d7a864",
+      "prediction_file": ".cache/building_transfer_subspace_v1_20260915/predictions/warm_dev_Rat_education_Debra_H3_s0.npz",
+      "prediction_sha256": "ab55f6b96814e6b57a5c9bfa38f1f3b99fcdf86f2b4323f4813f7d9e434451f3",
+      "step": 0,
+      "train_seconds": 0.0
+    },
+    "2": {
+      "checkpoint_file": ".cache/building_transfer_subspace_v1_20260915/checkpoints/warm_dev_Rat_education_Debra_H3_s2.pt",
+      "checkpoint_sha256": "f75f38aefc5683fa108e42e2fe7b5d70f2e1faa45aa073f1f400a026d496bb24",
+      "checkpoint_tensor_hash": "8c029ef6a5c3769f23f5329d1d3294255d88e68c93ea60d0a26bd97b2d10156d",
+      "prediction_file": ".cache/building_transfer_subspace_v1_20260915/predictions/warm_dev_Rat_education_Debra_H3_s2.npz",
+      "prediction_sha256": "e3c94476e16abeb0f2fb0c31cb2e178c3d3aa90f7f0c4595c806a7c3bd286a40",
+      "step": 2,
+      "train_seconds": 0.20430764599586837
+    }
+  },
+  "frozen_unchanged": true,
+  "id": "warm_dev_Rat_education_Debra_H3",
+  "losses": [
+    {
+      "gradient_norm": 5.905252456665039,
+      "loss": 2.0871973037719727,
+      "step": 1
+    },
+    {
+      "gradient_norm": 11.534740447998047,
+      "loss": 3.0540060997009277,
+      "step": 2
+    }
+  ],
+  "peak_allocated_bytes": 551176192,
+  "peak_reserved_bytes": 566231040,
+  "rank": 1,
+  "reload_exact": true,
+  "status": "COMPLETED",
+  "trainable": 147456,
+  "training_seconds": 0.20430764599586837,
+  "updates": 2,
+  "wall_seconds": 1.0227233199984767,
+  "windows": 2
+}

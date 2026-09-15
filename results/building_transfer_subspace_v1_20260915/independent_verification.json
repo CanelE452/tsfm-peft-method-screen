@@ -1,0 +1,67 @@
+{
+  "checkpoint_files": 204,
+  "deployment_and_transfer_gate_replay": {
+    "gate_pass": false,
+    "history_gain_percent": {
+      "14": -51.344448065905304,
+      "3": -14.805995883262884
+    },
+    "macro_gain_percent": -30.34003497647026,
+    "positive_buildings": 4,
+    "status": "PASS"
+  },
+  "executed_sources_verified": true,
+  "fresh_model_reload": [
+    {
+      "fit": "local_dev_Bear_assembly_Genia_H14",
+      "max_abs": 0.0,
+      "step": 120
+    },
+    {
+      "fit": "warm_dev_Bear_assembly_Genia_H14",
+      "max_abs": 0.0,
+      "step": 13
+    }
+  ],
+  "historical_files_unchanged": 1710,
+  "max_abs_error": 4.263256414560601e-14,
+  "old_heldout_values_loaded": false,
+  "post_run_patch": {
+    "at": 1789484656.7845814,
+    "candidate_fits_executed": 0,
+    "current_sha256": "a1b465f1bd2b2fd697a986aff19e6e8d9f341a01cc05ebc86e9dd9d5f61df909",
+    "exact_new": "arms=['F0','AFFINE','LOCAL','LOCAL_FIXED120','POOLED','POOLED_AFFINE','WARM'];d=",
+    "exact_old": "arms=['F0','AFFINE','LOCAL','POOLED','POOLED_AFFINE','WARM'];d=",
+    "executed_sha256": "4eab0036b3441e30f5c109820b5da0437cb48b40ed4ec05fb81818b0a8d0d764",
+    "executed_snapshot": "results/building_transfer_subspace_v1_20260915/executed_source/run.py",
+    "original": "experiments/building_transfer_subspace_v1_20260915/run.py",
+    "reason": "Unexecuted candidate comparison must also include the reported fixed120 control. Patched after terminal; original execution source archived byte-exact.",
+    "training_and_executed_gates_changed": false
+  },
+  "previous_buildings_excluded": 14,
+  "raw_quantile_crossings": 395,
+  "rearranged_median_values": 146,
+  "recipe_replay": {
+    "local_": {
+      "arm": "local_r1_epoch1",
+      "macro_scaled_RMSE": 1.089206229506451,
+      "mean_steps": 7.5,
+      "rank": 1
+    },
+    "warm_": {
+      "arm": "warm_r1_epoch1",
+      "macro_scaled_RMSE": 1.0299581483775522,
+      "mean_steps": 7.5,
+      "rank": 1
+    }
+  },
+  "scalar_metric_values": 1200,
+  "scope": "Numerical replay uses ignored local npz and checkpoint cache; GitHub alone does not contain raw data/model/cache.",
+  "score_rows": 240,
+  "sealed_data_unchanged": true,
+  "source_selection_replay": {
+    "source_pooled": 2640
+  },
+  "status": "PASS",
+  "unapproved_external_compute_samples": 0
+}

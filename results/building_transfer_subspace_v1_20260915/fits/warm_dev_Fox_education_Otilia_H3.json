@@ -1,0 +1,47 @@
+{
+  "buffers_unchanged": true,
+  "checkpoints": {
+    "0": {
+      "checkpoint_file": ".cache/building_transfer_subspace_v1_20260915/checkpoints/warm_dev_Fox_education_Otilia_H3_s0.pt",
+      "checkpoint_sha256": "95e550e8c8c19ca20a7798fd3fabe11eb30adf78e305ebf6353471f63baf4517",
+      "checkpoint_tensor_hash": "bf8b0e1172f598241194ee1fc666b622db917ef5cf1ee3173765dd6463d7a864",
+      "prediction_file": ".cache/building_transfer_subspace_v1_20260915/predictions/warm_dev_Fox_education_Otilia_H3_s0.npz",
+      "prediction_sha256": "8757b1306ddd7c40dc50eb0db2af14b1d22a2b48ff485312f10eceb4d87fc9e1",
+      "step": 0,
+      "train_seconds": 0.0
+    },
+    "2": {
+      "checkpoint_file": ".cache/building_transfer_subspace_v1_20260915/checkpoints/warm_dev_Fox_education_Otilia_H3_s2.pt",
+      "checkpoint_sha256": "41343c60ba2e77cd3bd604b639e4b7cff38838eed49e544bc10ddc8b123da354",
+      "checkpoint_tensor_hash": "cb7212d29e68da89eeb4bd7c3b27b6cbdff4ec7f48e0c88e2a77b00c06226f6b",
+      "prediction_file": ".cache/building_transfer_subspace_v1_20260915/predictions/warm_dev_Fox_education_Otilia_H3_s2.npz",
+      "prediction_sha256": "7152894e0e11eda7e5cdda6fd2ee387f9403468bf9dcbce9af3fa7e88c994ae6",
+      "step": 2,
+      "train_seconds": 0.21010562700394075
+    }
+  },
+  "frozen_unchanged": true,
+  "id": "warm_dev_Fox_education_Otilia_H3",
+  "losses": [
+    {
+      "gradient_norm": 6.739686965942383,
+      "loss": 1.598706603050232,
+      "step": 1
+    },
+    {
+      "gradient_norm": 7.705961227416992,
+      "loss": 2.048888683319092,
+      "step": 2
+    }
+  ],
+  "peak_allocated_bytes": 551176192,
+  "peak_reserved_bytes": 566231040,
+  "rank": 1,
+  "reload_exact": true,
+  "status": "COMPLETED",
+  "trainable": 147456,
+  "training_seconds": 0.21010562700394075,
+  "updates": 2,
+  "wall_seconds": 1.0310194939957,
+  "windows": 2
+}

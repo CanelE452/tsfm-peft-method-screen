@@ -1,0 +1,47 @@
+{
+  "buffers_unchanged": true,
+  "checkpoints": {
+    "0": {
+      "checkpoint_file": ".cache/building_transfer_subspace_v1_20260915/checkpoints/warm_dev_Panther_lodging_Teresita_H3_s0.pt",
+      "checkpoint_sha256": "28d2ae432de0df625c24d036c72847f991a52f9022c243c3320e0a88c55f06f9",
+      "checkpoint_tensor_hash": "bf8b0e1172f598241194ee1fc666b622db917ef5cf1ee3173765dd6463d7a864",
+      "prediction_file": ".cache/building_transfer_subspace_v1_20260915/predictions/warm_dev_Panther_lodging_Teresita_H3_s0.npz",
+      "prediction_sha256": "f53164ad75ec038cc17fc27a3f4606ff2e68e8793d124f10715518617cddf4b0",
+      "step": 0,
+      "train_seconds": 0.0
+    },
+    "2": {
+      "checkpoint_file": ".cache/building_transfer_subspace_v1_20260915/checkpoints/warm_dev_Panther_lodging_Teresita_H3_s2.pt",
+      "checkpoint_sha256": "76acb6527e30f62c898db97f655445f4ec4b86db35d30bc33433426c3b85b6c1",
+      "checkpoint_tensor_hash": "e713507bcaf3f4ee7f2c8bf4c2b0f39ccdf022c1997cb94ea6e31b98ae0446d0",
+      "prediction_file": ".cache/building_transfer_subspace_v1_20260915/predictions/warm_dev_Panther_lodging_Teresita_H3_s2.npz",
+      "prediction_sha256": "1d2f6b2eca89f84bf07fe0d805bef3afcae36f0302043d02272720c55feb34f5",
+      "step": 2,
+      "train_seconds": 0.20226377998187672
+    }
+  },
+  "frozen_unchanged": true,
+  "id": "warm_dev_Panther_lodging_Teresita_H3",
+  "losses": [
+    {
+      "gradient_norm": 44.972816467285156,
+      "loss": 5.567465782165527,
+      "step": 1
+    },
+    {
+      "gradient_norm": 57.20015335083008,
+      "loss": 9.111774444580078,
+      "step": 2
+    }
+  ],
+  "peak_allocated_bytes": 551176192,
+  "peak_reserved_bytes": 566231040,
+  "rank": 1,
+  "reload_exact": true,
+  "status": "COMPLETED",
+  "trainable": 147456,
+  "training_seconds": 0.20226377998187672,
+  "updates": 2,
+  "wall_seconds": 0.9927687349991174,
+  "windows": 2
+}

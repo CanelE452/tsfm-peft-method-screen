@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "tests": 6,
+  "failures": 0,
+  "command": "scripts/with_cuda.sh .venv/bin/python -m unittest discover -s experiments/building_transfer_subspace_v1_20260915 -p 'test_*.py' -v",
+  "recorded_at": 1789483730.7100866,
+  "scope": [
+    "update ceilings",
+    "strict pre-origin windows",
+    "history-only scaling",
+    "affine exactness and singularity",
+    "single episode harm does not automatically fail",
+    "macro improvement alone insufficient"
+  ]
+}

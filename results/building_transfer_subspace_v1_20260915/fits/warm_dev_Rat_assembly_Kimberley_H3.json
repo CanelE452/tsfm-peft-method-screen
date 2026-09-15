@@ -1,0 +1,47 @@
+{
+  "buffers_unchanged": true,
+  "checkpoints": {
+    "0": {
+      "checkpoint_file": ".cache/building_transfer_subspace_v1_20260915/checkpoints/warm_dev_Rat_assembly_Kimberley_H3_s0.pt",
+      "checkpoint_sha256": "f76e8fd593b8e496d99f1157bdfedb0cc762bf3e146c578ad0d373e0df445d32",
+      "checkpoint_tensor_hash": "bf8b0e1172f598241194ee1fc666b622db917ef5cf1ee3173765dd6463d7a864",
+      "prediction_file": ".cache/building_transfer_subspace_v1_20260915/predictions/warm_dev_Rat_assembly_Kimberley_H3_s0.npz",
+      "prediction_sha256": "452729e6cae956c7ea75db59b6581cdf86c3a9cd6c2941d816f6c1fb055079a9",
+      "step": 0,
+      "train_seconds": 0.0
+    },
+    "2": {
+      "checkpoint_file": ".cache/building_transfer_subspace_v1_20260915/checkpoints/warm_dev_Rat_assembly_Kimberley_H3_s2.pt",
+      "checkpoint_sha256": "d36e5dd74fa9e7ed24c37bad74416d27a5328ddd14955271f39957b6279ab65b",
+      "checkpoint_tensor_hash": "642db687f5d8acecd7597a1eaec89a672fe72641be7528ec38d9cbe21e8e92ca",
+      "prediction_file": ".cache/building_transfer_subspace_v1_20260915/predictions/warm_dev_Rat_assembly_Kimberley_H3_s2.npz",
+      "prediction_sha256": "322781d8a66c3abd8a1c7c7b6666c39ff2bf4739aafe3efa66dcb177808f0649",
+      "step": 2,
+      "train_seconds": 0.20783147899783216
+    }
+  },
+  "frozen_unchanged": true,
+  "id": "warm_dev_Rat_assembly_Kimberley_H3",
+  "losses": [
+    {
+      "gradient_norm": 6.386099815368652,
+      "loss": 1.8886795043945312,
+      "step": 1
+    },
+    {
+      "gradient_norm": 15.964573860168457,
+      "loss": 9.466663360595703,
+      "step": 2
+    }
+  ],
+  "peak_allocated_bytes": 551176192,
+  "peak_reserved_bytes": 566231040,
+  "rank": 1,
+  "reload_exact": true,
+  "status": "COMPLETED",
+  "trainable": 147456,
+  "training_seconds": 0.20783147899783216,
+  "updates": 2,
+  "wall_seconds": 1.021728592008003,
+  "windows": 2
+}

@@ -1,0 +1,57 @@
+{
+  "attempted_fits": 57,
+  "completed_fits": 57,
+  "failed_fits": 0,
+  "full_model_smoke_optimizer_updates": 0,
+  "heldout_prediction_count": 0,
+  "max_fits": 93,
+  "max_updates": 18400,
+  "minimum_gpu_free_mib": 8194,
+  "optimizer_updates": 8616,
+  "peak_torch_allocated_bytes": 568633344,
+  "stages": {
+    "local_dev": {
+      "fits": 16,
+      "peak_allocated_bytes": 551176192,
+      "training_seconds": 195.31516325369012,
+      "updates": 1920,
+      "wall_seconds": 218.65589505094977
+    },
+    "local_tune": {
+      "fits": 16,
+      "peak_allocated_bytes": 568633344,
+      "training_seconds": 267.9328832113097,
+      "updates": 2624,
+      "wall_seconds": 300.78461250399414
+    },
+    "source": {
+      "fits": 1,
+      "peak_allocated_bytes": 551176192,
+      "training_seconds": 269.1409263578098,
+      "updates": 2640,
+      "wall_seconds": 291.38389133098826
+    },
+    "warm_dev": {
+      "fits": 16,
+      "peak_allocated_bytes": 551176192,
+      "training_seconds": 12.283847073922516,
+      "updates": 120,
+      "wall_seconds": 30.751250446977792
+    },
+    "warm_tune": {
+      "fits": 8,
+      "peak_allocated_bytes": 551176192,
+      "training_seconds": 133.78288463287754,
+      "updates": 1312,
+      "wall_seconds": 149.99993529701896
+    }
+  },
+  "status": "STOP_NO_TRANSFER_SIGNAL",
+  "wall": {
+    "external_compute_samples": 2005,
+    "minimum_free_mib": 8194,
+    "peak_cpu_rss_bytes": 2492936192,
+    "seconds": 1085.719858498007,
+    "wait_seconds": 30.270519036988844
+  }
+}

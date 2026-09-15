@@ -1,0 +1,24 @@
+{
+  "checked_at": 1789484376.192083,
+  "scope": "Primary publisher/arXiv abstract verification; conceptual overlap, not exhaustive full-paper equivalence",
+  "papers": [
+    {
+      "title": "Efficient Personalized Adaptation for Physiological Signal Foundation Model",
+      "url": "https://proceedings.mlr.press/v267/wu25ah.html",
+      "venue": "ICML 2025",
+      "confirmed": "Public low-rank pretraining, generator trained on LoRA weights, local-data weight generation."
+    },
+    {
+      "title": "Learning to Adapt Cross-Domain Preferences via Meta-LoRA for LLM Personalization",
+      "url": "https://arxiv.org/abs/2608.12389",
+      "status": "arXiv preprint, submitted 2026-08-01",
+      "confirmed": "Meta-learned LoRA initialization/prior; update strength based on support size and uncertainty."
+    },
+    {
+      "title": "MTA: A Merge-then-Adapt Framework for Personalized Large Language Model",
+      "url": "https://arxiv.org/abs/2511.20072",
+      "status": "arXiv abstract, v2 2025-11-26; no venue claim here",
+      "confirmed": "Shared Meta-LoRA Bank, adaptive fusion, subsequent few-shot low-rank adaptation."
+    }
+  ]
+}

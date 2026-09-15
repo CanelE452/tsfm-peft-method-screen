@@ -1,0 +1,47 @@
+{
+  "buffers_unchanged": true,
+  "checkpoints": {
+    "0": {
+      "checkpoint_file": ".cache/building_transfer_subspace_v1_20260915/checkpoints/warm_dev_Bear_education_Holly_H3_s0.pt",
+      "checkpoint_sha256": "99e018060780f78ec710c1e0a6e2314ca4e81e301e8a9d41f39f0d4020e83b35",
+      "checkpoint_tensor_hash": "bf8b0e1172f598241194ee1fc666b622db917ef5cf1ee3173765dd6463d7a864",
+      "prediction_file": ".cache/building_transfer_subspace_v1_20260915/predictions/warm_dev_Bear_education_Holly_H3_s0.npz",
+      "prediction_sha256": "272dfb7b55723ee895ab2e02f18ea11eeec7528d1ddcfe4382756e4c85109292",
+      "step": 0,
+      "train_seconds": 0.0
+    },
+    "2": {
+      "checkpoint_file": ".cache/building_transfer_subspace_v1_20260915/checkpoints/warm_dev_Bear_education_Holly_H3_s2.pt",
+      "checkpoint_sha256": "98d0f7fa43cce27eb89af0f02399f97ea16bc1c1498ad6feb6234eeaa525f64d",
+      "checkpoint_tensor_hash": "4d643de9be9a62123cfb96578999bc8c7d9c9049865c9fcbcd66074f63359615",
+      "prediction_file": ".cache/building_transfer_subspace_v1_20260915/predictions/warm_dev_Bear_education_Holly_H3_s2.npz",
+      "prediction_sha256": "3016ba4c27ebc5b374ec72a1c39f5078d545e31f685999ae963543cb34661b40",
+      "step": 2,
+      "train_seconds": 0.20995649800170213
+    }
+  },
+  "frozen_unchanged": true,
+  "id": "warm_dev_Bear_education_Holly_H3",
+  "losses": [
+    {
+      "gradient_norm": 32.76559829711914,
+      "loss": 10.02563762664795,
+      "step": 1
+    },
+    {
+      "gradient_norm": 21.54853057861328,
+      "loss": 9.409443855285645,
+      "step": 2
+    }
+  ],
+  "peak_allocated_bytes": 551176192,
+  "peak_reserved_bytes": 566231040,
+  "rank": 1,
+  "reload_exact": true,
+  "status": "COMPLETED",
+  "trainable": 147456,
+  "training_seconds": 0.20995649800170213,
+  "updates": 2,
+  "wall_seconds": 1.0007424140057992,
+  "windows": 2
+}

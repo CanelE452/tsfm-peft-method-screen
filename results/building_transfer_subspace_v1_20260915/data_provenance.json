@@ -1,0 +1,72 @@
+{
+  "archive": {
+    "bytes": 313651456,
+    "headers": {
+      "Accept-Ranges": "bytes",
+      "Connection": "close",
+      "Content-Length": "313651456",
+      "Content-Type": "application/gzip",
+      "Date": "Tue, 15 Sep 2026 12:52:56 GMT",
+      "ETag": "\"f9aefe98b2b42a3f5e20785999b739a3\"",
+      "Last-Modified": "Thu, 22 Jun 2023 22:11:34 GMT",
+      "Server": "AmazonS3",
+      "x-amz-id-2": "opkBV4TAR2aNx6wXQCR127VXTYBqVZumHDddw5b26EAWxFK4/wqNy/UXM/YeSWCX/qGYTTNwg25Vc+aLnnhiow2DFtNLZEra",
+      "x-amz-request-id": "5J8CRMXF3JPF4SZZ",
+      "x-amz-server-side-encryption": "AES256",
+      "x-amz-storage-class": "INTELLIGENT_TIERING",
+      "x-amz-version-id": "x4Sc.J6BY60vS8b0jQewvO1BdFqDXvpv"
+    },
+    "metadata_archive_downloaded": false,
+    "pretraining_downloaded": false,
+    "sha256": "f905e8c0852beca6d2888a6f94523254b177712d5965fa9d5ef9bf56213a7521",
+    "source_commit": "4652f161b42b90404e60dd832e2315095e400c15",
+    "tag": "\ud655\uc778",
+    "url": "https://oedi-data-lake.s3.amazonaws.com/buildings-bench/v1.0.0/compressed/BuildingsBench.tar.gz"
+  },
+  "eligibility_sha256": "59fa7dea49eb90eeaabd1454ec1c90c0a3ed2e46d3edcd99deffeaab1297ea42",
+  "files": {
+    ".cache/building_coldstart_coverage_v1_20260915/data/BuildingsBench/BDG-2/Bear_clean=2016.csv": "f9394ca779298e64ba1c1f19e38736789ea85e895b5fc157d0be3c8ffe4e6557",
+    ".cache/building_coldstart_coverage_v1_20260915/data/BuildingsBench/BDG-2/Bear_clean=2017.csv": "2fd422d00f250352324567cf5ca10bb638ee72d4353da5dc55fb4e20f7b7a46f",
+    ".cache/building_coldstart_coverage_v1_20260915/data/BuildingsBench/BDG-2/Fox_clean=2016.csv": "04641006e812336722e7da05f023d8e9f0198ec46b7ceddafd64019cd64b7bf4",
+    ".cache/building_coldstart_coverage_v1_20260915/data/BuildingsBench/BDG-2/Fox_clean=2017.csv": "480c08b1382123092e3f27f51594e53d89d77a8b53871130c7c9387af6f22198",
+    ".cache/building_coldstart_coverage_v1_20260915/data/BuildingsBench/BDG-2/Panther_clean=2016.csv": "aa27d5b5dd561c88a1d0fa40de9ff6caec859875467db0ee6da1c39139cc09b6",
+    ".cache/building_coldstart_coverage_v1_20260915/data/BuildingsBench/BDG-2/Panther_clean=2017.csv": "a0916760c5a310a3aed9e000c492a8b1c4c95b205e3ee9cb525a9f686f2abb0b",
+    ".cache/building_coldstart_coverage_v1_20260915/data/BuildingsBench/BDG-2/Rat_clean=2016.csv": "fb9563d99534f333f0c732d91ac6d9fa8372985decfe09b53137fec9be72f22c",
+    ".cache/building_coldstart_coverage_v1_20260915/data/BuildingsBench/BDG-2/Rat_clean=2017.csv": "8cd3cb413f98240f688475c19b96433fa4c51ee575e103bb304d0385455a8a62",
+    ".cache/building_coldstart_coverage_v1_20260915/official_source/electricity.csv": "039d909d8981e2d69eaeb366144e6ab7e84fa5e7e216aee42bddd95384a66418",
+    ".cache/building_coldstart_coverage_v1_20260915/official_source/electricity_cleaned.csv": "b6ffc9b4dfcefe5c753594730a08ae822b0d50fec6815abb8f185591e6c630a3",
+    ".cache/building_coldstart_coverage_v1_20260915/official_source/metadata.csv": "992d0b29f24f96ad4332bc4dbb534b7bdd7dd2689aad093f94e93068ecddca02"
+  },
+  "old_code_sha256": "f54b9ecf938f291a077fb16c6beebbb6fcdb6e93357cd36a82a0e4aade87fa3b",
+  "rule": "First 24 of previous performance-independent eligibility order excluding all previous 14. Only selected 24 raw values loaded; old heldout values not loaded. Same observed mask, no imputation.",
+  "upstream": [
+    {
+      "bytes": 272024,
+      "commit": "9b97ccbe90096aff42ed4fd6493bf7ae692d7118",
+      "path": ".cache/building_coldstart_coverage_v1_20260915/official_source/metadata.csv",
+      "sha256": "992d0b29f24f96ad4332bc4dbb534b7bdd7dd2689aad093f94e93068ecddca02",
+      "url": "https://media.githubusercontent.com/media/buds-lab/building-data-genome-project-2/9b97ccbe90096aff42ed4fd6493bf7ae692d7118/data/metadata/metadata.csv"
+    },
+    {
+      "bytes": 174977911,
+      "commit": "9b97ccbe90096aff42ed4fd6493bf7ae692d7118",
+      "path": ".cache/building_coldstart_coverage_v1_20260915/official_source/electricity_cleaned.csv",
+      "sha256": "b6ffc9b4dfcefe5c753594730a08ae822b0d50fec6815abb8f185591e6c630a3",
+      "url": "https://media.githubusercontent.com/media/buds-lab/building-data-genome-project-2/9b97ccbe90096aff42ed4fd6493bf7ae692d7118/data/meters/cleaned/electricity_cleaned.csv"
+    },
+    {
+      "bytes": 174239039,
+      "commit": "9b97ccbe90096aff42ed4fd6493bf7ae692d7118",
+      "path": ".cache/building_coldstart_coverage_v1_20260915/official_source/electricity.csv",
+      "sha256": "039d909d8981e2d69eaeb366144e6ab7e84fa5e7e216aee42bddd95384a66418",
+      "url": "https://media.githubusercontent.com/media/buds-lab/building-data-genome-project-2/9b97ccbe90096aff42ed4fd6493bf7ae692d7118/data/meters/raw/electricity.csv"
+    },
+    {
+      "bytes": 35255,
+      "commit": "9b97ccbe90096aff42ed4fd6493bf7ae692d7118",
+      "path": ".cache/building_coldstart_coverage_v1_20260915/official_source/10_Cleaned-dataset.ipynb",
+      "sha256": "9caa98820215a33e4a502d9cd5b7e4d6fba426860a71a82618a29901b7c9d092",
+      "url": "https://media.githubusercontent.com/media/buds-lab/building-data-genome-project-2/9b97ccbe90096aff42ed4fd6493bf7ae692d7118/notebooks/10_Cleaned-dataset.ipynb"
+    }
+  ]
+}
