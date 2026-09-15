@@ -2,6 +2,8 @@
 
 2026-09-16 기준. 표의 링크는 완료된 실행 또는 검토 결과다. 과거 FAIL/STOP은 당시 고정 실험의 판정으로 보존한다. 최신 재검토의 후속 연구 우선순위는 방법론 성공이나 새로운 실험 실행을 뜻하지 않는다.
 
+[진행 중] 짧은 이력 건물 PEFT 한 후보 직접 비교: 개발48 fits·7872 updates 완료, 세 방법 모두 ZERO 선택. 선택 봉인 후 LOCKED72 실행 중이며 최종 판정 전이다. [진행 기록](../results/building_peft_topic_decision_20260916/RUN_PROGRESS.md), [봉인 후보](../results/building_peft_topic_decision_20260916/TOPIC_ONEPAGE.md), [개발 점수](../results/building_peft_topic_decision_20260916/discovery_scores.csv).
+
 [확인] 최신 새 건물 전이 실행은 57 fits·8,616 updates 후 STOP_NO_TRANSFER_SIGNAL로 종료됐다. POOLED는 tune에서 선택된 AFFINE 대비 dev 주지표30.340% 악화, 개선4/8이다. 표준 rank1 fixed120은 F0 대비 주지표7.978% 개선했지만 H3 및 raw RMSE는 악화했다. 조건부36 fits·기존 heldout은 미실행이다.
 
 [확인] 이전 건물 cold-start coverage 실행은 recipe8+screen16 fits·2,880 updates 후 종료됐다. Coverage 상호작용 양의 건물2/4로 사전3/4 조건 미충족. Stage B/C는 미실행이며 이전 모든 결과를 보존한다.

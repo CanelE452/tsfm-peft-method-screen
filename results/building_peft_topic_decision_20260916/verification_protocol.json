@@ -1,0 +1,44 @@
+{
+  "at": 1789495211.6461992,
+  "timing": "Recorded during finite comparison, after training started; not claimed to be an earlier package seal",
+  "python": "3.11.15 (main, Jun  2 2026, 22:26:03) [Clang 22.1.3 ]",
+  "versions": {
+    "torch": "2.8.0",
+    "chronos-forecasting": "2.3.2",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "transformers": "4.57.6",
+    "safetensors": "0.8.0"
+  },
+  "chronos_python_sources": {
+    ".venv/lib/python3.11/site-packages/chronos/__about__.py": "2780919e9477bfbd8518e329f20a92b9afd7599a407d7baa8155a240507e8136",
+    ".venv/lib/python3.11/site-packages/chronos/__init__.py": "f4602aa57fbe3bd3f328414a591d0594ed62099ef7621736ff9733420295bbf0",
+    ".venv/lib/python3.11/site-packages/chronos/base.py": "8938c48de071534c3fecd4e2762a5f99b86d592e8de26aeaa21ce81a08f99c31",
+    ".venv/lib/python3.11/site-packages/chronos/boto_utils.py": "f84a7bca1e69838359309f58bd66f41d9c6da6619b803e88fb87af59d8012e0b",
+    ".venv/lib/python3.11/site-packages/chronos/chronos.py": "52a8ad41894195b1c244784e35e238c57e572d54fd980816b579c9c5fab78e3b",
+    ".venv/lib/python3.11/site-packages/chronos/chronos2/__init__.py": "128856d0b4660e586b74a4971a19dfaaca666e350ebbfb50297b667c1d949995",
+    ".venv/lib/python3.11/site-packages/chronos/chronos2/config.py": "d4ffa61c796ee87b340540e7f8131008aedcf7b1c580321053dec51d609d3101",
+    ".venv/lib/python3.11/site-packages/chronos/chronos2/dataset.py": "90b34b05af99069972a33aa780019ab2fca7514e907b68921a2d5c9205584e0a",
+    ".venv/lib/python3.11/site-packages/chronos/chronos2/layers.py": "73493f306ecfaa21fa57636ff46321ccb5d50ded02a382598cf759dbfc9dd60f",
+    ".venv/lib/python3.11/site-packages/chronos/chronos2/model.py": "2aaab2f90cc9bb486d69483cb1f0d11b593643ce54c97f4902958a7776905782",
+    ".venv/lib/python3.11/site-packages/chronos/chronos2/pipeline.py": "9fad1e4fb7251471463a40408a32d25d31b23b7afb88069911f095071b9b0599",
+    ".venv/lib/python3.11/site-packages/chronos/chronos2/preprocess.py": "a6da6192bc3e51a24d7adee4398c7436ce56f532fbdcf8dcef4c0c366ee02246",
+    ".venv/lib/python3.11/site-packages/chronos/chronos2/trainer.py": "3868aaefd2477eb0d6a68b2b0c7309ad0f00d1d3b02fb8deb4f8f211afecbd88",
+    ".venv/lib/python3.11/site-packages/chronos/chronos_bolt.py": "93b3af9e4521ea981c4228b1acaa252321f7a190512f956088394426182c8b8c",
+    ".venv/lib/python3.11/site-packages/chronos/df_utils.py": "df452a311b406948e0dac1f36b0685e1b7eb6c245eb4b88fd0595037221fec38",
+    ".venv/lib/python3.11/site-packages/chronos/utils.py": "0299e91f6ca902ff18c99e1260cfe81655744eae1ca82e541bda24eb395680ad"
+  },
+  "verifier_sha256": "096a22d44385fdbf681a96d33a2caceb055f0498b6c7782c7c3324bfece6506d",
+  "test_sha256": "c3c449036150498faf4311326e01794fe8cedd0204c498f180848e58bd994db2",
+  "independent_finalizer_tests": {
+    "passed": 10,
+    "failed": 0
+  },
+  "tolerance": {
+    "scalar_absolute": 1e-10,
+    "scalar_relative": 1e-10,
+    "checkpoint_replay": "exact equality; same FP32 shape"
+  },
+  "scientific_threshold_changes": 0
+}

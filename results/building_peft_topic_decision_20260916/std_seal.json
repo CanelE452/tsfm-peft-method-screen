@@ -1,0 +1,35 @@
+{
+  "at": 1789493479.7680254,
+  "code": {
+    "experiments/building_peft_topic_decision_20260916/audit_evidence.py": "e6677f67e814b646c14eeb75fc0fec67c4c6b48c5fdec3beb6fc5bcd45a33d60",
+    "experiments/building_peft_topic_decision_20260916/runner.py": "8f9eaa30d85ee7a02db0fc8311a7e30ff56d7de379b58732846be2a988e1f0c2",
+    "experiments/building_peft_topic_decision_20260916/runtime.py": "d4c48afecc5c908519d42cdccfe7d815858143c4f91b40b9c5854e2c8d68adb4",
+    "results/building_peft_topic_decision_20260916/EXECUTION_CONTRACT.txt": "7dfa809bfbe627ab79d7438ddf170c78d00db5df0d2e0f976711e14756563770",
+    "results/building_peft_topic_decision_20260916/STD_PROTOCOL.md": "9bbdee07ed318f284eb2974e54765831138a56ebe5e0d870db7f2b7a73870543",
+    "scripts/priority12/common.py": "b29b4be7a67bff8f4829db30e2b3c02f2dea2da28881f782218e8c1cb3d6ba4d",
+    "src/tsfm_peft_screen/backbone.py": "d3973b52080e095c0a214031bcc53b4d92dcaa7a2d87ff36c23647aa291a1a11"
+  },
+  "episodes_sha256": "6b1b42541a2d56d202bfeb852e6a9c25853d8f07b54ddb13f90f3e476b5dc31f",
+  "lrs": [
+    3e-05,
+    0.0001
+  ],
+  "max_attempts": 120,
+  "max_main_updates": 19680,
+  "max_smoke_updates": 24,
+  "model": {
+    "/home/minjae/.cache/huggingface/hub/models--amazon--chronos-2/snapshots/29ec3766d36d6f73f0696f85560a422f50e8498c/config.json": "ef1143bfdc9c0376d9a056eefca46cb4b1ec3d0ffacd541ff56feb40fb708031",
+    "/home/minjae/.cache/huggingface/hub/models--amazon--chronos-2/snapshots/29ec3766d36d6f73f0696f85560a422f50e8498c/model.safetensors": "ddcda3c7508bf2528087723e98a20707cc04b7f370ae275a9fd88078ddba4f42"
+  },
+  "policies": [
+    "ZERO",
+    "EPOCH1",
+    "EPOCH4",
+    "EPOCH16",
+    "FIXED120"
+  ],
+  "seeds": [
+    61680,
+    61681
+  ]
+}

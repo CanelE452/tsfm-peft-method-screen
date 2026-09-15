@@ -1,0 +1,71 @@
+{
+  "choices": [
+    {
+      "lr": 3e-05,
+      "mean_updates": 0.0,
+      "policy": "ZERO",
+      "primary": 1.0873404058119829
+    },
+    {
+      "lr": 3e-05,
+      "mean_updates": 7.5,
+      "policy": "EPOCH1",
+      "primary": 1.0880403321767984
+    },
+    {
+      "lr": 3e-05,
+      "mean_updates": 30.0,
+      "policy": "EPOCH4",
+      "primary": 1.0908817249294886
+    },
+    {
+      "lr": 3e-05,
+      "mean_updates": 120.0,
+      "policy": "EPOCH16",
+      "primary": 1.1106534274106852
+    },
+    {
+      "lr": 3e-05,
+      "mean_updates": 120.0,
+      "policy": "FIXED120",
+      "primary": 1.1346650539215126
+    },
+    {
+      "lr": 0.0001,
+      "mean_updates": 0.0,
+      "policy": "ZERO",
+      "primary": 1.0873404058119829
+    },
+    {
+      "lr": 0.0001,
+      "mean_updates": 7.5,
+      "policy": "EPOCH1",
+      "primary": 1.090020550877464
+    },
+    {
+      "lr": 0.0001,
+      "mean_updates": 30.0,
+      "policy": "EPOCH4",
+      "primary": 1.1048868448030802
+    },
+    {
+      "lr": 0.0001,
+      "mean_updates": 120.0,
+      "policy": "EPOCH16",
+      "primary": 1.1469285270543808
+    },
+    {
+      "lr": 0.0001,
+      "mean_updates": 120.0,
+      "policy": "FIXED120",
+      "primary": 1.1885473963335786
+    }
+  ],
+  "scope": "DISCOVERY4 only; global LR and budget kind across H3/H14; seed61680",
+  "selected": {
+    "lr": 3e-05,
+    "mean_updates": 0.0,
+    "policy": "ZERO",
+    "primary": 1.0873404058119829
+  }
+}
