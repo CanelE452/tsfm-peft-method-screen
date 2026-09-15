@@ -1,0 +1,97 @@
+{
+  "load_measurements": {
+    "rows": 35136,
+    "columns": [
+      "timestamp",
+      "load",
+      "available_at"
+    ],
+    "dtypes": {
+      "timestamp": "datetime64[ns, UTC]",
+      "load": "float64",
+      "available_at": "datetime64[ns, UTC]"
+    },
+    "timestamp_min": "2024-01-01 00:00:00+00:00",
+    "timestamp_max": "2024-12-31 23:45:00+00:00",
+    "available_min": "2024-01-01 00:00:00+00:00",
+    "available_max": "2024-12-31 23:45:00+00:00",
+    "duplicate_keys": 0,
+    "lead_hours_min": 0.0,
+    "lead_hours_max": 0.0,
+    "lead_hours_distinct": [
+      0.0
+    ],
+    "distinct_valid_times": 35136,
+    "distinct_available_times": 35136
+  },
+  "weather_measurements": {
+    "rows": 35229,
+    "columns": [
+      "timestamp",
+      "temperature_2m",
+      "relative_humidity_2m",
+      "surface_pressure",
+      "cloud_cover",
+      "wind_speed_10m",
+      "wind_direction_10m",
+      "shortwave_radiation",
+      "direct_radiation",
+      "diffuse_radiation",
+      "direct_normal_irradiance"
+    ],
+    "timestamp_min": "2024-01-01 00:00:00+00:00",
+    "timestamp_max": "2025-01-01 23:00:00+00:00",
+    "available_at_present": false,
+    "causal_error_calibration": "NOT_VERIFIED_NO_RELEASE_TIMESTAMPS"
+  },
+  "weather_forecasts_versioned": {
+    "rows": 201534,
+    "columns": [
+      "timestamp",
+      "available_at",
+      "temperature_2m",
+      "relative_humidity_2m",
+      "surface_pressure",
+      "cloud_cover",
+      "wind_speed_10m",
+      "wind_speed_80m",
+      "wind_direction_10m",
+      "shortwave_radiation",
+      "direct_radiation",
+      "diffuse_radiation",
+      "direct_normal_irradiance"
+    ],
+    "dtypes": {
+      "timestamp": "datetime64[ns, UTC]",
+      "available_at": "datetime64[ns, UTC]",
+      "temperature_2m": "float32",
+      "relative_humidity_2m": "float32",
+      "surface_pressure": "float32",
+      "cloud_cover": "float32",
+      "wind_speed_10m": "float32",
+      "wind_speed_80m": "float32",
+      "wind_direction_10m": "float32",
+      "shortwave_radiation": "float32",
+      "direct_radiation": "float32",
+      "diffuse_radiation": "float32",
+      "direct_normal_irradiance": "float32"
+    },
+    "timestamp_min": "2024-01-01 00:00:00+00:00",
+    "timestamp_max": "2025-01-01 23:00:00+00:00",
+    "available_min": "2024-01-01 00:00:00+00:00",
+    "available_max": "2025-01-01 23:00:00+00:00",
+    "duplicate_keys": 0,
+    "lead_hours_min": 0.0,
+    "lead_hours_max": 120.0,
+    "lead_hours_distinct": [
+      0.0,
+      24.0,
+      48.0,
+      72.0,
+      96.0,
+      120.0
+    ],
+    "distinct_valid_times": 35229,
+    "distinct_available_times": 35229
+  }
+}

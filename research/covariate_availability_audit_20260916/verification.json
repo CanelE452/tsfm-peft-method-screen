@@ -1,0 +1,115 @@
+{
+  "status": "COMPLETE",
+  "fits": 0,
+  "optimizer_updates": 0,
+  "model_forwards": 0,
+  "gpu_used": false,
+  "score_computations": 0,
+  "python": "3.11.15",
+  "pandas": "2.3.3",
+  "numpy": "2.4.6",
+  "baseline_commit": "a6998d13ea4b25a9d3aba8a3e25321765a4c07d5",
+  "scope_sha256": "d90d7e9994e9256aeb0bc2e4a8ed6d42cb7cbe35316f5d44f19e40d2bec264be",
+  "script_sha256": "ec50b71037d1435fa57530dc2bc5d05e97ec8c8ecabcec9a4f2ca4c8d1ace625",
+  "hf_revision": "dce7fe9bbae0d62288986fa97fa1ee7e9d3b7044",
+  "github_source_revision": "fdc58170714e7a79ad60a286c82ca069d6f6c96a",
+  "origins": 333,
+  "full_coverage_origins": 333,
+  "full_finite_origins": 318,
+  "total_requested": 63936,
+  "total_present": 63936,
+  "total_finite": 61088,
+  "future_violations": 0,
+  "independent_checks": [
+    {
+      "origin": "2024-02-01 08:00:00+00:00",
+      "manual_match": true,
+      "poison_invariant": true,
+      "poisoned_future_rows": 286
+    },
+    {
+      "origin": "2024-03-02 08:00:00+00:00",
+      "manual_match": true,
+      "poison_invariant": true,
+      "poisoned_future_rows": 286
+    },
+    {
+      "origin": "2024-04-01 08:00:00+00:00",
+      "manual_match": true,
+      "poison_invariant": true,
+      "poisoned_future_rows": 286
+    },
+    {
+      "origin": "2024-05-01 08:00:00+00:00",
+      "manual_match": true,
+      "poison_invariant": true,
+      "poisoned_future_rows": 286
+    },
+    {
+      "origin": "2024-05-31 08:00:00+00:00",
+      "manual_match": true,
+      "poison_invariant": true,
+      "poisoned_future_rows": 286
+    },
+    {
+      "origin": "2024-06-30 08:00:00+00:00",
+      "manual_match": true,
+      "poison_invariant": true,
+      "poisoned_future_rows": 286
+    },
+    {
+      "origin": "2024-07-31 08:00:00+00:00",
+      "manual_match": true,
+      "poison_invariant": true,
+      "poisoned_future_rows": 286
+    },
+    {
+      "origin": "2024-08-30 08:00:00+00:00",
+      "manual_match": true,
+      "poison_invariant": true,
+      "poisoned_future_rows": 286
+    },
+    {
+      "origin": "2024-09-29 08:00:00+00:00",
+      "manual_match": true,
+      "poison_invariant": true,
+      "poisoned_future_rows": 286
+    },
+    {
+      "origin": "2024-10-29 08:00:00+00:00",
+      "manual_match": true,
+      "poison_invariant": true,
+      "poisoned_future_rows": 286
+    },
+    {
+      "origin": "2024-11-28 08:00:00+00:00",
+      "manual_match": true,
+      "poison_invariant": true,
+      "poisoned_future_rows": 286
+    },
+    {
+      "origin": "2024-12-29 08:00:00+00:00",
+      "manual_match": true,
+      "poison_invariant": true,
+      "poisoned_future_rows": 286
+    }
+  ],
+  "historical_files_preserved": 2212,
+  "predictive_evidence": "NOT_EVALUATED",
+  "novelty": "NOT_EVALUATED",
+  "availability_provenance": "SIMULATED_TIMESTAMPS_NOT_VERIFIED_REAL_RELEASES",
+  "errors": [
+    {
+      "stage": "environment_probe",
+      "detail": "pyarrow absent in .venv-channel; used existing .venv with pyarrow25.0.1; no installation and no fit attempt"
+    },
+    {
+      "stage": "schema_probe",
+      "detail": "First audit attempt asserted available_at for all three tables; historical weather has no available_at. Corrected inspector to report missing provenance without fabricating timestamps; no training or score attempt."
+    },
+    {
+      "stage": "independent_checker",
+      "detail": "Second attempt found original dataframe index labels are non-unique, so label-based idxmax selected multiple rows. Independent checker now uses positional argmax. Production as-of selection unchanged; two audit reruns total."
+    }
+  ]
+}
