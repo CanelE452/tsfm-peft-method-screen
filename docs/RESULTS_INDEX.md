@@ -2,11 +2,12 @@
 
 2026-09-15 기준. 표의 링크는 완료된 실행 또는 검토 결과다. 과거 FAIL/STOP은 당시 고정 실험의 판정으로 보존한다. 최신 재검토의 후속 연구 우선순위는 방법론 성공이나 새로운 실험 실행을 뜻하지 않는다.
 
-최신 R1/R2 실행은 종료됐다. R1 수치84 updates, R2 24 fits·9,602 updates와 평가·검산을 완료했다. 이전 Q/C 결과와 판정은 그대로 보존한다.
+[확인] 최신 건물 cold-start 실행은 recipe8+screen16 fits·2,880 updates 후 종료됐다. Coverage 상호작용 양의 건물2/4로 사전3/4 조건 미충족. Stage B/C는 미실행이며 이전 모든 결과를 보존한다.
 
 
 | 완료 작업 | 결과 | 검증 기록 |
 | --- | --- | --- |
+| 건물 cold-start: recipe8+screen16 fits·2,880 updates; STOP_NO_COVERAGE_PROBLEM_SIGNAL | [한국어 REPORT](../results/building_coldstart_coverage_v1_20260915/REPORT.md), [건물별 상호작용](../results/building_coldstart_coverage_v1_20260915/stageA_interaction.csv) | [128개 예측 검산](../results/building_coldstart_coverage_v1_20260915/independent_verification.json), [최종 감사](../results/building_coldstart_coverage_v1_20260915/publication_audit.json) |
 | R1/R2 완료: R1 수치84updates·본학습0, R2 24/24 fits·고정 epoch 파일럿 | [한국어 REPORT](../research/peft_rank12_20260915/REPORT.md), [R1](../results/query_budget_repair_v2_20260915/REPORT.md), [R2](../results/channel_sharing_screen_v1_20260915/REPORT.md) | [완료 장부](../research/peft_rank12_20260915/completion.json), [R2 독립 검산](../results/channel_sharing_screen_v1_20260915/independent_verification.json) |
 | Q/C 승인 재개 완료: Q 수치 중단180 updates, C24/24 fits·24,576 updates; 경량화 신호 관측·계수 이득 미충족 | [통합 한국어 REPORT](../results/priority12_resume_20260915/REPORT.md), [Q 진단](../results/query_budget_numeric_v2_resume_20260915/NUMERIC_RESULT.md), [C 원점수](../results/channel_basis_pilot_resume_20260915/metrics.csv) | [완료 검증](../results/priority12_resume_20260915/completion_verification.json), [172개 예측 검산](../results/channel_basis_pilot_resume_20260915/independent_verification.json) |
 | Q v2 + 채널 공유 독립 파일럿: BLOCKED_GPU_BUSY / BLOCKED_GPU_BUSY; 신규 본학습 0 fits | [통합 한국어 보고서](../results/priority12_20260915/REPORT.md), [Q](../results/query_budget_numeric_v2_20260915/REPORT.md), [C](../results/channel_basis_pilot_20260915/REPORT.md) | [완료 검증](../results/priority12_20260915/completion_verification.json), [C 실제 CPU 모델 비교](../results/channel_basis_pilot_20260915/initial_cpu_parity.json) |

@@ -4,7 +4,11 @@ Independent Chronos-2 development screen. Round 0 and Round 1 only; Round 2 requ
 
 No prior experiment outputs are used as new evidence. Raw data and cached model weights may be reused with provenance hashes. All source is local to this repository.
 
-## Latest completed execution — R1/R2 budget study
+## Latest completed execution — building cold-start coverage
+
+The [Korean building cold-start report](results/building_coldstart_coverage_v1_20260915/REPORT.md) records 8 recipe fits and 16 development fits (2,880 updates), plus 2 separate smoke updates. Standard LoRA improved 12/16 development episodes, but the predefined coverage interaction was positive in only 2/4 buildings (required 3/4): STOP_NO_COVERAGE_PROBLEM_SIGNAL. Coverage-rule selection and held-out training were not run. Existing results are preserved; no automatic follow-up is running.
+
+## Previous completed execution — R1/R2 budget study
 
 The [Korean R1/R2 report](research/peft_rank12_20260915/REPORT.md) records R1 numerical diagnosis (84 updates, FP32 passed, BF16 microbatch checks unresolved; no profile or forecasting fits) and the independent R2 32-channel matched-budget study (24/24 fits with sealed evaluation and scalar metric replay). Signals, INIT selection, resource costs and known-parameterization limits are reported separately. No automatic follow-up training is running.
 
