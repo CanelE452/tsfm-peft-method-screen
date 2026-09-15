@@ -2,7 +2,8 @@
 
 2026-09-16 기준. 표의 링크는 완료된 실행 또는 검토 결과다. 과거 FAIL/STOP은 당시 고정 실험의 판정으로 보존한다. 최신 재검토의 후속 연구 우선순위는 방법론 성공이나 새로운 실험 실행을 뜻하지 않는다.
 
-[진행 중] 짧은 이력 건물 PEFT 한 후보 직접 비교: 개발48 fits·7872 updates 완료, 세 방법 모두 ZERO 선택. 선택 봉인 후 LOCKED72 실행 중이며 최종 판정 전이다. [진행 기록](../results/building_peft_topic_decision_20260916/RUN_PROGRESS.md), [봉인 후보](../results/building_peft_topic_decision_20260916/TOPIC_ONEPAGE.md), [개발 점수](../results/building_peft_topic_decision_20260916/discovery_scores.csv).
+
+[확인] 최신 짧은 이력 PEFT 직접 비교는120 fits·19680updates와 전체 검산을 완료했다. 세 방법 모두 ZERO 선택으로 후보의 추가 이득0%, 판정 NO_METHOD_TOPIC_THIS_RUN이다. STD fixed120은 F0보다 평균 primary5.811% 좋았지만95% 구간은0을 포함한다. [최종 판단](../results/building_peft_topic_decision_20260916/FINAL_DECISION.md), [한국어 보고서](../results/building_peft_topic_decision_20260916/REPORT.md).
 
 [확인] 최신 새 건물 전이 실행은 57 fits·8,616 updates 후 STOP_NO_TRANSFER_SIGNAL로 종료됐다. POOLED는 tune에서 선택된 AFFINE 대비 dev 주지표30.340% 악화, 개선4/8이다. 표준 rank1 fixed120은 F0 대비 주지표7.978% 개선했지만 H3 및 raw RMSE는 악화했다. 조건부36 fits·기존 heldout은 미실행이다.
 
@@ -11,6 +12,7 @@
 
 | 완료 작업 | 결과 | 검증 기록 |
 | --- | --- | --- |
+| 짧은 이력 PEFT 직접 비교: 120/120 fits·19680updates, NO_METHOD_TOPIC_THIS_RUN | [한국어 REPORT](../results/building_peft_topic_decision_20260916/REPORT.md), [최종 결정](../results/building_peft_topic_decision_20260916/FINAL_DECISION.md), [추가 가치 해석](../results/building_peft_topic_decision_20260916/INTERPRETATION.md) | [3300개 원점수 검산](../results/building_peft_topic_decision_20260916/independent_cpu_verification.json), [600개 체크포인트·5100예측 복원](../results/building_peft_topic_decision_20260916/independent_gpu_verification.json), [후속 연결 완료](../results/building_peft_topic_decision_20260916/followup_connection.json) |
 | 새 건물 전이: 57 fits·8,616 updates; STOP_NO_TRANSFER_SIGNAL, 후속36 fits 미실행 | [한국어 REPORT](../results/building_transfer_subspace_v1_20260915/REPORT.md), [선택 순위 역전 해석](../results/building_transfer_subspace_v1_20260915/INTERPRETATION.md), [원점수](../results/building_transfer_subspace_v1_20260915/scores.csv) | [240개 예측 검산](../results/building_transfer_subspace_v1_20260915/independent_verification.json), [실행 집계](../results/building_transfer_subspace_v1_20260915/execution_summary.json), [종료 후 미실행 분기 수정](../results/building_transfer_subspace_v1_20260915/post_run_patch.json) |
 | 건물 cold-start: recipe8+screen16 fits·2,880 updates; STOP_NO_COVERAGE_PROBLEM_SIGNAL | [한국어 REPORT](../results/building_coldstart_coverage_v1_20260915/REPORT.md), [건물별 상호작용](../results/building_coldstart_coverage_v1_20260915/stageA_interaction.csv) | [128개 예측 검산](../results/building_coldstart_coverage_v1_20260915/independent_verification.json), [최종 감사](../results/building_coldstart_coverage_v1_20260915/publication_audit.json) |
 | R1/R2 완료: R1 수치84updates·본학습0, R2 24/24 fits·고정 epoch 파일럿 | [한국어 REPORT](../research/peft_rank12_20260915/REPORT.md), [R1](../results/query_budget_repair_v2_20260915/REPORT.md), [R2](../results/channel_sharing_screen_v1_20260915/REPORT.md) | [완료 장부](../research/peft_rank12_20260915/completion.json), [R2 독립 검산](../results/channel_sharing_screen_v1_20260915/independent_verification.json) |

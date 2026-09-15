@@ -1,0 +1,7 @@
+component,arm,baseline,arm_primary,baseline_primary,gain_percent,ci95_low_percent,ci95_high_percent,raw_RMSE_gain_percent,interpretation
+타깃 LoRA 학습 / 선택 recipe,STD,F0,0.6428421497220397,0.6428421497220397,0.0,0.0,0.0,0.0,"Frozen DISCOVERY recipe, applied to both LOCKED seeds"
+균일 보존 / 선택 recipe,SIMPLE,STD,0.6428421497220397,0.6428421497220397,0.0,0.0,0.0,0.0,"Frozen DISCOVERY recipe, applied to both LOCKED seeds"
+잔차 방향 배분 / 선택 recipe,CANDIDATE,SIMPLE,0.6428421497220397,0.6428421497220397,0.0,0.0,0.0,0.0,"Frozen DISCOVERY recipe, applied to both LOCKED seeds"
+타깃 LoRA 학습 / 고정120,STD_FIXED120,F0,0.6054881176844039,0.6428421497220397,5.810762728266555,-4.138204435317284,22.852854401616238,21.95659536392448,"Fixed120 is a preregistered audit contrast, not a newly selected deployment policy"
+균일 보존 / 고정120,SIMPLE_FIXED120,STD_FIXED120,0.615378497439765,0.6054881176844039,-1.6334556313318496,-8.950858452173437,1.9490703012308352,-8.972131300490421,"Fixed120 is a preregistered audit contrast, not a newly selected deployment policy"
+잔차 방향 배분 / 고정120,CANDIDATE_FIXED120,SIMPLE_FIXED120,0.6175064099732136,0.615378497439765,-0.3457892244044258,-1.1236281639688783,0.3758498913871038,0.3660660505457319,"Fixed120 is a preregistered audit contrast, not a newly selected deployment policy"

@@ -53,6 +53,8 @@ def seals():
     if (OUT/'selection_seal.json').exists():
         x=read(OUT/'selection_seal.json');assert x['topic_seal_sha256']==sha(OUT/'topic_seal.json')
         for p,h in x['selection_sources'].items():assert sha(ROOT/p)==h
+    environment=read(OUT/'verification_protocol.json')
+    for p,h in environment['chronos_python_sources'].items():assert sha(ROOT/p)==h,('INSTALLED_MODEL_CODE_CHANGED',p)
     old=read(OUT/'historical_hashes.json')
     for p,h in old.items():assert sha(ROOT/p)==h,('HISTORICAL_CHANGED',p)
     return dict(old_files_unchanged=len(old),std_seal=sha(OUT/'std_seal.json'),topic_seal=sha(OUT/'topic_seal.json'),model_files=len(s['model']))
@@ -71,8 +73,34 @@ def independent_selection(rows,method):
     assert (best['lr'],best['policy'])==(old['selected']['lr'],old['selected']['policy'])
     return best
 
+def independent_references(rows,episodes,arrays):
+    records=[];mi=read(OUT/'parameter_audit.json')['median_index']
+    for row in rows:
+        if row['method']!='AFFINE':continue
+        eid=row['episode'];h=arrays[eid][0]
+        standard=next(r for r in rows if r['episode']==eid and r['method']=='STD' and r['step']==0)
+        initial=np.load(ROOT/standard['prediction_path']);past_q=initial['q'][1:,mi,:]
+        ys=np.stack([h[j:j+24] for j in range(24,len(h)-23,24)])
+        x=[float(v) for rr in past_q for v in rr];y=[float(v) for rr in ys for v in rr]
+        mx=avg(x);my=avg(y);var=avg([(v-mx)**2 for v in x]);fallback=bool(var<=np.finfo(float).eps*max(1,avg([v*v for v in x])))
+        if fallback:a,b=1.,0.
+        else:a=max(1e-6,avg([(v-mx)*(z-my) for v,z in zip(x,y)])/var);b=my-a*mx
+        assert row['affine']['fallback']==fallback;assert_near(a,row['affine']['a']);assert_near(b,row['affine']['b'])
+        for method in ['F0','AFFINE','SEASONAL24']:
+            reference=next(r for r in rows if r['episode']==eid and r['method']==method);z=np.load(ROOT/reference['prediction_path'])
+            for kind in ['q','raw']:
+                expected=initial[kind][0] if method=='F0' else a*initial[kind][0]+b if method=='AFFINE' else np.tile(h[-24:],(len(initial['q'][0]),1))
+                assert np.allclose(z[kind],expected,atol=1e-10,rtol=1e-10),(eid,method,kind)
+        records.append(dict(episode=eid,role=row['role'],a=a,b=b,fallback=fallback,past_supervision_points=len(y),status='PASS'))
+    return records
+
+
 def verify_cpu():
     evidence=seals(); fits=read(OUT/'fits.json'); rows=read(OUT/'scores.json')
+    topic_time=read(OUT/'topic_seal.json')['at']
+    for fit in fits:
+        if fit['method']!='STD':assert fit['started_at']>=topic_time
+        if fit['role']=='LOCKED':assert fit['started_at']>=read(OUT/'selection_seal.json')['at']
     assert not any(r['status']=='RUNNING' for r in fits),'Worker still running'
     assert len({r['id'] for r in fits})==len(fits)<=120
     assert sum(r['updates'] for r in fits)<=19680
@@ -94,6 +122,8 @@ def verify_cpu():
         for k,v in vals.items():assert_near(v,r[k]);maximum=max(maximum,abs(v-r[k]));checks+=1
         if str(path) not in seen:
             seen.add(str(path));manifest.append(dict(path=r['prediction_path'],sha256=r['prediction_sha256'],fit=r['fit'],step=r['step'],episode=e['id'],history_sha256=e['history']['sha256'],target_sha256=e['target']['sha256'],shape=list(z['q'].shape),contents='raw unsorted and common sorted quantiles; fit arrays contain final forecast then history-window forecasts'))
+    references=independent_references(rows,episodes,arrays)
+    save(OUT/'independent_references.json',dict(status='PASS',episodes=len(references),affine_fallbacks=sum(r['fallback'] for r in references),records=references))
     losses=[]; checkpoints=0
     for f in fits:
         assert len(f['losses'])==f['updates']

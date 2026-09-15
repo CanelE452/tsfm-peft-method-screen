@@ -1,0 +1,88 @@
+{
+  "groups": [
+    {
+      "role": "DISCOVERY",
+      "method": "STD",
+      "fits": 16,
+      "updates": 2624,
+      "training_seconds": 274.62544906907715,
+      "fit_wall_seconds": 420.3579148700228,
+      "median_peak_allocated_MiB": 525.63623046875,
+      "maximum_peak_allocated_MiB": 525.63623046875,
+      "median_peak_reserved_MiB": 540.0,
+      "trainable": 147456
+    },
+    {
+      "role": "DISCOVERY",
+      "method": "SIMPLE",
+      "fits": 16,
+      "updates": 2624,
+      "training_seconds": 278.01209817564813,
+      "fit_wall_seconds": 493.9880267029803,
+      "median_peak_allocated_MiB": 525.658203125,
+      "maximum_peak_allocated_MiB": 525.67431640625,
+      "median_peak_reserved_MiB": 540.0,
+      "trainable": 147456
+    },
+    {
+      "role": "DISCOVERY",
+      "method": "CANDIDATE",
+      "fits": 16,
+      "updates": 2624,
+      "training_seconds": 277.2441940534336,
+      "fit_wall_seconds": 495.3206795929873,
+      "median_peak_allocated_MiB": 525.658203125,
+      "maximum_peak_allocated_MiB": 525.67431640625,
+      "median_peak_reserved_MiB": 540.0,
+      "trainable": 147456
+    },
+    {
+      "role": "LOCKED",
+      "method": "STD",
+      "fits": 24,
+      "updates": 3936,
+      "training_seconds": 414.1648462062876,
+      "fit_wall_seconds": 960.8596743909293,
+      "median_peak_allocated_MiB": 525.63623046875,
+      "maximum_peak_allocated_MiB": 525.63623046875,
+      "median_peak_reserved_MiB": 540.0,
+      "trainable": 147456
+    },
+    {
+      "role": "LOCKED",
+      "method": "SIMPLE",
+      "fits": 24,
+      "updates": 3936,
+      "training_seconds": 416.1768074413412,
+      "fit_wall_seconds": 972.0853458619094,
+      "median_peak_allocated_MiB": 525.658203125,
+      "maximum_peak_allocated_MiB": 525.67431640625,
+      "median_peak_reserved_MiB": 540.0,
+      "trainable": 147456
+    },
+    {
+      "role": "LOCKED",
+      "method": "CANDIDATE",
+      "fits": 24,
+      "updates": 3936,
+      "training_seconds": 415.9922164535965,
+      "fit_wall_seconds": 976.6268199690385,
+      "median_peak_allocated_MiB": 525.658203125,
+      "maximum_peak_allocated_MiB": 525.67431640625,
+      "median_peak_reserved_MiB": 540.0,
+      "trainable": 147456
+    }
+  ],
+  "monitor": {
+    "samples": 8249,
+    "minimum_free_MiB": 8192,
+    "unapproved_external_compute_samples": 0,
+    "below_1GiB_samples": 0,
+    "rustdesk_exception_samples": 8249,
+    "budget": {
+      "started_at": 1789492988.468381,
+      "wait_seconds": 90.80787514024996
+    }
+  },
+  "calibration_timing_scope": "Each history/method metadata retains first call only; full repeated calibration is included in fit wall, not gradient seconds. No claim that first-call sum is all calibration cost."
+}
