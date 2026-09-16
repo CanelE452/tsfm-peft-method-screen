@@ -117,3 +117,5 @@ PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제
 - [N03 CLOCK 완료](../results/condition_studies_v1_20260916/N03/REPORT.md): 16fits/8,192updates + smoke8. 고정 커널0.641412, 학습 커널0.648056으로 추가4계수는1.036% 악화. 512개 원점수·선택·복원 검산 완료. E 원점이23.75시간에 몰린 한계를 명시했다.
 
 - [R04 STABILITY 완료](../results/condition_studies_v1_20260916/R04/REPORT.md): 16fits/8,192updates + smoke8. 모든 반복은 INIT 선택. 단순alpha=.25 평활화는 정확도0.178% 손해로 수정 RMS25% 감소; 추가 LoRA 적응 근거는 없다. 수정량·MAE/RMSE340개 추가 scalar와 CPU 선택 검산 완료.
+
+- [N07 SPECTRAL 완료](../results/condition_studies_v1_20260916/N07/REPORT.md): 16fits/8,192updates + smoke8. PRED0.249438 대 SHUFFLE0.247272로0.876% 악화. 저에너지 성분의 작은 개선과 전체 시간영역 악화를 분리했다. 144개 원점수 및 선택·재개 검산 완료.

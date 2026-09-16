@@ -17,14 +17,31 @@ def run():
   if st['EXECUTION']!='COMPLETE':counts.append(dict(track=t,status=st['EXECUTION'],reason=st.get('error',st.get('reason'))));continue
   for name in required:assert (OUT/t/name).is_file(),(t,'MISSING_ARTIFACT',name)
   if t in SOURCES:
+   bundle=read(OUT/t/'evaluation_bundle_manifest.json');assert sha(ROOT/bundle['path'])==bundle['sha256']
+   if (OUT/t/'frozen_parameters.json').exists():assert sha(CACHE/t/'frozen.npz')==read(OUT/t/'frozen_parameters.json')['cache_sha256']
    fits=read(OUT/t/'fits.json');logs=[json.loads(x) for x in (OUT/t/'optimizer_log.jsonl').read_text().splitlines()];main=[v for v in logs if not v['smoke']];smoke=[v for v in logs if v['smoke']];assert len(main)==sum(f['updates'] for f in fits);trainforwards+=len(logs)*(2 if t=='R04' else 1);contamination+=sum(v['contaminated'] for v in logs);maxmemory=max(maxmemory,max(f['peak_allocated_bytes'] for f in fits));assert read(OUT/t/'independent_selection_verification.json')['passed'];assert read(OUT/t/'training_record_verification.json')['passed'];assert read(OUT/t/'verification.json')['passed']
    counts.append(dict(track=t,status='COMPLETE',main_fits=len(fits),main_updates=len(main),smoke_updates=len(smoke),all_512=all(f['updates']==512 for f in fits),scalar_metric_checks=read(OUT/t/'verification.json')['scalar_metric_checks'],selected_INIT=st['selected_INIT']))
   else:assert st['neural_fits']==0;counts.append(dict(track=t,status='COMPLETE',main_fits=0,main_updates=0,smoke_updates=0))
  assert trainforwards==state['forwards']['train'],(trainforwards,state['forwards']);assert state['attempts']<=116 and state['main_updates']<=59392 and state['smoke_updates']<=96 and state['main_updates']+state['smoke_updates']<=59488;assert sum(state['forwards'].values())<=200000
+ forward_rows=[]
+ for t in SOURCES:
+  logs=[json.loads(x) for x in (OUT/t/'optimizer_log.jsonl').read_text().splitlines()];factor=2 if t=='R04' else 1
+  forward_rows.extend([dict(track=t,phase='main_training',native_forwards=sum(not x['smoke'] for x in logs)*factor),dict(track=t,phase='discarded_smoke_training',native_forwards=sum(x['smoke'] for x in logs)*factor),dict(track=t,phase='smoke_native_and_restore_checks',native_forwards=4*len(read(OUT/t/'smoke.json'))),dict(track=t,phase='selected_fixed_checkpoint_restore',native_forwards=factor*len(read(OUT/t/'restore_verification.json')))])
+  if (CACHE/t/'frozen.npz').exists():
+   frozen=np.load(CACHE/t/'frozen.npz');forward_rows.append(dict(track=t,phase='frozen_reference_cache',native_forwards=sum(len(frozen[k]) for k in frozen.files)))
+  for role in ['V_SELECT','E_DISCOVERY']:
+   calls=0
+   for path in (CACHE/t/'predictions').glob(role+'_*.npz'):
+    a=np.load(path);conditions=len(a['conditions']);calls+=len(a['origins'])*(conditions-3 if t=='N01' else conditions*factor)
+   forward_rows.append(dict(track=t,phase='validation_prediction' if role=='V_SELECT' else 'evaluation_prediction',native_forwards=calls))
+ grad=read(OUT/'gradient_contribution_verification.json');forward_rows.append(dict(track='R04_R09',phase='fixed_gradient_probes',native_forwards=grad['native_forwards']))
+ assert sum(r['native_forwards'] for r in forward_rows)==sum(state['forwards'].values()),('FORWARD_LEDGER_MISMATCH',forward_rows,state['forwards'])
+ assert sum(r['native_forwards'] for r in forward_rows if r['phase'] in ['validation_prediction','evaluation_prediction'])==state['forwards']['eval']
+ csvwrite(OUT/'FORWARD_LEDGER.csv',forward_rows)
  cachebytes=sum(p.stat().st_size for p in CACHE.rglob('*') if p.is_file());assert cachebytes<=100*2**30
  history=read(OUT/'historical_hashes.json')
  for path,h in history.items():assert sha(ROOT/path)==h,('HISTORY_CHANGED',path)
- save(OUT/'publication_audit.json',dict(passed=True,at=time.time(),tracks=counts,main_controller_seconds=queue_time(OUT/'QUEUE_STATUS.json')-state['started_at'],pinned_dependency_files=len(libs),audit_script_hashes={str(p.relative_to(ROOT)):sha(p) for p in (ROOT/'scripts').glob('*condition*.py')},historical_files_preserved=len(history),historical_hashes_verified=True,main_fits=state['completed_fits'],main_updates=state['main_updates'],smoke_updates=state['smoke_updates'],native_forwards=state['forwards'],native_train_forwards_independent_journal_count=trainforwards,contaminated_updates=contamination,max_allocated_bytes=maxmemory,cache_bytes=cachebytes,cache_is_local_ignored=True,github_contains_large_weights_or_predictions=False,zero_new_followup_fits=True,all_nine_complete=len(queue['completed'])==9))
+ save(OUT/'publication_audit.json',dict(passed=True,at=time.time(),tracks=counts,main_controller_seconds=queue_time(OUT/'QUEUE_STATUS.json')-state['started_at'],pinned_dependency_files=len(libs),audit_script_hashes={str(p.relative_to(ROOT)):sha(p) for p in (ROOT/'scripts').glob('*condition*.py')},historical_files_preserved=len(history),historical_hashes_verified=True,main_fits=state['completed_fits'],main_updates=state['main_updates'],smoke_updates=state['smoke_updates'],native_forwards=state['forwards'],native_train_forwards_independent_journal_count=trainforwards,all_forward_phases_independently_reconciled=True,contaminated_updates=contamination,max_allocated_bytes=maxmemory,cache_bytes=cachebytes,cache_is_local_ignored=True,github_contains_large_weights_or_predictions=False,zero_new_followup_fits=True,all_nine_complete=len(queue['completed'])==9))
  print('PUBLICATION_AUDIT_PASSED',len(queue['completed']),state['completed_fits'])
 
 def queue_time(path):return path.stat().st_mtime

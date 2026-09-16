@@ -1,0 +1,30 @@
+{
+  "folds": [
+    {
+      "fold": 1,
+      "purge_slots": 48,
+      "training_origins": 0,
+      "used": false,
+      "validation_context_slots": 96,
+      "validation_origins": 16
+    },
+    {
+      "fold": 2,
+      "purge_slots": 48,
+      "training_origins": 24,
+      "used": true,
+      "validation_context_slots": 96,
+      "validation_origins": 16
+    },
+    {
+      "fold": 3,
+      "purge_slots": 48,
+      "training_origins": 40,
+      "used": true,
+      "validation_context_slots": 96,
+      "validation_origins": 16
+    }
+  ],
+  "source": "sealed TRAIN origin indices only; no new fitting",
+  "validation_points_per_channel_bin": 32
+}
