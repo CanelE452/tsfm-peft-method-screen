@@ -96,6 +96,9 @@ def run():
   if t in SOURCES:
    s+='[정보·파라미터·노출 횟수](parameter_information_budget.csv). 보조계수가 있는 군을 완전히 동일 파라미터 예산이라고 하지 않는다.\n\n';b=read(OUT/t/'bootstrap_manifest.json');s+=f'평가 원점이 걸친 관측 주간 블록은 {b["observed_blocks"]}개다. bootstrap 2,000회 중 {b["defined"]}회가 계산 가능하고 {b["empty_resamples"]}회는 관측 없는 재표집으로 보존했다. CI는 계산 가능한 재표집에 조건부다. 중복 horizon의64원점을64개의 독립 기간으로 해석하지 않는다.\n'
   if t=='R05':s+='[최신 보호·실제 모델 호출 비용](latest_protection_and_cost.csv), [CPU 선택 장부](fit_manifest.csv).\n'
+  if t in SOURCES:s+='\n[실제 clipping·보조계수 gradient·GPU 오염 기록](optimization_diagnostics.csv), [저장된 실제 예측 루프 비용](prediction_costs.csv). 예측 시간은 guard/Python 비용을 포함하며 같은 prediction 경로를 여러 정책에서 참조하면 중복 합산하지 않는다.\n'
+  if t=='R04':s+='\n[원점별 정확도·수정량·혁신량](scores_by_origin.csv), [원점 점수 재집계 검산](origin_score_verification.json). frontier의 raw_revision은 adapter 보정량이 아닌 발행 예측 차이이며 TRAIN sigma로 정규화한 RMS다.\n'
+  if t=='R09':s+='\n[허용 context 해상도 상태별 결과](context_state_scores.csv), [전체 원점 상태](evaluation_context_states.csv). 모든 상태와 원점을 유지한다.\n'
   if t=='N06':s+='[모든 타깃·원점·lead의 원래 pinball/ensemble CRPS 동일성](marginal_pinball_CRPS_identity.csv), [CPU fitting 장부](fit_manifest.csv). 원래 quantile의 .01/.99 밖은 공통 clamp라 극단 꼬리 정확도는 확인하지 않았다.\n'
   path.write_text(s)
  report_all();print('POSTPROCESS_COMPLETE_ONLY')
