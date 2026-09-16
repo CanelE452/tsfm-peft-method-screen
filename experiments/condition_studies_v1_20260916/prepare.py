@@ -57,6 +57,7 @@ def prepare_track(t,a,columns,receipt):
  origins={r:pick(v,64 if r in ['TRAIN','E_DISCOVERY'] else 32,phases,period) for r,v in raw_candidates.items()}
  if t=='R09':observed,detail=observation_map(a,origins['TRAIN']);eligible_values=observed[:bounds[1]]
  else:eligible_values=a[:bounds[1]]
+ if t=='R09':eligible_values=observed[:(bounds[1]//24)*24]
  valid=[i for i in range(a.shape[1]) if np.isfinite(eligible_values[:,i]).all() and eligible_values[:,i].std()>1e-6][:4];assert len(valid)==4,'BLOCKED_DATA channels'
  a=a[:,valid];columns=[columns[i] for i in valid]
  if t=='R09':observed=observed[:,valid];base=observed
@@ -71,8 +72,9 @@ def prepare_track(t,a,columns,receipt):
  final={r:pick(v,64 if r in ['TRAIN','E_DISCOVERY'] else 32,common,period) for r,v in cand.items()}
  if t=='R09':assert final==origins,'R09 permissions require preselected complete origins'
  origins=final
- mu=base[:bounds[1]].mean(0,dtype=np.float64);sigma=base[:bounds[1]].std(0,dtype=np.float64);assert np.all(sigma>1e-6)
- stats=dict(mu=mu.tolist(),sigma=sigma.tolist(),statistics_role='TRAIN',train_end=bounds[1],basis='permitted detailed plus block means' if t=='R09' else 'raw TRAIN only',columns=columns)
+ statistics_end=(bounds[1]//24)*24 if t=='R09' else bounds[1]
+ mu=base[:statistics_end].mean(0,dtype=np.float64);sigma=base[:statistics_end].std(0,dtype=np.float64);assert np.all(sigma>1e-6)
+ stats=dict(mu=mu.tolist(),sigma=sigma.tolist(),statistics_role='TRAIN',train_end=statistics_end,split_train_end=bounds[1],basis='permitted completed TRAIN blocks: detailed plus block means' if t=='R09' else 'raw TRAIN only',columns=columns)
  aux={}
  z=(a-mu)/sigma
  if t=='N01':

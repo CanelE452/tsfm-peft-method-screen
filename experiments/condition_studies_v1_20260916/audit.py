@@ -22,7 +22,13 @@ def seal():
 
 def verify_all():
  seal=read(OUT/'MASTER_SEAL.json');n=0
- for path,h in seal['files'].items():assert sha(ROOT/path)==h,('SEALED_DATA_CHANGED',path);n+=1
+ for path,h in {**seal['files'],**seal['implementation']}.items():
+  current=sha(ROOT/path)
+  if current!=h:
+   for amendment in read(OUT/'POST_SEAL_CORRECTIONS.json'):
+    change=amendment.get('files',{}).get(path)
+    if change and change['before_sha256']==h:h=change['after_sha256']
+  assert current==h,('UNAUDITED_SEALED_CHANGE',path);n+=1
  for path,h in read(OUT/'historical_hashes.json').items():assert sha(ROOT/path)==h,('HISTORY_CHANGED',path)
  state=read(OUT/'controller_state.json');main=0;smoke=0;fcount=0;details=[]
  for t in ORDER:

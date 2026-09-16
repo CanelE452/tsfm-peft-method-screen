@@ -1,0 +1,35 @@
+{
+  "TRAIN_split_end": 15782,
+  "V_E_poison_invariant": true,
+  "actual_column_selection_layout_replay_exact": true,
+  "atol": 1e-10,
+  "excluded_uncompleted_prefix": 14,
+  "first_audit_assertion": "Initial C-contiguous reduction demanded bitwise equality to actual F-contiguous advanced-column-selection reduction; max mean difference3.81e-12. Corrected replay layout; original stats and metric tolerances unchanged.",
+  "independent_scalar_checks": [
+    {
+      "channel": 0,
+      "mean_abs_error": 0.0,
+      "std_abs_error": 0.0
+    },
+    {
+      "channel": 1,
+      "mean_abs_error": 0.0,
+      "std_abs_error": 3.552713678800501e-15
+    },
+    {
+      "channel": 2,
+      "mean_abs_error": 0.0,
+      "std_abs_error": 0.0
+    },
+    {
+      "channel": 3,
+      "mean_abs_error": 0.0,
+      "std_abs_error": 1.4210854715202004e-14
+    }
+  ],
+  "last_completed_block_end": 15768,
+  "passed": true,
+  "role_origins_packets_unchanged": true,
+  "rtol": 1e-10,
+  "training_updates_at_fix": 0
+}

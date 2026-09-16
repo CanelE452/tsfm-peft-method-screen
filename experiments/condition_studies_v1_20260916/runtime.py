@@ -36,15 +36,16 @@ def primary(t,p,y,sigma,conds):
 class Controller:
  def __init__(self,resume=False):
   self.man=read(OUT/'MASTER_MANIFEST.json');self.seal=read(OUT/'MASTER_SEAL.json')
-  for p,h in self.seal['files'].items():assert sha(ROOT/p)==h,('SEALED_INPUT_CHANGED',p)
-  for p,h in self.seal['implementation'].items():
-   current=sha(ROOT/p)
-   if current!=h:
+  def audited_hash(path,expected):
+   current=sha(ROOT/path)
+   if current!=expected:
     chain=read(OUT/'POST_SEAL_CORRECTIONS.json') if (OUT/'POST_SEAL_CORRECTIONS.json').exists() else []
     for amendment in chain:
-     change=amendment.get('files',{}).get(p)
-     if change and change['before_sha256']==h:h=change['after_sha256']
-    assert current==h,('IMPLEMENTATION_CHANGED_WITHOUT_AUDITED_CHAIN',p)
+     change=amendment.get('files',{}).get(path)
+     if change and change['before_sha256']==expected:expected=change['after_sha256']
+    assert current==expected,('SEALED_CHANGE_WITHOUT_AUDITED_CHAIN',path)
+  for p,h in self.seal['files'].items():audited_hash(p,h)
+  for p,h in self.seal['implementation'].items():audited_hash(p,h)
   self.state=read(OUT/'controller_state.json') if (OUT/'controller_state.json').exists() else dict(main_updates=0,smoke_updates=0,forwards=dict(train=0,eval=0,verify=0),attempts=0,completed_fits=0,started_at=time.time(),status='RUNNING')
   self.phase='verify';self.guard=None;self.track=None
   if (OUT/'pending_update.json').exists():raise RuntimeError('AMBIGUOUS_UPDATE_NO_AUTOMATIC_REPLAY')

@@ -48,5 +48,94 @@
       }
     },
     "executed_training_source": "51bce24846d24a1b0917905b15683f57a129db34"
+  },
+  {
+    "at": 1789563959.8331149,
+    "type": "R09_PRETRAIN_INFORMATION_PERMISSION_FIX",
+    "reason": "R09 raw split TRAIN_end15782 cuts absolute block657 before completion15792. Exclude the unfinished14slot prefix from TRAIN eligibility/statistics; use completed blocks end15768. Origins/input packets/labels and role boundaries unchanged. No R09 model/smoke/fit/E score existed. Other tracks untouched.",
+    "state_at_change": {
+      "attempts": 10,
+      "completed_fits": 10,
+      "forwards": {
+        "eval": 7488,
+        "train": 5128,
+        "verify": 16
+      },
+      "main_updates": 5120,
+      "smoke_updates": 8,
+      "started_at": 1789563058.632131,
+      "status": "RUNNING"
+    },
+    "R09_optimizer_updates": 0,
+    "old_statistics": {
+      "basis": "permitted detailed plus block means",
+      "columns": [
+        "column_000",
+        "column_001",
+        "column_002",
+        "column_003"
+      ],
+      "mu": [
+        24.507028048832005,
+        115.10400033793775,
+        22.785071600557593,
+        408.2690829214717
+      ],
+      "sigma": [
+        21.366069687660687,
+        19.318562890494388,
+        52.198550179360886,
+        85.29427072676954
+      ],
+      "statistics_role": "TRAIN",
+      "train_end": 15782
+    },
+    "new_statistics": {
+      "basis": "permitted completed TRAIN blocks: detailed plus block means",
+      "columns": [
+        "column_000",
+        "column_001",
+        "column_002",
+        "column_003"
+      ],
+      "mu": [
+        24.521499238964992,
+        115.10749619482496,
+        22.79775494672755,
+        408.2388381532217
+      ],
+      "sigma": [
+        21.37003007638958,
+        19.326780805966138,
+        52.21998159835377,
+        85.32608524551303
+      ],
+      "split_train_end": 15782,
+      "statistics_role": "TRAIN",
+      "train_end": 15768
+    },
+    "files": {
+      "experiments/condition_studies_v1_20260916/prepare.py": {
+        "before_sha256": "d2729e7831da124b2151dd468d0ad04f060b433e0f7dede47ac7708a6ef04737",
+        "after_sha256": "443dc008dae530f9d9b22bfbf6f4cdb024a0d32ceb855865569f75b67c2618a1"
+      },
+      "experiments/condition_studies_v1_20260916/runtime.py": {
+        "before_sha256": "22b51c51b3022ff4f6150844a8cca76f568693466ba50d29e2b8c21ebc4a691a",
+        "after_sha256": "e68cc4a6c45d592a8c44cac18fcde5fe251fa5e720a99ac42ad9973b3c533f23"
+      },
+      "experiments/condition_studies_v1_20260916/audit.py": {
+        "before_sha256": "7a42fdf1f013fb425abb712304de5eab25644c32176a4b91a3d50e0b39aaeb01",
+        "after_sha256": "339009cc3caf6a98d3f4041eeab50f16be08a889df080f45298af3af35a7213b"
+      },
+      "results/condition_studies_v1_20260916/R09/train_statistics.json": {
+        "before_sha256": "64f2f6e0db7adedc1282a13ecc5d4738e6b12e8d0ac4bb21e5f3f34f367e6fd0",
+        "after_sha256": "4bca206ada6eeeea8bea49e0d34b60fcf1e916610d56c0085583a491cd918e19"
+      },
+      "results/condition_studies_v1_20260916/R09/permissions.json": {
+        "before_sha256": "a76133206c7157d0f863276677add04c38c0e0ebc1d939a89b71dc052885bae1",
+        "after_sha256": "242cf277c44b932a4ca5e3cf57a53f79a23dc4bb8261423e9ee96e004bd4bf24"
+      }
+    },
+    "executed_training_source": "51bce24846d24a1b0917905b15683f57a129db34"
   }
 ]
