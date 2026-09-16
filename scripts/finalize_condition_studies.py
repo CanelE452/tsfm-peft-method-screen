@@ -33,7 +33,7 @@ def classify(t):
 def parameter_table(t):
  env=read(OUT/'environment_receipt.json');spec=read(OUT/t/'PROTOCOL.json');aux=read(OUT/t/'feature_or_transform_manifest.json');extra={'A2':36,'A3':40,'B3':8,'C3':4,'H1':4,'H2':8,'H3':8};rows=[]
  for arm in ARMS[t]:
-  group=12 if t in ['N01','N03'] or arm in ['B2','B3'] else 5 if t=='R09' else 4;cpu=aux.get('regression_coefficients',aux.get('cpu_regression_scalar_coefficients',0));rows.append(dict(arm=arm,LoRA_parameters=1179648,extra_parameters=extra.get(arm,0),total_trainable=1179648+extra.get(arm,0),frozen_parameters=env['frozen_backbone_parameters'],input_rows=group,context=1344 if arm=='B1' else 336,horizon=spec['H'],native_calls_per_update=2 if t=='R04' else 1,CPU_coefficients=cpu,unique_training_origins=16 if arm=='I0' else 64,occurrences_per_unique_origin=32 if arm=='I0' else 8))
+  group=12 if t in ['N01','N03'] or arm in ['B2','B3'] else 5 if t=='R09' else 4;cpu=aux.get('regression_coefficients',aux.get('cpu_regression_scalar_coefficients',0));cpu=0 if arm=='A0' else cpu;rows.append(dict(arm=arm,LoRA_parameters=1179648,extra_parameters=extra.get(arm,0),total_trainable=1179648+extra.get(arm,0),frozen_parameters=env['frozen_backbone_parameters'],input_rows=group,context=1344 if arm=='B1' else 336,horizon=spec['H'],native_calls_per_update=2 if t=='R04' else 1,CPU_coefficients=cpu,unique_training_origins=16 if arm=='I0' else 64,occurrences_per_unique_origin=32 if arm=='I0' else 8))
  csvwrite(OUT/t/'parameter_information_budget.csv',rows)
 
 def cpu_artifacts(t):
@@ -65,7 +65,10 @@ def run():
   st=read(OUT/t/'STATUS.json')
   if st['EXECUTION']!='COMPLETE':continue
   classify(t)
-  if t in SOURCES:parameter_table(t)
+  if t in SOURCES:
+   parameter_table(t)
+   journal=[json.loads(line) for line in (OUT/t/'optimizer_log.jsonl').read_text().splitlines() if line.strip()]
+   if not (OUT/t/'optimizer_log.csv').exists():csvwrite(OUT/t/'optimizer_log.csv',journal)
   else:cpu_artifacts(t)
   report_track(t)
   if t in ['R04','R05']:
@@ -82,7 +85,14 @@ def run():
     for r in f.itertuples():ax.scatter(r.latest_harm_percent,r.delayed);ax.annotate(f'{r.target}/{r.arm}/{r.seed}',(r.latest_harm_percent,r.delayed),fontsize=5)
     ax.axvline(1,color='black',linestyle='--');ax.set_xlabel('S0 harm vs LATEST (%)');ax.set_ylabel('Mean S1..S3 normalized pinball')
    ax.set_title(t+' accuracy / robustness trade-offs');fig.tight_layout();fig.savefig(OUT/t/'condition_tradeoffs.png',dpi=140);plt.close(fig)
-  path=OUT/t/'REPORT.md';s=path.read_text();s+='\n## 판정 해석과 추가 감사\n\n'+' '.join(read(OUT/t/'STATUS.json').get('interpretation',[]))+'\n\n'
+  path=OUT/t/'REPORT.md';s=path.read_text()
+  if t=='R05':
+   raw=pd.read_csv(OUT/t/'raw_scores.csv');raw=raw[(raw.variant=='RAW')&(raw.metric=='normalized_2pinball')]
+   wide=raw.pivot(index=['target','seed','arm'],columns='condition',values='score').reset_index()
+   start=s.index('## ⑤');end=s.index('![직접대비]',start)
+   s=s[:start]+'## ⑤ 원점수·효과·seed·조건 손익\n\n'+table(wide,['target','seed','arm','S0','S1','S2','S3','DELAYED'],40)+'\n\n모든 타깃·seed·조건을 포함했다. [원단위·보정 민감도 포함 원점수](raw_scores.csv), [직접 대비와 CI](contrasts.csv), [최악 지연 조건 대비](worst_delayed_contrasts.csv).\n\n'+s[end:]
+  if (OUT/t/'INTERPRETATION.md').exists():s+='\n## 실제 결과 해석\n\n'+(OUT/t/'INTERPRETATION.md').read_text().split('\n',1)[-1].lstrip()+'\n'
+  s+='\n## 판정 해석과 추가 감사\n\n'+' '.join(read(OUT/t/'STATUS.json').get('interpretation',[]))+'\n\n'
   if t in SOURCES:
    s+='[정보·파라미터·노출 횟수](parameter_information_budget.csv). 보조계수가 있는 군을 완전히 동일 파라미터 예산이라고 하지 않는다.\n\n';b=read(OUT/t/'bootstrap_manifest.json');s+=f'평가 원점이 걸친 관측 주간 블록은 {b["observed_blocks"]}개다. bootstrap 2,000회 중 {b["defined"]}회가 계산 가능하고 {b["empty_resamples"]}회는 관측 없는 재표집으로 보존했다. CI는 계산 가능한 재표집에 조건부다. 중복 horizon의64원점을64개의 독립 기간으로 해석하지 않는다.\n'
   if t=='R05':s+='[최신 보호·실제 모델 호출 비용](latest_protection_and_cost.csv), [CPU 선택 장부](fit_manifest.csv).\n'

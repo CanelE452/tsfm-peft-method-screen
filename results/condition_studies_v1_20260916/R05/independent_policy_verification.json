@@ -1,0 +1,104 @@
+{
+  "aliases": {
+    "T0": {
+      "E0": null,
+      "E1": null,
+      "E2": "E1",
+      "E3": null,
+      "E4": "E3"
+    },
+    "T1": {
+      "E0": null,
+      "E1": null,
+      "E2": "E1",
+      "E3": null,
+      "E4": null
+    },
+    "T2": {
+      "E0": null,
+      "E1": null,
+      "E2": "E1",
+      "E3": null,
+      "E4": null
+    }
+  },
+  "checks": [
+    {
+      "arm": "E2",
+      "exact": true,
+      "grid": 5,
+      "policy": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "target": "T0"
+    },
+    {
+      "arm": "E4",
+      "exact": true,
+      "grid": 70,
+      "policy": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "target": "T0"
+    },
+    {
+      "arm": "E2",
+      "exact": true,
+      "grid": 5,
+      "policy": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "target": "T1"
+    },
+    {
+      "arm": "E4",
+      "exact": true,
+      "grid": 70,
+      "policy": [
+        0,
+        0.75,
+        0.75,
+        1
+      ],
+      "target": "T1"
+    },
+    {
+      "arm": "E2",
+      "exact": true,
+      "grid": 5,
+      "policy": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "target": "T2"
+    },
+    {
+      "arm": "E4",
+      "exact": true,
+      "grid": 70,
+      "policy": [
+        0,
+        0.25,
+        1,
+        1
+      ],
+      "target": "T2"
+    }
+  ],
+  "neural_fits": 0,
+  "new_policy_fits": 0,
+  "optimizer_updates": 0,
+  "passed": true,
+  "scope": "Exact audit replay of prescribed V grids; selections unchanged"
+}

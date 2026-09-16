@@ -106,6 +106,10 @@ PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제
 
 ## 아홉 조건 PEFT 비교 — 준비·실행 중 (2026-09-16)
 
-[전체 계약·현재 상태](../results/condition_studies_v1_20260916/MASTER_REPORT.md). 모든9명세를 먼저봉인; 기존48forecast경로는재학습하지않고R05/N06예측의존성으로만재사용한다. 아직새비교의완료나성능성공을뜻하지않는다.
+[전체 계약·현재 상태](../results/condition_studies_v1_20260916/MASTER_REPORT.md). 모든9명세를 먼저봉인; 기존48forecast경로는재학습하지않고R05/N06예측의존성으로만재사용한다. 아래 완료 항목은 실행·평가·검산을 마쳤고 나머지는 고정 순서로 진행 중이다. 성능 효과와 신규성은 별도로 판단한다.
 
-- [N01 ASYNC 완료](../results/condition_studies_v1_20260916/N01/REPORT.md): 16fits/8,192updates + smoke8. age항 A3는 A2보다0.175%, ridge A1보다4.017% 악화. 실제 학습·복원·선택·scalar 검산은 통과했으며 다음 N02는 독립 실행 중이다.
+- [N01 ASYNC 완료](../results/condition_studies_v1_20260916/N01/REPORT.md): 16fits/8,192updates + smoke8. age항 A3는 A2보다0.175%, ridge A1보다4.017% 악화. 실제 학습·복원·선택·scalar 검산은 통과했으며 다음 후보는 성능과 무관하게 독립 실행한다.
+
+- [N02 ARCHIVE 완료](../results/condition_studies_v1_20260916/N02/REPORT.md): 16fits/8,192updates + smoke8. 추가 보정 B3는 검색 행 B2보다2.01% 악화(CI는0포함). 짧은 이력 B0의0.371624가 B3의0.387540보다 낮다. 실제 검색 비용·선택·완전 재개 상태 검산을 보존했다.
+- [R05 VINTAGE 완료](../results/condition_studies_v1_20260916/R05/REPORT.md): 신규 신경망 학습0, CPU 정책225설정. 최신 점수 동일, E4의 지연 손실은 BINARY보다0.506% 개선했으나 LATEST 대비 CI는0포함. 이전 E 재분석이며 새 PEFT가 아니다.
+- [N06 JOINT 완료](../results/condition_studies_v1_20260916/N06/REPORT.md): 신규 신경망 학습0, CPU 의존구조9fits. AR1은 독립 결합보다 합계 CRPS10.013% 개선했고 복잡한 두 방법은 AR1보다 악화했다. 주변분포 동일성 및 독립 scalar 검산 완료. 알려진 단순 결합의 충분성과 PEFT 신규성을 구분한다.
