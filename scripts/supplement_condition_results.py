@@ -36,6 +36,8 @@ def r04_origins():
  for (a,s,p),g in df.groupby(['arm','seed','policy']):
   expected=summary[(summary.arm==a)&(summary.seed==s)&(summary.policy==p)].iloc[0];assert math.isclose(g.groupby('channel').normalized_MSE.mean().pow(.5).mean(),expected.score,rel_tol=1e-10,abs_tol=1e-10);assert math.isclose(g.groupby('channel').revision_normalized_MSE.mean().pow(.5).mean(),expected.revision,rel_tol=1e-10,abs_tol=1e-10)
  save(OUT/t/'origin_score_verification.json',dict(passed=True,rows=len(df),new_model_calls=0,rtol=1e-10,atol=1e-10,revision_unit='TRAIN sigma normalized RMS of raw issued forecasts; raw means not adapter correction'))
+ frontier=pd.read_csv(OUT/t/'accuracy_revision_frontier.csv');ref=frontier[(frontier.arm=='D0')&(frontier.policy=='selected')].set_index('seed').normalized_RMSE
+ frontier['selected_D0_reference']=frontier.seed.map(ref);frontier['accuracy_harm_vs_selected_D0_percent']=100*(frontier.normalized_RMSE/frontier.selected_D0_reference-1);frontier['protected_vs_selected_D0']=frontier.normalized_RMSE<=1.01*frontier.selected_D0_reference;frontier.to_csv(OUT/t/'accuracy_protection_references.csv',index=False)
 
 def r09_context():
  t='R09';b=np.load(CACHE/t/'evaluation_bundle.npz');inp=np.load(CACHE/t/'E_DISCOVERY_inputs.npz');sigma=np.array(read(OUT/t/'train_statistics.json')['sigma']);counts=inp['resolution'].reshape(64,14,24)[:,:,0].sum(1).astype(int);rows=[]

@@ -1,10 +1,10 @@
 # N06 JOINT 결과
 
-실행: **COMPLETE** / 근거: **POSITIVE_UNCERTAIN** / 신규성: **KNOWN_CONTROL**.
+실행: **COMPLETE** / 근거: **SIMPLE_METHOD_SUFFICIENT** / 신규성: **KNOWN_CONTROL**.
 
 ## ① 문제와 정보
 
-동일 주변분포의 하루 전체 위험 결합. [계약과 방법](TOPIC_ONEPAGE.md), [정보 권한](permissions.json), [원천·원점](data_receipt.json). 원점 이후의 정답은 입력으로 허용하지 않는다. R09 숨긴 상세값의 권한은 절대시간 블록에 적용한다.
+동일 주변분포의 하루 전체 위험 결합. [계약과 방법](TOPIC_ONEPAGE.md), [정보 권한](permissions.json), [원천·원점](data_receipt.json). 원점 이후의 정답은 입력으로 허용하지 않는다.
 
 ## ② 선행 연결
 
@@ -47,7 +47,7 @@ N06의 coupling은 주변분포를 완전히 동일하게 유지한다. 합계 �
 
 ## ⑦ 다음 방법을 정의할 근거
 
-현재 증거 상태: POSITIVE_UNCERTAIN. 단일 개발 원천과 제한된 recipe의 결과이며 정식 선행 대비·독립 확증이 남는다. 연구프로그램의 불가능성 판정은 아니다. 최종 문제 선택은 전체 MASTER_REPORT/FINAL_DECISION에서 최대2개로 제한한다. 자동 후속 학습 없음.
+현재 증거 상태: SIMPLE_METHOD_SUFFICIENT. 단일 개발 원천과 제한된 recipe의 결과이며 정식 선행 대비·독립 확증이 남는다. 연구프로그램의 불가능성 판정은 아니다. 최종 문제 선택은 전체 MASTER_REPORT/FINAL_DECISION에서 최대2개로 제한한다. 자동 후속 학습 없음.
 
 ## 실제 결과 해석
 
@@ -62,6 +62,6 @@ AR1은 energy도 +0.938% 개선했지만 고부하 6시간 사건 Brier는 독�
 
 ## 판정 해석과 추가 감사
 
-동일 주변분포의 알려진 coupling 비교. 개선되어도 새 PEFT 설계/신규성은 미확보
+단순 AR1은 독립 결합보다 개선했고 복잡한 두 결합은 AR1보다 악화; 관찰된 주목적에는 단순 대안이 충분 동일 주변분포의 알려진 coupling 비교. 개선되어도 새 PEFT 설계/신규성은 미확보
 
 [모든 타깃·원점·lead의 원래 pinball/ensemble CRPS 동일성](marginal_pinball_CRPS_identity.csv), [CPU fitting 장부](fit_manifest.csv). 원래 quantile의 .01/.99 밖은 공통 clamp라 극단 꼬리 정확도는 확인하지 않았다.

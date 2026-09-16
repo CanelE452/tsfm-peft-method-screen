@@ -4,7 +4,7 @@
 
 ## ① 문제와 정보
 
-최신 정확도를 보호하는 vintage 정책. [계약과 방법](TOPIC_ONEPAGE.md), [정보 권한](permissions.json), [원천·원점](data_receipt.json). 원점 이후의 정답은 입력으로 허용하지 않는다. R09 숨긴 상세값의 권한은 절대시간 블록에 적용한다.
+최신 정확도를 보호하는 vintage 정책. [계약과 방법](TOPIC_ONEPAGE.md), [정보 권한](permissions.json), [원천·원점](data_receipt.json). 원점 이후의 정답은 입력으로 허용하지 않는다.
 
 ## ② 선행 연결
 
