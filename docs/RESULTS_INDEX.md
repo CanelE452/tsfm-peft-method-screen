@@ -125,3 +125,7 @@ PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제
 - [R09 MIXED 완료](../results/condition_studies_v1_20260916/R09/REPORT.md): 20fits/10,240updates + smoke10. NULL0.606694 대 MIXED0.538191로12.728% 악화했다. UNIFORM 대비0.171%는 불확실하다. 176개 주지표·66개 부가지표 scalar와 숨긴 상세값 권한·선택·resume·gradient 검산을 완료했다.
 
 [최종 전체 보고서](../results/condition_studies_v1_20260916/MASTER_REPORT.md), [게시 감사](../results/condition_studies_v1_20260916/publication_audit.json), [116경로 검산](../results/condition_studies_v1_20260916/training_record_verification.json), [전체 forward 장부](../results/condition_studies_v1_20260916/FORWARD_LEDGER.csv). 이전2,516파일 보존, native forward115,034/200,000회, 외부 compute 오염0updates. 추가 학습·후속 후보 실행은 없다.
+
+## 날짜 다양성 교정 — 사전 감사 완료·학습 예정 (2026-09-17)
+
+[표본 교정 계약·실행 기록](CONDITION_SAMPLING_REPAIR_20260917.md), [GPU 전 분산 감사](../results/condition_sampling_repair_v1_20260917/ORIGIN_REPAIR_AUDIT.md). N02/N03의 모든 역할은 날짜·phase 조건 통과. N01/R04/N07/R08은 phase count range3>2로 BLOCKED_DIVERSITY이며 성능 실패가 아니다. 적격32fits를 실행하며 기존R05/N06/R09는 재학습하지 않는다.

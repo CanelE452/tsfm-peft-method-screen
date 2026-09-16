@@ -1,0 +1,79 @@
+{
+  "C": 336,
+  "H": 48,
+  "LRs": [
+    0.0001,
+    3e-05
+  ],
+  "arms": [
+    "C0",
+    "C1",
+    "C2",
+    "C3"
+  ],
+  "bootstrap": {
+    "block_slots": 672,
+    "replicates": 2000,
+    "seed": 73300
+  },
+  "contract_section": "\n7. N03 CLOCK — 같은 실제 미래를 다른 관측 밀도로 예측\n======================================================================\n\n데이터: ETTm1의15분 원자료,4채널. C336slots=84h, H48slots=12h.\nETTh1과 같은 물리적 시스템/다른 해상도일 수 있으므로 독립 도메인으로 세지 않는다.\n문제: 같은84h 관측 구간을 듬성듬성 읽을 때 실제시간을 보존하는 단순처리로 충분한가?\n선행: t-PatchGNN, FlowState(ICML2026). 아래 kernel은 두 논문의 재현이 아니다.\n초기 실험은 기록된 규칙 자료의 관측을 가리는 모사다. 실제 irregular benchmark 성공 아님.\n\n관측:\nTRAIN epoch마다 dense(delta=1)와60분(delta=4) 교대.\n각 채널의 sampling phase는 hash(origin,channel,epoch)로 정한 0..delta-1.\n모든 군에 같은 관측값·시각·mask·age 제공.\nV_SELECT는 delta1/4 같은 가중치. E 주평가는 미학습delta2(30분)와\n간격{1,3}를 교대로 섞은 irregular pattern(평균2slot)의 같은 가중치.\nirregular의 시작phase/순서는 고정hash. 마지막관측은 항상 origin미만.\nE의 dense1/60분4는 부가표. 예측은 모든 경우 같은 미래12h의15분 grid.\n현재 원점 사례에서 가린 값은 입력·보간·native context normalization·보조 복원 손실에서 읽지 않는다.\n공통 TRAIN mu/sigma는 dense 학습 조건에서 관측을 허용한 TRAIN 자료만으로 고정한다.\n이 실험은 TRAIN 전체가 불규칙 관측인 설정이 아니라, dense/60분 조건으로 학습한 뒤\n새 관측 밀도에 평가하는 설정이다. 실제 완전 미관측 TRAIN 값을 알고 정규화했다고 혼동하지 않는다.\n\n4개 학습군:\nC0 GRID: canonical15분 grid의 누락을 NaN으로 유지 + M/A + LoRA.\nC1 HOLD: forward-fill(이전 관측 유지), 첫 관측 전은 TRAIN mean + M/A + LoRA.\nC2 KERNEL: 누락grid t를 이용 가능한 가장 가까운4개 관측으로 kernel 보간 + M/A + LoRA.\n   w_i=exp(-|t-t_i|/tau0), tau0=4 raw slots. 관측 위치는 원래 값 그대로.\n   양쪽 관측 모두 origin 이전이면 현재 forecast에서 이용 가능하다.\n   실시간 각 과거 t에 이미 알려졌다는 주장이 아니라 원점o에 합법적인 smoothing이다.\nC3 LEARN_KERNEL: C2와 같고 채널별 tau_c=0.5+7.5*sigmoid(theta_c).\n   tau_c=4가 되도록 초기화. 추가4파라미터. 인접4개 선택은 고정, kernel만 학습.\n   누락이 없는 창은 C2/C3가 입력상 동일하고 tau gradient0일 수 있다.\n\n대조의 정보 권한은 동일. C0도 mask/age와 canonical 실제시간 위치를 받는다.\n단순 재표본화 baseline에서 시간정보를 일부러 빼지 않는다.\nprimary: 동일 실제12h의 normalized RMSE (delta2/irregular 평균).\n기대: 학습에서 본 관측밀도에만 맞춘 성능이 아니라 중간/불규칙 조건의 이득.\n반례: C0/C1/C2로 충분 -> 학습 kernel 추가가치 없음.\n이 결과만으로 다양한 관측률의 모든 TSFM이나 실제 비동기자료를 해결했다고 쓰지 않는다.\n\n필수검사: 모든 방법 동일 observed tuple(value,timestamp), 정답 physicaltime 일치,\n원점 이후 관측 접근0, kernel row weight 합1, observed overwrite0,\ntau0일 때C3=C2, raw timestamp/단위 변환 검산.\n",
+  "data": {
+    "C": 336,
+    "H": 48,
+    "auxiliary_hash": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+    "bounds": [
+      0,
+      41808,
+      48776,
+      55744,
+      69680
+    ],
+    "frequency_minutes": 15,
+    "origins_hash": "081f0858669a62130f349d16aad2376e3bb126f9b1685be578d98d25c2fff7b8",
+    "packet_hashes": {
+      ".cache/condition_sampling_repair_v1_20260917/N03/E_DISCOVERY_inputs.npz": "7b798a107eafb3be7f5ac30bbbd45010c5341a88b9c7f88348d97387251bc8d5",
+      ".cache/condition_sampling_repair_v1_20260917/N03/E_DISCOVERY_labels.npz": "4a202f13177ede25e04a86fae9d2a5a2ef57620801cfe54dffd1943849b404df",
+      ".cache/condition_sampling_repair_v1_20260917/N03/TRAIN_inputs.npz": "2f818a43474c2862352dea98059196d0bbcc57a4d42cc89174a82dcd94e22796",
+      ".cache/condition_sampling_repair_v1_20260917/N03/TRAIN_labels.npz": "4c31392b06b5e28963c33816df60983510e04b3b1fbfcddd06055ce29d00962a",
+      ".cache/condition_sampling_repair_v1_20260917/N03/V_CAL_inputs.npz": "00d4b6add250058a5e3e69209221e26115331870acda632fb4f7a7362c4362c0",
+      ".cache/condition_sampling_repair_v1_20260917/N03/V_CAL_labels.npz": "e65e6bba49191a8bd1cb77918a365235778fbb326f9059b6de5d6d9821a54b2e",
+      ".cache/condition_sampling_repair_v1_20260917/N03/V_SELECT_inputs.npz": "d20813636eb1ce472b61d41cab9e1e67e5d973a1ef5371564196920adcb365b2",
+      ".cache/condition_sampling_repair_v1_20260917/N03/V_SELECT_labels.npz": "3f46aabe9bcd1d620ea406c00e14f4352ddbd91d472b02be80eb1fea64540f3f"
+    },
+    "source": "ettm1"
+  },
+  "direct_controls": [
+    "C2",
+    "C0",
+    "C1"
+  ],
+  "id": "N03",
+  "implementation_choices": {
+    "CPU_blend_ties": "smaller alpha; R04 accuracy then revision constraint same as neural",
+    "N01_age_rows": "elapsed slots/24 clipped2",
+    "N01_target": "selected TRAIN origin ordinal i mod4; delay [0,6,24][epoch mod3]",
+    "N02_zero_std_floor": 1e-06,
+    "N03_age_rows": "elapsed slots/4; first unseen sentinel336/4",
+    "N03_mask": "sha256 CLOCK,origin,channel,epoch; V/E epoch key=-1; irregular alternating1/3 with hash start0..3/order",
+    "N07_ridge_alpha": 1.0,
+    "N07_shuffle_seed": 73100,
+    "R04_reference": "repeat-specific selected D0; seed73100 selected across2LR",
+    "R09_resolution_rows": "one repeated block resolution row shared all4 channels; same allarms"
+  },
+  "loss": "FP32 pointMSE normalized TRAIN sigma; contract-specific terms",
+  "main_fit_cap": 16,
+  "main_update_cap": 8192,
+  "name": "CLOCK",
+  "origin_selection": "day_first_v1; sole scientific change",
+  "primary": "mean_channel sqrt(mean_origin,h normalized_squared_error)",
+  "proposed": "C3",
+  "question": "새 관측 밀도에서 학습 kernel의 추가 가치",
+  "repair_id": "S03",
+  "seeds": [
+    73100,
+    73101,
+    73102
+  ],
+  "selection": "seed73100 twoLR select by V; repeats73101/2 only fixedLR; step0/256/512",
+  "smoke_updates": 8
+}

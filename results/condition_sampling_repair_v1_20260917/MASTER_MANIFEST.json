@@ -1,0 +1,513 @@
+{
+  "budget": {
+    "cache_bytes": 107374182400,
+    "controller_seconds": 86400,
+    "discarded_updates": 48,
+    "disk_free_bytes": 10737418240,
+    "forwards": 200000,
+    "main_fits": 96,
+    "main_updates": 49152,
+    "total_updates": 49200,
+    "wait_seconds": 1800
+  },
+  "closest_baselines": {
+    "N01": "A2",
+    "N02": "B2",
+    "N03": "C2",
+    "N07": "G3",
+    "R04": "D2",
+    "R08": "H2"
+  },
+  "contract_sha256": "097d88de80ea0ed23efc2c305ed1e6aba1e2e9c49800752cd86c7a9f4acae16c",
+  "prepared_at": 1789602296.7752147,
+  "queue": [
+    "N01",
+    "N02",
+    "N03",
+    "R04",
+    "N07",
+    "R08"
+  ],
+  "sampling_sensitivity": "sign reversal primary closest contrast; no post-result magnitude threshold",
+  "specs": [
+    {
+      "C": 336,
+      "H": 48,
+      "LRs": [
+        0.0001,
+        3e-05
+      ],
+      "arms": [
+        "A0",
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "bootstrap": {
+        "block_slots": 168,
+        "replicates": 2000,
+        "seed": 73300
+      },
+      "contract_section": "\n5. N01 ASYNC — 타깃의 최신값은 늦고 다른 채널은 최신일 때\n======================================================================\n\n데이터: Electricity, TRAIN에서 정한4채널, C336h,H48h.\n문제: 타깃의 미관측 suffix를 아직 관측된 donor 채널 정보로 보완할 수 있는가?\n선행 단서: t-PatchGNN(ICML2024)의 비동기 채널 관계. 이번 간단한 ridge/imputer는 그 논문 재현이 아님.\n기존 Freshness와 차이: 모든 채널을 함께 지연시키지 않고 한 타깃만 지연.\n\n관측 조건:\nTRAIN 원점마다 타깃 c=(origin_index mod4), 지연 d={0,6,24}를 epoch별 순환.\n타깃의 [o-d,o)값만 감춘다. 다른3채널은 o까지 관측.\nV/E에서는 모든 타깃을 순회하고 d=0/6/24를 공통 평가.\n추가 E 진단: d=12(학습 안 한 길이), 모든 채널 d=24(도움될 최신 donor 부재).\n주지표는 부분 지연 d=6/24를 동일 가중한 타깃 normalized RMSE.\n정상d0 손해와 d12/all-delayed는 별도 표. 실제 지연 빈도라고 부르지 않는다.\nloss는 해당 원점의 지정 타깃만 사용. 모든 군은 동일한 true training target을 받음.\n\n허용 정보: 가려지지 않은 값, 관측 mask M, 각 위치의 마지막 관측에서 경과한 시간 A.\n가린 target context 값으로 auxiliary reconstruction supervision을 새로 주지 않는다.\nTRAIN 완전관측 과거로 imputer 회귀식을 fitting하는 권한은 모든 군에 동일하게 허용.\n따라서 ridge fitting에는 기본 예측 학습과 다른 within-TRAIN 회귀 쌍이 추가된다.\n그 회귀 쌍 수를 별도로 세며 A1 대 A0를 순수한 구조 효과라고 부르지 않는다.\n핵심 A3/A2 비교는 같은 회귀식·같은 회귀 학습 정보를 공유한다.\n보조 mask/age는 모든 군에 past-covariate 행으로 제공. native target NaN과 구분.\nNaN을 숫자0으로 바꾸면서 실제 관측값이라고 속이지 않는다.\n\n고정 단순 회귀 imputer:\nz값 TRAIN에서 채널c를 다른3채널의 동시점 값+상수로 ridge 예측.\nridge alpha={.1,1,10}, TRAIN 내부3개 forward-chaining fold로 선택. E/V를 사용하지 않는다.\n마지막 관측 유지값 l_c(t), ridge r_c(t)를 계산.\ndonor도 없는 진단 상태는 donor LOCF와 mask 사용; 전체 회귀량을 관측값으로 취급하지 않음.\n\n4개 학습군:\nA0 NATIVE: target suffix NaN을 native mask로 처리 + 공통 M/A + LoRA.\nA1 RIDGE: 결측 위치만 r_c(t)로 채움 + M/A + LoRA.\nA2 RESID: r_c(t)+theta_c^T phi(t)로 채움 + M/A + LoRA.\n   phi=[1,l_c,r_c, donor_z*M(3), donor_M(3)] (총9), theta 초기0.\nA3 AGE_RESID: A2와 같되 + eta_c * a_c(t)*(r_c(t)-l_c(t)).\n   a=min(A/24,2), eta초기0. 관측 위치는 항상 원래 값 그대로.\n   이 추가항은 [미검증] 작은 입력 보정이며 '새 age-aware 기법'이라고 전제하지 않는다.\nA2/A3 보정은 missing positions만 적용, 실제 원입력 mask는 유지해 model이 fill을 구분.\n계산값은 표준화 공간에서 만들고 raw 단위로 복원해 native 입력에 넣는다.\n\n직접 대비: A3 vs A2 (age 상호작용), A3 vs A1 (학습 가능한 보정의 필요성), A3 vs A0.\nA3 추가 계수4개도 파라미터 표에 포함. A2보다 큰 용량일 수 있음을 숨기지 않음.\n기대: 부분 지연의 예측 개선, all-delayed에서는 장점 약화 가능.\n반례: A1이나 native grouping만으로 충분하면 별도 imputer PEFT 필요성 약함.\n상관이 강한 채널만 E에서 골라 결과를 살리지 않음.\n\n필수검사: 숨긴 suffix poison 입력불변, donor 변화에는 입력반응, 미래donor 사용0,\n관측값 불변, 네 target의 노출균형, A2/A3 초기=A1, eta=0 축소 동작.\n한 wrapper 초기결과가 native F0와 다른 것은 imputation 차이일 수 있으므로\n초기 identity는 '같은 전처리의 LoRA0'와 비교한다.\n",
+      "data": {
+        "C": 336,
+        "H": 48,
+        "auxiliary_hash": "255ea9aa73df2baf8825819c3e17bfd8016ab46cdb0057b4075d328646feca2a",
+        "bounds": [
+          0,
+          15782,
+          18412,
+          21043,
+          26304
+        ],
+        "frequency_minutes": 60,
+        "origins_hash": "ae6e02dec294b12a9e724f515eff5c172ba92555275baa9e7a128445dfd55b05",
+        "packet_hashes": {
+          ".cache/condition_sampling_repair_v1_20260917/N01/E_DISCOVERY_inputs.npz": "257acb45f7989ec5f8b8dfe327682eafbc310e8a3640540bdec34bff3cd0d0ca",
+          ".cache/condition_sampling_repair_v1_20260917/N01/E_DISCOVERY_labels.npz": "69da72973c40992e0c3bb7a6e6b6cacfc9cf52c922398b9d3782a08facfa1f3d",
+          ".cache/condition_sampling_repair_v1_20260917/N01/TRAIN_inputs.npz": "45185acf37f4ef3e4d1f8fde150760717ea8812058a14f293549bd1406d8d3d3",
+          ".cache/condition_sampling_repair_v1_20260917/N01/TRAIN_labels.npz": "3fa34ffd64a72354ab45ad25168de1fbe917042f4934f8d9844cec6366af60e0",
+          ".cache/condition_sampling_repair_v1_20260917/N01/V_CAL_inputs.npz": "b37c223050d4e1a49240cc996a02d67976b4222a6a7fcfe606fab5186b193ac0",
+          ".cache/condition_sampling_repair_v1_20260917/N01/V_CAL_labels.npz": "2bf18cb5e1819f45d0050d44a1bff19d2793131556835962e3d8dff5ad226596",
+          ".cache/condition_sampling_repair_v1_20260917/N01/V_SELECT_inputs.npz": "0a9d12329babe0d9c6015b43dc588392f8a2eac04f6190d85a19e9fb49d52a6c",
+          ".cache/condition_sampling_repair_v1_20260917/N01/V_SELECT_labels.npz": "8aaa019e1ef34a55c48231adcb27568ab691432c774f04deae59b004c63eb3ac"
+        },
+        "source": "electricity"
+      },
+      "direct_controls": [
+        "A2",
+        "A1",
+        "A0"
+      ],
+      "id": "N01",
+      "implementation_choices": {
+        "CPU_blend_ties": "smaller alpha; R04 accuracy then revision constraint same as neural",
+        "N01_age_rows": "elapsed slots/24 clipped2",
+        "N01_target": "selected TRAIN origin ordinal i mod4; delay [0,6,24][epoch mod3]",
+        "N02_zero_std_floor": 1e-06,
+        "N03_age_rows": "elapsed slots/4; first unseen sentinel336/4",
+        "N03_mask": "sha256 CLOCK,origin,channel,epoch; V/E epoch key=-1; irregular alternating1/3 with hash start0..3/order",
+        "N07_ridge_alpha": 1.0,
+        "N07_shuffle_seed": 73100,
+        "R04_reference": "repeat-specific selected D0; seed73100 selected across2LR",
+        "R09_resolution_rows": "one repeated block resolution row shared all4 channels; same allarms"
+      },
+      "loss": "FP32 pointMSE normalized TRAIN sigma; contract-specific terms",
+      "main_fit_cap": 16,
+      "main_update_cap": 8192,
+      "name": "ASYNC",
+      "origin_selection": "day_first_v1; sole scientific change",
+      "primary": "mean_channel sqrt(mean_origin,h normalized_squared_error)",
+      "proposed": "A3",
+      "question": "부분 채널 지연에서 age 보정의 추가 가치",
+      "repair_id": "S01",
+      "seeds": [
+        73100,
+        73101,
+        73102
+      ],
+      "selection": "seed73100 twoLR select by V; repeats73101/2 only fixedLR; step0/256/512",
+      "smoke_updates": 8
+    },
+    {
+      "C": 1344,
+      "H": 48,
+      "LRs": [
+        0.0001,
+        3e-05
+      ],
+      "arms": [
+        "B0",
+        "B1",
+        "B2",
+        "B3"
+      ],
+      "bootstrap": {
+        "block_slots": 168,
+        "replicates": 2000,
+        "seed": 73300
+      },
+      "contract_section": "\n6. N02 ARCHIVE — 최근 창 밖의 관측 완료된 과거 사례\n======================================================================\n\n데이터: Traffic 4채널, 기본 C336h/H48h.\n문제: 이미 관측 완료된 예전의 유사한 패턴과 그 이후 값이 추가 예측정보를 주는가?\n선행: Retrieval Augmented Time Series Forecasting(ICML2025, RAFT).\n검색 자체/검색 후값 사용은 알려진 방법. 아래 간단한 보정도 신규성 미확인.\n\n과거 은행:\n채널별 r>=336인 TRAIN 원점에서 stride24로 (과거336, 이후48)을 저장.\n현재 o에서 검색 가능한 r은 r+48 <= min(TRAIN_end, o-336-24).\n현재 문맥과 은행의 전체 정답 사이에도24h 간격을 둔다.\nTRAIN query에도 동일 규칙. query의 target 또는 query와 겹치는 continuation 검색 금지.\nTRAIN query는 o>=2048부터 선택한다. 은행후보>=32인 원점만 기계적으로 유효 처리.\n은행 최대2048개: 많으면 TRAIN 원점의 deterministic 균등 인덱스.\nV/E 은행은 TRAIN에 고정. V/E의 새로운 과거로 은행을 갱신하지 않는다.\n\n검색:\n채널별 query의 마지막336과 은행past336을 각 창의 mean/std로 표준화.\nEuclidean mean squared distance로 상위K=2. 동률 r가 이른 것을 선택.\n정답 continuation을 유사도 계산에 넣지 않는다.\n과거와 후속 전체를 query의 past mean/std로 단위 변환한 두 사례를 만든다.\n후속값이 현재에서 이미 과거인 시각이라는 증명을 각 retrieval에 남긴다.\n\n4개 학습군:\nB0 SHORT: 원래 C336 그룹 + LoRA.\nB1 LONG: 원래 C1344 그룹 + 동일 LoRA. H48 동일.\n   더 긴 문맥은 강한 직접 대안. 입력 정보량/비용 차이를 명시.\nB2 RETRIEVE: C336 원래 그룹 + 채널마다K2의 검색past를 보조 행으로,\n   검색continuation을 그 보조행의 'known future feature'로 제공 + LoRA.\n   이 feature는 실제 미래 측정값이 아니라 이미 관측된 과거 사례를 정렬한 합성feature다.\nB3 DELTA_ADAPT: B2와 같고 검색 future만 다음처럼 조정:\n   u_last = 검색past의 마지막 값(이미 query 단위로 변환)\n   u_future' = u_last + exp(clip(a_c,-2,2))*(u_future-u_last) + b_c*sigma_query.\n   a_c=b_c=0 초기. 추가8 scalar. 검색past 자체는 바꾸지 않는다.\n   모든 검색행의 affine를 past/future에 같이 적용하면 native normalization이\n   효과를 지울 수 있으므로 그런 구현으로 대체하지 않는다.\n   clipping saturation율과 실제 a/b gradient를 기록.\n\n추가 CPU 대조: 검색continuation 평균만 예측, B0 예측과 그 평균의 전역 convex blend.\nblend alpha={0,.25,.5,.75,1}, V_SELECT에서만 선택. 비용에 검색시간 포함.\n본체가 같은 조합은 prediction reuse. CPU fitting도 기록.\n\n주지표: 뒤 구간 전체 normalized RMSE.\n핵심 대비 B3 vs B2, B3 vs LONG, B3 vs 단순 blend.\nB2가 SHORT만 이기는 결과는 추가정보 효과이지 새 PEFT 효과가 아님.\nLONG으로 충분하면 문맥 제한을 의도적으로 줄여 retrieval을 살리지 않는다.\n\n필수검사:\nquery target poison -> 검색순위/변환/입력 불변,\n모든 r+H <= o-C-24, bank TRAIN 경계, 자기 자신/겹침 exclusion,\nB3 초기=B2, 바꾸는 future delta가 native 전처리 후에도 실제로 달라짐,\n보조후속은 label이 아니라 합법적 이미 관측된 feature임을 시간표로 증명.\n",
+      "data": {
+        "C": 1344,
+        "H": 48,
+        "auxiliary_hash": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+        "bounds": [
+          0,
+          10526,
+          12280,
+          14035,
+          17544
+        ],
+        "frequency_minutes": 60,
+        "origins_hash": "872b870bdfc9e3a217cef2fc8bd3a21cebcaa12af537a0c4282caa26d40e6988",
+        "packet_hashes": {
+          ".cache/condition_sampling_repair_v1_20260917/N02/E_DISCOVERY_inputs.npz": "37b6e1c870d1a16de3054242baaa1d8c77a20033f52f1070ba3ffe848055613f",
+          ".cache/condition_sampling_repair_v1_20260917/N02/E_DISCOVERY_labels.npz": "82b85cd84daffe851a6d4bf3bda287a21344ae4c7fa8baf06d2740fdd253c91e",
+          ".cache/condition_sampling_repair_v1_20260917/N02/TRAIN_inputs.npz": "9ee5066e5e30363316101ea600f3370a35d056ef76bd8bdf64db4ecaa44ee288",
+          ".cache/condition_sampling_repair_v1_20260917/N02/TRAIN_labels.npz": "1d0e607f3f4e3d9bd2e5a237f4dbc8c6f70e687118aa95e18902fea2c6e684c2",
+          ".cache/condition_sampling_repair_v1_20260917/N02/V_CAL_inputs.npz": "3f022d9333a312ee32470d39832935cfe5bc9afc9f5ada4307be9b8563192640",
+          ".cache/condition_sampling_repair_v1_20260917/N02/V_CAL_labels.npz": "f69b9e7bfbd8afd9e4003fdc53115a8932a2f1ab1b47142ff67d32b21aeb6336",
+          ".cache/condition_sampling_repair_v1_20260917/N02/V_SELECT_inputs.npz": "18efd8d4c1c4d215c079bad221585503de551f48efbe2b316ac46eea1ce4ceb2",
+          ".cache/condition_sampling_repair_v1_20260917/N02/V_SELECT_labels.npz": "dd131a1bbf5aa1c4e2bd87cf50a387dff03eeedd480b84eafb042d47faa409ff"
+        },
+        "source": "traffic"
+      },
+      "direct_controls": [
+        "B2",
+        "B1",
+        "BLEND"
+      ],
+      "id": "N02",
+      "implementation_choices": {
+        "CPU_blend_ties": "smaller alpha; R04 accuracy then revision constraint same as neural",
+        "N01_age_rows": "elapsed slots/24 clipped2",
+        "N01_target": "selected TRAIN origin ordinal i mod4; delay [0,6,24][epoch mod3]",
+        "N02_zero_std_floor": 1e-06,
+        "N03_age_rows": "elapsed slots/4; first unseen sentinel336/4",
+        "N03_mask": "sha256 CLOCK,origin,channel,epoch; V/E epoch key=-1; irregular alternating1/3 with hash start0..3/order",
+        "N07_ridge_alpha": 1.0,
+        "N07_shuffle_seed": 73100,
+        "R04_reference": "repeat-specific selected D0; seed73100 selected across2LR",
+        "R09_resolution_rows": "one repeated block resolution row shared all4 channels; same allarms"
+      },
+      "loss": "FP32 pointMSE normalized TRAIN sigma; contract-specific terms",
+      "main_fit_cap": 16,
+      "main_update_cap": 8192,
+      "name": "ARCHIVE",
+      "origin_selection": "day_first_v1; sole scientific change",
+      "primary": "mean_channel sqrt(mean_origin,h normalized_squared_error)",
+      "proposed": "B3",
+      "question": "관측 완료 과거 사례의 continuation 보정 가치",
+      "repair_id": "S02",
+      "seeds": [
+        73100,
+        73101,
+        73102
+      ],
+      "selection": "seed73100 twoLR select by V; repeats73101/2 only fixedLR; step0/256/512",
+      "smoke_updates": 8
+    },
+    {
+      "C": 336,
+      "H": 48,
+      "LRs": [
+        0.0001,
+        3e-05
+      ],
+      "arms": [
+        "C0",
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "bootstrap": {
+        "block_slots": 672,
+        "replicates": 2000,
+        "seed": 73300
+      },
+      "contract_section": "\n7. N03 CLOCK — 같은 실제 미래를 다른 관측 밀도로 예측\n======================================================================\n\n데이터: ETTm1의15분 원자료,4채널. C336slots=84h, H48slots=12h.\nETTh1과 같은 물리적 시스템/다른 해상도일 수 있으므로 독립 도메인으로 세지 않는다.\n문제: 같은84h 관측 구간을 듬성듬성 읽을 때 실제시간을 보존하는 단순처리로 충분한가?\n선행: t-PatchGNN, FlowState(ICML2026). 아래 kernel은 두 논문의 재현이 아니다.\n초기 실험은 기록된 규칙 자료의 관측을 가리는 모사다. 실제 irregular benchmark 성공 아님.\n\n관측:\nTRAIN epoch마다 dense(delta=1)와60분(delta=4) 교대.\n각 채널의 sampling phase는 hash(origin,channel,epoch)로 정한 0..delta-1.\n모든 군에 같은 관측값·시각·mask·age 제공.\nV_SELECT는 delta1/4 같은 가중치. E 주평가는 미학습delta2(30분)와\n간격{1,3}를 교대로 섞은 irregular pattern(평균2slot)의 같은 가중치.\nirregular의 시작phase/순서는 고정hash. 마지막관측은 항상 origin미만.\nE의 dense1/60분4는 부가표. 예측은 모든 경우 같은 미래12h의15분 grid.\n현재 원점 사례에서 가린 값은 입력·보간·native context normalization·보조 복원 손실에서 읽지 않는다.\n공통 TRAIN mu/sigma는 dense 학습 조건에서 관측을 허용한 TRAIN 자료만으로 고정한다.\n이 실험은 TRAIN 전체가 불규칙 관측인 설정이 아니라, dense/60분 조건으로 학습한 뒤\n새 관측 밀도에 평가하는 설정이다. 실제 완전 미관측 TRAIN 값을 알고 정규화했다고 혼동하지 않는다.\n\n4개 학습군:\nC0 GRID: canonical15분 grid의 누락을 NaN으로 유지 + M/A + LoRA.\nC1 HOLD: forward-fill(이전 관측 유지), 첫 관측 전은 TRAIN mean + M/A + LoRA.\nC2 KERNEL: 누락grid t를 이용 가능한 가장 가까운4개 관측으로 kernel 보간 + M/A + LoRA.\n   w_i=exp(-|t-t_i|/tau0), tau0=4 raw slots. 관측 위치는 원래 값 그대로.\n   양쪽 관측 모두 origin 이전이면 현재 forecast에서 이용 가능하다.\n   실시간 각 과거 t에 이미 알려졌다는 주장이 아니라 원점o에 합법적인 smoothing이다.\nC3 LEARN_KERNEL: C2와 같고 채널별 tau_c=0.5+7.5*sigmoid(theta_c).\n   tau_c=4가 되도록 초기화. 추가4파라미터. 인접4개 선택은 고정, kernel만 학습.\n   누락이 없는 창은 C2/C3가 입력상 동일하고 tau gradient0일 수 있다.\n\n대조의 정보 권한은 동일. C0도 mask/age와 canonical 실제시간 위치를 받는다.\n단순 재표본화 baseline에서 시간정보를 일부러 빼지 않는다.\nprimary: 동일 실제12h의 normalized RMSE (delta2/irregular 평균).\n기대: 학습에서 본 관측밀도에만 맞춘 성능이 아니라 중간/불규칙 조건의 이득.\n반례: C0/C1/C2로 충분 -> 학습 kernel 추가가치 없음.\n이 결과만으로 다양한 관측률의 모든 TSFM이나 실제 비동기자료를 해결했다고 쓰지 않는다.\n\n필수검사: 모든 방법 동일 observed tuple(value,timestamp), 정답 physicaltime 일치,\n원점 이후 관측 접근0, kernel row weight 합1, observed overwrite0,\ntau0일 때C3=C2, raw timestamp/단위 변환 검산.\n",
+      "data": {
+        "C": 336,
+        "H": 48,
+        "auxiliary_hash": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+        "bounds": [
+          0,
+          41808,
+          48776,
+          55744,
+          69680
+        ],
+        "frequency_minutes": 15,
+        "origins_hash": "081f0858669a62130f349d16aad2376e3bb126f9b1685be578d98d25c2fff7b8",
+        "packet_hashes": {
+          ".cache/condition_sampling_repair_v1_20260917/N03/E_DISCOVERY_inputs.npz": "7b798a107eafb3be7f5ac30bbbd45010c5341a88b9c7f88348d97387251bc8d5",
+          ".cache/condition_sampling_repair_v1_20260917/N03/E_DISCOVERY_labels.npz": "4a202f13177ede25e04a86fae9d2a5a2ef57620801cfe54dffd1943849b404df",
+          ".cache/condition_sampling_repair_v1_20260917/N03/TRAIN_inputs.npz": "2f818a43474c2862352dea98059196d0bbcc57a4d42cc89174a82dcd94e22796",
+          ".cache/condition_sampling_repair_v1_20260917/N03/TRAIN_labels.npz": "4c31392b06b5e28963c33816df60983510e04b3b1fbfcddd06055ce29d00962a",
+          ".cache/condition_sampling_repair_v1_20260917/N03/V_CAL_inputs.npz": "00d4b6add250058a5e3e69209221e26115331870acda632fb4f7a7362c4362c0",
+          ".cache/condition_sampling_repair_v1_20260917/N03/V_CAL_labels.npz": "e65e6bba49191a8bd1cb77918a365235778fbb326f9059b6de5d6d9821a54b2e",
+          ".cache/condition_sampling_repair_v1_20260917/N03/V_SELECT_inputs.npz": "d20813636eb1ce472b61d41cab9e1e67e5d973a1ef5371564196920adcb365b2",
+          ".cache/condition_sampling_repair_v1_20260917/N03/V_SELECT_labels.npz": "3f46aabe9bcd1d620ea406c00e14f4352ddbd91d472b02be80eb1fea64540f3f"
+        },
+        "source": "ettm1"
+      },
+      "direct_controls": [
+        "C2",
+        "C0",
+        "C1"
+      ],
+      "id": "N03",
+      "implementation_choices": {
+        "CPU_blend_ties": "smaller alpha; R04 accuracy then revision constraint same as neural",
+        "N01_age_rows": "elapsed slots/24 clipped2",
+        "N01_target": "selected TRAIN origin ordinal i mod4; delay [0,6,24][epoch mod3]",
+        "N02_zero_std_floor": 1e-06,
+        "N03_age_rows": "elapsed slots/4; first unseen sentinel336/4",
+        "N03_mask": "sha256 CLOCK,origin,channel,epoch; V/E epoch key=-1; irregular alternating1/3 with hash start0..3/order",
+        "N07_ridge_alpha": 1.0,
+        "N07_shuffle_seed": 73100,
+        "R04_reference": "repeat-specific selected D0; seed73100 selected across2LR",
+        "R09_resolution_rows": "one repeated block resolution row shared all4 channels; same allarms"
+      },
+      "loss": "FP32 pointMSE normalized TRAIN sigma; contract-specific terms",
+      "main_fit_cap": 16,
+      "main_update_cap": 8192,
+      "name": "CLOCK",
+      "origin_selection": "day_first_v1; sole scientific change",
+      "primary": "mean_channel sqrt(mean_origin,h normalized_squared_error)",
+      "proposed": "C3",
+      "question": "새 관측 밀도에서 학습 kernel의 추가 가치",
+      "repair_id": "S03",
+      "seeds": [
+        73100,
+        73101,
+        73102
+      ],
+      "selection": "seed73100 twoLR select by V; repeats73101/2 only fixedLR; step0/256/512",
+      "smoke_updates": 8
+    },
+    {
+      "C": 336,
+      "H": 48,
+      "LRs": [
+        0.0001,
+        3e-05
+      ],
+      "arms": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "bootstrap": {
+        "block_slots": 168,
+        "replicates": 2000,
+        "seed": 73300
+      },
+      "contract_section": "\n8. R04 REVISION — 정확도를 유지하며 불필요한 예측 수정 줄이기\n======================================================================\n\n데이터: Traffic 4채널, C336h/H48h, paired origins o와o+24.\n같은 미래를 예측한 구간은 early[24:48]와 late[0:24]. 다른 lead를 그대로 빼지 않는다.\nTRAIN/V/E의 두 horizon이 각 role 경계 안에 있어야 한다.\n두 입력은 서로 다른 forward 또는 서로 다른 group ID. 뒤 문맥이 앞 예측에 새어 들어가면 안 된다.\n\n[확인] 옛 Candidate04도 paired origin과 F0 대비 correction revision을 다뤘다.\n이번 차이: 고정 point 목적과 새로운 공통 분할, innovation 정보의 작은 직접 대조.\n새 데이터 독립 재현이나 원 논문 전체 재현이라고 부르지 않는다.\n선행: Using dynamic loss weighting to boost improvements in forecast stability.\n예측 안정성 손실/동적 가중 자체는 알려진 접근이다.\n\n기본 L_task = 두 origin의 채널별 normalized MSE 평균.\nR_raw = mean[((late[0:24]-early[24:48])/sigma)^2].\nDelta = 현재 예측 - 같은 입력의 고정 F0 점예측.\nR_corr = mean[((Delta_late[0:24]-Delta_early[24:48])/sigma)^2].\nF0 예측은 원점별 캐시 가능. 미래 정답 없는 no-grad 호출만 사용.\n\n새로 관측된 정보:\nv_c(o)=mean[((observed_y[o:o+24]-F0_early[0:24])/sigma_c)^2].\n이는 late 원점에서는 이미 관측된 값이며 late미래정답이 아니다.\nw_c(o)=1/(1+v_c(o)). TRAIN 원점 전부에서 구한 mean(w)로 나눠 평균1.\nV/E에는 TRAIN mean을 고정 사용. v를 미래 정답/최종 forecast error로 정의하지 않는다.\n\n단일 lambda:\nTRAIN의 첫16pair에서 F0의 L_task와 R_raw를 기록.\nlambda=clip(.05*median(L_task)/max(median(R_raw),1e-8),1e-4,1).\n초기 R_corr=0을 분모로 쓰지 않는다. 모든 규제군에 같은lambda.\n값/gradient 비율은 다를 수 있으므로 큰 clipping 빈도도 보고. 사후lambda재튜닝 금지.\n\n4개 학습군:\nD0 PLAIN: L_task.\nD1 STABLE: L_task+lambda*R_raw (기존 안정성 손실의 제한된 대조).\nD2 CORR: L_task+lambda*R_corr (옛 FR원리의 새 데이터 비교).\nD3 INNOV: L_task+lambda*mean[w_c*((Delta_late-Delta_early)/sigma)^2].\nD3는 '새 정보가 크게 들어왔으면 보정수정을 덜 억제'하는 [미검증] 가중 규칙.\ncoefficient가 작은 것만으로 좋아지지 않도록 w의 TRAIN 평균을1로 맞췄다.\n\nCPU 단순 대조: 선택된D0 late 예측과 이미 발행한early 겹침 예측의 blend.\nalpha={0,.25,.5,.75,1}, V에서 선택, 같은 실제 미래만 blend.\n발행한 과거 예측 파일은 나중 모델로 덮어쓰지 않는다.\n\n선택/목표:\nD0은 V accuracy최저. 다른 군은 각 checkpoint의 V accuracy가\n선택한D0 V normalizedRMSE의1.01배 이하인 후보 중 revision RMS최저를 선택.\n조건을 만족하는 checkpoint가 없으면 그 군의 accuracy최저와 INFEASIBLE를 기록.\nLR 후보 모두에게 같은 rule. 1%는 이번 안정성 목적의 설계허용치이며 논문합격선 아님.\n주 결과: accuracy vs raw revision의 paired frontier.\nE에서도 accuracy보호를 만족하는지 별도 확인. 수정량만 줄어든 것을 성공이라 하지 않음.\n'불필요한' 수정의 진짜 레이블은 없으므로 accuracy제약하 revision이라는 조작적 정의.\n큰 혁신 구간에서 반응이 느려지는지 TRAIN 기준v 상위quartile을 진단하되 E로 cutoff를 정하지 않음.\n\n필수검사: exact target timestamps overlap, late정보->early전달0,\ninnovation값의 as-of 가용성, F0 disabledLoRA복원, lambda초기분모유한,\n두forward 비용을 한forward효율이라고 세지 않음.\n",
+      "data": {
+        "C": 336,
+        "H": 48,
+        "auxiliary_hash": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+        "bounds": [
+          0,
+          10526,
+          12280,
+          14035,
+          17544
+        ],
+        "frequency_minutes": 60,
+        "origins_hash": "2517fce5d54a25daa96d0aecbbf1f79e916266dce70d6d36e3013d0a73a30d82",
+        "packet_hashes": {
+          ".cache/condition_sampling_repair_v1_20260917/R04/E_DISCOVERY_inputs.npz": "ef5a6ee167318b478eae2a8a7a267609eca2b36eede4dfe06cad93d66dcc9899",
+          ".cache/condition_sampling_repair_v1_20260917/R04/E_DISCOVERY_labels.npz": "db416a972368c8fb535f63e99f462254006da01a92020a4dbb7d93e3883bd077",
+          ".cache/condition_sampling_repair_v1_20260917/R04/TRAIN_inputs.npz": "cbdfaaacdab652fd3c22cb15b7bfc022162ad45daa274712076d68ac671e6d07",
+          ".cache/condition_sampling_repair_v1_20260917/R04/TRAIN_labels.npz": "ed2a505349f7516f0f0a1207e7592d3408d186b96eb45317a2a672cdcb99d3d8",
+          ".cache/condition_sampling_repair_v1_20260917/R04/V_CAL_inputs.npz": "856863fa55395394163efa697e7d40cfe9925b9528e29b0603bb970db4815699",
+          ".cache/condition_sampling_repair_v1_20260917/R04/V_CAL_labels.npz": "8a95636125f6f2d03846c9bb51f353e073ae66d812bee8fcdcba9b3d266012fd",
+          ".cache/condition_sampling_repair_v1_20260917/R04/V_SELECT_inputs.npz": "54cc444bf1dcaa8123b793338904410268147f78eadf9b23dc1f45ef4ad1f6c2",
+          ".cache/condition_sampling_repair_v1_20260917/R04/V_SELECT_labels.npz": "6aa1720522c7816f76ea2595ffe765a554bc77f4ed9aa43416a6cd8e7776dead"
+        },
+        "source": "traffic"
+      },
+      "direct_controls": [
+        "D2",
+        "D1",
+        "BLEND"
+      ],
+      "id": "R04",
+      "implementation_choices": {
+        "CPU_blend_ties": "smaller alpha; R04 accuracy then revision constraint same as neural",
+        "N01_age_rows": "elapsed slots/24 clipped2",
+        "N01_target": "selected TRAIN origin ordinal i mod4; delay [0,6,24][epoch mod3]",
+        "N02_zero_std_floor": 1e-06,
+        "N03_age_rows": "elapsed slots/4; first unseen sentinel336/4",
+        "N03_mask": "sha256 CLOCK,origin,channel,epoch; V/E epoch key=-1; irregular alternating1/3 with hash start0..3/order",
+        "N07_ridge_alpha": 1.0,
+        "N07_shuffle_seed": 73100,
+        "R04_reference": "repeat-specific selected D0; seed73100 selected across2LR",
+        "R09_resolution_rows": "one repeated block resolution row shared all4 channels; same allarms"
+      },
+      "loss": "FP32 pointMSE normalized TRAIN sigma; contract-specific terms",
+      "main_fit_cap": 16,
+      "main_update_cap": 8192,
+      "name": "REVISION",
+      "origin_selection": "day_first_v1; sole scientific change",
+      "primary": "accuracy-constrained raw revision RMS",
+      "proposed": "D3",
+      "question": "정확도 제약 안에서 innovation 가중 수정 억제",
+      "repair_id": "S04",
+      "seeds": [
+        73100,
+        73101,
+        73102
+      ],
+      "selection": "seed73100 twoLR select by V; repeats73101/2 only fixedLR; step0/256/512",
+      "smoke_updates": 8
+    },
+    {
+      "C": 336,
+      "H": 48,
+      "LRs": [
+        0.0001,
+        3e-05
+      ],
+      "arms": [
+        "G0",
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "bootstrap": {
+        "block_slots": 168,
+        "replicates": 2000,
+        "seed": 73300
+      },
+      "contract_section": "\n11. N07 SPECTRAL — 작은 크기와 예측 가능성을 분리한 학습\n======================================================================\n\n데이터: Electricity4채널, C336/H48.\n문제: 큰 패턴에 비해 에너지는 작아도 과거로 예측 가능한 주파수성분을 적응이 놓치는가?\n선행: Fredformer(KDD2024), MSFT(NeurIPS2025).\n주파수강조/다중스케일학습 자체가 새 기여가 아니며 아래 고정가중 loss도 [미검증]이다.\n\n채널별 TRAIN64 원점에서 H48 future의 unitary full FFT Z_k를 계산.\nE_k=mean|Z_k|^2 (신호는TRAIN mu/sigma로표준화).\n과거48/직전48의FFT에서 각k의실수·허수와상수5개로 future Z_k를ridge예측.\nTRAIN64를시간순4block으로나누고 앞1block->다음block,앞2->다음,앞3->다음의\nforward-chaining 예측을 모아 skill_k=1-MSE_pred/MSE_train_mean 계산.\n각 fold 정규화와 평균은 그fold 앞부분만. 겹친label/context에 대한48slot purge 적용.\n유효한 fold가부족하면 해당skill을0으로놓고그이유기록. E/V로보완하지않음.\nskill은[0,1]로clip. DC와Nyquist는재가중대상에서제외.\n\n가중치:\nw_BASE=1.\nw_ENERGY: positive-frequency E_k^-1/2을 mean비로정규화후[.25,4]clip.\nw_PRED: E_k가positive frequency중앙값이하인bin에서\n   u_k=skill_k*min(4,median(E)/(E_k+eps)), 그외u_k=0; w=1+u.\nw_SHUFFLE: w_PRED의positive-frequency순서를고정seed로섞음.\n각가중치를negative frequency로mirror,DC/Nyquist 원값1,\n마지막에전체H개의mean이1이되도록정규화. real-valued signal에대칭가중치.\neps=1e-8*max(mean(E),1). 값과공식은TRAIN에서봉인.\n\n4개 학습군:\nG0 BASE / G1 ENERGY / G2 PRED / G3 SHUFFLE.\nL(w)=.5*mean(e^2)+.5*mean_k(w_k*|FFT_ortho(e)_k|^2), e=(yhat-y)/sigma.\nG0는Parseval에의해그냥MSE와동일하다. 'uniform Fourier loss'를별도5번째fit으로세지않음.\nG2와G3는가중치multiset 동일; 어떤frequency에놓는지가다름.\n가중치가모두1이면G2/G3=G0로alias. 가짜고유후보fit을실행하지않음.\n\n주지표: 원래시간영역normalizedRMSE 전체.\n부가: TRAIN에서고정한저에너지/예측가능bin의오차,큰성분손해,MAPE사용안함.\n개선 주장은bin몇개오차만좋아진것으로성립하지않음.\nG2의직접상대는G1/G3및G0.\n추가CPU대조: 위ridge성분예측을시간영역으로역변환한예측; 사용정보동일.\n\n강한정식선행 Fredformer/MSFT는이번결과와직접재현비교하지않음.\n후속주제로남으면그누락을우선보고하고, 주파수bias전체가원인이라고확정하지않음.\n필수검사: FFT Parseval, 실수역변환,weight평균/대칭,TRAIN-only skill,\nE label변경으로weights불변, 일정한weight의별도학습미실행.\n",
+      "data": {
+        "C": 336,
+        "H": 48,
+        "auxiliary_hash": "9e8e3998f33a4c2043581ea218b269b347a4ed8d0ff6d73f1f7f3d69bdd8abb9",
+        "bounds": [
+          0,
+          15782,
+          18412,
+          21043,
+          26304
+        ],
+        "frequency_minutes": 60,
+        "origins_hash": "ae6e02dec294b12a9e724f515eff5c172ba92555275baa9e7a128445dfd55b05",
+        "packet_hashes": {
+          ".cache/condition_sampling_repair_v1_20260917/N07/E_DISCOVERY_inputs.npz": "257acb45f7989ec5f8b8dfe327682eafbc310e8a3640540bdec34bff3cd0d0ca",
+          ".cache/condition_sampling_repair_v1_20260917/N07/E_DISCOVERY_labels.npz": "69da72973c40992e0c3bb7a6e6b6cacfc9cf52c922398b9d3782a08facfa1f3d",
+          ".cache/condition_sampling_repair_v1_20260917/N07/TRAIN_inputs.npz": "45185acf37f4ef3e4d1f8fde150760717ea8812058a14f293549bd1406d8d3d3",
+          ".cache/condition_sampling_repair_v1_20260917/N07/TRAIN_labels.npz": "3fa34ffd64a72354ab45ad25168de1fbe917042f4934f8d9844cec6366af60e0",
+          ".cache/condition_sampling_repair_v1_20260917/N07/V_CAL_inputs.npz": "b37c223050d4e1a49240cc996a02d67976b4222a6a7fcfe606fab5186b193ac0",
+          ".cache/condition_sampling_repair_v1_20260917/N07/V_CAL_labels.npz": "2bf18cb5e1819f45d0050d44a1bff19d2793131556835962e3d8dff5ad226596",
+          ".cache/condition_sampling_repair_v1_20260917/N07/V_SELECT_inputs.npz": "0a9d12329babe0d9c6015b43dc588392f8a2eac04f6190d85a19e9fb49d52a6c",
+          ".cache/condition_sampling_repair_v1_20260917/N07/V_SELECT_labels.npz": "8aaa019e1ef34a55c48231adcb27568ab691432c774f04deae59b004c63eb3ac"
+        },
+        "source": "electricity"
+      },
+      "direct_controls": [
+        "G1",
+        "G3",
+        "G0"
+      ],
+      "id": "N07",
+      "implementation_choices": {
+        "CPU_blend_ties": "smaller alpha; R04 accuracy then revision constraint same as neural",
+        "N01_age_rows": "elapsed slots/24 clipped2",
+        "N01_target": "selected TRAIN origin ordinal i mod4; delay [0,6,24][epoch mod3]",
+        "N02_zero_std_floor": 1e-06,
+        "N03_age_rows": "elapsed slots/4; first unseen sentinel336/4",
+        "N03_mask": "sha256 CLOCK,origin,channel,epoch; V/E epoch key=-1; irregular alternating1/3 with hash start0..3/order",
+        "N07_ridge_alpha": 1.0,
+        "N07_shuffle_seed": 73100,
+        "R04_reference": "repeat-specific selected D0; seed73100 selected across2LR",
+        "R09_resolution_rows": "one repeated block resolution row shared all4 channels; same allarms"
+      },
+      "loss": "FP32 pointMSE normalized TRAIN sigma; contract-specific terms",
+      "main_fit_cap": 16,
+      "main_update_cap": 8192,
+      "name": "SPECTRAL",
+      "origin_selection": "day_first_v1; sole scientific change",
+      "primary": "mean_channel sqrt(mean_origin,h normalized_squared_error)",
+      "proposed": "G2",
+      "question": "작지만 예측 가능한 주파수 성분 적응",
+      "repair_id": "S05",
+      "seeds": [
+        73100,
+        73101,
+        73102
+      ],
+      "selection": "seed73100 twoLR select by V; repeats73101/2 only fixedLR; step0/256/512",
+      "smoke_updates": 8
+    },
+    {
+      "C": 336,
+      "H": 48,
+      "LRs": [
+        0.0001,
+        3e-05
+      ],
+      "arms": [
+        "H0",
+        "H1",
+        "H2",
+        "H3"
+      ],
+      "bootstrap": {
+        "block_slots": 168,
+        "replicates": 2000,
+        "seed": 73300
+      },
+      "contract_section": "\n12. R08 LEAD — 다른 채널의 선행 정보가 관측된 예측 구간\n======================================================================\n\n데이터: Traffic4채널, C336/H48.\n문제: 선행채널의관측을직접쓸수있는초기구간과,그채널도예측해야하는뒷구간을\n다르게조정하는것이단순시차정렬·일반horizon조건보다유용한가?\n선행: LIFT(ICLR2024). 동적선행지표/지연정렬을처음제안한다고쓰지않는다.\n이전Gaussian정렬실험의단순회귀우위는보존. 실제Traffic으로바꾼새조건이다.\n\nTRAIN만으로:\n타깃c마다다른채널j, lag l=1..24의corr(z_c[t],z_j[t-l])를계산.\n같은donor의최대절대corr lag를선정하고,서로다른상위2donor선정.\n동률donor index작은것/lag작은것. TRAIN finite공통시점만.\n고정donor/lag에ridge(상수포함) 회귀 g_c=b_c+sum_j beta_cj*z_j[t-l_j].\nalpha .1/1/10의TRAIN forward-chaining fold만사용. 시험용합성비선형추가금지.\n\n미래h=0..47에서:\ns_j(h)=이미관측한 z_j[o+h-l_j] (h<l_j),\n       현재model이예측한 donor j의 zhat_j[h-l_j] (h>=l_j).\n절대시각으로조건검사. donor의실제미래정답을사용하지않는다.\ng_c(h)=b_c+sum beta*s_j(h).\na_c(h)=sum |beta|*1[h<lag]/max(sum|beta|,1e-8).\nbase point zhat_c에 delta_c=g_c-zhat_c를더하는방식으로정의.\n순환참조 방지: 모든g는보정전base zhat에서동시에계산,다른보정g를입력으로사용하지않음.\n\n4학습군(모두동일LoRA기본point MSE):\nH0 BASE: 보정0.\nH1 STATIC: zhat+tanh(theta_c)*delta. theta0 초기.\nH2 LINEAR_H: zhat+[(1-h/47)tanh(u_c)+(h/47)tanh(v_c)]*delta.\nH3 LEAD_H: zhat+[a_c(h)tanh(u_c)+(1-a_c(h))tanh(v_c)]*delta.\nH2/H3는동일8개scalar; 차이는선행정보의실제가용성반영여부.\nH0/H1도같은donor관측과시간을접근가능하게한다. 표준model은원래모든4채널입력.\n추가CPU기준: frozen모델과고정ridge로g만만든예측, H0/g의전역blend(V에서alpha선택).\n\n주지표: 전체H48normalizedRMSE. h<lag정보가용비율구간은부가표.\n기대: H3가H2와단순blend를넘을때 '실제가용구간에따른조정'의개발근거.\n반례: H1/단순ridge/LIFT형구성으로충분 -> 새PEFT기여미확보.\n선행정보가약한4채널에서결과가없으면그자료의한계로기록, E보고donor채널교체금지.\n후속정식비교LIFT가남아있음을표시. H3를LIFT보다새롭다고전제하지않음.\n\n필수검사: 모든관측donor timestamp<o, predicted donor index>=0,<H,\ng루프의순환없음,초기모든학습군=base, h가시간조건을가진toy의정답정렬,\n학습된g제거진단만으로처음부터g가없는H0보다좋다고결론내리지않음.\n",
+      "data": {
+        "C": 336,
+        "H": 48,
+        "auxiliary_hash": "5228ef70ca7bd87f4091112837ecdb234ab4b81ab672e033c4a491faf488a8f9",
+        "bounds": [
+          0,
+          10526,
+          12280,
+          14035,
+          17544
+        ],
+        "frequency_minutes": 60,
+        "origins_hash": "9d723435e293ed4fe7408f20fa02e626059ce5baf6d49d6491139e37ab376327",
+        "packet_hashes": {
+          ".cache/condition_sampling_repair_v1_20260917/R08/E_DISCOVERY_inputs.npz": "7317d159a92335dad45d24ba07f5e15b3b789108f0983905170f0c3d42f0abc3",
+          ".cache/condition_sampling_repair_v1_20260917/R08/E_DISCOVERY_labels.npz": "82b85cd84daffe851a6d4bf3bda287a21344ae4c7fa8baf06d2740fdd253c91e",
+          ".cache/condition_sampling_repair_v1_20260917/R08/TRAIN_inputs.npz": "3890e64bb0d1b4e349425b3edc268d9170417d3d8565d93699d631ead6c64b56",
+          ".cache/condition_sampling_repair_v1_20260917/R08/TRAIN_labels.npz": "387d3afadb96b77bd7c93a05fd031e5a016ad3330bc68ebe922f9e8d9c1f6ea0",
+          ".cache/condition_sampling_repair_v1_20260917/R08/V_CAL_inputs.npz": "e78d1cc9064f5f848d6462fbbfdf52030b4fda8e6c2e667fad90c35588430c30",
+          ".cache/condition_sampling_repair_v1_20260917/R08/V_CAL_labels.npz": "f69b9e7bfbd8afd9e4003fdc53115a8932a2f1ab1b47142ff67d32b21aeb6336",
+          ".cache/condition_sampling_repair_v1_20260917/R08/V_SELECT_inputs.npz": "5cfdeeac87b80787eb000d8e893644feb6628fded3c2343c2ababae00fca94af",
+          ".cache/condition_sampling_repair_v1_20260917/R08/V_SELECT_labels.npz": "dd131a1bbf5aa1c4e2bd87cf50a387dff03eeedd480b84eafb042d47faa409ff"
+        },
+        "source": "traffic"
+      },
+      "direct_controls": [
+        "H2",
+        "H1",
+        "BLEND"
+      ],
+      "id": "R08",
+      "implementation_choices": {
+        "CPU_blend_ties": "smaller alpha; R04 accuracy then revision constraint same as neural",
+        "N01_age_rows": "elapsed slots/24 clipped2",
+        "N01_target": "selected TRAIN origin ordinal i mod4; delay [0,6,24][epoch mod3]",
+        "N02_zero_std_floor": 1e-06,
+        "N03_age_rows": "elapsed slots/4; first unseen sentinel336/4",
+        "N03_mask": "sha256 CLOCK,origin,channel,epoch; V/E epoch key=-1; irregular alternating1/3 with hash start0..3/order",
+        "N07_ridge_alpha": 1.0,
+        "N07_shuffle_seed": 73100,
+        "R04_reference": "repeat-specific selected D0; seed73100 selected across2LR",
+        "R09_resolution_rows": "one repeated block resolution row shared all4 channels; same allarms"
+      },
+      "loss": "FP32 pointMSE normalized TRAIN sigma; contract-specific terms",
+      "main_fit_cap": 16,
+      "main_update_cap": 8192,
+      "name": "LEAD",
+      "origin_selection": "day_first_v1; sole scientific change",
+      "primary": "mean_channel sqrt(mean_origin,h normalized_squared_error)",
+      "proposed": "H3",
+      "question": "관측 가능한 선행 구간에 따른 보정",
+      "repair_id": "S06",
+      "seeds": [
+        73100,
+        73101,
+        73102
+      ],
+      "selection": "seed73100 twoLR select by V; repeats73101/2 only fixedLR; step0/256/512",
+      "smoke_updates": 8
+    }
+  ],
+  "unaffected": [
+    "R05",
+    "N06",
+    "R09"
+  ]
+}
