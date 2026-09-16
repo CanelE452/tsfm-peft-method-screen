@@ -175,7 +175,7 @@ class Controller:
       if resume:restore(m,resume['parameters']);opt.load_state_dict(resume['optimizer']);load_rng(resume['rng'])
       torch.cuda.reset_peak_memory_stats();t0=time.perf_counter()
       try:
-       if startstep==0:self.checkpoint(m,f,0)
+       if startstep in (0,256,512):self.checkpoint(m,f,startstep)
        for step in range(startstep,512):
         e,pos=divmod(step,64);i=int(self.schedule[f'{tid}_{seed}_order'][e,pos]);j=tr[i]
         row=self.update(m,opt,j,arm,seed,e,i,step+1,fid);f['updates']=step+1;f['optimizer_seconds']+=row['seconds']

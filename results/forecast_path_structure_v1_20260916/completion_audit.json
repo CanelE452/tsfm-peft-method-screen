@@ -1,0 +1,548 @@
+{
+  "aggregate_contrast_checks": 630,
+  "forwards": {
+    "main_training_forwards": 24576,
+    "note": "Runtime phase tags retain train phase during some smoke inference; this call-graph reconciliation separates actual gradient updates from verification forwards.",
+    "optimizer_forwards": 24600,
+    "primitive_total": 44564,
+    "raw_phase_tags": {
+      "eval_forwards": 19892,
+      "train_forwards": 24633,
+      "verify_forwards": 39
+    },
+    "saved_prediction_forwards": 19892,
+    "smoke_training_forwards": 24,
+    "verification_forwards": 72
+  },
+  "implementation_file_sha256": "f187079fbdabecf3c66654972a254c3320b693984b081373ddb5dddc212ad81d",
+  "input_exclusions": [
+    {
+      "dates": [
+        "2024-10-27",
+        "2024-10-28",
+        "2024-10-29",
+        "2024-10-30",
+        "2024-10-31",
+        "2024-11-01",
+        "2024-11-02",
+        "2024-11-03",
+        "2024-11-04",
+        "2024-11-05",
+        "2024-11-06",
+        "2024-11-07",
+        "2024-11-08",
+        "2024-11-09"
+      ],
+      "reason": "LOAD_CONTEXT_MISSING_OR_UNAVAILABLE",
+      "target": "T0"
+    },
+    {
+      "dates": [
+        "2024-10-27",
+        "2024-10-28",
+        "2024-10-29",
+        "2024-10-30",
+        "2024-10-31",
+        "2024-11-01",
+        "2024-11-02",
+        "2024-11-03",
+        "2024-11-04",
+        "2024-11-05",
+        "2024-11-06",
+        "2024-11-07",
+        "2024-11-08",
+        "2024-11-09"
+      ],
+      "reason": "LOAD_CONTEXT_MISSING_OR_UNAVAILABLE",
+      "target": "T1"
+    },
+    {
+      "dates": [
+        "2024-10-27",
+        "2024-10-28",
+        "2024-10-29",
+        "2024-10-30",
+        "2024-10-31",
+        "2024-11-01",
+        "2024-11-02",
+        "2024-11-03",
+        "2024-11-04",
+        "2024-11-05",
+        "2024-11-06",
+        "2024-11-07",
+        "2024-11-08",
+        "2024-11-09"
+      ],
+      "reason": "LOAD_CONTEXT_MISSING_OR_UNAVAILABLE",
+      "target": "T2"
+    }
+  ],
+  "max_contrast_gain_error": 4.973799150320701e-14,
+  "resume_states": [
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T0_LATEST_61730_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "77d5147ce2114b92648822a657651c18ea09d27faf10a41181e56041175e23ea"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T0_DROP_61730_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "60fea07541fb257c26c18142e8bf621da6d6ffb0f1095cc30f33686690e681a2"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T0_PATH_61730_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "27a9156137a50cc61841b806a6b2cc273219b09c0eb120f85c8e6ff4bc039550"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T0_POINT_61730_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "3c3376fed3da0f9114adfb3cf0ad1ee18ad6be13bae2c0bcfa4f6516fa4598d3"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T0_LATEST_61730_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "ac4810c476c7ee170296a13cb2edcc552cadc7c307cda333ca322fd4beb35895"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T0_DROP_61730_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "1c4acf86115d22d7f32a1b01a9e604f81edbe55caea1cf7aa3cc1a6cece165bc"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T0_PATH_61730_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "87b03b158417ad36a1d9606a56ea0864be20374e1430c1e216e9d8b58e5b504c"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T0_POINT_61730_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "b15f0cc5b0e3fbedc3b570ef1147a32e69626d77da570f943547dc1c81c64a97"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T0_LATEST_61731_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "509b4d6319f156f0ba038893ae63170d90c8d1e910e28d1ffb2ab11dfc7adc75"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T0_DROP_61731_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "685d4e906702825e06dda600a8cb3897cf74e890bc1c58ab03d64a2570454716"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T0_PATH_61731_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "eac4115b13767deac2f906acd66a0895a13b5119ff724e99f7e01232bb9180c4"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T0_POINT_61731_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "7c4a0df8d0187887492066414a5169ba0235b1bb398d8ae93e515c9dcab0bc82"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T0_LATEST_61731_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "7640e52b5c694720d3fa5a2a46eb929e0ca53ce622e223bb1ff9f9b86798de6f"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T0_DROP_61731_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "6e5756e0661fe76f60f5f715fd3d91c51feea450a5a436a72ae2d26060cf2ae0"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T0_PATH_61731_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "df994b85c2cd15861e29b63370d6d146b0659835705657d27edb3183676a81a5"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T0_POINT_61731_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "bf55554fabe27c4f39c0d6774567c67e88d9218373073f2c68e9e17775513e90"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T1_LATEST_61730_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "013158b036ef0682cce37c88f8668b64a5d6bb2918e08f902e0c6ec5f30f1a9b"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T1_DROP_61730_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "6911276540dbc0702982404737877cf43d88ab66f8898ebf32c350bb71a00a1e"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T1_PATH_61730_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "554c4e025ec0f24d68269ba7d7453dfe87cfd081d7a7d11b01c8ba2443edacca"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T1_POINT_61730_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "7f8e0b0a1c9b4899c3cefbf827dd450fa2159e1d875400627317f2791fd90a04"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T1_LATEST_61730_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "6e0b21c0df810059df4bc5d33cdda6f96389888cba56d9ce203b5c9ae0438719"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T1_DROP_61730_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "a58a2d422d8384e55beb81f20bd8b6edf0fff5b02201736d9fd342f9fa50e254"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T1_PATH_61730_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "5f2470e6a8d4357949cf5dda85042e13ce7f6a9b7a95c28ab2b933f3c2d6aece"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T1_POINT_61730_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "516adc945c5d3b36cc0f12cd1df4424eeee2c4879f537fb5e6fb5426750780ee"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T1_LATEST_61731_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "9a87553f44e58639f91c4307f23e60b7b6103271bd1d349f8b53121693d6fccf"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T1_DROP_61731_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "b400027839bf2fadf084a2cc6935d85c8b0cfddf8834cc353e87100665a3407e"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T1_PATH_61731_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "743e7dd29089e7c3450995e213985dfd5c29b3b693407dc489fb0b24e37d6fe1"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T1_POINT_61731_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "cd2c874982a61d9ed78910d5df0bdcafee8aab4c3616074c2f9091d45aa042e8"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T1_LATEST_61731_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "a14d5750854591675da978272ed89a43d7aaec6f7a82fca2a8e8d37b01df80c9"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T1_DROP_61731_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "def9823b89300a96b0e30edc610deaac1eb6e8d8afde40298d4fb16582c4f305"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T1_PATH_61731_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "b7195eb18b8f71ffb84eb63f97c8c0504d891b848fc84252c9a1d5c12889f74a"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T1_POINT_61731_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "697e8654e5e4156928ae661a255f038bf9d176798c4e7c98b7c781cca61c3531"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T2_LATEST_61730_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "6aa28f499714966fc7beff26d5d7012ede8fcc7d31edb86cda7b88aab9fd0e98"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T2_DROP_61730_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "21949fc4db3f443a56f6313333eb630fafe378ee6236ee92afc3709b8f2a3fc5"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T2_PATH_61730_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "2ba646d3cd15b41f8a2dceb49aed827332f0f1be74d4b6470b9560447816e30e"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T2_POINT_61730_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "7c79e07b8cb541b55eb82a09297fc4fdb0377209889fcd1278a0dc6fec35d658"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T2_LATEST_61730_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "d365a56194f51e378569c2ea9db8a6f363a4ef60609d060047788839a47d651d"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T2_DROP_61730_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "72323a882d3ce0afd20a4ebec2228fd6f200b797877100ef38c7dca8f4491f9d"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T2_PATH_61730_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "e8f0067dd963b1df71825f12f8039bc2249601361395fcb807ec1eb459f86d80"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T2_POINT_61730_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "bfbc31204d478d414bfac8546c642c8cb2b21a65b2ae53b49876ae5402879245"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T2_LATEST_61731_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "f6063c985270e3aead7673f43829e9c04c44096b887c23f414e6f866b27b70c3"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T2_DROP_61731_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "978af5fc6fb05101422291c8abc25df98161507b7f160c217c1dfdf0721e93f6"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T2_PATH_61731_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "e78931ec37937d1124be602a7b218d8f943de95e37b42ccba763ef86a3188080"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T2_POINT_61731_1e-04",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "7825e4cdaa5f3678b43b7c033e727716d3c12bfdea114f3585b4160a83ad4f09"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T2_LATEST_61731_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "ca4bff825adac980391482b254a106735be3cd6f536e9ec6a1ac90cd0abfdd4c"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T2_DROP_61731_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "43113a156a793724014b1c8f5b276f3783614cff39c0bc71d8ece838807835f7"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T2_PATH_61731_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "088efb3e1635f41234744a0e74617c9c1247b91e23e8eca93e168ff5e23de159"
+    },
+    {
+      "adam_tensors": 192,
+      "checkpoint_exact": true,
+      "complete_step": 512,
+      "id": "T2_POINT_61731_3e-05",
+      "parameter_tensors": 192,
+      "rng_complete": true,
+      "sha256": "8e38f3482567412ea348556f9e6cff06f88cdac3cb773bc4f6f420556051bd26"
+    }
+  ],
+  "status": "PASS",
+  "train_scale_checks": [
+    {
+      "alternative_fp64_mean_maxabs": 3.2123766402492038e-06,
+      "alternative_fp64_std_maxabs": 4.560006516385329e-06,
+      "executed_statistics_bitwise_reproduced": true,
+      "sigma_y": 431137.30407354713,
+      "source_weather_dtype": "float32",
+      "target": "T0",
+      "unique_hourly_load_values": 3216,
+      "unique_weather_rows": 12768
+    },
+    {
+      "alternative_fp64_mean_maxabs": 1.1528399248561527e-06,
+      "alternative_fp64_std_maxabs": 8.419552301575095e-06,
+      "executed_statistics_bitwise_reproduced": true,
+      "sigma_y": 570113.8528804483,
+      "source_weather_dtype": "float32",
+      "target": "T1",
+      "unique_hourly_load_values": 3216,
+      "unique_weather_rows": 12768
+    },
+    {
+      "alternative_fp64_mean_maxabs": 4.933292700570746e-06,
+      "alternative_fp64_std_maxabs": 2.109100677216702e-06,
+      "executed_statistics_bitwise_reproduced": true,
+      "sigma_y": 270598.73513083,
+      "source_weather_dtype": "float32",
+      "target": "T2",
+      "unique_hourly_load_values": 3216,
+      "unique_weather_rows": 12768
+    }
+  ]
+}

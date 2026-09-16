@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/home/minjae/Documents/github/tsfm-peft-method-screen/scripts/audit_forecast_path_structure.py", line 66, in <module>
+    if __name__=='__main__':audit()
+                            ^^^^^^^
+  File "/home/minjae/Documents/github/tsfm-peft-method-screen/scripts/audit_forecast_path_structure.py", line 35, in audit
+    np.testing.assert_allclose(mu,scales[tid]['weather_mean'],rtol=1e-12,atol=1e-12);np.testing.assert_allclose(sd,scales[tid]['weather_std'],rtol=1e-12,atol=1e-12)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/lib/python3.11/site-packages/numpy/testing/_private/utils.py", line 1768, in assert_allclose
+    assert_array_compare(compare, actual, desired, err_msg=str(err_msg),
+  File "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/lib/python3.11/site-packages/numpy/testing/_private/utils.py", line 983, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError:
+Not equal to tolerance rtol=1e-12, atol=1e-12
+
+Mismatched elements: 3 / 3 (100%)
+Mismatch at indices:
+ [0]: 11.38633692212739 (ACTUAL), 11.386337280273438 (DESIRED)
+ [1]: 15.499332861069188 (ACTUAL), 15.4993314743042 (DESIRED)
+ [2]: 166.7639802631579 (ACTUAL), 166.76397705078125 (DESIRED)
+Max absolute difference among violations: 3.21237664e-06
+Max relative difference among violations: 8.9472568e-08
+ ACTUAL: array([ 11.386337,  15.499333, 166.76398 ])
+ DESIRED: array([ 11.386337,  15.499331, 166.763977])

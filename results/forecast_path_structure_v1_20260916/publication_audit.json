@@ -1,0 +1,296 @@
+{
+  "all_adapted_target_seed_cases_present": true,
+  "decision_sha256": "6177ac2944b17b322f972f0746478004d3437c2f0bb955175463459b823ed52d",
+  "environment": {
+    "chronos-forecasting": "2.3.2",
+    "huggingface-hub": "0.36.2",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "pyarrow": "25.0.1",
+    "torch": "2.8.0",
+    "transformers": "4.57.6"
+  },
+  "executed_commit": "622d79c8cc80e4b2342754d1b0624af64be2ba79",
+  "figures_visually_checked": 3,
+  "final_report_sha256": "424164fb7747e05bea07f4d377b817b7f87885b441e228aee187271813d2eab9",
+  "historical_preserved": 2451,
+  "local_cache_required_for_numerical_replay": true,
+  "local_links": [
+    {
+      "file": "REPORT.md",
+      "target": "exposure_ledger.md"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "data_receipt.json"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "origin_manifest.csv"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "selected_weather_rows.json"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "candidate_order.json"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "target_manifest.csv"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "independent_verification.json"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "smoke.json"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "replay.json"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "fit_manifest.csv"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "selection_seal.json"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "evaluation_seal.json"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "resource_usage.csv"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "train_curves.csv"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "scores_by_target_seed_case.csv"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "raw_and_calibrated.csv"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "scores_by_origin.csv"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "monthly_scores.csv"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "per_lead_hour.csv"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "last_day_scores.csv"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "train_intervention.csv"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "cpu_checks.json"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "augmentation_schedule.json"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "contrasts.csv"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "contrasts_by_seed.csv"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "uncertainty.csv"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "literature_boundary.md"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "FINAL_DECISION.md"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "figures/case_scores.png"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "figures/paired_gains.png"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "figures/calibration.png"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "monthly_contrasts.csv"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "monthly_uncertainty_manifest.json"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "completion_audit.json"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "test_label_manifest.json"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "calendar_boundary_exclusions.csv"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "data_implementation_notes.md"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "AUDIT_CORRECTIONS.md"
+    },
+    {
+      "file": "FINAL_DECISION.md",
+      "target": "REPORT.md"
+    }
+  ],
+  "monthly_max_gain_error": 5.81756864903582e-14,
+  "monthly_point_estimates_verified": 1080,
+  "required_files": [
+    "PROTOCOL.md",
+    "TOPIC_ONEPAGE.md",
+    "literature_boundary.md",
+    "repo_audit.json",
+    "data_receipt.json",
+    "target_manifest.csv",
+    "origin_manifest.csv",
+    "exposure_ledger.md",
+    "selected_weather_rows.json",
+    "train_scaling.json",
+    "augmentation_schedule.json",
+    "fit_manifest.csv",
+    "fit_attempts.csv",
+    "train_curves.csv",
+    "checkpoint_manifest.json",
+    "selection_seal.json",
+    "calibration_parameters.json",
+    "evaluation_seal.json",
+    "scores_by_target_seed_case.csv",
+    "raw_and_calibrated.csv",
+    "contrasts.csv",
+    "uncertainty.csv",
+    "resource_usage.csv",
+    "independent_verification.json",
+    "REPORT.md",
+    "FINAL_DECISION.md",
+    "completion_audit.json",
+    "monthly_contrasts.csv",
+    "AUDIT_CORRECTIONS.md"
+  ],
+  "source_verification": [
+    {
+      "current": "2aaab2f90cc9bb486d69483cb1f0d11b593643ce54c97f4902958a7776905782",
+      "expected": "2aaab2f90cc9bb486d69483cb1f0d11b593643ce54c97f4902958a7776905782",
+      "path": "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/lib/python3.11/site-packages/chronos/chronos2/model.py",
+      "verification": "CURRENT_EXACT"
+    },
+    {
+      "current": "9fad1e4fb7251471463a40408a32d25d31b23b7afb88069911f095071b9b0599",
+      "expected": "9fad1e4fb7251471463a40408a32d25d31b23b7afb88069911f095071b9b0599",
+      "path": "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/lib/python3.11/site-packages/chronos/chronos2/pipeline.py",
+      "verification": "CURRENT_EXACT"
+    },
+    {
+      "current": "a6da6192bc3e51a24d7adee4398c7436ce56f532fbdcf8dcef4c0c366ee02246",
+      "expected": "a6da6192bc3e51a24d7adee4398c7436ce56f532fbdcf8dcef4c0c366ee02246",
+      "path": "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/lib/python3.11/site-packages/chronos/chronos2/preprocess.py",
+      "verification": "CURRENT_EXACT"
+    },
+    {
+      "current": "a9badda477e841a161cfc7d874028c2b40e941a7445955142d289fb2cf8c1da1",
+      "expected": "a9badda477e841a161cfc7d874028c2b40e941a7445955142d289fb2cf8c1da1",
+      "path": "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/forecast_path_structure_v1_20260916/checks.py",
+      "verification": "CURRENT_EXACT"
+    },
+    {
+      "current": "92416a42adb22629acf9049fd26106a599c814580a894a7ef3e103a1c1183bfa",
+      "expected": "92416a42adb22629acf9049fd26106a599c814580a894a7ef3e103a1c1183bfa",
+      "path": "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/forecast_path_structure_v1_20260916/common.py",
+      "verification": "CURRENT_EXACT"
+    },
+    {
+      "current": "09a13365aaeb7ddb985652daa95e24cfe4740b15b78e37ec5a5ea5f5bea14f55",
+      "expected": "09a13365aaeb7ddb985652daa95e24cfe4740b15b78e37ec5a5ea5f5bea14f55",
+      "path": "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/forecast_path_structure_v1_20260916/data.py",
+      "verification": "CURRENT_EXACT"
+    },
+    {
+      "current": "e9a21fc14704459424613b0412ee3cfde08b375fd580ae97faf08c00194eb5fc",
+      "expected": "89ae0912382098761ca3339f7ac88995b3dee0f27d6152e3bf9b324ebecf44e9",
+      "path": "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/forecast_path_structure_v1_20260916/evaluate.py",
+      "verification": "EXECUTED_GIT_SNAPSHOT_EXACT_POST_RUN_MAINTENANCE"
+    },
+    {
+      "current": "7b9e34efa44cc604ac7f67b582487dad2ab87a5d7bc927d101c90e7720008fd6",
+      "expected": "7b9e34efa44cc604ac7f67b582487dad2ab87a5d7bc927d101c90e7720008fd6",
+      "path": "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/forecast_path_structure_v1_20260916/report.py",
+      "verification": "CURRENT_EXACT"
+    },
+    {
+      "current": "f0b761350694a6f2e2f8df1d052ab0022754e6ac30c890a02658fc0361518589",
+      "expected": "7ea996dc8a39390d08f964148e003b4743a283941bbfaaec8cd11f0148145530",
+      "path": "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/forecast_path_structure_v1_20260916/runtime.py",
+      "verification": "EXECUTED_GIT_SNAPSHOT_EXACT_POST_RUN_MAINTENANCE"
+    },
+    {
+      "current": "f79ad63e3c57a8b4b06e354a58b7a411085fbece05c603dc82d8d5ffa5d0266f",
+      "expected": "f79ad63e3c57a8b4b06e354a58b7a411085fbece05c603dc82d8d5ffa5d0266f",
+      "path": "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/peft_rank12_20260915/common.py",
+      "verification": "CURRENT_EXACT"
+    },
+    {
+      "current": "b29b4be7a67bff8f4829db30e2b3c02f2dea2da28881f782218e8c1cb3d6ba4d",
+      "expected": "b29b4be7a67bff8f4829db30e2b3c02f2dea2da28881f782218e8c1cb3d6ba4d",
+      "path": "/home/minjae/Documents/github/tsfm-peft-method-screen/scripts/priority12/common.py",
+      "verification": "CURRENT_EXACT"
+    },
+    {
+      "current": "e9ea78d6e7ca03c50422a2fd0706ca5a95811fd651daa7f1008e834eacedc592",
+      "expected": "e9ea78d6e7ca03c50422a2fd0706ca5a95811fd651daa7f1008e834eacedc592",
+      "path": "/home/minjae/Documents/github/tsfm-peft-method-screen/scripts/run_forecast_path_structure.py",
+      "verification": "CURRENT_EXACT"
+    },
+    {
+      "current": "d3973b52080e095c0a214031bcc53b4d92dcaa7a2d87ff36c23647aa291a1a11",
+      "expected": "d3973b52080e095c0a214031bcc53b4d92dcaa7a2d87ff36c23647aa291a1a11",
+      "path": "/home/minjae/Documents/github/tsfm-peft-method-screen/src/tsfm_peft_screen/backbone.py",
+      "verification": "CURRENT_EXACT"
+    },
+    {
+      "current": "da57597a8f0e51c7cc2e676efcca000b3c0951c0a2e90d6c21315f98a3ca403f",
+      "expected": "da57597a8f0e51c7cc2e676efcca000b3c0951c0a2e90d6c21315f98a3ca403f",
+      "path": "/home/minjae/Documents/github/tsfm-peft-method-screen/src/tsfm_peft_screen/lora.py",
+      "verification": "CURRENT_EXACT"
+    }
+  ],
+  "status": "PASS"
+}

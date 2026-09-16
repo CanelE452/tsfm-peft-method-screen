@@ -86,7 +86,7 @@ def contrasts(df):
         elif case=='WORST':pass
         else:k=int(case[1]);v=v[k];boot=boot[k]
         sv.append(v);sb.append(boot)
-       
+
        if case=='WORST':tv.append(np.mean(sv,axis=0).max());tb.append(np.mean(sb,axis=0).max(0))
        else:tv.append(np.mean(sv));tb.append(np.mean(sb,axis=0))
       vals.append(float(np.mean(tv)));boots.append(np.mean(tb,axis=0))
