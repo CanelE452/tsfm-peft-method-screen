@@ -1,0 +1,66 @@
+{
+  "C": 336,
+  "H": 24,
+  "LRs": [
+    0.0001,
+    3e-05
+  ],
+  "arms": [
+    "E0",
+    "E1",
+    "E2",
+    "E3",
+    "E4"
+  ],
+  "bootstrap": {
+    "block_slots": 168,
+    "replicates": 2000,
+    "seed": 73300
+  },
+  "contract_section": "\n9. R05 VINTAGE — 저장 예측으로 최신/지연 손익 정책부터 비교\n======================================================================\n\nneural fits=0. 기존 forecast_path_structure_v1_20260916의 선택된 LATEST/PATH를 고정.\n원래 LR/step을 새 목적에 유리하게 다시 선택하지 않는다.\n현재 결과에서 'LATEST'는 이전 네 상태평균의 V 선택모델이었다는 한계도 표시.\n\n타깃: 기존T0/T1/T2, seed61730/61731, S0..S3 원래 입력case.\nV_SELECT7월로 아래 정책만 고정하고 E10~12월을 재분석.\nE는 이미 점수가 노출됐다. 명칭은 REANALYSIS_REUSED_E; 새독립평가가 아니다.\n큰 예측파일이 없으면 기존 해시가 맞는 checkpoint+입력으로 필요한 예측만 재생 가능.\n추론을 재생했다고 LoRA fit으로 세지 않는다. 가중치를 새로 학습하지 않는다.\n\nq_alpha(k)=(1-alpha_k)*q_LATEST(k)+alpha_k*q_PATH(k).\nquantile vector의 convex mixture이며 확률분포 mixture의 quantile이라고 부르지 않는다.\n원래 정렬된 quantile을 사용. 같은tau끼리 조합하고 교차 여부 검사.\n\n5정책:\nE0 LATEST: alpha=[0,0,0,0].\nE1 PATH: alpha=[1,1,1,1].\nE2 GLOBAL: alpha공통, {0,.25,.5,.75,1} 중 선택.\nE3 BINARY: alpha=[0,1,1,1] 고정.\nE4 MONOTONE: 같은5값에서 0<=a0<=a1<=a2<=a3<=1인70개 조합.\n모든 점수는 V의 same origin/case/target 사용. 타깃별계수는 두 seed평균V로 하나.\nE2/E4 선택: V S0 loss <= E0 S0 loss*1.01인 조합 중 평균S1..S3 loss 최소.\n동률: 평균alpha작은 것, 사전lexicographic순서.\nalpha0=0인E4는S0에서LATEST와정확히같다. 그조건에서LATEST보다개선한다고 기대/요구하지 않음.\nE4의 직접상대는E2뿐아니라 E3 BINARY. 동일행동이면중복실험이아니라같음으로기록.\n\n보정은 추가하지 않는다. 원래 raw와 원래 각모델보정결과가 모두 있으면 보정판은 민감도표만.\n주목표: 최신S0 손해1% 이내에서 S1..S3 평균/최악손해 감소.\n실제 갱신지연빈도나 rank별확률을 추정했다고 쓰지 않는다.\nS0/S3 개별표, 전체타깃/추가타깃만, seed별표 공개.\n두모델 추론비용 포함. alpha끝점은한모델, 중간이면두모델이며 단일PEFT 실행아님.\n모사 available_at, rank != 실제예보나이/정확도/ensemble member 한계를 유지.\n\n정책유용성은 확인 가능하나 학습방법신규성은 주장불가.\nE4가E3보다특별히좋지않으면복잡한age PEFT를만들근거는약하다.\n이것이기상예보학습전체가불가능하다는판정은아니다.\n",
+  "data": {
+    "dependencies": {
+      "results/forecast_path_structure_v1_20260916/calibration_parameters.json": "d51742a5bf250aeed354a8834167d11b2b223abc52861fd9cb1b21beb6f320f9",
+      "results/forecast_path_structure_v1_20260916/completion_audit.json": "7c6c0adc30f1094e566ac9c5a1b4b5dbde2d3ab6118f625cb17ddf0aded3384e",
+      "results/forecast_path_structure_v1_20260916/data_seal.json": "e5d186bdd95cef80331410f16c063ea12b848d468b8f233a39d83503ea001b49",
+      "results/forecast_path_structure_v1_20260916/evaluation_seal.json": "c52a085d84c0244256a8a8349d1316037d87dd4a51d55575ebe06a397988af9d",
+      "results/forecast_path_structure_v1_20260916/prediction_manifest.json": "258126b0eb1845527b8e85bc62b94797dfa120a805e66f9f132fa3c05da2a140",
+      "results/forecast_path_structure_v1_20260916/selection_seal.json": "5cf54ee0e8e5b2862f5fa499c13af1e0c87024767de49d05a72c98c3fbcab0e4",
+      "results/forecast_path_structure_v1_20260916/train_scaling.json": "d6dd80548f2eccb1677d1ee73803156b6d218bd906dfaa315d6b1914d847f790"
+    },
+    "exposure": "REANALYSIS_REUSED_E",
+    "source": "saved_forecast_path_structure"
+  },
+  "direct_controls": [
+    "E2",
+    "E3",
+    "E0"
+  ],
+  "id": "R05",
+  "implementation_choices": {
+    "CPU_blend_ties": "smaller alpha; R04 accuracy then revision constraint same as neural",
+    "N01_age_rows": "elapsed slots/24 clipped2",
+    "N01_target": "selected TRAIN origin ordinal i mod4; delay [0,6,24][epoch mod3]",
+    "N02_zero_std_floor": 1e-06,
+    "N03_age_rows": "elapsed slots/4; first unseen sentinel336/4",
+    "N03_mask": "sha256 CLOCK,origin,channel,epoch; V/E epoch key=-1; irregular alternating1/3 with hash start0..3/order",
+    "N07_ridge_alpha": 1.0,
+    "N07_shuffle_seed": 73100,
+    "R04_reference": "repeat-specific selected D0; seed73100 selected across2LR",
+    "R09_resolution_rows": "one repeated block resolution row shared all4 channels; same allarms"
+  },
+  "loss": "FP32 pointMSE normalized TRAIN sigma; contract-specific terms",
+  "main_fit_cap": 0,
+  "main_update_cap": 0,
+  "name": "VINTAGE",
+  "primary": "S0<=1.01 E0; delayed mean and worst pinball",
+  "proposed": "E4",
+  "question": "최신 정확도를 보호하는 vintage 정책",
+  "seeds": [
+    73100,
+    73101,
+    73102
+  ],
+  "selection": "seed73100 twoLR select by V; repeats73101/2 only fixedLR; step0/256/512",
+  "smoke_updates": 0
+}

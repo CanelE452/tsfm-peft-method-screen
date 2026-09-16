@@ -1,0 +1,60 @@
+{
+  "bounds": [
+    0,
+    15782,
+    18412,
+    21043,
+    26304
+  ],
+  "bytes": 17993794,
+  "cache_hashes": {
+    ".cache/condition_studies_v1_20260916/R09/E_DISCOVERY_inputs.npz": "28cea6ad09d71887b0ae49cddd823df12c388fd1b776c2a1963e424e0811f696",
+    ".cache/condition_studies_v1_20260916/R09/E_DISCOVERY_labels.npz": "b8d3130014d300150a22c737ebe8f235a5b8d98722001ee89d1f11cd83813d29",
+    ".cache/condition_studies_v1_20260916/R09/TRAIN_inputs.npz": "5713d37d686242cc6bbebf8e096193d85ec8cbd5cedd2d17ecdd2d5b66494041",
+    ".cache/condition_studies_v1_20260916/R09/TRAIN_labels.npz": "51b4414b523bcd1e33ed7ffe5d2de782e1a0a029dfa7b1978570ca0b623d26cb",
+    ".cache/condition_studies_v1_20260916/R09/V_CAL_inputs.npz": "5aa7f5e46cf33d081478e3ead561e323d24d370ed5630646b9dc6cbe643a3f96",
+    ".cache/condition_studies_v1_20260916/R09/V_CAL_labels.npz": "66b5d429f188e9dc3455efc072b94997ea534b1688658a2ef2e6bb968647f318",
+    ".cache/condition_studies_v1_20260916/R09/V_SELECT_inputs.npz": "d5ac091b4176d4fc8ee04fe9590254247b0fcd2317b287f30ff71d48ac8acc08",
+    ".cache/condition_studies_v1_20260916/R09/V_SELECT_labels.npz": "2289d39fd1f498a182902e7b1641be137ce2643bfde2551a4dabae48cac22d3c"
+  },
+  "download_bytes": 0,
+  "origins_count": {
+    "E_DISCOVERY": 64,
+    "TRAIN": 64,
+    "V_CAL": 32,
+    "V_SELECT": 32
+  },
+  "path": "data/raw/electricity.txt.gz",
+  "period": 24,
+  "phase_counts": {
+    "E_DISCOVERY": {
+      "0": 64
+    },
+    "TRAIN": {
+      "0": 64
+    },
+    "V_CAL": {
+      "0": 32
+    },
+    "V_SELECT": {
+      "0": 32
+    }
+  },
+  "raw_R09_hidden_values_not_in_training_packets": true,
+  "raw_shape": [
+    26304,
+    321
+  ],
+  "selected_columns": [
+    "column_000",
+    "column_001",
+    "column_002",
+    "column_003"
+  ],
+  "sha256": "3c4c069588198c1fcc95cace7bb69c99922129edfd673b7286661dad20badefa",
+  "shape": [
+    26304,
+    4
+  ],
+  "source_arrays_read_for_preparation": true
+}

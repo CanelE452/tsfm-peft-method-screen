@@ -1,0 +1,77 @@
+{
+  "C": 336,
+  "H": 48,
+  "LRs": [
+    0.0001,
+    3e-05
+  ],
+  "arms": [
+    "G0",
+    "G1",
+    "G2",
+    "G3"
+  ],
+  "bootstrap": {
+    "block_slots": 168,
+    "replicates": 2000,
+    "seed": 73300
+  },
+  "contract_section": "\n11. N07 SPECTRAL — 작은 크기와 예측 가능성을 분리한 학습\n======================================================================\n\n데이터: Electricity4채널, C336/H48.\n문제: 큰 패턴에 비해 에너지는 작아도 과거로 예측 가능한 주파수성분을 적응이 놓치는가?\n선행: Fredformer(KDD2024), MSFT(NeurIPS2025).\n주파수강조/다중스케일학습 자체가 새 기여가 아니며 아래 고정가중 loss도 [미검증]이다.\n\n채널별 TRAIN64 원점에서 H48 future의 unitary full FFT Z_k를 계산.\nE_k=mean|Z_k|^2 (신호는TRAIN mu/sigma로표준화).\n과거48/직전48의FFT에서 각k의실수·허수와상수5개로 future Z_k를ridge예측.\nTRAIN64를시간순4block으로나누고 앞1block->다음block,앞2->다음,앞3->다음의\nforward-chaining 예측을 모아 skill_k=1-MSE_pred/MSE_train_mean 계산.\n각 fold 정규화와 평균은 그fold 앞부분만. 겹친label/context에 대한48slot purge 적용.\n유효한 fold가부족하면 해당skill을0으로놓고그이유기록. E/V로보완하지않음.\nskill은[0,1]로clip. DC와Nyquist는재가중대상에서제외.\n\n가중치:\nw_BASE=1.\nw_ENERGY: positive-frequency E_k^-1/2을 mean비로정규화후[.25,4]clip.\nw_PRED: E_k가positive frequency중앙값이하인bin에서\n   u_k=skill_k*min(4,median(E)/(E_k+eps)), 그외u_k=0; w=1+u.\nw_SHUFFLE: w_PRED의positive-frequency순서를고정seed로섞음.\n각가중치를negative frequency로mirror,DC/Nyquist 원값1,\n마지막에전체H개의mean이1이되도록정규화. real-valued signal에대칭가중치.\neps=1e-8*max(mean(E),1). 값과공식은TRAIN에서봉인.\n\n4개 학습군:\nG0 BASE / G1 ENERGY / G2 PRED / G3 SHUFFLE.\nL(w)=.5*mean(e^2)+.5*mean_k(w_k*|FFT_ortho(e)_k|^2), e=(yhat-y)/sigma.\nG0는Parseval에의해그냥MSE와동일하다. 'uniform Fourier loss'를별도5번째fit으로세지않음.\nG2와G3는가중치multiset 동일; 어떤frequency에놓는지가다름.\n가중치가모두1이면G2/G3=G0로alias. 가짜고유후보fit을실행하지않음.\n\n주지표: 원래시간영역normalizedRMSE 전체.\n부가: TRAIN에서고정한저에너지/예측가능bin의오차,큰성분손해,MAPE사용안함.\n개선 주장은bin몇개오차만좋아진것으로성립하지않음.\nG2의직접상대는G1/G3및G0.\n추가CPU대조: 위ridge성분예측을시간영역으로역변환한예측; 사용정보동일.\n\n강한정식선행 Fredformer/MSFT는이번결과와직접재현비교하지않음.\n후속주제로남으면그누락을우선보고하고, 주파수bias전체가원인이라고확정하지않음.\n필수검사: FFT Parseval, 실수역변환,weight평균/대칭,TRAIN-only skill,\nE label변경으로weights불변, 일정한weight의별도학습미실행.\n",
+  "data": {
+    "C": 336,
+    "H": 48,
+    "auxiliary_hash": "43f04ff34c1dbde4e178b720f50fe8ac3cd92f31573c38416f62459843bff827",
+    "bounds": [
+      0,
+      15782,
+      18412,
+      21043,
+      26304
+    ],
+    "frequency_minutes": 60,
+    "origins_hash": "f27ed8d8145bbe7b6412d7a3a6e58fef7aecb7e5834ee615126fc38cb10d392b",
+    "packet_hashes": {
+      ".cache/condition_studies_v1_20260916/N07/E_DISCOVERY_inputs.npz": "f4c84c544d4c3129e25232a16fdf9f2ed18a5a58c50b28ff3d5a3c1318cb6bf1",
+      ".cache/condition_studies_v1_20260916/N07/E_DISCOVERY_labels.npz": "e595ce644d497f84be242c6a1ccc2b55d93ae31cfeef50460e173a48058d5092",
+      ".cache/condition_studies_v1_20260916/N07/TRAIN_inputs.npz": "079dda4640c6aed6f5c67c5f4dd496337f0e90ad42c9ad9b266073cb7d5d1807",
+      ".cache/condition_studies_v1_20260916/N07/TRAIN_labels.npz": "89941975aa460a4e142395efe81bb9f5f7aae4629e2b9af8f365775076815502",
+      ".cache/condition_studies_v1_20260916/N07/V_CAL_inputs.npz": "90d4e2aa9cdb94e31cc941a9ad4c4c2f78b98e31c07664389ad82f15ed3e7069",
+      ".cache/condition_studies_v1_20260916/N07/V_CAL_labels.npz": "635941f91042311aee3a24e7ad5a073538c144760b4acc4c648a4a6234a6c685",
+      ".cache/condition_studies_v1_20260916/N07/V_SELECT_inputs.npz": "bb5bfa84ae47e629abb380dc634590304e21724e50ba120fa2e53809a8d30f4a",
+      ".cache/condition_studies_v1_20260916/N07/V_SELECT_labels.npz": "23338cff11c5f0fd9f631865faba79f60901446d60275b2ce8a4dc77d737a5a8"
+    },
+    "source": "electricity"
+  },
+  "direct_controls": [
+    "G1",
+    "G3",
+    "G0"
+  ],
+  "id": "N07",
+  "implementation_choices": {
+    "CPU_blend_ties": "smaller alpha; R04 accuracy then revision constraint same as neural",
+    "N01_age_rows": "elapsed slots/24 clipped2",
+    "N01_target": "selected TRAIN origin ordinal i mod4; delay [0,6,24][epoch mod3]",
+    "N02_zero_std_floor": 1e-06,
+    "N03_age_rows": "elapsed slots/4; first unseen sentinel336/4",
+    "N03_mask": "sha256 CLOCK,origin,channel,epoch; V/E epoch key=-1; irregular alternating1/3 with hash start0..3/order",
+    "N07_ridge_alpha": 1.0,
+    "N07_shuffle_seed": 73100,
+    "R04_reference": "repeat-specific selected D0; seed73100 selected across2LR",
+    "R09_resolution_rows": "one repeated block resolution row shared all4 channels; same allarms"
+  },
+  "loss": "FP32 pointMSE normalized TRAIN sigma; contract-specific terms",
+  "main_fit_cap": 16,
+  "main_update_cap": 8192,
+  "name": "SPECTRAL",
+  "primary": "mean_channel sqrt(mean_origin,h normalized_squared_error)",
+  "proposed": "G2",
+  "question": "작지만 예측 가능한 주파수 성분 적응",
+  "seeds": [
+    73100,
+    73101,
+    73102
+  ],
+  "selection": "seed73100 twoLR select by V; repeats73101/2 only fixedLR; step0/256/512",
+  "smoke_updates": 8
+}

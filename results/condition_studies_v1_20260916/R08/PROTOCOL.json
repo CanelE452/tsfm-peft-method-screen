@@ -1,0 +1,77 @@
+{
+  "C": 336,
+  "H": 48,
+  "LRs": [
+    0.0001,
+    3e-05
+  ],
+  "arms": [
+    "H0",
+    "H1",
+    "H2",
+    "H3"
+  ],
+  "bootstrap": {
+    "block_slots": 168,
+    "replicates": 2000,
+    "seed": 73300
+  },
+  "contract_section": "\n12. R08 LEAD — 다른 채널의 선행 정보가 관측된 예측 구간\n======================================================================\n\n데이터: Traffic4채널, C336/H48.\n문제: 선행채널의관측을직접쓸수있는초기구간과,그채널도예측해야하는뒷구간을\n다르게조정하는것이단순시차정렬·일반horizon조건보다유용한가?\n선행: LIFT(ICLR2024). 동적선행지표/지연정렬을처음제안한다고쓰지않는다.\n이전Gaussian정렬실험의단순회귀우위는보존. 실제Traffic으로바꾼새조건이다.\n\nTRAIN만으로:\n타깃c마다다른채널j, lag l=1..24의corr(z_c[t],z_j[t-l])를계산.\n같은donor의최대절대corr lag를선정하고,서로다른상위2donor선정.\n동률donor index작은것/lag작은것. TRAIN finite공통시점만.\n고정donor/lag에ridge(상수포함) 회귀 g_c=b_c+sum_j beta_cj*z_j[t-l_j].\nalpha .1/1/10의TRAIN forward-chaining fold만사용. 시험용합성비선형추가금지.\n\n미래h=0..47에서:\ns_j(h)=이미관측한 z_j[o+h-l_j] (h<l_j),\n       현재model이예측한 donor j의 zhat_j[h-l_j] (h>=l_j).\n절대시각으로조건검사. donor의실제미래정답을사용하지않는다.\ng_c(h)=b_c+sum beta*s_j(h).\na_c(h)=sum |beta|*1[h<lag]/max(sum|beta|,1e-8).\nbase point zhat_c에 delta_c=g_c-zhat_c를더하는방식으로정의.\n순환참조 방지: 모든g는보정전base zhat에서동시에계산,다른보정g를입력으로사용하지않음.\n\n4학습군(모두동일LoRA기본point MSE):\nH0 BASE: 보정0.\nH1 STATIC: zhat+tanh(theta_c)*delta. theta0 초기.\nH2 LINEAR_H: zhat+[(1-h/47)tanh(u_c)+(h/47)tanh(v_c)]*delta.\nH3 LEAD_H: zhat+[a_c(h)tanh(u_c)+(1-a_c(h))tanh(v_c)]*delta.\nH2/H3는동일8개scalar; 차이는선행정보의실제가용성반영여부.\nH0/H1도같은donor관측과시간을접근가능하게한다. 표준model은원래모든4채널입력.\n추가CPU기준: frozen모델과고정ridge로g만만든예측, H0/g의전역blend(V에서alpha선택).\n\n주지표: 전체H48normalizedRMSE. h<lag정보가용비율구간은부가표.\n기대: H3가H2와단순blend를넘을때 '실제가용구간에따른조정'의개발근거.\n반례: H1/단순ridge/LIFT형구성으로충분 -> 새PEFT기여미확보.\n선행정보가약한4채널에서결과가없으면그자료의한계로기록, E보고donor채널교체금지.\n후속정식비교LIFT가남아있음을표시. H3를LIFT보다새롭다고전제하지않음.\n\n필수검사: 모든관측donor timestamp<o, predicted donor index>=0,<H,\ng루프의순환없음,초기모든학습군=base, h가시간조건을가진toy의정답정렬,\n학습된g제거진단만으로처음부터g가없는H0보다좋다고결론내리지않음.\n",
+  "data": {
+    "C": 336,
+    "H": 48,
+    "auxiliary_hash": "5228ef70ca7bd87f4091112837ecdb234ab4b81ab672e033c4a491faf488a8f9",
+    "bounds": [
+      0,
+      10526,
+      12280,
+      14035,
+      17544
+    ],
+    "frequency_minutes": 60,
+    "origins_hash": "174ca7128bd27eb2df370ce8a8848e140e7c08aa0791ebe6fa004d5516a7f88c",
+    "packet_hashes": {
+      ".cache/condition_studies_v1_20260916/R08/E_DISCOVERY_inputs.npz": "f861a86eeaf3797c14cd0ef6f96caeebc9331ac42f7495a249970d74fe395a0f",
+      ".cache/condition_studies_v1_20260916/R08/E_DISCOVERY_labels.npz": "8a58fca33b1b37900d3d6df350f60524c78d3c87b53286263af6bdd3c4e11921",
+      ".cache/condition_studies_v1_20260916/R08/TRAIN_inputs.npz": "08c19fceb3e9a41bdaad698079af7106392ec52569372a4b499c527b5e1124c0",
+      ".cache/condition_studies_v1_20260916/R08/TRAIN_labels.npz": "4c3c4efc901ee1eee6db51b2b719ba9199e584fb071a047b24f2793368598965",
+      ".cache/condition_studies_v1_20260916/R08/V_CAL_inputs.npz": "9e6e90423b249bddeb1ad92ba35589b0582996397238a9325a29836c07280a48",
+      ".cache/condition_studies_v1_20260916/R08/V_CAL_labels.npz": "c516f19e4bb3768f67d92bcda307306f06b29b83d151fbb425a5d1b5dcfff31a",
+      ".cache/condition_studies_v1_20260916/R08/V_SELECT_inputs.npz": "d39e0cd97fc1e80204d2b6abc1ffeadf6d0f9920f05efc5d7535190a22023710",
+      ".cache/condition_studies_v1_20260916/R08/V_SELECT_labels.npz": "ef4d8293132939bcc49eae38b7c0807db3fdcf3b8f2d43614da3e695e25fd6fd"
+    },
+    "source": "traffic"
+  },
+  "direct_controls": [
+    "H2",
+    "H1",
+    "BLEND"
+  ],
+  "id": "R08",
+  "implementation_choices": {
+    "CPU_blend_ties": "smaller alpha; R04 accuracy then revision constraint same as neural",
+    "N01_age_rows": "elapsed slots/24 clipped2",
+    "N01_target": "selected TRAIN origin ordinal i mod4; delay [0,6,24][epoch mod3]",
+    "N02_zero_std_floor": 1e-06,
+    "N03_age_rows": "elapsed slots/4; first unseen sentinel336/4",
+    "N03_mask": "sha256 CLOCK,origin,channel,epoch; V/E epoch key=-1; irregular alternating1/3 with hash start0..3/order",
+    "N07_ridge_alpha": 1.0,
+    "N07_shuffle_seed": 73100,
+    "R04_reference": "repeat-specific selected D0; seed73100 selected across2LR",
+    "R09_resolution_rows": "one repeated block resolution row shared all4 channels; same allarms"
+  },
+  "loss": "FP32 pointMSE normalized TRAIN sigma; contract-specific terms",
+  "main_fit_cap": 16,
+  "main_update_cap": 8192,
+  "name": "LEAD",
+  "primary": "mean_channel sqrt(mean_origin,h normalized_squared_error)",
+  "proposed": "H3",
+  "question": "관측 가능한 선행 구간에 따른 보정",
+  "seeds": [
+    73100,
+    73101,
+    73102
+  ],
+  "selection": "seed73100 twoLR select by V; repeats73101/2 only fixedLR; step0/256/512",
+  "smoke_updates": 8
+}

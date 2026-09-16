@@ -1,0 +1,77 @@
+{
+  "C": 336,
+  "H": 48,
+  "LRs": [
+    0.0001,
+    3e-05
+  ],
+  "arms": [
+    "D0",
+    "D1",
+    "D2",
+    "D3"
+  ],
+  "bootstrap": {
+    "block_slots": 168,
+    "replicates": 2000,
+    "seed": 73300
+  },
+  "contract_section": "\n8. R04 REVISION — 정확도를 유지하며 불필요한 예측 수정 줄이기\n======================================================================\n\n데이터: Traffic 4채널, C336h/H48h, paired origins o와o+24.\n같은 미래를 예측한 구간은 early[24:48]와 late[0:24]. 다른 lead를 그대로 빼지 않는다.\nTRAIN/V/E의 두 horizon이 각 role 경계 안에 있어야 한다.\n두 입력은 서로 다른 forward 또는 서로 다른 group ID. 뒤 문맥이 앞 예측에 새어 들어가면 안 된다.\n\n[확인] 옛 Candidate04도 paired origin과 F0 대비 correction revision을 다뤘다.\n이번 차이: 고정 point 목적과 새로운 공통 분할, innovation 정보의 작은 직접 대조.\n새 데이터 독립 재현이나 원 논문 전체 재현이라고 부르지 않는다.\n선행: Using dynamic loss weighting to boost improvements in forecast stability.\n예측 안정성 손실/동적 가중 자체는 알려진 접근이다.\n\n기본 L_task = 두 origin의 채널별 normalized MSE 평균.\nR_raw = mean[((late[0:24]-early[24:48])/sigma)^2].\nDelta = 현재 예측 - 같은 입력의 고정 F0 점예측.\nR_corr = mean[((Delta_late[0:24]-Delta_early[24:48])/sigma)^2].\nF0 예측은 원점별 캐시 가능. 미래 정답 없는 no-grad 호출만 사용.\n\n새로 관측된 정보:\nv_c(o)=mean[((observed_y[o:o+24]-F0_early[0:24])/sigma_c)^2].\n이는 late 원점에서는 이미 관측된 값이며 late미래정답이 아니다.\nw_c(o)=1/(1+v_c(o)). TRAIN 원점 전부에서 구한 mean(w)로 나눠 평균1.\nV/E에는 TRAIN mean을 고정 사용. v를 미래 정답/최종 forecast error로 정의하지 않는다.\n\n단일 lambda:\nTRAIN의 첫16pair에서 F0의 L_task와 R_raw를 기록.\nlambda=clip(.05*median(L_task)/max(median(R_raw),1e-8),1e-4,1).\n초기 R_corr=0을 분모로 쓰지 않는다. 모든 규제군에 같은lambda.\n값/gradient 비율은 다를 수 있으므로 큰 clipping 빈도도 보고. 사후lambda재튜닝 금지.\n\n4개 학습군:\nD0 PLAIN: L_task.\nD1 STABLE: L_task+lambda*R_raw (기존 안정성 손실의 제한된 대조).\nD2 CORR: L_task+lambda*R_corr (옛 FR원리의 새 데이터 비교).\nD3 INNOV: L_task+lambda*mean[w_c*((Delta_late-Delta_early)/sigma)^2].\nD3는 '새 정보가 크게 들어왔으면 보정수정을 덜 억제'하는 [미검증] 가중 규칙.\ncoefficient가 작은 것만으로 좋아지지 않도록 w의 TRAIN 평균을1로 맞췄다.\n\nCPU 단순 대조: 선택된D0 late 예측과 이미 발행한early 겹침 예측의 blend.\nalpha={0,.25,.5,.75,1}, V에서 선택, 같은 실제 미래만 blend.\n발행한 과거 예측 파일은 나중 모델로 덮어쓰지 않는다.\n\n선택/목표:\nD0은 V accuracy최저. 다른 군은 각 checkpoint의 V accuracy가\n선택한D0 V normalizedRMSE의1.01배 이하인 후보 중 revision RMS최저를 선택.\n조건을 만족하는 checkpoint가 없으면 그 군의 accuracy최저와 INFEASIBLE를 기록.\nLR 후보 모두에게 같은 rule. 1%는 이번 안정성 목적의 설계허용치이며 논문합격선 아님.\n주 결과: accuracy vs raw revision의 paired frontier.\nE에서도 accuracy보호를 만족하는지 별도 확인. 수정량만 줄어든 것을 성공이라 하지 않음.\n'불필요한' 수정의 진짜 레이블은 없으므로 accuracy제약하 revision이라는 조작적 정의.\n큰 혁신 구간에서 반응이 느려지는지 TRAIN 기준v 상위quartile을 진단하되 E로 cutoff를 정하지 않음.\n\n필수검사: exact target timestamps overlap, late정보->early전달0,\ninnovation값의 as-of 가용성, F0 disabledLoRA복원, lambda초기분모유한,\n두forward 비용을 한forward효율이라고 세지 않음.\n",
+  "data": {
+    "C": 336,
+    "H": 48,
+    "auxiliary_hash": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+    "bounds": [
+      0,
+      10526,
+      12280,
+      14035,
+      17544
+    ],
+    "frequency_minutes": 60,
+    "origins_hash": "683246f811255ab75f5e2b0386efabcecf6e7ee66d30f6c5e86c4e7b658111e6",
+    "packet_hashes": {
+      ".cache/condition_studies_v1_20260916/R04/E_DISCOVERY_inputs.npz": "06602a8b1e79daaa9964f3118f688c9791a83983452b9f9629cd28a9c779c4fd",
+      ".cache/condition_studies_v1_20260916/R04/E_DISCOVERY_labels.npz": "1b2ccbf1c41ef1a601ad9f8a746af3a60cdd6337ec457cec5d8502c7b03de015",
+      ".cache/condition_studies_v1_20260916/R04/TRAIN_inputs.npz": "1b6f5642b312ee8b308087f3982fbab04726248cd7ea08841b812e97d9113028",
+      ".cache/condition_studies_v1_20260916/R04/TRAIN_labels.npz": "690ca00b5a2dc11f3ab1ee5484bcd384125e2f4d2518ab09fef5bd5f6104e814",
+      ".cache/condition_studies_v1_20260916/R04/V_CAL_inputs.npz": "79b9c9f881d96efbfd6ce0c84d0d4090663798375e9a4645e4ba1c3c5391bf70",
+      ".cache/condition_studies_v1_20260916/R04/V_CAL_labels.npz": "08a6dbebc1a1642ae21fe09de2873c5bb3072469ae80e1077740855736e0c6ec",
+      ".cache/condition_studies_v1_20260916/R04/V_SELECT_inputs.npz": "4a9463570efd0dd77581273794e575f0620a2f43d7c55ea4f1370d548f58a8e1",
+      ".cache/condition_studies_v1_20260916/R04/V_SELECT_labels.npz": "2cafe312f6642cb05716ec4d3ea2c2ee0d5bac7d4007d262b9c1f2fa0a74ce6a"
+    },
+    "source": "traffic"
+  },
+  "direct_controls": [
+    "D2",
+    "D1",
+    "BLEND"
+  ],
+  "id": "R04",
+  "implementation_choices": {
+    "CPU_blend_ties": "smaller alpha; R04 accuracy then revision constraint same as neural",
+    "N01_age_rows": "elapsed slots/24 clipped2",
+    "N01_target": "selected TRAIN origin ordinal i mod4; delay [0,6,24][epoch mod3]",
+    "N02_zero_std_floor": 1e-06,
+    "N03_age_rows": "elapsed slots/4; first unseen sentinel336/4",
+    "N03_mask": "sha256 CLOCK,origin,channel,epoch; V/E epoch key=-1; irregular alternating1/3 with hash start0..3/order",
+    "N07_ridge_alpha": 1.0,
+    "N07_shuffle_seed": 73100,
+    "R04_reference": "repeat-specific selected D0; seed73100 selected across2LR",
+    "R09_resolution_rows": "one repeated block resolution row shared all4 channels; same allarms"
+  },
+  "loss": "FP32 pointMSE normalized TRAIN sigma; contract-specific terms",
+  "main_fit_cap": 16,
+  "main_update_cap": 8192,
+  "name": "REVISION",
+  "primary": "accuracy-constrained raw revision RMS",
+  "proposed": "D3",
+  "question": "정확도 제약 안에서 innovation 가중 수정 억제",
+  "seeds": [
+    73100,
+    73101,
+    73102
+  ],
+  "selection": "seed73100 twoLR select by V; repeats73101/2 only fixedLR; step0/256/512",
+  "smoke_updates": 8
+}

@@ -1,0 +1,39 @@
+{
+  "R04_early_late_separate_groups": false,
+  "R09_absolute_block_permission": false,
+  "calibration": "V_CAL only; no output calibration in neural tracks",
+  "context": "strictly earlier than issuance; target labels separate",
+  "evaluation": "E_DISCOVERY labels scorer only after seal",
+  "input_shapes": {
+    "E_DISCOVERY": [
+      64,
+      4,
+      336
+    ],
+    "TRAIN": [
+      64,
+      4,
+      336
+    ],
+    "V_CAL": [
+      32,
+      4,
+      336
+    ],
+    "V_SELECT": [
+      32,
+      4,
+      336
+    ]
+  },
+  "normalization": "raw TRAIN only",
+  "rows": "first4 real targets; appended masks/ages/retrieval are auxiliaries without supervision",
+  "selection": "V_SELECT only",
+  "source_train_end": 15782,
+  "target_columns": [
+    "column_000",
+    "column_001",
+    "column_002",
+    "column_003"
+  ]
+}

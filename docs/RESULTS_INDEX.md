@@ -102,3 +102,8 @@ PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제
 세 타깃×네 군×두 LR×두 seed48fits·24,576updates, smoke24updates, 봉인 평가와151,200개 scalar 검산을 완료했다. GPU controller61.77분, 타깃당75 TEST원점이다. PATH 대 DROP raw+1.826%는 관측됐으나 핵심 POINT 대조는raw+0.033%·보정후+0.668%로 전체 구간이0을 포함했다. T0/T1의 양성과 T2 반전을 모두 보존하며 최종 추천은 **추가 근거 미확보** 하나다. PATH는 알려진 학습 규칙, POINT는 합성 통제이며 새PEFT 방법이나 새 독립 데이터 시험이라고 부르지 않는다. 추가 학습은 없다.
 
 [지표·선택·보정 검산](../results/forecast_path_structure_v1_20260916/independent_verification.json), [48개 재개 상태·630개 집계 검산](../results/forecast_path_structure_v1_20260916/completion_audit.json), [출판 감사](../results/forecast_path_structure_v1_20260916/publication_audit.json), [감사 수정 이력](../results/forecast_path_structure_v1_20260916/AUDIT_CORRECTIONS.md). 기존 파일2,451개 hash 보존, 큰 원자료·가중치·예측은 로컬 cache에 있다.
+
+
+## 아홉 조건 PEFT 비교 — 준비·실행 중 (2026-09-16)
+
+[전체 계약·현재 상태](../results/condition_studies_v1_20260916/MASTER_REPORT.md). 모든9명세를 먼저봉인; 기존48forecast경로는재학습하지않고R05/N06예측의존성으로만재사용한다. 아직새비교의완료나성능성공을뜻하지않는다.

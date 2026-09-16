@@ -1,0 +1,92 @@
+{
+  "at": 1789562980.8808143,
+  "passed": true,
+  "records": [
+    {
+      "E_label_api_denied": true,
+      "donor_sensitive": true,
+      "hidden_poison_invariant": true,
+      "initial_reduction": true,
+      "observed_unchanged": true,
+      "packet_hashes_verified": true,
+      "role_labels_disjoint": true,
+      "targets_exposure": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "track": "N01"
+    },
+    {
+      "E_label_api_denied": true,
+      "archive_temporal_checks": 1536,
+      "future_delta_sensitive": true,
+      "initial_reduction": true,
+      "packet_hashes_verified": true,
+      "query_label_access": false,
+      "role_labels_disjoint": true,
+      "track": "N02"
+    },
+    {
+      "E_label_api_denied": true,
+      "context_hours": 84,
+      "future_observation_access": 0,
+      "hidden_poison_invariant": true,
+      "initial_reduction": true,
+      "kernel_weights_sum1": true,
+      "observed_unchanged": true,
+      "packet_hashes_verified": true,
+      "physical_horizon_hours": 12,
+      "role_labels_disjoint": true,
+      "track": "N03"
+    },
+    {
+      "E_label_api_denied": true,
+      "innovation_is_late_past": true,
+      "late_separate_native_call": true,
+      "overlap_exact": true,
+      "packet_hashes_verified": true,
+      "role_labels_disjoint": true,
+      "track": "R04"
+    },
+    {
+      "E_label_api_denied": true,
+      "PRED_SHUFFLE_same_multiset": true,
+      "Parseval": true,
+      "TRAIN_only_ridge": true,
+      "packet_hashes_verified": true,
+      "role_labels_disjoint": true,
+      "symmetric_weights": true,
+      "track": "N07",
+      "weights_mean1": true
+    },
+    {
+      "E_label_api_denied": true,
+      "observed_donor_strictly_past": true,
+      "packet_hashes_verified": true,
+      "predicted_donor_indices_valid": true,
+      "role_labels_disjoint": true,
+      "simultaneous_base_only": true,
+      "track": "R08"
+    },
+    {
+      "E_label_api_denied": true,
+      "IMPUTE_equals_NULL_coefficient1": true,
+      "absolute_permission_poison_invariant": true,
+      "constant_offset_NULL_zero": true,
+      "detailed_train_count": 16,
+      "hidden_fine_absent_packets": true,
+      "packet_hashes_verified": true,
+      "projection_identity": true,
+      "role_labels_disjoint": true,
+      "track": "R09"
+    },
+    {
+      "same_marginal_different_sum": true,
+      "synthetic_only": true,
+      "track": "N06"
+    }
+  ],
+  "synthetic_tests_are_not_actual_experiments": true
+}
