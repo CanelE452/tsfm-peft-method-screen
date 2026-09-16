@@ -1,0 +1,31 @@
+{
+  "at": 1789563566.9987879,
+  "phase": "N01 running; no E results yet",
+  "training_settings_changed": false,
+  "additional_optimizer_updates": 0,
+  "gradient_verification": {
+    "tracks": [
+      "R04",
+      "R09"
+    ],
+    "arms": {
+      "R04": [
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "R09": [
+        "I3",
+        "I4"
+      ]
+    },
+    "seeds": [
+      73101,
+      73102
+    ],
+    "TRAIN_cases": "first4 ordinal pairs for R04; first4 aggregate-only TRAIN ordinals for R09",
+    "checkpoint": "already V-selected",
+    "native_forward_cap": 64,
+    "reason": "Required task/regularizer gradient contributions; no optimization and no new model selection"
+  }
+}

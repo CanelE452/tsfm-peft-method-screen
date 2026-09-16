@@ -71,7 +71,7 @@ def score_track(t,data,selections,predictions,frozen,aliases):
   for seed in [73101,73102]:bundle[('FROZEN',seed,'selected')]=p[:,None]
  bpath=CACHE/t/'evaluation_bundle.npz';npz(bpath,**{'__'.join(map(str,k)):v for k,v in bundle.items()},y=y,origins=origins,conditions=np.array(conds));save(OUT/t/'evaluation_bundle_manifest.json',dict(path=str(bpath.relative_to(ROOT)),sha256=sha(bpath),at=time.time()))
  raw=[];originrows=[];summary=[];checks=0;series={};secondary=[]
- counts=block_counts(origins,672 if t=='N03' else 168);den=counts.sum(1);assert (den>0).all();npz(CACHE/t/'bootstrap.npz',counts=counts,origins=origins)
+ counts=block_counts(origins,672 if t=='N03' else 168);den=counts.sum(1);defined=den>0;assert defined.any();npz(CACHE/t/'bootstrap.npz',counts=counts,origins=origins,defined=defined);save(OUT/t/'bootstrap_manifest.json',dict(replicates=2000,defined=int(defined.sum()),empty_resamples=int((~defined).sum()),seed=73300,rule='All 2000 draws retained; empty-observation draws undefined, conditional CI over defined draws; origins unchanged',observed_blocks=len(np.unique(origins//(672 if t=='N03' else 168)))));den=np.where(defined,den,np.nan)
  for (arm,seed,policy),p in bundle.items():
   main=primary(t,p,y,data.sigma,conds);summary.append(dict(arm=arm,seed=seed,policy=policy,condition='PRIMARY',score=main['accuracy'],revision=main.get('revision')))
   if t=='R04':yy=np.stack([y[:,:,:48],y[:,:,24:72]],1);e=p[:,0]-yy;arr=(e/data.sigma[None,None,:,None])**2;per=arr.mean((1,3));mse=per.mean(0);boot=np.sqrt(counts@per/den[:,None]).mean(1);rev=((p[:,0,1,:,:24]-p[:,0,0,:,24:])/data.sigma[None,:,None])**2;rvper=rev.mean(-1);rb=np.sqrt(counts@rvper/den[:,None]).mean(1);series[(arm,seed,policy,'PRIMARY')]=(main['accuracy'],boot);series[(arm,seed,policy,'REVISION')]=(main['revision'],rb)
@@ -108,9 +108,9 @@ def score_track(t,data,selections,predictions,frozen,aliases):
     seedrows=[]
     for seed in [73101,73102]:
      if (prop,seed,policy,condition) not in series or (baseline,seed,policy,condition) not in series:continue
-     a,ab=series[(prop,seed,policy,condition)];b,bb=series[(baseline,seed,policy,condition)];g=100*(b-a)/b;bs=100*(bb-ab)/bb;row=dict(method=prop,baseline=baseline,policy=policy,condition=condition,seed=str(seed),method_score=a,baseline_score=b,gain_percent=g,ci_low=float(np.quantile(bs,.025)),ci_high=float(np.quantile(bs,.975)),replicates=2000);contrasts.append(row);seedrows.append((a,b,ab,bb))
+     a,ab=series[(prop,seed,policy,condition)];b,bb=series[(baseline,seed,policy,condition)];g=100*(b-a)/b;bs=100*(bb-ab)/bb;row=dict(method=prop,baseline=baseline,policy=policy,condition=condition,seed=str(seed),method_score=a,baseline_score=b,gain_percent=g,ci_low=float(np.nanquantile(bs,.025)),ci_high=float(np.nanquantile(bs,.975)),replicates=2000);contrasts.append(row);seedrows.append((a,b,ab,bb))
     if len(seedrows)==2:
-     a,b=np.mean([(v[0],v[1]) for v in seedrows],0);ab=np.mean([v[2] for v in seedrows],0);bb=np.mean([v[3] for v in seedrows],0);bs=100*(bb-ab)/bb;contrasts.append(dict(method=prop,baseline=baseline,policy=policy,condition=condition,seed='MEAN',method_score=float(a),baseline_score=float(b),gain_percent=float(100*(b-a)/b),ci_low=float(np.quantile(bs,.025)),ci_high=float(np.quantile(bs,.975)),replicates=2000))
+     a,b=np.mean([(v[0],v[1]) for v in seedrows],0);ab=np.mean([v[2] for v in seedrows],0);bb=np.mean([v[3] for v in seedrows],0);bs=100*(bb-ab)/bb;contrasts.append(dict(method=prop,baseline=baseline,policy=policy,condition=condition,seed='MEAN',method_score=float(a),baseline_score=float(b),gain_percent=float(100*(b-a)/b),ci_low=float(np.nanquantile(bs,.025)),ci_high=float(np.nanquantile(bs,.975)),replicates=2000))
  csvwrite(OUT/t/'contrasts.csv',contrasts);csvwrite(OUT/t/'uncertainty.csv',contrasts)
  if t=='R04':
   frontier=[]

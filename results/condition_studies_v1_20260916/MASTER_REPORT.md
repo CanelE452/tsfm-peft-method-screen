@@ -4,7 +4,7 @@
 
 | ID | 주제 | 실행 | 근거 | 신규성 | 완료경로 | 업데이트 | smoke |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| N01 | ASYNC | PREPARED | NOT_MEASURED | UNVERIFIED_VARIANT | 0 | 0 | 0 |
+| N01 | ASYNC | PARTIAL | NOT_MEASURED | UNVERIFIED_VARIANT | 8 | 4096 | 8 |
 | N02 | ARCHIVE | PREPARED | NOT_MEASURED | UNVERIFIED_VARIANT | 0 | 0 | 0 |
 | R05 | VINTAGE | PREPARED | NOT_MEASURED | KNOWN_CONTROL | 0 | 0 | 0 |
 | N06 | JOINT | PREPARED | NOT_MEASURED | KNOWN_CONTROL | 0 | 0 | 0 |
@@ -14,7 +14,7 @@
 | R08 | LEAD | PREPARED | NOT_MEASURED | UNVERIFIED_VARIANT | 0 | 0 | 0 |
 | R09 | MIXED | PREPARED | NOT_MEASURED | UNVERIFIED_VARIANT | 0 | 0 | 0 |
 
-현재 controller 상태: `PREPARED`. 새 본학습 업데이트 0/59,392, smoke 0/96, native forwards 0/200,000. [세부 예산](BUDGET_LEDGER.csv).
+현재 controller 상태: `RUNNING`. 새 본학습 업데이트 4131/59,392, smoke 8/96, native forwards 10203/200,000. [세부 예산](BUDGET_LEDGER.csv).
 
 - [N01 ASYNC 한국어 보고서](N01/REPORT.md)
 - [N02 ARCHIVE 한국어 보고서](N02/REPORT.md)
