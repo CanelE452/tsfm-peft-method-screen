@@ -87,6 +87,10 @@ Query 자원 제약 파일럿은 117개 CPU 검사와 42개 저장 비교 재계
 
 신규 4 fits·480 updates, smoke 4 updates. [REPORT](../results/covariate_order_control_20260916/REPORT.md), [해석](../results/covariate_order_control_20260916/INTERPRETATION.md), [4,032개 지표 및 16개 복원 검산](../results/covariate_order_control_20260916/verification.json). 동일 입력 멀티셋의 순서 효과는 작은 개발 차이이며 신규 방법 PASS가 아니다.
 
-## MOMENT 고정 비교 진행 중 (2026-09-16)
+## MOMENT 고정 비교 완료 (2026-09-16)
 
-[실행 계약과 경로](CHANNEL_CONTROLLED_IMPROVEMENT_20260916.md), [기존 경로 재사용 감사](../results/channel_controlled_improvement_v1_20260916/REUSE_RECEIPT.md). 36개 경로 중 기존 8개 재사용·신규 28개, 두 LR·세 seed·20 epochs의 실행을 시작했다. 이 항목은 완료 결과가 아니며 점수·평가·최종 판정은 완료 후 별도 게시한다.
+36/36 경로 완료: 신규 28 fits·35,580 updates, 기존 8 fits·10,140 updates 재사용, smoke12·자원104 폐기 updates. [한국어 REPORT](../results/channel_controlled_improvement_v1_20260916/REPORT.md), [최종 결정 C](../results/channel_controlled_improvement_v1_20260916/FINAL_DECISION.md), [전체 원점수](../results/channel_controlled_improvement_v1_20260916/seed_scores.csv), [선택·구성요소 효과](../results/channel_controlled_improvement_v1_20260916/effects.csv).
+
+PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제한된 구성요소 신호 기준 미충족. LH가 두 원천에서 가장 정확하다. LH native checkpoint는 자원 검사에서 peak62.48% 절감/step46~53% 증가, SIDE-fast보다도 낮은 peak를 기록했다. 동일 조건 2-update 검사는 bitwise 통과했으나 해당 옵션으로 전체20epoch를 새로 학습하지는 않았다. 독립 test·신규 방법 PASS가 아니며 자동 후속 연구는 종료한다.
+
+[4,974개 독립 scalar·756개 checkpoint·40개 복원 검산](../results/channel_controlled_improvement_v1_20260916/independent_verification.json), [28개 완전 재개 상태·164개 타깃 정렬](../results/channel_controlled_improvement_v1_20260916/completion_audit.json), [실행 계약과 경로](CHANNEL_CONTROLLED_IMPROVEMENT_20260916.md), [재사용 감사](../results/channel_controlled_improvement_v1_20260916/REUSE_RECEIPT.md). 큰 예측·가중치는 로컬 cache에 남는다.
