@@ -7,3 +7,5 @@
 3. CSV는 Python csv의 표준 CRLF 출력을 사용한다. 봉인된 원점 CSV의 줄바꿈을 바꾸지 않고 `git -c core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol diff --check`로 실질 공백을 검사한다.
 
 4. R09 학습 전 정보 권한 감사: TRAIN 끝15782는24h 블록 중간이다. 완료 시점15792인 집계 블록의 앞14값을 TRAIN 통계에 넣으면 V의10값이 평균에 들어갈 수 있었다. 통계·eligibility는 완료된TRAIN블록 끝15768까지만 사용하도록 교정했다. 역할 경계·원점·입력 packet·TRAIN label은 SHA까지 동일하며 R09 optimizer0 상태에서만 수정했다. 이전 통계와 전후 SHA를 보존했다. 이 차이는 성능 결과에 따른 데이터 범위 튜닝이 아니라 절대시간 관측 계약 위반의 수정이다.
+
+5. N06 실행 전 보조 지표 단위를 교정했다. energy는 계약대로 TRAIN sigma 표준화, variogram(p=.5)은 원시값의 계약 수식에 맞춰 W 단위로 계산하고 표준화판은 별도 이름으로 보존한다. 주지표 sum-CRPS/24sigma와 모든coupling·sample·선택은 변경하지 않았다.

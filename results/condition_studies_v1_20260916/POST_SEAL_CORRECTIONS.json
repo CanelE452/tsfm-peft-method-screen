@@ -137,5 +137,29 @@
       }
     },
     "executed_training_source": "51bce24846d24a1b0917905b15683f57a129db34"
+  },
+  {
+    "at": 1789565513.5144045,
+    "type": "N06_PREEXECUTION_AUXILIARY_UNIT_CORRECTION",
+    "reason": "Contract defines normalized energy score but writes variogram in raw y/sample units. Compute raw variogram in W, retaining normalized variant separately. No primary sumCRPS, scenario, dependence fitting, selection, data or neural settings changed. N06 not started.",
+    "state_at_change": {
+      "attempts": 25,
+      "completed_fits": 24,
+      "forwards": {
+        "eval": 27680,
+        "train": 12416,
+        "verify": 48
+      },
+      "main_updates": 12400,
+      "smoke_updates": 16,
+      "started_at": 1789563058.632131,
+      "status": "RUNNING"
+    },
+    "files": {
+      "experiments/condition_studies_v1_20260916/cached.py": {
+        "before_sha256": "0c0c9250d0a9da3bea68fa9bc9fa5e4f65d377c58586d36acc315611d94027b3",
+        "after_sha256": "909a3675d8081d98a77296c78361a0d1472e8a32f03365f3b0954fcd68ebb4ea"
+      }
+    }
   }
 ]
