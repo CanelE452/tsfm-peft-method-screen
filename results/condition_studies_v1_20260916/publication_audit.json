@@ -1,0 +1,126 @@
+{
+  "all_forward_phases_independently_reconciled": true,
+  "all_nine_complete": true,
+  "at": 1789572909.4991736,
+  "audit_script_hashes": {
+    "scripts/audit_condition_cached_scores.py": "d5ebf47fb0af30e7ec7892aeacc8cb2c4ecb89dff4f2e759f667c22f75d0d990",
+    "scripts/audit_condition_cpu_controls.py": "038a6e2cee15c934d5e623646a5d32136f1f8bb1ad069bec0bfce5b2b95bb3ee",
+    "scripts/audit_condition_gradients.py": "4af0ecdeac43836d64a6de942e21f63e2e3a1066b23131d3ac06708222668307",
+    "scripts/audit_condition_inputs.py": "a5bbe86e47cac13217587535310f40d4b7830b5e8f8b9c3f3e2f66ea55bc7f28",
+    "scripts/audit_condition_publication.py": "b4073e7d194e94f9683ca56ff681b171ac0bb2af8b16af2b9cd2e30dde68f31d",
+    "scripts/audit_condition_secondary.py": "462ec533e8ca57f80c9bcfb411dbfdaa4af34ed3d7b231cbba995e910ba63e86",
+    "scripts/audit_condition_selection.py": "e7598299a6612865197b8057f396912082177fb9a22f0452299deb2930fe6e53",
+    "scripts/audit_condition_training_records.py": "f803a66d66497d0793ffd3abbdd34fa2d135d60db9e293edcbeb7d3eac3e102c",
+    "scripts/benchmark_condition_retrieval.py": "a1caad49a4a844a1c5eeab7934c41073e2d62dc170f31055352a1fb6d457b9ff",
+    "scripts/finalize_condition_studies.py": "88a281b250129778ae01ae0b257d4330cd447b5c560985ef7970c578bdf4c58f",
+    "scripts/run_condition_studies.py": "e137606080af5a9e65d03d3e9a64796da39071fc788e229d059181a6dcd1cb5d",
+    "scripts/supplement_condition_results.py": "17c95448b4c0300d4af7a81e0939b2537a4d327020c1a4809794156b9a9f38ef",
+    "scripts/write_condition_master.py": "e0b2e563f189d7394b0e8fa6e8f62abbe1e82d2c1ab7a8f29950e5f6e5a477be"
+  },
+  "cache_bytes": 3600877202,
+  "cache_is_local_ignored": true,
+  "contaminated_updates": 0,
+  "github_contains_large_weights_or_predictions": false,
+  "historical_files_preserved": 2516,
+  "historical_hashes_verified": true,
+  "main_controller_seconds": 9464.333102941513,
+  "main_fits": 116,
+  "main_updates": 59392,
+  "max_allocated_bytes": 821782016,
+  "native_forwards": {
+    "eval": 46304,
+    "train": 67650,
+    "verify": 1080
+  },
+  "native_train_forwards_independent_journal_count": 67650,
+  "passed": true,
+  "pinned_dependency_files": 4,
+  "smoke_updates": 58,
+  "tracks": [
+    {
+      "all_512": true,
+      "main_fits": 16,
+      "main_updates": 8192,
+      "scalar_metric_checks": 640,
+      "selected_INIT": 0,
+      "smoke_updates": 8,
+      "status": "COMPLETE",
+      "track": "N01"
+    },
+    {
+      "all_512": true,
+      "main_fits": 16,
+      "main_updates": 8192,
+      "scalar_metric_checks": 160,
+      "selected_INIT": 1,
+      "smoke_updates": 8,
+      "status": "COMPLETE",
+      "track": "N02"
+    },
+    {
+      "main_fits": 0,
+      "main_updates": 0,
+      "smoke_updates": 0,
+      "status": "COMPLETE",
+      "track": "R05"
+    },
+    {
+      "main_fits": 0,
+      "main_updates": 0,
+      "smoke_updates": 0,
+      "status": "COMPLETE",
+      "track": "N06"
+    },
+    {
+      "all_512": true,
+      "main_fits": 16,
+      "main_updates": 8192,
+      "scalar_metric_checks": 512,
+      "selected_INIT": 0,
+      "smoke_updates": 8,
+      "status": "COMPLETE",
+      "track": "N03"
+    },
+    {
+      "all_512": true,
+      "main_fits": 16,
+      "main_updates": 8192,
+      "scalar_metric_checks": 160,
+      "selected_INIT": 8,
+      "smoke_updates": 8,
+      "status": "COMPLETE",
+      "track": "R04"
+    },
+    {
+      "all_512": true,
+      "main_fits": 16,
+      "main_updates": 8192,
+      "scalar_metric_checks": 144,
+      "selected_INIT": 0,
+      "smoke_updates": 8,
+      "status": "COMPLETE",
+      "track": "N07"
+    },
+    {
+      "all_512": true,
+      "main_fits": 16,
+      "main_updates": 8192,
+      "scalar_metric_checks": 176,
+      "selected_INIT": 0,
+      "smoke_updates": 8,
+      "status": "COMPLETE",
+      "track": "R08"
+    },
+    {
+      "all_512": true,
+      "main_fits": 20,
+      "main_updates": 10240,
+      "scalar_metric_checks": 176,
+      "selected_INIT": 0,
+      "smoke_updates": 10,
+      "status": "COMPLETE",
+      "track": "R09"
+    }
+  ],
+  "zero_new_followup_fits": true
+}

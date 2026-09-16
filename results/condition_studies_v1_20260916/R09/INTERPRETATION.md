@@ -1,65 +1,4 @@
-# R09 MIXED 결과
-
-실행: **COMPLETE** / 근거: **NEGATIVE_WITHIN_SCOPE** / 신규성: **UNVERIFIED_VARIANT**.
-
-## ① 문제와 정보
-
-상세·집계 혼합 학습의 패턴 보존. [계약과 방법](TOPIC_ONEPAGE.md), [정보 권한](permissions.json), [원천·원점](data_receipt.json). 원점 이후의 정답은 입력으로 허용하지 않는다. R09 숨긴 상세값의 권한은 절대시간 블록에 적용한다.
-
-## ② 선행 연결
-
-[LITERATURE_BOUNDARY.md](LITERATURE_BOUNDARY.md). 알려진 구성요소와 이번 제한된 변형을 구분하며 정식 선행의 전체 재현을 주장하지 않는다.
-
-## ③ 비교 조건과 비용
-
-군: I0, I1, I2, I3, I4. rank8 LoRA 1,179,648개 + 명시 보조계수, FP32 point MSE, TRAIN64,512updates, 선택seed73100의2LR 후 반복73101/73102. tau=.5 슬롯을 점예측으로 학습하므로 확률 보정 개선을 주장하지 않는다.
-
-## ④ 실제 실행과 미실행
-
-완료 본학습 20경로, 본학습 10240updates. 폐기 smoke 10updates. 선택·복원·원점수 검산 완료. [자원](resources.csv), [검산](verification.json), [선택](selections.json). 큰 prediction/weight는 로컬 ignored cache에 있고 GitHub에는 해시와 수치가 있다.
-
-optimizer 실측 합계 16.59분; 최대 allocated 618.4MiB. INIT 선택 0/10. 학습 예산 미사용은 alias 또는 차단으로 구분한다.
-
-## ⑤ 원점수·효과·seed·조건 손익
-
-| arm | seed | score |
-| --- | --- | --- |
-| I0 | 73101 | 0.554234 |
-| I1 | 73101 | 0.541730 |
-| I2 | 73101 | 0.696313 |
-| I3 | 73101 | 0.623957 |
-| I4 | 73101 | 0.625290 |
-| I0 | 73102 | 0.548464 |
-| I1 | 73102 | 0.534652 |
-| I2 | 73102 | 0.675976 |
-| I3 | 73102 | 0.591509 |
-| I4 | 73102 | 0.588097 |
-| FROZEN | 73101 | 0.715941 |
-| FROZEN | 73102 | 0.715941 |
-
-| method | baseline | condition | gain_percent | ci_low | ci_high |
-| --- | --- | --- | --- | --- | --- |
-| I4 | I3 | PRIMARY | 0.170988 | -0.159007 | 0.566007 |
-| I4 | I2 | PRIMARY | 11.579302 | 8.666507 | 14.896924 |
-| I4 | I1 | PRIMARY | -12.728301 | -18.603599 | -8.310704 |
-
-[전체 원단위 RMSE/MAE](raw_scores.csv), [모든 반복·조건](scores_summary.csv), [512고정점 포함 대비](contrasts.csv), [부가지표](secondary_scores.csv). RMSE는 원점·horizon 제곱오차 평균 후 제곱근, 채널과 지정 조건을 동일 가중한다.
-
-![직접대비](paired_gains.png)
-
-![조건별 손익](condition_tradeoffs.png)
-
-## ⑥ 단순 대안과 남은 정식 비교
-
-직접 단순 대조의 충분성과 제안 구성요소의 추가 가치는 contrasts.csv에서 별도로 판단한다. 0근처 CI는 동등성 입증이 아니다. 알려진 단순 방법의 개선을 새 방법론 PASS로 바꾸지 않는다.
-
-## ⑦ 다음 방법을 정의할 근거
-
-현재 증거 상태: NEGATIVE_WITHIN_SCOPE. 단일 개발 원천과 제한된 recipe의 결과이며 정식 선행 대비·독립 확증이 남는다. 연구프로그램의 불가능성 판정은 아니다. 최종 문제 선택은 전체 MASTER_REPORT/FINAL_DECISION에서 최대2개로 제한한다. 자동 후속 학습 없음.
-
-IMPUTE의 목적은 계수1 NULL과 동일하며 이번 계수.1 NULL과의 차이는 보존 강도 차이일 수 있다. I0는16개상세512반복, 나머지는64개×8회라 정보량까지 다르다.
-
-## 실제 결과 해석
+# R09 실제 결과 해석
 
 20/20 학습 경로·10,240 본업데이트와 smoke10을 완료했다. 176개 주지표 scalar 및66개 평균/합계/패턴 scalar 검산, 60개 선택용 점수와15개 모델 선택, 20개 최종 resume·원점 순서 검사를 통과했다. 선택용 seed와 두 반복 seed를 분리했고, 다섯 군 모두 V에서 학습률1e-4를 선택했다. 반복 선택은 I0/I3/I4 두 seed 모두256회, I2 두 seed 모두512회, I1은73101에서512회·73102에서256회다.
 
@@ -103,16 +42,3 @@ I0는 상세 정답16원점을32회씩, I1~I4는 상세16+집계48의64원점을
 ## 이번 범위의 판단
 
 실행과 검산은 완료했다. 기본 학습의 예측 개선은 관측됐지만 NULL의 추가 가치는 MIXED에 비해 부정적이고 UNIFORM에 비해 불확실했다. 평가 원점은64개 다른 날짜·32개 관측 주간 블록이지만 재사용된 개발 기간이며 새 독립 시험이 아니다. 시간 집계·상세 복원·nullspace 투영은 알려진 원리이고 정식 Denton/Chow–Lin 계열과 동등 예산 비교를 하지 않았다. 새 PEFT 방법으로 집중할 근거를 확보하지 못했으며 추가 학습은 실행하지 않는다.
-
-
-## 판정 해석과 추가 감사
-
-적어도 하나의 필수 직접 대조에서 gain CI 전체가 음수
-
-[정보·파라미터·노출 횟수](parameter_information_budget.csv). 보조계수가 있는 군을 완전히 동일 파라미터 예산이라고 하지 않는다. CPU fitted scalar entries는 독립 자유도나 신경망 trainable 수가 아니다.
-
-평가 원점이 걸친 관측 주간 블록은 32개다. bootstrap 2,000회 중 2000회가 계산 가능하고 0회는 관측 없는 재표집으로 보존했다. CI는 계산 가능한 재표집에 조건부다. 중복 horizon의64원점을64개의 독립 기간으로 해석하지 않는다.
-
-[실제 clipping·보조계수 gradient·GPU 오염 기록](optimization_diagnostics.csv), [저장된 실제 예측 루프 비용](prediction_costs.csv). 예측 시간은 guard/Python 비용을 포함하며 같은 prediction 경로를 여러 정책에서 참조하면 중복 합산하지 않는다. CPU 검산·보고를 병행했으므로 작은 시간 차이를 격리된 속도 우위라고 해석하지 않는다.
-
-[허용 context 해상도 상태별 결과](context_state_scores.csv), [전체 원점 상태](evaluation_context_states.csv). 모든 상태와 원점을 유지한다.

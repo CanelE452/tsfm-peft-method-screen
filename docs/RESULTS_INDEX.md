@@ -1,6 +1,6 @@
 # 완료 작업과 검증 기록
 
-2026-09-16 기준. 표의 링크는 완료된 실행 또는 검토 결과다. 과거 FAIL/STOP은 당시 고정 실험의 판정으로 보존한다. 최신 재검토의 후속 연구 우선순위는 방법론 성공이나 새로운 실험 실행을 뜻하지 않는다.
+2026-09-17 기준. 표의 링크는 완료된 실행 또는 검토 결과다. 과거 FAIL/STOP은 당시 고정 실험의 판정으로 보존한다. 최신 재검토의 후속 연구 우선순위는 방법론 성공이나 새로운 실험 실행을 뜻하지 않는다.
 
 
 [확인] 저장 예측의 단순보정 대조를 신규학습0회로 완료했다. 같은 V 보정 뒤 VINTAGE는 STD 대비 최신2.326%·과거5.870% 개선했으나, 최신 월구간은0을 포함한다. 중심화 median 오차의 차이도 남았다. 기존 FR/PACE와의 겹침을 확인해 단순 consistency를 새후보로 재명명하지 않았다. [한국어 보고서](../results/covariate_calibration_control_20260916/REPORT.md), [해석·신규성 경계](../results/covariate_calibration_control_20260916/INTERPRETATION.md), [검산](../results/covariate_calibration_control_20260916/verification.json).
@@ -104,11 +104,11 @@ PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제
 [지표·선택·보정 검산](../results/forecast_path_structure_v1_20260916/independent_verification.json), [48개 재개 상태·630개 집계 검산](../results/forecast_path_structure_v1_20260916/completion_audit.json), [출판 감사](../results/forecast_path_structure_v1_20260916/publication_audit.json), [감사 수정 이력](../results/forecast_path_structure_v1_20260916/AUDIT_CORRECTIONS.md). 기존 파일2,451개 hash 보존, 큰 원자료·가중치·예측은 로컬 cache에 있다.
 
 
-## 아홉 조건 PEFT 비교 — 준비·실행 중 (2026-09-16)
+## 아홉 조건 PEFT 비교 — 9/9 완료 (2026-09-17)
 
-[전체 계약·현재 상태](../results/condition_studies_v1_20260916/MASTER_REPORT.md). 모든9명세를 먼저봉인; 기존48forecast경로는재학습하지않고R05/N06예측의존성으로만재사용한다. 아래 완료 항목은 실행·평가·검산을 마쳤고 나머지는 고정 순서로 진행 중이다. 성능 효과와 신규성은 별도로 판단한다.
+[전체 계약·현재 상태](../results/condition_studies_v1_20260916/MASTER_REPORT.md). 모든9명세를 먼저봉인; 기존48forecast경로는재학습하지않고R05/N06예측의존성으로만재사용한다. 모든 항목의 실행·평가·검산을 마쳤다. 본학습116/116fits·59,392updates, 폐기smoke58updates이며 필수 미실행 경로0개다. R05/N06에는 신규 신경망 학습이 없다. 성능 효과와 신규성을 별도로 판단했고 [최종 집중 문제는0개](../results/condition_studies_v1_20260916/FINAL_DECISION.md)다.
 
-- [N01 ASYNC 완료](../results/condition_studies_v1_20260916/N01/REPORT.md): 16fits/8,192updates + smoke8. age항 A3는 A2보다0.175%, ridge A1보다4.017% 악화. 실제 학습·복원·선택·scalar 검산은 통과했으며 다음 후보는 성능과 무관하게 독립 실행한다.
+- [N01 ASYNC 완료](../results/condition_studies_v1_20260916/N01/REPORT.md): 16fits/8,192updates + smoke8. age항 A3는 A2보다0.175%, ridge A1보다4.017% 악화. 실제 학습·복원·선택·scalar 검산을 통과했고 뒤 후보도 독립 실행을 완료했다.
 
 - [N02 ARCHIVE 완료](../results/condition_studies_v1_20260916/N02/REPORT.md): 16fits/8,192updates + smoke8. 추가 보정 B3는 검색 행 B2보다2.01% 악화(CI는0포함). 짧은 이력 B0의0.371624가 B3의0.387540보다 낮다. 실제 검색 비용·선택·완전 재개 상태 검산을 보존했다.
 - [R05 VINTAGE 완료](../results/condition_studies_v1_20260916/R05/REPORT.md): 신규 신경망 학습0, CPU 정책225설정. 최신 점수 동일, E4의 지연 손실은 BINARY보다0.506% 개선했으나 LATEST 대비 CI는0포함. 이전 E 재분석이며 새 PEFT가 아니다.
@@ -121,3 +121,7 @@ PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제
 - [N07 SPECTRAL 완료](../results/condition_studies_v1_20260916/N07/REPORT.md): 16fits/8,192updates + smoke8. PRED0.249438 대 SHUFFLE0.247272로0.876% 악화. 저에너지 성분의 작은 개선과 전체 시간영역 악화를 분리했다. 144개 원점수 및 선택·재개 검산 완료.
 
 - [R08 LEAD 완료](../results/condition_studies_v1_20260916/R08/REPORT.md): 16fits/8,192updates + smoke8. 가용성 보정의 선형 horizon 대비 gain0.0588%는 CI가0을 포함한다. 동결0.375896 대 제안0.380829도 함께 보고했다. 176개 원점수·선택·재개·CPU 대조 검산 완료.
+
+- [R09 MIXED 완료](../results/condition_studies_v1_20260916/R09/REPORT.md): 20fits/10,240updates + smoke10. NULL0.606694 대 MIXED0.538191로12.728% 악화했다. UNIFORM 대비0.171%는 불확실하다. 176개 주지표·66개 부가지표 scalar와 숨긴 상세값 권한·선택·resume·gradient 검산을 완료했다.
+
+[최종 전체 보고서](../results/condition_studies_v1_20260916/MASTER_REPORT.md), [게시 감사](../results/condition_studies_v1_20260916/publication_audit.json), [116경로 검산](../results/condition_studies_v1_20260916/training_record_verification.json), [전체 forward 장부](../results/condition_studies_v1_20260916/FORWARD_LEDGER.csv). 이전2,516파일 보존, native forward115,034/200,000회, 외부 compute 오염0updates. 추가 학습·후속 후보 실행은 없다.

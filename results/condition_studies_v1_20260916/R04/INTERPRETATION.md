@@ -8,6 +8,6 @@
 
 512회 고정 체크포인트도 숨기지 않았다. D3의 반복 평균 NRMSE0.390467, 수정 RMS0.216285는 선택된 초기 모델보다 모두 나쁘다. D3의 수정량은 D2보다0.782%, D1보다6.302% 악화했고 두 직접 CI 모두 음수다. 고정512의 원래 frontier 열은 같은512 D0를 기준으로 한 보호 여부이므로, 선택된 D0 기준과 혼동하면 안 된다. 별도 accuracy_protection_references.csv에서 두 기준을 모두 표시했다.
 
-전체 학습 중 clipping 비율은 군별 약0.20–0.39%였고 GPU 외부 compute 오염은0회다. lambda나 학습률을 불리한 결과에 맞춰 재조정하지 않았다. 사전 지정된 선택 가중치의 gradient 분해는 전체 queue 종료 후0optimizer로 수행하며, 그 결과는 역사적 모든 update의 gradient 분해를 대체하지 않는다.
+전체 학습 중 clipping 비율은 군별 약0.20–0.39%였고 GPU 외부 compute 오염은0회다. lambda나 학습률을 불리한 결과에 맞춰 재조정하지 않았다. 전체 queue 종료 후 사전 지정 TRAIN 네 쌍×두 seed에서 선택 가중치의 gradient를 분해했다. D1의 가중 규제/task gradient norm 비율 평균은0.2758이었다. D2/D3는 INIT가 선택되어 correction과 그 규제 gradient가0이었다. 이것은 선택된 초기 가중치에서의 값이며 학습 중 모든 update에서 규제가0이었다는 뜻이 아니다. 0optimizer 검사로 동결·학습 가중치 모두 보존했고, 역사적 모든 update의 gradient 분해를 대체하지 않는다. [원기록](gradient_contributions.csv).
 
 이 고정 조건에서는 단순 평활화로 정확도–수정량 절충을 얻을 수 있었고 새 LoRA 규제의 필요성은 확인하지 못했다. 평가 원점은5개 index날짜·4개 관측 주간 블록으로 제한된다. 정식 N-BEATS-S/TARW와의 동등 예산 비교는 수행하지 않았다. 혁신량 기반 보존이 일반적으로 무효라는 원인 결론이나 새로운 규제의 최초성 주장은 하지 않는다.
