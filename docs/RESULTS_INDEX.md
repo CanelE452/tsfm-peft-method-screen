@@ -119,3 +119,5 @@ PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제
 - [R04 STABILITY 완료](../results/condition_studies_v1_20260916/R04/REPORT.md): 16fits/8,192updates + smoke8. 모든 반복은 INIT 선택. 단순alpha=.25 평활화는 정확도0.178% 손해로 수정 RMS25% 감소; 추가 LoRA 적응 근거는 없다. 수정량·MAE/RMSE340개 추가 scalar와 CPU 선택 검산 완료.
 
 - [N07 SPECTRAL 완료](../results/condition_studies_v1_20260916/N07/REPORT.md): 16fits/8,192updates + smoke8. PRED0.249438 대 SHUFFLE0.247272로0.876% 악화. 저에너지 성분의 작은 개선과 전체 시간영역 악화를 분리했다. 144개 원점수 및 선택·재개 검산 완료.
+
+- [R08 LEAD 완료](../results/condition_studies_v1_20260916/R08/REPORT.md): 16fits/8,192updates + smoke8. 가용성 보정의 선형 horizon 대비 gain0.0588%는 CI가0을 포함한다. 동결0.375896 대 제안0.380829도 함께 보고했다. 176개 원점수·선택·재개·CPU 대조 검산 완료.
