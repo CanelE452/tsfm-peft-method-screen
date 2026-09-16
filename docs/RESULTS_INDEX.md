@@ -94,3 +94,7 @@ Query 자원 제약 파일럿은 117개 CPU 검사와 42개 저장 비교 재계
 PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제한된 구성요소 신호 기준 미충족. LH가 두 원천에서 가장 정확하다. LH native checkpoint는 자원 검사에서 peak62.48% 절감/step46~53% 증가, SIDE-fast보다도 낮은 peak를 기록했다. 동일 조건 2-update 검사는 bitwise 통과했으나 해당 옵션으로 전체20epoch를 새로 학습하지는 않았다. 독립 test·신규 방법 PASS가 아니며 자동 후속 연구는 종료한다.
 
 [4,974개 독립 scalar·756개 checkpoint·40개 복원 검산](../results/channel_controlled_improvement_v1_20260916/independent_verification.json), [28개 완전 재개 상태·164개 타깃 정렬](../results/channel_controlled_improvement_v1_20260916/completion_audit.json), [실행 계약과 경로](CHANNEL_CONTROLLED_IMPROVEMENT_20260916.md), [재사용 감사](../results/channel_controlled_improvement_v1_20260916/REUSE_RECEIPT.md). 큰 예측·가중치는 로컬 cache에 남는다.
+
+## 예보 경로 연결 직접 비교 — 사전검사 통과, 본학습 진행 중
+
+[실행 상태 문서](FORECAST_PATH_STRUCTURE_20260916.md). 단일 계약 forecast_path_structure_v1_20260916의 세 타깃을 TRAIN 기준으로 고정하고 PATH/POINT 시점별 multiset 검사 및 smoke24updates를 완료했다. 최대48fits를 실행 중이며 이 항목은 완료 결과나 성능 PASS가 아니다.

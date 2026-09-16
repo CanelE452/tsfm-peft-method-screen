@@ -1,0 +1,16 @@
+{
+  "base": "a5cbff35572d01cfb5d5204f71ae571eab61efc1",
+  "base_diff": "",
+  "branch": "main",
+  "dirty": "?? experiments/forecast_path_structure_v1_20260916/\n?? results/forecast_path_structure_v1_20260916/\n",
+  "disk_free_bytes": 275421007872,
+  "head": "a5cbff35572d01cfb5d5204f71ae571eab61efc1",
+  "process_log_policy": "Only relevant worker entries published; full startup process list retained locally",
+  "processes": [
+    "  60051       1 /bin/bash -lc .venv/bin/python -c 'from experiments.forecast_path_structure_v1_20260916.data import prepare; prepare()' > .cache/forecast_path_structure_v1_20260916/prepare.log 2>&1",
+    "  60054       1 .venv/bin/python -c from experiments.forecast_path_structure_v1_20260916.data import prepare; prepare()"
+  ],
+  "protocol_sha256": "e64aca5d2b0a4be451b8cecf40ef03fc0c039ada335327267b56f3c85340a25d",
+  "reason": "New TRAIN64, three targets, two LRs/two seeds, 512 updates and POINT control; old 120-update paths incompatible",
+  "reused_fits": 0
+}

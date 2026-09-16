@@ -1,0 +1,10 @@
+{
+  "indexing": "order[epoch,position] -> TRAIN index; offsets[block,TRAIN index,hour]; masks[epoch,TRAIN index,feature]",
+  "path": ".cache/forecast_path_structure_v1_20260916/augmentation_schedule.npz",
+  "seeds": [
+    61730,
+    61731
+  ],
+  "sha256": "7574e6bb3fbed5d11c9bf3b8a6787974e2e5959096600a86d927f074d446509a",
+  "uses": "TRAIN ONLY; same schedules for both LRs and common order for all arms"
+}
