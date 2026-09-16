@@ -1,0 +1,188 @@
+[
+  {
+    "arm": "A0",
+    "buffers_unchanged": true,
+    "changed_tensors": 192,
+    "extra_after": {},
+    "extra_gradients": [
+      {},
+      {}
+    ],
+    "extra_parameters": 0,
+    "frozen_unchanged": true,
+    "median_slot": 10,
+    "native_initial_error": 0.0,
+    "official_preprocess_exact": true,
+    "restore_bitwise": true,
+    "restore_error": 0.0,
+    "trainable_parameters": 1179648,
+    "updates": 2
+  },
+  {
+    "arm": "A1",
+    "buffers_unchanged": true,
+    "changed_tensors": 192,
+    "extra_after": {},
+    "extra_gradients": [
+      {},
+      {}
+    ],
+    "extra_parameters": 0,
+    "frozen_unchanged": true,
+    "median_slot": 10,
+    "native_initial_error": 0.0,
+    "official_preprocess_exact": true,
+    "restore_bitwise": true,
+    "restore_error": 0.0,
+    "trainable_parameters": 1179648,
+    "updates": 2
+  },
+  {
+    "arm": "A2",
+    "buffers_unchanged": true,
+    "changed_tensors": 193,
+    "extra_after": {
+      "theta": [
+        [
+          0.00019988200801890343,
+          0.00019988202257081866,
+          0.00019985986000392586,
+          -0.00019974526367150247,
+          0.0001998147345148027,
+          0.00019992419402115047,
+          0.00019988200801890343,
+          0.00019988200801890343,
+          0.00019988200801890343
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "extra_gradients": [
+      {
+        "theta": 9.689388275146484
+      },
+      {
+        "theta": 4.317592620849609
+      }
+    ],
+    "extra_parameters": 36,
+    "frozen_unchanged": true,
+    "median_slot": 10,
+    "native_initial_error": 0.0,
+    "official_preprocess_exact": true,
+    "restore_bitwise": true,
+    "restore_error": 0.0,
+    "trainable_parameters": 1179684,
+    "updates": 2
+  },
+  {
+    "arm": "A3",
+    "buffers_unchanged": true,
+    "changed_tensors": 194,
+    "extra_after": {
+      "eta": [
+        -0.0001998235093196854,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "theta": [
+        [
+          0.00019988275016658008,
+          0.0001998827647184953,
+          0.0001998607476707548,
+          -0.00019974616589024663,
+          0.00019981572404503822,
+          0.00019992489251308143,
+          0.00019988275016658008,
+          0.00019988275016658008,
+          0.00019988275016658008
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "extra_gradients": [
+      {
+        "eta": 0.7321630716323853,
+        "theta": 9.689388275146484
+      },
+      {
+        "eta": 0.3200805187225342,
+        "theta": 4.316598892211914
+      }
+    ],
+    "extra_parameters": 40,
+    "frozen_unchanged": true,
+    "median_slot": 10,
+    "native_initial_error": 0.0,
+    "official_preprocess_exact": true,
+    "restore_bitwise": true,
+    "restore_error": 0.0,
+    "trainable_parameters": 1179688,
+    "updates": 2
+  }
+]

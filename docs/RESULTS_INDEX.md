@@ -107,3 +107,5 @@ PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제
 ## 아홉 조건 PEFT 비교 — 준비·실행 중 (2026-09-16)
 
 [전체 계약·현재 상태](../results/condition_studies_v1_20260916/MASTER_REPORT.md). 모든9명세를 먼저봉인; 기존48forecast경로는재학습하지않고R05/N06예측의존성으로만재사용한다. 아직새비교의완료나성능성공을뜻하지않는다.
+
+- [N01 ASYNC 완료](../results/condition_studies_v1_20260916/N01/REPORT.md): 16fits/8,192updates + smoke8. age항 A3는 A2보다0.175%, ridge A1보다4.017% 악화. 실제 학습·복원·선택·scalar 검산은 통과했으며 다음 N02는 독립 실행 중이다.

@@ -1,7 +1,14 @@
 {
-  "EVIDENCE": "NOT_MEASURED",
-  "EXECUTION": "PARTIAL",
+  "EVIDENCE": "NEGATIVE_WITHIN_SCOPE",
+  "EXECUTION": "COMPLETE",
   "NOVELTY": "UNVERIFIED_VARIANT",
-  "phase": "TRAIN_RUNNING",
-  "reason": "고정 queue 실제 학습 진행 중; 미완료는 성능실패 아님"
+  "aliases": {},
+  "attempted_fits": 16,
+  "interpretation": [
+    "적어도 하나의 필수 직접 대조에서 gain CI 전체가 음수"
+  ],
+  "main_updates": 8192,
+  "neural_fits": 16,
+  "repeated_models": 8,
+  "selected_INIT": 0
 }
