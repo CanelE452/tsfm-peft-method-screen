@@ -1,0 +1,63 @@
+{
+  "arm": "A0",
+  "checkpoint_io_seconds": 0.44109536707401276,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/outlier_signal_peft_v1_20260917/fits/electricity_A0_s81500_lr0.0001/checkpoint_0.pt",
+      "objective": 0.2221056741820164,
+      "sha256": "09fa505bb35966a24a1379c7c132f65e5da6bf124d5da41780337b1b8ea2b795",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/outlier_signal_peft_v1_20260917/fits/electricity_A0_s81500_lr0.0001/checkpoint_256.pt",
+      "objective": 0.2086509215005694,
+      "sha256": "462eb46ba05463fc3c632b6140014d0d407bf269ea076ec30514d7a01eb5a1a0",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/outlier_signal_peft_v1_20260917/fits/electricity_A0_s81500_lr0.0001/checkpoint_416.pt",
+      "objective": 0.20790481995455865,
+      "sha256": "2cd5c2e7df7b2b52c4bc70cdb1f7b8a1968339d7b9aaf20df5039840385bf7d0",
+      "step": 416
+    },
+    {
+      "checkpoint": ".cache/outlier_signal_peft_v1_20260917/fits/electricity_A0_s81500_lr0.0001/checkpoint_512.pt",
+      "objective": 0.21158782342055554,
+      "sha256": "ca0cb5cf54cc6ddef441c22f46a1fdea2e67cb6316aec68b5a1fe01aa7bcb2f1",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/outlier_signal_peft_v1_20260917/fits/electricity_A0_s81500_lr0.0001/checkpoint_768.pt",
+      "objective": 0.20844164587678377,
+      "sha256": "b9f3b2d054ea4bf19519a9796d28888f78f36953464a336d0c384dc78a1db2a3",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/outlier_signal_peft_v1_20260917/fits/electricity_A0_s81500_lr0.0001/checkpoint_1024.pt",
+      "objective": 0.2060688887436639,
+      "sha256": "cc868f374dc9353211b86283b9d230f66723543debc3c58e2d073a83275fbca6",
+      "step": 1024
+    }
+  ],
+  "fit": "electricity_A0_s81500_lr0.0001",
+  "frozen_sha256": "d9c5a4002d9a10ab5cbf72a6711948b5bbf3678a9287ffcdbce102f8f9738560",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 28.33238827995956,
+  "lr": 0.0001,
+  "microbatch": 32,
+  "optimization_limited": true,
+  "optimizer_seconds": 37.79766261775512,
+  "peak_allocated": 388404736,
+  "peak_reserved": 402653184,
+  "seed": 81500,
+  "selected": {
+    "checkpoint": ".cache/outlier_signal_peft_v1_20260917/fits/electricity_A0_s81500_lr0.0001/checkpoint_1024.pt",
+    "objective": 0.2060688887436639,
+    "sha256": "cc868f374dc9353211b86283b9d230f66723543debc3c58e2d073a83275fbca6",
+    "step": 1024
+  },
+  "source": "electricity",
+  "status": "COMPLETE",
+  "updates": 1024,
+  "validation_seconds": 5.069622492941562
+}

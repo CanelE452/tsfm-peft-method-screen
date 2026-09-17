@@ -1,0 +1,26 @@
+{
+  "E_numeric_labels_not_read_for_this_check": true,
+  "model_forward_arguments": [
+    "self",
+    "observed",
+    "sigma",
+    "residual_mode"
+  ],
+  "scenario_labels_fault_masks_original_inputs_not_forward_arguments": true,
+  "sources": {
+    "electricity": {
+      "A0_only_fault_inputs_reverted": true,
+      "all_epochs_checked": 32,
+      "all_examples_per_epoch": 1024,
+      "shared_target_stream_exact": true,
+      "shift_only_changes_labels": true
+    },
+    "ettm1": {
+      "A0_only_fault_inputs_reverted": true,
+      "all_epochs_checked": 32,
+      "all_examples_per_epoch": 1024,
+      "shared_target_stream_exact": true,
+      "shift_only_changes_labels": true
+    }
+  }
+}
