@@ -1,0 +1,57 @@
+{
+  "arm": "C1",
+  "checkpoint_io_seconds": 0.4626091010286473,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm2_C1_s85553_lr0.0001/checkpoint_0.pt",
+      "objective": 0.2705545977163883,
+      "sha256": "0bdf3a86418a44bf0e1ea519b80a9eb1b7e78324565258f6f2de036219eb180a",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm2_C1_s85553_lr0.0001/checkpoint_256.pt",
+      "objective": 0.27567442501443834,
+      "sha256": "c0801ff17d53877c549f52fc7875784fcab41baf6fda58b86a023d5f20b3e662",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm2_C1_s85553_lr0.0001/checkpoint_512.pt",
+      "objective": 0.27656068721871857,
+      "sha256": "3899c16ed61a2ac271ce52f278c8c35b2a1ed651513731bb3618dba3e3dc260e",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm2_C1_s85553_lr0.0001/checkpoint_768.pt",
+      "objective": 0.28315662704196876,
+      "sha256": "8009e6338602e0bcba1b704c32c489f6824972bca4960f24739193a99056f824",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm2_C1_s85553_lr0.0001/checkpoint_1024.pt",
+      "objective": 0.2956748805361362,
+      "sha256": "a51919efe7035de9247d3e6c4d4436dc7a9c2228f5103460c3cb7d64bfbccbe8",
+      "step": 1024
+    }
+  ],
+  "fit": "ettm2_C1_s85553_lr0.0001",
+  "frozen_sha256": "d9c5a4002d9a10ab5cbf72a6711948b5bbf3678a9287ffcdbce102f8f9738560",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 46.09205037396168,
+  "lr": 0.0001,
+  "microbatch": 32,
+  "optimization_limited": false,
+  "optimizer_seconds": 36.90463037486188,
+  "peak_allocated": 388863488,
+  "peak_reserved": 402653184,
+  "seed": 85553,
+  "selected": {
+    "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm2_C1_s85553_lr0.0001/checkpoint_0.pt",
+    "objective": 0.2705545977163883,
+    "sha256": "0bdf3a86418a44bf0e1ea519b80a9eb1b7e78324565258f6f2de036219eb180a",
+    "step": 0
+  },
+  "source": "ettm2",
+  "status": "COMPLETE",
+  "updates": 1024,
+  "validation_seconds": 4.893686252005864
+}

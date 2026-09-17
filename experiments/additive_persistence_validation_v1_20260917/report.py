@@ -18,6 +18,7 @@ def report():
     cols=['panel','seed_scope','new','baseline','gain_pct','ci_type','ci_low_pct','ci_high_pct']
     calibration=pd.DataFrame([dict(source_seed=k,alpha=r['alpha'],beta=r['beta']) for k,r in cal.items()])
     choices=pd.DataFrame(read(OUT/'MODEL_SELECTION.json'))[['source','arm','seed','lr','step']]
+    storage=pd.read_csv(OUT/'STORAGE_SUMMARY.csv');storage['GiB']=storage.logical_bytes/2**30
     resources=pd.read_csv(OUT/'RESOURCE_REPORT.csv');train=resources[resources.kind=='training'].groupby(['source','arm'])[['trainable_parameters','retained_adaptation_parameters','optimizer_seconds','validation_seconds','train_peak_allocated_mib','train_peak_reserved_mib']].median().reset_index()
     inference=resources[resources.kind=='inference_profile'].groupby(['panel','arm'])[['median_seconds','range_seconds','inference_peak_allocated_mib','forward_models']].median().reset_index()
     body=f'''# 지속성 마스크 추가 적응 — 논문 후속 검증
@@ -127,6 +128,10 @@ PULSE의 과거는 지속되는 SHIFT8과 같고 미래는 다르다. 양 부호
 {d['cost']}
 
 전체 새 본학습 compute {cost['new_training_compute_seconds']:.2f}초, 학습 중 checkpoint V 검증 {cost['new_validation_seconds']:.2f}초, checkpoint I/O {cost['new_checkpoint_io_seconds']:.2f}초. 두 실행 구간을 합한 run-all wall {cost['new_run_all_wall_seconds']/60:.2f}분이다. 이 V 시간은 checkpoint 선택 검증이며, 이후 alpha/beta 선택용 V 추론은 별도 active-time을 계측하지 않았고 전체 wall에 포함된다. 새 학습 횟수58에는 새 B0 7개를 포함한다. 과거 공유 B0 {cost['old_shared_B0_fits']}경로/{cost['old_shared_B0_updates']}updates와 이전 additive 비교 {cost['old_additive_comparison_fits']}경로/{cost['old_additive_updates']}updates는 새 비용과 분리했다.
+
+기존 공유 자료·모델·checkpoint와 새 cache의 논리적 파일 크기를 따로 집계했다. 파일시스템의 압축·block 할당량이나 모델 사전학습 비용을 측정한 수치가 아니다. 공유 자료는 이번 감사에 등록한 파일 범위이며 과거 모든 실험 cache의 총량이 아니다.
+
+{table(storage)}
 
 source·방법별 학습 자원 중앙값(선택과 반복 fit 모두 포함):
 

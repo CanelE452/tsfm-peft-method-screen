@@ -47,6 +47,23 @@ def analyze():
     guards=[json.loads(l) for p in OUT.glob('gpu_*.jsonl') for l in open(p)]
     wall=read(OUT/'run-all_wall.json')['seconds']+read(OUT/'pre_E_statistics_repair/run-all_wall.json')['seconds']
     save(OUT/'COST_ACCOUNTING.json',dict(new_fits=len(fit),new_B0_fits=int((fit.arm=='B0').sum()),new_main_updates=int(fit.updates.sum()),new_smoke_updates=36,new_training_compute_seconds=float(fit.optimizer_seconds.sum()),new_validation_seconds=float(fit.validation_seconds.sum()),new_checkpoint_io_seconds=float(fit.checkpoint_io_seconds.sum()),new_run_all_wall_seconds=wall,old_shared_B0_fits=len(oldb),old_shared_B0_updates=sum(r['updates'] for r in oldb),old_shared_B0_compute_seconds=sum(r['optimizer_seconds'] for r in oldb),old_additive_comparison_fits=len(olda),old_additive_updates=sum(r['updates'] for r in olda),old_additive_compute_seconds=sum(r['optimizer_seconds'] for r in olda),minimum_free_gpu_mib=min(r['free_mib'] for r in guards),unapproved_compute_samples=sum(any(not a['own'] and not a.get('allowed_desktop',False) for a in r['apps']) for r in guards),new_cache_bytes=sum(p.stat().st_size for p in CACHE.rglob('*') if p.is_file() and not p.is_symlink()),training_parameters_not_memory_saving_ratio=True))
+    # Storage inventory is descriptive only; no metric, selection or training changes.
+    storage=[]
+    for rel in read(OUT/'SOURCE_MANIFEST.json')['immutable_hashes']:
+        if not rel.startswith('.cache/'):continue
+        if 'chronos-t5-small' in rel:continue  # Audited historical dependency, not used by this Bolt run.
+        if '/chronos-bolt-small/' in rel or 'models--amazon--chronos-bolt-small/' in rel:kind='shared_Bolt_snapshot'
+        elif '/fits/' in rel and rel.endswith('.pt'):kind='reused_previous_checkpoints'
+        elif '/predictions/' in rel:kind='reused_previous_predictions'
+        elif '/data/' in rel or '/conditions/' in rel:kind='shared_previous_data_cache'
+        else:kind='other_audited_previous_cache'
+        storage.append(dict(kind=kind,path=rel,bytes=(ROOT/rel).stat().st_size))
+    for rel in sorted({v['path'] for v in read(OUT/'DATA_MANIFEST.json').values()}):
+        storage.append(dict(kind='shared_raw_source',path=rel,bytes=(ROOT/rel).stat().st_size))
+    for p in CACHE.rglob('*'):
+        if p.is_file() and not p.is_symlink():storage.append(dict(kind='new_study_cache',path=str(p.relative_to(ROOT)),bytes=p.stat().st_size))
+    storage=pd.DataFrame(storage);storage.to_csv(OUT/'STORAGE_INVENTORY.csv',index=False)
+    storage.groupby('kind').agg(files=('path','count'),logical_bytes=('bytes','sum')).reset_index().to_csv(OUT/'STORAGE_SUMMARY.csv',index=False)
     # LR and output-control selection are independently reconstructed from V-only receipts.
     for source,d in read(OUT/'LR_SELECTION.json').items():
         for arm,r in d.items():assert choice(source,arm,85550 if source=='ettm2' else 81550)==r
