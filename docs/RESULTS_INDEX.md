@@ -1,6 +1,6 @@
 # 완료 작업과 검증 기록
 
-2026-09-17 기준. 표의 링크는 완료된 실행 또는 검토 결과다. 과거 FAIL/STOP은 당시 고정 실험의 판정으로 보존한다. 최신 재검토의 후속 연구 우선순위는 방법론 성공이나 새로운 실험 실행을 뜻하지 않는다.
+2026-09-18 기준. 표의 링크는 완료된 실행 또는 검토 결과다. 과거 FAIL/STOP은 당시 고정 실험의 판정으로 보존한다. 최신 재검토의 후속 연구 우선순위는 방법론 성공이나 새로운 실험 실행을 뜻하지 않는다.
 
 
 [확인] 저장 예측의 단순보정 대조를 신규학습0회로 완료했다. 같은 V 보정 뒤 VINTAGE는 STD 대비 최신2.326%·과거5.870% 개선했으나, 최신 월구간은0을 포함한다. 중심화 median 오차의 차이도 남았다. 기존 FR/PACE와의 겹침을 확인해 단순 consistency를 새후보로 재명명하지 않았다. [한국어 보고서](../results/covariate_calibration_control_20260916/REPORT.md), [해석·신규성 경계](../results/covariate_calibration_control_20260916/INTERPRETATION.md), [검산](../results/covariate_calibration_control_20260916/verification.json).
@@ -144,4 +144,4 @@ PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제
 
 - [B0 유지 + 추가 어댑터](../results/additive_b0_adapter_v1_20260917/REPORT.md): 완료·검산 통과. 추가24 fits / 본학습24,576 + smoke12 updates. Electricity SHIFT8에서 C3는 B0 대비3.963%, 일반 어댑터 C2 대비1.318% 개선했으나 FAULT와 ETTm1 SHIFT8에는 손해가 있어 범용 우월성은 미확인. 기존에 노출된 개발 E이며 논문 PASS 아님. [결정](../results/additive_b0_adapter_v1_20260917/FINAL_DECISION.md), [검산](../results/additive_b0_adapter_v1_20260917/verification.json), [공개 감사](../results/additive_b0_adapter_v1_20260917/publication_audit.json), [고정 계약](../results/additive_b0_adapter_v1_20260917/PROTOCOL.md).
 
-- [지속성 어댑터 논문 후속 검증](../results/additive_persistence_validation_v1_20260917/REPORT.md): 진행 중. 기존 C3 유지, 전력16계열 전이·기전3대조·세 번째 seed·ETTm2·변화 형태 검사. CPU20검사와 smoke36updates 및 새학습58/58경로·59,392updates 완료. 평가·독립 검산 진행 중. [단일 계약](../results/additive_persistence_validation_v1_20260917/MASTER_CLI.txt), [봉인](../results/additive_persistence_validation_v1_20260917/MASTER_SEAL.json).
+- [지속성 어댑터 논문 후속 검증](../results/additive_persistence_validation_v1_20260917/REPORT.md): **완료·검산**. 58새fits·59,392main+36smoke updates,246평가view. 세seed 전력16계열 SHIFT8에서 C3/B0 +7.112%,C3/C2 +2.399%;C3/RECENCY +0.180%이나 세번째seed는−0.020%. ETTm1 C3/C2−1.847%,ETTm2−0.045%로 지점 일반성 미확보. 독립자료·논문 PASS 아님. [최종 판단](../results/additive_persistence_validation_v1_20260917/FINAL_DECISION.md), [주장–근거](../results/additive_persistence_validation_v1_20260917/PAPER_CLAIM_EVIDENCE.md), [논문 개요](../results/additive_persistence_validation_v1_20260917/PAPER_OUTLINE.md), [검산](../results/additive_persistence_validation_v1_20260917/VERIFICATION.json), [평가 전 통계 계약 수정](../results/additive_persistence_validation_v1_20260917/SEAL_AMENDMENT_01.json).

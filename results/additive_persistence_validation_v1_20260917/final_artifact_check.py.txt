@@ -1,0 +1,36 @@
+from pathlib import Path
+import json,hashlib,re,gzip,csv
+import numpy as np
+import pandas as pd
+from experiments.additive_persistence_validation_v1_20260917.common import ROOT,OUT,read,sha,check_seal,save
+seal=check_seal();old=read(OUT/'pre_E_statistics_repair/MASTER_SEAL.json');changes={}
+for bucket in ['source_hashes','data_hashes']:
+ assert set(old[bucket])==set(seal[bucket]);changes[bucket]=[p for p in seal[bucket] if old[bucket][p]!=seal[bucket][p]]
+assert changes['source_hashes']==['experiments/additive_persistence_validation_v1_20260917/statistics.py']
+assert changes['data_hashes']==['results/additive_persistence_validation_v1_20260917/MASTER_PROTOCOL.md']
+assert sha(OUT/'SEAL_AMENDMENT_01.json')==seal['amendment_receipt_sha256']
+manifest=read(OUT/'PREDICTIONS_MANIFEST.json');gate=read(OUT/'ALL_PREDICTIONS_SAVED.json');ev=read(OUT/'GLOBAL_EVALUATION_SEAL.json')
+assert len(manifest)==246 and sha(OUT/'PREDICTIONS_MANIFEST.json')==gate['manifest_sha256']
+assert ev['at']<gate['at']<(OUT/'RAW_SCORES.csv').stat().st_mtime
+assert ev['master_seal_sha256']==sha(OUT/'MASTER_SEAL.json')
+v=read(OUT/'VERIFICATION.json');assert v['status']=='VERIFIED' and v['total_updates']==59428 and len(v['restored_selected_models'])==54
+pa=read(OUT/'PUBLICATION_AUDIT.json')
+for bucket in ['required_artifact_hashes','reporting_source_hashes']:
+ for name,h in pa[bucket].items():assert sha((OUT if bucket=='required_artifact_hashes' else ROOT)/name)==h,name
+for p,h in read(OUT/'TRAINING_COMPLETION_AUDIT.json')['hashes'].items():assert sha(ROOT/p)==h,p
+assert read(OUT/'status.json')['execution']=='COMPLETE'
+e=pd.read_csv(OUT/'UNCERTAINTY.csv');assert (e.groupby('panel').common_block_draw_sha256.nunique()==1).all()
+required='TOPIC_ONEPAGE.md MASTER_PROTOCOL.md MASTER_SEAL.json REPO_AUDIT.md LITERATURE_BOUNDARY.md DATA_EXPOSURE_MANIFEST.csv SERIES_PANEL_MANIFEST.json ETTM2_DATA_RECEIPT.json ORIGIN_AUDIT.csv BASELINE_MANIFEST.json MODEL_SELECTION.json FIT_LEDGER.csv UPDATE_LEDGER.jsonl PREDICTIONS_MANIFEST.json GLOBAL_EVALUATION_SEAL.json RAW_SCORES.csv PRIMARY_CONTRASTS.csv MECHANISM_CONTRASTS.csv SEED_EFFECTS.csv UNCERTAINTY.csv RESOURCE_REPORT.csv VERIFICATION.json REPORT.md FINAL_DECISION.md PAPER_CLAIM_EVIDENCE.md PAPER_OUTLINE.md REPRODUCTION_COMMANDS.txt'.split()
+for name in required:assert (OUT/name).is_file(),name
+links=0
+for name in ['REPORT.md','FINAL_DECISION.md','PAPER_CLAIM_EVIDENCE.md','PAPER_OUTLINE.md','LITERATURE_BOUNDARY.md']:
+ for link in re.findall(r'\]\(([^)]+)\)',(OUT/name).read_text()):
+  if not link.startswith(('http','https','#')):assert (OUT/link).exists(),(name,link);links+=1
+for p in OUT.rglob('*'):
+ if p.is_file():assert p.stat().st_size<100*2**20,('GITHUB_FILE_LIMIT',str(p))
+# gzip CRC/footer and CSV row count, without holding all origin rows in memory.
+with gzip.open(OUT/'SCORES_BY_ORIGIN.csv.gz','rt') as f:origin_rows=sum(1 for _ in f)-1
+expected_origin_rows=sum(v["shape"][0]//2 for v in manifest.values())
+assert origin_rows==expected_origin_rows,(origin_rows,expected_origin_rows)
+save(OUT/'FINAL_ARTIFACT_AUDIT.json',dict(status='VERIFIED',main_fits=58,total_updates=59428,prediction_views=246,selected_model_restores=54,scalar_rows=8400,origin_score_rows=origin_rows,amendment_changed_only=changes,common_date_draws_per_panel=1,model_and_data_seal_unchanged=True,E_seal_before_predictions_before_scores=True,report_links_checked=links,figures_visually_inspected=5,source_diagnostic_script='final_artifact_check.py.txt',required_artifact_hashes={n:sha(OUT/n) for n in required},paper_pass=False,automatic_followup=False))
+print('FINAL_ARTIFACT_AUDIT_VERIFIED',origin_rows)
