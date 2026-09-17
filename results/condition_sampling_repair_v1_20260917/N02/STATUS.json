@@ -1,7 +1,31 @@
 {
-  "EVIDENCE": "NOT_MEASURED",
-  "EXECUTION": "PREPARED",
+  "EVIDENCE": "POSITIVE_UNCERTAIN",
+  "EXECUTION": "COMPLETE",
   "NOVELTY": "UNVERIFIED_VARIANT",
-  "neural_fits": 0,
-  "reason": []
+  "aliases": {},
+  "attempted_fits": 16,
+  "ci": [
+    -0.006484501636518,
+    0.0365915717076275
+  ],
+  "closest_baseline": "B2",
+  "completed_stages": [
+    "smoke",
+    "LR",
+    "repeat",
+    "CPU",
+    "evaluation",
+    "cross"
+  ],
+  "main_updates": 8192,
+  "neural_fits": 16,
+  "old_closest_gain": -2.0123614548698945,
+  "phase": "cross",
+  "repaired_closest_gain": 0.0135647233211046,
+  "repeated_models": 8,
+  "selected_INIT": 2,
+  "tags": [
+    "POSITIVE_UNCERTAIN",
+    "SAMPLING_SENSITIVE"
+  ]
 }

@@ -1,0 +1,97 @@
+[
+  {
+    "arm": "B0",
+    "buffers_unchanged": true,
+    "changed_tensors": 192,
+    "extra_after": {},
+    "extra_gradients": [
+      {},
+      {}
+    ],
+    "extra_parameters": 0,
+    "frozen_unchanged": true,
+    "median_slot": 10,
+    "native_initial_error": 0.0,
+    "official_preprocess_exact": true,
+    "restore_bitwise": true,
+    "restore_error": 0.0,
+    "trainable_parameters": 1179648,
+    "updates": 2
+  },
+  {
+    "arm": "B1",
+    "buffers_unchanged": true,
+    "changed_tensors": 192,
+    "extra_after": {},
+    "extra_gradients": [
+      {},
+      {}
+    ],
+    "extra_parameters": 0,
+    "frozen_unchanged": true,
+    "median_slot": 10,
+    "native_initial_error": 0.0,
+    "official_preprocess_exact": true,
+    "restore_bitwise": true,
+    "restore_error": 0.0,
+    "trainable_parameters": 1179648,
+    "updates": 2
+  },
+  {
+    "arm": "B2",
+    "buffers_unchanged": true,
+    "changed_tensors": 192,
+    "extra_after": {},
+    "extra_gradients": [
+      {},
+      {}
+    ],
+    "extra_parameters": 0,
+    "frozen_unchanged": true,
+    "median_slot": 10,
+    "native_initial_error": 0.0,
+    "official_preprocess_exact": true,
+    "restore_bitwise": true,
+    "restore_error": 0.0,
+    "trainable_parameters": 1179648,
+    "updates": 2
+  },
+  {
+    "arm": "B3",
+    "buffers_unchanged": true,
+    "changed_tensors": 194,
+    "extra_after": {
+      "a": [
+        0.0002001192478928715,
+        0.0001918503548949957,
+        -0.00019782558956649154,
+        0.00020008342107757926
+      ],
+      "b": [
+        0.00020011303422506899,
+        0.000182264469913207,
+        -0.0001981956447707489,
+        0.000199795700609684
+      ]
+    },
+    "extra_gradients": [
+      {
+        "a": 0.013417460955679417,
+        "b": 0.018856914713978767
+      },
+      {
+        "a": 0.010869290679693222,
+        "b": 0.01703582890331745
+      }
+    ],
+    "extra_parameters": 8,
+    "frozen_unchanged": true,
+    "median_slot": 10,
+    "native_initial_error": 0.0,
+    "official_preprocess_exact": true,
+    "restore_bitwise": true,
+    "restore_error": 0.0,
+    "trainable_parameters": 1179656,
+    "updates": 2
+  }
+]

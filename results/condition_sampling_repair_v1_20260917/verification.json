@@ -1,0 +1,70 @@
+{
+  "at": 1789605011.3892367,
+  "blocked_not_performance_failures": true,
+  "historical_files_preserved": 2952,
+  "independent_forward_ledger_matches": true,
+  "main_fits": 32,
+  "main_updates": 16384,
+  "native_forwards": {
+    "eval": 13952,
+    "train": 16400,
+    "verify": 64
+  },
+  "no_unaffected_retraining": true,
+  "passed": true,
+  "smoke_updates": 16,
+  "tracks": [
+    {
+      "main_fits": 0,
+      "main_updates": 0,
+      "performance_measured": false,
+      "smoke_updates": 0,
+      "status": "BLOCKED_DIVERSITY",
+      "track": "N01"
+    },
+    {
+      "contaminated_updates": 0,
+      "cross_metric_checks": 20,
+      "main_fits": 16,
+      "main_updates": 8192,
+      "scalar_metric_checks": 160,
+      "smoke_updates": 8,
+      "status": "COMPLETE",
+      "track": "N02"
+    },
+    {
+      "contaminated_updates": 0,
+      "cross_metric_checks": 16,
+      "main_fits": 16,
+      "main_updates": 8192,
+      "scalar_metric_checks": 512,
+      "smoke_updates": 8,
+      "status": "COMPLETE",
+      "track": "N03"
+    },
+    {
+      "main_fits": 0,
+      "main_updates": 0,
+      "performance_measured": false,
+      "smoke_updates": 0,
+      "status": "BLOCKED_DIVERSITY",
+      "track": "R04"
+    },
+    {
+      "main_fits": 0,
+      "main_updates": 0,
+      "performance_measured": false,
+      "smoke_updates": 0,
+      "status": "BLOCKED_DIVERSITY",
+      "track": "N07"
+    },
+    {
+      "main_fits": 0,
+      "main_updates": 0,
+      "performance_measured": false,
+      "smoke_updates": 0,
+      "status": "BLOCKED_DIVERSITY",
+      "track": "R08"
+    }
+  ]
+}
