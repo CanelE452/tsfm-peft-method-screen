@@ -131,6 +131,6 @@ PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제
 [표본 교정 계약·실행 기록](CONDITION_SAMPLING_REPAIR_20260917.md), [GPU 전 분산 감사](../results/condition_sampling_repair_v1_20260917/ORIGIN_REPAIR_AUDIT.md). N02/N03의 모든 역할은 날짜·phase 조건 통과. N01/R04/N07/R08은 phase count range3>2로 BLOCKED_DIVERSITY이며 성능 실패가 아니다. 적격32/32fits·16,384updates + smoke16과 양방향 교차 평가를 완료했다. N02/N03 모두 POSITIVE_UNCERTAIN + SAMPLING_SENSITIVE이며 재개 후보0개다. 기존R05/N06/R09는 재학습하지 않았다. [최종 보고서](../results/condition_sampling_repair_v1_20260917/MASTER_REPORT.md), [최종 결정](../results/condition_sampling_repair_v1_20260917/FINAL_DECISION.md), [검산](../results/condition_sampling_repair_v1_20260917/verification.json).
 
 
-## 긴 이력 압축 PEFT — 실행 중 (2026-09-17)
+## 긴 이력 압축 PEFT — 20/20 신규 경로 완료 (2026-09-17)
 
-[고정 비교·실행 문서](HISTORY_COMPRESSION_20260917.md). 기존 SHORT/LONG8fits 재사용을 감사하고 신규5군20fits를 실행한다. 실제 GPU smoke5군과 입력 독립 검산을 통과했다. 현재는 실행 중이며 방법 성능 성공을 뜻하지 않는다.
+[한국어 REPORT](../results/history_compression_v1_20260917/REPORT.md), [최종 결정](../results/history_compression_v1_20260917/FINAL_DECISION.md), [실행 문서](HISTORY_COMPRESSION_20260917.md). 기존 SHORT/LONG8fits를 검증 후 재사용하고 STATS_SHORT/POOL/POOL_KD/LEARN/LEARN_KD20fits·10,240updates와 smoke10updates를 완료했다. LEARN_KD대POOL_KD +0.0701%, 대LEARN +3.6627%. 구성요소 탐색 기준 충족=False, 정확도·자원절충 신호=False. 신규성은 미확보이며 재사용 개발 평가다. [수치 검산](../results/history_compression_v1_20260917/verification.json), [새 모델 E 복원](../results/history_compression_v1_20260917/independent_model_verification.json). 추가 학습은 없다.

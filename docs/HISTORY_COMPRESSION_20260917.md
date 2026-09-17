@@ -25,3 +25,7 @@
 ```
 
 `run`은 완료 경로와 해시가 검증된 예측을 재사용한다. 중단이 epoch 경계 밖이면 모호한 업데이트의 무검증 재실행을 거절한다. GPU는 RustDesk만 기존 사용자 승인 예외로 허용하며, 외부 학습·여유 메모리 부족 시 경계에서 대기한다. 학습 다음 평가·자원측정·검산·보고서가 동일 controller에 연결된다. 로그는 로컬 `.cache/history_compression_v1_20260917/controller.log`다.
+
+## 완료 결과
+
+신규20/20fits·10,240updates와 기존8fits 재사용, 평가·독립 검산을 완료했다. [한국어 보고서](../results/history_compression_v1_20260917/REPORT.md), [최종 결정](../results/history_compression_v1_20260917/FINAL_DECISION.md). 추가 학습은 시작하지 않았다.
