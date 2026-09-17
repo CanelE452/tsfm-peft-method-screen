@@ -1,0 +1,6 @@
+# 기존 cache와 고정 snapshot/checkpoint가 필요하다. GitHub만으로 전체 수치 재현 가능하다는 뜻은 아니다.
+.venv/bin/python scripts/run_additive_persistence_validation.py prepare
+.venv/bin/python scripts/run_additive_persistence_validation.py run-all
+# run-all: MASTER_SEAL -> CPU/model/smoke -> 8+30+20 fits -> V alpha/beta -> all predictions -> score -> independent verify.
+# 완료 receipt와 일치하는 checkpoint/예측은 재사용한다. 모호한 optimizer intent나 partial epoch는 자동 replay하지 않는다.
+# SIGTERM/SIGINT는 정확한 epoch 경계에서 중지한다. 추가 seed/LR/후속 연구는 시작하지 않는다.

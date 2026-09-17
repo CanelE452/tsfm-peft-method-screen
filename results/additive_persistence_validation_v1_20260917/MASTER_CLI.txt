@@ -1,0 +1,687 @@
+지속성 마스크를 적용한 B0 추가 적응 — 논문 근거 확보용 후속 실행 계약
+문서 버전: additive_persistence_validation_v1_20260917
+저장소: CanelE452/tsfm-peft-method-screen
+확인 기준 commit: 196820ebf6943fb6f591120eae1a0a1d60c92e9a
+
+0. 무엇을 이어가고, 무엇을 바꾸지 않는가
+============================================================
+[확인] additive_b0_adapter_v1_20260917의 C3는 Electricity SHIFT8에서
+B0(C0) 대비 nMAE 3.962752%, 일반 어댑터 C2 대비 1.318388% 개선했다.
+C3/C2의 반복 seed별 개선은 0.215471%, 2.392078%였다.
+Electricity FAULT에서는 C0 대비 0.311674% 악화했고,
+ETTm1 SHIFT8에서는 C0 대비 0.408978%, C2 대비 1.362384% 악화했다.
+원래 E는 반복 사용한 개발 기간이다. 이 결과를 새 독립 검증으로 재명명하지 않는다.
+
+[설계] 이번에는 C3의 구조/마스크를 다시 발명하거나 튜닝하지 않는다.
+잘 학습된 B0를 동결한 상태에서 같은 C3를 유지하고 다음을 확인한다.
+  Q1. 기존 네 전력 계열 밖에서도 C3의 추가 이득이 유지되는가?
+  Q2. 이득이 단순한 수정량 감소/최근 위치 보호만으로 설명되는가?
+  Q3. 기존과 다른 변화 크기·지속길이·패치 정렬에서도 어떻게 작동하는가?
+  Q4. 다른 ETT 지점에서 같은 학습 절차를 재현했을 때 적용 범위는 어디까지인가?
+
+[가설/미검증] 논문으로 이어갈 작업 가설:
+  이미 적응한 예측기에 작은 잔차 어댑터를 추가할 때,
+  관측된 지속성에 따라 추가 수정의 위치를 제한하면
+  일부 지속적인 수준 변화 조건에서 일반 어댑터보다 유리할 수 있다.
+
+이것은 '실제 사건을 판별한다', '입력 오류에서 항상 우월하다',
+'학습 후 성능이 수학적으로 보존된다'라는 주장이 아니다.
+당초 오류 강건성보다 지속 변화의 양성 결과를 보고 좁힌 후속 가설임을 명시한다.
+후속 확인용 가설을 새 자료 채점 전에 고정하는 것이며 과거 결과를 확증으로 바꾸지 않는다.
+
+소비처: 사용자와 지도교수가 이 한 방법을 논문 초안/정식 비교로 발전시킬지 판단한다.
+작업명은 Persistence-masked residual adaptation으로 사용하되 신규성 확정 명칭으로 쓰지 않는다.
+
+1. 목적–행동–예상 결과 연결
+============================================================
+A. 새로운 계열에서 가중치를 그대로 평가한다.
+  왜1: 원래 네 계열에 맞춘 관찰인지 구분한다.
+  왜2: 추가 학습 없이 현재 모델의 적용 범위를 확인한다.
+  조건: 계열 선정에 미래 오차를 쓰지 않고, 기존 출발/선택 가중치를 변경하지 않는다.
+  예상: 같은 방향이면 계열 전이 근거. 반전하면 범위/표본 의존성이 남는다.
+  독자의 질문: '원래 보던 데이터만 다시 본 것 아닌가?' → exposure manifest와 결과를 연결한다.
+
+B. 동일한 어댑터에서 마스크의 평균/위치/최근성만 통제한다.
+  왜1: 추가 용량과 단순 보정 강도를 배제한다.
+  왜2: 지속성 위치 정보가 꼭 필요한지 확인한다.
+  조건: 원래 C3 수식은 그대로 두고, 대조군의 정보와 예산을 맞춘다.
+  예상: C3가 대조를 넘으면 위치 정보의 추가 근거. 같으면 단순 대안을 채택한다.
+  독자의 질문: '그냥 약하게 보정하면 되지 않나?' → MEAN/SHRINK/RECENCY가 답한다.
+
+C. 고정된 스트레스 범위를 확장한다.
+  왜1: SHIFT8·32개 관측·패치 경계 하나의 효과인지 확인한다.
+  왜2: 지속하지 않는 경우의 반례와 식별성 한계를 확인한다.
+  조건: 학습 자료는 그대로, 추가 평가는 선택에 사용하지 않는다.
+  예상: 일부 범위에서 유지/붕괴하는 조건을 보인다. 모든 스트레스 승리를 요구하지 않는다.
+  독자의 질문: '만든 변화 형태에서만 잘되는 것 아닌가?' → 형태/길이/크기 표를 제시한다.
+
+D. ETTm2에서 동일 절차를 실행한다.
+  왜1: 다른 관측 지점에서 방법의 전이 여부를 본다.
+  왜2: ETTm1에서의 반대 결과를 숨기지 않고 적용 범위를 대조한다.
+  조건: 원천·지점 관계와 이전 노출 여부를 먼저 공개한다.
+  예상: 재현 또는 조건 경계. ETTm2가 나쁘다는 이유로 더 유리한 source로 교체하지 않는다.
+
+가지치기:
+  - 새 마스크/새 gate/새 backbone 탐색: 이번 질문에 직접 답하지 못하므로 제외.
+  - 과거 v1/v2 A5/B5 재튜닝: 현재 B0 추가 적응 검증과 다른 문제이므로 제외.
+  - 오류 평균을 새 주지표로 바꿔 통과시키기: 과거 가설과 현재 신호를 혼동하므로 제외.
+  - 모든 데이터에서 우승 요구: 좁힌 조건의 방법 기여에 대한 필수조건이 아니므로 제외.
+  - 그럴듯한 논문 초록 먼저 완성: 검증 전 기여를 단정하므로 제외.
+
+2. 최신 상태/중복/파일 감사
+============================================================
+아래는 확인한 기존 경로다. 실제 존재 여부와 최신 delta를 읽는다.
+  results/additive_b0_adapter_v1_20260917/PROTOCOL.md
+  results/additive_b0_adapter_v1_20260917/REPORT.md
+  results/additive_b0_adapter_v1_20260917/BASELINE_MANIFEST.json
+  results/additive_b0_adapter_v1_20260917/LR_SELECTION.json
+  results/additive_b0_adapter_v1_20260917/MODEL_SELECTION.json
+  results/additive_b0_adapter_v1_20260917/verification.json
+  experiments/additive_b0_adapter_v1_20260917/model.py
+  experiments/additive_b0_adapter_v1_20260917/common.py
+  experiments/additive_b0_adapter_v1_20260917/train.py
+  experiments/additive_b0_adapter_v1_20260917/evaluate.py
+  results/outlier_signal_peft_v1_20260917/DATA_MANIFEST.json
+  results/outlier_signal_followup_v2_20260917/LR_SELECTION.json
+  experiments/outlier_signal_followup_v2_20260917/prepare.py
+
+기존 파일/학습/예측을 read-only reference로 보존한다.
+새 경로(새로 제안하는 이름):
+  experiments/additive_persistence_validation_v1_20260917/
+  results/additive_persistence_validation_v1_20260917/
+  .cache/additive_persistence_validation_v1_20260917/
+  scripts/run_additive_persistence_validation.py
+
+git HEAD, dirty files, 실행중 worker, 기존 cache/모델 snapshot/hash를 기록한다.
+사용자 변경을 reset/stash/clean하거나 다른 GPU 작업을 종료하지 않는다.
+동일 계약의 완료 결과가 이미 있으면 hash와 선택 조건을 감사한 뒤 재사용한다.
+새로운 비공개 컬럼/변수/함수 이름은 로컬 실제 파일을 읽은 뒤 사용한다.
+첨부 reference_checks.py는 본 실험 runner가 아니다. 실행된 사용자 실험을 복원한 코드도 아니다.
+
+3. 선행 경계 — 실제 읽고 표로 작성
+============================================================
+[확인] 아래는 준비 과정에서 확인한 1차 출처다. CLI에서도 원문과 공식 코드를 확인한다.
+문헌 전체를 다시 무한 검색하지 말고, 핵심 다섯 편과 직접 충돌 후보 최대 다섯 편을 정리한다.
+
+(1) Parameter-Efficient Transfer Learning for NLP (2019/ICML)
+https://proceedings.mlr.press/v97/houlsby19a.html
+  고정 백본에 작은 어댑터를 추가하는 큰 원리는 기존 방식이다.
+  C2는 일반 bottleneck residual의 통제이며 공식 BERT 배치 전체 재현이 아니다.
+
+(2) ReZero is all you need: fast convergence at large depth (2021/UAI)
+https://proceedings.mlr.press/v161/bachlechner21a.html
+  identity-start residual/gating은 기존 원리다. '0으로 시작' 자체를 새 기여로 쓰지 않는다.
+  C3는 ReZero의 전체 architecture를 재현한 방법도 아니다.
+
+(3) COSA: Context-aware Output-Space Adapter for Test-Time Adaptation in Time Series Forecasting
+    (2026/ICLR)
+https://proceedings.iclr.cc/paper_files/paper/2026/hash/2a8ce71baac4c89bf9ff479d8240c7d9-Abstract-Conference.html
+https://github.com/bigbases/COSA_ICLR2026
+  고정 예측기에 gated residual을 더하는 가까운 시계열 선행이다.
+  COSA는 최근 도착한 정답을 사용하는 test-time adaptation이며,
+  현재 C3는 offline 학습 후 동결된 patch-space residual이다.
+  단순히 'gate가 있다'는 차이/일치만으로 신규성을 판단하지 않는다.
+  학습 시점/사용 정답/보정 위치/조건 정보/평가 역할을 나란히 적는다.
+  이번에는 평가 중 새 정답으로 C3를 업데이트하지 않는다.
+  COSA의 온라인 절차를 바꿔놓고 정식 COSA 재현이라고 부르지 않는다.
+
+(4) Adapt Data to Model: Adaptive Transformation Optimization for Domain-shared
+    Time Series Foundation Models (2026/ICLR)
+https://proceedings.iclr.cc/paper_files/paper/2026/hash/48c5226582f41254026748c7e35d4ac2-Abstract-Conference.html
+https://github.com/thulab/TATO
+  입력 변환으로 고정 모델을 적응시키는 직접 관련 대안이다.
+  현재 C3는 raw 입력을 바꾸지 않고 이미 적응한 B0의 새 residual만 조절한다.
+  고정 clip/Hampel 대조를 TATO 전체 탐색의 재현이라고 쓰지 않는다.
+
+(5) On Over-fitting in Model Selection and Subsequent Selection Bias in Performance Evaluation
+    (2010/JMLR)
+https://jmlr.org/papers/v11/cawley10a.html
+  반복 개발 E를 확증 자료로 세지 않는 이유. 새 seed만으로 선택 편향을 해결하지 못한다.
+
+문헌 표 필수 열:
+  논문/정식 발표 확인/문제/입력/적응 시점/학습 파라미터/보존 방식/
+  이번 C3와의 실제 차이/정식 재현 여부/남은 비교.
+
+이번 계약의 대조군은 기전 확인에 필요한 단순 대조다.
+COSA/TATO의 정식 전체 비교와 다른 backbone 실증은 이번 본학습 예산에 포함하지 않는다.
+따라서 결과가 좋아도 '정식 선행 전체를 넘었다' 또는 '논문 제출 준비 완료'라고 쓰지 않는다.
+정확히 동일한 공개 방법을 발견하면 KNOWN_METHOD_COLLISION으로 기록한다.
+그 경우에도 재현·전이 비교는 정해진 범위에서 수행할 수 있지만 새 방법 발견으로 세지 않는다.
+
+4. 모델 계약 — 현재 C3를 그대로 유지
+============================================================
+[확인] pinned Chronos-Bolt-small revision:
+  772f3d25d38aec6d914c8949dab4462e2d46f5d8
+실제 로컬 snapshot/hash는 기존 receipt와 대조한다.
+
+기본 모델 B0:
+  raw observed input, q/v rank8 alpha16 LoRA, 추가 LoRA 파라미터294,912.
+  기존 source/seed별 선택 B0 checkpoint를 사용한다.
+  C0는 학습 안 된 foundation model이 아니라 이미 적응한 B0다.
+
+추가 어댑터:
+  512→8→512, bias포함 총8,712개.
+  up weight/bias=0. 시작 예측은 B0와 동일.
+  e_j는 원래 patch embedding, s=stopgrad(median_patch RMS(e)), floor1e-6.
+  delta_j=s*tanh(W_up GELU(W_down e_j)).
+  원래 B0 normalization/inverse, patching, head, reg token은 그대로.
+  context512, horizon64, patch16, 32 context patches, quantile .1~.9.
+
+지속성 마스크:
+  m=median(x_obs), r=max(1.4826*median(|x_obs-m|),0.1*sigma_train).
+  extreme_t=1[|(x_t-m)/r|>3].
+  p_t=최근 최대8개 관측 중 현재 t와 같은 부호의 extreme 비율.
+  t가 extreme이 아니면 p_t=0. context 왼쪽 경계에서는 창을 자른다.
+  g_j=1-mean_{t in patch j} p_t.
+  p/g는 observed context와 TRAIN sigma만 사용. 생성 상태/정답 사용 금지.
+
+C0: B0 그대로, 추가 학습0.
+C1: 같은 B0의 q/v LoRA만 추가 학습.
+C2: B0 전체 동결, e_eff=e+delta.
+C3: B0 전체 동결, e_eff=e+g*delta. 현재 제안 그대로.
+
+C3를 출력 보정으로 바꾸거나, gate를 학습형으로 바꾸거나,
+threshold/window/cap/rank/patch 크기를 튜닝하지 않는다.
+
+5. 이번에 새로 학습하는 기전 대조 세 개
+============================================================
+세 대조 모두 B0 전체 동결, C2/C3와 같은8,712개 어댑터/초기값/학습 예산이다.
+새 방법 후보가 아니라 C3의 설명을 반박할 수 있는 대조다.
+
+M_MEAN:
+  gbar=mean_j(g_j), 모든 patch에 같은 gbar를 곱한다.
+  e_eff_j=e_j+gbar*delta_j.
+  질문: 입력별 보정 총량을 줄이는 것만으로 충분한가?
+  g의 합/평균은 C3와 같지만 g^2의 합은 일반적으로 같지 않다.
+
+M_ROTATE16:
+  32개 g를16patch 순환 이동해 적용한다. train/eval 모두 동일한 이동.
+  e_eff=e+roll(g,16)*delta.
+  질문: 동일한 mask 값들이 올바른 시간 위치에 있어야 하는가?
+  gate 값의 multiset, 합, 제곱합은 C3와 정확히 같다.
+  true shift 위치/미래 정답은 사용하지 않는다.
+
+M_RECENCY:
+  각 example의 g를 내림차순 정렬하여 오래된 patch→최근 patch 순으로 배치한다.
+  작은 g, 즉 강한 수정 억제는 최근 patch에 둔다.
+  질문: 관측된 지속 위치가 아니라 '최근 부분은 덜 건드린다'는 규칙으로 충분한가?
+  gate 값의 multiset, 합, 제곱합은 C3와 정확히 같다.
+
+중요:
+  gate 분포를 맞춰도 delta와의 정렬, 최종 residual RMS, gradient 크기,
+  서로 다른 최적화 경로까지 같아지는 것은 아니다.
+  따라서 '순수한 인과효과를 완전히 분리했다'고 쓰지 않는다.
+  실제 gate 통계/residual RMS와 직접 성능 비교를 함께 보고한다.
+  학습한 C3의 gate를 사후로만 바꾸는 제거 실험은 보조다.
+  주 기전 비교는 각 대조를 처음부터 같은 예산으로 학습한 결과다.
+
+추가 학습 없는 강한 단순 대조:
+  C2_SHRINK = q_C0 + alpha*(q_C2-q_C0).
+  alpha∈{0,.25,.5,.75,1}; 같은 source/seed의 V objective로 한 값을 선택.
+  exact tie는 작은 alpha. alpha0은 C0, alpha1은 C2와 정확히 동일해야 한다.
+  새로운 계열 평가에서는 원래 네 학습계열의 V에서 고른 alpha를 그대로 이전한다.
+  두 모델 예측을 쓰므로 두 forward 비용을 포함한다. 단일 forward라고 쓰지 않는다.
+
+  C0_BIAS = q_C0 + beta*sigma_train.
+  beta는 V의 다섯 선택 조건을 동가중한 (y-q_C0,median)/sigma의 중앙값 한 개.
+  source/seed당 한 scalar이며 계열별 미래 정답 보정 금지.
+  V에서 전체 관측수가 다르면 weighted median으로 조건 가중치를 맞춘다.
+  모든 분위수에 같은 이동을 적용한다. 후보만 보정해 주지 않는다.
+  이는 간단한 출력 수준 보정이며 COSA 전체 재현이 아니다.
+
+6. 데이터 역할과 노출 감사 — '새 자료'를 만들어 말하지 않기
+============================================================
+[확인] 기존 DATA_MANIFEST:
+  electricity: data/raw/electricity.txt.gz, 26,304 rows,321 columns.
+    기존 사용 컬럼 ['0','1','2','3']; bounds[0,15782,21043,26304]; period24.
+    시간대 없는 index-day. 기존 sigma는각 채널 TRAIN population std.
+  ettm1: data/raw/overnight_20260913/ETTm1.csv,69,680rows.
+    기존 ['HUFL','HULL','MUFL','MULL']; bounds[0,41808,55744,69680]; period96.
+    실제 timestamp-naive15분 간격은 loader에서 재확인한다.
+
+D_DEV:
+  위 기존 네 계열·TRAIN256/V64/E128 원점/변형/분할 그대로.
+  추가 seed와 기전 대조용 개발 원천. 독립 E로 쓰지 않는다.
+
+D_ELEC_TRANSFER:
+  같은 electricity 원천에서 B0/추가어댑터가 학습하지 않은16개 계열.
+  대상 계열에서는 LoRA/어댑터 학습이나 V 모델 선택을 하지 않는다.
+  원래 네 계열의 selected C0/C1/C2/C3 및 새 대조를 그대로 적용한다.
+  대상 계열의 원자료 TRAIN prefix로 sigma만 계산하는 것은 허용한다.
+  이를 target-data-free나 target-normalization-free라 부르지 않는다.
+  원래와 같은 E 날짜를 쓰므로 '새 기간'도 '새 데이터셋'도 아니다.
+  주장 가능 범위는 미학습 계열로의 전이이며 같은 날짜/전력환경 상관이 남는다.
+
+D_ETTM2:
+  공식 ETDataset의 ETTm2.csv, 다른 관측 지점의 같은 데이터 계열.
+  별도 B0를 학습하고 동일 추가 적응 절차를 재현한다.
+  이것은 ETTm1 가중치를 그대로 쓰는 transfer와 다르다.
+  ETTm1의 좋은/나쁜 결과를 보고 다른 ETT 지점으로 바꾸지 않는다.
+
+노출 장부:
+  로컬 results/research/manifests와 사용 가능한 관련 저장소의 과거 기록에서
+  사용된 계열ID, 모델 학습, 방법 선택, 성능 보고 여부를 검색한다.
+  메타데이터/파일 다운로드만 한 것과 실제 성능을 본 것을 구분한다.
+  사전학습 모델의 원천 중복 여부는 별도 UNKNOWN_PRETRAINING_OVERLAP로 남긴다.
+  로컬 과거 기록이 없다고 '절대 미사용'이라고 확정하지 않는다.
+
+D_ELEC_TRANSFER 선정:
+  1) 원래 B0/adapter 학습 계열은 반드시 제외.
+  2) TRAIN에서 std>1e-8이고 필요한 원점의 과거 입력을 구성할 수 있는 계열을 후보로 둔다.
+  3) 가능한 범위에서 명시적으로 기존 성능/방법 선택에 사용되지 않은 계열을 먼저 구분.
+  4) 값/오차가 아닌 sha256('additive-persistence-v1\0'+canonical_id) 순으로 고정한다.
+  5) 검증된 미사용 계열16개 이상이면 처음16개.
+     8~15개이면 전부 사용하고 축소된 n을 학습/채점 전에 선언한다.
+     8개 미만이면 독립 계열 확인은 UNRESOLVED로 표시하고,
+     모델에 미학습인 적격계열 hash순 처음16개를 exploratory panel로만 평가한다.
+  6) 미사용/노출/불명확 계열을 섞은 평균을 미사용 계열 확증으로 쓰지 않는다.
+  7) 관련 물리적 meter/site group을 확인할 수 있으면 같은 group을 함께 다룬다.
+     metadata가 없으면 channel-ID 수준 분리일 뿐 물리적 독립성을 주장하지 않는다.
+
+미래 성능이나 모사 SHIFT 성능으로 적격계열을 선택하지 않는다.
+불리한 채널/날짜를 사후 교체하지 않는다.
+원래 E의 사용하지 않았던 origin을 골랐다는 이유만으로 새 시간 test라고 부르지 않는다.
+
+7. 공식 ETTm2 자료 준비와 시간 권한
+============================================================
+공식 출처:
+https://github.com/zhouhaoyi/ETDataset
+https://github.com/zhouhaoyi/ETDataset/blob/main/ETT-small/ETTm2.csv
+
+공식 README에서 ETT-small은 두 변압기 지점 자료임을 확인했다.
+README의 표본 간격 표현에만 기대지 말고 실제 CSV timestamp 간격을 검산한다.
+ETTm1/ETTh1처럼 동일 지점의 해상도 변형을 완전히 독립 source로 세지 않는다.
+ETTm2는 다른 지점이지만 같은 benchmark family다. 산업 도메인3개라고 세지 않는다.
+
+로컬에 공식 파일이 있으면 hash/출처를 확인해 재사용한다.
+없으면 공식 저장소 commit을 pin해서 한 CSV만 받는다. 임의 미러나 다른 dataset 대체 금지.
+권한/네트워크 차단이면 해당 블록만 BLOCKED_DATA. 다른 완료 가능한 블록은 계속한다.
+
+사용 컬럼:
+  ['HUFL','HULL','MUFL','MULL']가 실제 CSV에 있는지 확인한 뒤 사용.
+  모두 목표 univariate 계열로 pooled training하며 'OT forecasting'이라고 부르지 않는다.
+  각 row를 independent univariate input으로 처리하는 기존 Bolt 경로를 유지한다.
+
+분할:
+  n=실제 행수. bounds=[0,floor(.6n),floor(.8n),n].
+  기존 source와 같은 개발 프로토콜이며 통상 ETT benchmark split과 같다고 쓰지 않는다.
+  TRAIN sigma는 raw prefix population std. context512/horizon64.
+  학습/검증/평가 정답 horizon은 자기 role 범위를 넘지 않는다.
+  V/E context는 원점 전에 이미 관측된 값이면 직전 role까지 걸쳐도 된다.
+
+원점:
+  TRAIN256, V64, E128 distinct full eligible index-days, 하루 하나.
+  role의 합법 원점을 만든 뒤 해당 날짜의96phase 모두 합법인 full day만 남긴다.
+  전체 full days를 count개의 strata로 나누고 각 strata의 midpoint day를 선택.
+  phase roster=floor(k*96/count), k=0..count-1; role별 고정 seed로 독립 shuffle.
+  ordinal day와 phase의 기계적 단조 연결을 만들지 않는다.
+  256일을 확보할 수 없는 실제 자료라면 범위 부족을 보고하고 임의로 일수/주기를 바꾸지 않는다.
+  이번 예상 자료는 각 role의 가능한 길이를 먼저 계산할 수 있으므로 GPU 전에 결정한다.
+
+보고(성능 gate 아님):
+  distinct days, full-day count, 분할별 시간범위/decile, phase histogram,
+  7일 blocks, target overlap/unique timestamps, 결측 제외 수.
+  위치별 count 차이는 full-day+roster 알고리즘상1 이하인지 unit test한다.
+  데이터와 무관한 '상관계수 반드시0' 같은 요구로 실험을 차단하지 않는다.
+
+8. 단계별 실제 실행과 정확한 학습 예산
+============================================================
+이 계약의 모든 데이터/마스크/선택/평가 조건을 먼저 고정한다.
+어느 블록의 성능이 나쁘다고 다른 사전 승인 블록을 중단하지 않는다.
+명백한 데이터 누출/계약 위반/자원 오류만 해당 범위를 중단한다.
+새 결과에 맞춘 구조·seed·data 탐색은 승인하지 않는다.
+
+[단계 A] 기존 C0/C1/C2/C3 가중치/예측 재사용 + 전이 패널 준비
+  기존 두 source, 선택81550, 반복81551/81552 모델을 hash 검증.
+  D_ELEC_TRANSFER 원점은 기존 electricity E128을 공통 사용.
+  원래 네 계열의 V에서 C2_SHRINK alpha, C0_BIAS beta를 고정.
+  신규 optimizer0. 전이 평가 정답은 아직 채점하지 않는다.
+
+[단계 B] 원래 두 source의 세 번째 반복 seed 추가
+  새 반복 seed81553. 결과에 따라 seed를 더 추가하지 않는다.
+  source별 B0 LR는 기존 v2 선택81550의 선택값을 상속한다.
+  새 B0를 동일 matched augmentation으로1024updates 학습하고 V로checkpoint선택.
+  그 B0에서 C1/C2/C3를 각각 시작.
+  세 추가군의 LR는 기존 additive 선택81550의 source별 값 그대로.
+  source2×(B0 1경로 + C1/C2/C3 3경로)=8 fits.
+  기존 반복모델을 seed81553이라고 이름만 바꾸지 않는다.
+  C0의 새 B0 학습비용도 명시적으로 센다.
+
+[단계 C] 기전 대조 M_MEAN/M_ROTATE16/M_RECENCY
+  원래 Electricity/ETTm1, B0 source/seed별 동일 checkpoint 사용.
+  선택81550에서 LR{1e-4,3e-4} 각1경로.
+  반복81551/81552/81553에서 선택된 LR각1경로.
+  2sources×3controls×(2선택+3반복)=30 fits.
+  기존 C2/C3를 이 단계에서 다시 학습하지 않는다.
+  LR선택·체크포인트 규칙은 아래 공통 계약 유지.
+
+[단계 D] ETTm2 방법 재현
+  새 selection seed85550, repeat85551/85552/85553.
+  B0: LR2개선택+반복3개=5fits.
+  C1/C2/C3: 각각 LR2개선택+반복3개=15fits.
+  총20fits. 각 source/seed별 동일 B0에서 시작한다.
+  M_MEAN/ROTATE16/RECENCY를 ETTm2에서 추가 학습하지 않는다.
+  따라서 기전 대조의 외부 원천 재현까지 끝났다고 주장하지 않는다.
+
+총 새 본학습:
+  8 +30 +20 =58fits.
+  58×1024=59,392 optimizer updates.
+
+smoke(버리고 본학습에 넘기지 않음):
+  원래2sources×(B0,C1,C2,C3,MEAN,ROTATE16,RECENCY)7group×2updates=28.
+  ETTm2×(B0,C1,C2,C3)4group×2updates=8.
+  합36updates.
+전체 optimizer hard cap=59,428.
+
+추론·분석·CPU alpha/bias 선택은 fit으로 세지 않는다.
+기존 C0/C1/C2/C3의 과거 학습비용과 새 비용은 별도 장부.
+추론만 끝난 경우 '58fits 완료'라고 보고하지 않는다.
+차단된 블록의 미사용 예산을 새 후보에 옮기지 않는다.
+
+9. 모든 새 학습의 공통 계약
+============================================================
+원래 v2 matched TRAIN cache 재사용: source별256days×4channels=1024examples.
+32epochs, effective batch32,32updates/epoch,1024updates/fit.
+매 example이 REFERENCE/POINT/BURST/SHIFT를 각각8회 보는 기존 상태 순서 유지.
+POINT/BURST amplitude4/8/16, SHIFT4/8, duration24/48의 기존 schedule 유지.
+ETTm2에서도 같은 generator 코드/상대 schedule을 적용하되 source key를 새로 고정한다.
+원자료 입력/미래를 읽어 임의로 좋은 변형을 선별하지 않는다.
+
+원래 source의81550/51/52 TRAIN 순서는 기존 additive와 같게 재사용한다.
+새 seed81553과 ETTm2 seed는 동일 함수에 해당seed만 전달한다.
+source 내 모든 방법은 같은 x/y/draw/order를 사용.
+C3에게만 더 많은 큰 변화 정답을 제공하지 않는다.
+
+FP32,TF32off,dropout0.
+AdamW betas(.9,.999),eps1e-8,weight_decay0,gradientclip1,no scheduler.
+C1도 optimizer moments0에서 다시 시작: 정확한 optimizer-state 이어학습과는 구분한다.
+추가 어댑터 초기값은 대응seed에서 C2/C3/세 control 모두 같게 한다.
+기존 B0 foundation/LoRA/head는 C2/C3/control에서 모두동결.
+
+loss:
+  native9quantiles의 원단위 prediction에 TRAIN population sigma로 normalized2pinball.
+  현재 문맥 sigma나 손상된 sigma로 방법별 loss weight를 바꾸지 않는다.
+
+checkpoint 후보 {0,256,512,768,1024}.
+V objective=REFERENCE/POINT8/BURST8/SHIFT4/SHIFT8의 동가중 nMAE.
+모든 새 모델에서 동일; SHIFT8만 최적화하도록 바꾸지 않는다.
+선택용seed에서 LR별 best V, 다음LR선택. tie: 작은LR,이른checkpoint.
+repeat seed는 정한LR에서 같은V규칙으로checkpoint선택.
+
+step0선택=기존B0유지, 추가효과0. 실패한seed로 삭제하지 않는다.
+선택epoch가 서로 다른 비교는 학습+선택 pipeline 비교다.
+고정1024 상태도 부가로 보고하지만 E에서 더 좋은 쪽을 주표로 바꾸지 않는다.
+공통LR/epoch는 제한된 기회 대조일 뿐 각방법의 전역최적화 완료를 뜻하지 않는다.
+
+10. 평가 패널 — 먼저 모두 고정, 마지막에 한번 채점
+============================================================
+P0 HISTORICAL:
+  기존 네계열/기존E는 과거 점수·재현 검산·기전 비교용 development.
+
+P1 SERIES_TRANSFER (핵심 후속 확인):
+  D_ELEC_TRANSFER에 기존전력C0/C1/C2/C3와 모든기전대조를 적용.
+  primary=SHIFT8에서 C3 vs C0와 C3 vs C2.
+  전체계열·128원점·두기존반복seed 결과를 먼저 별도 표로 보고.
+  새81553결과 및 세seed평균도 함께보고. 유리한seed만 주평균으로 고르지 않는다.
+  새 두개 고정 가중치 결과와 새 세번째학습 결과의 역할을 분리한다.
+  REFERENCE/FAULT/SHIFT4/SHIFT_POINT 손해도 같은 주표에 둔다.
+
+P2 ETTM2_PROCEDURE:
+  별도 B0에 같은 추가 절차를 적용한 결과. target-local adaptation이다.
+  primary=동일SHIFT8 C3vsC0/C2, 나머지는동일tradeoff표.
+  ETTm1반대결과는 함께보존. ETTm2가나쁘다고 Weather/다른ETT로바꾸지않음.
+
+P3 SHAPE_STRESS (보조,새튜닝금지):
+  기존 두source의core C0/C2/C3만, 모든repeatseed사용.
+  기존E128중index순등간격64origins를 performance-free로선정.
+  D_ELEC_TRANSFER,ETTm2에서도 core에동일64-origin보조패널 적용가능하며
+  model/data선정은그결과에영향받지않는다.
+  생성은관측원자료에서계산한r0를사용. +/−부호둘다동가중.
+  다음8개변형을추가평가하되새학습에는넣지않는다:
+    STEP6_D17, STEP6_D63, STEP12_D17, STEP12_D63,
+    STEP8_D31, STEP8_D33, RAMP8_D32, PULSE8_D32.
+  STEP: 최근D개에±a*r0를더하고미래64개에도동일delta.
+  RAMP: 최근32개에0→delta선형증가,미래는delta가이어짐.
+  PULSE: 과거는기존SHIFT8_D32와정확히같고미래delta는0.
+  PULSE의과거/부호는SHIFT8의동일원점·채널·draw와맞춘다.
+  그러면같은과거에다른미래가가능하므로 두상황을모두정확히맞히는것은요구하지않는다.
+  생성상태는모델에주지않는다. 수학적반례이며산업사건레이블이아니다.
+
+SHIFT8은이전개발에서양성으로선택된가설이다.
+이번P1/P2채점전에주비교로등록하지만과거의사전가설이었던것처럼쓰지않는다.
+새스케일12를잘맞췄다고범위를초월한일반강건성을주장하지않는다.
+SHIFT과FAULT의발생빈도를현재혼합비로실제운영빈도라고해석하지않는다.
+
+11. 원자료와 자연 변화의 처리
+============================================================
+원자료수정없음(REFERENCE)을모든패널에서필수보고한다.
+자료가완전히clean이거나큰변화가모두실제사건이라고하지않는다.
+실제오류/사건품질레이블은현재확보하지않았다.
+
+새자연변화탐지기나유리한subset을이번평가에서만들지않는다.
+이미봉인한history-triggered subset이있으면정의·TRAIN임계값을그대로옮겨
+보조표로만사용한다. 실제regime-change정답이라고쓰지않는다.
+
+미래값/오차는계열·날짜선정/모델입력/gate/정규화/alpha선택에사용금지.
+원점당입력결측은모든방법공통기준으로처리하고결과와분리해기록.
+미래정답결측은예측저장후동일마스크로모든방법을공통채점한다.
+모든window의horizon끝과split경계를검사한다.
+
+12. 지표·추가효과·불확실성
+============================================================
+주지표: nMAE=mean(|q_.5-y|/sigma_train).
+  각계열동가중,각origin동가중,두syntheticdraw동가중.
+  평균원점수의비율로gain=100*(Err_baseline-Err_new)/Err_baseline.
+  origin별퍼센트를평균한값과혼용하지않는다.
+  F0로1정규화한지표가아니다.
+
+원자료,FAULT(POINT/BURST6조건동가중),SHIFT4,SHIFT8,SHIFT_POINT를분리.
+rawMAE,채널NRMSE,2pinball,quantilecrossing도보조보고.
+원래9분위수를정렬해서median점수를사후변경하지않는다.
+
+주효과는3층으로나눈다:
+  C2 vs C0: 일반추가어댑터의효과.
+  C3 vs C2: 이번규칙의추가효과.
+  C3 vs C0: 최종pipeline의총추가효과.
+분모가다르므로위개선율들을단순합하지않는다.
+
+비교공정성:
+  coreC1은동일추가학습기회대조이며C1step0결과도유지.
+  C2_SHRINK와C0_BIAS는V에서선택한합법적추가보정대조.
+  C3/MEAN/ROTATE16/RECENCY는같은8,712개추가파라미터.
+  최종보유파라미터에는기존B0LoRA294,912개도포함된다.
+  추가단계parameter수만으로전체학습비용을작게보고하지않는다.
+
+불확실성:
+  2000paired time-block bootstrap, fixedseed86700+고정panel/source ID.
+  Electricity7*24slots, ETT7*96slots.
+  같은dayblock을모든method/condition/seed/channel에함께적용.
+  기존source4channels는고정,seed는평균후날짜재표집(조건부CI임을명시).
+  D_ELEC_TRANSFER는time-block CI와추가series/group+time bootstrap을둘다보고.
+  shared-weather상관이있으므로채널×시간을독립표본으로flatten하지않는다.
+  optimizerseed3개의각효과를별도표시;날짜CI가seed모집단CI라고하지않는다.
+  ETTm2와Electricityp값을합치지않는다.
+
+확증언어:
+  P1의SHIFT8 C3vsC0/C2 두대비를공동주질문으로고정.
+  '일반어댑터보다추가가치'에는C3vsC2가필요하고C3vsC0도함께제시.
+  기전3대비에는nominal95%와Bonferroni동시구간(alpha=.05/3)을함께표시.
+  전체많은조건에서유리한한CI만골라통과라고하지않는다.
+  반복개발선택/사전학습중복을CI가해결하는것은아니다.
+  CI에0포함은불확실성이지동등성증명이아니다.
+
+REFERENCE/FAULT의실사용허용손해는사용자가아직정하지않았다.
+임의1%를논문합격선으로만들지않는다.
+각손해의절대값·상대값·구간을같은표에보고하고Pareto tradeoff로설명한다.
+모든조건에서승리할필요는없지만'오류강건성개선'같은넓은주장은그증거가필요하다.
+
+13. 실행 전후 correctness — 필요한 것만
+============================================================
+첨부 reference_checks.py 실행:
+  이것은합성CPU수식검사20개이며실제Chronos연결의대체물이아니다.
+  tests_result를본실험완료receipt로쓰지않는다.
+
+실제모델에서검사할것:
+  - 각source/seed의출발B0checkpoint/hash일치.
+  - 원래C3와이번PERSISTforward의동일입력출력일치.
+  - 모든추가어댑터의초기출력0,초기C0동일성,adapteroff시C0복원.
+  - 새control학습후gradient가유한하고실제up/down파라미터변화.
+  - 동결foundation/head/기존LoRA/버퍼불변.
+  - MEAN gate합일치,ROTATE/RECENCY multiset·제곱합일치.
+  - C2delta0과0gate의의도한동치. 원래g=1인입력에서마스크군동치.
+  - 미래y/생성metadata를바꿔도입력/gate/예측이동일.
+  - 원자료/label권한분리와train-onlysigma.
+  - 선택용seedE를주평균에섞지않음.
+  - 새checkpointreload및원점정렬/ID일치.
+  - scalar metric replay의범위를정직하게적음.
+
+허용오차는기존FP32조건유지:
+  normalizedmax<=1e-5 또는rtol1e-4;
+  CPUmetricrtol1e-10/atol1e-12.
+초기/off동일계산경로는기존처럼정확동일성검사하되,
+서로다른batch/dtype/다른커널의optimizerupdate까지bitwise동일하도록요구하지않는다.
+
+전체대조를검증하기위해모든파일을매update마다재해시하는과도한I/O는피한다.
+시작/선택고정/종료시무결성검사,update별scalar journal,epoch별resume를사용한다.
+선택checkpoint는0/256/512/768/1024외에추가하지않는다.
+진행중임의epoch복구파일을V선택후보로승격하지않는다.
+
+14. 자원과 재개
+============================================================
+one GPU/oneworker. 기존사용자승인GPUguard를실제코드를읽고재사용.
+다른PID종료·환경전체재설치·원시cache삭제금지.
+sharedmodel/data/기존checkpoint비용과새cache를별도로기록한다.
+본학습58fits/59,392updates,smoke36updates상한을ledger로강제한다.
+한도를채우기위한추가fit이나예산재배분은하지않는다.
+
+데이터원천별공통microbatch를optimizer0검사로선택후고정.
+OOM시기존허용micro32/16/8/4+누적을사용하되effectivebatch32유지.
+부족한context/채널/학습량으로조용히바꾸지않는다.
+자원대기가지속되면partial상태와정확한재개명령을남긴다.
+기존안전상한을유지하며장시간무기한대기하지않는다.
+모든정확히완료된update를세고ambiguous optimizer step을없는것처럼재실행하지않는다.
+
+profile:
+  학습compute/V/IO/전체wall,peak allocated/reserved,추론시간을분리.
+  같은device,batch,원점수,precision으로C0/C2/C3/control측정.
+  seed별rawtime과중앙값/변동을보고;1%차이를보편적속도우위로단정하지않는다.
+  C2_SHRINK의두모델forward비용을포함한다.
+  frozenbackbone이라도입력patchadapter gradient전파를위한activation은필요하다.
+  8,712개학습파라미터를GPU메모리같은비율절감으로해석하지않는다.
+
+15. 실행 순서 — 계획서만 작성하고 끝내지 않기
+============================================================
+1) 최신delta/기존receipt/선행경계/원자료노출감사.
+2) 모든패널·계열ID·ETTm2역할·마스크·예산·주대비를하나의MASTER_SEAL로고정.
+3) CPU검사와실제모델smoke. 기존C3재현·initial/offidentity확인.
+4) 원래source의seed81553 B0와core8fits.
+5) 세기전대조30fits.
+6) ETTm2B0및core20fits.
+7) 모든V모델선택·alpha/beta를고정. 후보결과를보고후속패널을바꾸지않음.
+8) 기존/전이/ETTm2/추가stress의모든가능한prediction을저장.
+9) 선택seal과prediction manifest를확인한뒤E정답채점.
+10) 원점수·pairedgain·seed·uncertainty·원천노출별표·기전표·자원표검산.
+11) 한국어REPORT와논문주장–근거표및FINAL_DECISION작성.
+12) 검산후기존승인scopedcommit/push. rawweights/credentials는올리지않음.
+
+검사통과는정상진행의조건이지성능에대한입장시험이아니다.
+앞선블록의음수결과로사전계획된다른블록을생략하지않는다.
+다만공통누출/손상/안전위반이면진행을멈추고이미완료한범위를보존한다.
+
+16. 필수 산출물과 논문 스토리
+============================================================
+root:
+  TOPIC_ONEPAGE.md
+  MASTER_PROTOCOL.md / MASTER_SEAL.json
+  REPO_AUDIT.md / LITERATURE_BOUNDARY.md
+  DATA_EXPOSURE_MANIFEST.csv / SERIES_PANEL_MANIFEST.json
+  ETTM2_DATA_RECEIPT.json / ORIGIN_AUDIT.csv
+  BASELINE_MANIFEST.json / MODEL_SELECTION.json
+  FIT_LEDGER.csv / UPDATE_LEDGER.jsonl
+  PREDICTIONS_MANIFEST.json / GLOBAL_EVALUATION_SEAL.json
+  RAW_SCORES.csv / PRIMARY_CONTRASTS.csv / MECHANISM_CONTRASTS.csv
+  SEED_EFFECTS.csv / UNCERTAINTY.csv / RESOURCE_REPORT.csv
+  VERIFICATION.json / REPORT.md / FINAL_DECISION.md
+  PAPER_CLAIM_EVIDENCE.md / PAPER_OUTLINE.md / REPRODUCTION_COMMANDS.txt
+
+PAPER_CLAIM_EVIDENCE의열:
+  연구질문/주장/필요근거/이번관찰/지지·부분·불가/범위/남은검증.
+표구성:
+  T1:원래관찰과새계열전이(각각구분),C0/C1/C2/C3원점수.
+  T2:MEAN/ROTATE/RECENCY/SHRINK/BIAS대비추가가치.
+  T3:ETTm1/ETTm2대조와조건별실패범위.
+  T4:크기·길이·경계·ramp/pulse일반화.
+  T5:추가학습비용+기존B0비용+추론비용.
+그림:
+  (i)raw입력+B0+zero-init residual+C3mask의데이터흐름.
+  (ii)새계열pairedgain/seed별표현.
+  (iii)REFERENCE/FAULT/SHIFT4/SHIFT8tradeoff.
+  (iv)동일gate값의다른배치와실제수정norm.
+  (v)length/amplitude/prospective stress별효과.
+음수타깃·seed·조건을그림에서삭제하지않는다.
+
+스토리순서:
+  1. 잘적응한기준선위에서추가적응이필요한문제는무엇인가?
+  2. 지속적인변화의정보를훼손하지않는것이왜관련되는가?
+  3. C3와가장단순한반례들은무엇인가?
+  4. 데이터·선택·노출권한은어떻게정했는가?
+  5. 새계열/대조/지점결과가어느주장을지지하는가?
+  6. 실제사건레이블·정식선행·backbone재현중무엇이남았는가?
+실험전논문초록의성과수치를채우지않는다.
+
+17. 결과 판정 — 주제0/1을 강제로 만들지 않기
+============================================================
+실행판정과과학판정을분리한다.
+  COMPLETE / PARTIAL_RESOURCE / BLOCKED_DATA / INVALID_IMPLEMENTATION.
+
+과학판정은층별로:
+  SERIES_REPLICATION_SUPPORTED / UNCERTAIN / NOT_SUPPORTED
+  LOCATION_INFORMATION_SUPPORTED / AMOUNT_OR_RECENCY_SUFFICIENT / UNCERTAIN
+  CROSS_SITE_SUPPORT / SCOPE_BOUNDARY / UNCERTAIN
+  CONDITION_SPECIFIC_TRADEOFF / BROAD_GAIN_NOT_ESTABLISHED
+  NOVELTY_OPEN / KNOWN_METHOD_COLLISION / FORMAL_BASELINE_COMPARISON_PENDING
+
+예:
+- 새계열에서C3>C2지만MEAN도같이좋음:
+  추가적응이유용할수있지만지속성위치의필수성은약함. 이를시간특화새원리로포장하지않음.
+- C3가RECENCY와같음:
+  최근patch보호로설명가능. C3mask유일기여미확보.
+- 새계열과ETTm2한쪽만좋음:
+  모든원천실패로묶지않되,조건범위를자기유리하게사후조합하지않음.
+- SHIFT8만좋고REFERENCE/FAULT손해:
+  해당tradeoff를공개. 오류강건성을해결했다고하지않음.
+- C3가새계열C0/C2와위치대조를넘고후속조건에서도반복:
+  논문방법론발전을계속할근거. 정식선행/실제자료/다른backbone검증은남아있음.
+- 평균양수CI0포함:
+  불확실. 독립미사용자료/표본수필요성을논의할수있지만유리한seed추가금지.
+
+독립계열확인이불명확하면그범위를미해결로남긴다.
+현재C3를채택하지못해도유효한양성관찰과기전대조결과를삭제하지않는다.
+새모듈을발명하지말고최종한주제의상태와다음가장필수적인비교만서술한다.
+자동으로다른데이터셋,새마스크,가중치,학습률,추가backbone을실행하지않는다.
+
+18. CLI에게 보내는 최종 실행문
+============================================================
+이문서하나를후속논문검증의단일계약으로사용해.
+현재C3와B0를그대로유지하고,새전력계열로의전이·단순감쇠/위치/최근성대조·
+세번째seed·ETTm2절차재현·사전고정된변화형태검사를수행해.
+실행전에모든자료역할/노출이력/모델/마스크/예산/주대비를봉인해.
+성능이좋은계열이나조건을사후선택하지마.
+기존입력과B0학습기능을보존하고초기/offidentity를실제모델에서검사해.
+58개의새fit상한과총59,428optimizerupdate상한안에서만실행해.
+정상인비교는계획서만쓰고멈추지말고실행·평가·검산까지완료해.
+정확도·통계불확실성·단순대안·자원·신규성·미실행범위를분리해보고해.
+좋은결과여도논문PASS를보장하지말고,나쁜부분때문에이미얻은좁은이득을지우지도마.
+실험후논문주장–근거표와한국어최종판정을작성하고자동추가연구없이종료해.
+
+19. 재사용 실패와 정확한 검사 범위
+============================================================
+기존 selected checkpoint가 없는 경우 보고서 점수나 base seed만으로 복원했다고 하지 않는다.
+정확한 hash의 checkpoint를 기존 승인 cache/저장 위치에서 확보하지 못하면 그 source의
+가중치 재사용 블록을 BLOCKED_BASELINE으로 남긴다. 옛 전체 실험을 새로 학습해 가중치를
+만드는 것은 이번 예산에 포함하지 않는다. 독립적으로 준비 가능한 ETTm2 블록은 계속한다.
+
+학습하지 않은 출발 B0에서 새 어댑터만 테스트했다고 쓸 수 없도록, baseline manifest에는
+B0 학습원점·augmentation·seed·선택 checkpoint·원래 학습비용과 추가 단계의 비용을 분리한다.
+실제 GPU 검산과 CPU 합성 검산, 일부 원점 scalar replay와 전체 원점 재계산을 구분해 적는다.
+기록에 없는 정밀도·파일 내부 구조·다운로드 성공을 가정하지 않는다.

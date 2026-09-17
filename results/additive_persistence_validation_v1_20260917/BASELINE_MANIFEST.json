@@ -1,0 +1,124 @@
+{
+  "models": {
+    "electricity_81550": {
+      "checkpoint": ".cache/outlier_signal_followup_v2_20260917/fits/electricity_B0_s81550_lr0.0003/checkpoint_1024.pt",
+      "objective": 0.2164119564508619,
+      "old_fit": "electricity_B0_s81550_lr0.0003",
+      "seed": 81550,
+      "sha256": "2792756693f9fbfc9936150ef07239e5ad573f36f24796487c35f2c3a40ecb5a",
+      "source": "electricity",
+      "step": 1024
+    },
+    "electricity_81551": {
+      "arm": "B0",
+      "checkpoint": ".cache/outlier_signal_followup_v2_20260917/fits/electricity_B0_s81551_lr0.0003/checkpoint_768.pt",
+      "fit": "electricity_B0_s81551_lr0.0003",
+      "lr": 0.0003,
+      "objective": 0.21615286843459375,
+      "seed": 81551,
+      "sha256": "e6e77e38cc5c8d3ee98f42cb47e27c181a411db41825eb379cfcb06a826ff740",
+      "source": "electricity",
+      "step": 768
+    },
+    "electricity_81552": {
+      "arm": "B0",
+      "checkpoint": ".cache/outlier_signal_followup_v2_20260917/fits/electricity_B0_s81552_lr0.0003/checkpoint_512.pt",
+      "fit": "electricity_B0_s81552_lr0.0003",
+      "lr": 0.0003,
+      "objective": 0.21559902487463017,
+      "seed": 81552,
+      "sha256": "dcb951b6024554868b06c1b51d42d8d3bfe9edc9f1676e3e48b9e5d32b2d0cb5",
+      "source": "electricity",
+      "step": 512
+    },
+    "ettm1_81550": {
+      "checkpoint": ".cache/outlier_signal_followup_v2_20260917/fits/ettm1_B0_s81550_lr0.0001/checkpoint_1024.pt",
+      "objective": 0.40710705625449606,
+      "old_fit": "ettm1_B0_s81550_lr0.0001",
+      "seed": 81550,
+      "sha256": "c1ac5f4fa82ba00287470836068a19afa05844d7f85b0dc630e126eaced3d9eb",
+      "source": "ettm1",
+      "step": 1024
+    },
+    "ettm1_81551": {
+      "arm": "B0",
+      "checkpoint": ".cache/outlier_signal_followup_v2_20260917/fits/ettm1_B0_s81551_lr0.0001/checkpoint_768.pt",
+      "fit": "ettm1_B0_s81551_lr0.0001",
+      "lr": 0.0001,
+      "objective": 0.40602500213177545,
+      "seed": 81551,
+      "sha256": "998a2eab23b5fd38ff452216a9b67f0be169c02879b28d3cc7eb5fb56ba415f2",
+      "source": "ettm1",
+      "step": 768
+    },
+    "ettm1_81552": {
+      "arm": "B0",
+      "checkpoint": ".cache/outlier_signal_followup_v2_20260917/fits/ettm1_B0_s81552_lr0.0001/checkpoint_1024.pt",
+      "fit": "ettm1_B0_s81552_lr0.0001",
+      "lr": 0.0001,
+      "objective": 0.41165661949197785,
+      "seed": 81552,
+      "sha256": "51163786cb5f850f6372d611bbe59b1e459a54fb27fb2a2b60ce1abc494b4f16",
+      "source": "ettm1",
+      "step": 1024
+    }
+  },
+  "new_B0_fits_count_in_58": 7,
+  "new_baselines_file": "NEW_BASELINES.json",
+  "predictions": {
+    "electricity_C0_81551": {
+      "arm": "B0",
+      "path": ".cache/outlier_signal_followup_v2_20260917/predictions/electricity_B0_81551_E.npy",
+      "quantile_interpretation": "native unsorted .1-.9",
+      "seed": 81551,
+      "sha256": "eee511169e6391173cdce49ef6cf0bd1eb8bcfb75568f235ecf4917f272788a4",
+      "shape": [
+        10240,
+        9,
+        64
+      ],
+      "source": "electricity"
+    },
+    "electricity_C0_81552": {
+      "arm": "B0",
+      "path": ".cache/outlier_signal_followup_v2_20260917/predictions/electricity_B0_81552_E.npy",
+      "quantile_interpretation": "native unsorted .1-.9",
+      "seed": 81552,
+      "sha256": "04c5ffef2d0c8c183df97cd405a4341f83236bab8bc572690dbf86701d943237",
+      "shape": [
+        10240,
+        9,
+        64
+      ],
+      "source": "electricity"
+    },
+    "ettm1_C0_81551": {
+      "arm": "B0",
+      "path": ".cache/outlier_signal_followup_v2_20260917/predictions/ettm1_B0_81551_E.npy",
+      "quantile_interpretation": "native unsorted .1-.9",
+      "seed": 81551,
+      "sha256": "4fcb82b720cf248ed36ec9a24552c034ab619bbd1ced4f5819167d02eae2432b",
+      "shape": [
+        10240,
+        9,
+        64
+      ],
+      "source": "ettm1"
+    },
+    "ettm1_C0_81552": {
+      "arm": "B0",
+      "path": ".cache/outlier_signal_followup_v2_20260917/predictions/ettm1_B0_81552_E.npy",
+      "quantile_interpretation": "native unsorted .1-.9",
+      "seed": 81552,
+      "sha256": "cd4e7efb78cef84ffb990ab53a9a83d60bbb03b8e5aaf88aec06ecf002580691",
+      "shape": [
+        10240,
+        9,
+        64
+      ],
+      "source": "ettm1"
+    }
+  },
+  "selection": "v2 V-only chosen B0, paired optimizer seed; never choose baseline by E",
+  "upstream_training_is_sunk_shared_cost": true
+}

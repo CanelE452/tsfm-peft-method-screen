@@ -1,0 +1,156 @@
+{
+  "bigbases/COSA_ICLR2026": {
+    "commit": "527c0feb9e997dd85af485ee027616b446e4ae77",
+    "readme_sha256": "6db8bdcc62ea37e407fc3127e8bd0e3fbc44f8dfba77df8573d7ae267c5b85b6",
+    "python_paths": [
+      "config.py",
+      "datasets/__init__.py",
+      "datasets/build.py",
+      "datasets/loader.py",
+      "layers/AutoCorrelation.py",
+      "layers/Autoformer_EncDec.py",
+      "layers/Conv_Blocks.py",
+      "layers/ETSformer_EncDec.py",
+      "layers/Embed.py",
+      "layers/SelfAttention_Family.py",
+      "layers/Transformer_EncDec.py",
+      "layers/__init__.py",
+      "main.py",
+      "models/DDN.py",
+      "models/DLinear.py",
+      "models/FreTS.py",
+      "models/MICN.py",
+      "models/OLS.py",
+      "models/PatchTST.py",
+      "models/RevIN.py",
+      "models/Statistics_prediction.py",
+      "models/Transformer.py",
+      "models/__init__.py",
+      "models/build.py",
+      "models/forecast.py",
+      "models/iTransformer.py",
+      "models/normalize.py",
+      "models/optimizer.py",
+      "predictor.py",
+      "trainer.py",
+      "tta/__init__.py",
+      "tta/cosa.py",
+      "tta/dynatta.py",
+      "tta/petsa.py",
+      "tta/tafas.py",
+      "utils/__init__.py",
+      "utils/lr_policy.py",
+      "utils/masking.py",
+      "utils/meters.py",
+      "utils/misc.py",
+      "utils/parser.py",
+      "utils/timefeatures.py"
+    ],
+    "inspected_files": {
+      "tta/cosa.py": {
+        "url": "https://raw.githubusercontent.com/bigbases/COSA_ICLR2026/527c0feb9e997dd85af485ee027616b446e4ae77/tta/cosa.py",
+        "sha256": "aabba6fff6bffa2844aafd6427e5db9a55358277025eda16c4d39d448fdf47dd"
+      },
+      "config.py": {
+        "url": "https://raw.githubusercontent.com/bigbases/COSA_ICLR2026/527c0feb9e997dd85af485ee027616b446e4ae77/config.py",
+        "sha256": "6e647a8f24904b293f8359390d5e32dced8a37c2c3503d614c3fe39c0f137dd4"
+      }
+    }
+  },
+  "thulab/TATO": {
+    "commit": "402bbc8998c49e2f33d9afbcc42140347a6b8c36",
+    "readme_sha256": "7ff758808099aaa5eeab0b5f17872eac4decdba3730f5d1150a258ff62f09459",
+    "python_paths": [
+      "examples/model_factory_example.py",
+      "examples/quick_start.py",
+      "examples/tutorial_basic.py",
+      "experiment/__init__.py",
+      "experiment/run.py",
+      "model/__init__.py",
+      "model/model_factory.py",
+      "pipeline/__init__.py",
+      "pipeline/base.py",
+      "pipeline/pipeline_factory.py",
+      "transformation/__init__.py",
+      "transformation/base.py",
+      "transformation/library/__init__.py",
+      "transformation/library/aligner.py",
+      "transformation/library/denoiser.py",
+      "transformation/library/differentiator.py",
+      "transformation/library/inputer.py",
+      "transformation/library/normalizer.py",
+      "transformation/library/sampler.py",
+      "transformation/library/trimmer.py",
+      "transformation/library/warper.py",
+      "transformation/transformation_factory.py",
+      "tuner/__init__.py",
+      "tuner/base.py",
+      "tuner/tuner_factory.py",
+      "utils/__init__.py",
+      "utils/augmentation.py",
+      "utils/augmentor.py",
+      "utils/clip.py",
+      "utils/metrics.py",
+      "utils/statistics.py",
+      "utils/timefeatures.py",
+      "utils/tools.py"
+    ],
+    "inspected_files": {
+      "pipeline/base.py": {
+        "url": "https://raw.githubusercontent.com/thulab/TATO/402bbc8998c49e2f33d9afbcc42140347a6b8c36/pipeline/base.py",
+        "sha256": "5f2a6d06da523f13a9f0f3ba9ff99e8bdf868a6b5ac5de92baf6c219d00c405c"
+      },
+      "transformation/library/denoiser.py": {
+        "url": "https://raw.githubusercontent.com/thulab/TATO/402bbc8998c49e2f33d9afbcc42140347a6b8c36/transformation/library/denoiser.py",
+        "sha256": "5f0c210f6b18150112368b677c36825c0b689ee391ec17a2b9bb51e87594a8f2"
+      },
+      "tuner/base.py": {
+        "url": "https://raw.githubusercontent.com/thulab/TATO/402bbc8998c49e2f33d9afbcc42140347a6b8c36/tuner/base.py",
+        "sha256": "26a7a8ddfcb8e6c0c7d7055ca74a14a48ea614d8cf3bce7aa2eba741a00fb8bb"
+      }
+    }
+  },
+  "zhouhaoyi/ETDataset": {
+    "commit": "1d16c8f4f943005d613b5bc962e9eeb06058cf07",
+    "readme_sha256": "c1dfee894da23fec609fb6770d4fdfd8497970e1b88fcf72b3922f93a7cd706c",
+    "python_paths": [],
+    "ETTm2_official_sha256": "db973ca252c6410a30d0469b13d696cf919648d0f3fd588c60f03fdbdbadd1fd",
+    "ETTm2_local_sha256": "db973ca252c6410a30d0469b13d696cf919648d0f3fd588c60f03fdbdbadd1fd"
+  },
+  "google-research/adapter-bert": {
+    "commit": "1a31fc6e92b1b89a6530f48eb0f9e1f04cc4b750",
+    "readme_sha256": "1c324ab715eaaac679b1c7d880cfc2982760e072275acaceadd6f7c07a9524fd",
+    "python_paths": [
+      "__init__.py",
+      "modeling.py",
+      "modeling_test.py",
+      "optimization.py",
+      "optimization_test.py",
+      "run_classifier.py",
+      "tokenization.py",
+      "tokenization_test.py"
+    ],
+    "inspected_files": {
+      "modeling.py": {
+        "url": "https://raw.githubusercontent.com/google-research/adapter-bert/1a31fc6e92b1b89a6530f48eb0f9e1f04cc4b750/modeling.py",
+        "sha256": "2e80e9b6f8e05e369bbf68e0fc035722c3bd3b0735b608afd1122ddad5da17aa"
+      }
+    }
+  },
+  "majumderb/rezero": {
+    "commit": "e2c94a825c5564217e8cf4d75a28d59cab1d7029",
+    "readme_sha256": "b766654a4144964fc3f52943db637788047f0a6c027f4d1fef7c7c29fa56e501",
+    "python_paths": [
+      "rezero/__init__.py",
+      "rezero/transformer/__init__.py",
+      "rezero/transformer/rztx.py",
+      "setup.py"
+    ],
+    "inspected_files": {
+      "rezero/transformer/rztx.py": {
+        "url": "https://raw.githubusercontent.com/majumderb/rezero/e2c94a825c5564217e8cf4d75a28d59cab1d7029/rezero/transformer/rztx.py",
+        "sha256": "eb0e1cb7fa4aa2d345b59944b597225708cb5e10144a99b75c2047e5f12c447b"
+      }
+    }
+  }
+}
