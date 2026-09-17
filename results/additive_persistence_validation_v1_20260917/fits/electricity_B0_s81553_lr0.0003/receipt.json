@@ -1,0 +1,57 @@
+{
+  "arm": "B0",
+  "checkpoint_io_seconds": 0.462969099113252,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/electricity_B0_s81553_lr0.0003/checkpoint_0.pt",
+      "objective": 0.25671551487692945,
+      "sha256": "239e8b7db93b7b32eeca07a3cbd17e468c3e058b506db9193127d5bf3c49eff5",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/electricity_B0_s81553_lr0.0003/checkpoint_256.pt",
+      "objective": 0.22104284465542792,
+      "sha256": "f184fdd47ff217d5e63488f26b529936fcdc05861756822220faa9b41c179605",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/electricity_B0_s81553_lr0.0003/checkpoint_512.pt",
+      "objective": 0.21912628682812157,
+      "sha256": "9a79a3c51c3f742a2265b09ced33b2b9196b9300bb3951daf2e251e4a1ec393b",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/electricity_B0_s81553_lr0.0003/checkpoint_768.pt",
+      "objective": 0.21765097045172405,
+      "sha256": "79bcb56cf498a8f82829e34ac0296360ff9bc1f6b6f215822e1787c9c20acc19",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/electricity_B0_s81553_lr0.0003/checkpoint_1024.pt",
+      "objective": 0.21515082115886094,
+      "sha256": "56750debf4934b5acd50f49b3f721fca6f0290867831bf9e7f8cfa8d4196d981",
+      "step": 1024
+    }
+  ],
+  "fit": "electricity_B0_s81553_lr0.0003",
+  "frozen_sha256": "d9c5a4002d9a10ab5cbf72a6711948b5bbf3678a9287ffcdbce102f8f9738560",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 45.445146931975614,
+  "lr": 0.0003,
+  "microbatch": 32,
+  "optimization_limited": true,
+  "optimizer_seconds": 36.369776440551504,
+  "peak_allocated": 388863488,
+  "peak_reserved": 402653184,
+  "seed": 81553,
+  "selected": {
+    "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/electricity_B0_s81553_lr0.0003/checkpoint_1024.pt",
+    "objective": 0.21515082115886094,
+    "sha256": "56750debf4934b5acd50f49b3f721fca6f0290867831bf9e7f8cfa8d4196d981",
+    "step": 1024
+  },
+  "source": "electricity",
+  "status": "COMPLETE",
+  "updates": 1024,
+  "validation_seconds": 4.823110725032166
+}

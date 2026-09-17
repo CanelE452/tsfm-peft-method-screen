@@ -1,0 +1,57 @@
+{
+  "arm": "M_ROTATE16",
+  "checkpoint_io_seconds": 0.061378834943752736,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/electricity_M_ROTATE16_s81553_lr0.0003/checkpoint_0.pt",
+      "objective": 0.21515082115886094,
+      "sha256": "9a3d00ce51d07ceec2b4db37c6e1cf1c57f21d375868cccf075adbcb83e7c7b5",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/electricity_M_ROTATE16_s81553_lr0.0003/checkpoint_256.pt",
+      "objective": 0.21454063865694534,
+      "sha256": "1b458b87f0e1904e591c92c465ac2a6505a5a0b4cd8efb14e1129a53a1336cef",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/electricity_M_ROTATE16_s81553_lr0.0003/checkpoint_512.pt",
+      "objective": 0.2144497615740518,
+      "sha256": "cc9ab0e6236cf3fb1e25b71be509614871535eba7bc7a74daf5425e86c5f078b",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/electricity_M_ROTATE16_s81553_lr0.0003/checkpoint_768.pt",
+      "objective": 0.21419851080734542,
+      "sha256": "aeaf99fbfdffcc938de8f10e5fc9a1556b3841c88ffe573d02691cdfb6388c2d",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/electricity_M_ROTATE16_s81553_lr0.0003/checkpoint_1024.pt",
+      "objective": 0.2140555003247348,
+      "sha256": "9df1c96a2eccd49fb49a216741301ff39d574996e3a603c41213d54e6df16467",
+      "step": 1024
+    }
+  ],
+  "fit": "electricity_M_ROTATE16_s81553_lr0.0003",
+  "frozen_sha256": "f66e5bbfd81ea0ae368e0bd4ae7ac16ba62ac36c6c171f06e9026960272cfdc7",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 41.23743427800946,
+  "lr": 0.0003,
+  "microbatch": 32,
+  "optimization_limited": true,
+  "optimizer_seconds": 31.931929942395072,
+  "peak_allocated": 379698688,
+  "peak_reserved": 400556032,
+  "seed": 81553,
+  "selected": {
+    "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/electricity_M_ROTATE16_s81553_lr0.0003/checkpoint_1024.pt",
+    "objective": 0.2140555003247348,
+    "sha256": "9df1c96a2eccd49fb49a216741301ff39d574996e3a603c41213d54e6df16467",
+    "step": 1024
+  },
+  "source": "electricity",
+  "status": "COMPLETE",
+  "updates": 1024,
+  "validation_seconds": 5.233178813941777
+}

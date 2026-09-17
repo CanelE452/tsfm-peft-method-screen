@@ -1,0 +1,57 @@
+{
+  "arm": "M_RECENCY",
+  "checkpoint_io_seconds": 0.06531354913022369,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/electricity_M_RECENCY_s81550_lr0.0001/checkpoint_0.pt",
+      "objective": 0.2164119564508619,
+      "sha256": "48888a9d319ddf9727c8117349e4f60049a8f4cfd03b01d8b34b198a89181b64",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/electricity_M_RECENCY_s81550_lr0.0001/checkpoint_256.pt",
+      "objective": 0.2153636331230951,
+      "sha256": "543a1548e49d3131c636959534c3832e8e9931730995ddd1aeec3d4411ab5d7f",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/electricity_M_RECENCY_s81550_lr0.0001/checkpoint_512.pt",
+      "objective": 0.2151498862720954,
+      "sha256": "f3f396e1dc7e7b64dee789dff67ed106bfc99bbac72bb4183b4281af329b6aec",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/electricity_M_RECENCY_s81550_lr0.0001/checkpoint_768.pt",
+      "objective": 0.21475013190517123,
+      "sha256": "73ca168bbc6db49c457489888458542e76ac107f349f17660a4fcf8f5831c6c3",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/electricity_M_RECENCY_s81550_lr0.0001/checkpoint_1024.pt",
+      "objective": 0.2146797491528874,
+      "sha256": "9b68322c3d0b3af9692c4e7bfa9ad4bcbd1a302018c8b3459033dde08dafa424",
+      "step": 1024
+    }
+  ],
+  "fit": "electricity_M_RECENCY_s81550_lr0.0001",
+  "frozen_sha256": "a023e457a62a27bcea1eaa07af5a4eccc1dbcfafe7b51568ba916b6bdf5bc8d2",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 41.663176463975105,
+  "lr": 0.0001,
+  "microbatch": 32,
+  "optimization_limited": true,
+  "optimizer_seconds": 32.20918758161133,
+  "peak_allocated": 379698688,
+  "peak_reserved": 400556032,
+  "seed": 81550,
+  "selected": {
+    "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/electricity_M_RECENCY_s81550_lr0.0001/checkpoint_1024.pt",
+    "objective": 0.2146797491528874,
+    "sha256": "9b68322c3d0b3af9692c4e7bfa9ad4bcbd1a302018c8b3459033dde08dafa424",
+    "step": 1024
+  },
+  "source": "electricity",
+  "status": "COMPLETE",
+  "updates": 1024,
+  "validation_seconds": 5.349981639010366
+}
