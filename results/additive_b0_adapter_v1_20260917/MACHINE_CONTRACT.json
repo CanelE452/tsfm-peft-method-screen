@@ -1,0 +1,105 @@
+{
+  "V_objective": "equal mean nMAE REFERENCE/POINT8/BURST8/SHIFT4/SHIFT8",
+  "adapter_seed_offset": 200000,
+  "arms": {
+    "C0": "stored B0 unchanged",
+    "C1": "continue existing B0 LoRA, 294912 trainable",
+    "C2": "freeze B0 + generic residual adapter, 8712 trainable",
+    "C3": "freeze B0 + persistence-masked residual adapter, 8712 trainable"
+  },
+  "automatic_followup": false,
+  "batch": 32,
+  "bootstrap_key": 84500,
+  "checkpoints": [
+    0,
+    256,
+    512,
+    768,
+    1024
+  ],
+  "cpu_tolerance": {
+    "atol": 1e-12,
+    "rtol": 1e-10
+  },
+  "epochs": 32,
+  "evaluation": "previously exposed development E; all new E predictions saved before scoring; no independent test claim",
+  "fit_cap": 24,
+  "gate": "1 - mean(p_t over native 16-slot patch)",
+  "gpu_tolerance": "normalized max1e-5 OR rtol1e-4; starting and off-path B0 parity must be bitwise",
+  "lrs": [
+    0.0001,
+    0.0003
+  ],
+  "main_contrasts": [
+    "C3/C0",
+    "C3/C1",
+    "C3/C2",
+    "C2/C0",
+    "C2/C1",
+    "C1/C0"
+  ],
+  "main_updates_cap": 24576,
+  "microbatch": {
+    "electricity": {
+      "microbatch": 32,
+      "probes": [
+        {
+          "micro": 32,
+          "optimizer_updates": 0,
+          "peak_allocated": 384759808,
+          "status": "FIT"
+        }
+      ]
+    },
+    "ettm1": {
+      "microbatch": 32,
+      "probes": [
+        {
+          "micro": 32,
+          "optimizer_updates": 0,
+          "peak_allocated": 386659840,
+          "status": "FIT"
+        }
+      ]
+    }
+  },
+  "microbatch_fallback": [
+    32,
+    16,
+    8,
+    4
+  ],
+  "optimizer": {
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "clip_norm": 1,
+    "eps": 1e-08,
+    "name": "AdamW",
+    "reset_moments_at_warmstart": true,
+    "scheduler": null,
+    "weight_decay": 0
+  },
+  "p_permutation_key": 84400,
+  "performance_gate": false,
+  "persistence": "same-sign abs deviation>3 in trailing8 observed slots; truncated boundary; observed median/MAD floor0.1TRAINsigma",
+  "precision": "FP32, TF32 off, dropout0",
+  "residual": "s_detached*tanh(W_up GELU(W_down e)), 512->8->512, biases, W_up and b_up zero",
+  "seeds": {
+    "repeat": [
+      81551,
+      81552
+    ],
+    "select": 81550
+  },
+  "shuffle_key": 84100,
+  "smoke_updates_cap": 12,
+  "sources": [
+    "electricity",
+    "ettm1"
+  ],
+  "status": "SEALED_FOR_MAIN_TRAINING",
+  "tie": "smaller LR, then earlier checkpoint",
+  "updates_per_fit": 1024
+}
