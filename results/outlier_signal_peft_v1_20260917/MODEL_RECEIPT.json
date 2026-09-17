@@ -1,0 +1,74 @@
+{
+  "config": {
+    "_name_or_path": "autogluon/chronos-bolt-small",
+    "architectures": [
+      "ChronosBoltModelForForecasting"
+    ],
+    "chronos_config": {
+      "context_length": 2048,
+      "input_patch_size": 16,
+      "input_patch_stride": 16,
+      "prediction_length": 64,
+      "quantiles": [
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9
+      ],
+      "use_reg_token": true
+    },
+    "chronos_pipeline_class": "ChronosBoltPipeline",
+    "classifier_dropout": 0.0,
+    "d_ff": 2048,
+    "d_kv": 64,
+    "d_model": 512,
+    "decoder_start_token_id": 0,
+    "dense_act_fn": "relu",
+    "dropout_rate": 0.1,
+    "eos_token_id": 1,
+    "feed_forward_proj": "relu",
+    "initializer_factor": 0.05,
+    "is_encoder_decoder": true,
+    "is_gated_act": false,
+    "layer_norm_epsilon": 1e-06,
+    "model_type": "t5",
+    "n_positions": 512,
+    "num_decoder_layers": 6,
+    "num_heads": 8,
+    "num_layers": 6,
+    "pad_token_id": 0,
+    "reg_token_id": 1,
+    "relative_attention_max_distance": 128,
+    "relative_attention_num_buckets": 32,
+    "torch_dtype": "float32",
+    "transformers_version": "4.39.3",
+    "use_cache": true,
+    "vocab_size": 2
+  },
+  "snapshot": {
+    "revision": "772f3d25d38aec6d914c8949dab4462e2d46f5d8",
+    "snapshot": ".cache/outlier_signal_peft_v1_20260917/hf/models--amazon--chronos-bolt-small/snapshots/772f3d25d38aec6d914c8949dab4462e2d46f5d8",
+    "files": {
+      ".cache/outlier_signal_peft_v1_20260917/hf/models--amazon--chronos-bolt-small/snapshots/772f3d25d38aec6d914c8949dab4462e2d46f5d8/model.safetensors": "06a6a19bbe74bc10a9cd193bd4bf2bf638ae07f7e0d51653ae7ab8ea968a21dd",
+      ".cache/outlier_signal_peft_v1_20260917/hf/models--amazon--chronos-bolt-small/snapshots/772f3d25d38aec6d914c8949dab4462e2d46f5d8/config.json": "9ca0ebbe049ccebacb0546361e8aa728f0cf104cd18d1838d78d296aa317bd21"
+    }
+  },
+  "device_of_this_check": "cpu",
+  "dtype": "float32",
+  "TF32": false,
+  "dropout": 0,
+  "installed_source": ".venv/lib/python3.11/site-packages/chronos/chronos_bolt.py",
+  "installed_source_sha256": "93b3af9e4521ea981c4228b1acaa252321f7a190512f956088394426182c8b8c",
+  "versions": {
+    "torch": "2.8.0",
+    "transformers": "4.57.6",
+    "chronos-forecasting": "2.3.2",
+    "peft": "0.18.1",
+    "huggingface-hub": "0.36.2"
+  }
+}
