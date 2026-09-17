@@ -1,0 +1,40 @@
+{
+  "LoRA_common_initialization": true,
+  "all_labels_single_shared_file": true,
+  "all_sources_arms_checked": true,
+  "cpu_tests": {
+    "authorship": "locally authored, explicitly user-authorized",
+    "errors": 0,
+    "failures": 0,
+    "passed": true,
+    "tests": 10
+  },
+  "final_model_restore_verification": "pending selected models",
+  "generator_cannot_read_future": true,
+  "original_initial_checks": {
+    "A4_step0_max_normalized_error": 0.0,
+    "A5_step0_max_normalized_error": 0.0,
+    "finite_native_output_shape": [
+      8,
+      9,
+      64
+    ],
+    "generic_residual_initial_parameter_hash_equal": true,
+    "native_wrapper_max_normalized_error": 0.0,
+    "optimizer_updates": 0,
+    "original_base_and_head_hash_unchanged": true,
+    "original_base_parameter_sha256": "c6e079594dc44c7f6184aa0f6cdc4110e00eb25c940a8890dd67897e8b02408d",
+    "scope": "CPU actual pretrained forward and initial LoRA/adapter attachment only; not smoke training",
+    "supplied_reference_tests": "BLOCKED_MISSING_REFERENCE_FILES",
+    "unverified": [
+      "supplied reference parity",
+      "two-update gradients",
+      "GPU microbatch",
+      "checkpoint resume",
+      "full generators and label streams",
+      "independent metric verification"
+    ]
+  },
+  "performance_gate": false,
+  "smoke_updates": 24
+}

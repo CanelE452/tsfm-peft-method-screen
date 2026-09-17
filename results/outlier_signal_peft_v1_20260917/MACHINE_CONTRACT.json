@@ -1,31 +1,17 @@
 {
-  "status": "PREPARATION_ONLY_NOT_TRAINING_SEAL",
-  "sole_protocol_sha256": "b8f8d906a146ba82c735dce047d2fca59e3be0a31a1c81c60e55441f7e254625",
-  "source_order": [
-    "electricity",
-    "ettm1"
-  ],
-  "arms": [
-    "A0",
-    "A1",
-    "A2",
-    "A3",
-    "A4",
-    "A5"
-  ],
-  "context": 512,
-  "horizon": 64,
+  "E_scoring": "only after all selections sealed and all E predictions saved",
+  "TF32": false,
+  "arms": {
+    "A0": "NO_FAULT_AUG",
+    "A1": "AUG",
+    "A2": "CLIP_AUG",
+    "A3": "HAMPEL_AUG",
+    "A4": "CLIP_GENERIC",
+    "A5": "CLIP_RESIDUAL"
+  },
+  "blocked": [],
+  "bootstrap": "2000 paired 7-day absolute-time blocks, optimizer seeds averaged within each draw",
   "channels": 4,
-  "learning_rates": [
-    0.0001,
-    0.0003
-  ],
-  "selection_seed": 81500,
-  "repeat_seeds": [
-    81501,
-    81502
-  ],
-  "updates_per_fit": 1024,
   "checkpoints": [
     0,
     256,
@@ -33,33 +19,71 @@
     768,
     1024
   ],
+  "condition_manifest_sha256": "42207182cba40849de086e4e50e28b3edc55aba221ebf8f19178a8cf53f1c3c7",
+  "context": 512,
+  "data_manifest_sha256": "ef6125b555caa75d509396665c06c4f2e86d872e04a6f2e5a6c89b66a5c5d0c0",
+  "dtype": "FP32",
+  "effective_batch": 32,
+  "hard_wall_hours": 24,
+  "horizon": 64,
+  "learning_rates": [
+    0.0001,
+    0.0003
+  ],
   "max_fits": 48,
   "max_main_updates": 49152,
   "max_smoke_updates": 24,
-  "hard_wall_hours": 24,
+  "microbatch": {
+    "electricity": {
+      "microbatch": 32,
+      "probes": [
+        {
+          "micro": 32,
+          "optimizer_updates": 0,
+          "peak_allocated": 391796224,
+          "status": "FIT"
+        }
+      ]
+    },
+    "ettm1": {
+      "microbatch": 32,
+      "probes": [
+        {
+          "micro": 32,
+          "optimizer_updates": 0,
+          "peak_allocated": 390461440,
+          "status": "FIT"
+        }
+      ]
+    }
+  },
   "new_cache_limit_gib": 50,
-  "effective_batch": 32,
-  "microbatch": null,
-  "dtype": "FP32",
-  "TF32": false,
+  "no_automatic_followups": true,
+  "no_performance_gate": true,
   "optimizer": {
-    "name": "AdamW",
     "betas": [
       0.9,
       0.999
     ],
     "eps": 1e-08,
-    "weight_decay": 0,
-    "grad_clip": 1
+    "grad_clip": 1,
+    "name": "AdamW",
+    "weight_decay": 0
   },
-  "blocked": [
-    "supplied reference files absent"
+  "origin_sha256": "cfce6402b62e752ea191679eae5ab26d74e962e241e64961834706c67562d2cf",
+  "reference_implementation": "locally authored; user explicitly authorized",
+  "repeat_seeds": [
+    81501,
+    81502
   ],
-  "unsealed": [
-    "supplied component compatibility",
-    "condition generator implementation",
-    "microbatch",
-    "training runner"
+  "selection": "mean nMAE REFERENCE POINT8 BURST8 SHIFT4; lower LR then earlier step tie",
+  "selection_seed": 81500,
+  "sole_protocol_sha256": "b8f8d906a146ba82c735dce047d2fca59e3be0a31a1c81c60e55441f7e254625",
+  "source_order": [
+    "electricity",
+    "ettm1"
   ],
-  "no_automatic_followups": true
+  "status": "SEALED_FOR_MAIN_TRAINING",
+  "unsealed": [],
+  "updates_per_fit": 1024
 }

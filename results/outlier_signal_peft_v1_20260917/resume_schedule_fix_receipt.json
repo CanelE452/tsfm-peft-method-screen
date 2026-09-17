@@ -1,0 +1,30 @@
+{
+  "code_changes": [
+    {
+      "new_sha256": "84a5e159691e68ac9fff83c41990b8f4972b658d1cf3cee1e0ae26ad0aeb74bd",
+      "old_sha256": "e39c3b98047e302a41d706bf9f60af632bc1e21f239148b3eaabb8942e52ad61",
+      "path": "experiments/outlier_signal_peft_v1_20260917/train.py"
+    }
+  ],
+  "completed_fit_selected_checkpoint_unchanged": true,
+  "ineligible_checkpoint_excluded_from_all_selection": true,
+  "ineligible_diagnostic_series": 2048,
+  "optimizer_replay": 0,
+  "preserved_main_updates": 1184,
+  "reason": "resume must not turn arbitrary saved epoch into an eligible selection checkpoint",
+  "retained_ineligible_validation_diagnostic": [
+    {
+      "checkpoint": ".cache/outlier_signal_peft_v1_20260917/fits/electricity_A0_s81500_lr0.0001/checkpoint_416.pt",
+      "objective": 0.20790481995455865,
+      "sha256": "2cd5c2e7df7b2b52c4bc70cdb1f7b8a1968339d7b9aaf20df5039840385bf7d0",
+      "step": 416
+    }
+  ],
+  "scientific_checkpoint_schedule": [
+    0,
+    256,
+    512,
+    768,
+    1024
+  ]
+}

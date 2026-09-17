@@ -1,6 +1,6 @@
 """Explicit Chronos-Bolt patch adapter; no generator metadata enters forward.
 
-Initial CPU parity is audited separately. This is not yet cleared for training.
+Initial CPU parity and actual GPU training checks are audited separately.
 """
 import hashlib
 import math
@@ -89,7 +89,7 @@ class ForecastModel(nn.Module):
         self.base, self.arm = base, arm
         self.adapter = BoundedAdapter(seed) if arm in {'A4','A5'} else None
 
-    def forward(self, observed, sigma):
+    def forward(self, observed, sigma, residual_mode="normal"):
         assert observed.ndim == 2 and observed.shape[-1] == 512
         assert sigma.shape == observed.shape[:1]
         assert torch.isfinite(observed).all() and (sigma>0).all()
@@ -110,6 +110,11 @@ class ForecastModel(nn.Module):
                 _, scale = robust_scale(observed, sigma)
                 discarded = b.patch((observed-context)/scale)
                 second = torch.asinh(discarded).clamp(-6,6)
+                if residual_mode == "zero": second = torch.zeros_like(second)
+                elif residual_mode == "permute":
+                    permutation = torch.randperm(32, generator=torch.Generator().manual_seed(82400)).to(second.device)
+                    second = second[:, permutation]
+                else: assert residual_mode == "normal"
             embeds = self.adapter(embeds, torch.cat([first,second],dim=-1))
         attention_mask = (patch_mask.sum(dim=-1)>0).to(b.dtype)
         if b.chronos_config.use_reg_token:

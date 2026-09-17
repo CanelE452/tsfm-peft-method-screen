@@ -136,6 +136,6 @@ PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제
 [한국어 REPORT](../results/history_compression_v1_20260917/REPORT.md), [최종 결정](../results/history_compression_v1_20260917/FINAL_DECISION.md), [실행 문서](HISTORY_COMPRESSION_20260917.md). 기존 SHORT/LONG8fits를 검증 후 재사용하고 STATS_SHORT/POOL/POOL_KD/LEARN/LEARN_KD20fits·10,240updates와 smoke10updates를 완료했다. LEARN_KD대POOL_KD +0.0701%, 대LEARN +3.6627%. 구성요소 탐색 기준 충족=False, 정확도·자원절충 신호=False. 신규성은 미확보이며 재사용 개발 평가다. [수치 검산](../results/history_compression_v1_20260917/verification.json), [새 모델 E 복원](../results/history_compression_v1_20260917/independent_model_verification.json). 추가 학습은 없다.
 
 
-## 입력 오류 강건성·지속 변화 보존 — CPU 감사 완료·첨부 코드 대기 (2026-09-17)
+## 입력 오류 강건성·지속 변화 보존 — 직접 구현·본학습 실행 중 (2026-09-17)
 
-[한국어 보고서](../results/outlier_signal_peft_v1_20260917/REPORT.md), [현재 결정](../results/outlier_signal_peft_v1_20260917/FINAL_DECISION.md), [검산 범위](../results/outlier_signal_peft_v1_20260917/verification.json). 두 원천 모두 TRAIN256/V64/E128 distinct days 확보. 실제 Bolt-small q/v36 LoRA 부착 및 CPU 초기 출력 일치, 자체 CPU 검사5개 통과. 지정 reference_core.py/test_reference.py 누락으로 PARTIAL / BLOCKED_MISSING_REFERENCE_FILES. 학습0/48, optimizer0, 제한 재현0/98. 성능 FAIL이나 논문 PASS가 아니며 전체 runner·GPU 검사·선택·평가는 미완료다.
+[현재 보고서](../results/outlier_signal_peft_v1_20260917/REPORT.md), [실행 설명](../results/outlier_signal_peft_v1_20260917/EXECUTION_README.md), [직접 구현 승인·출처](../results/outlier_signal_peft_v1_20260917/REFERENCE_AUTHORSHIP.md). 사용자 승인으로 참조 부품을 직접 작성했다. CPU 검사10개, 공개 모델 축소 재현98 series, 전체12 source/arm의 smoke24 updates 완료. GPU 본학습 최대48fits와 봉인 후 평가·검산을 진행 중이다. 이전 파일 누락 상태는 preflight_e11fa67에 보존했으며 성능 FAIL이 아니다. 최종 과학적 판정은 아직 없다.

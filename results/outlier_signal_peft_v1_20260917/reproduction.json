@@ -1,0 +1,22 @@
+{
+  "amplitude_rule": "seeded Gaussian additive amplitudes; not exact original notebook sweeps",
+  "kind": "reduced replication",
+  "maximum_series": 98,
+  "models": {
+    "amazon/chronos-bolt-small": {
+      "internal_forward_calls": 49,
+      "samples_per_series": 1,
+      "series": 49,
+      "status": "COMPLETE"
+    },
+    "amazon/chronos-t5-small": {
+      "internal_forward_calls": 3136,
+      "samples_per_series": 20,
+      "series": 49,
+      "status": "COMPLETE"
+    }
+  },
+  "optimizer_updates": 0,
+  "patch_size1": "SKIPPED_UNAVAILABLE_REFERENCE",
+  "source": "cos(t+.3), period160/context512/horizon64"
+}
