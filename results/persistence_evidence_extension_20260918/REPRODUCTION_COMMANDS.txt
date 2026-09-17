@@ -1,0 +1,6 @@
+# Existing pinned backbone, original selected checkpoints and cached input packets required.
+.venv/bin/python -m experiments.persistence_evidence_extension_20260918.runner prepare
+.venv/bin/python -m experiments.persistence_evidence_extension_20260918.checks
+.venv/bin/python -m experiments.persistence_evidence_extension_20260918.runner seal
+.venv/bin/python -m experiments.persistence_evidence_extension_20260918.runner run
+# No optimizer / training / selection call. Existing hash-matched prediction views are reused.
