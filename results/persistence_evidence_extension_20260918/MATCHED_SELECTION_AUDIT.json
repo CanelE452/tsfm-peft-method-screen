@@ -1,0 +1,63 @@
+{
+  "meaning": "C3/RECENCY learned-weight contrast is not confounded by different selected LR/step in these actual pairs; inference intervention still not a full account of training dynamics",
+  "new_predictions": 0,
+  "optimizer_updates": 0,
+  "pairs": [
+    {
+      "C3_lr": 0.0003,
+      "C3_step": 768,
+      "RECENCY_lr": 0.0003,
+      "RECENCY_step": 768,
+      "same_LR_and_step": true,
+      "seed": 81551,
+      "source": "electricity"
+    },
+    {
+      "C3_lr": 0.0003,
+      "C3_step": 768,
+      "RECENCY_lr": 0.0003,
+      "RECENCY_step": 768,
+      "same_LR_and_step": true,
+      "seed": 81552,
+      "source": "electricity"
+    },
+    {
+      "C3_lr": 0.0003,
+      "C3_step": 1024,
+      "RECENCY_lr": 0.0003,
+      "RECENCY_step": 1024,
+      "same_LR_and_step": true,
+      "seed": 81553,
+      "source": "electricity"
+    },
+    {
+      "C3_lr": 0.0001,
+      "C3_step": 0,
+      "RECENCY_lr": 0.0001,
+      "RECENCY_step": 0,
+      "same_LR_and_step": true,
+      "seed": 81551,
+      "source": "ettm1"
+    },
+    {
+      "C3_lr": 0.0001,
+      "C3_step": 1024,
+      "RECENCY_lr": 0.0001,
+      "RECENCY_step": 1024,
+      "same_LR_and_step": true,
+      "seed": 81552,
+      "source": "ettm1"
+    },
+    {
+      "C3_lr": 0.0001,
+      "C3_step": 1024,
+      "RECENCY_lr": 0.0001,
+      "RECENCY_step": 1024,
+      "same_LR_and_step": true,
+      "seed": 81553,
+      "source": "ettm1"
+    }
+  ],
+  "posthoc_receipt_audit": true,
+  "status": "VERIFIED"
+}

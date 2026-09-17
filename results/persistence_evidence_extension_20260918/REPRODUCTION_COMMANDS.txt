@@ -4,3 +4,8 @@
 .venv/bin/python -m experiments.persistence_evidence_extension_20260918.runner seal
 .venv/bin/python -m experiments.persistence_evidence_extension_20260918.runner run
 # No optimizer / training / selection call. Existing hash-matched prediction views are reused.
+
+# After VERIFIED, reports use the versioned interpretation; no training or selection.
+.venv/bin/python -m experiments.persistence_evidence_extension_20260918.report
+# Post-report artifact hashes, preserved seal, prediction manifests and arithmetic checks.
+.venv/bin/python -m experiments.persistence_evidence_extension_20260918.final_audit
