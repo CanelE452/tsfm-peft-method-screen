@@ -1,0 +1,57 @@
+{
+  "arm": "B1",
+  "checkpoint_io_seconds": 0.45641854841960594,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/outlier_signal_followup_v2_20260917/fits/electricity_B1_s81551_lr0.0003/checkpoint_0.pt",
+      "objective": 0.36688814977609485,
+      "sha256": "88819ec518242fe84f07ef26671036cb774c42570db99f2d4394a00a2dbeb3c1",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/outlier_signal_followup_v2_20260917/fits/electricity_B1_s81551_lr0.0003/checkpoint_256.pt",
+      "objective": 0.2749915904426077,
+      "sha256": "08ee6ac6d15841727376b1ea2bc17a050ddf71368f8cd5395ec816d28dc233d6",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/outlier_signal_followup_v2_20260917/fits/electricity_B1_s81551_lr0.0003/checkpoint_512.pt",
+      "objective": 0.27060190305104853,
+      "sha256": "098b2703f5cde23ec30e0740726c4d98e3e63ae51bcedeacde01e194b0127122",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/outlier_signal_followup_v2_20260917/fits/electricity_B1_s81551_lr0.0003/checkpoint_768.pt",
+      "objective": 0.2963345410042416,
+      "sha256": "2278ca6f152f2db4de3a32e1d7e05cea4b6aef25521c9f10a2920cbf0ff0d5be",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/outlier_signal_followup_v2_20260917/fits/electricity_B1_s81551_lr0.0003/checkpoint_1024.pt",
+      "objective": 0.2821577604893463,
+      "sha256": "ae0db685a902b84193fbb8150cb30248a4d4f8c452b4847367e814d30f75b0ae",
+      "step": 1024
+    }
+  ],
+  "fit": "electricity_B1_s81551_lr0.0003",
+  "frozen_sha256": "d9c5a4002d9a10ab5cbf72a6711948b5bbf3678a9287ffcdbce102f8f9738560",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 48.42539042799035,
+  "lr": 0.0003,
+  "microbatch": 32,
+  "optimization_limited": false,
+  "optimizer_seconds": 38.792309868498705,
+  "peak_allocated": 388994560,
+  "peak_reserved": 404750336,
+  "seed": 81551,
+  "selected": {
+    "checkpoint": ".cache/outlier_signal_followup_v2_20260917/fits/electricity_B1_s81551_lr0.0003/checkpoint_512.pt",
+    "objective": 0.27060190305104853,
+    "sha256": "098b2703f5cde23ec30e0740726c4d98e3e63ae51bcedeacde01e194b0127122",
+    "step": 512
+  },
+  "source": "electricity",
+  "status": "COMPLETE",
+  "updates": 1024,
+  "validation_seconds": 5.284953159920406
+}

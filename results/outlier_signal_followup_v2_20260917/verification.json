@@ -1,0 +1,113 @@
+{
+  "CPU_metric_tolerance": {
+    "atol": 1e-12,
+    "rtol": 1e-10
+  },
+  "GPU_tolerance": "normalized max error 1e-5 OR rtol 1e-4",
+  "all_E_predictions_saved_before_label_scoring": true,
+  "all_frozen_weights_preserved": true,
+  "independent_scalar_rows": 1920,
+  "main_updates": 49152,
+  "metrics_per_row": 2,
+  "selected_model_restore": [
+    {
+      "key": "electricity_B0_81551",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_B0_81552",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_B1_81551",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_B1_81552",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_B2_81551",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_B2_81552",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_B3_81551",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_B3_81552",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_B4_81551",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_B4_81552",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_B5_81551",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_B5_81552",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_B0_81551",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_B0_81552",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_B1_81551",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_B1_81552",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_B2_81551",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_B2_81552",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_B3_81551",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_B3_81552",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_B4_81551",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_B4_81552",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_B5_81551",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_B5_81552",
+      "max_normalized_error": 0.0
+    }
+  ],
+  "smoke_updates": 24,
+  "status": "VERIFIED",
+  "unique_journal_updates": true
+}

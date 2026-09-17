@@ -10,9 +10,34 @@ from .model import ForecastModel,coordinates
 from .reference_core import STATES
 from .prepare import OLD
 
+def plot_all_state_exposure():
+    f=pd.read_csv(OUT/'clip_exposure_summary.csv');fig,axes=plt.subplots(2,2,figsize=(16,11))
+    for i,source in enumerate(SOURCES):
+        rows=f[(f.source==source)&f.role.isin(['TRAIN','E_DISCOVERY'])].copy()
+        order={'REFERENCE':0,'POINT':1,'BURST':2,'SHIFT':3,**{v:k for k,v in enumerate(STATES)}}
+        rows['state_order']=rows.state.map(order);rows['role_order']=rows.role.map({'TRAIN':0,'E_DISCOVERY':1});rows=rows.sort_values(['role_order','state_order'])
+        labels=[('TRAIN / ' if r.role=='TRAIN' else 'E / ')+r.state for r in rows.itertuples()]
+        colors=['#777777' if role=='TRAIN' else '#2278a8' for role in rows.role]
+        for j,metric in enumerate(['clipped_fraction','normalized_mass']):
+            axes[i,j].barh(labels,rows[metric],color=colors);axes[i,j].invert_yaxis();axes[i,j].set_title(source+' / '+metric);axes[i,j].set_xlabel('whole context mean; TRAIN faults=8, SHIFT=4 in v1')
+    plt.tight_layout();folder=OUT/'figures';folder.mkdir(exist_ok=True)
+    for ext in ['png','pdf']:plt.savefig(folder/('all_state_clip_exposure.'+ext),dpi=160)
+    plt.close()
+
 @torch.no_grad()
 def render():
     setup();assert read(OUT/'verification.json')['status']=='VERIFIED'
+    plot_all_state_exposure()
+    import importlib.metadata,platform,inspect
+    from chronos.chronos_bolt import ChronosBoltModelForForecasting
+    native=Path(inspect.getfile(ChronosBoltModelForForecasting))
+    save(OUT/'ENVIRONMENT.json',dict(captured='post-run provenance; environment was not changed',python=platform.python_version(),packages={name:importlib.metadata.version(name) for name in ['torch','transformers','chronos-forecasting','peft','numpy','pandas']},native_bolt_source=str(native.relative_to(ROOT)),native_bolt_sha256=sha(native),cuda=torch.version.cuda))
+    exposure_full=pd.read_csv(CACHE/'clip_exposure_per_example.csv');distribution=[]
+    for keys,frame in exposure_full.groupby(['source','role','state']):
+        for metric in ['clipped_fraction','normalized_mass','maximum_discarded_over_r','longest_run','shift_clipped_fraction','residual_mass_over_abs_delta']:
+            values=frame[metric].dropna()
+            if len(values):distribution.append(dict(source=keys[0],role=keys[1],state=keys[2],metric=metric,n=len(values),**{name:float(value) for name,value in zip(['median','p90','p99','max'],values.quantile([.5,.9,.99,1]))}))
+    pd.DataFrame(distribution).to_csv(OUT/'clip_exposure_distribution.csv',index=False)
     rows=[];parameter=[];draws={};examples={}
     for sel in read(OUT/'MODEL_SELECTION.json'):
         source,arm,seed=sel['source'],sel['arm'],sel['seed']
@@ -93,17 +118,21 @@ def render():
     for p in sorted((OUT/'fits').glob('*/receipt.json')):
         rec=read(p);key=f"{rec['source']}_{rec['arm']}_{rec['seed']}";ii=inf.get(key,{})
         ledger.append({k:rec[k] for k in ['fit','source','arm','seed','lr','status','updates','optimizer_seconds','validation_seconds','checkpoint_io_seconds','peak_allocated','peak_reserved']})
-        resources.append(dict(source=rec['source'],arm=rec['arm'],seed=rec['seed'],lr=rec['lr'],selected_step=rec['selected']['step'],optimizer_seconds=rec['optimizer_seconds'],validation_seconds=rec['validation_seconds'],checkpoint_io_seconds=rec['checkpoint_io_seconds'],train_peak_allocated_mib=rec['peak_allocated']/2**20,train_peak_reserved_mib=rec['peak_reserved']/2**20,E_inference_seconds=ii.get('inference_seconds'),E_peak_allocated_mib=ii.get('peak_allocated',0)/2**20))
+        resources.append(dict(source=rec['source'],arm=rec['arm'],seed=rec['seed'],lr=rec['lr'],selected_step=rec['selected']['step'],optimizer_seconds=rec['optimizer_seconds'],validation_seconds=rec['validation_seconds'],checkpoint_io_seconds=rec['checkpoint_io_seconds'],train_peak_allocated_mib=rec['peak_allocated']/2**20,train_peak_reserved_mib=rec['peak_reserved']/2**20,E_inference_seconds=ii.get('inference_seconds'),E_peak_allocated_mib=ii['peak_allocated']/2**20 if ii else None))
     pd.DataFrame(ledger).to_csv(OUT/'FIT_LEDGER.csv',index=False);pd.DataFrame(resources).to_csv(OUT/'resources.csv',index=False)
     guards=[]
     for p in OUT.glob('gpu_*.jsonl'):
         guards.extend(json.loads(l) for l in open(p))
     used=sum(p.stat().st_size for p in CACHE.rglob('*') if p.is_file() and not p.is_symlink())
     summary=dict(main_optimizer_seconds=sum(r['optimizer_seconds'] for r in resources),validation_seconds=sum(r['validation_seconds'] for r in resources),checkpoint_io_seconds=sum(r['checkpoint_io_seconds'] for r in resources),E_inference_seconds=sum(r['inference_seconds'] for r in inf.values()),min_free_gpu_mib=min(r['free_mib'] for r in guards),unapproved_external_compute_samples=sum(any(not a['own'] and not a.get('allowed_desktop',False) for a in r['apps']) for r in guards),cache_bytes_excluding_symlink_files=used)
+    summary['run_all_wall_seconds']=read(OUT/'run-all_wall.json')['seconds']
     save(OUT/'execution_resource_summary.json',summary)
+    save(OUT/'SCORING_COMPLETED.json',dict(completed_at=time.time(),all_E_saved_receipt_sha256=sha(OUT/'ALL_E_PREDICTIONS_SAVED.json'),marker_semantics='labels_scored=false in ALL_E_PREDICTIONS_SAVED describes the moment before scoring; current scoring is complete',scores_hashes={name:sha(OUT/name) for name in ['scores_by_origin.csv','scores_by_condition.csv','paired_effects.csv']}))
     # Post-run immutable dependencies/data/checkpoints are re-audited, plus all selection decisions.
     from .prepare import audit
     audit();check_seal()
+    for info in read(OUT/'download_receipts.json').values():
+        for path,h in info['files'].items():assert sha(ROOT/path)==h
     for p,h in read(OUT/'AUGMENTATION_MANIFEST.json')['hashes'].items():assert sha(ROOT/p)==h
     from .train import fit_id
     choices=read(OUT/'LR_SELECTION.json')
