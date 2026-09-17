@@ -1,17 +1,113 @@
 {
-  "scope": "preparation_and_initial_CPU_connection_only",
-  "local_cpu_tests": 5,
-  "local_cpu_tests_passed": 5,
-  "supplied_reference_tests": "NOT_RUN_MISSING_INPUT",
-  "actual_training_verification": "NOT_RUN",
-  "evaluation_scalar_verification": "NOT_RUN",
-  "original_results_modified": false,
-  "passed_audit_artifacts": {
-    "DATA_MANIFEST.json": "ef6125b555caa75d509396665c06c4f2e86d872e04a6f2e5a6c89b66a5c5d0c0",
-    "origins.csv": "cfce6402b62e752ea191679eae5ab26d74e962e241e64961834706c67562d2cf",
-    "origin_audit.json": "87e9f38c86ff808467e93988b28087bd98aeba2546edf19ab1e0daccbd602c86",
-    "MODEL_RECEIPT.json": "05a06ff298fa6672f11c7cf20bb885f22a870420c7a2c622b5390f29aadc835c",
-    "PARAMETER_RECEIPT.json": "a0c39655ca9030153fab5ceca795d6ac795cb148bd8b242951558ce80217d365",
-    "implementation_checks.json": "3b7eb5413ae2a5e6d3f56eee3fb1b0115b5b7fd53ec4e419232cb40118ecc862"
-  }
+  "CPU_metric_tolerance": {
+    "atol": 1e-12,
+    "rtol": 1e-10
+  },
+  "GPU_tolerance": "normalized max error 1e-5 OR rtol 1e-4",
+  "all_E_predictions_saved_before_label_scoring": true,
+  "all_frozen_weights_preserved": true,
+  "independent_scalar_rows": 2560,
+  "main_updates": 49152,
+  "metrics_per_row": 2,
+  "selected_model_restore": [
+    {
+      "key": "electricity_A0_81501",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_A0_81502",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_A1_81501",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_A1_81502",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_A2_81501",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_A2_81502",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_A3_81501",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_A3_81502",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_A4_81501",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_A4_81502",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_A5_81501",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "electricity_A5_81502",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_A0_81501",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_A0_81502",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_A1_81501",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_A1_81502",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_A2_81501",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_A2_81502",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_A3_81501",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_A3_81502",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_A4_81501",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_A4_81502",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_A5_81501",
+      "max_normalized_error": 0.0
+    },
+    {
+      "key": "ettm1_A5_81502",
+      "max_normalized_error": 0.0
+    }
+  ],
+  "smoke_updates": 24,
+  "status": "VERIFIED",
+  "unique_journal_updates": true
 }

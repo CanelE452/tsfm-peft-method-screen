@@ -136,6 +136,6 @@ PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제
 [한국어 REPORT](../results/history_compression_v1_20260917/REPORT.md), [최종 결정](../results/history_compression_v1_20260917/FINAL_DECISION.md), [실행 문서](HISTORY_COMPRESSION_20260917.md). 기존 SHORT/LONG8fits를 검증 후 재사용하고 STATS_SHORT/POOL/POOL_KD/LEARN/LEARN_KD20fits·10,240updates와 smoke10updates를 완료했다. LEARN_KD대POOL_KD +0.0701%, 대LEARN +3.6627%. 구성요소 탐색 기준 충족=False, 정확도·자원절충 신호=False. 신규성은 미확보이며 재사용 개발 평가다. [수치 검산](../results/history_compression_v1_20260917/verification.json), [새 모델 E 복원](../results/history_compression_v1_20260917/independent_model_verification.json). 추가 학습은 없다.
 
 
-## 입력 오류 강건성·지속 변화 보존 — 직접 구현·본학습 실행 중 (2026-09-17)
+## 입력 오류 강건성·지속 변화 보존 — 48/48 완료·현재 후보 종료 (2026-09-17)
 
-[현재 보고서](../results/outlier_signal_peft_v1_20260917/REPORT.md), [실행 설명](../results/outlier_signal_peft_v1_20260917/EXECUTION_README.md), [직접 구현 승인·출처](../results/outlier_signal_peft_v1_20260917/REFERENCE_AUTHORSHIP.md). 사용자 승인으로 참조 부품을 직접 작성했다. CPU 검사10개, 공개 모델 축소 재현98 series, 전체12 source/arm의 smoke24 updates 완료. GPU 본학습 최대48fits와 봉인 후 평가·검산을 진행 중이다. 이전 파일 누락 상태는 preflight_e11fa67에 보존했으며 성능 FAIL이 아니다. 최종 과학적 판정은 아직 없다.
+[한국어 REPORT](../results/outlier_signal_peft_v1_20260917/REPORT.md), [최종 결정](../results/outlier_signal_peft_v1_20260917/FINAL_DECISION.md), [검산](../results/outlier_signal_peft_v1_20260917/verification.json). 참조 부품 직접 구현 후48/48fits·49,152main+24smoke updates, 축소 재현98series, E평가·5,120scalar 대조·선택24checkpoint 복원 완료. A5는 Electricity에서 A4 대비 지속 변화3.74% 개선을 보였지만 A1보다 지속 변화 오차가103.8% 컸고 ETTm1도79.6% 컸다. 제한된 추가 효과를 인정하면서 현재 고정 후보는 종료, 후속 집중0개로 결정했다. 실제 사건 레이블·정식 선행 검색·독립 source 검증은 남아 있으며 논문 PASS를 선언하지 않았다.

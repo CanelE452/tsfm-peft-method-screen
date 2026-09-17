@@ -1,24 +1,34 @@
 {
-  "native_wrapper_max_normalized_error": 0.0,
   "A4_step0_max_normalized_error": 0.0,
   "A5_step0_max_normalized_error": 0.0,
-  "generic_residual_initial_parameter_hash_equal": true,
+  "GPU_smoke_source_arm_groups": 12,
+  "GPU_smoke_updates": 24,
   "finite_native_output_shape": [
     8,
     9,
     64
   ],
+  "generic_residual_initial_parameter_hash_equal": true,
+  "independent_scalar_metric_comparisons": 5120,
+  "locally_authored_cpu_tests": {
+    "authorship": "locally authored, explicitly user-authorized",
+    "errors": 0,
+    "failures": 0,
+    "passed": true,
+    "tests": 10
+  },
+  "main_optimizer_updates": 49152,
+  "native_wrapper_max_normalized_error": 0.0,
+  "optimizer_updates": 0,
   "original_base_and_head_hash_unchanged": true,
   "original_base_parameter_sha256": "c6e079594dc44c7f6184aa0f6cdc4110e00eb25c940a8890dd67897e8b02408d",
-  "optimizer_updates": 0,
   "scope": "CPU actual pretrained forward and initial LoRA/adapter attachment only; not smoke training",
-  "supplied_reference_tests": "BLOCKED_MISSING_REFERENCE_FILES",
+  "selected_model_restores": 24,
+  "status": "COMPLETE",
+  "supplied_reference_tests": "UNAVAILABLE; user authorized locally authored replacement",
   "unverified": [
-    "supplied reference parity",
-    "two-update gradients",
-    "GPU microbatch",
-    "checkpoint resume",
-    "full generators and label streams",
-    "independent metric verification"
+    "real fault/event labels",
+    "formal TATO search comparison",
+    "independent source validation"
   ]
 }

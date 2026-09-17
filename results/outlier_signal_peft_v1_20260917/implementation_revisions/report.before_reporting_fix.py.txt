@@ -1,0 +1,134 @@
+"""Korean execution/evidence report; never declares paper PASS."""
+import pandas as pd
+from .common import *
+
+def table(frame):return frame.to_markdown(index=False,floatfmt='.6f')
+
+def report():
+    receipts=[read(p) for p in (OUT/'fits').glob('*/receipt.json')]
+    journal=OUT/'optimizer.jsonl';updates=sum(1 for _ in open(journal)) if journal.exists() else 0
+    smoke=read(OUT/'smoke_checks.json') if (OUT/'smoke_checks.json').exists() else {}
+    completed=sum(r['status']=='COMPLETE' for r in receipts)
+    complete=(OUT/'verification.json').exists() and read(OUT/'verification.json').get('status')=='VERIFIED'
+    rows=[]
+    for r in receipts:
+        rows.append({k:r[k] for k in ['fit','source','arm','seed','lr','status','updates','optimizer_seconds','validation_seconds','checkpoint_io_seconds','peak_allocated','peak_reserved']})
+    if rows:csvwrite(OUT/'FIT_LEDGER.csv',rows)
+    state=status(execution='COMPLETE' if complete else 'PARTIAL',automatic_background_worker=False)
+    if not complete:
+        (OUT/'REPORT.md').write_text(f'''# 입력 오류·지속 변화 PEFT 진행 상태
+
+참조 부품은 사용자 승인에 따라 직접 구현했고 원 첨부 코드로 가장하지 않았다. 원 계약 수식·원점·설정은 유지했다.
+
+실제 완료 {completed}/48 fits, 본학습 {updates}/49,152 updates, smoke {sum(v['updates'] for v in smoke.values())}/24 updates.
+전체 평가 검산은 아직 끝나지 않았다. 현재 상세 상태는 status.json과 fits/의 receipt/validation, optimizer.jsonl에 기록된다.
+GPU/코드/입력 오류는 성능 실패와 구분한다. 추가 후보·자동 후속 학습은 없다.
+
+재개 명령: `.venv/bin/python scripts/run_outlier_signal_peft.py run-all`. 이미 완료한 경로는 건너뛴다. journal과 epoch resume가 다르면 조용히 재학습하지 않고 차단한다.
+''')
+        return
+    scores=pd.read_csv(OUT/'scores_by_condition.csv');effects=pd.read_csv(OUT/'paired_effects.csv')
+    inf=read(OUT/'inference_resources.json');res=[]
+    for r in receipts:
+        key=f"{r['source']}_{r['arm']}_{r['seed']}";info=inf.get(key,{})
+        res.append(dict(source=r['source'],arm=r['arm'],seed=r['seed'],lr=r['lr'],selected_step=r['selected']['step'],
+                        train_seconds=r['optimizer_seconds'],validation_seconds=r['validation_seconds'],checkpoint_io_seconds=r['checkpoint_io_seconds'],
+                        train_peak_allocated_mib=r['peak_allocated']/2**20,train_peak_reserved_mib=r['peak_reserved']/2**20,
+                        inference_seconds=info.get('inference_seconds'),inference_peak_allocated_mib=info.get('peak_allocated',0)/2**20))
+    resource=pd.DataFrame(res);resource.to_csv(OUT/'resources.csv',index=False)
+    primary=scores[scores.seed.isin([81501,81502])|scores.seed.eq(0)].copy()
+    primary['panel']=primary.condition.map(lambda x:'FAULT' if x.startswith(('POINT','BURST')) else 'SHIFT' if x in ['SHIFT4','SHIFT8'] else x)
+    summary=primary.groupby(['source','arm','panel']).nmae.mean().unstack().reset_index()
+    byseed=primary[primary.arm.isin(ARMS)].groupby(['source','arm','seed','panel']).nmae.mean().unstack().reset_index()
+    trade=effects[(effects.new=='A5')&effects.baseline.isin(['A1','A3','A4'])][['source','baseline','panel','gain_pct','ci_low_pct','ci_high_pct','origins']]
+    tags={};decisions=[]
+    for source in SOURCES:
+        f=effects[(effects.source==source)&(effects.new=='A5')]
+        fault=f[f.panel.eq('FAULT')&f.baseline.isin(['A1','A3','A4'])]
+        protection=f[f.panel.isin(['REFERENCE','SHIFT','HISTORY_SUBSET'])&f.baseline.isin(['A1','A3','A4'])]
+        if (fault.ci_low_pct>0).all() and (protection.gain_pct>=0).all():tag='METHOD_SIGNAL'
+        elif (fault.gain_pct>0).all() and (protection[protection.panel=='SHIFT'].gain_pct<0).any():tag='ROBUSTNESS_SIGNAL_WITH_SHIFT_COST'
+        elif (fault.ci_high_pct<=0).all():tag='NO_ADDED_METHOD_EVIDENCE'
+        else:tag='UNCERTAIN'
+        tags[source]=tag;decisions.append(f'- {source}: **{tag}**. 원점수·직접 대비·시간 block 구간을 함께 해석한다.')
+    v=read(OUT/'verification.json');repro=pd.read_csv(OUT/'reproduction_scores.csv')
+    reprosum=repro.groupby(['model','count','amplitude']).mae.mean().reset_index()
+    chosen=pd.DataFrame([dict(source=r['source'],arm=r['arm'],seed=r['seed'],lr=r['lr'],step=r['selected']['step'],objective=r['selected']['objective']) for r in receipts])
+    chosen.to_csv(OUT/'selection_summary.csv',index=False)
+    costs=resource[resource.seed.isin([81501,81502])].groupby(['source','arm'])[['train_seconds','validation_seconds','train_peak_allocated_mib','inference_seconds','inference_peak_allocated_mib']].mean().reset_index()
+    text=f'''# 입력 오류 강건성·지속 변화 보존 PEFT 결과
+
+실행 **COMPLETE**: 48/48 fits, 본학습 49,152 updates, smoke 24 updates. 실행 완료와 과학적 성공은 별개이며 논문 PASS로 선언하지 않는다.
+
+## 질문·출처·정보 권한
+
+입력만 틀린 측정 오류를 줄이는 과정에서 미래에도 이어지는 변화를 지워 버릴 수 있다. 이번 비교는 clip이 제거한 관측 차이를 작은 bounded residual 경로로 보존하는 것이 필요한지 직접 시험한다. 동일 과거에 서로 다른 미래가 가능한 식별성 한계는 해결했다고 주장하지 않는다.
+
+유일한 계약은 PROTOCOL.md다. 누락된 참조 부품은 사용자의 “너가 직접 만들어서 해줘” 승인으로 직접 작성했다. 원래 첨부 코드를 확보한 것처럼 쓰지 않았다. 기존 표본·모델 cache를 hash 검증 후 재사용했고 이전 연구의 학습을 합치지 않았다.
+
+TSFM-Biases의 공개 notebook과 TATO의 실제 코드를 읽었다. 전자는 표현 편향/오류 민감성의 선행이고 후자는 변환 검색의 직접 선행이다. 고정 clip/Hampel 비교가 TATO 전체 검색을 이겼다는 뜻은 아니다. [선행 경계](literature_boundary.md), [축소 재현 차이](reproduction_differences.md).
+
+두 원천 모두 TRAIN256/V64/E128 distinct days, 첫 네 적격 채널, 입력512·미래64를 사용했다. Electricity는 512시간/64시간, ETTm1은128시간/16시간으로 물리적 horizon이 다르다. full eligible day를 먼저 균등하게 뽑고 phase roster를 독립 shuffle했다. 지표 분모는 raw TRAIN population std다. 날짜·scale·원자료 hash는 DATA_MANIFEST와 origin_audit에 있다.
+
+원자료는 UNMODIFIED_REFERENCE이며 완전히 깨끗하다고 부르지 않는다. SYNTHETIC_MEASUREMENT_FAULT는 x만, SYNTHETIC_PERSISTENT_SHIFT는 x와y를 일관되게 바꾼다. HISTORY_TRIGGERED_SUBSET은 TRAIN90분위수 기준의 과거 태그이며 실제 사건 레이블이 아니다. 음수 전력 stress도 삭제·보정하지 않았다(`physical_stress_counts.json`). 실제 오류/사건 전문가 레이블은 없다. E는 이전에 사용한 개발 원천/기간이므로 새로운 독립 test가 아니다.
+
+## 직접 비교와 원점수
+
+A0는 point/burst 증강만 제외하고 shift/정답 노출은 같다. A1은 공통 증강, A2는 clip6, A3는 단회 Hampel25/4, A4는 clip+일반 bounded adapter, A5는 clip+제거된 관측 차이 adapter다. A0~A3은294,912, A4/A5는299,784 trainable parameters다. 여섯 군 모두 같은 LR2개·선택seed1개·반복seed2개·1024updates/fit을 썼다. 선택seed E를 주평균에 넣지 않았다. 체크포인트0도 합법 후보였고 불리한 군도 학습량을 줄이지 않았다.
+
+아래는 반복 seed 평균 nMAE(작을수록 좋음). FAULT는 POINT/BURST 6조건 동가중, SHIFT는4/8 동가중이다. 계절반복의 quantile은 point를 반복한 퇴화 분포이며 학습 quantile 예측기와 혼동하지 않는다.
+
+{table(summary)}
+
+### seed별 원점수
+
+{table(byseed)}
+
+### A5 직접 손익: 양수는 개선, 음수는 악화
+
+7일 시간 block 2,000회 paired bootstrap이다. 한 원점의 채널·조건·모사seed를 독립 날짜로 세지 않고 optimizer seed도 각 draw 안에서 평균했다. 이는 두 optimizer seed 모집단의 불확실성을 충분히 추정한 CI가 아니다. 원천 간 p-value를 합치지 않았다.
+
+{table(trade)}
+
+전체 필수 대비 A5/A2, A1/A0, A2/A1, A3/A1 및 원점별 차이는 `paired_effects.csv`, `scores_by_origin.csv`에 있다. raw MAE, 채널 NRMSE, TRAIN-scale 2-pinball, quantile crossing은 `scores_by_condition.csv`에 있다.
+
+## 선택·구성요소·비용
+
+LR와 checkpoint는 V의 REFERENCE/POINT8/BURST8/SHIFT4 동일 가중 nMAE만으로 고정했다. 두 반복 seed는 고른 LR를 사용하고 자기 V에서 checkpoint를 선택했다. 모든 학습·선택을 GLOBAL_EVALUATION_SEAL에 봉인한 뒤 모든 E 예측을 저장하고 E 정답을 채점했다. 선택 상세는 `selection_summary.csv`와 `LR_SELECTION.json`이다. step1024가 선택된 경로는 OPTIMIZATION_LIMITED이며 연장하지 않았다.
+
+A5의 residual zero/고정 patch permutation 진단은 선택 모델의 V에서만 수행했고 optimizer0이다(`A5_validation_diagnostics.json`). 이 진단은 경로 의존성을 보일 뿐 A4보다 우수하다는 증거를 대신하지 않는다.
+
+반복 seed 평균 자원 표: 학습 시간은 forward/backward/clip/optimizer이며 validation·checkpoint I/O와 구분한다. 추론은 같은 선택 checkpoint의 동일 E 입력을 대상으로 전처리·기기 전송·예측 저장 전 CPU 반환까지 포함한다. 학습 peak는 고정 학습 경로의 실제 측정치다.
+
+{table(costs)}
+
+## 축소 재현·검산
+
+공개 Bolt/T5 각49 series, 총98 series를 실행했다. T5는20 samples median, 내부 forward3,136회이며 이를 새로운3,136개 시나리오라고 세지 않는다. 미공개 patch-size1 모델은 SKIPPED_UNAVAILABLE_REFERENCE다. 아래는 축소 재현의 평균 MAE이며 논문 전체 Figure8 재현이 아니다.
+
+{table(reprosum)}
+
+CPU 독립 검사10개, 12 source/arm의 실제2-update gradient·동결 본체/head 보존·복원·batch 순서 검사, 전체49,152 unique journal updates를 검산했다. E scalar 검산 {v['independent_scalar_rows']}행×2지표와 선택24개 모델의 저장 checkpoint 복원을 완료했다. tolerance는 사전 CPU rtol1e-10/atol1e-12와 FP32 TRAIN-scale max1e-5 또는 rtol1e-4이며 결과에 맞춰 늘리지 않았다. raw/모델/실행 소스 hash 및 실행 한도를 확인했다.
+
+필수 미실행 범위: 없음. 정식 TATO 검색, 실제 품질 레이블, 독립 source/backbone 검증은 이번 승인 범위 밖이며 실행하지 않았다. 원자료·가중치·예측 cache는 로컬에 있어 GitHub만으로 수치 재실행이 완결되지는 않는다.
+
+## 근거와 한계
+
+{chr(10).join(decisions)}
+
+오류 감소·원자료 성능·지속 변화 보존·자원 비용은 서로 별도다. 고정 clip/Hampel 설정이 각 전처리의 최적점이라는 뜻은 아니며 residual adapter의 신규성도 확보되지 않았다. 불리한 날짜·조건·seed를 제외하지 않았고 결과에 맞춘 추가 LR·방법·데이터·후속 학습은 없다.
+'''
+    (OUT/'REPORT.md').write_text(text)
+    (OUT/'FINAL_DECISION.md').write_text('''# 최종 결정
+
+실행은 COMPLETE(48 fits / 49,152 main +24 smoke updates)다. 논문 PASS 판정은 하지 않는다.
+
+'''+ '\n'.join(decisions)+'''
+
+남길 구현: 입력 권한 분리, full-day origin selection, 실제 Bolt q/v LoRA 연결, 고정 증강/clip/Hampel 비교 및 재현 가능한 journal·선택·평가 절차.
+
+후속 집중 후보: 현재 표의 직접 대비와 source/seed 일관성을 검토해 판단한다. 좋은 점수만으로 신규성이 확보되지는 않는다. 정식 TATO 및 실제 오류 레이블·독립 source 검증은 남아 있다. 추가 학습은 자동 시작하지 않는다.
+''')
+    save(OUT/'evidence_tags.json',tags)
+
+if __name__=='__main__':report()

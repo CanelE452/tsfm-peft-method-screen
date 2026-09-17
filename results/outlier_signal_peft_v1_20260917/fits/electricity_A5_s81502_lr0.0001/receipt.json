@@ -1,0 +1,57 @@
+{
+  "arm": "A5",
+  "checkpoint_io_seconds": 0.47997776203555986,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/outlier_signal_peft_v1_20260917/fits/electricity_A5_s81502_lr0.0001/checkpoint_0.pt",
+      "objective": 0.22841405328040926,
+      "sha256": "108feeef92922f03fa062c04722e2a171b22d55c62943bf42da823ab697ed3e7",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/outlier_signal_peft_v1_20260917/fits/electricity_A5_s81502_lr0.0001/checkpoint_256.pt",
+      "objective": 0.21094246627165075,
+      "sha256": "7a159f595109e2a86967ae2581a2acae7c324136a8a387346ac438f5c3f45b79",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/outlier_signal_peft_v1_20260917/fits/electricity_A5_s81502_lr0.0001/checkpoint_512.pt",
+      "objective": 0.21252640799405692,
+      "sha256": "a058c6e46e2c044421eaaad9249abdfbb85cc6811e0329d113eea9af69862add",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/outlier_signal_peft_v1_20260917/fits/electricity_A5_s81502_lr0.0001/checkpoint_768.pt",
+      "objective": 0.21311612196256474,
+      "sha256": "cebc42612c6bc0cb8210da9499604d3631c78b98e4eeb8c45cb381e480a424c1",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/outlier_signal_peft_v1_20260917/fits/electricity_A5_s81502_lr0.0001/checkpoint_1024.pt",
+      "objective": 0.20870605504174958,
+      "sha256": "5a8ae069510e39b3425bf40f862b9b3c7aca786b35aeb48b7c1b66e4ce4d0991",
+      "step": 1024
+    }
+  ],
+  "fit": "electricity_A5_s81502_lr0.0001",
+  "frozen_sha256": "d9c5a4002d9a10ab5cbf72a6711948b5bbf3678a9287ffcdbce102f8f9738560",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 48.72944018302951,
+  "lr": 0.0001,
+  "microbatch": 32,
+  "optimization_limited": true,
+  "optimizer_seconds": 40.02809136878932,
+  "peak_allocated": 394105856,
+  "peak_reserved": 404750336,
+  "seed": 81502,
+  "selected": {
+    "checkpoint": ".cache/outlier_signal_peft_v1_20260917/fits/electricity_A5_s81502_lr0.0001/checkpoint_1024.pt",
+    "objective": 0.20870605504174958,
+    "sha256": "5a8ae069510e39b3425bf40f862b9b3c7aca786b35aeb48b7c1b66e4ce4d0991",
+    "step": 1024
+  },
+  "source": "electricity",
+  "status": "COMPLETE",
+  "updates": 1024,
+  "validation_seconds": 4.2312936339876615
+}

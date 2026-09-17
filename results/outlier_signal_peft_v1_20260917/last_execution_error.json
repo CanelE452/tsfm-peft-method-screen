@@ -1,0 +1,6 @@
+{
+  "error": "('SEALED_CODE_CHANGED', 'experiments/outlier_signal_peft_v1_20260917/train.py')",
+  "time": 1789631972.7799592,
+  "traceback": "Traceback (most recent call last):\n  File \"/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/outlier_signal_peft_v1_20260917/runner.py\", line 32, in main\n    if args.action in ['run-all','train-select','train-repeat']:seal()\n                                                                ^^^^^^\n  File \"/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/outlier_signal_peft_v1_20260917/runner.py\", line 12, in seal\n    if (OUT/'EXECUTION_SEAL.json').exists():check_seal();return\n                                            ^^^^^^^^^^^^\n  File \"/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/outlier_signal_peft_v1_20260917/common.py\", line 66, in check_seal\n    for path,h in seal['source_hashes'].items():assert sha(ROOT/path)==h,('SEALED_CODE_CHANGED',path)\n                                                       ^^^^^^^^^^^^^^^^^\nAssertionError: ('SEALED_CODE_CHANGED', 'experiments/outlier_signal_peft_v1_20260917/train.py')\n",
+  "type": "AssertionError"
+}
