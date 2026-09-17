@@ -1,0 +1,98 @@
+{
+  "electricity": {
+    "path": "data/raw/electricity.txt.gz",
+    "sha256": "3c4c069588198c1fcc95cace7bb69c99922129edfd673b7286661dad20badefa",
+    "rows": 26304,
+    "original_columns": 321,
+    "selected_columns": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "bounds": [
+      0,
+      15782,
+      21043,
+      26304
+    ],
+    "grid": {
+      "type": "index-day",
+      "timestamp_available": false,
+      "timezone": null
+    },
+    "period": 24,
+    "sigma_train_population": [
+      24.15590954596686,
+      27.615789719214025,
+      62.78947113081919,
+      141.73902937448287
+    ],
+    "packet_hashes": {
+      "TRAIN": {
+        ".cache/outlier_signal_peft_v1_20260917/data/electricity/TRAIN_inputs.npz": "75fb36dc3e94daf7e16b3df2b12dfbf1db465c681d238a91e8ae0beacc3238f8",
+        ".cache/outlier_signal_peft_v1_20260917/data/electricity/TRAIN_labels.npz": "d1b3d6c3ebd7ef7900f8eb3a949e8b91e8c4f34c5a5e75c842072340150bcc1e"
+      },
+      "V_SELECT": {
+        ".cache/outlier_signal_peft_v1_20260917/data/electricity/V_SELECT_inputs.npz": "e248ba7d707e39f8ad600022386d523c02a1ec77ff49c4c17612c1468bf104d0",
+        ".cache/outlier_signal_peft_v1_20260917/data/electricity/V_SELECT_labels.npz": "1a5e0bc52c4ffd892fb4458caa7884882f898cf193e60cd7c750692417b59e5c"
+      },
+      "E_DISCOVERY": {
+        ".cache/outlier_signal_peft_v1_20260917/data/electricity/E_DISCOVERY_inputs.npz": "04e1ad8458942b4538fc5af8e5b8ed7278ea55e3e3dabb99e65ab69092633a87",
+        ".cache/outlier_signal_peft_v1_20260917/data/electricity/E_DISCOVERY_labels.npz": "a1b628789cf6e102b9218677926ef5df30b4d513f85cd98189fbdb5e0b991c30"
+      }
+    },
+    "evaluation_role": "reused development source; not a new independent test"
+  },
+  "ettm1": {
+    "path": "data/raw/overnight_20260913/ETTm1.csv",
+    "sha256": "6ce1759b1a18e3328421d5d75fadcb316c449fcd7cec32820c8dafda71986c9e",
+    "rows": 69680,
+    "original_columns": 7,
+    "selected_columns": [
+      "HUFL",
+      "HULL",
+      "MUFL",
+      "MULL"
+    ],
+    "bounds": [
+      0,
+      41808,
+      55744,
+      69680
+    ],
+    "grid": {
+      "type": "timestamp-naive",
+      "timestamp_available": true,
+      "timezone": null,
+      "first": "2016-07-01 00:00:00",
+      "last": "2018-06-26 19:45:00",
+      "step_minutes": 15,
+      "monotonic": true,
+      "duplicates": 0,
+      "regular": true
+    },
+    "period": 96,
+    "sigma_train_population": [
+      6.157536902445785,
+      2.147675123703175,
+      5.913691243699931,
+      1.967850122738975
+    ],
+    "packet_hashes": {
+      "TRAIN": {
+        ".cache/outlier_signal_peft_v1_20260917/data/ettm1/TRAIN_inputs.npz": "f663ebf96a5382968bfa8ae0a8ef688dd4b55852b13b73f9836bcba2c4af0646",
+        ".cache/outlier_signal_peft_v1_20260917/data/ettm1/TRAIN_labels.npz": "df23e8822ab0a1e4dd92e51d990a8ebfacd813ea49728829159bd97ece715b8b"
+      },
+      "V_SELECT": {
+        ".cache/outlier_signal_peft_v1_20260917/data/ettm1/V_SELECT_inputs.npz": "ab9cede95d63d8dd8fd5aadf935c2c46c99232edbd95aa28888e936dbc5ac874",
+        ".cache/outlier_signal_peft_v1_20260917/data/ettm1/V_SELECT_labels.npz": "08f0c1d4ba69fbdc808d6a5d30a1e583ead260798cb4f142470f6b07ef122074"
+      },
+      "E_DISCOVERY": {
+        ".cache/outlier_signal_peft_v1_20260917/data/ettm1/E_DISCOVERY_inputs.npz": "e03f23f01e5d780184e30e5dae53285b2d94961a7c0c5095144748f63f45e999",
+        ".cache/outlier_signal_peft_v1_20260917/data/ettm1/E_DISCOVERY_labels.npz": "8fcab4f671338ae5cdc060f4438a6ea5ab6b4eac8f48031852cbca7ae1a6105d"
+      }
+    },
+    "evaluation_role": "reused development source; not a new independent test"
+  }
+}

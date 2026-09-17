@@ -1,0 +1,120 @@
+{
+  "LoRA_common_initialization": true,
+  "all_labels_single_shared_file": true,
+  "all_sources_arms_checked": true,
+  "cpu_tests": {
+    "authorship": "locally authored, explicitly user-authorized",
+    "errors": 0,
+    "failures": 0,
+    "passed": true,
+    "tests": 4
+  },
+  "final_model_restore_verification": "pending selected models",
+  "generator_cannot_read_future": true,
+  "original_initial_checks": {
+    "all_model_weights_hash_verified": true,
+    "initial_lora_common": true,
+    "old_origins_exact": true,
+    "optimizer_updates": 0,
+    "rows": [
+      {
+        "arm": "B0",
+        "input_only": true,
+        "optimizer_updates": 0,
+        "parity_max_normalized_error": 0.0,
+        "source": "electricity",
+        "trainable": 294912
+      },
+      {
+        "arm": "B1",
+        "input_only": true,
+        "optimizer_updates": 0,
+        "parity_max_normalized_error": 0.0,
+        "source": "electricity",
+        "trainable": 294912
+      },
+      {
+        "arm": "B2",
+        "input_only": true,
+        "optimizer_updates": 0,
+        "parity_max_normalized_error": 0.0,
+        "source": "electricity",
+        "trainable": 299784
+      },
+      {
+        "arm": "B3",
+        "input_only": true,
+        "optimizer_updates": 0,
+        "parity_max_normalized_error": null,
+        "source": "electricity",
+        "trainable": 294912
+      },
+      {
+        "arm": "B4",
+        "input_only": true,
+        "optimizer_updates": 0,
+        "parity_max_normalized_error": null,
+        "source": "electricity",
+        "trainable": 294915
+      },
+      {
+        "arm": "B5",
+        "input_only": true,
+        "optimizer_updates": 0,
+        "parity_max_normalized_error": null,
+        "source": "electricity",
+        "trainable": 294916
+      },
+      {
+        "arm": "B0",
+        "input_only": true,
+        "optimizer_updates": 0,
+        "parity_max_normalized_error": 0.0,
+        "source": "ettm1",
+        "trainable": 294912
+      },
+      {
+        "arm": "B1",
+        "input_only": true,
+        "optimizer_updates": 0,
+        "parity_max_normalized_error": 0.0,
+        "source": "ettm1",
+        "trainable": 294912
+      },
+      {
+        "arm": "B2",
+        "input_only": true,
+        "optimizer_updates": 0,
+        "parity_max_normalized_error": 0.0,
+        "source": "ettm1",
+        "trainable": 299784
+      },
+      {
+        "arm": "B3",
+        "input_only": true,
+        "optimizer_updates": 0,
+        "parity_max_normalized_error": null,
+        "source": "ettm1",
+        "trainable": 294912
+      },
+      {
+        "arm": "B4",
+        "input_only": true,
+        "optimizer_updates": 0,
+        "parity_max_normalized_error": null,
+        "source": "ettm1",
+        "trainable": 294915
+      },
+      {
+        "arm": "B5",
+        "input_only": true,
+        "optimizer_updates": 0,
+        "parity_max_normalized_error": null,
+        "source": "ettm1",
+        "trainable": 294916
+      }
+    ]
+  },
+  "performance_gate": false,
+  "smoke_updates": 24
+}

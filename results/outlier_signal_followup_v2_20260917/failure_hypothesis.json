@@ -1,0 +1,34 @@
+{
+  "comparisons": {
+    "electricity": {
+      "E_shift8_fraction": 0.869964599609375,
+      "E_shift8_nonzero": 0.986328125,
+      "E_shift8_normalized_mass": 0.1459418310333444,
+      "descriptive_tag": "TRAIN_EXPOSURE_GAP",
+      "hard_clip": "HARD_CLIP_INFORMATION_LOSS: quantitative exposure and historical shift error direction; not a causal isolation",
+      "train_normalized_mass": 0.1575480320106885,
+      "train_shift_fraction": 0.0292892456054687,
+      "train_shift_nonzero": 0.1885986328125,
+      "underutilization": "No arbitrary near-zero threshold; actual adapter ratios reported, no categorical zero-use claim"
+    },
+    "ettm1": {
+      "E_shift8_fraction": 0.896087646484375,
+      "E_shift8_nonzero": 0.9970703125,
+      "E_shift8_normalized_mass": 0.1015053282955436,
+      "descriptive_tag": "TRAIN_EXPOSURE_GAP",
+      "hard_clip": "HARD_CLIP_INFORMATION_LOSS: quantitative exposure and historical shift error direction; not a causal isolation",
+      "train_normalized_mass": 0.010790444180731,
+      "train_shift_fraction": 0.0366287231445312,
+      "train_shift_nonzero": 0.125244140625,
+      "underutilization": "No arbitrary near-zero threshold; actual adapter ratios reported, no categorical zero-use claim"
+    }
+  },
+  "descriptive_only": true,
+  "no_performance_gate": true,
+  "old_residual_ablation_sha256": "be793bc9ac702cb76aa60b8bd96209bf0de4ba9e4fc5d494e3bf6657676343b0",
+  "optimizer_updates": 0,
+  "per_example_cache": {
+    "path": ".cache/outlier_signal_followup_v2_20260917/clip_exposure_per_example.csv",
+    "sha256": "63af8575cea1cd0e4d92c753780a8eaf1bba113b57e1bdff8f778ef823936aa9"
+  }
+}

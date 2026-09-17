@@ -139,3 +139,5 @@ PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제
 ## 입력 오류 강건성·지속 변화 보존 — 48/48 완료·현재 후보 종료 (2026-09-17)
 
 [한국어 REPORT](../results/outlier_signal_peft_v1_20260917/REPORT.md), [최종 결정](../results/outlier_signal_peft_v1_20260917/FINAL_DECISION.md), [검산](../results/outlier_signal_peft_v1_20260917/verification.json). 참조 부품 직접 구현 후48/48fits·49,152main+24smoke updates, 축소 재현98series, E평가·5,120scalar 대조·선택24checkpoint 복원 완료. A5는 Electricity에서 A4 대비 지속 변화3.74% 개선을 보였지만 A1보다 지속 변화 오차가103.8% 컸고 ETTm1도79.6% 컸다. 제한된 추가 효과를 인정하면서 현재 고정 후보는 종료, 후속 집중0개로 결정했다. 실제 사건 레이블·정식 선행 검색·독립 source 검증은 남아 있으며 논문 PASS를 선언하지 않았다.
+
+- [입력 오류 후속 v2](../results/outlier_signal_followup_v2_20260917/REPORT.md): 진행 중. optimizer0 노출 진단 및 24 smoke updates 완료, B0–B5 최대48 fits 예정. [진단](../results/outlier_signal_followup_v2_20260917/DIAGNOSTIC_REPORT.md).

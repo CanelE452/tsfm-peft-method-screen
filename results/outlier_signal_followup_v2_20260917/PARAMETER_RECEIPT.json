@@ -1,0 +1,1801 @@
+{
+  "B0": {
+    "extra": 0,
+    "gate_initial": null,
+    "shapes": {
+      "base.decoder.block.0.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.0.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ]
+    },
+    "trainable": 294912
+  },
+  "B1": {
+    "extra": 0,
+    "gate_initial": null,
+    "shapes": {
+      "base.decoder.block.0.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.0.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ]
+    },
+    "trainable": 294912
+  },
+  "B2": {
+    "extra": 4872,
+    "gate_initial": null,
+    "shapes": {
+      "adapter.down.bias": [
+        8
+      ],
+      "adapter.down.weight": [
+        8,
+        32
+      ],
+      "adapter.up.bias": [
+        512
+      ],
+      "adapter.up.weight": [
+        512,
+        8
+      ],
+      "base.decoder.block.0.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.0.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ]
+    },
+    "trainable": 299784
+  },
+  "B3": {
+    "extra": 0,
+    "gate_initial": null,
+    "shapes": {
+      "base.decoder.block.0.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.0.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ]
+    },
+    "trainable": 294912
+  },
+  "B4": {
+    "extra": 3,
+    "gate_initial": [
+      -4.0,
+      0.0,
+      0.0
+    ],
+    "shapes": {
+      "base.decoder.block.0.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.0.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "gate": [
+        3
+      ]
+    },
+    "trainable": 294915
+  },
+  "B5": {
+    "extra": 4,
+    "gate_initial": [
+      -4.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "shapes": {
+      "base.decoder.block.0.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.0.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.0.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.1.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.2.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.3.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.4.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.q.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.q.b": [
+        512,
+        8
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.v.a": [
+        8,
+        512
+      ],
+      "base.decoder.block.5.layer.1.EncDecAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.0.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.1.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.2.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.3.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.4.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.q.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.q.b": [
+        512,
+        8
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.v.a": [
+        8,
+        512
+      ],
+      "base.encoder.block.5.layer.0.SelfAttention.v.b": [
+        512,
+        8
+      ],
+      "gate": [
+        4
+      ]
+    },
+    "trainable": 294916
+  }
+}

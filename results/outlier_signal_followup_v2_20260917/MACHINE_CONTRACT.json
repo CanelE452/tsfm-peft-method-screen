@@ -1,0 +1,140 @@
+{
+  "E_is_reused_development": true,
+  "V_conditions": [
+    "REFERENCE",
+    "POINT8",
+    "BURST8",
+    "SHIFT4",
+    "SHIFT8"
+  ],
+  "amplitude_cycle": [
+    4,
+    8,
+    16,
+    4,
+    8,
+    16,
+    4,
+    8
+  ],
+  "arms": [
+    "B0",
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5"
+  ],
+  "automatic_followup": false,
+  "bootstrap_key": 83500,
+  "burst_duration": "[2,4][(exposure+example)%2]",
+  "checkpoints": [
+    0,
+    256,
+    512,
+    768,
+    1024
+  ],
+  "context": 512,
+  "diagnostic_tags": "descriptive quantitative comparisons; no performance gates or new numerical thresholds",
+  "effective_batch": 32,
+  "epochs": 32,
+  "example_figure": "first sealed V origin, channel0, generator0; all states",
+  "exposure": "epoch//4, each example/state appears once per four epochs",
+  "fit_cap": 48,
+  "gate_extra": {
+    "B4": 3,
+    "B5": 4
+  },
+  "gate_initial": {
+    "B4": [
+      -4,
+      0,
+      0
+    ],
+    "B5": [
+      -4,
+      0,
+      0,
+      0
+    ]
+  },
+  "gate_initial_rationale": "B5 unspecified intercept initialized identically to B4 before any new fits",
+  "generator_key": 82800,
+  "horizon": 64,
+  "lr_grid": [
+    0.0001,
+    0.0003
+  ],
+  "main_cap": 49152,
+  "microbatch": {
+    "electricity": {
+      "microbatch": 32,
+      "probes": [
+        {
+          "micro": 32,
+          "optimizer_updates": 0,
+          "peak_allocated": 392516096,
+          "status": "FIT"
+        }
+      ]
+    },
+    "ettm1": {
+      "microbatch": 32,
+      "probes": [
+        {
+          "micro": 32,
+          "optimizer_updates": 0,
+          "peak_allocated": 391706624,
+          "status": "FIT"
+        }
+      ]
+    }
+  },
+  "objective": "equal-condition TRAIN-sigma nMAE",
+  "p_permutation_key": 83400,
+  "parameter_conflict_resolution": "specific sections 7.4/7.5/9 override earlier generic same-count phrase; no dummy scalar",
+  "point_count": "[1,2,4][(exposure+example)%3]",
+  "seeds": {
+    "repeat": [
+      81551,
+      81552
+    ],
+    "select": 81550
+  },
+  "shift_amplitude": [
+    4,
+    8,
+    4,
+    8,
+    4,
+    8,
+    4,
+    8
+  ],
+  "shift_duration": [
+    24,
+    48,
+    24,
+    48,
+    48,
+    24,
+    48,
+    24
+  ],
+  "shuffle_key": 83100,
+  "smoke_cap": 24,
+  "sources": [
+    "electricity",
+    "ettm1"
+  ],
+  "status": "SEALED_FOR_MAIN_TRAINING",
+  "tie": "smaller LR then earlier checkpoint",
+  "tolerance": {
+    "cpu_atol": 1e-12,
+    "cpu_rtol": 1e-10,
+    "gpu": "normalized max <=1e-5 OR rtol1e-4"
+  },
+  "training_state": "[REFERENCE,POINT,BURST,SHIFT][(epoch+example)%4]",
+  "updates": 1024
+}

@@ -1,0 +1,11 @@
+{
+  "issues": [
+    {
+      "stage": "prepare",
+      "issue": "numpy float32 audit r0 not JSON serializable",
+      "resolution": "compute r0 in float64 and serialize Python float; same declared median/MAD formula",
+      "optimizer_updates": 0,
+      "scientific_settings_changed": false
+    }
+  ]
+}
