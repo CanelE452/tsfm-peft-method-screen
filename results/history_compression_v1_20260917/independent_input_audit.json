@@ -1,0 +1,43 @@
+{
+  "all84patches_accounted_once": true,
+  "model_inputs_exclude_retrieved_futures": true,
+  "not_an_independent_test": true,
+  "original_time_positions_preserved": true,
+  "packet_construction_E_label_access": false,
+  "passed": true,
+  "recent336slots_not_compressed": true,
+  "roles": [
+    {
+      "all_context_indices_past": true,
+      "distinct_days": 64,
+      "origins": 64,
+      "phase_max": 3,
+      "phase_min": 2,
+      "role": "TRAIN",
+      "span_hours": 8401,
+      "unique_target_slots": 3072
+    },
+    {
+      "all_context_indices_past": true,
+      "distinct_days": 32,
+      "origins": 32,
+      "phase_max": 2,
+      "phase_min": 1,
+      "role": "V_SELECT",
+      "span_hours": 1681,
+      "unique_target_slots": 1491
+    },
+    {
+      "all_context_indices_past": true,
+      "distinct_days": 64,
+      "origins": 64,
+      "phase_max": 3,
+      "phase_min": 2,
+      "role": "E_DISCOVERY",
+      "span_hours": 3457,
+      "unique_target_slots": 3026
+    }
+  ],
+  "teacher_not_selected_from_E": true,
+  "teacher_selected_from_historical_V": true
+}

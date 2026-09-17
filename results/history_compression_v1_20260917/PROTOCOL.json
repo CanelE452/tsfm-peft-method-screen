@@ -1,0 +1,69 @@
+{
+  "E_exposure": "already used development E; no new independent test",
+  "bootstrap": "168hour index blocks,2000replicates seed73300; paired sameorigins; paired weights per seed; mean seed NRMSE for both bootstrap and point estimates",
+  "checkpoints": [
+    0,
+    256,
+    512
+  ],
+  "choice_seed": 73100,
+  "comparisons": [
+    "LEARN_KD vs POOL_KD",
+    "LEARN_KD vs LEARN",
+    "LEARN vs POOL",
+    "POOL_KD vs POOL",
+    "LEARN_KD vs LONG",
+    "LEARN_KD vs STATS_SHORT",
+    "LEARN_KD vs SHORT"
+  ],
+  "compression": {
+    "group_size": 3,
+    "old_patches": 63,
+    "rank": 8,
+    "recent_patches": 21,
+    "rule": "weights=softmax(u^T tanh(V(h-mean_h))), u=0 init, pooled=sum(weights*h); mean native positions; native absolute time embeddings preserved",
+    "summary_tokens": 21
+  },
+  "decision": "Exploratory component evidence needs positive mean and paired95%CI lower>0 versus POOL_KD and LEARN. Resource tradeoff: >=10% lower measured peak or latency than LONG with relative error upperCI<=1%. Not independent replication or novelty PASS. No automatic followup.",
+  "forward_cap": 40000,
+  "kd_lambda": 0.25,
+  "limits": "one source4channels2repeat seeds; fixed teacher chosen using historical V;teacher has same TRAIN labels but privileged long model training;charge full teacher costs, no E teacher; pooled native embeddings is not claimed novel",
+  "lrs": [
+    0.0001,
+    3e-05
+  ],
+  "model": "pinned Chronos2 FP32 rank8; all old LoRA targets; dropout0; frozen head",
+  "name": "history_compression_v1_20260917",
+  "new_arms": [
+    "STATS_SHORT",
+    "POOL",
+    "POOL_KD",
+    "LEARN",
+    "LEARN_KD"
+  ],
+  "new_fit_cap": 20,
+  "new_main_update_cap": 10240,
+  "optimizer": "AdamW betas.9/.999 eps1e-8 wd0 globalclip1",
+  "order": "old rng ORDER(seed,epoch);64 origins repeated8epochs",
+  "primary": "mean_channel sqrt(mean_origin,h ((pred-y)/TRAIN_sigma)^2)",
+  "repeat_seeds": [
+    73101,
+    73102
+  ],
+  "resource_optimizer_updates": 0,
+  "reused_arms": [
+    "SHORT",
+    "LONG"
+  ],
+  "roles": {
+    "E_DISCOVERY": 64,
+    "TRAIN": 64,
+    "V_SELECT": 32
+  },
+  "selection": "each arm seed73100 twoLR best V; lock LR; repeats choose checkpoint on V; no calibration; score E after all selections sealed",
+  "smoke_update_cap": 10,
+  "source": "traffic existing first4 columns",
+  "steps": 512,
+  "teacher_extra_fits": 0,
+  "wall_cap_seconds": 14400
+}

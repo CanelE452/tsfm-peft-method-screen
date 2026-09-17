@@ -1,0 +1,85 @@
+{
+  "checks": [
+    {
+      "arm": "STATS_SHORT",
+      "buffers_unchanged": true,
+      "changed_tensors": 192,
+      "extra_gradient": [
+        {},
+        {}
+      ],
+      "frozen_unchanged": true,
+      "parameters": 1179648,
+      "restore_bitwise": true,
+      "updates": 2
+    },
+    {
+      "arm": "POOL",
+      "buffers_unchanged": true,
+      "changed_tensors": 192,
+      "extra_gradient": [
+        {},
+        {}
+      ],
+      "frozen_unchanged": true,
+      "parameters": 1179648,
+      "restore_bitwise": true,
+      "updates": 2
+    },
+    {
+      "arm": "POOL_KD",
+      "buffers_unchanged": true,
+      "changed_tensors": 192,
+      "extra_gradient": [
+        {},
+        {}
+      ],
+      "frozen_unchanged": true,
+      "parameters": 1179648,
+      "restore_bitwise": true,
+      "updates": 2
+    },
+    {
+      "arm": "LEARN",
+      "buffers_unchanged": true,
+      "changed_tensors": 194,
+      "extra_gradient": [
+        {
+          "pool_u": 0.00040111946873366833,
+          "pool_v": 0.0
+        },
+        {
+          "pool_u": 0.00041438356856815517,
+          "pool_v": 9.556015356793068e-07
+        }
+      ],
+      "frozen_unchanged": true,
+      "parameters": 1185800,
+      "restore_bitwise": true,
+      "updates": 2
+    },
+    {
+      "arm": "LEARN_KD",
+      "buffers_unchanged": true,
+      "changed_tensors": 194,
+      "extra_gradient": [
+        {
+          "pool_u": 0.0004068281559739262,
+          "pool_v": 0.0
+        },
+        {
+          "pool_u": 0.00040898940642364323,
+          "pool_v": 9.42440976814396e-07
+        }
+      ],
+      "frozen_unchanged": true,
+      "parameters": 1185800,
+      "restore_bitwise": true,
+      "updates": 2
+    }
+  ],
+  "independent_numpy_pooling": true,
+  "initial_pool_learn_equal": true,
+  "native_full_error": 0.0,
+  "passed": true
+}
