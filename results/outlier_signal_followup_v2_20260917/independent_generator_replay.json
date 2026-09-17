@@ -1,0 +1,33 @@
+{
+  "optimizer_updates": 0,
+  "sources": {
+    "electricity": {
+      "examples_checked": 32768,
+      "fault_amplitude_max_normalized_rounding_error": 3.7327117993273274e-06,
+      "labels_exact": true,
+      "matched_train_shift_clipped_fraction": {
+        "4": 0.0312652587890625,
+        "8": 0.8796284993489583
+      },
+      "shared_train_x_sha256": "442e353df20fef5625d15c31b824112bdf59293b547a6aa1777df073fa5a025b",
+      "shared_train_y_sha256": "9a23f19b451d3597e7f946b9136e5c7987d53123478246072e7cf1ec53b8d44a",
+      "shift_past_exact": true,
+      "unaffected_past_exact": true
+    },
+    "ettm1": {
+      "examples_checked": 32768,
+      "fault_amplitude_max_normalized_rounding_error": 1.8387737146682269e-06,
+      "labels_exact": true,
+      "matched_train_shift_clipped_fraction": {
+        "4": 0.036529541015625,
+        "8": 0.8469390869140625
+      },
+      "shared_train_x_sha256": "abbf44bbe1fe5fbc472e1b58df2a24d1c9ab5e4f2b925ce05823d2ad39554459",
+      "shared_train_y_sha256": "fdc61c5ecbb0586eeb7227f3c13557f5694ea90f3722271fd5284468576838a3",
+      "shift_past_exact": true,
+      "unaffected_past_exact": true
+    }
+  },
+  "status": "VERIFIED",
+  "timing": "additional independent audit during main execution; original severity counts passed before launch"
+}
