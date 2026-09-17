@@ -1,0 +1,66 @@
+{
+  "electricity": {
+    "C1": {
+      "fit": "electricity_C1_s81550_lr0.0003",
+      "lr": 0.0003,
+      "selected": {
+        "checkpoint": ".cache/additive_b0_adapter_v1_20260917/fits/electricity_C1_s81550_lr0.0003/checkpoint_256.pt",
+        "objective": 0.21328776109087935,
+        "sha256": "21be8248977a5613c77edc8824b4fb4532a2bea660b263799959455c033b30a4",
+        "step": 256
+      }
+    },
+    "C2": {
+      "fit": "electricity_C2_s81550_lr0.0003",
+      "lr": 0.0003,
+      "selected": {
+        "checkpoint": ".cache/additive_b0_adapter_v1_20260917/fits/electricity_C2_s81550_lr0.0003/checkpoint_768.pt",
+        "objective": 0.2140374372945447,
+        "sha256": "50c75ca66985efc6943217ee755cb2dbf8dec87cad06508670a3a65a93af8916",
+        "step": 768
+      }
+    },
+    "C3": {
+      "fit": "electricity_C3_s81550_lr0.0003",
+      "lr": 0.0003,
+      "selected": {
+        "checkpoint": ".cache/additive_b0_adapter_v1_20260917/fits/electricity_C3_s81550_lr0.0003/checkpoint_768.pt",
+        "objective": 0.21415239626181465,
+        "sha256": "f887fea1d984841061a7ee2d90092447abf8946d0683029c677f72b958824db7",
+        "step": 768
+      }
+    }
+  },
+  "ettm1": {
+    "C1": {
+      "fit": "ettm1_C1_s81550_lr0.0001",
+      "lr": 0.0001,
+      "selected": {
+        "checkpoint": ".cache/additive_b0_adapter_v1_20260917/fits/ettm1_C1_s81550_lr0.0001/checkpoint_0.pt",
+        "objective": 0.40710705625449606,
+        "sha256": "6aeedf6e782a0f981159034e8d4c1808a90caa48b516daacb2351fec4c2566fe",
+        "step": 0
+      }
+    },
+    "C2": {
+      "fit": "ettm1_C2_s81550_lr0.0003",
+      "lr": 0.0003,
+      "selected": {
+        "checkpoint": ".cache/additive_b0_adapter_v1_20260917/fits/ettm1_C2_s81550_lr0.0003/checkpoint_768.pt",
+        "objective": 0.4061914590567647,
+        "sha256": "cb164c407acee4f02646286de4059fb532e4fa14025de39d878bcdc468667e6a",
+        "step": 768
+      }
+    },
+    "C3": {
+      "fit": "ettm1_C3_s81550_lr0.0001",
+      "lr": 0.0001,
+      "selected": {
+        "checkpoint": ".cache/additive_b0_adapter_v1_20260917/fits/ettm1_C3_s81550_lr0.0001/checkpoint_0.pt",
+        "objective": 0.40710705625449606,
+        "sha256": "48888a9d319ddf9727c8117349e4f60049a8f4cfd03b01d8b34b198a89181b64",
+        "step": 0
+      }
+    }
+  }
+}

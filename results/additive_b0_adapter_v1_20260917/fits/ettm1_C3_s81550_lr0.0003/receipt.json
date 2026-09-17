@@ -1,0 +1,57 @@
+{
+  "arm": "C3",
+  "checkpoint_io_seconds": 0.061794497014489025,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/additive_b0_adapter_v1_20260917/fits/ettm1_C3_s81550_lr0.0003/checkpoint_0.pt",
+      "objective": 0.40710705625449606,
+      "sha256": "48888a9d319ddf9727c8117349e4f60049a8f4cfd03b01d8b34b198a89181b64",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/additive_b0_adapter_v1_20260917/fits/ettm1_C3_s81550_lr0.0003/checkpoint_256.pt",
+      "objective": 0.4095253927431844,
+      "sha256": "e1273cfd986cc42242c6951dc64a5dee94f8817cea30a698fd87b4d917c12aed",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/additive_b0_adapter_v1_20260917/fits/ettm1_C3_s81550_lr0.0003/checkpoint_512.pt",
+      "objective": 0.408915683540798,
+      "sha256": "9f5cb6aca3d994719827748113c5125f1606cec43b06a924775b17389eca6202",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/additive_b0_adapter_v1_20260917/fits/ettm1_C3_s81550_lr0.0003/checkpoint_768.pt",
+      "objective": 0.40837172472640404,
+      "sha256": "dc08c6a64dbfcb51710f1b78579bd87c670e7a34f476b46f2a55dfec220c48d2",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/additive_b0_adapter_v1_20260917/fits/ettm1_C3_s81550_lr0.0003/checkpoint_1024.pt",
+      "objective": 0.4097149571037487,
+      "sha256": "faf4069687df3f34e29d3173180d1c5f5953222694896913ff1248eed1a7a4a3",
+      "step": 1024
+    }
+  ],
+  "fit": "ettm1_C3_s81550_lr0.0003",
+  "frozen_sha256": "5ca64c27c7e4c19df907b019bbe1bb13fe99627c59cfce6a2b0cde7d5137e53d",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 41.01599400903797,
+  "lr": 0.0003,
+  "microbatch": 32,
+  "optimization_limited": false,
+  "optimizer_seconds": 31.860833950981032,
+  "peak_allocated": 379698688,
+  "peak_reserved": 400556032,
+  "seed": 81550,
+  "selected": {
+    "checkpoint": ".cache/additive_b0_adapter_v1_20260917/fits/ettm1_C3_s81550_lr0.0003/checkpoint_0.pt",
+    "objective": 0.40710705625449606,
+    "sha256": "48888a9d319ddf9727c8117349e4f60049a8f4cfd03b01d8b34b198a89181b64",
+    "step": 0
+  },
+  "source": "ettm1",
+  "status": "COMPLETE",
+  "updates": 1024,
+  "validation_seconds": 5.294166191946715
+}
