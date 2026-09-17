@@ -1,0 +1,21 @@
+{
+  "reason": "Align section12 of sole MASTER_CLI: same time-block resample across all methods/conditions/seeds/channels. Also align auxiliary history seed mean with equal-origin metric before any E scoring.",
+  "at": 1789675694.1143699,
+  "original_seal_sha256": "5b6a1a8908bad801b819925c7676ce966a7994eadfe8b655b40a93c8b0e24270",
+  "changed_files": [
+    "experiments/additive_persistence_validation_v1_20260917/statistics.py",
+    "results/additive_persistence_validation_v1_20260917/MASTER_PROTOCOL.md"
+  ],
+  "completed_fits": 38,
+  "main_updates_before_pause": 39488,
+  "smoke_updates": 36,
+  "paused_fit": "ettm2_B0_s85550_lr0.0001",
+  "resume_step": 576,
+  "resume_sha256": "7879e2e0b6f82bb4fb11e45fb8f9369785cfbdf86677b457ec8fc8cf51ef0ab1",
+  "resume_optimizer_and_rng": true,
+  "new_E_scored": false,
+  "new_E_predictions_saved": false,
+  "models_training_selection_data_unchanged": true,
+  "extra_optimizer_updates": 0,
+  "generic_engine_stop_reason": "USER_STOP_AT_EXACT_EPOCH_BOUNDARY; agent-initiated contract-audit pause, not user cancellation or GPU resource failure"
+}

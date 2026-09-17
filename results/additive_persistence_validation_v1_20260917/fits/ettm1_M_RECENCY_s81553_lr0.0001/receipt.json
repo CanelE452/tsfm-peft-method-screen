@@ -1,0 +1,57 @@
+{
+  "arm": "M_RECENCY",
+  "checkpoint_io_seconds": 0.06568808801239356,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm1_M_RECENCY_s81553_lr0.0001/checkpoint_0.pt",
+      "objective": 0.4108203032252066,
+      "sha256": "9a3d00ce51d07ceec2b4db37c6e1cf1c57f21d375868cccf075adbcb83e7c7b5",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm1_M_RECENCY_s81553_lr0.0001/checkpoint_256.pt",
+      "objective": 0.4152351973218331,
+      "sha256": "e298b7d4f3068629b976c364bdbd210b25535ff1fc9a23ee683a477d94278caf",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm1_M_RECENCY_s81553_lr0.0001/checkpoint_512.pt",
+      "objective": 0.41576302373912394,
+      "sha256": "1480e8b8b80f756a8d303f7b2f05daff99288c36a29ad4e1efc733ec58aa2fd6",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm1_M_RECENCY_s81553_lr0.0001/checkpoint_768.pt",
+      "objective": 0.41104820018760824,
+      "sha256": "64aaca021e3424b0252e7079d8b206ba2cece5bf8ed79e189f3abe77b31d5235",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm1_M_RECENCY_s81553_lr0.0001/checkpoint_1024.pt",
+      "objective": 0.4099562140044366,
+      "sha256": "8f0ded0e4cee925b04ad52211a5d6d8bae83b4f79a21a37af244dbfe70dcf96b",
+      "step": 1024
+    }
+  ],
+  "fit": "ettm1_M_RECENCY_s81553_lr0.0001",
+  "frozen_sha256": "f89a341adc49284da3a8fde75c19eff4fd46b4bd507c98b16a5bc2a09739f047",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 41.861996449995786,
+  "lr": 0.0001,
+  "microbatch": 32,
+  "optimization_limited": true,
+  "optimizer_seconds": 32.41556806716835,
+  "peak_allocated": 379698688,
+  "peak_reserved": 400556032,
+  "seed": 81553,
+  "selected": {
+    "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm1_M_RECENCY_s81553_lr0.0001/checkpoint_1024.pt",
+    "objective": 0.4099562140044366,
+    "sha256": "8f0ded0e4cee925b04ad52211a5d6d8bae83b4f79a21a37af244dbfe70dcf96b",
+    "step": 1024
+  },
+  "source": "ettm1",
+  "status": "COMPLETE",
+  "updates": 1024,
+  "validation_seconds": 5.3261627980391495
+}

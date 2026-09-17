@@ -1,0 +1,57 @@
+{
+  "arm": "M_MEAN",
+  "checkpoint_io_seconds": 0.061960790888406336,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm1_M_MEAN_s81550_lr0.0003/checkpoint_0.pt",
+      "objective": 0.40710705625449606,
+      "sha256": "48888a9d319ddf9727c8117349e4f60049a8f4cfd03b01d8b34b198a89181b64",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm1_M_MEAN_s81550_lr0.0003/checkpoint_256.pt",
+      "objective": 0.4104035833224854,
+      "sha256": "4463910b02d3eaf28a7fd287025d91d8062735ffdcb33dbf80eb48f6941c15fc",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm1_M_MEAN_s81550_lr0.0003/checkpoint_512.pt",
+      "objective": 0.4086950019714909,
+      "sha256": "5d8b8d376efc9855f2de120cd338e1a9810178e37e678bb009fac72346beb27f",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm1_M_MEAN_s81550_lr0.0003/checkpoint_768.pt",
+      "objective": 0.4062819580942044,
+      "sha256": "9378b2084247bfa78c50bfd783351700b1f7135e2d2ef0e6e2c13e7356868f04",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm1_M_MEAN_s81550_lr0.0003/checkpoint_1024.pt",
+      "objective": 0.4074790961193376,
+      "sha256": "1147f03c9657348bab0a691771af8e9ba28e11dbefb9611b3ca0676aa50f1cad",
+      "step": 1024
+    }
+  ],
+  "fit": "ettm1_M_MEAN_s81550_lr0.0003",
+  "frozen_sha256": "5ca64c27c7e4c19df907b019bbe1bb13fe99627c59cfce6a2b0cde7d5137e53d",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 41.366240919043776,
+  "lr": 0.0003,
+  "microbatch": 32,
+  "optimization_limited": false,
+  "optimizer_seconds": 32.02482914790744,
+  "peak_allocated": 379695104,
+  "peak_reserved": 400556032,
+  "seed": 81550,
+  "selected": {
+    "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm1_M_MEAN_s81550_lr0.0003/checkpoint_768.pt",
+    "objective": 0.4062819580942044,
+    "sha256": "9378b2084247bfa78c50bfd783351700b1f7135e2d2ef0e6e2c13e7356868f04",
+    "step": 768
+  },
+  "source": "ettm1",
+  "status": "COMPLETE",
+  "updates": 1024,
+  "validation_seconds": 5.253650535014458
+}

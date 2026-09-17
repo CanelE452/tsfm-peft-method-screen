@@ -1,0 +1,6 @@
+{
+  "at": 1789675510.8237417,
+  "error": "USER_STOP_AT_EXACT_EPOCH_BOUNDARY",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/additive_persistence_validation_v1_20260917/runner.py\", line 27, in main\n    train_all(w)\n  File \"/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/additive_persistence_validation_v1_20260917/train.py\", line 130, in train_all\n    for lr in [1e-4,3e-4]:fit(source,'B0',85550,lr,watch)\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/additive_persistence_validation_v1_20260917/train.py\", line 84, in fit\n    if STOP:raise ResourceError('USER_STOP_AT_EXACT_EPOCH_BOUNDARY')\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npriority12.common.ResourceError: USER_STOP_AT_EXACT_EPOCH_BOUNDARY\n",
+  "type": "ResourceError"
+}

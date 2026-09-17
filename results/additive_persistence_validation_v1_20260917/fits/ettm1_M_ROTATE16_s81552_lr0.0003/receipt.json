@@ -1,0 +1,57 @@
+{
+  "arm": "M_ROTATE16",
+  "checkpoint_io_seconds": 0.06392334104748443,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm1_M_ROTATE16_s81552_lr0.0003/checkpoint_0.pt",
+      "objective": 0.41165661949197785,
+      "sha256": "2b31965409ccd0dd3e96ee3382949ee25a7cc176331240051e183ee95e18a402",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm1_M_ROTATE16_s81552_lr0.0003/checkpoint_256.pt",
+      "objective": 0.4151341038846181,
+      "sha256": "647aeca8517a8570fd7fd328b6744185bbdbfc45a73b7650f64b451d8b970e39",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm1_M_ROTATE16_s81552_lr0.0003/checkpoint_512.pt",
+      "objective": 0.4124971369124938,
+      "sha256": "a00714b0a313227e7ed76758d0816dc5b8ced9ade61ca8ee7d499961b8fce76c",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm1_M_ROTATE16_s81552_lr0.0003/checkpoint_768.pt",
+      "objective": 0.4088328597819572,
+      "sha256": "e50f875ac55bcd8163d56c978c22b3e00c04ca05b68382bec11b9c57da828b89",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm1_M_ROTATE16_s81552_lr0.0003/checkpoint_1024.pt",
+      "objective": 0.40837506848584937,
+      "sha256": "b4c7b7780ddad1f2afaf6c8b3a95fc779f068a28dba9ed8793dc6388b5c5cf4c",
+      "step": 1024
+    }
+  ],
+  "fit": "ettm1_M_ROTATE16_s81552_lr0.0003",
+  "frozen_sha256": "f01ef9de2191429a0c68fd3e188fd8815dfc719058479e8218d01e2508e8cd12",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 41.318179172987584,
+  "lr": 0.0003,
+  "microbatch": 32,
+  "optimization_limited": true,
+  "optimizer_seconds": 31.95678584597772,
+  "peak_allocated": 379698688,
+  "peak_reserved": 400556032,
+  "seed": 81552,
+  "selected": {
+    "checkpoint": ".cache/additive_persistence_validation_v1_20260917/fits/ettm1_M_ROTATE16_s81552_lr0.0003/checkpoint_1024.pt",
+    "objective": 0.40837506848584937,
+    "sha256": "b4c7b7780ddad1f2afaf6c8b3a95fc779f068a28dba9ed8793dc6388b5c5cf4c",
+    "step": 1024
+  },
+  "source": "ettm1",
+  "status": "COMPLETE",
+  "updates": 1024,
+  "validation_seconds": 5.276979701069649
+}

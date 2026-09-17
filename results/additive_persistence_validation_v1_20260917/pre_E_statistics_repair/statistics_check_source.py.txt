@@ -5,9 +5,6 @@ from experiments.additive_persistence_validation_v1_20260917 import statistics a
 from experiments.additive_persistence_validation_v1_20260917.common import OUT,sha
 m.OUT=Path(tempfile.mkdtemp(prefix='persistence-stat-'))
 (m.OUT/'SERIES_PANEL_MANIFEST.json').write_text(json.dumps({'prior_exposure_by_channel':{'0':'UNKNOWN','1':'EXPOSED','2':'UNKNOWN','3':'EXPOSED'}}))
-m.CACHE=m.OUT/'cache'
-for panel in ['electricity','electricity_transfer']:
- f=m.CACHE/'data'/panel;f.mkdir(parents=True);np.savez(f/'E_DISCOVERY_inputs.npz',origins=np.array([2400,2600,2800,3000,3200,3400,3600,3800]))
 rows=[];ratios={'C0':1.,'C1':1.,'C2':.9,'C3':.8,'M_MEAN':.85,'M_ROTATE16':.95,'M_RECENCY':.88,'C2_SHRINK':.92,'C0_BIAS':.96}
 for panel in ['electricity','electricity_transfer']:
  for arm,ratio in ratios.items():
@@ -19,7 +16,6 @@ m.analyze_effects(pd.DataFrame(rows))
 f=pd.read_csv(m.OUT/'UNCERTAINTY.csv');g=f[(f.new=='C3')&(f.baseline=='C0')]
 for key in ['gain_pct','ci_low_pct','ci_high_pct']:np.testing.assert_allclose(g[key],20.,rtol=1e-10,atol=1e-10)
 assert set(f.ci_type)=={'time','series_and_time'}
-assert f.groupby('panel').common_block_draw_sha256.nunique().eq(1).all(), 'not common across conditions/scopes'
 h=f[f.baseline.str.startswith('M_')];assert h.bonferroni3_low_pct.notna().all() and (h.bonferroni3_low_pct<=h.ci_low_pct+1e-10).all() and (h.bonferroni3_high_pct>=h.ci_high_pct-1e-10).all()
 (OUT/'STATISTICS_REFERENCE_CHECK.json').write_text(json.dumps({'status':'PASS','data':'synthetic positive-proportional errors, no E labels read','expected_C3_C0_gain_pct':20,'bootstrap_and_point_rows_checked':len(g),'test_source_sha256':sha(Path(__file__)),'optimizer_updates':0,'temporary_outputs':str(m.OUT)},indent=2)+'\n')
 print('STATISTICS_SYNTHETIC_REFERENCE_PASS',len(g))

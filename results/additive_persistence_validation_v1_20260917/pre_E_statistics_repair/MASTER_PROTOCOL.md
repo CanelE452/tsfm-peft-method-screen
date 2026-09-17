@@ -14,8 +14,6 @@
 
 형태 패널은 index순 등간격64 원점을 사용해 지정된8형태를 +/- 동가중으로 평가한다. PULSE의 동일 과거/다른 미래를 검산하기 위해 이미 정의된 SHIFT8_D32의 +/- 균형 짝도 저장한다(새 변화 형태나 학습 후보 아님). 기존 SHIFT8의 두 random draw는 부호가 항상 반반이지 않으므로, 이에 더해 기존 SHIFT8 입력·예측을 정확히 재사용한 PULSE_LEGACY_MATCH 표를 별도로 둔다. 이 표는 동일 원점/채널/draw의 과거·부호를 완전히 보존한다. 양 부호 균형 검사와 기존 draw 일치 검사를 섞지 않는다.
 
-2000회 paired bootstrap은 86700+1000×panelID다. panelID는 electricity0/ettm1 1/ettm2 2/transfer3이다. source별 전체 E128 원점의7일 block을 같은 draw로 모든 방법·조건·seed 범위에 적용한다. 형태/기존 history subset은 같은 draw에서 포함된 날짜의 가중치를 정규화한다. transfer에는 동일 계열 재표집을 추가한 구간도 보고한다. 공통 block draw hash를 출력해 실제 공유를 검산한다. 기전3대비는 nominal95%와 Bonferroni3 구간을 같이 쓴다. history 보조 seed별 점수도 원점 동가중으로 계산한다. 서로 다른 목적의 종합 우승 점수나 임의 합격선은 없다.
-
-평가 전 명세 대조에서 조건별 bootstrap seed가 단일 계약과 다른 것을 발견해 정확한 epoch 경계에서 정지하고 통계 구현만 수정했다. 원래 봉인과 변경 근거는 pre_E_statistics_repair 및 SEAL_AMENDMENT_01.json에 보존한다. 모델·학습·선택·데이터·지표·CI 수준·예산은 바꾸지 않았고 아직 어떤 새 E 점수도 계산하지 않았다.
+2000회 paired bootstrap은 86700+1000×panelID+10×conditionID+seed_scopeID. panelID는 electricity0/ettm1 1/ettm2 2/transfer3, 조건은 코드 statistics.CONDITIONS에 고정한다. 날짜7일 block을 모든 방법·계열·seed에 같이 적용한다. transfer에는 계열 재표집을 추가한 구간도 보고한다. 기전3대비는 nominal95%와 Bonferroni3 구간을 같이 쓴다. 서로 다른 목적의 종합 우승 점수나 임의 합격선은 없다.
 
 본 실행 전에 MASTER_SEAL.json에 계약·자료/노출·가중치·구현 hash를 기록한다. main update마다 intent/journal, epoch마다 정확한 resume state를 저장하며 모호한 update를 재실행하지 않는다. 과거 결과·사용자 변경은 보존한다. 보고서와 주장 근거표 작성 및 검산 후 scoped commit/push하며 자동 추가 연구는 없다.
