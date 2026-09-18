@@ -2,6 +2,9 @@
 
 2026-09-18 기준. 표의 링크는 완료된 실행 또는 검토 결과다. 과거 FAIL/STOP은 당시 고정 실험의 판정으로 보존한다. 최신 재검토의 후속 연구 우선순위는 방법론 성공이나 새로운 실험 실행을 뜻하지 않는다.
 
+[확인] C3/MAG 최대 영향 감사는 0학습·0추론으로 60조건을 검산했다. 전력 전이 SHIFT8 평균 MAG 이득0.2509%는 가장 큰 기여 seed를 제외하는 진단에서0.0557%로 줄었다. 같은 seed의 초기 조건은 일치하지만 seed 간 B0·초기값·순서가 묶여 최대 인과 요인은 미식별이다. [보고서](../research/c3_influence_audit_20260918/REPORT.md), [검산](../research/c3_influence_audit_20260918/AUDIT.json). 이 결과와 기존 대조를 반영한 [한국어 원고·PDF·DOCX](../papers/persistence_adaptation/manuscript_v2_20260918/README.md), [원고 검산](../papers/persistence_adaptation/manuscript_v2_20260918/AUDIT.json)을 작성했다. 원고 완성은 논문 PASS나 투고 완료가 아니다.
+
+
 
 [확인] 저장 예측의 단순보정 대조를 신규학습0회로 완료했다. 같은 V 보정 뒤 VINTAGE는 STD 대비 최신2.326%·과거5.870% 개선했으나, 최신 월구간은0을 포함한다. 중심화 median 오차의 차이도 남았다. 기존 FR/PACE와의 겹침을 확인해 단순 consistency를 새후보로 재명명하지 않았다. [한국어 보고서](../results/covariate_calibration_control_20260916/REPORT.md), [해석·신규성 경계](../results/covariate_calibration_control_20260916/INTERPRETATION.md), [검산](../results/covariate_calibration_control_20260916/verification.json).
 
