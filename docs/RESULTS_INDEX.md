@@ -2,6 +2,8 @@
 
 2026-09-18 기준. 표의 링크는 완료된 실행 또는 검토 결과다. 과거 FAIL/STOP은 당시 고정 실험의 판정으로 보존한다. 최신 재검토의 후속 연구 우선순위는 방법론 성공이나 새로운 실험 실행을 뜻하지 않는다.
 
+[통합 완료] 한국어 원고 v3에 기존 C3/MAG 대조와 최신 학습 요인·내부 기전·선행 검토를 본문으로 통합했다. 16쪽·표9개·그림8개·참고문헌12개, 기존 표1–5 및 음성 결과 보존, 새 학습·추론·bootstrap0회다. [PDF·DOCX·원문](../papers/persistence_adaptation/manuscript_v3_integrated_20260919/README.md), [검산](../papers/persistence_adaptation/manuscript_v3_integrated_20260919/AUDIT.json), [남은 제출 작업](../papers/persistence_adaptation/manuscript_v3_integrated_20260919/INTEGRATION_NOTES_KO.md). 원고 통합 완료를 신규성·독립 검증·게재 완료로 부르지 않는다.
+
 [검토] 2026-09-19 논문 성립 가능성을 최신 근거와 공식 선행에 비춰 검토했다. 공개 근거143개 hash와 핵심 수치를 재검산했으며 새학습·추론0회다. PEFT 통제 실증 원고의 근거는 있지만 C3 새 방법 우위·충분한 신규성·제출 준비 완료는 확정하지 않았다. 초기화/기반 모델 전이 선행과의 겹침, 개발자료 재사용, 본문 미통합을 구분했다. [한국어 검토](../research/paper_viability_review_20260919/REVIEW_KO.md), [검산](../research/paper_viability_review_20260919/AUDIT.json).
 
 [확인] C3 내부 기전 진단은 추가학습0회·1,196 autograd·160 checkpoint probe·192 E view(신규96/재사용96)를 완료했다. 두 B0의 입력 patch 표현은 같지만 초기 loss 신호와 Jacobian이 달랐으며, 전력 초기 gradient 분해에서 출력 신호 항 norm은 Jacobian 항의2.94배였다. 전력 전이 SHIFT8에서 다른 B0로 교환하면 C3 nMAE9.7476%·MAG10.1990% 악화해 두 방식의 B0 조합 의존성을 확인했다. pulse 및 일부 step의 반대 효과와 완전한 인과 매개 분석의 한계도 보존한다. [보고서](../results/c3_internal_mechanism_20260918/REPORT.md), [전체 조건](../results/c3_internal_mechanism_20260918/ALL_CONDITIONS.md), [독립 검산](../results/c3_internal_mechanism_20260918/INDEPENDENT_AUDIT.json), [논문 보충 PDF/DOCX](../papers/persistence_adaptation/internal_mechanism_v1_20260918/README.md). 새 방법·후속학습은 시작하지 않았다.
