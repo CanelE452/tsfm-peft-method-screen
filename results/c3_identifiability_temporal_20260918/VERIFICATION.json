@@ -1,0 +1,49 @@
+{
+  "CPU_prediction_views": 4,
+  "GPU_prediction_views": 56,
+  "all_parent_hashes_preserved": 1312,
+  "all_prediction_hashes": true,
+  "all_predictions_saved_before_scoring": true,
+  "approved_exception": "RustDesk only",
+  "automatic_successor": false,
+  "conditional_aggregate_to_original_effect_checks": 100,
+  "conditional_seed_rows_independently_replayed": 819,
+  "data_days": 128,
+  "diagnostic_verification": {
+    "conditional_rows": 300,
+    "identical_mask_same_weight_scalar_checks": 190572,
+    "metrics_per_scalar_row": 2,
+    "new_fits": 0,
+    "panels": [
+      "electricity",
+      "electricity_transfer",
+      "ettm1",
+      "neso_2025",
+      "neso_2026_h1"
+    ],
+    "posthoc": true,
+    "scalar_draw_rows": 7296,
+    "status": "VERIFIED",
+    "strata_reconstruct_full_effect": true,
+    "unavailable": "ETTm2 RECENCY was not trained; no reconstruction by retraining",
+    "updates": 0
+  },
+  "minimum_free_gpu_mib": 8472,
+  "new_fits": 0,
+  "new_prediction_views": 60,
+  "old_sigma_preserved": true,
+  "optimizer_updates": 0,
+  "paired_pulse_shift_inputs_equal": true,
+  "score_verification": {
+    "all_effects_replayed": 240,
+    "all_predictions_saved_before_scoring": true,
+    "metrics_per_scalar_row": 2,
+    "new_fits": 0,
+    "new_origin_rows": 55680,
+    "scalar_draw_rows": 2280,
+    "status": "VERIFIED",
+    "updates": 0
+  },
+  "status": "VERIFIED",
+  "unapproved_external_compute_samples": 0
+}
