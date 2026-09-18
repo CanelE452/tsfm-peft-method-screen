@@ -1,0 +1,82 @@
+{
+  "calibration_choices": 9,
+  "common_time_draws_per_panel": 1,
+  "history_subset_rows_not_in_this_ratio_replay": 36,
+  "lr_choices": [
+    [
+      "electricity",
+      "M_MEAN"
+    ],
+    [
+      "electricity",
+      "M_RECENCY"
+    ],
+    [
+      "electricity",
+      "M_ROTATE16"
+    ],
+    [
+      "ettm1",
+      "M_MEAN"
+    ],
+    [
+      "ettm1",
+      "M_RECENCY"
+    ],
+    [
+      "ettm1",
+      "M_ROTATE16"
+    ],
+    [
+      "ettm2",
+      "B0"
+    ],
+    [
+      "ettm2",
+      "C1"
+    ],
+    [
+      "ettm2",
+      "C2"
+    ],
+    [
+      "ettm2",
+      "C3"
+    ]
+  ],
+  "optimizer_updates": 0,
+  "pre_E_contract_alignment_changed_only": {
+    "data_hashes": [
+      "results/additive_persistence_validation_v1_20260917/MASTER_PROTOCOL.md"
+    ],
+    "source_hashes": [
+      "experiments/additive_persistence_validation_v1_20260917/statistics.py"
+    ]
+  },
+  "raw_effect_rows_replayed": 660,
+  "status": "VERIFIED",
+  "training_and_model_selection_unchanged": true,
+  "v_cache_hashes": {
+    ".cache/additive_persistence_validation_v1_20260917/V_predictions/electricity_C0_81551.npy": "16c6845c3baa5a39f8ed3018a25699357c58b5157484500151ac7a7aaf9d1a37",
+    ".cache/additive_persistence_validation_v1_20260917/V_predictions/electricity_C0_81552.npy": "fce18fa83fa3cb1ec4d349d5dbf37c2c4a5e6cb01e4be2637e700ce66a874d3d",
+    ".cache/additive_persistence_validation_v1_20260917/V_predictions/electricity_C0_81553.npy": "39dbd17cc5f5d286f21a6ffbf21f33170e14201bc978ab30875b56875cf5a925",
+    ".cache/additive_persistence_validation_v1_20260917/V_predictions/electricity_C2_81551.npy": "106e8f4670799632ad4979ab34df154ee006c29611cd66317809f1f3f3096e42",
+    ".cache/additive_persistence_validation_v1_20260917/V_predictions/electricity_C2_81552.npy": "230db554dfedc94d25e0ccc9d6215fd5ee106854f8633ad163a5f5077f5597d4",
+    ".cache/additive_persistence_validation_v1_20260917/V_predictions/electricity_C2_81553.npy": "97000ae2a35be2ed30849ed61ed765effcb92b60b32f280b913b52d3f3d60de5",
+    ".cache/additive_persistence_validation_v1_20260917/V_predictions/ettm1_C0_81551.npy": "de5429ea381bed422b25249fdaf2e199d33c70d5d333cd0e5e10b5d4cc092678",
+    ".cache/additive_persistence_validation_v1_20260917/V_predictions/ettm1_C0_81552.npy": "a4525152adc01a5759e2cc3858c69347f3d4b574f56094283d202a58dfda7e10",
+    ".cache/additive_persistence_validation_v1_20260917/V_predictions/ettm1_C0_81553.npy": "96dabe8a6f60863c7405cec0c97a22f405c45b7f2ecb8171dad44019dececb4a",
+    ".cache/additive_persistence_validation_v1_20260917/V_predictions/ettm1_C2_81551.npy": "de5429ea381bed422b25249fdaf2e199d33c70d5d333cd0e5e10b5d4cc092678",
+    ".cache/additive_persistence_validation_v1_20260917/V_predictions/ettm1_C2_81552.npy": "4f07b01832ffadaa68ee432014629996e6919aa064912d737bee46b301bfd84b",
+    ".cache/additive_persistence_validation_v1_20260917/V_predictions/ettm1_C2_81553.npy": "dd97bbb6947714bb80d0f05c5df12243e4733a4148e671172522e84bb4f473d5",
+    ".cache/additive_persistence_validation_v1_20260917/V_predictions/ettm2_C0_85551.npy": "40ec1748dbb21591c19e826c1af57a9c1d6efc7591cd2153ea105a7acfbdd6a8",
+    ".cache/additive_persistence_validation_v1_20260917/V_predictions/ettm2_C0_85552.npy": "b9fa00ac6d793c0ad2044e13886f212e96271f545c4f0ec613524299ab593c44",
+    ".cache/additive_persistence_validation_v1_20260917/V_predictions/ettm2_C0_85553.npy": "396c658908f3f4d7a8fa1773d4c2e071ad5f68f2bdb3584fd4a22766dd72657d",
+    ".cache/additive_persistence_validation_v1_20260917/V_predictions/ettm2_C2_85551.npy": "ad51dd73306fddf2668215a91d5b9e9174404c4b111693a6181774b185943c2e",
+    ".cache/additive_persistence_validation_v1_20260917/V_predictions/ettm2_C2_85552.npy": "b9fa00ac6d793c0ad2044e13886f212e96271f545c4f0ec613524299ab593c44",
+    ".cache/additive_persistence_validation_v1_20260917/V_predictions/ettm2_C2_85553.npy": "396c658908f3f4d7a8fa1773d4c2e071ad5f68f2bdb3584fd4a22766dd72657d",
+    ".cache/additive_persistence_validation_v1_20260917/conditions/electricity/V_SELECT_y.npy": "c0374741cb8681593c5dc5c1c62e8e1ef2a72ad75b100b6c2269bb730097c243",
+    ".cache/additive_persistence_validation_v1_20260917/conditions/ettm1/V_SELECT_y.npy": "1314f060d8fae3f64113259001a4cf60e5724cf035b037425315b892f39ab213",
+    ".cache/additive_persistence_validation_v1_20260917/conditions/ettm2/V_SELECT_y.npy": "8b498b5ddf8b2ec2ab2161e45d05318d97ab496a2e0626a71bcb38b1ee2635ec"
+  }
+}

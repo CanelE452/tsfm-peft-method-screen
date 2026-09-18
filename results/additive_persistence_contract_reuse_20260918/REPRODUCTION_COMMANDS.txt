@@ -1,0 +1,7 @@
+# 기존 모델·raw data·예측 cache 필요. 학습 runner를 다시 호출하지 않는다.
+.venv/bin/python -m experiments.additive_persistence_contract_reuse_20260918.audit
+.venv/bin/python -m experiments.additive_persistence_contract_reuse_20260918.selection_audit
+# audit: 계약 hash, 장부, checkpoint hash, 20 CPU 검사, 54 실모델 forward 복원,
+# 246 prediction hashes, 8400 scalar rows 및 모든 origin 점수 재집계.
+# selection_audit: V-only LR/alpha/beta 선택, 효과660행 재계산.
+# 둘 다 optimizer update0. 기존 결과의 쓰기는 새 감사 경로로만 전달한다.
