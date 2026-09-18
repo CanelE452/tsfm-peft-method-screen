@@ -1,0 +1,200 @@
+{
+  "electricity_MAG_ONLY": {
+    "changed": [
+      "adapter.down.weight",
+      "adapter.down.bias",
+      "adapter.up.weight",
+      "adapter.up.bias"
+    ],
+    "frozen_unchanged": true,
+    "gradients": [
+      {
+        "adapter.down.bias": 0.0,
+        "adapter.down.weight": 0.0,
+        "adapter.up.bias": 0.012952879071235657,
+        "adapter.up.weight": 0.0019557469058781862
+      },
+      {
+        "adapter.down.bias": 2.575703911134042e-05,
+        "adapter.down.weight": 9.624791709939018e-05,
+        "adapter.up.bias": 0.028591997921466827,
+        "adapter.up.weight": 0.0037581741344183683
+      }
+    ],
+    "initial_B0_exact": true,
+    "losses": [
+      0.38618144392967224,
+      0.42743346095085144
+    ],
+    "microbatch": 32,
+    "off_B0_exact": true,
+    "parameters": 8712,
+    "restore_exact": true,
+    "updates": 2
+  },
+  "electricity_OUTPUT_CONTEXT": {
+    "changed": [
+      "gamma",
+      "output_linear.weight",
+      "output_linear.bias"
+    ],
+    "frozen_unchanged": true,
+    "gradients": [
+      {
+        "gamma": 0.007742558605968952,
+        "output_linear.bias": 0.0,
+        "output_linear.weight": 0.0
+      },
+      {
+        "gamma": 0.003498290665447712,
+        "output_linear.bias": 2.4947796646301867e-06,
+        "output_linear.weight": 2.6270967282471247e-05
+      }
+    ],
+    "initial_B0_exact": true,
+    "losses": [
+      0.38618144392967224,
+      0.427468866109848
+    ],
+    "microbatch": 32,
+    "off_B0_exact": true,
+    "parameters": 4673,
+    "restore_exact": true,
+    "updates": 2
+  },
+  "electricity_POS_ONLY": {
+    "changed": [
+      "position_logits",
+      "adapter.down.weight",
+      "adapter.down.bias",
+      "adapter.up.weight",
+      "adapter.up.bias"
+    ],
+    "frozen_unchanged": true,
+    "gradients": [
+      {
+        "adapter.down.bias": 0.0,
+        "adapter.down.weight": 0.0,
+        "adapter.up.bias": 0.008636229671537876,
+        "adapter.up.weight": 0.0014167341869324446,
+        "position_logits": 0.0
+      },
+      {
+        "adapter.down.bias": 1.2101090760552324e-05,
+        "adapter.down.weight": 4.535704283625819e-05,
+        "adapter.up.bias": 0.014711981639266014,
+        "adapter.up.weight": 0.0019553157035261393,
+        "position_logits": 3.002116272909916e-06
+      }
+    ],
+    "initial_B0_exact": true,
+    "losses": [
+      0.38618144392967224,
+      0.42745092511177063
+    ],
+    "microbatch": 32,
+    "off_B0_exact": true,
+    "parameters": 8744,
+    "restore_exact": true,
+    "updates": 2
+  },
+  "ettm1_MAG_ONLY": {
+    "changed": [
+      "adapter.down.weight",
+      "adapter.down.bias",
+      "adapter.up.weight",
+      "adapter.up.bias"
+    ],
+    "frozen_unchanged": true,
+    "gradients": [
+      {
+        "adapter.down.bias": 0.0,
+        "adapter.down.weight": 0.0,
+        "adapter.up.bias": 0.012066560797393322,
+        "adapter.up.weight": 0.001902441494166851
+      },
+      {
+        "adapter.down.bias": 5.072183284937637e-06,
+        "adapter.down.weight": 2.2197264115675353e-05,
+        "adapter.up.bias": 0.01314375177025795,
+        "adapter.up.weight": 0.0021825877483934164
+      }
+    ],
+    "initial_B0_exact": true,
+    "losses": [
+      0.16561251878738403,
+      0.1828143298625946
+    ],
+    "microbatch": 32,
+    "off_B0_exact": true,
+    "parameters": 8712,
+    "restore_exact": true,
+    "updates": 2
+  },
+  "ettm1_OUTPUT_CONTEXT": {
+    "changed": [
+      "gamma",
+      "output_linear.weight",
+      "output_linear.bias"
+    ],
+    "frozen_unchanged": true,
+    "gradients": [
+      {
+        "gamma": 0.0005929016042500734,
+        "output_linear.bias": 0.0,
+        "output_linear.weight": 0.0
+      },
+      {
+        "gamma": 0.0018529635854065418,
+        "output_linear.bias": 1.2745572348649148e-06,
+        "output_linear.weight": 2.2939111659070477e-05
+      }
+    ],
+    "initial_B0_exact": true,
+    "losses": [
+      0.16561251878738403,
+      0.18281705677509308
+    ],
+    "microbatch": 32,
+    "off_B0_exact": true,
+    "parameters": 4673,
+    "restore_exact": true,
+    "updates": 2
+  },
+  "ettm1_POS_ONLY": {
+    "changed": [
+      "position_logits",
+      "adapter.down.weight",
+      "adapter.down.bias",
+      "adapter.up.weight",
+      "adapter.up.bias"
+    ],
+    "frozen_unchanged": true,
+    "gradients": [
+      {
+        "adapter.down.bias": 0.0,
+        "adapter.down.weight": 0.0,
+        "adapter.up.bias": 0.006046378053724766,
+        "adapter.up.weight": 0.001105900970287621,
+        "position_logits": 0.0
+      },
+      {
+        "adapter.down.bias": 4.606445600074949e-06,
+        "adapter.down.weight": 1.7490649042883888e-05,
+        "adapter.up.bias": 0.006724044680595398,
+        "adapter.up.weight": 0.0012367775198072195,
+        "position_logits": 6.846260589554731e-07
+      }
+    ],
+    "initial_B0_exact": true,
+    "losses": [
+      0.16561251878738403,
+      0.18281465768814087
+    ],
+    "microbatch": 32,
+    "off_B0_exact": true,
+    "parameters": 8744,
+    "restore_exact": true,
+    "updates": 2
+  }
+}

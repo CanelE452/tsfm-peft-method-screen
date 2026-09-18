@@ -1,0 +1,66 @@
+{
+  "electricity": {
+    "MAG_ONLY": {
+      "fit": "electricity_MAG_ONLY_s81550_lr0.0003",
+      "lr": 0.0003,
+      "selected": {
+        "checkpoint": ".cache/c3_weakness_controls_20260918/fits/electricity_MAG_ONLY_s81550_lr0.0003/checkpoint_768.pt",
+        "objective": 0.21416666133227405,
+        "sha256": "5a5c4fa86b77dc595cdbb309fcd4c7bb0b3eb0d7a8a9395159f01be5896d4da8",
+        "step": 768
+      }
+    },
+    "OUTPUT_CONTEXT": {
+      "fit": "electricity_OUTPUT_CONTEXT_s81550_lr0.0003",
+      "lr": 0.0003,
+      "selected": {
+        "checkpoint": ".cache/c3_weakness_controls_20260918/fits/electricity_OUTPUT_CONTEXT_s81550_lr0.0003/checkpoint_512.pt",
+        "objective": 0.21477211099756457,
+        "sha256": "0fd073fe3236d9121acfaf27f51cd3222c20f5062c764ee64dc54386e4e69c75",
+        "step": 512
+      }
+    },
+    "POS_ONLY": {
+      "fit": "electricity_POS_ONLY_s81550_lr0.0003",
+      "lr": 0.0003,
+      "selected": {
+        "checkpoint": ".cache/c3_weakness_controls_20260918/fits/electricity_POS_ONLY_s81550_lr0.0003/checkpoint_768.pt",
+        "objective": 0.21396722027921894,
+        "sha256": "1eefcd5f884964b7d5d5c7af1e40fd32750195a47c521c3ea09dbb643d5712a4",
+        "step": 768
+      }
+    }
+  },
+  "ettm1": {
+    "MAG_ONLY": {
+      "fit": "ettm1_MAG_ONLY_s81550_lr0.0001",
+      "lr": 0.0001,
+      "selected": {
+        "checkpoint": ".cache/c3_weakness_controls_20260918/fits/ettm1_MAG_ONLY_s81550_lr0.0001/checkpoint_0.pt",
+        "objective": 0.40710705625449606,
+        "sha256": "48888a9d319ddf9727c8117349e4f60049a8f4cfd03b01d8b34b198a89181b64",
+        "step": 0
+      }
+    },
+    "OUTPUT_CONTEXT": {
+      "fit": "ettm1_OUTPUT_CONTEXT_s81550_lr0.0001",
+      "lr": 0.0001,
+      "selected": {
+        "checkpoint": ".cache/c3_weakness_controls_20260918/fits/ettm1_OUTPUT_CONTEXT_s81550_lr0.0001/checkpoint_0.pt",
+        "objective": 0.40710705625449606,
+        "sha256": "1447301649df33821942ca41b72b75a5fedea9c9112349b58e53891a22d8a2e1",
+        "step": 0
+      }
+    },
+    "POS_ONLY": {
+      "fit": "ettm1_POS_ONLY_s81550_lr0.0003",
+      "lr": 0.0003,
+      "selected": {
+        "checkpoint": ".cache/c3_weakness_controls_20260918/fits/ettm1_POS_ONLY_s81550_lr0.0003/checkpoint_768.pt",
+        "objective": 0.4068466492791609,
+        "sha256": "15915a42b3f5c9b917ee15239f3f339df9d750296f102cb7f846b52422bb6cb0",
+        "step": 768
+      }
+    }
+  }
+}

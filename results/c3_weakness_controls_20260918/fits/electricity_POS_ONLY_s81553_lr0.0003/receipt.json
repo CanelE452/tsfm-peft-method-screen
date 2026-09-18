@@ -1,0 +1,57 @@
+{
+  "arm": "POS_ONLY",
+  "checkpoint_io_seconds": 0.07961656973930076,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/c3_weakness_controls_20260918/fits/electricity_POS_ONLY_s81553_lr0.0003/checkpoint_0.pt",
+      "objective": 0.21515082115886094,
+      "sha256": "9f843c70eaa132499a091127d5cdd0be131e40da50b0b0a4b52989e8aca9c172",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/c3_weakness_controls_20260918/fits/electricity_POS_ONLY_s81553_lr0.0003/checkpoint_256.pt",
+      "objective": 0.214489593425841,
+      "sha256": "ef4bfff7877d1373c9766fcb7a37b4d27ff8ac27cc2633a4b97a44083d7fbd64",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/c3_weakness_controls_20260918/fits/electricity_POS_ONLY_s81553_lr0.0003/checkpoint_512.pt",
+      "objective": 0.21445305351470667,
+      "sha256": "52892faae008d267420b6cbb8be6c460e1e950d86e0be679e564451df558cfc6",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/c3_weakness_controls_20260918/fits/electricity_POS_ONLY_s81553_lr0.0003/checkpoint_768.pt",
+      "objective": 0.2141905152199625,
+      "sha256": "d0016e40e4d46577aa3fad2e3724ae05906a666869604fdbfd346eea6fa5f778",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/c3_weakness_controls_20260918/fits/electricity_POS_ONLY_s81553_lr0.0003/checkpoint_1024.pt",
+      "objective": 0.21396020018769785,
+      "sha256": "d985891f2dee18a30f4d23dd3b602d6c61ab3c84dd0e71535d8efde1990d3f3d",
+      "step": 1024
+    }
+  ],
+  "fit": "electricity_POS_ONLY_s81553_lr0.0003",
+  "frozen_sha256": "f66e5bbfd81ea0ae368e0bd4ae7ac16ba62ac36c6c171f06e9026960272cfdc7",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 44.15434601396555,
+  "lr": 0.0003,
+  "microbatch": 32,
+  "optimization_limited": true,
+  "optimizer_seconds": 34.404719601618126,
+  "peak_allocated": 381335040,
+  "peak_reserved": 400556032,
+  "seed": 81553,
+  "selected": {
+    "checkpoint": ".cache/c3_weakness_controls_20260918/fits/electricity_POS_ONLY_s81553_lr0.0003/checkpoint_1024.pt",
+    "objective": 0.21396020018769785,
+    "sha256": "d985891f2dee18a30f4d23dd3b602d6c61ab3c84dd0e71535d8efde1990d3f3d",
+    "step": 1024
+  },
+  "source": "electricity",
+  "status": "COMPLETE",
+  "updates": 1024,
+  "validation_seconds": 5.531721322913654
+}

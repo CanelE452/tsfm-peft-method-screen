@@ -1,0 +1,57 @@
+{
+  "arm": "OUTPUT_CONTEXT",
+  "checkpoint_io_seconds": 0.05937652016291395,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/c3_weakness_controls_20260918/fits/ettm1_OUTPUT_CONTEXT_s81553_lr0.0001/checkpoint_0.pt",
+      "objective": 0.4108203032252066,
+      "sha256": "6fb5f2ea2133beba75a1e2014c4e1afd1416b3e33f8bdcd0ee37b39586908fe7",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/c3_weakness_controls_20260918/fits/ettm1_OUTPUT_CONTEXT_s81553_lr0.0001/checkpoint_256.pt",
+      "objective": 0.41440390552280026,
+      "sha256": "cc888801b5181862c46fc1f2167c3b8d850b18e310c8489d34ecb18797a268c7",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/c3_weakness_controls_20260918/fits/ettm1_OUTPUT_CONTEXT_s81553_lr0.0001/checkpoint_512.pt",
+      "objective": 0.4169044424011855,
+      "sha256": "3e48c159d3453f26184dbc332609c18d6aad20a39b9b640bb17dcc0ee1f18b37",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/c3_weakness_controls_20260918/fits/ettm1_OUTPUT_CONTEXT_s81553_lr0.0001/checkpoint_768.pt",
+      "objective": 0.41186314433505905,
+      "sha256": "3deb20298fa17f503a7691ecd831f3aede412b18d4df09e40a4ca6660e94c1eb",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/c3_weakness_controls_20260918/fits/ettm1_OUTPUT_CONTEXT_s81553_lr0.0001/checkpoint_1024.pt",
+      "objective": 0.4114629171698887,
+      "sha256": "e674c9926fd5917dcd9c6ae4ce192f88ad9c1943229575607a8665b47fa559fe",
+      "step": 1024
+    }
+  ],
+  "fit": "ettm1_OUTPUT_CONTEXT_s81553_lr0.0001",
+  "frozen_sha256": "f89a341adc49284da3a8fde75c19eff4fd46b4bd507c98b16a5bc2a09739f047",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 26.610389389970805,
+  "lr": 0.0001,
+  "microbatch": 32,
+  "optimization_limited": false,
+  "optimizer_seconds": 17.126814135641325,
+  "peak_allocated": 246001664,
+  "peak_reserved": 270532608,
+  "seed": 81553,
+  "selected": {
+    "checkpoint": ".cache/c3_weakness_controls_20260918/fits/ettm1_OUTPUT_CONTEXT_s81553_lr0.0001/checkpoint_0.pt",
+    "objective": 0.4108203032252066,
+    "sha256": "6fb5f2ea2133beba75a1e2014c4e1afd1416b3e33f8bdcd0ee37b39586908fe7",
+    "step": 0
+  },
+  "source": "ettm1",
+  "status": "COMPLETE",
+  "updates": 1024,
+  "validation_seconds": 5.431484050990548
+}
