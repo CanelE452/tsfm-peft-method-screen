@@ -1,0 +1,65 @@
+{
+  "arm": "MAG_ONLY",
+  "checkpoint_io_seconds": 0.07372979092178866,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/c3_weakness_controls_20260918/fits/electricity_MAG_ONLY_s81552_lr0.0003/checkpoint_0.pt",
+      "objective": 0.21559902487463017,
+      "sha256": "2b31965409ccd0dd3e96ee3382949ee25a7cc176331240051e183ee95e18a402",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/c3_weakness_controls_20260918/fits/electricity_MAG_ONLY_s81552_lr0.0003/checkpoint_256.pt",
+      "objective": 0.21520005934937741,
+      "sha256": "6745032f79756fb2029eda4b66d5083e5cfc5b9703bf4851ab768db2cda6779f",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/c3_weakness_controls_20260918/fits/electricity_MAG_ONLY_s81552_lr0.0003/checkpoint_512.pt",
+      "objective": 0.21512174613413748,
+      "sha256": "f04074422ed0d750b5459372db6cf8bfd89e0ad9502784da3b5f780cb6128e1a",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/c3_weakness_controls_20260918/fits/electricity_MAG_ONLY_s81552_lr0.0003/checkpoint_768.pt",
+      "objective": 0.21184232657374139,
+      "sha256": "a92226d5e3cc361aab9bc1a16aa2e3b77a0ead5fcb78a7bef50023222f767d42",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/c3_weakness_controls_20260918/fits/electricity_MAG_ONLY_s81552_lr0.0003/checkpoint_1024.pt",
+      "objective": 0.21203476017610096,
+      "sha256": "53dcb23b3bdcba26cf9fb1ed6430ed5ae38d6ba93c18e7bbaaa61fcbdbbf5219",
+      "step": 1024
+    }
+  ],
+  "fit": "electricity_MAG_ONLY_b81552_i81552_o81552_lr0.0003",
+  "frozen_sha256": "a63717b34c48935d1ec9061eb331224b332d2e8c0af00917a0153ca957c75d41",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 46.08990153501509,
+  "lr": 0.0003,
+  "microbatch": 32,
+  "new_updates": 0,
+  "optimization_limited": false,
+  "optimizer_seconds": 35.934418925025966,
+  "original_fit": "electricity_MAG_ONLY_s81552_lr0.0003",
+  "original_receipt": "results/c3_weakness_controls_20260918/fits/electricity_MAG_ONLY_s81552_lr0.0003/receipt.json",
+  "peak_allocated": 379698688,
+  "peak_reserved": 400556032,
+  "reused": true,
+  "seed": [
+    81552,
+    81552,
+    81552
+  ],
+  "selected": {
+    "checkpoint": ".cache/c3_weakness_controls_20260918/fits/electricity_MAG_ONLY_s81552_lr0.0003/checkpoint_768.pt",
+    "objective": 0.21184232657374139,
+    "sha256": "a92226d5e3cc361aab9bc1a16aa2e3b77a0ead5fcb78a7bef50023222f767d42",
+    "step": 768
+  },
+  "source": "electricity",
+  "status": "COMPLETE",
+  "updates": 1024,
+  "validation_seconds": 5.856940537050832
+}

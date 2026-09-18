@@ -1,0 +1,65 @@
+{
+  "arm": "C3",
+  "checkpoint_io_seconds": 0.05808739684289321,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/additive_b0_adapter_v1_20260917/fits/ettm1_C3_s81551_lr0.0001/checkpoint_0.pt",
+      "objective": 0.40602500213177545,
+      "sha256": "2f64f7c171e010b090358838d7df16a36faf8d3d8c556177e92ebfb94383fcf6",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/additive_b0_adapter_v1_20260917/fits/ettm1_C3_s81551_lr0.0001/checkpoint_256.pt",
+      "objective": 0.4109172770982436,
+      "sha256": "5efda8ee8c7938c79bc8a2e6325b9103f36ce3220511026176ebacc1743a877e",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/additive_b0_adapter_v1_20260917/fits/ettm1_C3_s81551_lr0.0001/checkpoint_512.pt",
+      "objective": 0.411711392937376,
+      "sha256": "dc7ce3fb96ec54fcc1e66d8e8acf7ed740208d99bf37de0af4ce32f4804176eb",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/additive_b0_adapter_v1_20260917/fits/ettm1_C3_s81551_lr0.0001/checkpoint_768.pt",
+      "objective": 0.4096413019164091,
+      "sha256": "f9245aff257352de26fdf0c882a77c9e6d1cbefa6f5249bc5b5c38ab2e93d1d5",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/additive_b0_adapter_v1_20260917/fits/ettm1_C3_s81551_lr0.0001/checkpoint_1024.pt",
+      "objective": 0.40929613854827124,
+      "sha256": "3ae067f1eaa4002092c208b33396a0b556806cd53ae67008be0e652ae050ee87",
+      "step": 1024
+    }
+  ],
+  "fit": "ettm1_C3_b81551_i81551_o81551_lr0.0001",
+  "frozen_sha256": "1af8e5b814fccc2c2b12af3a72adbb9a32249f2d000b8745f836b70fc059f20a",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 41.11652357300045,
+  "lr": 0.0001,
+  "microbatch": 32,
+  "new_updates": 0,
+  "optimization_limited": false,
+  "optimizer_seconds": 31.989233240892645,
+  "original_fit": "ettm1_C3_s81551_lr0.0001",
+  "original_receipt": "results/additive_b0_adapter_v1_20260917/fits/ettm1_C3_s81551_lr0.0001/receipt.json",
+  "peak_allocated": 379698688,
+  "peak_reserved": 400556032,
+  "reused": true,
+  "seed": [
+    81551,
+    81551,
+    81551
+  ],
+  "selected": {
+    "checkpoint": ".cache/additive_b0_adapter_v1_20260917/fits/ettm1_C3_s81551_lr0.0001/checkpoint_0.pt",
+    "objective": 0.40602500213177545,
+    "sha256": "2f64f7c171e010b090358838d7df16a36faf8d3d8c556177e92ebfb94383fcf6",
+    "step": 0
+  },
+  "source": "ettm1",
+  "status": "COMPLETE",
+  "updates": 1024,
+  "validation_seconds": 5.315919324872084
+}

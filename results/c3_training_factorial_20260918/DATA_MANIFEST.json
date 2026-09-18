@@ -1,0 +1,192 @@
+{
+  "electricity": {
+    "bounds": [
+      0,
+      15782,
+      21043,
+      26304
+    ],
+    "evaluation_role": "reused development source; not a new independent test",
+    "grid": {
+      "timestamp_available": false,
+      "timezone": null,
+      "type": "index-day"
+    },
+    "original_columns": 321,
+    "packet_hashes": {
+      "E_DISCOVERY": {
+        ".cache/outlier_signal_peft_v1_20260917/data/electricity/E_DISCOVERY_inputs.npz": "04e1ad8458942b4538fc5af8e5b8ed7278ea55e3e3dabb99e65ab69092633a87",
+        ".cache/outlier_signal_peft_v1_20260917/data/electricity/E_DISCOVERY_labels.npz": "a1b628789cf6e102b9218677926ef5df30b4d513f85cd98189fbdb5e0b991c30"
+      },
+      "TRAIN": {
+        ".cache/outlier_signal_peft_v1_20260917/data/electricity/TRAIN_inputs.npz": "75fb36dc3e94daf7e16b3df2b12dfbf1db465c681d238a91e8ae0beacc3238f8",
+        ".cache/outlier_signal_peft_v1_20260917/data/electricity/TRAIN_labels.npz": "d1b3d6c3ebd7ef7900f8eb3a949e8b91e8c4f34c5a5e75c842072340150bcc1e"
+      },
+      "V_SELECT": {
+        ".cache/outlier_signal_peft_v1_20260917/data/electricity/V_SELECT_inputs.npz": "e248ba7d707e39f8ad600022386d523c02a1ec77ff49c4c17612c1468bf104d0",
+        ".cache/outlier_signal_peft_v1_20260917/data/electricity/V_SELECT_labels.npz": "1a5e0bc52c4ffd892fb4458caa7884882f898cf193e60cd7c750692417b59e5c"
+      }
+    },
+    "path": "data/raw/electricity.txt.gz",
+    "period": 24,
+    "rows": 26304,
+    "selected_columns": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "sha256": "3c4c069588198c1fcc95cace7bb69c99922129edfd673b7286661dad20badefa",
+    "sigma_train_population": [
+      24.15590954596686,
+      27.615789719214025,
+      62.78947113081919,
+      141.73902937448287
+    ]
+  },
+  "electricity_transfer": {
+    "bounds": [
+      0,
+      15782,
+      21043,
+      26304
+    ],
+    "evaluation_role": "exploratory untrained-in-current-model series transfer; reused source/dates, not independent data",
+    "packet_hashes": {
+      "E_DISCOVERY": {
+        ".cache/additive_persistence_validation_v1_20260917/data/electricity_transfer/E_DISCOVERY_inputs.npz": "0edaa5a86aa6da6081d8f0f1d567c6e95b338e4cba4fa4c1b3c4f7cf52222dde",
+        ".cache/additive_persistence_validation_v1_20260917/data/electricity_transfer/E_DISCOVERY_labels.npz": "8f42213adb54f29a87c4b73f5a8031167a5a24d25e7c2dde586f844cbf3b6602"
+      }
+    },
+    "path": "data/raw/electricity.txt.gz",
+    "period": 24,
+    "rows": 26304,
+    "selected_columns": [
+      "288",
+      "43",
+      "100",
+      "144",
+      "149",
+      "147",
+      "11",
+      "83",
+      "21",
+      "79",
+      "313",
+      "14",
+      "129",
+      "262",
+      "189",
+      "225"
+    ],
+    "sha256": "3c4c069588198c1fcc95cace7bb69c99922129edfd673b7286661dad20badefa",
+    "sigma_train_population": [
+      265.5004629257297,
+      40.28406199476066,
+      494.1420285985382,
+      59.859871346490145,
+      429.6920001050608,
+      43.754798836632204,
+      139.8165263965085,
+      213.80734351571954,
+      295.7530247805029,
+      201.14349477420856,
+      152617.45784199634,
+      51.946669636178406,
+      203.5844420738394,
+      1075.9048359170736,
+      859.5001245231539,
+      341.9196435922688
+    ]
+  },
+  "ettm1": {
+    "bounds": [
+      0,
+      41808,
+      55744,
+      69680
+    ],
+    "evaluation_role": "reused development source; not a new independent test",
+    "grid": {
+      "duplicates": 0,
+      "first": "2016-07-01 00:00:00",
+      "last": "2018-06-26 19:45:00",
+      "monotonic": true,
+      "regular": true,
+      "step_minutes": 15,
+      "timestamp_available": true,
+      "timezone": null,
+      "type": "timestamp-naive"
+    },
+    "original_columns": 7,
+    "packet_hashes": {
+      "E_DISCOVERY": {
+        ".cache/outlier_signal_peft_v1_20260917/data/ettm1/E_DISCOVERY_inputs.npz": "e03f23f01e5d780184e30e5dae53285b2d94961a7c0c5095144748f63f45e999",
+        ".cache/outlier_signal_peft_v1_20260917/data/ettm1/E_DISCOVERY_labels.npz": "8fcab4f671338ae5cdc060f4438a6ea5ab6b4eac8f48031852cbca7ae1a6105d"
+      },
+      "TRAIN": {
+        ".cache/outlier_signal_peft_v1_20260917/data/ettm1/TRAIN_inputs.npz": "f663ebf96a5382968bfa8ae0a8ef688dd4b55852b13b73f9836bcba2c4af0646",
+        ".cache/outlier_signal_peft_v1_20260917/data/ettm1/TRAIN_labels.npz": "df23e8822ab0a1e4dd92e51d990a8ebfacd813ea49728829159bd97ece715b8b"
+      },
+      "V_SELECT": {
+        ".cache/outlier_signal_peft_v1_20260917/data/ettm1/V_SELECT_inputs.npz": "ab9cede95d63d8dd8fd5aadf935c2c46c99232edbd95aa28888e936dbc5ac874",
+        ".cache/outlier_signal_peft_v1_20260917/data/ettm1/V_SELECT_labels.npz": "08f0c1d4ba69fbdc808d6a5d30a1e583ead260798cb4f142470f6b07ef122074"
+      }
+    },
+    "path": "data/raw/overnight_20260913/ETTm1.csv",
+    "period": 96,
+    "rows": 69680,
+    "selected_columns": [
+      "HUFL",
+      "HULL",
+      "MUFL",
+      "MULL"
+    ],
+    "sha256": "6ce1759b1a18e3328421d5d75fadcb316c449fcd7cec32820c8dafda71986c9e",
+    "sigma_train_population": [
+      6.157536902445785,
+      2.147675123703175,
+      5.913691243699931,
+      1.967850122738975
+    ]
+  },
+  "ettm2": {
+    "bounds": [
+      0,
+      41808,
+      55744,
+      69680
+    ],
+    "evaluation_role": "previously performance-exposed benchmark family, different site procedure replication; not independent test",
+    "packet_hashes": {
+      "E_DISCOVERY": {
+        ".cache/additive_persistence_validation_v1_20260917/data/ettm2/E_DISCOVERY_inputs.npz": "14d1f1106b10ae714d3723020996ea8564c0c46b8139e18d902283c23d7e7284",
+        ".cache/additive_persistence_validation_v1_20260917/data/ettm2/E_DISCOVERY_labels.npz": "530a5fcf300786a44c281114b62e64521936fb8467dd0360a5ff14308bc8d0e4"
+      },
+      "TRAIN": {
+        ".cache/additive_persistence_validation_v1_20260917/data/ettm2/TRAIN_inputs.npz": "f22e4f3a8e2a922f0b3d30f3408542f977a6cd3043dd10bb87b84684cceb8015",
+        ".cache/additive_persistence_validation_v1_20260917/data/ettm2/TRAIN_labels.npz": "b376423d06a4c53ca3b0fea3b52720983dd7bf18e36115a5f325ca23d63aab1e"
+      },
+      "V_SELECT": {
+        ".cache/additive_persistence_validation_v1_20260917/data/ettm2/V_SELECT_inputs.npz": "64989f9b0c096aec8ae1ecf46a5fd9bcb824a78a79d4f08013050bf489eb30fd",
+        ".cache/additive_persistence_validation_v1_20260917/data/ettm2/V_SELECT_labels.npz": "cb80d1cb17ee25b6570cb6104c3b25e8ebf9f5d45bdb04535de56377a9e003ca"
+      }
+    },
+    "path": "data/raw/ETTm2.csv",
+    "period": 96,
+    "rows": 69680,
+    "selected_columns": [
+      "HUFL",
+      "HULL",
+      "MUFL",
+      "MULL"
+    ],
+    "sha256": "db973ca252c6410a30d0469b13d696cf919648d0f3fd588c60f03fdbdbadd1fd",
+    "sigma_train_population": [
+      9.982387099150566,
+      4.351427907025755,
+      15.632143629739506,
+      2.8852502431261455
+    ]
+  }
+}
