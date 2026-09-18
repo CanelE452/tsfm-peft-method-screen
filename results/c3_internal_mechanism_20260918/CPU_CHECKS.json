@@ -1,0 +1,65 @@
+{
+  "Jacobian_signal_identity": true,
+  "optimizer_updates": 0,
+  "probe": [
+    {
+      "probe_contexts": 128,
+      "shift_magnitude_duration": [
+        [
+          4,
+          24
+        ],
+        [
+          4,
+          48
+        ],
+        [
+          8,
+          24
+        ],
+        [
+          8,
+          48
+        ]
+      ],
+      "source": "electricity",
+      "state_counts": {
+        "BURST": 32,
+        "POINT": 32,
+        "REFERENCE": 32,
+        "SHIFT": 32
+      }
+    },
+    {
+      "probe_contexts": 128,
+      "shift_magnitude_duration": [
+        [
+          4,
+          24
+        ],
+        [
+          4,
+          48
+        ],
+        [
+          8,
+          24
+        ],
+        [
+          8,
+          48
+        ]
+      ],
+      "source": "ettm1",
+      "state_counts": {
+        "BURST": 32,
+        "POINT": 32,
+        "REFERENCE": 32,
+        "SHIFT": 32
+      }
+    }
+  ],
+  "status": "VERIFIED",
+  "synthetic_chain_rule": true,
+  "zero_down_gradient": true
+}
