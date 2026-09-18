@@ -1,0 +1,61 @@
+{
+  "arm": "MAG_ONLY",
+  "checkpoint_io_seconds": 0.06883126311004162,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/c3_training_factorial_20260918/fits/ettm1_MAG_ONLY_b81552_i81552_o81551_lr0.0001/checkpoint_0.pt",
+      "objective": 0.41165661949197785,
+      "sha256": "2b31965409ccd0dd3e96ee3382949ee25a7cc176331240051e183ee95e18a402",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/c3_training_factorial_20260918/fits/ettm1_MAG_ONLY_b81552_i81552_o81551_lr0.0001/checkpoint_256.pt",
+      "objective": 0.4133874563127371,
+      "sha256": "4371264ffe6d5953c50727d66e4393f0bfa57d56d8585c19ca44c978def02ab9",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/c3_training_factorial_20260918/fits/ettm1_MAG_ONLY_b81552_i81552_o81551_lr0.0001/checkpoint_512.pt",
+      "objective": 0.4139042109140167,
+      "sha256": "5d27e1dce38b86e4a022b62388291c2bf8f09cf9b7ce955326485a88329c6e67",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/c3_training_factorial_20260918/fits/ettm1_MAG_ONLY_b81552_i81552_o81551_lr0.0001/checkpoint_768.pt",
+      "objective": 0.4122086716574308,
+      "sha256": "041d92546ef9ccc69065dd9940c1d41cf486e0326db7b36597e223b72ecc8e62",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/c3_training_factorial_20260918/fits/ettm1_MAG_ONLY_b81552_i81552_o81551_lr0.0001/checkpoint_1024.pt",
+      "objective": 0.41185284726050064,
+      "sha256": "c1bbae8ca0a8891a97d1273bf820dc9ac78ede15a599f983edb3aada2e2af343",
+      "step": 1024
+    }
+  ],
+  "fit": "ettm1_MAG_ONLY_b81552_i81552_o81551_lr0.0001",
+  "frozen_sha256": "f01ef9de2191429a0c68fd3e188fd8815dfc719058479e8218d01e2508e8cd12",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 42.420953528024256,
+  "lr": 0.0001,
+  "microbatch": 32,
+  "optimization_limited": false,
+  "optimizer_seconds": 33.047677308437414,
+  "peak_allocated": 379698688,
+  "peak_reserved": 400556032,
+  "seed": [
+    81552,
+    81552,
+    81551
+  ],
+  "selected": {
+    "checkpoint": ".cache/c3_training_factorial_20260918/fits/ettm1_MAG_ONLY_b81552_i81552_o81551_lr0.0001/checkpoint_0.pt",
+    "objective": 0.41165661949197785,
+    "sha256": "2b31965409ccd0dd3e96ee3382949ee25a7cc176331240051e183ee95e18a402",
+    "step": 0
+  },
+  "source": "ettm1",
+  "status": "COMPLETE",
+  "updates": 1024,
+  "validation_seconds": 5.395573558926117
+}

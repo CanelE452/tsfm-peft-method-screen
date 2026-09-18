@@ -1,0 +1,61 @@
+{
+  "arm": "C3",
+  "checkpoint_io_seconds": 0.05983733292669058,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/c3_training_factorial_20260918/fits/electricity_C3_b81551_i81552_o81552_lr0.0003/checkpoint_0.pt",
+      "objective": 0.21615286843459375,
+      "sha256": "2b31965409ccd0dd3e96ee3382949ee25a7cc176331240051e183ee95e18a402",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/c3_training_factorial_20260918/fits/electricity_C3_b81551_i81552_o81552_lr0.0003/checkpoint_256.pt",
+      "objective": 0.2144389915799761,
+      "sha256": "89ae2e0a9d64841bca66b263037b040a38ec1b9f7855c3ee1444a4197765da0d",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/c3_training_factorial_20260918/fits/electricity_C3_b81551_i81552_o81552_lr0.0003/checkpoint_512.pt",
+      "objective": 0.21414130733668602,
+      "sha256": "0ed49384ea2635787ef490239d17bc7f15a12220434950a116cc4436c1969f82",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/c3_training_factorial_20260918/fits/electricity_C3_b81551_i81552_o81552_lr0.0003/checkpoint_768.pt",
+      "objective": 0.21337319332501833,
+      "sha256": "fc504bffa48339e7fe8edb505a09566d196c1ec7be9b8b443d6dd77dc6880ac5",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/c3_training_factorial_20260918/fits/electricity_C3_b81551_i81552_o81552_lr0.0003/checkpoint_1024.pt",
+      "objective": 0.21314652217409868,
+      "sha256": "dd2ec9241933f2002c9885d58ff15d3898ad6f710596f4d77c2ab8e4e6f24d24",
+      "step": 1024
+    }
+  ],
+  "fit": "electricity_C3_b81551_i81552_o81552_lr0.0003",
+  "frozen_sha256": "baa28c79da3c9dbe98063d4b0d06e274c14f6e96b1762204918ac368b8e5f1c5",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 40.91710110701388,
+  "lr": 0.0003,
+  "microbatch": 32,
+  "optimization_limited": true,
+  "optimizer_seconds": 31.810183668741956,
+  "peak_allocated": 379698688,
+  "peak_reserved": 400556032,
+  "seed": [
+    81551,
+    81552,
+    81552
+  ],
+  "selected": {
+    "checkpoint": ".cache/c3_training_factorial_20260918/fits/electricity_C3_b81551_i81552_o81552_lr0.0003/checkpoint_1024.pt",
+    "objective": 0.21314652217409868,
+    "sha256": "dd2ec9241933f2002c9885d58ff15d3898ad6f710596f4d77c2ab8e4e6f24d24",
+    "step": 1024
+  },
+  "source": "electricity",
+  "status": "COMPLETE",
+  "updates": 1024,
+  "validation_seconds": 5.258586986979935
+}

@@ -1,0 +1,61 @@
+{
+  "arm": "C3",
+  "checkpoint_io_seconds": 0.06166003202088177,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/c3_training_factorial_20260918/fits/ettm1_C3_b81551_i81552_o81552_lr0.0001/checkpoint_0.pt",
+      "objective": 0.40602500213177545,
+      "sha256": "2b31965409ccd0dd3e96ee3382949ee25a7cc176331240051e183ee95e18a402",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/c3_training_factorial_20260918/fits/ettm1_C3_b81551_i81552_o81552_lr0.0001/checkpoint_256.pt",
+      "objective": 0.40881211108481497,
+      "sha256": "1439251d4ba8b0cfa1d97ba8ed71e01e32d8cc2e9c0d337d74f5fca730df8188",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/c3_training_factorial_20260918/fits/ettm1_C3_b81551_i81552_o81552_lr0.0001/checkpoint_512.pt",
+      "objective": 0.4111679377935079,
+      "sha256": "9c0bd6f6843adb2ea4b7887649b76e93d6fa4c123549fdefe4ef6f0960f7a56f",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/c3_training_factorial_20260918/fits/ettm1_C3_b81551_i81552_o81552_lr0.0001/checkpoint_768.pt",
+      "objective": 0.40917016466694933,
+      "sha256": "914d4400e0c265ba9aede1994839239b288cd406a656ad1295b3fcf88eb530b4",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/c3_training_factorial_20260918/fits/ettm1_C3_b81551_i81552_o81552_lr0.0001/checkpoint_1024.pt",
+      "objective": 0.4085835750914054,
+      "sha256": "81fa0644dfc0b4abc7f3e0bc35f251929f3f4c18f8a1bf018d1a56ef49321bc1",
+      "step": 1024
+    }
+  ],
+  "fit": "ettm1_C3_b81551_i81552_o81552_lr0.0001",
+  "frozen_sha256": "1af8e5b814fccc2c2b12af3a72adbb9a32249f2d000b8745f836b70fc059f20a",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 41.00364273798186,
+  "lr": 0.0001,
+  "microbatch": 32,
+  "optimization_limited": false,
+  "optimizer_seconds": 31.852458016190212,
+  "peak_allocated": 379698688,
+  "peak_reserved": 400556032,
+  "seed": [
+    81551,
+    81552,
+    81552
+  ],
+  "selected": {
+    "checkpoint": ".cache/c3_training_factorial_20260918/fits/ettm1_C3_b81551_i81552_o81552_lr0.0001/checkpoint_0.pt",
+    "objective": 0.40602500213177545,
+    "sha256": "2b31965409ccd0dd3e96ee3382949ee25a7cc176331240051e183ee95e18a402",
+    "step": 0
+  },
+  "source": "ettm1",
+  "status": "COMPLETE",
+  "updates": 1024,
+  "validation_seconds": 5.312783468980342
+}
