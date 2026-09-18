@@ -1,0 +1,43 @@
+{
+  "arms": [
+    "POS_ONLY",
+    "MAG_ONLY",
+    "OUTPUT_CONTEXT"
+  ],
+  "automatic_successor": false,
+  "checkpoints": [
+    0,
+    256,
+    512,
+    768,
+    1024
+  ],
+  "fit_cap": 30,
+  "kinds": [
+    "standard",
+    "shape"
+  ],
+  "lr_grid": [
+    0.0001,
+    0.0003
+  ],
+  "main_update_cap": 30720,
+  "new_prediction_view_cap": 54,
+  "panels": [
+    "electricity",
+    "electricity_transfer",
+    "ettm1"
+  ],
+  "repeat_seeds": [
+    81551,
+    81552,
+    81553
+  ],
+  "selection_seed": 81550,
+  "smoke_update_cap": 12,
+  "sources": [
+    "electricity",
+    "ettm1"
+  ],
+  "total_update_cap": 30732
+}
