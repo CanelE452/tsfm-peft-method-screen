@@ -1,0 +1,29 @@
+{
+  "neso_2026_h1": {
+    "bounds": [
+      0,
+      4344,
+      8760,
+      13104
+    ],
+    "evaluation_interval": "2026-01-01 inclusive to 2026-07-01 exclusive UTC",
+    "independent_source": false,
+    "packet_hashes": {
+      "E_DISCOVERY": {
+        ".cache/c3_identifiability_temporal_20260918/data/neso_2026_h1/E_DISCOVERY_inputs.npz": "332049354e1528771ba43fd67c78be975385973b4ac39ae54a59b8fc6e80af7b",
+        ".cache/c3_identifiability_temporal_20260918/data/neso_2026_h1/E_DISCOVERY_labels.npz": "326737e51774110767d0cdeef15ef86a18ed639bfbfcfec4eed3659ce4775c71"
+      }
+    },
+    "period": 24,
+    "prior_context": "2025 late ND allowed as observed past only",
+    "provider": "NESO retrospective ND outturn",
+    "rows": 13104,
+    "selected_columns": [
+      "ND"
+    ],
+    "sigma_period": "2025-01-01 to 2025-07-01 UTC; unchanged",
+    "sigma_train_population": [
+      6601.283149839831
+    ]
+  }
+}

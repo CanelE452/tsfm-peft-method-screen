@@ -1,0 +1,12 @@
+# C3 논문 약점 보완 — 결과 확인 전 고정 범위
+
+기준 HEAD: d213b157ca2f0e417bfb48a8f922926b75428425. 사용자 요청: 기존 C3 논문의 약점을 확인하고 필요한 보완을 수행. 새 방법·튜닝·학습은 하지 않는다. 기존 보고서는 보존한다.
+
+1. **기존 자료 사후 진단**: Electricity 4계열/전이16계열, ETTm1, NESO2025의 모든 standard 10조건 및 shape 9조건에서 관측 입력으로만 계산한 C3/RECENCY mask의 완전 동일/상이 집단을 구분한다. 두 synthetic draw를 먼저 합치지 않는다. 세 seed의 기존 selected 가중치와 저장 예측 및 양방향 gate 교환 예측을 재사용한다. ETTm2는 RECENCY 비교가 없어 미실행으로 명시한다. 입력 집단별 nMAE, seed별 효과, 전체 대비 비중, 고정 가중치 2×2 분해를 모두 보고한다. 양호한 집단을 새로운 주요 결과로 승격하지 않는다.
+2. **고정 모델의 새 기간 평가**: NESO ND, UTC 2026-01-01 이상 2026-07-01 미만. 같은 제공자/집계계열의 시간적 전이이며 독립 자료 원천이 아니다. 공식 2026 CSV의 해당 구간을 사용하고 2025 말은 입력 context에만 이용한다. 기존 2025년 상반기 sigma를 그대로 유지한다. 기간 전체 128 distinct UTC days를 먼저 균등 선정하고 24 phase를 분산한다(기존 select_days_reference, seed 90301). 미래64시간이 기간 안에 있어야 한다. 512 context/64 horizon, 기존 10 standard 조건과 9 shape 조건을 변경 없이 사용한다. Shapes는 동일한 64개 origin 부분집합. 모든 변형은 입력 과거와 기존 TRAIN sigma만 이용한다. 미래 정답은 예측 봉인 후 채점한다.
+3. Electricity 원래 V로 선택된 C0(B0), C1, C2, C3, MEAN, ROTATE16, RECENCY의 seed81551/52/53 가중치·LR·checkpoint를 그대로 사용한다. C3/RECENCY 양방향 gate 교환은 설명용 통제이다. F0, 마지막 값, 24시간 seasonal도 포함하되 결정적 방법은 가짜 seed 복제하지 않는다. 60 prediction views = 7×3×2 + 2×3×2 + 3×2. 최대 56 GPU 추론 views 및 4 CPU views. **새 fits 0, optimizer updates 0**. 새 기간으로 선택/보정하지 않는다.
+4. 주요 대조는 standard SHIFT8에서 C3/B0, C3/C2, C3/RECENCY 세 가지를 함께 평가한다. REFERENCE, 6개 fault 각각/평균, SHIFT4, SHIFT_POINT 및 9개 shapes 모두 손익을 보존한다. nMAE 주지표와 MAE, channel-mean nRMSE, normalized twice-pinball, quantile crossing을 기록한다. 상대 이득=100(1−C3/대조), 양수가 유리. 세 seed별 원점수와 효과를 보존한다.
+5. 7일 block paired bootstrap 2000회(seed90401), 고정 seed에 조건부인 95% CI. 주요 세 대조는 Bonferroni3 구간도 병기한다. 집단 진단은 full-origin block bootstrap의 집단별 ratio 추정이며 빈 집단은 NA로 남긴다. 집단별 가중 nMAE 차의 합이 전체 차와 일치해야 한다. 주가설과 사후 진단/shape 탐색을 구분한다. 시간/계열/seed 독립성을 과장하지 않는다.
+6. 공식 CSV 시각·중복·누락·DST·origin 날짜/phase/overlap 검사, 저장소의 기존 2026 NESO 사용 흔적 검색, checkpoint와 부모 결과 hash 검사를 먼저 수행한다. 세계 전체/기록되지 않은 노출 부재는 증명하지 못한다. 2024 공개 가중치와 byte 동일성은 기존 감사의 증거를 재사용한다. 관측 실제 오류/변화 사건 label은 없다. 데이터는 사후 수정되는 역사적 outturn이다.
+7. GPU4GiB 여유 30초, 외부 compute는 사용자 승인 RustDesk만 허용. 실행 중 1GiB 여유/RAM2GiB/disk10GiB/3시간 cap. 복원된 원래 forward 재현, 전 가중치 동결/hash 보존 및 복원 forward를 검증한다. 같은 계산 조건 안의 복원 기준은 기존 검사와 동일하다. 입력·자료·모델 조건 미충족은 BLOCKED/ERROR이며 성능 실패와 구분한다. 실패한 구현은 수정 가능하되 과학적 조건은 변경하지 않는다.
+8. CPU 수학 검산 및 개별 draw scalar 재계산, 모든 prediction hash, 집단 분해 합, 원점수→효과 독립 재계산을 실시한다. 한국어 REPORT/FINAL_DECISION, 시각화 및 논문 보완 메모를 작성하고 scoped commit/push한다. 참조 자료·weights·prediction cache는 로컬에만 있다. 논문 PASS를 선언하거나 추가 연구를 자동 시작하지 않는다.
