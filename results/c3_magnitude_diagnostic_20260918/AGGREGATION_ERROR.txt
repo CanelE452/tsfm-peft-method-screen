@@ -1,0 +1,56 @@
+FEATURES electricity standard 10240
+FEATURES electricity shape 4608
+FEATURES electricity_transfer standard 40960
+FEATURES electricity_transfer shape 18432
+FEATURES ettm1 standard 10240
+FEATURES ettm1 shape 4608
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+SWAP 1 electricity__standard__WC3__GMAG_ONLY__81551
+SWAP 2 electricity__shape__WC3__GMAG_ONLY__81551
+SWAP 3 electricity_transfer__standard__WC3__GMAG_ONLY__81551
+SWAP 4 electricity_transfer__shape__WC3__GMAG_ONLY__81551
+SWAP 5 electricity__standard__WC3__GMAG_ONLY__81552
+SWAP 6 electricity__shape__WC3__GMAG_ONLY__81552
+SWAP 7 electricity_transfer__standard__WC3__GMAG_ONLY__81552
+SWAP 8 electricity_transfer__shape__WC3__GMAG_ONLY__81552
+SWAP 9 ettm1__standard__WC3__GMAG_ONLY__81551
+SWAP 10 ettm1__shape__WC3__GMAG_ONLY__81551
+SWAP 11 ettm1__standard__WC3__GMAG_ONLY__81552
+SWAP 12 ettm1__shape__WC3__GMAG_ONLY__81552
+SWAP 13 electricity__standard__WC3__GMAG_ONLY__81553
+SWAP 14 electricity__shape__WC3__GMAG_ONLY__81553
+SWAP 15 electricity_transfer__standard__WC3__GMAG_ONLY__81553
+SWAP 16 electricity_transfer__shape__WC3__GMAG_ONLY__81553
+SWAP 17 ettm1__standard__WC3__GMAG_ONLY__81553
+SWAP 18 ettm1__shape__WC3__GMAG_ONLY__81553
+SWAP 19 electricity__standard__WMAG_ONLY__GC3__81551
+SWAP 20 electricity__shape__WMAG_ONLY__GC3__81551
+SWAP 21 electricity_transfer__standard__WMAG_ONLY__GC3__81551
+SWAP 22 electricity_transfer__shape__WMAG_ONLY__GC3__81551
+SWAP 23 electricity__standard__WMAG_ONLY__GC3__81552
+SWAP 24 electricity__shape__WMAG_ONLY__GC3__81552
+SWAP 25 electricity_transfer__standard__WMAG_ONLY__GC3__81552
+SWAP 26 electricity_transfer__shape__WMAG_ONLY__GC3__81552
+SWAP 27 electricity__standard__WMAG_ONLY__GC3__81553
+SWAP 28 electricity__shape__WMAG_ONLY__GC3__81553
+SWAP 29 electricity_transfer__standard__WMAG_ONLY__GC3__81553
+SWAP 30 electricity_transfer__shape__WMAG_ONLY__GC3__81553
+SWAP 31 ettm1__standard__WMAG_ONLY__GC3__81551
+SWAP 32 ettm1__shape__WMAG_ONLY__GC3__81551
+SWAP 33 ettm1__standard__WMAG_ONLY__GC3__81552
+SWAP 34 ettm1__shape__WMAG_ONLY__GC3__81552
+SWAP 35 ettm1__standard__WMAG_ONLY__GC3__81553
+SWAP 36 ettm1__shape__WMAG_ONLY__GC3__81553
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/c3_magnitude_diagnostic_20260918/runner.py", line 52, in <module>
+    if __name__=='__main__':run()
+                            ^^^^^
+  File "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/c3_magnitude_diagnostic_20260918/runner.py", line 51, in run
+    analyze()
+  File "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/c3_magnitude_diagnostic_20260918/analyze.py", line 55, in analyze
+    st,sg,sw,sint=decomposition(vals[si]);seedrows.append(dict(panel=panel,kind=kind,condition=cond,family=family,stratum=label,seed=seed,contexts=count,A=vals[si,0],B=vals[si,1],C=vals[si,2],D=vals[si,3],total=st,gate=sg,weights=sw,interaction=sint))
+                                ~~~~^^^^
+IndexError: index 1 is out of bounds for axis 0 with size 1

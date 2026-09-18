@@ -1,11 +1,4 @@
 {
-  "aggregation_correction": {
-    "additional_predictions": 0,
-    "at": 1789713998.184025,
-    "existing_cross_predictions": 36,
-    "initial_code": "INITIAL_ANALYZE.py.txt",
-    "reason": "Explicit np.take preserves seed,condition axis order; mixed advanced indexing moved condition ahead of seed. Predictions unchanged."
-  },
   "at": 1789713586.3431125,
   "hashes": {
     ".cache/additive_b0_adapter_v1_20260917/fits/electricity_C1_s81551_lr0.0003/checkpoint_0.pt": "17ffcb7541e61df70a119ab0d7e99573fee6e55d502cebe01076428ff263c261",
@@ -270,9 +263,9 @@
     "experiments/additive_persistence_validation_v1_20260917/statistics.py": "b90d9452e5e7d9c92d84fb82f5fdade9ede9a731dcbefbae8d567c92344780b4",
     "experiments/additive_persistence_validation_v1_20260917/train.py": "eb29561dd95c0a07f793b3ee9dbce3b717cd3cf9f931441af77f045f25324c8d",
     "experiments/additive_persistence_validation_v1_20260917/verify.py": "5cc65d4dd0df2bddbf6ff0870f98537cb86696310d9356671eae89350b602997",
-    "experiments/c3_magnitude_diagnostic_20260918/analyze.py": "300d7519bc2448505bfea442213f55d06810416749f558bed6c96a1adfe037d4",
+    "experiments/c3_magnitude_diagnostic_20260918/analyze.py": "f6baac756d905127f00e875bf80e37bdf67961059192de7102bf649836b747c2",
     "experiments/c3_magnitude_diagnostic_20260918/common.py": "256fb31092fc2e55ade1c8f2d8d29da1bfdc36add30a81a5b97bd1f6f1d7daa4",
-    "experiments/c3_magnitude_diagnostic_20260918/features.py": "10a7d3713f439aff502ce5f15e2ffabb100ef2e2393a2984e44f19000bd5a23e",
+    "experiments/c3_magnitude_diagnostic_20260918/features.py": "5b714f127e9ce4c939aeb2411eefaf99dbb9497430a480de48c3834005282d8f",
     "experiments/c3_magnitude_diagnostic_20260918/runner.py": "018e79acf241708add73b1b5ffd64117f647ebef3f3f8d5500a28fff2bd92a41",
     "experiments/c3_weakness_controls_20260918/checks.py": "6e659ed911f66601363fa253921ec684f1fb0ac6929f0a04c7f08fb67777e8ee",
     "experiments/c3_weakness_controls_20260918/common.py": "11d18e69d48f913b07786b4e031214de06d4b4fdfd50f488eceafcc6e54dd386",
@@ -1572,12 +1565,6 @@
     "results/persistence_evidence_extension_20260918/status.json": "c8e7f3479f28e984d6e7bf60bf132b2400e4ad80dd96b820a528a0fbd043c5ce",
     "scripts/priority12/common.py": "b29b4be7a67bff8f4829db30e2b3c02f2dea2da28881f782218e8c1cb3d6ba4d",
     "scripts/run_additive_persistence_validation.py": "c8ddbbbeff0d8932999b14a87be638b86a444a15da4f97e38c99dbf037a00c97"
-  },
-  "implementation_correction": {
-    "at": 1789713639.2226303,
-    "before_new_predictions": true,
-    "initial_seal": "INITIAL_SEAL.json",
-    "reason": "Use the exact native torch reduction when extracting model gates; numpy float32 reduction differed by 5.96e-8 in one patch. No model, input, threshold or scoring change."
   },
   "max_new_prediction_views": 36,
   "new_fits": 0,

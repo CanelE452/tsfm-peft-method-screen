@@ -37,7 +37,7 @@ def analyze():
             groups=[(c,[i]) for i,c in enumerate(names)]
             if kind=='standard':groups.append(('FAULT',[i for i,c in enumerate(names) if c.startswith(('POINT','BURST'))]))
             for cond,ci in groups:
-                scores=np.take(sc,ci,axis=1)[...,0];assert scores.shape==(3,len(ci),2,n,nc,4);totalcontexts=scores.shape[1]*2*n*nc
+                scores=sc[:,ci,...,0];totalcontexts=scores.shape[1]*2*n*nc
                 for family,subs in group_masks.items():
                     assert np.all(np.sum(np.stack(list(subs.values())),axis=0)==1)
                     pieces=[]

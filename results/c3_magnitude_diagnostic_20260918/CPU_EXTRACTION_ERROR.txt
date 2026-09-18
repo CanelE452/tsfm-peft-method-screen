@@ -1,0 +1,35 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/c3_magnitude_diagnostic_20260918/runner.py", line 52, in <module>
+    if __name__=='__main__':run()
+                            ^^^^^
+  File "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/c3_magnitude_diagnostic_20260918/runner.py", line 23, in run
+    if not (OUT/'FEATURE_VERIFICATION.json').exists():make()
+                                                      ^^^^^^
+  File "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/c3_magnitude_diagnostic_20260918/features.py", line 27, in make
+    for lo in range(0,len(x),256):blocks.append(batch_features(torch.tensor(np.array(x[lo:lo+256])),torch.tensor(np.array(s[lo:lo+256]))))
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/c3_magnitude_diagnostic_20260918/features.py", line 16, in batch_features
+    np.testing.assert_allclose(gc,correction_gate(x,s).numpy(),rtol=0,atol=0)
+  File "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/lib/python3.11/site-packages/numpy/testing/_private/utils.py", line 1768, in assert_allclose
+    assert_array_compare(compare, actual, desired, err_msg=str(err_msg),
+  File "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/lib/python3.11/site-packages/numpy/testing/_private/utils.py", line 983, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError:
+Not equal to tolerance rtol=0, atol=0
+
+Mismatched elements: 1 / 8192 (0.0122%)
+Mismatch at index:
+ [213, 0]: 0.8895089626312256 (ACTUAL), 0.8895089030265808 (DESIRED)
+Max absolute difference among violations: 5.9604645e-08
+Max relative difference among violations: 6.7008486e-08
+ ACTUAL: array([[0.25    , 0.46875 , 0.117188, ..., 0.992188, 1.      , 1.      ],
+       [1.      , 1.      , 1.      , ..., 1.      , 1.      , 1.      ],
+       [1.      , 1.      , 1.      , ..., 1.      , 1.      , 1.      ],...
+ DESIRED: array([[0.25    , 0.46875 , 0.117188, ..., 0.992188, 1.      , 1.      ],
+       [1.      , 1.      , 1.      , ..., 1.      , 1.      , 1.      ],
+       [1.      , 1.      , 1.      , ..., 1.      , 1.      , 1.      ],...
