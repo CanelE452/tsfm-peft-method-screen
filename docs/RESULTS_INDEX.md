@@ -241,4 +241,4 @@ PETSA의 승인된8fits/8192 main+4 smoke 및224views·40checkpoint·555,492원�
 
 ## LoRA 선행 여부 직접 대조 (2026-09-19)
 
-상태: CPU 사전 검사 완료, 승인된 GPU smoke/학습 실행 중. F0_PLAIN/F0_MAG만 최대16fits/16384main+8smoke, 기존 B0/PLAIN/MAG hash 재사용. [단일 계약](../experiments/mag_standalone_ablation_v1_20260919/CONTRACT.txt) · [고정 프로토콜](../experiments/mag_standalone_ablation_v1_20260919/PROTOCOL.md) · [사전 감사](../results/mag_standalone_ablation_v1_20260919/PREFLIGHT_KO.md). 기존 MAG_ONLY는 no-LoRA가 아니다. 평가 완료나 standalone 성공을 미리 주장하지 않는다.
+상태: 사용자 요청으로 일시정지. 선택용8fits 완료·총8864/16384main+8/8smoke, 반복1경로672step에서 정확히 저장 후 종료. 명시적 재개 요청 전 학습 금지. [중단 보고서](../results/mag_standalone_ablation_v1_20260919/REPORT.md) · [재개 상태 검산](../results/mag_standalone_ablation_v1_20260919/PAUSE_VERIFICATION.json). 기존 B0/PLAIN/MAG hash 재사용. [단일 계약](../experiments/mag_standalone_ablation_v1_20260919/CONTRACT.txt) · [고정 프로토콜](../experiments/mag_standalone_ablation_v1_20260919/PROTOCOL.md) · [사전 감사](../results/mag_standalone_ablation_v1_20260919/PREFLIGHT_KO.md). 기존 MAG_ONLY는 no-LoRA가 아니다. 평가 완료나 standalone 성공을 미리 주장하지 않는다.
