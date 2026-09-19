@@ -210,3 +210,7 @@ PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제
 ## 공식 선행 구조와 비교 가능성 감사 (2026-09-19)
 
 Time-PEFT의 채널별 adapter가 다른 채널 값을 직접 섞지 않음을 코드와 CPU intervention/Jacobian으로 확인했다. PETSA의 gated 입력·출력 보정 선행을 추가하고 공식 GCM 초기 identity·파라미터를 검사했다. **새 학습·실제 자료 추론 0회**, 전체 방법 성능 비교는 미실행이다. [선행 호환성 감사](../research/method_baseline_compatibility_20260919/BASELINE_COMPATIBILITY_KO.md) · [CPU 검사](../research/method_baseline_compatibility_20260919/CPU_PROBES.json) · [한국어 관련 연구 절](../papers/persistence_adaptation/magnitude_method_20260919/RELATED_WORK_KO.md). 완료된 MAG 양성 근거를 보존하며 gating 최초성·공식 전체 방법 우위를 주장하지 않는다.
+
+## PETSA 보정 부품 비교 — 구현·CPU 검산, 추가 학습 승인 대기 (2026-09-19)
+
+실제 Chronos 두 원천의 초기 B0·gradient·동결·복원과 공식 GCM parity를 optimizer0회로 검사했다. 학습/선택/평가/독립검산 runner와8fits/8192+4updates 고정안을 준비했다. **새 학습0회·GPU smoke미실행**이며 기존16fits의 승인 한도를 연장하지 않았다. 모든 평가 패널은 이미 노출된 개발 자료다. [준비 보고](../results/petsa_cell_comparison_20260919/PREPARATION_KO.md) · [고정 범위](../experiments/petsa_cell_comparison_20260919/PROTOCOL.md) · [준비 감사](../results/petsa_cell_comparison_20260919/PREPARATION_AUDIT.json). 공식 PETSA 전체 재현·실제 성능 비교 완료가 아니다.

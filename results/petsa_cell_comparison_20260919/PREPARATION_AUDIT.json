@@ -1,0 +1,38 @@
+{
+  "status": "READY_FOR_AUTHORIZATION_NOT_TRAINED",
+  "CPU_actual_model_sources": [
+    "electricity",
+    "ettm1"
+  ],
+  "official_cell_value_and_gradient_parity": true,
+  "scorer_synthetic_only": true,
+  "authorization_absent": true,
+  "optimizer_updates": 0,
+  "GPU_smoke_updates": 0,
+  "new_E_predictions": 0,
+  "new_E_scores": 0,
+  "approved_followup_training": false,
+  "main_cap_if_approved": 8192,
+  "smoke_cap_if_approved": 4,
+  "artifact_hashes": {
+    "experiments/petsa_cell_comparison_20260919/checks.py": "e25c17e0eac861a1fd1c618f6f7474ba46179ea20f4f74a56e5f236254568db9",
+    "experiments/petsa_cell_comparison_20260919/model.py": "bdcbcd71e73c7646026a0fced6d87be097d008530a273bcb4bf90ff78d92b39a",
+    "experiments/petsa_cell_comparison_20260919/score.py": "bca8a266bc57fdcd03fcc5e3e78b24ae3c9cb572a4517358bb807901734881ab",
+    "experiments/petsa_cell_comparison_20260919/finalize.py": "4f0d6ba17d5d1339739fd40551035b1d4e1ba30b8d072c992d72638ff1984757",
+    "experiments/petsa_cell_comparison_20260919/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "experiments/petsa_cell_comparison_20260919/train.py": "1d2188ed6e23f710b14ca70b4b62ab8a8441e925bfcb7de9e158f88801aa0531",
+    "experiments/petsa_cell_comparison_20260919/runner.py": "2968e9ad7e74057e439074bf6db70d5c328dee766afd4403b7008a211618d42c",
+    "experiments/petsa_cell_comparison_20260919/common.py": "1c6185f03d0d35097eedb70573a491423186550a5ba4f97dc3ee4825de5e826b",
+    "experiments/petsa_cell_comparison_20260919/evaluate.py": "fd5505e65c6d4598be6695f18e2f951e0f8090f1009dd4920a142213d2490c78",
+    "experiments/petsa_cell_comparison_20260919/execute.py": "da8563125beea219eb16c0b6026ee711f2cc5de4a1983b1c64ad6d8788cbbb3d",
+    "experiments/petsa_cell_comparison_20260919/prepare.py": "d0507490483224cca451ce36fd37fe86558f6b5e4f5824d81c5fe37c3b061fac",
+    "experiments/petsa_cell_comparison_20260919/PROTOCOL.md": "e26044e2c05c640e1e2b5967c01810253764605e4e53fb0944e9fbd0af500edf",
+    "results/petsa_cell_comparison_20260919/CPU_CHECKS.json": "d84dbfd3c3343f02f01ddd757116f1c7588cc06f6a64eabba7c4496d01332713",
+    "results/petsa_cell_comparison_20260919/SCORER_FIXTURE_CHECK.json": "1efddc906bb485a6bb9b3c91e6b99e0cee7ce69e4a7a03ae4f84869d651b295d",
+    "results/petsa_cell_comparison_20260919/SEAL.json": "5714993a1ccb566508275c850cbf5041687f82146d9e20859ee17bcb13a7f8ce",
+    "results/petsa_cell_comparison_20260919/PREPARATION_SEAL_00.json": "152d8942e328ea6efbe6a53093c174085b0cf61c127f05eb9019f125ff37dbda",
+    "results/petsa_cell_comparison_20260919/PREPARATION_AMENDMENT_01.json": "4d6d3847797bb8da2e8bfe3d6762c1583e1842ba3954f09fa7135709abdeaac2",
+    "results/petsa_cell_comparison_20260919/PREPARATION_KO.md": "2d989b5df8b3eae05c783542d9e5695ce135af51e5eef9474d962637df7e01db",
+    "research/petsa_cell_readiness_20260919/check_scorer.py": "f06c3f521f15aa06f2327d26af51d3a2dc99fb8c4ff48d194b3fce4e44039c6c"
+  }
+}

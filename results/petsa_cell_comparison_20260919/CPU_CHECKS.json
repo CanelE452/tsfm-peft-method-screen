@@ -1,0 +1,59 @@
+{
+  "GPU_smoke_complete": false,
+  "actual_Chronos_cases": [
+    {
+      "TRAIN_examples": 4,
+      "adapter_off_B0_exact": true,
+      "all_trainable_gradients_finite": true,
+      "fresh_restore_exact": true,
+      "frozen_parameters_and_buffers_unchanged": true,
+      "initial_B0_exact": true,
+      "input_not_mutated": true,
+      "nonzero_input_and_output_gradient": true,
+      "optimizer_updates": 0,
+      "seed": 81550,
+      "source": "electricity"
+    },
+    {
+      "TRAIN_examples": 4,
+      "adapter_off_B0_exact": true,
+      "all_trainable_gradients_finite": true,
+      "fresh_restore_exact": true,
+      "frozen_parameters_and_buffers_unchanged": true,
+      "initial_B0_exact": true,
+      "input_not_mutated": true,
+      "nonzero_input_and_output_gradient": true,
+      "optimizer_updates": 0,
+      "seed": 81550,
+      "source": "ettm1"
+    }
+  ],
+  "cell_cases": [
+    {
+      "initial_identity": true,
+      "input_and_all_parameter_gradients_exact": true,
+      "length": 64,
+      "nonzero_output_exact": true
+    },
+    {
+      "initial_identity": true,
+      "input_and_all_parameter_gradients_exact": true,
+      "length": 512,
+      "nonzero_output_exact": true
+    }
+  ],
+  "evaluation_samples_read": 0,
+  "main_training_complete": false,
+  "optimizer_updates": 0,
+  "reference": {
+    "commit": "87853d888e98311ac94e64be920d17b57143b20c",
+    "file": "tta/petsa.py",
+    "local": ".cache/method_baseline_compatibility_20260919/PETSA_petsa.py",
+    "repo": "BorealisAI/PETSA",
+    "sha256": "0cd3c31cf90a38cf8fbe42495abae816e2bfba0d9dc7d89604c26374fefb2830",
+    "url": "https://raw.githubusercontent.com/BorealisAI/PETSA/87853d888e98311ac94e64be920d17b57143b20c/tta/petsa.py"
+  },
+  "status": "CPU_ACTUAL_MODEL_WIRING_VERIFIED",
+  "synthetic_parameter_perturbation_not_training": true,
+  "trainable_parameters": 19010
+}

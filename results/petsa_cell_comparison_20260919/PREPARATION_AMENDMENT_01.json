@@ -1,0 +1,18 @@
+{
+  "stage": "BEFORE_AUTHORIZATION_AND_ALL_OPTIMIZER_UPDATES",
+  "reason": "Check GPU before each fit allocation; independently audit actual initial identity, smoke, LR and checkpoint selection",
+  "changes": {
+    "experiments/petsa_cell_comparison_20260919/finalize.py": {
+      "old": "27ceeadc731fcdee25cd20734256b31293f57be5f4bea9e7a5dd870c19b1f525",
+      "new": "4f0d6ba17d5d1339739fd40551035b1d4e1ba30b8d072c992d72638ff1984757"
+    },
+    "experiments/petsa_cell_comparison_20260919/train.py": {
+      "old": "bb9dc2dd18637bb9b4c52c17de60b9d3750445397a3aedb43233356cd481905b",
+      "new": "1d2188ed6e23f710b14ca70b4b62ab8a8441e925bfcb7de9e158f88801aa0531"
+    }
+  },
+  "scientific_protocol_changed": false,
+  "old_seal_sha256": "152d8942e328ea6efbe6a53093c174085b0cf61c127f05eb9019f125ff37dbda",
+  "new_seal_sha256": "5714993a1ccb566508275c850cbf5041687f82146d9e20859ee17bcb13a7f8ce",
+  "optimizer_updates": 0
+}
