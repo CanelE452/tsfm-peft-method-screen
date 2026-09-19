@@ -188,3 +188,7 @@ PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제
 ## 학습형 gate 후속 사전 점검 (2026-09-19)
 
 사용자 자동시작 승인. CPU·55일 시간 전이 표본·실제 Chronos8smoke 점검 완료. 본학습 성능 결론 전의 기록. [사전 점검](../results/learned_gate_comparison_20260919/PREFLIGHT.md) · [고정 실행 계약](../experiments/learned_gate_comparison_20260919/PROTOCOL.md). 최대16fits/16384main, 새 후보 자동 연결 없음.
+
+## 학습형 gate 비교의 공정성 감사 (2026-09-19)
+
+기존 MAG/PLAIN/C3의6개 source-arm 선택 경로와 TRAIN/V12개 배열의 hash 동일성을 확인했다. 현 실험은 계속 진행 중이다. 같은 관측 권한과 서로 다른 gate feature를 구분하며, trainability 하나의 인과효과로 해석하지 않는다. 새 학습·추론0. [공정성 및 해석 감사](../research/learned_gate_comparability_20260919/COMPARABILITY_KO.md) · [검산](../research/learned_gate_comparability_20260919/AUDIT.json).
