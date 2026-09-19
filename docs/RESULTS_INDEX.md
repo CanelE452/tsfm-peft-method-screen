@@ -214,3 +214,7 @@ Time-PEFT의 채널별 adapter가 다른 채널 값을 직접 섞지 않음을 �
 ## PETSA 보정 부품 비교 — 구현·CPU 검산, 추가 학습 승인 대기 (2026-09-19)
 
 실제 Chronos 두 원천의 초기 B0·gradient·동결·복원과 공식 GCM parity를 optimizer0회로 검사했다. 학습/선택/평가/독립검산 runner와8fits/8192+4updates 고정안을 준비했다. **새 학습0회·GPU smoke미실행**이며 기존16fits의 승인 한도를 연장하지 않았다. 모든 평가 패널은 이미 노출된 개발 자료다. [준비 보고](../results/petsa_cell_comparison_20260919/PREPARATION_KO.md) · [고정 범위](../experiments/petsa_cell_comparison_20260919/PROTOCOL.md) · [준비 감사](../results/petsa_cell_comparison_20260919/PREPARATION_AUDIT.json). 공식 PETSA 전체 재현·실제 성능 비교 완료가 아니다.
+
+## MAG 방법론 한국어 통합 원고 v1 (2026-09-19)
+
+완료된 방법 수식·직접 대조·부정 결과·관련 연구·비용·자료 노출을8쪽 원고로 통합했다. [PDF](../papers/persistence_adaptation/manuscript_mag_v1_20260919/MANUSCRIPT_KO.pdf) · [DOCX](../papers/persistence_adaptation/manuscript_mag_v1_20260919/MANUSCRIPT_KO.docx) · [원고 안내](../papers/persistence_adaptation/manuscript_mag_v1_20260919/README.md) · [검산](../papers/persistence_adaptation/manuscript_mag_v1_20260919/AUDIT.json). 원점수1920행·주효과/seed별 이득·37개 근거 파일·그림3종을 확인했다. 새 학습/추론/구간추정0회. PETSA 추가8회는 승인 대기 상태로 유지하며 성능을 포함하지 않았다. **내부 방법론 초안이며 신규성 확보·투고 준비·전체 목표 완료가 아니다.** 기존 분석 원고는 보존했다.
