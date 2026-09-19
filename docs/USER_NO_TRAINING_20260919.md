@@ -17,3 +17,11 @@
 사용자: “아니 내가 하라고 할떄 해줄수있어?”
 
 no-LoRA 실험도 현재 일시정지한다. 잠시 후 자동 재개는 취소했다. 사용자가 다시 시작하라고 명시할 때까지 새 optimizer update를 실행하지 않는다. 활성 goal이나 자동 continuation은 재개 승인이 아니다. 저장 상태는 [USER_HOLD.json](../results/mag_standalone_ablation_v1_20260919/USER_HOLD.json), 8개 완료 fits·부분 경로672step·총8864main+8smoke를 보존했다.
+
+## 2026-09-20 명시적 재개 승인
+
+사용자: “하고있으라고”. 위 no-LoRA 단일 계약 범위에서 저장된 step672부터 재개한다. 이미 완료된8864main+8smoke는 반복하지 않으며 남은7520main updates 및 지정 평가·검산·게시만 수행한다. 다른 실험·자동후속은 계속 금지한다.
+
+## 최신 지시: 2026-09-20 다시 정지
+
+사용자: “멈추고 다시하라고 할때해줘”. 직전 재개 승인은 현재 정지 지시로 중단한다. 새 명시적 재개 요청 전 학습 금지이며, 자동 goal continuation은 승인이 아니다. 프로세스 종료와 저장 상태는 PAUSE_VERIFICATION.json을 따른다.

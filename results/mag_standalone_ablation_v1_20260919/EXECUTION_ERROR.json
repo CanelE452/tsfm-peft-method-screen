@@ -1,5 +1,5 @@
 {
-  "at": 1789829912.5988362,
+  "at": 1789838476.5451782,
   "error": "REQUESTED_STOP_EPOCH_BOUNDARY",
   "traceback": "Traceback (most recent call last):\n  File \"/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/mag_standalone_ablation_v1_20260919/execute.py\", line 10, in main\n    run()\n  File \"/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/mag_standalone_ablation_v1_20260919/runner.py\", line 11, in run\n    watch.boundary(startup=True);smoke(watch);train.train_all(watch)\n                                              ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/mag_standalone_ablation_v1_20260919/train.py\", line 65, in train_all\n    for seed in SEEDS:fit(source,arm,seed,choices[source][arm]['lr'],watch)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/mag_standalone_ablation_v1_20260919/train.py\", line 49, in fit\n    if STOP:raise ResourceError('REQUESTED_STOP_EPOCH_BOUNDARY')\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npriority12.common.ResourceError: REQUESTED_STOP_EPOCH_BOUNDARY\n"
 }
