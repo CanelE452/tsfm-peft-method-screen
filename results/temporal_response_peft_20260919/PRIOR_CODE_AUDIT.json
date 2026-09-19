@@ -1,0 +1,15 @@
+{
+  "repo": "kaist-dmlab/TimePEFT",
+  "commit": "ea4e7e1887bb35587bab7ea93e2af3685ac55852",
+  "path": "run.py",
+  "url": "https://raw.githubusercontent.com/kaist-dmlab/TimePEFT/ea4e7e1887bb35587bab7ea93e2af3685ac55852/run.py",
+  "sha256": "7ff7afd94fd891adf626162e13ea9a7abb84cc6f335261d05badb2058e602505",
+  "actual_source_read": true,
+  "implementation_used_as_baseline": false,
+  "notes": [
+    "FrequencyAdapter performs patch-axis FFT top-k filtering and linear projection.",
+    "ChannelAdapter uses concatenated backbone/frequency embeddings, shared down projection and channel-specific up projection.",
+    "Public train tracks best validation loss for stopping but returns the final model without restoring a saved best checkpoint; a formal reproduction must report checkpoint policy explicitly.",
+    "Our new pilot does not represent a Time-PEFT reproduction."
+  ]
+}

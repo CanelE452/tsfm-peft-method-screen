@@ -1,0 +1,306 @@
+{
+  "electricity_ANCHOR": {
+    "buffers_unchanged": true,
+    "changed": [
+      "adapter.down.weight",
+      "adapter.down.bias",
+      "adapter.up.weight",
+      "adapter.up.bias"
+    ],
+    "frozen_unchanged": true,
+    "initial_B0_exact": true,
+    "input_unchanged": true,
+    "losses": [
+      {
+        "adapted_forwards": 2,
+        "labelled_examples": 32,
+        "loss": 0.47842836380004883,
+        "regularizer": 0.0,
+        "supervised": 0.47842836380004883,
+        "teacher_forwards": 2
+      },
+      {
+        "adapted_forwards": 2,
+        "labelled_examples": 32,
+        "loss": 0.49755871295928955,
+        "regularizer": 0.0008643650799058378,
+        "supervised": 0.4966943562030792,
+        "teacher_forwards": 2
+      }
+    ],
+    "off_B0_exact": true,
+    "peak_allocated": 540257280,
+    "peak_reserved": 551550976,
+    "restore_exact": true,
+    "reused_initial_exact": true,
+    "seconds": 0.43879027204820886,
+    "trainable": 8712,
+    "updates": 2
+  },
+  "electricity_IDEAL": {
+    "buffers_unchanged": true,
+    "changed": [
+      "adapter.down.weight",
+      "adapter.down.bias",
+      "adapter.up.weight",
+      "adapter.up.bias"
+    ],
+    "frozen_unchanged": true,
+    "initial_B0_exact": true,
+    "input_unchanged": true,
+    "losses": [
+      {
+        "adapted_forwards": 2,
+        "labelled_examples": 32,
+        "loss": 0.9914838075637817,
+        "regularizer": 0.5130554437637329,
+        "supervised": 0.47842836380004883,
+        "teacher_forwards": 2
+      },
+      {
+        "adapted_forwards": 2,
+        "labelled_examples": 32,
+        "loss": 0.9904955625534058,
+        "regularizer": 0.4937206506729126,
+        "supervised": 0.4967748820781708,
+        "teacher_forwards": 2
+      }
+    ],
+    "off_B0_exact": true,
+    "peak_allocated": 541462016,
+    "peak_reserved": 572522496,
+    "restore_exact": true,
+    "reused_initial_exact": true,
+    "seconds": 0.39856049098307267,
+    "trainable": 8712,
+    "updates": 2
+  },
+  "electricity_SHUFFLE": {
+    "buffers_unchanged": true,
+    "changed": [
+      "adapter.down.weight",
+      "adapter.down.bias",
+      "adapter.up.weight",
+      "adapter.up.bias"
+    ],
+    "frozen_unchanged": true,
+    "initial_B0_exact": true,
+    "input_unchanged": true,
+    "losses": [
+      {
+        "adapted_forwards": 2,
+        "labelled_examples": 32,
+        "loss": 0.47842836380004883,
+        "regularizer": 0.0,
+        "supervised": 0.47842836380004883,
+        "teacher_forwards": 2
+      },
+      {
+        "adapted_forwards": 2,
+        "labelled_examples": 32,
+        "loss": 0.4972427785396576,
+        "regularizer": 0.000548410345800221,
+        "supervised": 0.4966943562030792,
+        "teacher_forwards": 2
+      }
+    ],
+    "off_B0_exact": true,
+    "peak_allocated": 541462016,
+    "peak_reserved": 572522496,
+    "restore_exact": true,
+    "reused_initial_exact": true,
+    "seconds": 0.3898807769874111,
+    "trainable": 8712,
+    "updates": 2
+  },
+  "electricity_TRP": {
+    "buffers_unchanged": true,
+    "changed": [
+      "adapter.down.weight",
+      "adapter.down.bias",
+      "adapter.up.weight",
+      "adapter.up.bias"
+    ],
+    "frozen_unchanged": true,
+    "initial_B0_exact": true,
+    "input_unchanged": true,
+    "losses": [
+      {
+        "adapted_forwards": 2,
+        "labelled_examples": 32,
+        "loss": 0.47842836380004883,
+        "regularizer": 0.0,
+        "supervised": 0.47842836380004883,
+        "teacher_forwards": 2
+      },
+      {
+        "adapted_forwards": 2,
+        "labelled_examples": 32,
+        "loss": 0.49758628010749817,
+        "regularizer": 0.0008919249521568418,
+        "supervised": 0.4966943562030792,
+        "teacher_forwards": 2
+      }
+    ],
+    "off_B0_exact": true,
+    "peak_allocated": 541462016,
+    "peak_reserved": 572522496,
+    "restore_exact": true,
+    "reused_initial_exact": true,
+    "seconds": 0.4268655920168385,
+    "trainable": 8712,
+    "updates": 2
+  },
+  "ettm1_ANCHOR": {
+    "buffers_unchanged": true,
+    "changed": [
+      "adapter.down.weight",
+      "adapter.down.bias",
+      "adapter.up.weight",
+      "adapter.up.bias"
+    ],
+    "frozen_unchanged": true,
+    "initial_B0_exact": true,
+    "input_unchanged": true,
+    "losses": [
+      {
+        "adapted_forwards": 2,
+        "labelled_examples": 32,
+        "loss": 0.16532815992832184,
+        "regularizer": 0.0,
+        "supervised": 0.16532815992832184,
+        "teacher_forwards": 2
+      },
+      {
+        "adapted_forwards": 2,
+        "labelled_examples": 32,
+        "loss": 0.19816043972969055,
+        "regularizer": 0.0005297615425661206,
+        "supervised": 0.19763067364692688,
+        "teacher_forwards": 2
+      }
+    ],
+    "off_B0_exact": true,
+    "peak_allocated": 541462016,
+    "peak_reserved": 572522496,
+    "restore_exact": true,
+    "reused_initial_exact": true,
+    "seconds": 0.39461664902046323,
+    "trainable": 8712,
+    "updates": 2
+  },
+  "ettm1_IDEAL": {
+    "buffers_unchanged": true,
+    "changed": [
+      "adapter.down.weight",
+      "adapter.down.bias",
+      "adapter.up.weight",
+      "adapter.up.bias"
+    ],
+    "frozen_unchanged": true,
+    "initial_B0_exact": true,
+    "input_unchanged": true,
+    "losses": [
+      {
+        "adapted_forwards": 2,
+        "labelled_examples": 32,
+        "loss": 0.5453463792800903,
+        "regularizer": 0.3800182342529297,
+        "supervised": 0.16532815992832184,
+        "teacher_forwards": 2
+      },
+      {
+        "adapted_forwards": 2,
+        "labelled_examples": 32,
+        "loss": 0.5342424511909485,
+        "regularizer": 0.33664777874946594,
+        "supervised": 0.19759467244148254,
+        "teacher_forwards": 2
+      }
+    ],
+    "off_B0_exact": true,
+    "peak_allocated": 541462016,
+    "peak_reserved": 572522496,
+    "restore_exact": true,
+    "reused_initial_exact": true,
+    "seconds": 0.39690679498016834,
+    "trainable": 8712,
+    "updates": 2
+  },
+  "ettm1_SHUFFLE": {
+    "buffers_unchanged": true,
+    "changed": [
+      "adapter.down.weight",
+      "adapter.down.bias",
+      "adapter.up.weight",
+      "adapter.up.bias"
+    ],
+    "frozen_unchanged": true,
+    "initial_B0_exact": true,
+    "input_unchanged": true,
+    "losses": [
+      {
+        "adapted_forwards": 2,
+        "labelled_examples": 32,
+        "loss": 0.16532815992832184,
+        "regularizer": 0.0,
+        "supervised": 0.16532815992832184,
+        "teacher_forwards": 2
+      },
+      {
+        "adapted_forwards": 2,
+        "labelled_examples": 32,
+        "loss": 0.19794388115406036,
+        "regularizer": 0.0003132089914288372,
+        "supervised": 0.19763067364692688,
+        "teacher_forwards": 2
+      }
+    ],
+    "off_B0_exact": true,
+    "peak_allocated": 541462016,
+    "peak_reserved": 572522496,
+    "restore_exact": true,
+    "reused_initial_exact": true,
+    "seconds": 0.42448001698357984,
+    "trainable": 8712,
+    "updates": 2
+  },
+  "ettm1_TRP": {
+    "buffers_unchanged": true,
+    "changed": [
+      "adapter.down.weight",
+      "adapter.down.bias",
+      "adapter.up.weight",
+      "adapter.up.bias"
+    ],
+    "frozen_unchanged": true,
+    "initial_B0_exact": true,
+    "input_unchanged": true,
+    "losses": [
+      {
+        "adapted_forwards": 2,
+        "labelled_examples": 32,
+        "loss": 0.16532815992832184,
+        "regularizer": 0.0,
+        "supervised": 0.16532815992832184,
+        "teacher_forwards": 2
+      },
+      {
+        "adapted_forwards": 2,
+        "labelled_examples": 32,
+        "loss": 0.19824226200580597,
+        "regularizer": 0.0006115889991633594,
+        "supervised": 0.19763067364692688,
+        "teacher_forwards": 2
+      }
+    ],
+    "off_B0_exact": true,
+    "peak_allocated": 541462016,
+    "peak_reserved": 572522496,
+    "restore_exact": true,
+    "reused_initial_exact": true,
+    "seconds": 0.39842940197559074,
+    "trainable": 8712,
+    "updates": 2
+  }
+}
