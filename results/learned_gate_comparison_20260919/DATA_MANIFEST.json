@@ -1,0 +1,37 @@
+{
+  "neso_2026_jul_aug": {
+    "bounds": [
+      0,
+      4344,
+      13104,
+      14495
+    ],
+    "context_may_overlap_previous_period": true,
+    "evaluation_role": "same-source previously unscored temporal extension; exposure audit cannot establish global nonuse",
+    "independent_source": false,
+    "origin_days": 55,
+    "packet_hashes": {
+      "E_DISCOVERY": {
+        ".cache/learned_gate_comparison_20260919/data/neso_2026_jul_aug/E_DISCOVERY_inputs.npz": "0797dc9380eab8ee0bd639104c4d45ac08b9b63dee283a8cad02a874c8300e7b",
+        ".cache/learned_gate_comparison_20260919/data/neso_2026_jul_aug/E_DISCOVERY_labels.npz": "cf34b39796b6621b8e4f78afed4ffd55aaf2a44264edb43d41beefe2d4ed680a"
+      }
+    },
+    "partial_final_origin_day_excluded_before_scoring": true,
+    "period": 24,
+    "previous_target_overlap": false,
+    "previously_downloaded": true,
+    "raw_path": ".cache/c3_identifiability_temporal_20260918/raw/neso_2026.csv",
+    "raw_sha256": "3b36bdfca0c23b3b949e19a7606c3a414bc0d87f313be5e1f36fc327fc6fecd1",
+    "real_event_labels": false,
+    "rows": 14495,
+    "selected_columns": [
+      "ND"
+    ],
+    "selection_reason": "Existing full-day selector; all 55 legal complete origin days; last partial day excluded without reading performance",
+    "sigma_period": "2025 H1 fixed",
+    "sigma_train_population": [
+      6601.283149839831
+    ],
+    "synthetic_event_labels": true
+  }
+}

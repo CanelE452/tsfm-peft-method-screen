@@ -184,3 +184,7 @@ PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제
 - [방법론 주장과 GateRA 선행 재검토](../research/gated_method_claim_review_20260919/METHOD_CLAIM_REVIEW_KO.md): **선행·수식 검토 완료, 후속 범위 확인 대기**. GateRA의 입력별 PEFT 조절과 기존 MAG의 비학습 크기 규칙을 구분했다. 기존 코드의 CPU gate·국소 Jacobian·잔차 bound를 검산했고, patch 보존이 최종 예측 보존을 보장하지 않는 반례를 기록했다. 새 학습·Chronos 추론0회이며 기존 MAG를 정식 후보로 자동 승격하지 않았다. [CPU 검산](../research/gated_method_claim_review_20260919/REFERENCE_CHECKS.json), [후속 범위 검토안—실행 계약 아님](../research/gated_method_claim_review_20260919/FOLLOWUP_SCOPE_KO.md).
 
   - [후속 새 기간의 실제 가용 범위](../research/gated_method_claim_review_20260919/PERIOD_CAPACITY.json): 기존 NESO2026 캐시는8월27일까지다. 미래64시간의 새 기간 origin은 최대56 distinct UTC days, 문맥까지 새 기간으로 제한하면35일이다. 정답값·새 예측·학습을 사용하지 않은 메타데이터 상한이며, 64/128일 평가나 독립 source를 확보했다고 표시하지 않는다. 56일 평가 자체를 금지하는 성능 gate는 아니다.
+
+## 학습형 gate 후속 사전 점검 (2026-09-19)
+
+사용자 자동시작 승인. CPU·55일 시간 전이 표본·실제 Chronos8smoke 점검 완료. 본학습 성능 결론 전의 기록. [사전 점검](../results/learned_gate_comparison_20260919/PREFLIGHT.md) · [고정 실행 계약](../experiments/learned_gate_comparison_20260919/PROTOCOL.md). 최대16fits/16384main, 새 후보 자동 연결 없음.
