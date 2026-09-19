@@ -45,6 +45,6 @@ def prepare():
     status(execution='SEALED_NOT_TRAINED')
 
 def cpu_checks():
-    s=io.StringIO();suite=unittest.defaultTestLoader.loadTestsFromName('experiments.temporal_response_peft_20260919.test_core');r=unittest.TextTestRunner(stream=s,verbosity=2).run(suite)
+    s=io.StringIO();suite=unittest.defaultTestLoader.loadTestsFromNames(['experiments.temporal_response_peft_20260919.test_core','experiments.temporal_response_peft_20260919.test_reuse']);r=unittest.TextTestRunner(stream=s,verbosity=2).run(suite)
     (OUT/'CPU_TESTS.txt').write_text(s.getvalue());save(OUT/'CPU_TESTS.json',dict(tests=r.testsRun,success=r.wasSuccessful(),actual_model=False));assert r.wasSuccessful()
 if __name__=='__main__':setup();prepare();cpu_checks()

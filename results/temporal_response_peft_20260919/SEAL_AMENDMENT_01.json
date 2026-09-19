@@ -1,0 +1,44 @@
+{
+  "at": 1789791751.5628495,
+  "changed": {
+    "experiments/temporal_response_peft_20260919/evaluate.py": {
+      "after": "56d1789dc9770bfb53e9b720f731ae78562500a8b98edb5711c77d7235650ea6",
+      "before": "63d745a61f6847a824cab831ac43ad0f6f9ec09086529aae458c7d92b83f7425"
+    },
+    "experiments/temporal_response_peft_20260919/prepare.py": {
+      "after": "a5f6dcfe865122b990b1424b9edacfe1cfd33d9dfc7b3e708996efdbdbc3dfaf",
+      "before": "bad7cd9e902537111e9fab2f99e2e6b4773153c290ef714301bc6a32b4f710ec"
+    },
+    "experiments/temporal_response_peft_20260919/reuse.py": {
+      "after": "7dcedc03e13a0505566c631371a5ef2bafc98108b55ae4c03e6f437fa9da13a0",
+      "before": null
+    },
+    "experiments/temporal_response_peft_20260919/test_reuse.py": {
+      "after": "096ee9cd7984e4a7ecd2e793d3b5abf501818c01893ea09fd04fa6862b68fa11",
+      "before": null
+    }
+  },
+  "completed_new_fits": 5,
+  "main_updates_before_pause": 5152,
+  "new_E_predictions_before_amendment": 0,
+  "new_E_scores_before_amendment": 0,
+  "observed_ambiguity": {
+    "arm": "MAG_ONLY",
+    "first_old_match_seed": [
+      81551,
+      81552,
+      81551
+    ],
+    "seed": 81552,
+    "source": "ettm1",
+    "stage": "selected",
+    "step": 0
+  },
+  "original_error_sha256": "fbe7444e0f0007bf5283021942e5678b9f55e9f9d1e2902dabd45b2d892012ca",
+  "original_seal_sha256": "d9d75a5826e459a4db6e4d5135abdb9c1b41120beb69947a5172bb9a982f789c",
+  "partial_next_fit_step": 32,
+  "pause_initiated_by": "assistant_for_evaluation_integrity_fix_not_user_stop",
+  "reason": "Adapter hashes do not identify a frozen B0; require source and B0 seed before prediction reuse.",
+  "scientific_settings_changed": false,
+  "smoke_updates": 16
+}

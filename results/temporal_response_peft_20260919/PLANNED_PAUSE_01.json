@@ -1,0 +1,5 @@
+{
+  "at": 1789791632.569278,
+  "error": "USER_STOP_AT_EPOCH_BOUNDARY",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/temporal_response_peft_20260919/runner.py\", line 11, in run\n    for row in read(OUT/'GRID.json'):train.fit(row['source'],row['arm'],row['seed'],watch)\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/temporal_response_peft_20260919/train.py\", line 51, in fit\n    if STOP:raise ResourceError('USER_STOP_AT_EPOCH_BOUNDARY')\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npriority12.common.ResourceError: USER_STOP_AT_EPOCH_BOUNDARY\n"
+}

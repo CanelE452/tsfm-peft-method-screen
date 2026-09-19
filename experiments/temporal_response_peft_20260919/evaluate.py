@@ -1,4 +1,5 @@
 from .common import *
+from .reuse import reusable_prediction
 from experiments.persistence_evidence_extension_20260918 import common as ext
 
 def selection():
@@ -39,7 +40,7 @@ def evaluate(watch):
                 key=f"{panel}__{kind}__{row['arm']}__s{row['seed']}__{row['stage']}"
                 if key in done:assert sha(ROOT/done[key]['path'])==done[key]['sha256'];continue
                 meta=dict(panel=panel,kind=kind,arm=row['arm'],source=row['source'],seed=row['seed'],stage=row['stage'],step=row['step'],lr=row['lr'],checkpoint_sha256=row['sha256'])
-                matches=[r for r in list(done.values())+prior if r.get('panel')==panel and r.get('kind')==kind and r.get('checkpoint_sha256')==row['sha256'] and (r.get('arm')==row['arm'] or (row['arm']=='PLAIN' and r.get('arm')=='C2') or (row['arm']=='B0' and r.get('arm')=='C0'))]
+                matches=[r for r in list(done.values())+prior if reusable_prediction(r,row,panel,kind)]
                 if matches:
                     r=matches[0];assert sha(ROOT/r['path'])==r['sha256'];done[key]=dict(**meta,path=r['path'],sha256=r['sha256'],shape=r['shape'],reused=True,inference_seconds=0.)
                 else:
