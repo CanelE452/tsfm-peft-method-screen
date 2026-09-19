@@ -4,10 +4,11 @@ No model input, optimizer, checkpoint selection or model inference is changed.
 Uses known synthetic evaluation offsets only for analysis, never for prediction.
 """
 from pathlib import Path
-import hashlib,json
+import hashlib,json,sys
 import numpy as np
 import pandas as pd
 ROOT=Path(__file__).resolve().parents[2]
+sys.path.insert(0,str(ROOT))
 OUT=ROOT/'results/temporal_response_peft_20260919'
 DEST=Path(__file__).resolve().parent/'result_evidence'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()

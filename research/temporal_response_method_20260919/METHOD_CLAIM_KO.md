@@ -1,6 +1,6 @@
 # 분석에서 방법론으로 전환할 때의 주장 구조
 
-현재 상태: 제안 방법 구현·사전 검사 완료, 고정 파일럿 실행 중. 성능 우위·신규성 확립 전의 설계 문서다.
+현재 상태: 고정 파일럿의 학습·평가·검산 완료. TRP의 추가 가치 기준 미충족으로 현재 후보를 종료했다. 아래는 결과를 보기 전에 정한 주장 구조이며, [최종 결과](../../results/temporal_response_peft_20260919/REPORT.md)와 구분한다.
 
 가제: **시계열 추가 PEFT를 위한 시간 반응 보존 학습**.
 
@@ -26,4 +26,4 @@
 
 [고정 프로토콜](../../experiments/temporal_response_peft_20260919/PROTOCOL.md), [실모델 검사](../../results/temporal_response_peft_20260919/PREFLIGHT_REPORT.md), [방법 그림 PDF](method.pdf), [SVG](method.svg). 그림은 성능 결과가 없는 구조 설명이며 `draw_method.py`로 다시 만든다.
 
-추가 확인: [선행 수식과의 겹침](NOVELTY_AUDIT_KO.md). `summarize_results.py`는 전체 예측 저장·검산 완료 후에만 기존 점수로 표·그림을 만들며, 학습·모델 추론·선택을 추가하지 않는다. 아직 실행 전이므로 결과 그림 완성으로 세지 않는다.
+추가 확인: [선행 수식과의 겹침](NOVELTY_AUDIT_KO.md). `summarize_results.py`는 전체 예측 저장·검산 완료 후에만 기존 점수로 표·그림을 만들며, 학습·모델 추론·선택을 추가하지 않는다. 전체 평가 완료 후 실행하여 [결과 그림·표](result_evidence/EVIDENCE_REVIEW_KO.md)를 생성했다. 이 실행 완료가 새로운 방법론 근거 확보를 의미하지 않는다.
