@@ -1,0 +1,56 @@
+{
+  "arm": "TOKEN_GATE_ENTROPY",
+  "buffers_unchanged": true,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/learned_gate_comparison_20260919/fits/electricity_TOKEN_GATE_ENTROPY_s81551_lr0.0003/checkpoint_0.pt",
+      "objective": 0.21615286843459375,
+      "sha256": "ab8537cbabc4091a993bd81e09f670ef2d73aa5674e53bb8b944d5a6b7838aeb",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/learned_gate_comparison_20260919/fits/electricity_TOKEN_GATE_ENTROPY_s81551_lr0.0003/checkpoint_256.pt",
+      "objective": 0.2143619670855222,
+      "sha256": "96396259e8a62e1e704cd1fe95c0c2865b63a815749eef10fb959bb2ebfcbb99",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/learned_gate_comparison_20260919/fits/electricity_TOKEN_GATE_ENTROPY_s81551_lr0.0003/checkpoint_512.pt",
+      "objective": 0.2140739555817674,
+      "sha256": "908415b5c0b332b8ab6cc9fdfd55c86678e9a78903f6cad1086434c433c2f7a7",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/learned_gate_comparison_20260919/fits/electricity_TOKEN_GATE_ENTROPY_s81551_lr0.0003/checkpoint_768.pt",
+      "objective": 0.2133570519825462,
+      "sha256": "1e249dc99a857c5cc7f9d3048daed9ad3a4c70a75d2d8117e4abdca36b406496",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/learned_gate_comparison_20260919/fits/electricity_TOKEN_GATE_ENTROPY_s81551_lr0.0003/checkpoint_1024.pt",
+      "objective": 0.21515061613289257,
+      "sha256": "b479c03c72f959f2ada64359fbd0eca23ecccbb4ebf7934561267338fe6ab31d",
+      "step": 1024
+    }
+  ],
+  "fit": "electricity_TOKEN_GATE_ENTROPY_s81551_lr0.0003",
+  "frozen_sha256": "baa28c79da3c9dbe98063d4b0d06e274c14f6e96b1762204918ac368b8e5f1c5",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 136.16951303504175,
+  "lr": 0.0003,
+  "optimizer_seconds": 37.62334608763922,
+  "peak_allocated": 381374976,
+  "peak_reserved": 400556032,
+  "seed": 81551,
+  "selected": {
+    "checkpoint": ".cache/learned_gate_comparison_20260919/fits/electricity_TOKEN_GATE_ENTROPY_s81551_lr0.0003/checkpoint_768.pt",
+    "objective": 0.2133570519825462,
+    "sha256": "1e249dc99a857c5cc7f9d3048daed9ad3a4c70a75d2d8117e4abdca36b406496",
+    "step": 768
+  },
+  "source": "electricity",
+  "status": "COMPLETE",
+  "trainable_parameters": 9225,
+  "updates": 1024,
+  "validation_seconds": 5.794101852108724
+}
