@@ -174,3 +174,7 @@ PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제
   - [평가 재사용 검사 보완](../results/temporal_response_peft_20260919/AMENDMENT_01_KO.md): 새 E 평가 전 adapter hash와 기반 B0의 식별을 분리했다. 원래 봉인·5,152updates를 보존하고 정확한 epoch 경계에서 재개했으며 과학적 설정 변경은 없다.
 
   - [학습 독립 검산](../results/temporal_response_peft_20260919/TRAINING_AUDIT.json): 16,384main+16smoke, 중복 update0, 기존 PLAIN4개 및 총100개 checkpoint hash·V 선택 검증. 전체 평가도 완료했으며 실행 완료와 새 방법론 목표 미달을 구분했다.
+
+- [방법론 전제·초기 방향 검사](../results/block_gradient_feasibility_20260919/REPORT.md): **완료·검산, 본학습0회**. 원본 Chronos-Bolt-small의 raw TRAIN에서48개 gradient와2개 출력 동일성 forward를 계산했다. CROSS_BLOCK의 후반 TRAIN cosine은 전력0.104025/ETTm1 0.082757로 단순 MEAN_SVD0.115521/0.093216보다 낮았다. 실제 forecasting 성능 실패·새 방법 PASS와 구분하며 본학습을 추가하지 않았다. 모든36개층·0-gradient층과 집계 보정 기록을 보존했다. [최종 판단](../results/block_gradient_feasibility_20260919/FINAL_DECISION.md), [독립 검산](../results/block_gradient_feasibility_20260919/PUBLICATION_AUDIT.json), [선행 실제 코드 검토](../research/method_feasibility_20260919/NOVELTY_AND_NEXT_REQUIREMENTS_KO.md).
+
+  - [동일 과거·다른 미래의 정량 검산](../research/method_feasibility_20260919/PAIR_REPORT_KO.md): 기존96개 저장 예측 view와192점수를 재검산했다. 전력 전이 B0의 균형 PULSE/SHIFT pair 오차에서 관측 불가능성 하한은96.470%다. 이는 이미 알려진 shape 검사의 한계이며 TRP primary SHIFT8 실패의 원인이 아니다. 새 추론·학습0회.

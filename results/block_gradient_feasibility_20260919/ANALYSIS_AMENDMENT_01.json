@@ -1,0 +1,9 @@
+{
+  "reason": "Original CPU analysis assumed every layer has a nonzero update direction. Decoder single-token self-attention q gradients are zero.",
+  "action": "Keep all layers and zero inner products; record undefined cosine as empty/NaN instead of dividing by zero. Aggregate raw dot products and squared norms unchanged.",
+  "scientific_settings_changed": false,
+  "extra_gradient_calls": 0,
+  "extra_optimizer_updates": 0,
+  "original_code_sha256": "3db16d0bbf11cc0b3c748963090e4d3716f811c6342f696f420ef474e5fdf184",
+  "corrected_reporting_code_sha256": "794f52c9a73fb10f6487b6d3f25b657d283a0b682cde5327ff4147e06276f61c"
+}
