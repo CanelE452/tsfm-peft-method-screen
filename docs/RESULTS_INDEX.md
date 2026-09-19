@@ -194,3 +194,7 @@ PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제
 기존 MAG/PLAIN/C3의6개 source-arm 선택 경로와 TRAIN/V12개 배열의 hash 동일성을 확인했다. 현 실험은 계속 진행 중이다. 같은 관측 권한과 서로 다른 gate feature를 구분하며, trainability 하나의 인과효과로 해석하지 않는다. 새 학습·추론0. [공정성 및 해석 감사](../research/learned_gate_comparability_20260919/COMPARABILITY_KO.md) · [검산](../research/learned_gate_comparability_20260919/AUDIT.json).
 
 학습형 gate 비교의 [자원 측정 범위](../research/learned_gate_comparability_20260919/RESOURCE_SCOPE_KO.md): 새/기존 optimizer_seconds의 intent 저장 포함 여부가 다르므로 순수 계산 속도비로 해석하지 않는다. 수치·코드·학습 조건은 보존했다.
+
+## 고정 MAG 방법 절과 구조도 (2026-09-19)
+
+현재 구현의 수식·정보 권한·학습 파라미터·통제군을 [한국어 방법 절](../papers/persistence_adaptation/magnitude_method_20260919/METHOD_SECTION_KO.md)과 [벡터 구조도](../papers/persistence_adaptation/magnitude_method_20260919/method.pdf)로 정리했다. 새 실험/추론0, 학습은 기존 승인 범위에서 진행 중이며 성능·신규성·방법론 성공을 선언하지 않는다.
