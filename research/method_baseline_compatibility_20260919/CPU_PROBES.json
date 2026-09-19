@@ -1,0 +1,57 @@
+{
+  "status": "CPU_COMPONENT_INFORMATION_FLOW_VERIFIED",
+  "timepeft_commit": "ea4e7e1887bb35587bab7ea93e2af3685ac55852",
+  "timepeft": {
+    "shape": [
+      2,
+      4,
+      32,
+      512
+    ],
+    "top_k": 3,
+    "hidden_ratio": 2,
+    "other_channel_intervention_max_difference": 0.0,
+    "other_channel_jacobian_max": 0.0,
+    "permutation_inverse_max_difference": 6.215610027313232,
+    "channel_count_change_exception": "Input embedding shape does not match the initialized channel adapter.",
+    "component_parameters": {
+      "frequency": 262656,
+      "channel_four": 789760,
+      "total_four": 1052416,
+      "total_one": 657664
+    },
+    "full_MOMENT_tested": false,
+    "head_and_LoRA_parameters_excluded": true
+  },
+  "petsa": {
+    "commit": "87853d888e98311ac94e64be920d17b57143b20c",
+    "cells": [
+      {
+        "length": 512,
+        "parameters": 16897,
+        "initial_identity": true,
+        "nonzero_calibration_can_change_values": true,
+        "synthetic_parameter_perturbation_not_training": true
+      },
+      {
+        "length": 64,
+        "parameters": 2113,
+        "initial_identity": true,
+        "nonzero_calibration_can_change_values": true,
+        "synthetic_parameter_perturbation_not_training": true
+      }
+    ],
+    "total_shared_single_channel_XY_parameters": 19010,
+    "full_online_runner_tested": false,
+    "Chronos_connection_tested": false
+  },
+  "optimizer_updates": 0,
+  "real_dataset_forecast_inferences": 0,
+  "model_weights_loaded": false,
+  "new_candidate": false,
+  "source_hashes": {
+    ".cache/temporal_response_peft_20260919/prior/TimePEFT_run.py": "7ff7afd94fd891adf626162e13ea9a7abb84cc6f335261d05badb2058e602505",
+    ".cache/method_baseline_compatibility_20260919/PETSA_petsa.py": "0cd3c31cf90a38cf8fbe42495abae816e2bfba0d9dc7d89604c26374fefb2830",
+    "research/method_baseline_compatibility_20260919/probe.py": "86ff56e775cfb65c00ecf7e353edc2d2e0691aca38c452830802367308485670"
+  }
+}

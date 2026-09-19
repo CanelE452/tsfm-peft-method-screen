@@ -206,3 +206,7 @@ PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제
 ## 학습형 gate 검증의 논문 근거 반영 (2026-09-19)
 
 16fits/16384+8updates·192views·독립검산완료. 주family4모두양성이고평균보호한도충족: LIMITED_COMPONENT_EVIDENCE. [방법론 주장표](../papers/persistence_adaptation/magnitude_method_20260919/PAPER_CLAIM_EVIDENCE_KO.md) · [구간 및seed 그림](../papers/persistence_adaptation/magnitude_method_20260919/primary_effects.pdf). 새NESO시간전이이며독립source아님. 평균1%기준과신뢰구간보장을구분했고정식선행전체비교/신규성은미완료. 새후속학습0.
+
+## 공식 선행 구조와 비교 가능성 감사 (2026-09-19)
+
+Time-PEFT의 채널별 adapter가 다른 채널 값을 직접 섞지 않음을 코드와 CPU intervention/Jacobian으로 확인했다. PETSA의 gated 입력·출력 보정 선행을 추가하고 공식 GCM 초기 identity·파라미터를 검사했다. **새 학습·실제 자료 추론 0회**, 전체 방법 성능 비교는 미실행이다. [선행 호환성 감사](../research/method_baseline_compatibility_20260919/BASELINE_COMPATIBILITY_KO.md) · [CPU 검사](../research/method_baseline_compatibility_20260919/CPU_PROBES.json) · [한국어 관련 연구 절](../papers/persistence_adaptation/magnitude_method_20260919/RELATED_WORK_KO.md). 완료된 MAG 양성 근거를 보존하며 gating 최초성·공식 전체 방법 우위를 주장하지 않는다.
