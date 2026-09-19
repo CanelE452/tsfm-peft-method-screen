@@ -222,3 +222,9 @@ Time-PEFT의 채널별 adapter가 다른 채널 값을 직접 섞지 않음을 �
 ## PETSA 공개 보정 부품 비교 (2026-09-19)
 
 상태: COMPLETE_VERIFIED. 기존 MAG 고정, 최대8경로/8192+4updates, 기존 개발 E 재사용. [보고서](../results/petsa_cell_comparison_20260919/REPORT.md) · [결정](../results/petsa_cell_comparison_20260919/FINAL_DECISION.md) · [고정 계약](../experiments/petsa_cell_comparison_20260919/PROTOCOL.md). 독립source/논문PASS로 주장하지 않음.
+
+## MAG 방법론 원고 v2 — PETSA 대조·기전·선행 통합 (2026-09-19)
+
+PETSA의 승인된8fits/8192 main+4 smoke 및224views·40checkpoint·555,492원점 metric 검산을 완료했다. 전력 전이 SHIFT8의 MAG/cell 이득은0.969%(family2 CI[0.372,1.507]), NESO는0.589%([-0.583,1.669])로 결합 추가우위 기준은 미충족이다. 두패널×두seed의 네 효과 방향과12평균보호조건은 충족했으나 불확실성을 성능패배나 전체방법 반증으로 바꾸지 않는다. [실험 결과](../results/petsa_cell_comparison_20260919/REPORT.md) · [실험 검산](../results/petsa_cell_comparison_20260919/AUDIT.json). 위 PETSA 승인대기 항목은 과거 준비시점 기록이며 현재 상태는 COMPLETE_VERIFIED다.
+
+[한국어 원고 PDF](../papers/persistence_adaptation/manuscript_mag_v2_20260919/MANUSCRIPT_KO.pdf) · [DOCX](../papers/persistence_adaptation/manuscript_mag_v2_20260919/MANUSCRIPT_KO.docx) · [주장–근거](../papers/persistence_adaptation/manuscript_mag_v2_20260919/PAPER_CLAIM_EVIDENCE.md) · [최종 판단](../papers/persistence_adaptation/manuscript_mag_v2_20260919/FINAL_DECISION.md) · [원고 검산](../papers/persistence_adaptation/manuscript_mag_v2_20260919/AUDIT.json). 11쪽·그림4종·원점수2240행·57개출처·23개로컬링크를 검증했다. [추가 일차 선행 검토](../research/mag_novelty_extension_20260919/PRIOR_SCOPE_KO.md)와 과거 가중치/규칙·B0조합 진단을 연결했다. 기존v1과 부정결과를 보존한다. 원고작성의 추가학습/모델추론/bootstrap은0이며 **방법론 신규성 확보·투고 준비 완료는 미확정**이다. PETSA는 공식전체가 아닌 offline cell 이식이고 모든 E는 재사용 개발자료다.
