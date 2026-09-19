@@ -169,6 +169,8 @@ PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제
 
 - [C3–MAG_ONLY 영향 분해](../results/c3_magnitude_diagnostic_20260918/REPORT.md): **완료·독립 검산**, 새 학습0회·교차 예측36개·기존36개 재사용. 전력16계열 SHIFT8에서 C3 규칙은 고정 가중치 평균에서 유리했지만, MAG 학습 가중치 이득이 이를 상쇄했다. 공통 C3 오차 기준 가중치+0.6436%/규칙−0.3928%/합계MAG+0.2509%. 순이득85.4%는seed81552의signed기여이며 16계열 중13개MAG/3개C3 방향이다. 89,088입력에서 gate 차이는 same-sign extreme run의첫7관측에만 존재했다. [한국어 해석](../results/c3_magnitude_diagnostic_20260918/INTERPRETATION_KO.md), [최종 판단](../results/c3_magnitude_diagnostic_20260918/FINAL_DECISION.md), [독립 검산](../results/c3_magnitude_diagnostic_20260918/INDEPENDENT_AUDIT.json), [재현](../results/c3_magnitude_diagnostic_20260918/REPRODUCIBILITY.md). 사후 고정 함수 진단이며 새 방법 성공·독립 시험이 아니다.
 
-- [시간 반응 보존 PEFT 방법 파일럿](../results/temporal_response_peft_20260919/PREFLIGHT_REPORT.md): **봉인·CPU/실모델 검사 완료, 본학습 진행 단계**. 일반 어댑터 위에 B0의 유한 지속 변화 반응을 보존하는 손실을 구현하고 ANCHOR/SHUFFLE/IDEAL을 직접 대조한다. 기존 PLAIN4개 재사용, 신규 최대16fits·16,384main+16smoke. 결과·방법 우위·신규성은 아직 미확인이다. [고정 프로토콜](../experiments/temporal_response_peft_20260919/PROTOCOL.md).
+- [시간 반응 보존 PEFT 방법 파일럿](../results/temporal_response_peft_20260919/PREFLIGHT_REPORT.md): **신규16/16 본학습 완료·학습 검산 통과, 평가 진행 단계**. 일반 어댑터 위에 B0의 유한 지속 변화 반응을 보존하는 손실을 구현하고 ANCHOR/SHUFFLE/IDEAL을 직접 대조한다. 기존 PLAIN4개 재사용, 신규 최대16fits·16,384main+16smoke. 결과·방법 우위·신규성은 아직 미확인이다. [고정 프로토콜](../experiments/temporal_response_peft_20260919/PROTOCOL.md).
 
   - [평가 재사용 검사 보완](../results/temporal_response_peft_20260919/AMENDMENT_01_KO.md): 새 E 평가 전 adapter hash와 기반 B0의 식별을 분리했다. 원래 봉인·5,152updates를 보존하고 정확한 epoch 경계에서 재개했으며 과학적 설정 변경은 없다.
+
+  - [학습 독립 검산](../results/temporal_response_peft_20260919/TRAINING_AUDIT.json): 16,384main+16smoke, 중복 update0, 기존 PLAIN4개 및 총100개 checkpoint hash·V 선택 검증. 평가 결과와 논문 판단은 아직 대기 중이다.

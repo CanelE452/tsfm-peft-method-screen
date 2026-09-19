@@ -1,0 +1,63 @@
+{
+  "adapted_train_forwards": 2048,
+  "arm": "IDEAL",
+  "buffers_unchanged": true,
+  "checkpoint_io_seconds": 0.06736785307293758,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/ettm1_IDEAL_s81551_lr0.0003/checkpoint_0.pt",
+      "objective": 0.40602500213177545,
+      "sha256": "2f64f7c171e010b090358838d7df16a36faf8d3d8c556177e92ebfb94383fcf6",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/ettm1_IDEAL_s81551_lr0.0003/checkpoint_256.pt",
+      "objective": 0.41169137751551377,
+      "sha256": "65889ee5ba7a5c00ee5f08635ec643591cd63a8b50b08a89df79eb8b8a7c8e56",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/ettm1_IDEAL_s81551_lr0.0003/checkpoint_512.pt",
+      "objective": 0.4168686957058485,
+      "sha256": "29a2655af4dbd11c7ca65cb0ef9280d75fa9aed88ec77bdce38d4903ec4b0b6b",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/ettm1_IDEAL_s81551_lr0.0003/checkpoint_768.pt",
+      "objective": 0.42459008715570146,
+      "sha256": "b1d1e6253ed6be0d69ddcc465b0dd5f490eabcd1ffefeb409d515aeb168b6a5e",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/ettm1_IDEAL_s81551_lr0.0003/checkpoint_1024.pt",
+      "objective": 0.42528852502621783,
+      "sha256": "b294742c13a5dee5b626fb2ff8a91ad1fe3452336f3b9bf3f7db3d981b9639b7",
+      "step": 1024
+    }
+  ],
+  "extra_labelled_examples": 0,
+  "fit": "ettm1_IDEAL_s81551_lr0.0003",
+  "frozen_sha256": "1af8e5b814fccc2c2b12af3a72adbb9a32249f2d000b8745f836b70fc059f20a",
+  "frozen_unchanged": true,
+  "lr": 0.0003,
+  "microbatch": 32,
+  "new_updates": 1024,
+  "optimization_limited": false,
+  "optimizer_seconds": 87.4068828082527,
+  "peak_allocated": 541035520,
+  "peak_reserved": 572522496,
+  "reused": false,
+  "seed": 81551,
+  "selected": {
+    "checkpoint": ".cache/temporal_response_peft_20260919/fits/ettm1_IDEAL_s81551_lr0.0003/checkpoint_0.pt",
+    "objective": 0.40602500213177545,
+    "sha256": "2f64f7c171e010b090358838d7df16a36faf8d3d8c556177e92ebfb94383fcf6",
+    "step": 0
+  },
+  "source": "ettm1",
+  "status": "COMPLETE",
+  "teacher_train_forwards": 2048,
+  "updates": 1024,
+  "validation_seconds": 4.967426813964266,
+  "wall_seconds": 96.46677492698655
+}

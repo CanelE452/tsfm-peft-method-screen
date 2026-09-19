@@ -1,0 +1,63 @@
+{
+  "adapted_train_forwards": 2048,
+  "arm": "TRP",
+  "buffers_unchanged": true,
+  "checkpoint_io_seconds": 0.06383024202659726,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/electricity_TRP_s81552_lr0.0003/checkpoint_0.pt",
+      "objective": 0.21559902487463017,
+      "sha256": "2b31965409ccd0dd3e96ee3382949ee25a7cc176331240051e183ee95e18a402",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/electricity_TRP_s81552_lr0.0003/checkpoint_256.pt",
+      "objective": 0.21560457316779766,
+      "sha256": "08f344e517087ad265a9065edbed03a2592c58ac40f1b88a920d6212c7e70c4b",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/electricity_TRP_s81552_lr0.0003/checkpoint_512.pt",
+      "objective": 0.21560308496946007,
+      "sha256": "d68efe13544e795b105df74429b9cfe8b6c84578a4fdec8bf25562c344f4dc4d",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/electricity_TRP_s81552_lr0.0003/checkpoint_768.pt",
+      "objective": 0.21559804410206515,
+      "sha256": "a26e580adbeb2c151fa40ef904c1fed6ded8bb1ec08cae092e9aced823956cee",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/electricity_TRP_s81552_lr0.0003/checkpoint_1024.pt",
+      "objective": 0.2155995792834739,
+      "sha256": "6f461089b31347c678141730c1deae09628a2547ec8de6a4db34935a3aaac076",
+      "step": 1024
+    }
+  ],
+  "extra_labelled_examples": 0,
+  "fit": "electricity_TRP_s81552_lr0.0003",
+  "frozen_sha256": "a63717b34c48935d1ec9061eb331224b332d2e8c0af00917a0153ca957c75d41",
+  "frozen_unchanged": true,
+  "lr": 0.0003,
+  "microbatch": 32,
+  "new_updates": 1024,
+  "optimization_limited": false,
+  "optimizer_seconds": 86.98947276338004,
+  "peak_allocated": 541035520,
+  "peak_reserved": 572522496,
+  "reused": false,
+  "seed": 81552,
+  "selected": {
+    "checkpoint": ".cache/temporal_response_peft_20260919/fits/electricity_TRP_s81552_lr0.0003/checkpoint_768.pt",
+    "objective": 0.21559804410206515,
+    "sha256": "a26e580adbeb2c151fa40ef904c1fed6ded8bb1ec08cae092e9aced823956cee",
+    "step": 768
+  },
+  "source": "electricity",
+  "status": "COMPLETE",
+  "teacher_train_forwards": 2048,
+  "updates": 1024,
+  "validation_seconds": 5.029630790930241,
+  "wall_seconds": 96.0407455629902
+}

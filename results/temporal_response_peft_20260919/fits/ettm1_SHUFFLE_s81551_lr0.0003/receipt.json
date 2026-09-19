@@ -1,0 +1,63 @@
+{
+  "adapted_train_forwards": 2048,
+  "arm": "SHUFFLE",
+  "buffers_unchanged": true,
+  "checkpoint_io_seconds": 0.06670485209906474,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/ettm1_SHUFFLE_s81551_lr0.0003/checkpoint_0.pt",
+      "objective": 0.40602500213177545,
+      "sha256": "2f64f7c171e010b090358838d7df16a36faf8d3d8c556177e92ebfb94383fcf6",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/ettm1_SHUFFLE_s81551_lr0.0003/checkpoint_256.pt",
+      "objective": 0.40615179330923307,
+      "sha256": "dc48ce4d594f2642eef4b4d226db7246c89a87a14c09717e6f655dd3c7219e75",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/ettm1_SHUFFLE_s81551_lr0.0003/checkpoint_512.pt",
+      "objective": 0.4061619441960535,
+      "sha256": "89eebe029b6233076e8100ba741a1ab391082da19690ac9ccf0e28dcd720e509",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/ettm1_SHUFFLE_s81551_lr0.0003/checkpoint_768.pt",
+      "objective": 0.40600605131223444,
+      "sha256": "f3e120c52fa37fd7a280ee4532a510b93563652170293f87359790270cc7a78f",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/ettm1_SHUFFLE_s81551_lr0.0003/checkpoint_1024.pt",
+      "objective": 0.4060100164620781,
+      "sha256": "87f92b895bcbe07e6057f68e2810f0ff9f25083b5b36e08bdd5b140705061e05",
+      "step": 1024
+    }
+  ],
+  "extra_labelled_examples": 0,
+  "fit": "ettm1_SHUFFLE_s81551_lr0.0003",
+  "frozen_sha256": "1af8e5b814fccc2c2b12af3a72adbb9a32249f2d000b8745f836b70fc059f20a",
+  "frozen_unchanged": true,
+  "lr": 0.0003,
+  "microbatch": 32,
+  "new_updates": 1024,
+  "optimization_limited": false,
+  "optimizer_seconds": 87.4790599695989,
+  "peak_allocated": 541035520,
+  "peak_reserved": 572522496,
+  "reused": false,
+  "seed": 81551,
+  "selected": {
+    "checkpoint": ".cache/temporal_response_peft_20260919/fits/ettm1_SHUFFLE_s81551_lr0.0003/checkpoint_768.pt",
+    "objective": 0.40600605131223444,
+    "sha256": "f3e120c52fa37fd7a280ee4532a510b93563652170293f87359790270cc7a78f",
+    "step": 768
+  },
+  "source": "ettm1",
+  "status": "COMPLETE",
+  "teacher_train_forwards": 2048,
+  "updates": 1024,
+  "validation_seconds": 5.028379218885675,
+  "wall_seconds": 96.51346324500628
+}

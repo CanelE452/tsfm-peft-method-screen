@@ -1,0 +1,63 @@
+{
+  "adapted_train_forwards": 2048,
+  "arm": "TRP",
+  "buffers_unchanged": true,
+  "checkpoint_io_seconds": 0.0674641159712337,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/ettm1_TRP_s81551_lr0.0003/checkpoint_0.pt",
+      "objective": 0.40602500213177545,
+      "sha256": "2f64f7c171e010b090358838d7df16a36faf8d3d8c556177e92ebfb94383fcf6",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/ettm1_TRP_s81551_lr0.0003/checkpoint_256.pt",
+      "objective": 0.4060261487144137,
+      "sha256": "e85e3abbfde58f47a651705ef68794ec5b3026314db9339ea119f2307e4ae767",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/ettm1_TRP_s81551_lr0.0003/checkpoint_512.pt",
+      "objective": 0.4060255178217539,
+      "sha256": "050ea29261c728ac2f797a14e50ede1704f49c0cb64bab9d07396e6b84aa41c6",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/ettm1_TRP_s81551_lr0.0003/checkpoint_768.pt",
+      "objective": 0.4060070240566674,
+      "sha256": "7bf869e188bddfd9e038cfd8f5bd93fe90a353f7097edaa9b7f8ffd769a1d3d4",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/ettm1_TRP_s81551_lr0.0003/checkpoint_1024.pt",
+      "objective": 0.40601605156501874,
+      "sha256": "681de71a8a782daf90ab83517f188c99f5304adeea5b328e873c51e44287b7b4",
+      "step": 1024
+    }
+  ],
+  "extra_labelled_examples": 0,
+  "fit": "ettm1_TRP_s81551_lr0.0003",
+  "frozen_sha256": "1af8e5b814fccc2c2b12af3a72adbb9a32249f2d000b8745f836b70fc059f20a",
+  "frozen_unchanged": true,
+  "lr": 0.0003,
+  "microbatch": 32,
+  "new_updates": 1024,
+  "optimization_limited": false,
+  "optimizer_seconds": 87.31000049551949,
+  "peak_allocated": 541035520,
+  "peak_reserved": 572522496,
+  "reused": false,
+  "seed": 81551,
+  "selected": {
+    "checkpoint": ".cache/temporal_response_peft_20260919/fits/ettm1_TRP_s81551_lr0.0003/checkpoint_768.pt",
+    "objective": 0.4060070240566674,
+    "sha256": "7bf869e188bddfd9e038cfd8f5bd93fe90a353f7097edaa9b7f8ffd769a1d3d4",
+    "step": 768
+  },
+  "source": "ettm1",
+  "status": "COMPLETE",
+  "teacher_train_forwards": 2048,
+  "updates": 1024,
+  "validation_seconds": 4.957042618945707,
+  "wall_seconds": 96.30547137302347
+}

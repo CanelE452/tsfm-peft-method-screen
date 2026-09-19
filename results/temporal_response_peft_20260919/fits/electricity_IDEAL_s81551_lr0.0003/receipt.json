@@ -1,0 +1,63 @@
+{
+  "adapted_train_forwards": 2048,
+  "arm": "IDEAL",
+  "buffers_unchanged": true,
+  "checkpoint_io_seconds": 0.05567422404419631,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/electricity_IDEAL_s81551_lr0.0003/checkpoint_0.pt",
+      "objective": 0.21615286843459375,
+      "sha256": "2f64f7c171e010b090358838d7df16a36faf8d3d8c556177e92ebfb94383fcf6",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/electricity_IDEAL_s81551_lr0.0003/checkpoint_256.pt",
+      "objective": 0.21390712833378647,
+      "sha256": "d3257d31692ac7990bd9f542392116953d258ddde07b338c699dad724ae8233a",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/electricity_IDEAL_s81551_lr0.0003/checkpoint_512.pt",
+      "objective": 0.21342793073637517,
+      "sha256": "82faebdbde0f2d541d845eab22e9b93f5513888acf14aeae41c38b26a1f8f2d3",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/electricity_IDEAL_s81551_lr0.0003/checkpoint_768.pt",
+      "objective": 0.21351701171720316,
+      "sha256": "7412ddcfa66cd23a8e5313a2df684bcdff66fa9adf751561d99c0e7f8c8a16e4",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/temporal_response_peft_20260919/fits/electricity_IDEAL_s81551_lr0.0003/checkpoint_1024.pt",
+      "objective": 0.21446511181837344,
+      "sha256": "5cf32494d251e5980a453ffa60ae3341b7e5b46b4dfb62f3a51198608208769c",
+      "step": 1024
+    }
+  ],
+  "extra_labelled_examples": 0,
+  "fit": "electricity_IDEAL_s81551_lr0.0003",
+  "frozen_sha256": "baa28c79da3c9dbe98063d4b0d06e274c14f6e96b1762204918ac368b8e5f1c5",
+  "frozen_unchanged": true,
+  "lr": 0.0003,
+  "microbatch": 32,
+  "new_updates": 1024,
+  "optimization_limited": false,
+  "optimizer_seconds": 84.39694311848143,
+  "peak_allocated": 541035520,
+  "peak_reserved": 572522496,
+  "reused": false,
+  "seed": 81551,
+  "selected": {
+    "checkpoint": ".cache/temporal_response_peft_20260919/fits/electricity_IDEAL_s81551_lr0.0003/checkpoint_512.pt",
+    "objective": 0.21342793073637517,
+    "sha256": "82faebdbde0f2d541d845eab22e9b93f5513888acf14aeae41c38b26a1f8f2d3",
+    "step": 512
+  },
+  "source": "electricity",
+  "status": "COMPLETE",
+  "teacher_train_forwards": 2048,
+  "updates": 1024,
+  "validation_seconds": 4.877330289979,
+  "wall_seconds": 93.11949562997324
+}
