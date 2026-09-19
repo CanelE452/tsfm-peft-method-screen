@@ -101,6 +101,10 @@ def main():
     param_summary=pd.DataFrame(resources).groupby('arm',as_index=False)[['trainable_parameters','optimizer_seconds','peak_allocated']].mean()
     param_summary['peak_allocated_MiB']=param_summary.pop('peak_allocated')/2**20
     primary_table=primary[['proposed','baseline','proposed_nmae','baseline_nmae','gain_pct','bonf4_low','bonf4_high','seed_gains']]
+    narrow=raw[(raw.panel=='electricity_transfer')&(raw.kind=='standard')&(raw.stage=='selected')&(raw.condition=='SHIFT8')].groupby('arm').nmae.mean()
+    c3_plain_gain=100*(1-narrow['C3']/narrow['PLAIN'])
+    c3_mag_gain=100*(1-narrow['C3']/narrow['MAG_ONLY'])
+    adverse=effects[(effects.proposed=='C3')&(effects.baseline=='DELTA_XY_DEFAULT')&(effects.panel=='electricity_transfer')&(effects.kind=='shape')&(effects.stage=='selected')&(effects.condition=='STEP12_D63')].iloc[0]
     lines=[]
     for r in primary.itertuples():
         strength='양의 구간' if r.bonf4_low>0 else '음의 구간' if r.bonf4_high<0 else '0 포함'
@@ -125,11 +129,13 @@ def main():
 
 {chr(10).join(lines)}
 
+같은 전력16계열 SHIFT8에서 C3는 PLAIN보다{c3_plain_gain:.3f}% 좋지만 MAG 대비 이득은{c3_mag_gain:+.3f}%다. 즉 **가까운 선행 대비 이득은 확인됐으나 지속성 규칙을 추가할 이유는 여전히 입증되지 않았다.** 모든 source·상태에서 이겨야 한다는 판정은 사용하지 않는다. 기여로 주장한 구성요소와 단순 대조의 차이를 별도로 요구하는 것이다.
+
 ## 원자료·오류·변화의 원점수
 
 {md_table(summary)}
 
-나머지 상태와9개 변화 형태, fixed1024, seed별 값은 [RAW_SCORES.csv](RAW_SCORES.csv), [EFFECTS.csv](EFFECTS.csv), [CHANNEL_SCORES.csv](CHANNEL_SCORES.csv)에 있다. 같은 과거의 PULSE 손해도 삭제하지 않았다. ETTm1 또는 원자료/오류 조건에서의 손해를 전체 평균으로 감추지 않는다. C3와MAG 사이의 과거 판정은 이 비교로 바뀌지 않는다.
+나머지 상태와9개 변화 형태, fixed1024, seed별 값은 [RAW_SCORES.csv](RAW_SCORES.csv), [EFFECTS.csv](EFFECTS.csv), [CHANNEL_SCORES.csv](CHANNEL_SCORES.csv)에 있다. 같은 과거의 PULSE 손해도 삭제하지 않았다. ETTm1 또는 원자료/오류 조건에서의 손해를 전체 평균으로 감추지 않는다. C3와MAG 사이의 과거 판정은 이 비교로 바뀌지 않는다. 특히 전력16계열의 더 긴 STEP12_D63 형태에서 C3 대 기본폭δ의 이득은{adverse.gain_pct:+.3f}%로 손해다. SHIFT8의 양성을 모든 변화 형태로 확대하지 않는다.
 
 ## 자원과 남은 한계
 
@@ -141,17 +147,25 @@ GPU guard 표본{len(gpu)}개, 비승인 외부 compute0개, 최소 여유{min(r
 
 가까운 선행을 추가했어도 C3 고유의 지속성 요소가 MAG보다 필요하다는 근거가 자동으로 생기지는 않는다. 작은 latent adapter와 boundary adapter의 차이는 위치·연산·초기화가 함께 다르므로 이 비교만으로 개별 원인의 인과기여를 정하지 않는다. 데이터는 이미 사용한 개발E이며 전력의16개 다른계열도 독립자료가 아니다. 실제 센서사건 label·독립확인·정식 선행의전체 설정 재현·충분한 신규성은 남아 있다. 확인된 좁은 이득은 보존하지만 방법론 논문의 전체 목표는 아직 완료로 표시하지 않는다.
 
-모델·origin·조건·loss·LR·seed·update·checkpoint·선택 규칙은 사전 봉인을 유지했다. 새 후보·추가 학습을 자동 실행하지 않았다. [고정 계약](../../experiments/delta_adapter_comparison_20260919/PROTOCOL.md), [공식 코드 receipt](PRIOR_CODE_RECEIPTS.json), [독립 검산](PUBLICATION_AUDIT.json). 원자료·모델·예측 cache는 로컬 보관이며 GitHub에는 코드·해시·점수·그림이 있다.
+모델·origin·조건·loss·LR·seed·update·checkpoint·선택 규칙은 사전 봉인을 유지했다. 새 후보·추가 학습을 자동 실행하지 않았다. [고정 계약](../../experiments/delta_adapter_comparison_20260919/PROTOCOL.md), [공식 코드 receipt](PRIOR_CODE_RECEIPTS.json), [독립 검산](PUBLICATION_AUDIT.json), [별도 bootstrap·비용·seed 검토](COMPARISON_REVIEW_KO.md), [재검산 절차](../../research/delta_adapter_review_20260919/REPRODUCTION_KO.md). 원자료·모델·예측 cache는 로컬 보관이며 GitHub에는 코드·해시·점수·그림이 있다.
 '''
     (OUT/'REPORT.md').write_text(text)
-    (OUT/'FINAL_DECISION.md').write_text('# 최종 결정\n\n실행은 **COMPLETE_CONTROLLED_PRIOR_COMPARISON**. 방법론 논문 목표 달성·논문 PASS와 구분한다.\n\n'+'\n'.join(lines)+'\n\n기존 C3/MAG/PLAIN의 가중치와 판정을 보존한다. δ의선행비교 결과를 추가했지만 C3 지속성 고유의가치나MAG의신규성·독립확인을 대신하지 않는다. 새 구조·추가 LR/seed/데이터·후속 학습은0개다. 실제 확인한 좁은 효과만 주장할 수 있으며 전체 목표는 미달이다.\n')
+    (OUT/'FINAL_DECISION.md').write_text('# 최종 결정\n\n실행은 **COMPLETE_CONTROLLED_PRIOR_COMPARISON**. 방법론 논문 목표 달성·논문 PASS와 구분한다.\n\n'+'\n'.join(lines)+f'\n\n같은 주 조건에서 C3는 PLAIN보다{c3_plain_gain:.3f}% 좋고 MAG 대비 이득은{c3_mag_gain:+.3f}%다. 전력의 좁은 효과를 보존하지만 지속성 규칙 고유의 가치를 주장할 근거는 미확보다. 전력16계열 STEP12_D63에서 기본폭δ보다{-adverse.gain_pct:.3f}% 나쁜 결과도 함께 남긴다.\n\n기존 C3/MAG/PLAIN의 가중치와 판정을 보존한다. δ의선행비교 결과를 추가했지만 C3 지속성 고유의가치나MAG의신규성·독립확인을 대신하지 않는다. 새 구조·추가 LR/seed/데이터·후속 학습은0개다. 실제 확인한 좁은 효과만 주장할 수 있으며 전체 목표는 미달이다.\n')
+    # Execution metadata/logs change after this subprocess exits. The separate
+    # comparison audit depends on this audit; exclude its outputs to avoid cycles.
+    excluded={'PUBLICATION_AUDIT.json','gpu_delta.jsonl','gpu_budget.json','delta_wall.json',
+              'COMPLETION_HOOK.json','RUN_PROGRESS_SNAPSHOT.json','COMPARISON_AUDIT.json',
+              'BOOTSTRAP_SUPPORT.csv','MATCHED_REPEAT_RESOURCES.csv','DESCRIPTIVE_SEED_CONTRASTS.csv',
+              'tradeoffs.png','tradeoffs.pdf','COMPARISON_REVIEW_KO.md'}
     audit=dict(status='VERIFIED',new_fits=16,main_updates=16384,smoke_updates=8,duplicate_updates=0,
                checkpoint_hashes_verified=checkpoint_count,prediction_views=144,new_delta_full_inference_views=delta_new_inference,delta_checkpoint_alias_views=48-delta_new_inference,unique_prediction_files=len(checked),
                scalar_metric_checks=verification['scalar_metrics'],raw_rows_independently_regrouped=len(both),
                old_score_rows_replayed=old_replay_count,effect_rows_recomputed=len(effects),
                GPU_samples=len(gpu),unapproved_external_compute_samples=unapproved,
                source_seal_files_verified=len(seal['hashes']),goal_achieved=False,paper_pass=False,
-               result_hashes={str(p.relative_to(ROOT)):sha(p) for p in OUT.iterdir() if p.is_file() and p.name not in ['PUBLICATION_AUDIT.json','gpu_delta.jsonl','gpu_budget.json','delta_wall.json']},
+               result_hashes={str(p.relative_to(ROOT)):sha(p) for p in OUT.iterdir() if p.is_file() and p.name not in excluded and p.suffix!='.log'},
+               result_hash_exclusions=sorted(excluded),
+               hash_scope_note='Completed experiment artifacts; mutable hook/snapshot/logs and separately audited derivative comparison outputs excluded.',
                report_code_sha256=sha(Path(__file__)))
     (OUT/'PUBLICATION_AUDIT.json').write_text(json.dumps(audit,indent=2,sort_keys=True)+'\n')
     print('FINAL_REPORT_VERIFIED',len(receipts),len(pred),checkpoint_count,flush=True)

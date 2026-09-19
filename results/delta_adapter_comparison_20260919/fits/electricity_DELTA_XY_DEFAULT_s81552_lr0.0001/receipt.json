@@ -1,0 +1,56 @@
+{
+  "arm": "DELTA_XY_DEFAULT",
+  "buffers_unchanged": true,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/delta_adapter_comparison_20260919/fits/electricity_DELTA_XY_DEFAULT_s81552_lr0.0001/checkpoint_0.pt",
+      "objective": 0.22630097655360065,
+      "sha256": "b79b04ad70409117749216b22a298a0d6ad486cba8f99a3626207aef873431c1",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/delta_adapter_comparison_20260919/fits/electricity_DELTA_XY_DEFAULT_s81552_lr0.0001/checkpoint_256.pt",
+      "objective": 0.2209071147659603,
+      "sha256": "d108d0b5abdf9d8efae5a4826a930d98620d3b130cdc387755086cc9255b3192",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/delta_adapter_comparison_20260919/fits/electricity_DELTA_XY_DEFAULT_s81552_lr0.0001/checkpoint_512.pt",
+      "objective": 0.2207224461764478,
+      "sha256": "18c7be6c202e8a43a64a95fd15cd40c531ac916fac8166b0b72932db146688f2",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/delta_adapter_comparison_20260919/fits/electricity_DELTA_XY_DEFAULT_s81552_lr0.0001/checkpoint_768.pt",
+      "objective": 0.22094144673896396,
+      "sha256": "f27133f365ee51d3ca0463fb3c66882a2908c173cb147b765b6c96c723ade26e",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/delta_adapter_comparison_20260919/fits/electricity_DELTA_XY_DEFAULT_s81552_lr0.0001/checkpoint_1024.pt",
+      "objective": 0.21891246197143435,
+      "sha256": "3a2ddd016332040167a01ea545041ae539024a88ac247e191f0ec8c49d444c79",
+      "step": 1024
+    }
+  ],
+  "fit": "electricity_DELTA_XY_DEFAULT_s81552_lr0.0001",
+  "frozen_sha256": "7d582c74ff7a26c0584495f4cf1ec42b6edfbba5a75b80c016ed232521ee84db",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 136.9992886800319,
+  "lr": 0.0001,
+  "optimizer_seconds": 35.95148001710186,
+  "peak_allocated": 397779456,
+  "peak_reserved": 417333248,
+  "seed": 81552,
+  "selected": {
+    "checkpoint": ".cache/delta_adapter_comparison_20260919/fits/electricity_DELTA_XY_DEFAULT_s81552_lr0.0001/checkpoint_1024.pt",
+    "objective": 0.21891246197143435,
+    "sha256": "3a2ddd016332040167a01ea545041ae539024a88ac247e191f0ec8c49d444c79",
+    "step": 1024
+  },
+  "source": "electricity",
+  "status": "COMPLETE",
+  "trainable_parameters": 1116736,
+  "updates": 1024,
+  "validation_seconds": 5.133916268881876
+}

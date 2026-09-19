@@ -1,0 +1,56 @@
+{
+  "arm": "DELTA_XY_BUDGET",
+  "buffers_unchanged": true,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/delta_adapter_comparison_20260919/fits/ettm1_DELTA_XY_BUDGET_s81551_lr0.0001/checkpoint_0.pt",
+      "objective": 0.4119396010585071,
+      "sha256": "a735b3762ad30e3a94d6641cca5f279f28df36524be62b5ec21b7cd48488047d",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/delta_adapter_comparison_20260919/fits/ettm1_DELTA_XY_BUDGET_s81551_lr0.0001/checkpoint_256.pt",
+      "objective": 0.4105996972670368,
+      "sha256": "181c1e778a7403c033825796e8455356820affface1644f9c3b075deb16762cd",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/delta_adapter_comparison_20260919/fits/ettm1_DELTA_XY_BUDGET_s81551_lr0.0001/checkpoint_512.pt",
+      "objective": 0.4094612392171178,
+      "sha256": "cd323de53fbbe4bb29710e3d4a03d5f4dce32afbd04b3ad89c558063604eb445",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/delta_adapter_comparison_20260919/fits/ettm1_DELTA_XY_BUDGET_s81551_lr0.0001/checkpoint_768.pt",
+      "objective": 0.40882768257514607,
+      "sha256": "7a110306a0d7d0b0f8cd89c28a59c000628c65712ae223df82c8882bd478e282",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/delta_adapter_comparison_20260919/fits/ettm1_DELTA_XY_BUDGET_s81551_lr0.0001/checkpoint_1024.pt",
+      "objective": 0.4091385764591509,
+      "sha256": "4033fd029c9815df1194c24fa9914697fa0028c64be1607c95b17458df917ae8",
+      "step": 1024
+    }
+  ],
+  "fit": "ettm1_DELTA_XY_BUDGET_s81551_lr0.0001",
+  "frozen_sha256": "23472a43c126f0221b81091d6f5738203ebe191151e590b2660a3cd459ad5d0c",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 136.90698937798152,
+  "lr": 0.0001,
+  "optimizer_seconds": 35.84749942616327,
+  "peak_allocated": 384235008,
+  "peak_reserved": 400556032,
+  "seed": 81551,
+  "selected": {
+    "checkpoint": ".cache/delta_adapter_comparison_20260919/fits/ettm1_DELTA_XY_BUDGET_s81551_lr0.0001/checkpoint_768.pt",
+    "objective": 0.40882768257514607,
+    "sha256": "7a110306a0d7d0b0f8cd89c28a59c000628c65712ae223df82c8882bd478e282",
+    "step": 768
+  },
+  "source": "ettm1",
+  "status": "COMPLETE",
+  "trainable_parameters": 8766,
+  "updates": 1024,
+  "validation_seconds": 5.224487479019444
+}
