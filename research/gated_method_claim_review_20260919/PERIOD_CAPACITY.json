@@ -1,0 +1,53 @@
+{
+  "ND_values_inspected": false,
+  "can_supply_128_distinct_days": false,
+  "can_supply_64_distinct_days": false,
+  "candidate_start": "2026-07-01 00:00:00+00:00",
+  "complete_hour_rows": 5735,
+  "context_and_target_new": {
+    "candidate_hours": 816,
+    "distinct_UTC_origin_days": 35,
+    "first_origin": "2026-07-22 08:00:00+00:00",
+    "last_inclusive_target": "2026-08-27 22:00:00+00:00",
+    "last_origin": "2026-08-25 07:00:00+00:00"
+  },
+  "first_settlement_day": "2026-01-01",
+  "last_settlement_day": "2026-08-27",
+  "new_model_inferences": 0,
+  "optimizer_updates": 0,
+  "origin_selection_performed": false,
+  "previous_evaluation_last_inclusive_target": "2026-06-30 13:00:00+00:00",
+  "prior_records_search": [
+    "experiments/c3_identifiability_temporal_20260918/prepare.py",
+    "results/c3_identifiability_temporal_20260918/EXPOSURE_AUDIT.json",
+    "results/c3_identifiability_temporal_20260918/DATA_MANIFEST.json",
+    "results/c3_identifiability_temporal_20260918/PROTOCOL.md",
+    "results/c3_identifiability_temporal_20260918/PLAN.json",
+    "results/c3_identifiability_temporal_20260918/SEAL.json"
+  ],
+  "raw_sha256": "3b36bdfca0c23b3b949e19a7606c3a414bc0d87f313be5e1f36fc327fc6fecd1",
+  "read_columns": [
+    "SETTLEMENT_DATE",
+    "SETTLEMENT_PERIOD"
+  ],
+  "scope": "Metadata upper bound only: target validity/ND missingness and global or unlogged prior exposure not assessed; no independent-source claim.",
+  "scored_origins": 0,
+  "settlement_day_lengths": {
+    "46": 1,
+    "48": 238
+  },
+  "source_hashes": {
+    ".cache/c3_identifiability_temporal_20260918/data/neso_2026_h1/E_DISCOVERY_inputs.npz": "332049354e1528771ba43fd67c78be975385973b4ac39ae54a59b8fc6e80af7b",
+    "research/gated_method_claim_review_20260919/audit_period_capacity.py": "166c3bb5943267caa1b1238e3f7d9a12e1091df2bc8992d61fcbf8bfb8fadf7c",
+    "results/c3_identifiability_temporal_20260918/DATA_MANIFEST.json": "e154efc0fdac1ae5c0194593616d72f16a6cbaaecf175e7132ea4250810854bf",
+    "results/c3_identifiability_temporal_20260918/DOWNLOAD_RECEIPT.json": "d65ea2179dda382eab001c16f30963d74cab494db0fc62807059b8ef1b5b8e08"
+  },
+  "status": "METADATA_CAPACITY_VERIFIED",
+  "target_only_new": {
+    "candidate_hours": 1328,
+    "distinct_UTC_origin_days": 56,
+    "first_origin": "2026-07-01 00:00:00+00:00",
+    "last_inclusive_target": "2026-08-27 22:00:00+00:00",
+    "last_origin": "2026-08-25 07:00:00+00:00"
+  }
+}
