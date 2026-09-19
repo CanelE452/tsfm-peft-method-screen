@@ -218,3 +218,7 @@ Time-PEFT의 채널별 adapter가 다른 채널 값을 직접 섞지 않음을 �
 ## MAG 방법론 한국어 통합 원고 v1 (2026-09-19)
 
 완료된 방법 수식·직접 대조·부정 결과·관련 연구·비용·자료 노출을8쪽 원고로 통합했다. [PDF](../papers/persistence_adaptation/manuscript_mag_v1_20260919/MANUSCRIPT_KO.pdf) · [DOCX](../papers/persistence_adaptation/manuscript_mag_v1_20260919/MANUSCRIPT_KO.docx) · [원고 안내](../papers/persistence_adaptation/manuscript_mag_v1_20260919/README.md) · [검산](../papers/persistence_adaptation/manuscript_mag_v1_20260919/AUDIT.json). 원점수1920행·주효과/seed별 이득·37개 근거 파일·그림3종을 확인했다. 새 학습/추론/구간추정0회. PETSA 추가8회는 승인 대기 상태로 유지하며 성능을 포함하지 않았다. **내부 방법론 초안이며 신규성 확보·투고 준비·전체 목표 완료가 아니다.** 기존 분석 원고는 보존했다.
+
+## PETSA 공개 보정 부품 비교 (2026-09-19)
+
+상태: COMPLETE_VERIFIED. 기존 MAG 고정, 최대8경로/8192+4updates, 기존 개발 E 재사용. [보고서](../results/petsa_cell_comparison_20260919/REPORT.md) · [결정](../results/petsa_cell_comparison_20260919/FINAL_DECISION.md) · [고정 계약](../experiments/petsa_cell_comparison_20260919/PROTOCOL.md). 독립source/논문PASS로 주장하지 않음.

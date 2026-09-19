@@ -1,0 +1,56 @@
+{
+  "arm": "PETSA_XY_OFFLINE",
+  "buffers_unchanged": true,
+  "checkpoints": [
+    {
+      "checkpoint": ".cache/petsa_cell_comparison_20260919/fits/electricity_PETSA_XY_OFFLINE_s81552_lr0.0001/checkpoint_0.pt",
+      "objective": 0.21559902487463017,
+      "sha256": "fd035def2a6d2b035391628f5a7e3289f730f9189b09951005cf5c963a0ec038",
+      "step": 0
+    },
+    {
+      "checkpoint": ".cache/petsa_cell_comparison_20260919/fits/electricity_PETSA_XY_OFFLINE_s81552_lr0.0001/checkpoint_256.pt",
+      "objective": 0.21523606962342026,
+      "sha256": "31f684f852aca3a1efa4fd7ba1bdb04449831c19db5383bb4e00dc66b150f519",
+      "step": 256
+    },
+    {
+      "checkpoint": ".cache/petsa_cell_comparison_20260919/fits/electricity_PETSA_XY_OFFLINE_s81552_lr0.0001/checkpoint_512.pt",
+      "objective": 0.2151681965283958,
+      "sha256": "ea367c636a5a9f0b02dbed0d1e040828b2cf7cccba338317995a39b5ea125c0a",
+      "step": 512
+    },
+    {
+      "checkpoint": ".cache/petsa_cell_comparison_20260919/fits/electricity_PETSA_XY_OFFLINE_s81552_lr0.0001/checkpoint_768.pt",
+      "objective": 0.21254656083914644,
+      "sha256": "889f98e5a41256232a47b30e10d5b6fcd303eb8f4410a2fbfee12f2be239720e",
+      "step": 768
+    },
+    {
+      "checkpoint": ".cache/petsa_cell_comparison_20260919/fits/electricity_PETSA_XY_OFFLINE_s81552_lr0.0001/checkpoint_1024.pt",
+      "objective": 0.21286166174860005,
+      "sha256": "04202b29ec0be126769c9f96a0934fc8cd553b4961e2512e0d493ce4a6ca165d",
+      "step": 1024
+    }
+  ],
+  "fit": "electricity_PETSA_XY_OFFLINE_s81552_lr0.0001",
+  "frozen_sha256": "7d582c74ff7a26c0584495f4cf1ec42b6edfbba5a75b80c016ed232521ee84db",
+  "frozen_unchanged": true,
+  "invocation_wall_seconds": 142.47162851900794,
+  "lr": 0.0001,
+  "optimizer_seconds": 39.80098511534743,
+  "peak_allocated": 385394176,
+  "peak_reserved": 400556032,
+  "seed": 81552,
+  "selected": {
+    "checkpoint": ".cache/petsa_cell_comparison_20260919/fits/electricity_PETSA_XY_OFFLINE_s81552_lr0.0001/checkpoint_768.pt",
+    "objective": 0.21254656083914644,
+    "sha256": "889f98e5a41256232a47b30e10d5b6fcd303eb8f4410a2fbfee12f2be239720e",
+    "step": 768
+  },
+  "source": "electricity",
+  "status": "COMPLETE",
+  "trainable_parameters": 19010,
+  "updates": 1024,
+  "validation_seconds": 6.069110486016143
+}
