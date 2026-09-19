@@ -202,3 +202,7 @@ PRIOR의 SIDE 대비 E_MIXED 이득은 전력 +0.1131%, 교통 −0.2384%로 제
 ## 고정 MAG와 학습형 gate 비교 (2026-09-19)
 
 상태: COMPLETE_VERIFIED. 기존 MAG 고정, 최대16경로/16384+8updates, 새 NESO55일 시간 전이. [보고서](../results/learned_gate_comparison_20260919/REPORT.md) · [결정](../results/learned_gate_comparison_20260919/FINAL_DECISION.md) · [고정 계약](../experiments/learned_gate_comparison_20260919/PROTOCOL.md). 독립source/논문PASS로 주장하지 않음.
+
+## 학습형 gate 검증의 논문 근거 반영 (2026-09-19)
+
+16fits/16384+8updates·192views·독립검산완료. 주family4모두양성이고평균보호한도충족: LIMITED_COMPONENT_EVIDENCE. [방법론 주장표](../papers/persistence_adaptation/magnitude_method_20260919/PAPER_CLAIM_EVIDENCE_KO.md) · [구간 및seed 그림](../papers/persistence_adaptation/magnitude_method_20260919/primary_effects.pdf). 새NESO시간전이이며독립source아님. 평균1%기준과신뢰구간보장을구분했고정식선행전체비교/신규성은미완료. 새후속학습0.

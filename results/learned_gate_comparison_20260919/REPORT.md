@@ -62,3 +62,14 @@ family4는 두패널×두학습gate의selected SHIFT8만이다. index7일block20
 기존δ/POS_ONLY직접비교는완료보고서를참조했으며재학습하지않았다. 정식GateRA전체/Time-PEFT동일backbone공정재현,다양한독립source,실제오류·변화레이블은여전히없다. 논문기여는관측입력의고정진폭gate가동결B0 위의잔차적응을어떤조건에서개선/제한하는지에국한해야한다. sigmoidgate자체신규성·범용PEFT우위·C3지속성기전성공을주장할수없다.
 
 새후속학습은없다. 모델weights/raw/predictionarrays는localcache이며GitHub에는코드·해시·점수·검산·그림을게시한다. GitHub만으로완전수치재생가능하다고하지않는다.
+
+## 최종 해석 검토 추가
+
+원래 수치·사전기준·학습 설정은 변경하지 않았다. [논문 주장·근거표](../../papers/persistence_adaptation/magnitude_method_20260919/PAPER_CLAIM_EVIDENCE_KO.md)와 [주 비교의 구간·seed 그림](../../papers/persistence_adaptation/magnitude_method_20260919/primary_effects.pdf)에 전체 목표의 확인·미완료 항목을 분리했다.
+
+- 사전1% 보호 한도는 평균 점수에 적용된 기준이다. 새NESO에서B0대비REFERENCE/FAULT 일반95%구간은 각각약−1.036%/−1.056%까지 포함하므로, 신뢰구간 기반 손해≤1% 보장을 입증한 것으로 쓰지 않는다.
+- 고정1024 checkpoint에서도네주패널/학습gate대조의MAG SHIFT8이득은양수다. checkpoint선택하나로이득을설명하기는어렵지만, 진폭feature·초기gate·학습궤적의인과기여가분리된것은아니다.
+- MAG는전역robust통계,학습gate는pre-attention embedding을읽는다. 같은관측권한과gate입력표현동일성은구분한다. [공정성 감사](../../research/learned_gate_comparability_20260919/COMPARABILITY_KO.md).
+- 새optimizer_seconds는intent기록저장을포함하고기존MAG의기록은제외한다. 원래값은보존하되그비율을순수계산속도향상으로해석하지않는다. [자원 정의](../../research/learned_gate_comparability_20260919/RESOURCE_SCOPE_KO.md).
+
+네주비교의양성근거를보존하되방법론논문전체의완성·범용우위·신규성완료로판정하지않는다. 이번승인단위의학습·평가·검산은완료했고새후속학습은없다.

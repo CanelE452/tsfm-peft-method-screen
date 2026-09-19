@@ -1,6 +1,6 @@
 # 방법 절 초안: 관측 진폭에 따른 추가 잔차 적응의 제한
 
-상태: 고정된 실제 구현의 방법 기술. 새 방법 이름을 만들거나 기존 MAG를 변경하지 않았다. 성능·신규성·논문 채택 가능성은 이 절의 작성으로 입증되지 않는다. 진행 중인 `learned_gate_comparison_20260919`의 전체 평가·검산 이후 주장 범위를 확정해야 한다.
+상태: 고정된 실제 구현의 방법 기술. 새 방법 이름을 만들거나 기존 MAG를 변경하지 않았다. 성능·신규성·논문 채택 가능성은 이 절의 작성으로 입증되지 않는다. `learned_gate_comparison_20260919`의 전체 평가·독립 검산은 완료됐다. 고정한 제한적 구성요소 기준은 충족했으며, 구체적인 이득·손해·미완료 논문 요건은 [주장과 근거](PAPER_CLAIM_EVIDENCE_KO.md)에 분리했다.
 
 ![고정 MAG 구현의 정보 흐름](method.png)
 
@@ -53,6 +53,6 @@ PLAIN은 같은 잔차에 $g=1$을 사용한다. C3는 기존 지속성 규칙�
 
 모든 학습률·체크포인트를 먼저 고정하고 전체 예측을 저장한 뒤 평가 정답을 채점한다. 기본·오류·SHIFT4·SHIFT8·SHIFT_POINT 및 모든9개 형태, 두 seed, selected/fixed1024를 보존한다. MAG의 일반 잔차 대비 추가 가치, 학습형 gate 대조, C3 지속성 규칙의 추가 가치, 시간 전이, 비용을 따로 판단한다. [자원 측정 범위](../../../research/learned_gate_comparability_20260919/RESOURCE_SCOPE_KO.md)의 timer 차이 때문에 과거/현재 시간비를 순수 계산 속도 향상으로 주장하지 않는다.
 
-이 절에는 평가 결과가 아직 없다. 단순 gate 자체의 신규성, 실제 센서 오류 해결, Time-PEFT/GateRA 전체에 대한 우위, 범용 PEFT 우위는 이 구현 기술로 증명되지 않는다. 최종 주장과 제목은 완료된 비교의 실제 효과에 맞춰야 하며, 불리한 결과를 빼거나 기준을 고쳐 방법론 성공으로 만들지 않는다.
+이 방법 절의 평가 결과는 [완료된 주장·근거표](PAPER_CLAIM_EVIDENCE_KO.md)와 [주 비교 그림](primary_effects.pdf)에 연결한다. 단순 gate 자체의 신규성, 실제 센서 오류 해결, Time-PEFT/GateRA 전체에 대한 우위, 범용 PEFT 우위는 이 구현 기술로 증명되지 않는다. 최종 주장과 제목은 완료된 비교의 실제 효과에 맞춰야 하며, 불리한 결과를 빼거나 기준을 고쳐 방법론 성공으로 만들지 않는다.
 
 구현 근거: [MAG gate와 실제 forward](../../../experiments/c3_weakness_controls_20260918/model.py), [잔차 모듈](../../../experiments/additive_persistence_validation_v1_20260917/model.py), [robust scale 및 손실](../../../experiments/outlier_signal_peft_v1_20260917/model.py), [학습형 gate 대조](../../../experiments/learned_gate_comparison_20260919/model.py).

@@ -17,7 +17,7 @@ def arrow(points,dashed=False,color=ink):
 def node(x,y,label):
  ax.add_patch(Circle((x,y),.16,edgecolor=ink,facecolor='white',lw=1.1));ax.text(x,y,label,ha='center',va='center',fontsize=14,color=ink)
 ax.text(.15,6.66,'MAG_ONLY: unchanged observations, gated patch residuals',fontsize=17,weight='bold',color=ink)
-ax.text(.15,6.25,'Existing implementation under evaluation; architecture does not imply empirical superiority or novelty.',fontsize=10,color='#586779')
+ax.text(.15,6.25,'Fixed implementation; empirical evidence and novelty limitations are reported separately.',fontsize=10,color='#586779')
 box(1,5.55,1.35,.85,'Observed x\n512 values')
 box(3.5,5.55,2.55,.85,'B0 normalization\n+ patch embedding',blue)
 node(5.1,5.55,'h');node(9.6,5.55,'+')
