@@ -25,3 +25,5 @@
 결과 확인 전에는 '성능을 개선한다', '지속 변화 정보를 보호하기 때문에 이긴다', '기존 PEFT보다 우수하다', '최초의 반응 보존 방법이다'라고 쓰지 않는다. 효과가 확인되면 데이터·조건·대조군·비용 범위를 명시한 정량 문장으로 대체한다.
 
 [고정 프로토콜](../../experiments/temporal_response_peft_20260919/PROTOCOL.md), [실모델 검사](../../results/temporal_response_peft_20260919/PREFLIGHT_REPORT.md), [방법 그림 PDF](method.pdf), [SVG](method.svg). 그림은 성능 결과가 없는 구조 설명이며 `draw_method.py`로 다시 만든다.
+
+추가 확인: [선행 수식과의 겹침](NOVELTY_AUDIT_KO.md). `summarize_results.py`는 전체 예측 저장·검산 완료 후에만 기존 점수로 표·그림을 만들며, 학습·모델 추론·선택을 추가하지 않는다. 아직 실행 전이므로 결과 그림 완성으로 세지 않는다.
