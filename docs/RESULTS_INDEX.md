@@ -234,3 +234,7 @@ PETSA의 승인된8fits/8192 main+4 smoke 및224views·40checkpoint·555,492원�
 기존24개 selected 모델에 같은 TRAIN 입력·FP32·batch1/32·6개 순서 회전을 적용했다. 9,216 timed +864 warmup +48 전후 출력 검사 =10,128 forward, **optimizer/backward/E평가0회**. 24개 state·입력 불변 및 전후 예측 동일성,288blocks·48case·240paired ratios·133개hash를 검산했다. MAG/B0의 같은 round 시간비 중앙값은 batch1 1.059, batch32 1.064이며 MAG의 추론 속도 우위는 확인되지 않았다. 추가 파라미터 감소와 실제 latency를 구분한다. [전체 보고서](../results/mag_inference_cost_20260919/REPORT.md) · [독립 검산](../results/mag_inference_cost_20260919/AUDIT.json) · [원고 보충](../papers/persistence_adaptation/inference_cost_20260919/ADDENDUM_KO.md) · [그림](../results/mag_inference_cost_20260919/inference_cost.pdf). 과거 학습 timer의 비교 한계·전체 방법론 목표는 별개다.
 
 **현재 사용자 지시: 새 학습 금지.** [지시 기록](USER_NO_TRAINING_20260919.md)을 유지하며 추가 fit/seed/LR/optimizer 작업을 시작하지 않는다. 추론 측정 프로세스 종료와 GPU 해제를 확인했다.
+
+## 고정 MAG 독립 모듈·CPU 복원 (2026-09-19)
+
+기존 MAG 수식을 `src/tsfm_peft_screen/mag`에 분리했다. core에 실험 runner 의존성이 없고, local snapshot + B0 LoRA/MAG bundle에서 복원한다. 기존4개 selected checkpoint의 CPU 예측·adapter-off·bundle 복원이 정확히 일치했다. 저장소 밖 CLI 동일성 및 CPU 단위검사10개 통과. 총CPU forward21회, **optimizer/backward/GPU초기화/E채점0회**. [사용법](../src/tsfm_peft_screen/mag/README.md) · [검증 보고](../results/mag_portable_20260919/REPORT.md) · [검산](../results/mag_portable_20260919/AUDIT.json) · [공개 파일 감사](../results/mag_portable_20260919/PUBLICATION_AUDIT.json). 새 후보·가중치 선택·성능 기준 변경 없음. 가중치 bundle과 raw 자료는 로컬 캐시에 있어 공개 코드만으로 전체 수치 재생을 주장하지 않는다. 학습 금지 지시를 유지하며 충분한 신규성·독립 source 검증은 여전히 미완료다.
