@@ -1,0 +1,509 @@
+# CLI 실행 지시문 — LoRA 선행 필요성 직접 검증
+# experiment: mag_standalone_ablation_v1_20260919
+
+현재 저장소: CanelE452/tsfm-peft-method-screen
+
+이번 작업의 질문은 하나다.
+
+> 현재 MAG가 정말 "LoRA로 먼저 적응된 B0 위에서만 유용한 second-stage PEFT"인지,
+> 아니면 pretrained Chronos-Bolt-small에 LoRA 없이 MAG adapter만 바로 학습해도 유용한 standalone PEFT인지 직접 비교한다.
+
+중요:
+- 기존 `MAG_ONLY`는 "LoRA가 없는 MAG"가 아니다.
+- 현재 `MAG_ONLY`도 LoRA가 학습된 B0를 기반으로 한다.
+- 이번 실험에서는 혼동을 막기 위해 새 이름 `F0_PLAIN`, `F0_MAG`를 사용한다.
+- 기존 B0/PLAIN/MAG checkpoint는 절대 재학습하지 않고 hash 검증 후 재사용한다.
+- joint LoRA+MAG 동시학습은 이번 범위가 아니다.
+- 결과를 보고 새 LR, 새 seed, 새 rank, 새 gate, 새 데이터, 새 threshold를 추가하지 않는다.
+
+## 0. 사용자 승인 범위
+
+사용자가 2026-09-19 현재 이 실험을 실행할 수 있도록 명시적으로 요청했다.
+저장소의 이전 `USER_NO_TRAINING_20260919.md` 학습 금지 지시는
+**이번 `mag_standalone_ablation_v1_20260919` 실험에 한해서만 해제**한다.
+
+허용:
+- 아래에 정의한 최대 16개 main fits
+- smoke 8 optimizer updates
+- 필요한 새 평가 prediction
+- CPU/GPU 검산
+- 결과 문서 작성 및 scoped commit/push
+
+금지:
+- 그 외 기존 실험 재개
+- joint LoRA+MAG
+- 새로운 모델 후보
+- 새 seed/LR/rank/threshold 탐색
+- 결과에 따른 자동 후속학습
+
+이번 실험이 종료되면 자동 successor를 만들지 말고 다시 학습 정지 상태로 종료한다.
+
+---
+
+# 1. 먼저 현재 저장소를 감사한다
+
+실행 전에 HEAD를 기록하고 다음을 실제 파일 기준으로 읽어라.
+
+필수 확인:
+- `papers/persistence_adaptation/magnitude_method_20260919/METHOD_SECTION_KO.md`
+- `experiments/c3_weakness_controls_20260918/common.py`
+- `experiments/c3_weakness_controls_20260918/model.py`
+- `experiments/additive_persistence_validation_v1_20260917/model.py`
+- `experiments/outlier_signal_peft_v1_20260917/common.py`
+- 현재 B0/PLAIN/MAG의 MODEL_SELECTION/LR_SELECTION/checkpoint manifest
+- 현재 Electricity/ETTm1 TRAIN/V/E arrays 및 hash
+- `docs/RESULTS_INDEX.md`
+
+감사 결과를
+`results/mag_standalone_ablation_v1_20260919/PREFLIGHT_KO.md`
+와
+`BASELINE_MANIFEST.json`
+에 남긴다.
+
+반드시 확인할 사실:
+1. 기존 B0는 Chronos-Bolt-small + q/v rank8 LoRA이고 LoRA trainable parameter는 294,912개였음.
+2. 기존 PLAIN/MAG 추가 adapter는 512→8→512, 8,712개 parameter임.
+3. 기존 MAG는 raw observation의 median/MAD 기반 extreme ratio gate를 사용함.
+4. 기존 `MAG_ONLY` 이름이 "no-LoRA"를 뜻하지 않음을 문서에 명시.
+5. 기존 B0/PLAIN/MAG 결과와 checkpoint를 수정하지 않음.
+
+---
+
+# 2. 새 비교군
+
+새로 학습하는 것은 딱 두 군이다.
+
+## A. F0_PLAIN
+
+출발점:
+- pinned `amazon/chronos-bolt-small` pretrained snapshot
+- LoRA를 attach하지 않는다.
+- backbone/head/normalization/patch embedding/encoder/decoder 전체 freeze.
+
+추가 모듈:
+- 기존 PLAIN과 정확히 같은 ResidualAdapter
+- 512 → 8 → 512
+- 8,712 trainable parameters
+- up weight/bias = 0 initialization
+- down initialization은 기존 PLAIN/MAG와 동일한 seed 규칙 사용
+- gate = 1
+
+수식:
+`h'_j = h_j + a_theta(h_j)`
+
+## B. F0_MAG
+
+출발점:
+- F0_PLAIN과 동일한 pretrained Chronos-Bolt-small
+- LoRA 없음
+- 전체 foundation weights freeze
+
+추가 모듈:
+- F0_PLAIN과 동일한 ResidualAdapter
+- 같은 initialization
+- 같은 8,712 trainable parameters
+- 기존 MAG gate 수식을 그대로 재사용
+- threshold, robust-scale floor, patch size를 절대 변경하지 않는다.
+
+수식:
+`h'_j = h_j + g_j(x) * a_theta(h_j)`
+
+MAG gate:
+- 현재 구현 그대로 median/MAD 기반 robust scale
+- patch size 16
+- 32 patches
+- `abs((x-m)/r) > 3` 비율
+- `g_j = 1 - extreme_fraction_j`
+
+새 gate나 learned threshold를 만들지 않는다.
+
+---
+
+# 3. 반드시 재사용할 기존 비교군
+
+새 학습 없이 기존 checkpoint/prediction을 hash 검증 후 재사용한다.
+
+논문 표에서는 명칭을 다음처럼 통일한다.
+
+- `F0` = pretrained Chronos-Bolt-small, no LoRA, no adapter
+- `F0_PLAIN` = F0 + PLAIN adapter  ← 신규
+- `F0_MAG` = F0 + MAG adapter      ← 신규
+- `B0` = F0 + 기존 LoRA
+- `B0_PLAIN` = 기존 `PLAIN`
+- `B0_MAG` = 기존 `MAG_ONLY`
+
+필요하면 C3/TOKEN_GATE/PETSA 결과는 보조 문맥으로만 링크하고,
+이번 핵심 질문의 primary family에는 넣지 않는다.
+
+---
+
+# 4. 구현 시 가장 중요한 검사
+
+새 F0 기반 build 경로에서 절대로 `attach_lora()`를 호출하지 않는다.
+
+실제 모델을 만든 뒤 아래를 assert한다.
+
+### F0
+- trainable parameter count = 0
+- LoRA parameter/module name = 0개
+- 기존 pinned pretrained snapshot hash 일치
+
+### F0_PLAIN / F0_MAG
+- trainable parameter count = 정확히 8,712
+- trainable parameter names는 adapter에만 존재
+- LoRA parameter/module name = 0개
+- foundation model parameter/buffer 전부 frozen
+- source/seed가 같을 때 PLAIN과 MAG의 adapter initial state는 bitwise identical
+- 학습 시작 step0에서:
+  - F0_PLAIN prediction == F0 prediction
+  - F0_MAG prediction == F0 prediction
+- adapter off prediction == F0 prediction
+- raw observed input은 변경되지 않음
+- forward에는 미래 y, clean x0, generator state, true delta, fault mask를 전달하지 않음
+
+`NO_LORA_AUDIT.json`을 별도로 만들고
+각 source × seed × arm의 trainable names/count와 LoRA absence를 저장한다.
+
+---
+
+# 5. 데이터 계약
+
+새 데이터를 생성하지 않는다.
+
+기존 MAG/PLAIN이 사용한 것과 정확히 같은:
+- Electricity TRAIN/V
+- ETTm1 TRAIN/V
+- matched augmentation
+- labels
+- sigma
+- origin
+- batch order 계약
+을 hash 검증 후 재사용한다.
+
+TRAIN/V/E split을 바꾸지 않는다.
+
+---
+
+# 6. 학습 계약
+
+sources:
+- electricity
+- ettm1
+
+new arms:
+- F0_PLAIN
+- F0_MAG
+
+selection seed:
+- 81550
+
+LR grid:
+- 1e-4
+- 3e-4
+
+repeat seeds:
+- 81551
+- 81552
+
+각 fit:
+- 32 epochs
+- 32 optimizer updates/epoch
+- 총 1,024 updates
+- effective batch 32
+- FP32
+- TF32 off
+- dropout 0
+- AdamW(beta=.9,.999, eps=1e-8, weight_decay=0)
+- grad clip 1
+- scheduler 없음
+- 기존 normalized twice-pinball loss 그대로
+
+checkpoint:
+- 0
+- 256
+- 512
+- 768
+- 1024
+
+V selection objective:
+기존 MAG 계약과 정확히 동일하게
+REFERENCE / POINT8 / BURST8 / SHIFT4 / SHIFT8
+equal-weight nMAE
+
+tie:
+1. 낮은 validation objective
+2. 작은 LR
+3. 이른 checkpoint
+
+step0도 정식 선택 후보다.
+step0 선택 시 "추가 PEFT가 개선하지 못해 F0로 fallback"이라고 기록하고
+새 방법 성공으로 세지 않는다.
+
+### fit 수
+
+각 source × 각 arm:
+- selection seed: 2 LR = 2 fits
+- repeats: 선택된 LR × seed81551/81552 = 2 fits
+→ source-arm당 4 fits
+
+2 sources × 2 arms × 4 = **16 main fits**
+
+main optimizer update cap:
+16 × 1,024 = **16,384**
+
+smoke:
+2 sources × 2 arms × 2 updates = **8**
+
+이 상한을 넘지 않는다.
+
+---
+
+# 7. smoke / resume / journal
+
+기존 runner의 안전 규칙을 재사용한다.
+
+smoke에서 실제로 확인:
+- adapter gradient finite
+- adapter parameter changes
+- frozen F0 state hash 불변
+- buffers 불변
+- restore exact
+- batch permutation consistency
+- F0_MAG gate finite, [0,1]
+- MAG gate가 model input을 수정하지 않음
+- target y 교체만으로 optimizer0 prediction이 바뀌지 않음
+
+main:
+- update intent + journal
+- epoch boundary exact resume
+- ambiguous optimizer update 자동 재실행 금지
+- fit마다 정확히 1..1024 unique steps
+- resource block / implementation error / performance failure를 구분
+
+---
+
+# 8. 평가 범위
+
+새 모델 선택을 모두 봉인한 후 prediction을 먼저 저장하고,
+그 다음 정답을 채점한다.
+
+## 8.1 source-matched
+- electricity
+- ettm1
+
+## 8.2 transfer
+Electricity-trained F0_PLAIN/F0_MAG를 기존과 동일하게:
+- `electricity_transfer` 16 series
+- 현재 원고에서 쓰는 고정 NESO `neso_2026_jul_aug`
+에 평가한다.
+
+NESO는 같은 provider의 기존 노출 자료/기간이라는 현재 caveat를 그대로 유지한다.
+독립 source test라고 새로 부르지 않는다.
+
+## 8.3 조건
+
+기존 표와 동일하게 최소:
+- REFERENCE
+- FAULT
+- SHIFT4
+- SHIFT8
+- SHIFT_POINT
+
+가능하면 기존 9 shape도 모두 평가하고 불리한 결과를 제거하지 않는다.
+
+metrics:
+- nMAE primary
+- raw MAE
+- channel-mean nRMSE
+- normalized twice-pinball
+- quantile crossing
+
+selected와 fixed1024를 둘 다 저장한다.
+
+---
+
+# 9. 이번 실험의 핵심 질문과 primary contrasts
+
+## Q1. LoRA 없이 MAG 자체가 PEFT로 유용한가?
+
+직접 비교:
+- `F0_MAG vs F0`
+- `F0_MAG vs F0_PLAIN`
+
+가장 중요한 것은 `F0_MAG vs F0_PLAIN`.
+이것이 양성이어야 "LoRA 없이도 magnitude rule의 추가 가치가 있다"고 말할 수 있다.
+
+## Q2. 일반 adapter 자체는 LoRA 없이도 유용한가?
+
+- `F0_PLAIN vs F0`
+
+## Q3. MAG의 효과가 LoRA-pre-adapted base에 의존하는가?
+
+같은 panel/condition에서 다음 improvement를 계산한다.
+
+`plain_gain_F0 = nMAE(F0) - nMAE(F0_PLAIN)`
+`plain_gain_B0 = nMAE(B0) - nMAE(B0_PLAIN)`
+
+`mag_gain_F0 = nMAE(F0) - nMAE(F0_MAG)`
+`mag_gain_B0 = nMAE(B0) - nMAE(B0_MAG)`
+
+그리고:
+
+`second_stage_interaction_mag = mag_gain_B0 - mag_gain_F0`
+
+양수:
+- MAG의 절대 오차 감소가 LoRA-pre-adapted base에서 더 큼.
+
+음수:
+- standalone F0에서 MAG의 절대 오차 감소가 더 큼.
+
+또 magnitude rule 자체의 추가효과:
+`mag_specific_F0 = nMAE(F0_PLAIN) - nMAE(F0_MAG)`
+`mag_specific_B0 = nMAE(B0_PLAIN) - nMAE(B0_MAG)`
+
+`mag_rule_interaction = mag_specific_B0 - mag_specific_F0`
+
+단,
+이 interaction을 완전한 인과효과나 모집단 효과라고 부르지 않는다.
+기존 B0는 과거 LoRA 학습 비용/파라미터를 이미 사용했기 때문이다.
+
+---
+
+# 10. 결과 해석 규칙
+
+### Case A
+F0_MAG가 F0와 F0_PLAIN보다 반복적으로 좋음:
+- `STANDALONE_MAG_SUPPORTED`
+- MAG는 LoRA가 없어도 standalone PEFT로 작동하는 개발 근거가 있음.
+
+### Case B
+F0_MAG가 F0/PLAIN보다 추가 이득이 없고,
+기존 B0_MAG는 B0/B0_PLAIN보다 이득:
+- `SECOND_STAGE_DEPENDENCE_SUPPORTED`
+- 현재 설정에서는 pre-adapted B0 위 second-stage가 더 타당.
+- "수학적으로 LoRA가 필수"라고 쓰지 않는다.
+
+### Case C
+F0_MAG가 B0_MAG보다도 좋음:
+- 현재 2-stage 설계의 필요성을 재검토.
+- LoRA 선행 단계가 불필요할 가능성을 기록.
+- 자동으로 joint training이나 새 논문 방향을 시작하지 않는다.
+
+### Case D
+둘 다 좋음:
+- standalone과 compositional 두 사용법 모두 가능하다는 개발 근거.
+- 실제 선택은 정확도·추가 파라미터·누적 학습 비용을 분리해서 판단.
+
+---
+
+# 11. 통계
+
+기존 panel의 paired block bootstrap 규칙을 그대로 재사용한다.
+- 2,000 draws
+- 기존 7-day block
+- 조건/draw/channel/seed를 독립 날짜로 세지 않는다.
+- seed별 효과를 별도 공개.
+- 날짜 bootstrap CI가 optimizer-seed 모집단 불확실성을 모두 표현한다고 쓰지 않는다.
+
+주 표 핵심:
+1. F0_MAG vs F0_PLAIN
+2. F0_MAG vs F0
+3. 기존 B0_MAG vs B0_PLAIN
+4. 기존 B0_MAG vs B0
+
+모든 데이터셋을 합친 총 우승 점수는 만들지 않는다.
+
+---
+
+# 12. 누적 비용을 반드시 분리한다
+
+F0_MAG:
+- pretrained model
+- 새 adapter 8,712 params
+- 이번 1,024 update
+
+B0_MAG:
+- pretrained model
+- 과거 LoRA 294,912 params 및 과거 학습 비용
+- 추가 MAG 8,712 params 및 추가 학습 비용
+
+따라서 B0_MAG가 더 좋아도
+"LoRA가 반드시 필요하다"라고 단정하지 않는다.
+
+반대로 F0_MAG가 비슷하거나 더 좋으면
+더 단순한 standalone 경로의 중요한 근거가 된다.
+
+보고서에 반드시:
+- trainable params per stage
+- deployed adaptation params
+- cumulative adaptation stages
+- 이번 새 학습 updates
+- 기존 B0 학습은 reused historical cost
+를 따로 표시한다.
+
+이번 실험에서는 compute-matched 2,048-update F0_MAG나 joint LoRA+MAG를 자동 추가하지 않는다.
+필요하면 결과 확인 후 별도 계약으로만 한다.
+
+---
+
+# 13. 필수 산출물
+
+- `PREFLIGHT_KO.md`
+- `PROTOCOL.md`
+- `BASELINE_MANIFEST.json`
+- `NO_LORA_AUDIT.json`
+- `LR_SELECTION.json`
+- `MODEL_SELECTION.json`
+- `UPDATE_LEDGER.jsonl`
+- `PREDICTIONS_MANIFEST.json`
+- `RAW_SCORES.csv`
+- `EFFECTS.csv`
+- `SEED_EFFECTS.csv`
+- `INTERACTION_EFFECTS.csv`
+- `RESOURCES.csv`
+- `VERIFICATION.json`
+- `REPORT.md`
+- `FINAL_DECISION.md`
+
+검산:
+- 16 fits 완료
+- 16,384 unique main updates
+- smoke 8
+- selected checkpoint hash
+- F0 no-LoRA 확인
+- frozen foundation hash before/after
+- step0 F0 parity
+- adapter-off F0 parity
+- 모든 새 prediction 저장 후 scoring
+- 첫/마지막 origin의 nMAE/pinball 독립 재계산
+- 원점수→effect 재계산
+- selected/fixed1024 재현
+- 기존 B0/PLAIN/MAG hash 불변
+
+---
+
+# 14. REPORT.md 첫 부분에서 반드시 답할 것
+
+1. LoRA 없이 F0+PLAIN은 F0보다 좋아졌는가?
+2. LoRA 없이 F0+MAG는 F0보다 좋아졌는가?
+3. LoRA 없이도 MAG는 PLAIN보다 추가로 좋아졌는가?
+4. 같은 조건에서 B0+MAG의 추가 이득과 F0+MAG의 추가 이득 중 어느 쪽이 큰가?
+5. 현재 MAG는 standalone PEFT로 보는 게 더 맞는가, second-stage PEFT로 보는 게 더 맞는가, 또는 둘 다 가능한가?
+
+데이터별로 답하고 억지로 하나의 전역 결론으로 합치지 않는다.
+
+---
+
+# 15. 종료
+
+완료 후:
+- `docs/RESULTS_INDEX.md`에 한 항목만 추가
+- scoped commit/push
+- remote main hash 확인
+- GPU process 종료
+- 자동 후속 학습 0
+- joint training 0
+- 새 후보 0
+
+이번 실험의 목적은 MAG를 통과시키는 것이 아니라,
+**현재 논문 구조에서 LoRA 선행 단계가 실제로 필요한지 처음으로 직접 확인하는 것**이다.
