@@ -1,0 +1,17 @@
+{
+  "status": "SOURCE_REVIEWED_TIMER_SCOPE_DIFFERENCE",
+  "new_optimizer_updates": 0,
+  "new_model_inferences": 0,
+  "scope": "Timing boundaries inspected in source; no new benchmark or estimated correction",
+  "historical_timer": "sum(forward/backward/clip interval, optimizer.step+sync interval); BEFORE_OPTIMIZER intent save excluded",
+  "current_timer": "one interval from before zero_grad through optimizer.step+sync; BEFORE_OPTIMIZER intent save included",
+  "both_exclude": "GPU safety sample before and after the timed interval; validation separately; post-update ledger and resume I/O outside",
+  "comparison_limit": "Do not interpret historical/current optimizer_seconds ratio as isolated compute speedup",
+  "parameter_comparison": "MAG residual8712 vs learned-gate9225; common previously trained B0 LoRA294912 not replaced",
+  "hashes": {
+    "experiments/learned_gate_comparison_20260919/train.py": "5f34091f50f40efb209a8d6f24b2d0c117c00d3a2289bbad8b136005993e9dcb",
+    "experiments/c3_weakness_controls_20260918/train.py": "502d14185f480b458ecfd622b57649b998035c616cb785221f85fac337d3fda7",
+    "experiments/additive_b0_adapter_v1_20260917/train.py": "cdf90978605ad5980a52d386ed3adf4d382d35242e9fe1be65401443b4305beb",
+    "scripts/priority12/common.py": "b29b4be7a67bff8f4829db30e2b3c02f2dea2da28881f782218e8c1cb3d6ba4d"
+  }
+}
