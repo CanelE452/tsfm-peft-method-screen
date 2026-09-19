@@ -51,6 +51,7 @@ def main():
     pred=read(OUT/'PREDICTIONS.json');assert len(pred)==144
     marker=read(OUT/'ALL_PREDICTIONS_SAVED.json');assert marker['manifest_sha256']==sha(OUT/'PREDICTIONS.json')
     eseal=read(OUT/'EVALUATION_SEAL.json');assert eseal['selection_sha256']==sha(OUT/'MODEL_SELECTION.json') and eseal['at']<marker['at']
+    delta_new_inference=sum(r['arm'].startswith('DELTA') and not r['reused'] for r in pred.values())
     old=read(OUT/'REUSED_PREDICTIONS.json');assert len(old)==96
     for k,v in old.items():assert pred[k]==v
     checked=set();crossing=[]
@@ -110,7 +111,7 @@ def main():
 
 ## 실행과 구현 범위
 
-새16fits = 두 원천×두δ구성×selection seed81550의두LR(8fits) + 선택LR의81551/81552 반복(8fits). 본학습16,384updates, 별도smoke8updates. 기존 B0/PLAIN/C3/MAG의96개 view는 hash 검증 후 재사용했다. 새δ48view는 선택을 봉인한 뒤 저장했으며, 동일checkpoint alias를 제외한 고유 파일 수는 전체{len(checked)}개다. 전체 예측 저장 후 새 E정답을 채점했다. 원점별/채널별 원점수와 불리한 조건을 모두 보관한다.
+새16fits = 두 원천×두δ구성×selection seed81550의두LR(8fits) + 선택LR의81551/81552 반복(8fits). 본학습16,384updates, 별도smoke8updates. 기존 B0/PLAIN/C3/MAG의96개 view는 hash 검증 후 재사용했다. 새δ48view(새 전체 추론{delta_new_inference}개, 같은 checkpoint 재사용{48-delta_new_inference}개)는 선택을 봉인한 뒤 저장했으며, 동일checkpoint alias를 제외한 고유 파일 수는 전체{len(checked)}개다. 전체 예측 저장 후 새 E정답을 채점했다. 원점별/채널별 원점수와 불리한 조건을 모두 보관한다.
 
 공식 `Anoise/Adapter` commit0add06e의 additive XY cell을 독립 구현하고 입력 길이512/64×hidden7/512의4개 CPU 경우에서 output/input-gradient/batch permutation의 exact parity를 확인했다. 두δ×두원천의 실제 모델에서 학습·off 경로 B0 동일성·동결 가중치 보존·fresh checkpoint 복원을 검사했다. 원래 random residual 초기화를 유지해 초기 출력은 B0와 다를 수 있다.
 
@@ -145,7 +146,7 @@ GPU guard 표본{len(gpu)}개, 비승인 외부 compute0개, 최소 여유{min(r
     (OUT/'REPORT.md').write_text(text)
     (OUT/'FINAL_DECISION.md').write_text('# 최종 결정\n\n실행은 **COMPLETE_CONTROLLED_PRIOR_COMPARISON**. 방법론 논문 목표 달성·논문 PASS와 구분한다.\n\n'+'\n'.join(lines)+'\n\n기존 C3/MAG/PLAIN의 가중치와 판정을 보존한다. δ의선행비교 결과를 추가했지만 C3 지속성 고유의가치나MAG의신규성·독립확인을 대신하지 않는다. 새 구조·추가 LR/seed/데이터·후속 학습은0개다. 실제 확인한 좁은 효과만 주장할 수 있으며 전체 목표는 미달이다.\n')
     audit=dict(status='VERIFIED',new_fits=16,main_updates=16384,smoke_updates=8,duplicate_updates=0,
-               checkpoint_hashes_verified=checkpoint_count,prediction_views=144,unique_prediction_files=len(checked),
+               checkpoint_hashes_verified=checkpoint_count,prediction_views=144,new_delta_full_inference_views=delta_new_inference,delta_checkpoint_alias_views=48-delta_new_inference,unique_prediction_files=len(checked),
                scalar_metric_checks=verification['scalar_metrics'],raw_rows_independently_regrouped=len(both),
                old_score_rows_replayed=old_replay_count,effect_rows_recomputed=len(effects),
                GPU_samples=len(gpu),unapproved_external_compute_samples=unapproved,
