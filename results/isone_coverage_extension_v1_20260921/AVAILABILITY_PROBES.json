@@ -1,0 +1,32 @@
+[
+  {
+    "label": "service_info",
+    "url": "https://webservices.iso-ne.com/api/v1.1/hourlysysload/info.json",
+    "http_status": 200,
+    "sha256": "d6b1cd6b429ae2bb791b9ea7ac921ffd43cfcd07db9be592e8edbfbdf37f2fd7",
+    "bytes": 114,
+    "path": ".cache/isone_coverage_extension_v1_20260921/service_info.json",
+    "utc": "2026-09-21T09:33:13.799225+00:00",
+    "metadata": {
+      "ServiceInfo": {
+        "LatestBeginDate": "2026-09-21T04:00:00.000-04:00",
+        "CreationDate": "2026-09-21T05:06:10.000-04:00"
+      }
+    }
+  },
+  {
+    "label": "20200101",
+    "url": "https://webservices.iso-ne.com/api/v1.1/hourlysysload/day/20200101/location/32.json",
+    "http_status": 200,
+    "sha256": "132e6ea67413699919718f28717f555ed00ec4f225f4342e51344039688de213",
+    "bytes": 3618,
+    "path": ".cache/isone_coverage_extension_v1_20260921/20200101.json",
+    "utc": "2026-09-21T09:33:14.571073+00:00",
+    "rows": 24,
+    "first_timestamp": "2020-01-01T00:00:00.000-05:00",
+    "last_timestamp": "2020-01-01T23:00:00.000-05:00",
+    "locations": [
+      "{'@LocId': '32', '$': 'NEPOOL AREA'}"
+    ]
+  }
+]

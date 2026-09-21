@@ -1,0 +1,37 @@
+{
+  "sealed_utc": "2026-09-21T09:34:33.830545+00:00",
+  "protocol_sha256": "0c7fa6663f95daae0c4091178723f826b64ca4924967970eace55471fcded761",
+  "first_day": "2020-01-01",
+  "last_day_inclusive": "2026-08-31",
+  "splits": {
+    "TRAIN": [
+      "2020-01-01",
+      "2023-01-01"
+    ],
+    "V_SELECT": [
+      "2023-01-01",
+      "2024-01-01"
+    ],
+    "E_CONFIRM": [
+      "2024-01-01",
+      "2026-09-01"
+    ]
+  },
+  "context": 512,
+  "horizon": 64,
+  "reference_hours": 128,
+  "recent_hours": 32,
+  "S_threshold": 3,
+  "mag_threshold": 3,
+  "sigma_definition": "TRAIN finite population std",
+  "min_origins": 50,
+  "min_days": 14,
+  "optimizer_cap": 0,
+  "prediction_cap": 0,
+  "target_error_cap": 0,
+  "expanded_coverage_computed_before_seal": false,
+  "frozen_score_code": {
+    "path": "experiments/mag_real_levelshift_confirmation_v1_20260921/audit_isone.py",
+    "sha256": "7c6b3344a444c004f7ad1acd073c4358d0897efab95a2732e8d18fbb2ce5c22f"
+  }
+}
