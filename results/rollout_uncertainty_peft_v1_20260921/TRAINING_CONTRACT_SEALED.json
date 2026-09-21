@@ -1,0 +1,50 @@
+{
+  "master_sha256": "8b4a50ed2ca3215b4a2b9ea45cada6e3e7d6febef17a72b55f440448e826bfac",
+  "source_hashes": {
+    "experiments\\rollout_uncertainty_peft_v1_20260921\\common.py": "01d81fbca5f2e88a6bfa661a092264044b95dd20f6c2dc7b58c74e21d34662d1",
+    "experiments\\rollout_uncertainty_peft_v1_20260921\\contract\\reference_core.py": "0da2af7659f9bc28b5d86aba00dd586d798fa64df191d68a52602e401b1b42a4",
+    "experiments\\rollout_uncertainty_peft_v1_20260921\\contract\\test_reference.py": "9067e6a7b752844634a9a00ecfd712418cb92ddd56fa23c2feafe1cc88f54747",
+    "experiments\\rollout_uncertainty_peft_v1_20260921\\data.py": "8aa94eee025b01053f30d181fdceb93c869258bd77151a6c25f7c3a4e95f04d3",
+    "experiments\\rollout_uncertainty_peft_v1_20260921\\evaluation.py": "f6c15407f28f98aa91bf22246178f90fd49be70483be65484e3414d7740f0c93",
+    "experiments\\rollout_uncertainty_peft_v1_20260921\\finalize.py": "7a2e2cd538f0c13d58085cd32f7d8514044f6bc3a5d2b31611c2e184f0581441",
+    "experiments\\rollout_uncertainty_peft_v1_20260921\\ledger.py": "8fa53d8b64400748c22c783e791825ae1711c7601a9ea77a8247c883d9cb8b0a",
+    "experiments\\rollout_uncertainty_peft_v1_20260921\\model.py": "b6905b82ac707adb85d7ecf8cea5ff977fed94c4d146758ff0f5900361db0470",
+    "experiments\\rollout_uncertainty_peft_v1_20260921\\provenance.py": "1df30130b6e1149284a1af2525e6bc5bb50670ac2df6cc6851a2249378cfc2d3",
+    "experiments\\rollout_uncertainty_peft_v1_20260921\\resources.py": "ab8ff7f56ab629aaa2042b77cde22e0daa756886d5094f19f906a762b2cf002a",
+    "experiments\\rollout_uncertainty_peft_v1_20260921\\runner.py": "146894e29204247e2a02dd75140bbe1f622ae2253d01b3d65bf0f815af19901e",
+    "experiments\\rollout_uncertainty_peft_v1_20260921\\smoke.py": "96dd98ae27aecb69e80045d4726bb54e26cc06e9fb135bc16892d752a6ea47cb",
+    "experiments\\rollout_uncertainty_peft_v1_20260921\\test_data.py": "81eb0821a2dc0fb5d4490f2f6afb02aa38b4bfb1d63fecfb852e58c1f702b238",
+    "experiments\\rollout_uncertainty_peft_v1_20260921\\test_evaluation.py": "4c323c4987366306e9e30844faa618c1080f93f7272f551a33232fd2ffbfb392"
+  },
+  "sources": [
+    "Electricity",
+    "ETTh1"
+  ],
+  "arms": [
+    "R_ROLLOUT_LORA",
+    "S_STATE_ADAPTER",
+    "U_UNCERTAINTY_ADAPTER"
+  ],
+  "selection_seed": 92120,
+  "repeat_seeds": [
+    92121,
+    92122
+  ],
+  "lrs": [
+    0.0001,
+    0.0003
+  ],
+  "steps": 512,
+  "checkpoints": [
+    0,
+    128,
+    256,
+    512
+  ],
+  "main_cap": 12288,
+  "smoke_cap": 12,
+  "fits": 24,
+  "test_scored": false,
+  "affine_tie": "squared distance from (1,0), alpha, abs(beta), signed beta",
+  "bootstrap": "noncircular moving block 7, 2000 draws, keep all series and horizons paired"
+}
