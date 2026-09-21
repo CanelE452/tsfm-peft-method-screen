@@ -1,0 +1,86 @@
+{
+  "status": "REAL_SHIFT_CONDITION_TOO_RARE_FOR_PRIMARY_STUDY",
+  "protocol_sha256": "0c7fa6663f95daae0c4091178723f826b64ca4924967970eace55471fcded761",
+  "splits": {
+    "TRAIN": [
+      "2020-01-01",
+      "2023-01-01"
+    ],
+    "V_SELECT": [
+      "2023-01-01",
+      "2024-01-01"
+    ],
+    "E_CONFIRM": [
+      "2024-01-01",
+      "2026-09-01"
+    ]
+  },
+  "requested_local_days": [
+    "2020-01-01",
+    "2026-08-31"
+  ],
+  "utc_grid_hours": 58440,
+  "raw_rows": 58439,
+  "finite_utc_hours": 58433,
+  "missing_utc_hours": 7,
+  "sigma_train_population": 2576.9044867067923,
+  "sigma_train_finite_hours": 26299,
+  "legal_origins": {
+    "TRAIN": 25724,
+    "V_SELECT": 8697,
+    "E_CONFIRM": 22161
+  },
+  "E_unique_dates": 926,
+  "bins": [
+    {
+      "bin": "S<1",
+      "origins": 18224,
+      "unique_utc_dates": 890,
+      "origin_fraction": 0.8223455620233744
+    },
+    {
+      "bin": "1<=S<2",
+      "origins": 3689,
+      "unique_utc_dates": 383,
+      "origin_fraction": 0.16646360723794051
+    },
+    {
+      "bin": "2<=S<3",
+      "origins": 236,
+      "unique_utc_dates": 43,
+      "origin_fraction": 0.010649338928748702
+    },
+    {
+      "bin": "S>=3",
+      "origins": 12,
+      "unique_utc_dates": 3,
+      "origin_fraction": 0.0005414918099363748
+    }
+  ],
+  "primary_requirement": {
+    "min_origins": 50,
+    "min_unique_utc_dates": 14
+  },
+  "target_overlap": {
+    "E_origin_target_pairs": 1418304,
+    "unique_target_hours": 22350,
+    "max_origin_coverage_per_target_hour": 64,
+    "mean_origin_coverage_per_used_target_hour": 63.45879194630872,
+    "not_independent_samples": true
+  },
+  "past_only_score_distribution": {
+    "min": 3.534251586099507e-05,
+    "median": 0.5068901554279369,
+    "max": 3.651787447865206
+  },
+  "series_receipt": {
+    "path": ".cache/isone_coverage_extension_v1_20260921/hourly_utc.csv",
+    "sha256": "e8e2eb3090b6a9712b47e59f2c8294e7f86f02c00892b71abc0dc4b06e1225ce"
+  },
+  "old_2026_result": "INCONCLUSIVE_DATA_COVERAGE (9 origins / 2 days)",
+  "optimizer_updates": 0,
+  "model_predictions": 0,
+  "target_error_scores": 0,
+  "automatic_training": false,
+  "source_threshold_gate_changes": false
+}

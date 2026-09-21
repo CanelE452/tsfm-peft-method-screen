@@ -1,0 +1,21 @@
+{
+  "groups": [
+    {
+      "day": "20200927",
+      "timestamp": "2020-09-27T14:00:00.000-04:00",
+      "copies": 2,
+      "all_raw_fields_equal": true,
+      "canonical_row_sha256": "d14369c8bfabe5051df3758f983c0b83dad63686236cd1738c770d30bac7c39b"
+    },
+    {
+      "day": "20201030",
+      "timestamp": "2020-10-30T20:00:00.000-04:00",
+      "copies": 2,
+      "all_raw_fields_equal": true,
+      "canonical_row_sha256": "ae947d8b8551ce13b0792e04cc6d7f8c9e02e6bc24d8da7ba1c3f741167e945d"
+    }
+  ],
+  "interpretation": "Repeated copies of identical full API rows are not conflicting observations. Preserve raw responses and collapse exact copies to one UTC-hour observation. Conflicting values still block.",
+  "protocol_changed": false,
+  "performance_or_S_viewed_before_resolution": false
+}

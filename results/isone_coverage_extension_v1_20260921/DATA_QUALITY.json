@@ -1,0 +1,160 @@
+{
+  "daily_files": 2435,
+  "raw_rows": 58439,
+  "schema_counts": [
+    {
+      "columns": [
+        "ArdDemand",
+        "BeginDate",
+        "Load",
+        "Location",
+        "NativeLoad"
+      ],
+      "rows": 58439
+    }
+  ],
+  "dst_mismatches": [],
+  "duplicate_rows": 4,
+  "daily_missing_hours": 2,
+  "daily_nonfinite_load": 0,
+  "unexpected_hours": 0,
+  "non_24_hour_dates": [
+    {
+      "day": "2020-03-08",
+      "expected_hours": 23,
+      "raw_rows": 23,
+      "unique_utc_hours": 23,
+      "missing_hours": 0,
+      "unexpected_hours": 0,
+      "nonfinite_load": 0,
+      "duplicate_utc": 0
+    },
+    {
+      "day": "2020-11-01",
+      "expected_hours": 25,
+      "raw_rows": 25,
+      "unique_utc_hours": 25,
+      "missing_hours": 0,
+      "unexpected_hours": 0,
+      "nonfinite_load": 0,
+      "duplicate_utc": 0
+    },
+    {
+      "day": "2021-03-14",
+      "expected_hours": 23,
+      "raw_rows": 23,
+      "unique_utc_hours": 23,
+      "missing_hours": 0,
+      "unexpected_hours": 0,
+      "nonfinite_load": 0,
+      "duplicate_utc": 0
+    },
+    {
+      "day": "2021-11-07",
+      "expected_hours": 25,
+      "raw_rows": 25,
+      "unique_utc_hours": 25,
+      "missing_hours": 0,
+      "unexpected_hours": 0,
+      "nonfinite_load": 0,
+      "duplicate_utc": 0
+    },
+    {
+      "day": "2022-03-13",
+      "expected_hours": 23,
+      "raw_rows": 23,
+      "unique_utc_hours": 23,
+      "missing_hours": 0,
+      "unexpected_hours": 0,
+      "nonfinite_load": 0,
+      "duplicate_utc": 0
+    },
+    {
+      "day": "2022-11-06",
+      "expected_hours": 25,
+      "raw_rows": 25,
+      "unique_utc_hours": 25,
+      "missing_hours": 0,
+      "unexpected_hours": 0,
+      "nonfinite_load": 0,
+      "duplicate_utc": 0
+    },
+    {
+      "day": "2023-03-12",
+      "expected_hours": 23,
+      "raw_rows": 23,
+      "unique_utc_hours": 23,
+      "missing_hours": 0,
+      "unexpected_hours": 0,
+      "nonfinite_load": 0,
+      "duplicate_utc": 0
+    },
+    {
+      "day": "2023-11-05",
+      "expected_hours": 25,
+      "raw_rows": 25,
+      "unique_utc_hours": 25,
+      "missing_hours": 0,
+      "unexpected_hours": 0,
+      "nonfinite_load": 0,
+      "duplicate_utc": 0
+    },
+    {
+      "day": "2024-03-10",
+      "expected_hours": 23,
+      "raw_rows": 23,
+      "unique_utc_hours": 23,
+      "missing_hours": 0,
+      "unexpected_hours": 0,
+      "nonfinite_load": 0,
+      "duplicate_utc": 0
+    },
+    {
+      "day": "2024-11-03",
+      "expected_hours": 25,
+      "raw_rows": 25,
+      "unique_utc_hours": 25,
+      "missing_hours": 0,
+      "unexpected_hours": 0,
+      "nonfinite_load": 0,
+      "duplicate_utc": 0
+    },
+    {
+      "day": "2025-03-09",
+      "expected_hours": 23,
+      "raw_rows": 23,
+      "unique_utc_hours": 23,
+      "missing_hours": 0,
+      "unexpected_hours": 0,
+      "nonfinite_load": 0,
+      "duplicate_utc": 0
+    },
+    {
+      "day": "2025-11-02",
+      "expected_hours": 25,
+      "raw_rows": 25,
+      "unique_utc_hours": 25,
+      "missing_hours": 0,
+      "unexpected_hours": 0,
+      "nonfinite_load": 0,
+      "duplicate_utc": 0
+    },
+    {
+      "day": "2026-03-08",
+      "expected_hours": 23,
+      "raw_rows": 23,
+      "unique_utc_hours": 23,
+      "missing_hours": 0,
+      "unexpected_hours": 0,
+      "nonfinite_load": 0,
+      "duplicate_utc": 0
+    }
+  ],
+  "first_actual_utc": "2020-01-01 05:00:00+00:00",
+  "last_actual_utc": "2026-09-01 03:00:00+00:00",
+  "interpolation": false,
+  "duplicate_resolution": "collapse only byte-equivalent canonical full rows; preserve raw; conflicting full rows block",
+  "conflicting_duplicate_timestamps": [],
+  "exact_duplicate_copies_collapsed": 2,
+  "unique_hourly_rows": 58437
+}
