@@ -1,0 +1,589 @@
+{
+  "domain_context": {
+    "domain": "hourly time-series probabilistic forecasting",
+    "downstream_decision": "screen whether uncertainty-width metadata adds value beyond rollout LoRA/state metadata/baselines",
+    "quality_bar": "publication-style pilot receipts; no interpolation; zero leakage tolerance",
+    "primary_leakage_paths": [
+      "future targets in rollout context",
+      "TEST-based model or calibration selection",
+      "column selection by performance",
+      "non-TRAIN scaling"
+    ]
+  },
+  "sources": {
+    "Electricity": {
+      "source_url": "https://raw.githubusercontent.com/laiguokun/multivariate-time-series-data/master/electricity/electricity.txt.gz",
+      "upstream": {
+        "repo": "laiguokun/multivariate-time-series-data",
+        "branch": "master",
+        "path": "electricity/electricity.txt.gz",
+        "commit": "7f402f185cc2435b5e66aed13a3b560ed142e023"
+      },
+      "raw_path": ".cache\\rollout_uncertainty_peft_v1_20260921\\data\\electricity.txt.gz",
+      "raw_sha256": "3c4c069588198c1fcc95cace7bb69c99922129edfd673b7286661dad20badefa",
+      "raw_bytes": 17993794,
+      "schema": {
+        "format": "gzip csv matrix",
+        "rows_time_axis": true,
+        "timestamp_column": false,
+        "n_rows": 26304,
+        "n_columns_raw": 321
+      },
+      "time_axis": {
+        "unit": "hourly_slot_index",
+        "timezone_invented": false,
+        "calendar_dates_verified": false
+      },
+      "selection": {
+        "candidate_columns": 321,
+        "eligible_columns_train_finite_positive_sigma": 321,
+        "selection_rule": "first 32 by sha256('rollout-v1|ECL|'+zero_based_column_id), no zero-rate/performance filter",
+        "selected_zero_based_columns": [
+          211,
+          160,
+          303,
+          17,
+          109,
+          319,
+          152,
+          140,
+          307,
+          141,
+          190,
+          26,
+          283,
+          138,
+          207,
+          291,
+          83,
+          87,
+          12,
+          171,
+          169,
+          163,
+          54,
+          181,
+          145,
+          227,
+          63,
+          289,
+          31,
+          294,
+          306,
+          132
+        ],
+        "selected_hashes": {
+          "211": "01ca0c7b4a430b0c964169f2a307ce6e17d69886f3ed6f45388cd0d372a4c8d9",
+          "160": "022455049d869a9a538e7516b56bbc53fcbae0086d5e8b6ea36afb10b769619b",
+          "303": "02c48dea36791c3e198c78383a43aad5ae24d6ed0d1e508b24641c246addad1d",
+          "17": "058a42293e7920bfdf495d104c39c9c346f2a13b794b53c91f05a04f49034d90",
+          "109": "0654b7a4b2b41e0434c4a3543568865c6a5b19ca28b6fb847aa818b2e23bec8d",
+          "319": "06593a2c5dea320205fb8388f66e5d194ad0329d83e416a0b45d226c4fb1c0e2",
+          "152": "08e396b252bb707fe1eb945cfedb7ac034601c6252a02213558e2a6c0f1297ce",
+          "140": "08f1cb06f0a8728388f45436d88505968efb06853ade32870a69d8993007c058",
+          "307": "0c0768128f9e7e0ff3ea35f223ae46e22894f09881270dd85869c02d857a0764",
+          "141": "0e95fa85df60988fdb1ff4f21c0310c309073e8667bf730a53cb795cc6541368",
+          "190": "0ed31f7cd7a3965d8b48ca96231f1928e91045cb5872b1ab2c84566e5b68fdc0",
+          "26": "10a345f2a4c56e0f460b340c246bd05a54dce70f9c8f18e7c3f4ab07e06df0db",
+          "283": "116b324858557efc6380016bd89c118dc62e21c53430fc5d717804f2016fcf19",
+          "138": "1222853a6dca07b949b24b156f52d534fa8a8655c9d719433d5e299da565b43e",
+          "207": "12d8426a1ba1f850b26c7c9e4ef0fd983bb54781cc70e6305e432893b2bc5285",
+          "291": "136ae636166debd56396441fc756fe0ca61d6df2be4b95d47ca7223e00f01d6c",
+          "83": "13b156788f2f7ab50b7aa822cc9fc53a9530d572e8d4aa6a6ad1032e98e6c0bd",
+          "87": "14079d8230b7294f58105f69a6968843da35751b885b6e14fc6e3586e621b0f6",
+          "12": "14bf50962108619a05bf883192cf253bf52228418df81ad4f532cbd54ef32d2c",
+          "171": "14d1bc049aa38a90e3e9defdf12dc1cd64397e232edeb1305ff7ecdb4ec754e2",
+          "169": "15fb99ec42af50018fa8d2bed88653d7189c661c5cffe64e0b22491ddf6b24e1",
+          "163": "1704f2853610037ff4b4765ee2edec2d4734c4d4bd9519b89191489204e3cf60",
+          "54": "173af53d1d99a503372593019fff9c6953ab601d37ad3659d24d5a64ad972628",
+          "181": "174b47358c934bae58099950f3ff275d96aa11b4c844387f975797e898d85935",
+          "145": "185289dd68a3dca3d2971dd99b325faf72e3d2a4fc606e088fda512728eca88e",
+          "227": "188cc25695cf2b33e0d4b99f1a41e1f3f3ead22b157801de8bac86cd7ce098eb",
+          "63": "18b52ddd806c065b18e0e18a8adeacbc7e34c7d7ae7a0492a2e155d9ef8dbef6",
+          "289": "18e2d14664562fccc643450446f0a773b4b6325daa4340373577d50f29c93a13",
+          "31": "19ab894cb0e54644e0262f9f2fe6856c76f616e4a13be64e9a20d94343e49a67",
+          "294": "19b95bc527a41e7ade5c59b35469f05aad57dac02193a3d5ebbdd8f69ef00a62",
+          "306": "1ad8765f4c824b94d110bd0226a03477ba1328a4ad1caa0767857d607a606a96",
+          "132": "1b40ade298b01a887b26b8bdbd769f68def0b36c7ca11335da1d5b3a3d83cad4"
+        }
+      },
+      "source": "Electricity",
+      "selected_shape": {
+        "T": 26304,
+        "N": 32
+      },
+      "ids": [
+        "211",
+        "160",
+        "303",
+        "17",
+        "109",
+        "319",
+        "152",
+        "140",
+        "307",
+        "141",
+        "190",
+        "26",
+        "283",
+        "138",
+        "207",
+        "291",
+        "83",
+        "87",
+        "12",
+        "171",
+        "169",
+        "163",
+        "54",
+        "181",
+        "145",
+        "227",
+        "63",
+        "289",
+        "31",
+        "294",
+        "306",
+        "132"
+      ],
+      "split_edges": {
+        "TRAIN": {
+          "start": 0,
+          "end": 15782
+        },
+        "CALIBRATION": {
+          "start": 15782,
+          "end": 18412
+        },
+        "VALIDATION": {
+          "start": 18412,
+          "end": 21043
+        },
+        "TEST": {
+          "start": 21043,
+          "end": 26304
+        }
+      },
+      "missing": {
+        "selected_nonfinite_cells": 0,
+        "interpolation_applied": false
+      },
+      "train_sigma_population": {
+        "211": 468.71668536693596,
+        "160": 361.82453764298384,
+        "303": 426.26440284635873,
+        "17": 41.22350353620195,
+        "109": 277.43319830803375,
+        "319": 260.0917399315796,
+        "152": 326.65572912056115,
+        "140": 182.6308578625251,
+        "307": 463.12963364889345,
+        "141": 230.85530510486814,
+        "190": 129.87830332017302,
+        "26": 101.06760884901057,
+        "283": 149.2157534141954,
+        "138": 229.93075663182756,
+        "207": 111.3714844792389,
+        "291": 343.6222007010325,
+        "83": 213.80734351571954,
+        "87": 418.16326234993574,
+        "12": 74.09129585426899,
+        "171": 436.095948852898,
+        "169": 764.6155997466154,
+        "163": 1077.5091838139224,
+        "54": 35.05008936780649,
+        "181": 1391.0200695700469,
+        "145": 121.06773089234464,
+        "227": 94.12147852938931,
+        "63": 114.87982885262646,
+        "289": 403.87539701141395,
+        "31": 113.01574073690168,
+        "294": 532.9430334055515,
+        "306": 1583.0255890937378,
+        "132": 564.618574890784
+      },
+      "origin_audit": {
+        "TRAIN": {
+          "n_origins": 625,
+          "first_origin": 528,
+          "last_origin": 15504,
+          "origin_stride_hours_unique": [
+            24
+          ],
+          "all_origin_mod_24_zero": true,
+          "target_overlap_hours_min": 232,
+          "target_overlap_hours_max": 232,
+          "target_window_first": [
+            528,
+            784
+          ],
+          "target_window_last": [
+            15504,
+            15760
+          ]
+        },
+        "CALIBRATION": {
+          "n_origins": 99,
+          "first_origin": 15792,
+          "last_origin": 18144,
+          "origin_stride_hours_unique": [
+            24
+          ],
+          "all_origin_mod_24_zero": true,
+          "target_overlap_hours_min": 232,
+          "target_overlap_hours_max": 232,
+          "target_window_first": [
+            15792,
+            16048
+          ],
+          "target_window_last": [
+            18144,
+            18400
+          ]
+        },
+        "VALIDATION": {
+          "n_origins": 99,
+          "first_origin": 18432,
+          "last_origin": 20784,
+          "origin_stride_hours_unique": [
+            24
+          ],
+          "all_origin_mod_24_zero": true,
+          "target_overlap_hours_min": 232,
+          "target_overlap_hours_max": 232,
+          "target_window_first": [
+            18432,
+            18688
+          ],
+          "target_window_last": [
+            20784,
+            21040
+          ]
+        },
+        "TEST": {
+          "n_origins": 209,
+          "first_origin": 21048,
+          "last_origin": 26040,
+          "origin_stride_hours_unique": [
+            24
+          ],
+          "all_origin_mod_24_zero": true,
+          "target_overlap_hours_min": 232,
+          "target_overlap_hours_max": 232,
+          "target_window_first": [
+            21048,
+            21304
+          ],
+          "target_window_last": [
+            26040,
+            26296
+          ]
+        },
+        "all_windows_finite": {
+          "TRAIN": true,
+          "CALIBRATION": true,
+          "VALIDATION": true,
+          "TEST": true
+        }
+      },
+      "quality_decision": "PASS",
+      "leakage_controls": {
+        "selection_uses_test_target": false,
+        "sigma_fit_role": "TRAIN only",
+        "origins_require_future_finite_for_quality_only": true,
+        "future_targets_used_in_context": false,
+        "timestamps_fabricated_for_electricity": false
+      },
+      "prediction0_state_audit": {
+        "initial_context_length": 512,
+        "horizon": 256,
+        "observed_m_all_zero_before_first_prediction": true,
+        "generated_width_all_zero_before_first_prediction": true
+      },
+      "prepared_npz": {
+        "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\data\\Electricity.npz",
+        "sha256": "400c1eead55af7b534fdee5f6345f60ae4a5f9764c9ee89f08c2622d9104c6df",
+        "bytes": 1381557
+      },
+      "train_schedules": {
+        "92120": {
+          "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\data\\schedule_Electricity_seed92120.npz",
+          "sha256": "5180b98ef2708a62504ae20894d3602d7788dc9dc870ec1f75e2b1481674e4cd",
+          "bytes": 15100,
+          "shape": [
+            512,
+            8,
+            2
+          ],
+          "unique_series_indices": 32,
+          "unique_train_origins": 624
+        },
+        "92121": {
+          "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\data\\schedule_Electricity_seed92121.npz",
+          "sha256": "0971050cb5206fb9cd72a94a4a8efa48b1a917c8090d52600083068cb486436b",
+          "bytes": 15061,
+          "shape": [
+            512,
+            8,
+            2
+          ],
+          "unique_series_indices": 32,
+          "unique_train_origins": 625
+        },
+        "92122": {
+          "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\data\\schedule_Electricity_seed92122.npz",
+          "sha256": "48ece50cc1449a808299d37c3f3573632c0a986df12bc4e14d4913e88e0c9102",
+          "bytes": 15087,
+          "shape": [
+            512,
+            8,
+            2
+          ],
+          "unique_series_indices": 32,
+          "unique_train_origins": 625
+        }
+      }
+    },
+    "ETTh1": {
+      "source_url": "https://raw.githubusercontent.com/zhouhaoyi/ETDataset/main/ETT-small/ETTh1.csv",
+      "upstream": {
+        "repo": "zhouhaoyi/ETDataset",
+        "branch": "main",
+        "path": "ETT-small/ETTh1.csv",
+        "commit": "1d16c8f4f943005d613b5bc962e9eeb06058cf07"
+      },
+      "raw_path": ".cache\\rollout_uncertainty_peft_v1_20260921\\data\\ETTh1.csv",
+      "raw_sha256": "f18de3ad269cef59bb07b5438d79bb3042d3be49bdeecf01c1cd6d29695ee066",
+      "raw_bytes": 2589657,
+      "schema": {
+        "format": "csv",
+        "header": [
+          "date",
+          "HUFL",
+          "HULL",
+          "MUFL",
+          "MULL",
+          "LUFL",
+          "LULL",
+          "OT"
+        ],
+        "n_rows": 17420,
+        "target_columns": [
+          "HUFL",
+          "HULL",
+          "MUFL",
+          "MULL",
+          "LUFL",
+          "LULL",
+          "OT"
+        ]
+      },
+      "time_axis": {
+        "timestamp_column": "date",
+        "timezone_invented": false,
+        "first_timestamp": "2016-07-01 00:00:00",
+        "last_timestamp": "2018-06-26 19:00:00",
+        "all_hourly_diffs": true,
+        "duplicate_timestamps": 0
+      },
+      "selection": {
+        "selected_columns": [
+          "HUFL",
+          "HULL",
+          "MUFL",
+          "MULL",
+          "LUFL",
+          "LULL",
+          "OT"
+        ],
+        "selection_rule": "all seven official target columns, independent univariate requests"
+      },
+      "source": "ETTh1",
+      "selected_shape": {
+        "T": 17420,
+        "N": 7
+      },
+      "ids": [
+        "HUFL",
+        "HULL",
+        "MUFL",
+        "MULL",
+        "LUFL",
+        "LULL",
+        "OT"
+      ],
+      "split_edges": {
+        "TRAIN": {
+          "start": 0,
+          "end": 10452
+        },
+        "CALIBRATION": {
+          "start": 10452,
+          "end": 12194
+        },
+        "VALIDATION": {
+          "start": 12194,
+          "end": 13936
+        },
+        "TEST": {
+          "start": 13936,
+          "end": 17420
+        }
+      },
+      "missing": {
+        "selected_nonfinite_cells": 0,
+        "interpolation_applied": false
+      },
+      "train_sigma_population": {
+        "HUFL": 6.134403361410595,
+        "HULL": 2.1455700413380594,
+        "MUFL": 5.908511495039344,
+        "MULL": 1.9702885996497426,
+        "LUFL": 1.2502961279520421,
+        "LULL": 0.667793369249821,
+        "OT": 8.513664476018814
+      },
+      "origin_audit": {
+        "TRAIN": {
+          "n_origins": 403,
+          "first_origin": 528,
+          "last_origin": 10176,
+          "origin_stride_hours_unique": [
+            24
+          ],
+          "all_origin_mod_24_zero": true,
+          "target_overlap_hours_min": 232,
+          "target_overlap_hours_max": 232,
+          "target_window_first": [
+            528,
+            784
+          ],
+          "target_window_last": [
+            10176,
+            10432
+          ]
+        },
+        "CALIBRATION": {
+          "n_origins": 62,
+          "first_origin": 10464,
+          "last_origin": 11928,
+          "origin_stride_hours_unique": [
+            24
+          ],
+          "all_origin_mod_24_zero": true,
+          "target_overlap_hours_min": 232,
+          "target_overlap_hours_max": 232,
+          "target_window_first": [
+            10464,
+            10720
+          ],
+          "target_window_last": [
+            11928,
+            12184
+          ]
+        },
+        "VALIDATION": {
+          "n_origins": 62,
+          "first_origin": 12216,
+          "last_origin": 13680,
+          "origin_stride_hours_unique": [
+            24
+          ],
+          "all_origin_mod_24_zero": true,
+          "target_overlap_hours_min": 232,
+          "target_overlap_hours_max": 232,
+          "target_window_first": [
+            12216,
+            12472
+          ],
+          "target_window_last": [
+            13680,
+            13936
+          ]
+        },
+        "TEST": {
+          "n_origins": 135,
+          "first_origin": 13944,
+          "last_origin": 17160,
+          "origin_stride_hours_unique": [
+            24
+          ],
+          "all_origin_mod_24_zero": true,
+          "target_overlap_hours_min": 232,
+          "target_overlap_hours_max": 232,
+          "target_window_first": [
+            13944,
+            14200
+          ],
+          "target_window_last": [
+            17160,
+            17416
+          ]
+        },
+        "all_windows_finite": {
+          "TRAIN": true,
+          "CALIBRATION": true,
+          "VALIDATION": true,
+          "TEST": true
+        }
+      },
+      "quality_decision": "PASS",
+      "leakage_controls": {
+        "selection_uses_test_target": false,
+        "sigma_fit_role": "TRAIN only",
+        "origins_require_future_finite_for_quality_only": true,
+        "future_targets_used_in_context": false,
+        "timestamps_fabricated_for_electricity": false
+      },
+      "prediction0_state_audit": {
+        "initial_context_length": 512,
+        "horizon": 256,
+        "observed_m_all_zero_before_first_prediction": true,
+        "generated_width_all_zero_before_first_prediction": true
+      },
+      "prepared_npz": {
+        "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\data\\ETTh1.npz",
+        "sha256": "3e74383a8ce566120bd8c04ba3843e4a415810816ff4510258b154888e414c5e",
+        "bytes": 169997
+      },
+      "train_schedules": {
+        "92120": {
+          "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\data\\schedule_ETTh1_seed92120.npz",
+          "sha256": "d49a6a175679bd0b8cb8e1c0d2c082f8d2c5d1eada2bf686eec5e739167b707c",
+          "bytes": 11778,
+          "shape": [
+            512,
+            8,
+            2
+          ],
+          "unique_series_indices": 7,
+          "unique_train_origins": 403
+        },
+        "92121": {
+          "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\data\\schedule_ETTh1_seed92121.npz",
+          "sha256": "0f50fde7de0a1557d76e5cda644b6bd12487a90fa746ebbb414e3470a2a4dcd4",
+          "bytes": 11771,
+          "shape": [
+            512,
+            8,
+            2
+          ],
+          "unique_series_indices": 7,
+          "unique_train_origins": 403
+        },
+        "92122": {
+          "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\data\\schedule_ETTh1_seed92122.npz",
+          "sha256": "64b7a67b0d95b2842648c30816df37550b49d8804366f47a0d94c6919ac74ab0",
+          "bytes": 11734,
+          "shape": [
+            512,
+            8,
+            2
+          ],
+          "unique_series_indices": 7,
+          "unique_train_origins": 403
+        }
+      }
+    }
+  }
+}

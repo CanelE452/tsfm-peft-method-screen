@@ -1,0 +1,378 @@
+{
+  "status": "PASS",
+  "sources": {
+    "Electricity": {
+      "native64_parity": {
+        "max_abs": 0.0,
+        "normalized_max": 0.0,
+        "atol_scale": 2e-05
+      },
+      "native256_api_parity": {
+        "max_abs": 0.0,
+        "normalized_max": 0.0,
+        "atol_scale": 2e-05
+      },
+      "native_calls": [
+        {
+          "batch": 8,
+          "length": 512,
+          "crossing": 0.000732421875
+        },
+        {
+          "batch": 72,
+          "length": 576,
+          "crossing": 0.0
+        },
+        {
+          "batch": 72,
+          "length": 640,
+          "crossing": 0.0005425347480922937
+        },
+        {
+          "batch": 72,
+          "length": 704,
+          "crossing": 0.0006239149370230734
+        }
+      ],
+      "native_quantiles_sha256": "15f4ad912e79f219f4f72b3a4422a6f2947f0cd026e1ff126e3219015362bf71",
+      "R_ROLLOUT_LORA": {
+        "init_f0_parity": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "counts": {
+          "lora": 294912,
+          "adapter": 0
+        },
+        "future_poison_parity": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "batch_split_parity": {
+          "max_abs": 0.0006103515625,
+          "normalized_max": 1.3966049762040857e-07,
+          "atol_scale": 2e-05
+        },
+        "order_parity": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "save_restore": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "adapter_off_change": 0.0,
+        "trained_R_native_api": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "MC_batch_split": {
+          "max_abs": 0.0009765625,
+          "normalized_max": 2.212562420534438e-07,
+          "atol_scale": 2e-05
+        },
+        "frozen_weights_buffers_unchanged": true,
+        "all_trainable_grad_finite": true,
+        "smoke_updates": 2,
+        "rollout_lengths": [
+          512,
+          576,
+          640,
+          704
+        ],
+        "feedback_detached": true
+      },
+      "S_STATE_ADAPTER": {
+        "init_f0_parity": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "counts": {
+          "lora": 294912,
+          "adapter": 8744
+        },
+        "future_poison_parity": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "batch_split_parity": {
+          "max_abs": 0.0006103515625,
+          "normalized_max": 1.3966049762040857e-07,
+          "atol_scale": 2e-05
+        },
+        "order_parity": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "save_restore": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "adapter_off_change": 3.73388671875,
+        "frozen_weights_buffers_unchanged": true,
+        "all_trainable_grad_finite": true,
+        "smoke_updates": 2,
+        "rollout_lengths": [
+          512,
+          576,
+          640,
+          704
+        ],
+        "feedback_detached": true
+      },
+      "U_UNCERTAINTY_ADAPTER": {
+        "init_f0_parity": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "counts": {
+          "lora": 294912,
+          "adapter": 8744
+        },
+        "future_poison_parity": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "batch_split_parity": {
+          "max_abs": 0.0006103515625,
+          "normalized_max": 1.3966049762040857e-07,
+          "atol_scale": 2e-05
+        },
+        "order_parity": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "save_restore": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "adapter_off_change": 3.7421875,
+        "frozen_weights_buffers_unchanged": true,
+        "all_trainable_grad_finite": true,
+        "smoke_updates": 2,
+        "rollout_lengths": [
+          512,
+          576,
+          640,
+          704
+        ],
+        "feedback_detached": true
+      },
+      "lora_init_hashes": {
+        "R_ROLLOUT_LORA": "57fc14d0825668276a77f726d96fd1ef4f5a1193d111c0495d3ae925c3e4556a",
+        "S_STATE_ADAPTER": "57fc14d0825668276a77f726d96fd1ef4f5a1193d111c0495d3ae925c3e4556a",
+        "U_UNCERTAINTY_ADAPTER": "57fc14d0825668276a77f726d96fd1ef4f5a1193d111c0495d3ae925c3e4556a"
+      },
+      "adapter_init_hashes": {
+        "S_STATE_ADAPTER": "ade0ceedd25ecc21b3856be2a5f7f28680883be019b3ab30bebd4cdb61112274",
+        "U_UNCERTAINTY_ADAPTER": "ade0ceedd25ecc21b3856be2a5f7f28680883be019b3ab30bebd4cdb61112274"
+      },
+      "complete": true
+    },
+    "ETTh1": {
+      "native64_parity": {
+        "max_abs": 0.0,
+        "normalized_max": 0.0,
+        "atol_scale": 2e-05
+      },
+      "native256_api_parity": {
+        "max_abs": 0.0,
+        "normalized_max": 0.0,
+        "atol_scale": 2e-05
+      },
+      "native_calls": [
+        {
+          "batch": 8,
+          "length": 512,
+          "crossing": 0.0
+        },
+        {
+          "batch": 72,
+          "length": 576,
+          "crossing": 0.0
+        },
+        {
+          "batch": 72,
+          "length": 640,
+          "crossing": 0.0
+        },
+        {
+          "batch": 72,
+          "length": 704,
+          "crossing": 0.0
+        }
+      ],
+      "native_quantiles_sha256": "1a36676f5a118162ce6b661d9dcbc679feece6876464eb9dfcde1e8f56cbf672",
+      "R_ROLLOUT_LORA": {
+        "init_f0_parity": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "counts": {
+          "lora": 294912,
+          "adapter": 0
+        },
+        "future_poison_parity": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "batch_split_parity": {
+          "max_abs": 3.814697265625e-06,
+          "normalized_max": 1.791581073880862e-07,
+          "atol_scale": 2e-05
+        },
+        "order_parity": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "save_restore": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "adapter_off_change": 0.0,
+        "trained_R_native_api": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "MC_batch_split": {
+          "max_abs": 5.7220458984375e-06,
+          "normalized_max": 2.512838300279319e-07,
+          "atol_scale": 2e-05
+        },
+        "frozen_weights_buffers_unchanged": true,
+        "all_trainable_grad_finite": true,
+        "smoke_updates": 2,
+        "rollout_lengths": [
+          512,
+          576,
+          640,
+          704
+        ],
+        "feedback_detached": true
+      },
+      "S_STATE_ADAPTER": {
+        "init_f0_parity": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "counts": {
+          "lora": 294912,
+          "adapter": 8744
+        },
+        "future_poison_parity": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "batch_split_parity": {
+          "max_abs": 3.814697265625e-06,
+          "normalized_max": 1.791581073880862e-07,
+          "atol_scale": 2e-05
+        },
+        "order_parity": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "save_restore": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "adapter_off_change": 0.03384828567504883,
+        "frozen_weights_buffers_unchanged": true,
+        "all_trainable_grad_finite": true,
+        "smoke_updates": 2,
+        "rollout_lengths": [
+          512,
+          576,
+          640,
+          704
+        ],
+        "feedback_detached": true
+      },
+      "U_UNCERTAINTY_ADAPTER": {
+        "init_f0_parity": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "counts": {
+          "lora": 294912,
+          "adapter": 8744
+        },
+        "future_poison_parity": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "batch_split_parity": {
+          "max_abs": 3.814697265625e-06,
+          "normalized_max": 1.791581073880862e-07,
+          "atol_scale": 2e-05
+        },
+        "order_parity": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "save_restore": {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        "adapter_off_change": 0.0339508056640625,
+        "frozen_weights_buffers_unchanged": true,
+        "all_trainable_grad_finite": true,
+        "smoke_updates": 2,
+        "rollout_lengths": [
+          512,
+          576,
+          640,
+          704
+        ],
+        "feedback_detached": true
+      },
+      "lora_init_hashes": {
+        "R_ROLLOUT_LORA": "57fc14d0825668276a77f726d96fd1ef4f5a1193d111c0495d3ae925c3e4556a",
+        "S_STATE_ADAPTER": "57fc14d0825668276a77f726d96fd1ef4f5a1193d111c0495d3ae925c3e4556a",
+        "U_UNCERTAINTY_ADAPTER": "57fc14d0825668276a77f726d96fd1ef4f5a1193d111c0495d3ae925c3e4556a"
+      },
+      "adapter_init_hashes": {
+        "S_STATE_ADAPTER": "ade0ceedd25ecc21b3856be2a5f7f28680883be019b3ab30bebd4cdb61112274",
+        "U_UNCERTAINTY_ADAPTER": "ade0ceedd25ecc21b3856be2a5f7f28680883be019b3ab30bebd4cdb61112274"
+      },
+      "complete": true
+    }
+  },
+  "smoke_budget": 12,
+  "chronos2_independent_group_parity": {
+    "max_abs": 1.1444091796875e-05,
+    "normalized_max": 5.331767452474402e-07,
+    "atol_scale": 2e-05
+  },
+  "chronos2_reorder_parity": {
+    "max_abs": 0.0,
+    "normalized_max": 0.0,
+    "atol_scale": 2e-05
+  }
+}

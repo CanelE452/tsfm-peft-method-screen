@@ -1,0 +1,187 @@
+{
+  "master_sha256": "8b4a50ed2ca3215b4a2b9ea45cada6e3e7d6febef17a72b55f440448e826bfac",
+  "repo_initial_head": "e84ef88579382574d9c82985c2c0c4672e262b21",
+  "initial_dirty_files": [],
+  "prior_revision": "b60bfd92ff836525773c71039a83ba2fe3d123bf",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/Coaster41/Beyond-Accuracy-TSFM-Calibration/b60bfd92ff836525773c71039a83ba2fe3d123bf/README.md",
+      "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\upstream\\prior\\README.md",
+      "sha256": "c512aa8c0e64431b4c4a09bbca140cf54bb98aba4acec617b894855fe0e3dfc6",
+      "bytes": 2715
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Coaster41/Beyond-Accuracy-TSFM-Calibration/b60bfd92ff836525773c71039a83ba2fe3d123bf/src/README.md",
+      "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\upstream\\prior\\src\\README.md",
+      "sha256": "90501a8c262aa09ff4602b4432242a5ea6e10a5cf604c2eb085427dce9ad1405",
+      "bytes": 3857
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Coaster41/Beyond-Accuracy-TSFM-Calibration/b60bfd92ff836525773c71039a83ba2fe3d123bf/src/forecaster.py",
+      "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\upstream\\prior\\src\\forecaster.py",
+      "sha256": "12d189cf80a8d0b37ae48f61433c30c71e86db5e0bea851d9c23fdd36a7cf64d",
+      "bytes": 49649
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Coaster41/Beyond-Accuracy-TSFM-Calibration/b60bfd92ff836525773c71039a83ba2fe3d123bf/src/metrics.py",
+      "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\upstream\\prior\\src\\metrics.py",
+      "sha256": "394f3a309d2932fc0f2fb9012cdedf2e894e7e6dde863051ad55fbb4453f343f",
+      "bytes": 41534
+    },
+    {
+      "url": "https://raw.githubusercontent.com/amazon-science/chronos-forecasting/10afa9ebe016e514f9d7dc1aa873f66af57e116b/src/chronos/chronos_bolt.py",
+      "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\upstream\\chronos_bolt.py",
+      "sha256": "93b3af9e4521ea981c4228b1acaa252321f7a190512f956088394426182c8b8c",
+      "bytes": 26904
+    }
+  ],
+  "models": {
+    "amazon/chronos-bolt-small": {
+      "revision": "772f3d25d38aec6d914c8949dab4462e2d46f5d8",
+      "path": "E:\\CODING\\proj\\tsfm-peft-method-screen\\.cache\\rollout_uncertainty_peft_v1_20260921\\huggingface\\models--amazon--chronos-bolt-small\\snapshots\\772f3d25d38aec6d914c8949dab4462e2d46f5d8",
+      "files": [
+        {
+          "name": "config.json",
+          "sha256": "9ca0ebbe049ccebacb0546361e8aa728f0cf104cd18d1838d78d296aa317bd21",
+          "bytes": 1121
+        },
+        {
+          "name": "model.safetensors",
+          "sha256": "06a6a19bbe74bc10a9cd193bd4bf2bf638ae07f7e0d51653ae7ab8ea968a21dd",
+          "bytes": 190888824
+        }
+      ],
+      "config": {
+        "_name_or_path": "autogluon/chronos-bolt-small",
+        "architectures": [
+          "ChronosBoltModelForForecasting"
+        ],
+        "chronos_config": {
+          "context_length": 2048,
+          "input_patch_size": 16,
+          "input_patch_stride": 16,
+          "prediction_length": 64,
+          "quantiles": [
+            0.1,
+            0.2,
+            0.3,
+            0.4,
+            0.5,
+            0.6,
+            0.7,
+            0.8,
+            0.9
+          ],
+          "use_reg_token": true
+        },
+        "chronos_pipeline_class": "ChronosBoltPipeline",
+        "classifier_dropout": 0.0,
+        "d_ff": 2048,
+        "d_kv": 64,
+        "d_model": 512,
+        "decoder_start_token_id": 0,
+        "dense_act_fn": "relu",
+        "dropout_rate": 0.1,
+        "eos_token_id": 1,
+        "feed_forward_proj": "relu",
+        "initializer_factor": 0.05,
+        "is_encoder_decoder": true,
+        "is_gated_act": false,
+        "layer_norm_epsilon": 1e-06,
+        "model_type": "t5",
+        "n_positions": 512,
+        "num_decoder_layers": 6,
+        "num_heads": 8,
+        "num_layers": 6,
+        "pad_token_id": 0,
+        "reg_token_id": 1,
+        "relative_attention_max_distance": 128,
+        "relative_attention_num_buckets": 32,
+        "torch_dtype": "float32",
+        "transformers_version": "4.39.3",
+        "use_cache": true,
+        "vocab_size": 2
+      }
+    },
+    "amazon/chronos-2": {
+      "revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+      "path": "E:\\CODING\\proj\\tsfm-peft-method-screen\\.cache\\rollout_uncertainty_peft_v1_20260921\\huggingface\\models--amazon--chronos-2\\snapshots\\29ec3766d36d6f73f0696f85560a422f50e8498c",
+      "files": [
+        {
+          "name": "config.json",
+          "sha256": "ef1143bfdc9c0376d9a056eefca46cb4b1ec3d0ffacd541ff56feb40fb708031",
+          "bytes": 1067
+        },
+        {
+          "name": "model.safetensors",
+          "sha256": "ddcda3c7508bf2528087723e98a20707cc04b7f370ae275a9fd88078ddba4f42",
+          "bytes": 477930472
+        }
+      ],
+      "config": {
+        "architectures": [
+          "Chronos2Model"
+        ],
+        "chronos_config": {
+          "context_length": 8192,
+          "input_patch_size": 16,
+          "input_patch_stride": 16,
+          "max_output_patches": 64,
+          "output_patch_size": 16,
+          "quantiles": [
+            0.01,
+            0.05,
+            0.1,
+            0.15,
+            0.2,
+            0.25,
+            0.3,
+            0.35,
+            0.4,
+            0.45,
+            0.5,
+            0.55,
+            0.6,
+            0.65,
+            0.7,
+            0.75,
+            0.8,
+            0.85,
+            0.9,
+            0.95,
+            0.99
+          ],
+          "time_encoding_scale": 8192,
+          "use_arcsinh": true,
+          "use_reg_token": true
+        },
+        "chronos_pipeline_class": "Chronos2Pipeline",
+        "d_ff": 3072,
+        "d_kv": 64,
+        "d_model": 768,
+        "dense_act_fn": "relu",
+        "dropout_rate": 0.1,
+        "feed_forward_proj": "relu",
+        "initializer_factor": 0.05,
+        "is_gated_act": false,
+        "layer_norm_epsilon": 1e-06,
+        "model_type": "t5",
+        "num_heads": 12,
+        "num_layers": 12,
+        "pad_token_id": 0,
+        "reg_token_id": 1,
+        "rope_theta": 10000.0,
+        "torch_dtype": "float32",
+        "transformers_version": "4.49.0",
+        "use_cache": true,
+        "vocab_size": 2
+      }
+    }
+  },
+  "chronos_upstream_commit": "10afa9ebe016e514f9d7dc1aa873f66af57e116b",
+  "installed_bolt_source": {
+    "path": "E:\\CODING\\proj\\hierarchical-tsfm-peft\\.venv\\Lib\\site-packages\\chronos\\chronos_bolt.py",
+    "sha256": "93b3af9e4521ea981c4228b1acaa252321f7a190512f956088394426182c8b8c",
+    "matches_current_upstream": true
+  }
+}

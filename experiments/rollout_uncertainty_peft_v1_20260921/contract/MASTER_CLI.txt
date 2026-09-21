@@ -1,0 +1,523 @@
+장기 rollout 불확실성 전달 PEFT — 단일 실행 계약
+버전: rollout_uncertainty_peft_v1_20260921
+작성일: 2026-09-21
+
+이 문서는 실험 설계와 CLI 구현·실행 지시다. 기존 실험 결과가 아니다.
+첨부 reference_core.py는 CPU 참조 부품이며, 완성된 Chronos runner가 아니다.
+이 문서와 과거 MAG/HIER/FR 지시문을 합쳐 실행하지 않는다.
+
+============================================================
+0. 목적, 범위, 예상 결과
+============================================================
+최상위 목적: 새 TSFM PEFT 방법론에 투자할 근거가 있는지, 제한된 직접 비교로 판단한다.
+소비처: 사용자가 결과 보고서를 보고 이 후보의 후속 연구 여부를 결정한다.
+
+질문:
+한 번에 64시점을 예측하는 모델로 256시점을 반복 생성할 때,
+앞서 생성한 예측의 범위를 작은 모듈의 조건 입력으로 전달하면
+같은 rollout으로 학습한 일반 LoRA 및 단계정보-only 모듈보다
+장기 확률예측의 정확도–보정–비용이 좋아지는가?
+
+[미검증 방법 가설]
+생성값을 실제 관측과 구별하고, 그 생성값의 예측 폭을 재사용하는 작은 어댑터가
+생성값을 확정값처럼 사용하는 저비용 단일경로 rollout의 일부 손실을 줄일 수 있다.
+예측 폭은 모델이 만든 proxy이지 참 불확실성/참 오차가 아니다.
+이 설계는 정확한 베이지안 불확실성 전파나 경로의 결합분포를 보장하지 않는다.
+
+기대 결과:
+- 일반 rollout LoRA와 같은 학습 자료·같은 4회 단일경로 조건에서 추가 이득.
+- 단계정보만 주거나 출력 구간을 단순 재보정한 것으로 설명되지 않는 이득.
+- 현재 공식 branching 및 직접 장기예측 모델 대비 정확도/비용상 사용할 이유.
+- 구간을 무작정 넓혀 coverage만 높이는 결과는 성공으로 세지 않는다.
+
+하지 않는 것:
+간헐성, 센서지연, FR revision, HIER, MAG 재개; 새 loss/gate/rank 탐색;
+희귀 사건 S>=3 같은 표본 gate; 데이터를 오염시키는 합성 shift;
+LoRA가 F0보다 나빠야 후보 실행을 허용하는 절차; 결과 맞추기 위한 자동 v2.
+
+이전 작업과 차이:
+FR은 새 실제 관측을 받은 뒤 예측을 수정했다.
+이번은 동일한 최초 관측 이후 새 정답을 받지 않고 256시점을 생성한다.
+마지막 출력 보정만이 아니라 다음 호출의 입력 정보가 달라지는 방법을 시험한다.
+
+============================================================
+1. 선행과 현재 공식 구현 — 반드시 먼저 읽기
+============================================================
+[확인] Beyond Accuracy: Are Time Series Foundation Models Well-Calibrated? (2026/ICLR)
+공식 논문:
+https://proceedings.iclr.cc/paper_files/paper/2026/hash/9af2b1d6acf561af9c4cf70d52c7a49d-Abstract-Conference.html
+저자 HTML:
+https://arxiv.org/html/2510.16060v2
+공식 코드:
+https://github.com/Coaster41/Beyond-Accuracy-TSFM-Calibration
+확인한 코드 revision: b60bfd92ff836525773c71039a83ba2fe3d123bf
+읽을 파일: README.md, src/README.md, src/forecaster.py, src/metrics.py.
+
+논문은 단기 TSFM이 일반적으로 항상 과신한다고 말하지 않는다.
+반복 장기예측에서의 과신과 branching/trajectory 방식의 정확도–비용을 분석한다.
+원 논문의 Chronos-Bolt 실험은 base 모델이다. 이번 small 실험은 전체 재현이 아니다.
+
+[중요한 현재 구현 확인]
+https://github.com/amazon-science/chronos-forecasting/blob/main/src/chronos/chronos_bolt.py
+현재 확인된 공개 predict 경로는 장기예측에서 중앙값만 되먹임하지 않는다.
+첫 블록 뒤 9개 분위수 경로를 확장하고 9x9 출력을 분위수로 다시 축약한다.
+따라서 '공식 Chronos-Bolt = naive median rollout'이라고 적지 않는다.
+설치 버전의 실제 코드를 읽고 파일 hash와 native rollout 방식을 기록한다.
+현재 공개 branching 대조를 누락한 결과로 방법 PASS를 선언하지 않는다.
+
+https://huggingface.co/amazon/chronos-bolt-small/blob/main/config.json
+[확인] native block64 / patch16 / quantiles .1~.9 / hidden512 / max context2048.
+초기 context512는 이번 설정이지 공식 최대 context가 512라는 뜻이 아니다.
+
+직접 장기예측 대조:
+https://huggingface.co/amazon/chronos-2/blob/main/config.json
+[확인] max_output_patches64, output_patch_size16이므로 공개 설정은 최대1024를 표현한다.
+이번은 prediction_length256, 초기 관측512, .1~.9를 같은 입력으로 요청한다.
+이 모델은 다른 크기·사전학습·아키텍처이므로 구성요소의 순수 효과 대조가 아니라
+'이 문제에 다른 공개 모델을 바로 쓰면 되는가'라는 실용적 대조다.
+
+문헌의 평가 모듈을 전체 환경과 함께 복사하지 않는다.
+이번에는 Chronos 계열 환경 하나를 우선 사용한다. TiRex/YingLong 환경은 설치하지 않는다.
+새 uncertainty adapter의 신규성은 미확인이다. 현재 결과가 좋아도 최초성을 선언하지 않는다.
+
+============================================================
+2. 작업 저장소·환경 — 기존 연구 보존
+============================================================
+기본 목적 저장소: CanelE452/tsfm-peft-method-screen
+새 경로만 사용:
+  experiments/rollout_uncertainty_peft_v1_20260921/
+  results/rollout_uncertainty_peft_v1_20260921/
+  .cache/rollout_uncertainty_peft_v1_20260921/
+  scripts/run_rollout_uncertainty_peft.py
+
+새 컴퓨터에 없으면 인증된 gh로 기존 저장소를 clone한다.
+예: gh repo clone CanelE452/tsfm-peft-method-screen
+현재 hierarchical-tsfm-peft 저장소는 코드·환경 참고로만 사용하고 수정하지 않는다.
+이번 요청은 이 rollout 실험의 구현·정해진 학습·평가에 한정된 승인으로 처리한다.
+이전의 HIER STOP/MAG STOP은 해제하지 않는다. 새 remote 생성/공개 전환은 하지 않는다.
+GitHub 연결이 안 되면 로컬 독립 디렉터리에서 산출물을 보존하고 push 미완료를 보고한다.
+인증정보나 원자료를 공개하거나 인증 우회를 하지 않는다.
+
+OS를 먼저 읽고 Windows/Ubuntu에 맞게 Python3.11 격리환경을 사용한다.
+기존의 작동하는 Python3.11 CUDA환경은 import/parity 검사 후 재사용 가능하다.
+전역 패키지나 NVIDIA driver를 임의로 변경하지 않는다.
+필요: torch(CUDA), chronos-forecasting, peft, transformers, huggingface_hub,
+       numpy, pandas, scipy, safetensors, psutil, pyyaml, pytest, matplotlib, requests.
+GPU wheel은 현재 driver와 공식 PyTorch 설치 안내를 확인해 설치한다.
+CPU torch인 상태로 본학습을 시작하지 않는다.
+패키지 조합은 import+실모델 smoke 후 freeze하고 pip check를 기록한다.
+모델 및 외부 코드 revision, raw file SHA256, Python/torch/CUDA/GPU/VRAM을 봉인한다.
+LoRA 연결의 embedding accessor 등 버전 문제는 실제 source를 확인해 해결하고 기록한다.
+GPU가 없는 경우 자료 감사·CPU test까지 수행하고 BLOCKED_RESOURCE로 보고한다.
+타 사용자의 GPU 프로세스를 종료하지 않는다.
+검사/추론의 확장 particle batch는 microbatch로 나누되 결과 순서와 난수 draw를 유지한다.
+중간 checkpoint에는 optimizer/RNG/schedule index도 함께 저장한다.
+이미 실행한 optimizer update가 모호하면 자동 중복 실행하지 말고 ledger와 checkpoint를 확인한다.
+새로운 모델 또는 데이터로 바꾸지 않고, 자원 문제는 BLOCKED_RESOURCE로 분리한다.
+
+remote/local HEAD, dirty files를 기록하고 기존 변경을 덮어쓰지 않는다.
+실험코드·규약·aggregate result는 scoped commit/push하고 .cache/weights/raw는 gitignore한다.
+
+============================================================
+3. 데이터 — 2개, 실제 값, 같은 hourly 조건
+============================================================
+A. Electricity: 저자 배포 hourly matrix
+https://github.com/laiguokun/multivariate-time-series-data
+https://raw.githubusercontent.com/laiguokun/multivariate-time-series-data/master/electricity/electricity.txt.gz
+[확인] 저자 README는 2012~2014, 321고객, hourly 집계로 설명한다.
+[확인] 배포 파일은 행=time, 열=계열, comma-separated gzip이다.
+파일/commit/hash를 기록하고 raw matrix를 보존한다.
+타임스탬프가 없는 파일에 임의 timezone·UTC시각을 만들지 않는다.
+row index를 hourly slot으로 사용하고 실제 달력 날짜 검증을 했다고 쓰지 않는다.
+
+계열 선택:
+TRAIN에서 finite이고 표준편차>0인 후보 column id에 대해
+SHA256('rollout-v1|ECL|'+정수column_id)의 오름차순 첫32개를 선택한다.
+zero-rate나 성능으로 선택하지 않는다. 선택 리스트를 예측 전에 봉인한다.
+32개 미만이면 사용 가능한 수를 공개하고 이유를 적되 다른 dataset으로 바꾸지 않는다.
+기존 실험에서 본 ECL 계열과 겹칠 수 있다. 새 독립 benchmark라고 하지 않는다.
+
+B. ETTh1: 저자 배포 hourly CSV
+https://github.com/zhouhaoyi/ETDataset
+https://raw.githubusercontent.com/zhouhaoyi/ETDataset/main/ETT-small/ETTh1.csv
+[확인] README의 columns: date, HUFL, HULL, MUFL, MULL, LUFL, LULL, OT.
+CSV 실제 header와 frequency를 로컬에서 대조한다.
+7개 target series 전부 사용하며 각 계열을 독립 예측하는 shared 모델이다.
+OT만 온도이고 나머지6개는 부하다. 전체를 온도7채널로 설명하지 않는다.
+다른 target의 현재/미래를 추가 covariate로 주지 않는다.
+
+공통:
+데이터를 원자료 순서대로 받고 추가 표준화는 TRAIN 통계로만 한다.
+Nixtla LongHorizon의 사전 정규화 bundle로 조용히 대체하지 않는다.
+그 bundle의 normalization period와 이번 split이 다를 수 있기 때문이다.
+missing은 보간하지 않고, 선택된 계열 모두에서 past512+future256이 finite인 원점을 쓴다.
+타깃 유한성 확인은 품질 검사에만 사용하며 미래값으로 후보/난이도를 고르지 않는다.
+이 두 dataset은 기존 개발/사전학습에 노출됐을 수 있다. 개발 파일럿으로만 해석한다.
+이번은 표준 ETT 12/4/4개월 benchmark split의 exact reproduction이 아니다.
+
+============================================================
+4. split과 원점 — 희귀 조건 선정 없음
+============================================================
+각 자료 공통 time axis 길이 T에서:
+ TRAIN        [0, floor(.60T))
+ CALIBRATION  [floor(.60T), floor(.70T))
+ VALIDATION   [floor(.70T), floor(.80T))
+ TEST         [floor(.80T), T)
+
+origin o는 future [o,o+256)가 role에 전부 포함되고 과거 [o-512,o)가 있어야 한다.
+context가 앞 role의 합법적인 과거에 걸치는 것은 허용한다.
+원점은 전체 시작 row 기준 o%24==0인 합법적인 모든 원점이다.
+한 날짜에 여러 겹치는 원점을 무작정 늘리지 않는다. 예측 기간 자체의 overlap은 보고한다.
+평가 시작 phase가 24시간마다 같다는 한계를 명시하며 모든 시간대 일반화를 주장하지 않는다.
+train/val/test에서 이상한 조건이 발생해야만 학습한다는 gate는 없다.
+예측 전에 actual origin counts, 시간 범위, 256h target overlap을 공개한다.
+
+sigma_i = TRAIN population std; 선택 계열의 TRAIN sigma는 양수여야 한다.
+선정된 원점/계열/분모는 모든 방법에서 같고, 성능 때문에 재선정하지 않는다.
+CALIBRATION은 최종 출력의 간단한 보정계수만 추정.
+VALIDATION은 neural LR/checkpoint 선택.
+TEST는 모든 선택 이후 한 번 최종 평가.
+
+============================================================
+5. forecasting contract
+============================================================
+initial observed context L=512 hourly values
+native conditional block B=64
+number of calls K=4
+total future H=256 hours (약10.67일)
+quantiles Q=.1,.2,...,.9
+
+모든 single-path arm의 각 forward input 길이:
+  512 -> 576 -> 640 -> 704
+처음512 실제 과거를 남긴 채 생성블록을 붙인다.
+max-context2048보다 작다. 임의로512로 잘라 native보다 불리한 문맥을 만들지 않는다.
+
+예측 중 새 실제 관측을 읽지 않는다.
+1~64의 예측으로 65~128을, 다시 예측으로129~192 및193~256을 만든다.
+64/128/192/256 평가는 한 번 만든256예측의 prefix에서 계산한다.
+뒤쪽 평가에 새 관측을 주는 rolling one-block forecast와 혼동하지 않는다.
+
+공통 monotone convention:
+개별 conditional call의 raw9quantiles와 crossing율을 먼저 기록한다.
+single-path drivers에서는 quantile 축 정렬(sort)로 순서를 맞춘 뒤,
+그 ordered quantiles의 중앙값과 q.9-q.1 폭을 다음 입력에 사용한다.
+모든 single-path trained arms의 loss도 같은 ordered quantiles에 적용한다.
+이는 명시적 공통 rearrangement이며 후보에만 제공하지 않는다.
+공식 native branching은 내부 동작을 수정하지 않고 그대로 실행한 뒤
+최종 출력에만 같은 정렬을 적용한다. raw/ordered score를 둘 다 기록한다.
+
+============================================================
+6. 학습하는 것은 3개 방법 — 처음부터 공동 학습
+============================================================
+공통 F0 = pinned amazon/chronos-bolt-small.
+기존 Labour/전력/MAG 학습가중치는 재사용하지 않는다.
+공통 q/v LoRA r8, alpha16, dropout0, bias none.
+원래 input embedding/encoder/decoder/output head 가중치 동결.
+학습은 LoRA와 각 군의 추가모듈만; 전체 backbone의 gradient는 필요한 곳을 통과한다.
+forward는 model(context=...)의 미분 가능한 경로를 사용한다.
+공식 predict(no_grad)를 학습함수로 잘못 사용하지 않는다.
+
+R — ROLLOUT_LORA
+  일반 LoRA만 학습. self-generated median rollout 사례를 똑같이 경험한다.
+  '기존 방법은 teacher forcing만, 제안만 rollout'인 불공정 비교를 하지 않는다.
+
+S — STATE_ADAPTER
+  같은 LoRA + 아래와 동일한 추가 어댑터.
+  자기 패치 표현, 생성 여부, 최초 원점부터의 lead, rollout 단계,
+  lead 제곱만 입력한다. 앞선 예측의 폭을 사용하지 않는다.
+  단계별 보정과 추가 용량만으로 충분한지 보는 강한 직접 대조다.
+
+U — UNCERTAINTY_ADAPTER (유일한 새 후보)
+  S와 같은 LoRA/어댑터 구조 및 초기값.
+  S의 마지막 lead제곱 특징 대신 앞서 생성한 분위수 폭을 입력한다.
+  값 자체는 R/S처럼 생성 중앙값 하나만 넣으며, 입자 수를 늘리지 않는다.
+
+따라서 S/U는 같은 수의 파라미터를 실제로 사용한다.
+다만 '특징 하나 교체'의 비교이지 모든 형태의 정보량/표현력을 같게 만든 인과실험은 아니다.
+
+============================================================
+7. metadata와 adapter의 정확한 정의
+============================================================
+최초 context x0에서
+ s0 = max(std(x0, ddof=0), 1e-6 * sigma_i)
+를 계산해 네 호출 동안 고정한다. truth future에 의존하지 않는다.
+기반 Chronos의 instance normalization은 원래 코드대로 각 호출에서 계산한다.
+
+각 input time position t에 별도 배열:
+ m_t = 실제 관측0, 생성값1
+ a_t = 최초 예측 원점에서 그 생성값의 lead /256; 실제 관측0
+ b_t = m_t * (이미 생성한 블록 수)/3
+ w_t = 그 값을 처음 생성한 호출의 max(q.9-q.1,0), 원단위; 실제 관측0
+
+패치16마다 아래 네 특징을 평균:
+ S: [m_t, m_t*a_t, b_t, m_t*a_t^2]
+ U: [m_t, m_t*a_t, b_t, m_t*log1p(w_t/s0)]
+주의: reference_core.py의 lead는 시간 단위이고 metadata 내부에서256으로 나눈다.
+
+각 patch embedding h_j의512차원에 z_j4차원을 연결:
+ d_j = W_up GELU(W_down [h_j,z_j] + b_down) + b_up
+ h'_j = h_j + mean_patch(m_t) * d_j
+
+어댑터 크기: 516 -> 8 -> 512
+parameter: 516*8 +8 +8*512 +512 = 8,744개.
+S/U 정확히 같은 수. down은 동일 RNG로 초기화, up weight/bias는0.
+추가 cap, tanh, clipping, learned gate, LayerNorm을 넣지 않는다.
+기존 HIER/MAG의 임의0.1 RMS cap을 복사하지 않는다.
+
+첫 호출은 m=0이므로 추가 경로가 작동하지 않는다.
+이미 생성된 패치에만 표현 보정이 적용된다.
+[REG] token에는 적용하지 않는다. input_patch_embedding output에만 hook을 건다.
+각 forward 후 hook을 해제해 중복 적용을 막는다.
+
+초기에는 모든 입력에서 추가출력0 -> 같은 initial LoRA/F0 예측.
+학습 후에는 LoRA가 달라지므로 첫64시점의 최종 예측까지 보존된다고 주장하지 않는다.
+
+예측 폭은 온전한 확률분포나 시간 간 상관을 전달하지 않는다.
+'앞선 예측의 폭을 조건 정보로 재사용'하는 제한된 방법이라고 설명한다.
+
+============================================================
+8. rollout 학습, 같은 정보·같은 비용
+============================================================
+각 minibatch는 같은 source의 (series, original origin) 8개다.
+8개에 대해256시간 실제 y는 loss 계산에만 사용한다.
+최초512 관측으로 call0를 실행한 뒤 생성 중앙값과 폭을 append한다.
+모든 R/S/U는 자기 모델의 현재 예측을 이용한다.
+미래 실제64시점을 뒤쪽 context로 넣지 않는다.
+
+loss:
+  J = mean_{examples,k,h,q} 2*rho_q(y - qhat) / sigma_i
+각 k=0,1,2,3의 가중치는1/4. 모든 방법에서 같음.
+64시간 native pinball objective와 다른 이번 TRAIN-scale 정의를 명시한다.
+loss 하나에 PCE/coverage penalty를 추가하지 않는다.
+PCE만 최소화해서 넓은 분포를 만드는 shortcut을 피한다.
+
+저비용 truncated backprop:
+- 각 call loss/4를 backward해 gradients를 누적한다.
+- 다음 call의 생성값·width metadata는 detach한다.
+- 네 call 사이에서는 parameter update를 하지 않는다.
+- 네 call이 끝난 뒤 clip_grad_norm1 -> optimizer.step1회.
+- 따라서 1update=4conditional forwards+backwards다.
+이것은 full backprop through the rollout이 아니다. 세 방법 모두 동일 적용한다.
+
+AdamW: lr {1e-4,3e-4}, betas(.9,.999), eps1e-8, weight_decay0.
+scheduler없음, FP32, TF32off, 원래 dropout도eval로 고정.
+고정 backbone eval은 gradient금지를 뜻하지 않는다.
+
+학습예산:
+ source2 * arm3 * (선택seed92120의LR2 + 반복seed92121/92122의선택LR각1)
+ =24 fits.
+각 fit512 updates -> 본학습12,288 updates.
+smoke source2*arm3*2updates=12 updates (폐기).
+전체 상한12,300updates.
+본학습의 conditional batch forward는49,152회이며 단순 LoRA512회와 비용이 다르다.
+이 수를 개별 시계열 수나 GPU launch 수와 혼동하지 않는다.
+
+checkpoint 0/128/256/512.
+VALIDATION의 전체256 평균 scaled pinball 최소로 checkpoint/LR 선택.
+tie: 작은LR -> 이른step. 선택seed는 주 평균에 포함하지 않는다.
+반복seed는 고정한LR에서 각자VALIDATION으로step선택.
+step0선택은 추가 학습이 선택되지 않은 결과, 방법 성공 아님.
+
+TRAIN schedule은 각 seed별로 계열을 균등하게, 합법 원점을 균등하게 뽑아
+512*8 tuples를 미리 저장하고 세 방법/LR에 공유한다.
+모델별 RNG 소비가 sampling을 바꾸지 않게 data RNG와 model RNG를 분리한다.
+필요한 경우 batch8을 microbatch로 나누되 같은8사례·4블록의 누적loss를 유지한다.
+
+한 자료의 성능이 나쁘다는 이유로 다른 사전 지정 자료를 생략하지 않는다.
+두 자료를 합쳐 승률 하나로 만들거나 모든 seed승리를 형식 gate로 만들지 않는다.
+
+============================================================
+9. 새 학습 없는 강한 대조 — 생략 금지
+============================================================
+D0 F0_MEDIAN: F0의 단일 중앙값 경로, 위512->704 문맥,4calls.
+D1 F0_NATIVE: 현재 공식 pipeline.predict의256 branching.
+D2 R_NATIVE: 선택된 R의 동일 가중치에 현재 공식 branching을 적용.
+D3 R_MC16: 아래의 고정16경로 stochastic rollout.
+D4 CHRONOS2_DIRECT: amazon/chronos-2, prediction256, observed512, no fine-tuning.
+D5 AFFINE_POST: 각 블록별 단순 bias/width 보정.
+
+D1/D2:
+current predict source와 audit한 모델로 그대로실행. local parity를 real TRAIN batch로검사.
+공식 코드를 수식으로 약하게 다시 쓰고 'native'라고 부르지 않는다.
+개별 호출들의 raw quantile·branch aggregation·context retention을 기록한다.
+R model에 adapter는 없으므로 공식 branching과의 연결이 명확해야 한다.
+CPU 반환/다중 batch reshape 때문에 source/series가 섞이지 않게 검사한다.
+
+D3:
+첫64는 R의 analytic9quantiles를 그대로 보고한다.
+16particles는 같은 첫분포에서 각각 샘플을 생성하고 원 context에 append한다.
+다음3block에서 각 particle의 R분포에서 매horizon 독립 U(0,1)를 뽑아 생성한다.
+9quantiles는 정렬 후 piecewise-linear inverse-CDF로보간한다.
+q<.1은q.1값, q>.9는q.9값으로 clamped tails 처리하고, 이것을 명시한다.
+입자별 context는 유지한다. 다음블록 진입 때16을81나무로 증식하지 않는다.
+최종 pointwise empirical quantiles는 np/torch linear quantile 정의를 고정한다.
+R_MC16은 완전한 joint sampling이나 무한샘플 기준선이 아닌 유한16경로 대조다.
+임의 copula를 학습하거나 tail분포를 새로 튜닝하지 않는다.
+실제 seed92121/92122별 sampling seed1701/1702를 고정한다.
+
+D4:
+동일한 observed512, 미래covariate없음,7/32계열을 별도 단변량 요청으로처리.
+Chronos2의 서로 다른 계열 간 group attention으로 추가정보를 주지 않도록
+각 target을 독립 group으로 포장하고 실제 API계약을 검증한다.
+모델에 확률출력 .1~.9를 요청. 공식 config에서 포함된 quantiles임을 확인.
+native256 길이를 축소하거나64로 강제한 후 다시rollout하지 않는다.
+추가학습0이지만 크기/사전학습차이를 공개한다.
+이 대조가 없으면 '다른 모델보다 실용적으로 낫다'는 결론을 유보한다.
+
+D5: 최종256을 만든 뒤에만 보정하며 rollout context로 되먹임하지 않는다.
+각 블록 k마다
+ q'_tau = q_.5 + beta_k*sigma_i + alpha_k*(q_tau-q_.5)
+ alpha in {.5,.75,1,1.25,1.5,2,3}
+ beta in {-.5,-.25,0,.25,.5}
+CALIBRATION의 scaled pinball 최소로 source별/block별/selected-model별 선택.
+identity alpha1 beta0을 포함. 동점은 identity와가까움->작은alpha->작은|beta| 순.
+TEST로 보정계수를 fit하지 않는다.
+R/S/U와 D0/D1/D2/D3/D4 모두 같은보정 기회를 준다.
+raw/affine두 결과를 같이 저장. U에만보정하거나 baseline보정을빼지않는다.
+이 보정은 calibration을 보장하는 conformal method가 아니라 단순후처리다.
+
+비용:
+단일경로=4조건부 context, 공식branching은현재구현기준1+9*3=28,
+MC16은1+16*3=49 context evaluations/one original example.
+이는 병렬배치 가능한 계산량 설명이지 실제시간이7배/12.25배라는주장이아니다.
+동일GPU의 end-to-end256 추론 walltime, peak allocated memory, batch1/8을 실측한다.
+가중치 loading시간은 분리하되 metadata/postprocess/CPU전송 포함범위를 통일한다.
+
+============================================================
+10. 평가: 확률예측 점수와 보정은 별개
+============================================================
+주 metric: TRAIN-scale normalized mean twice-pinball, 전체256.
+낮을수록 좋다. finite9분위수의 예측점수이며 exact CRPS나 순수calibration지표가 아니다.
+계열별/원점별/lead별 점수를 저장하고, source 내부에서 계열동일가중 평균한다.
+
+필수 별도 지표:
+- 각64블록 및 prefix64/128/192/256의 scaled pinball.
+- PCE: 계열별 quantile empirical coverage의 |coverage-tau|를 먼저계산후평균.
+- 80%구간 coverage, signed deficit .8-coverage (양수면 undercoverage).
+- 80%구간 width/sigmaTRAIN.
+- median MAE/sigmaTRAIN, rawMAE, RMSE/sigmaTRAIN.
+- raw quantile crossingrate (공통정렬 이전).
+- 전체와129~256의 pointwise 지표를나란히표시.
+
+전체256시점 경로가80%포함된다는 simultaneous coverage를 주장하지않는다.
+9분위수로95%/99%coverage를추측하지않는다.
+평가그림은 calibration error, width, probability score를분리한다.
+점예측MAE가좋아졌다고 calibration이좋아졌다고 말하지않는다.
+
+통계:
+TEST원점 stride24의7연속원점을한block으로 paired bootstrap2000회.
+각block의계열·horizon을같이묶어예측256h overlap을 독립 표본처럼세지않는다.
+seed별 effect와2repeat평균을 별도보고.
+CI는 고정된2seed·선택계열의원점불확실성이고 모든optimizer/과거탐색을보정하지않는다.
+이전실험에 많이 쓰인 공개자료이므로 독립확증/미사전학습을주장하지않는다.
+
+============================================================
+11. 과학적 판단: 새 문턱으로 계속 살리지 않는다
+============================================================
+아래는 보고 범주이며 자동 유의성/논문PASS 규칙이 아니다.
+
+METHOD_SIGNAL:
+U가 R과S보다 probability score에서 일관된 실용적 추가신호를 보이고,
+그 신호가 단순 affine후처리로 전부사라지지 않으며,
+coverage만 넓히고 score/point forecast를희생한 결과가 아니다.
+공식branching/MC/직접장기모델에 비해 속도–정확도 중 사용할이유를제시한다.
+모든자료/모든seed/모든CI하한양수를 요구하지 않는다.
+
+STATE_OR_CALIBRATION_SUFFICIENT:
+S나 R+affine으로 유사한 이득이 설명되고 U의폭정보 가치가미확보.
+
+NATIVE_ROLLOUT_SUFFICIENT:
+공식 branching이 이미 해당확률예측/비용을충분히해결하며 U를쓸이유가약함.
+
+DIRECT_LONG_MODEL_DOMINATES:
+고정direct모델이 목적metric/calibration/실측비용에서더유리하여
+고정Bolt를보강해야할추가제약없이는새방법의실용이유가약함.
+다른크기모델이 이겼다는이유만으로 구조비교가무효라고하지않는다.
+
+NO_METHOD_SIGNAL / INCONCLUSIVE_FIXED_BUDGET:
+효과없음과 최적화상한/seed불확실성을구분한다.
+512업데이트가모든방법의충분한최적화라고 주장하지않는다.
+부정적인한파일럿으로 rollout PEFT전체를반증하지않는다.
+하지만 자동epoch/seed/rank/LR/source추가는하지않는다.
+
+BLOCKED_DATA / BLOCKED_IMPLEMENTATION / BLOCKED_RESOURCE:
+실제성능음수와분리한다. 막힌대조를빠뜨리고전체완료로쓰지않는다.
+
+분석을 위한 oracle true-context후반예측은 이번 기본범위에서 제외한다.
+학습된U의width0/셔플을테스트해 원인분해하는 작업도 이번에는추가하지않는다.
+먼저 위직접비교를끝내고 자동후속0으로종료한다.
+
+============================================================
+12. 구현 무결성 검사 — 성능 관문이 아님
+============================================================
+- 실제64step F0 raw출력과local wrapper의동일성.
+- native256branching은공식API와동일예측.
+- same-source/seed LoRA init hash동일, S/U adapter init동일.
+- LoRA count구조감사, S/U extra count=8744.
+- 초기single-path R/S/U 전체256 동일(같은rearrangement규칙).
+- four forward lengths512/576/640/704와metadata patch32/36/40/44.
+- 최초512observed m=0, 생성부분만m=1; qwidth는정답이아닌모델출력.
+- 미래target을임의치환해도optimizer0 전체예측/metadata변화0.
+- s0는최초observed로만, sigma는TRAIN으로만계산.
+- 모델forward/metadata에target/gen-truth/stateoracle인자를두지않음.
+- 학습에서현재real y를다음call context에붙이지않음.
+- 파라미터는4calls 동안고정, optimizerstep은그뒤한번.
+- detachedfeedback은값뿐아니라width까지적용.
+- nativepredict의no_grad를training에사용하지않음.
+- 모든trainable gradfinite, smoke2updates에서LoRA와adapter실제변화확인.
+  up영초기화때문에첫step의down gradient가0인것은정상일수있음.
+- 원backboneweights/buffers hash불변.
+- 모델save/restore와adapter-off예측검사.
+- 단일계열순서변경/배치분할이예측을바꾸지않는지검사.
+- CAL/VAL/TESTtarget범위, 원점패킷hash, seed분리검사.
+- 선형보정identity출력보존, 실제보정은CAL에서만fit.
+- scalar pinball/PCE/coverage 검산, raw점수에서gain재계산.
+- TEST점수는모든학습모델선택봉인후기록.
+- 실행후코드수정이필요하면원실행sourcehash와수정diff를함께보존.
+
+첨부13개CPU test는상태관리/기본계산/작은어댑터만검사한다.
+이검사가통과해도실제Chronos/LoRA/데이터/GPU검사는여전히필수다.
+
+============================================================
+13. 산출물과 실행 순서
+============================================================
+최소 산출물:
+ PROTOCOL.md                         이번문서를구현상세로봉인
+ SOURCE_AND_MODEL_MANIFEST.json     실제download/hash/config/version
+ DATA_AND_SPLIT_AUDIT.json          계열id,period,counts,finite,TRAINscale
+ ENVIRONMENT.json / requirements-lock.txt
+ MODEL_AND_SMOKE_AUDIT.json
+ FIT_LEDGER.csv / UPDATE_LEDGER.jsonl
+ LR_SELECTION.json / MODEL_SELECTION.json
+ CALIBRATION_PARAMETERS.json
+ PREDICTIONS_MANIFEST.json
+ SCORES_BY_SERIES_BLOCK.csv
+ SCORES_BY_ORIGIN.csv / EFFECTS.csv / SEED_EFFECTS.csv
+ RESOURCES.csv / VERIFICATION.json
+ REPORT_KO.md / FINAL_DECISION.md
+
+보고서는시간순일지가아니라아래질문순서:
+1) 기존officialbranching은이미무엇을해결하고있는가?
+2) rollout학습LoRA의성능은?
+3) 생성상태-only대조S대비U의폭정보추가효과는?
+4) 단순보정으로충분한가?
+5) 공식branching/MC16/Chronos2직접예측대비어떤tradeoff인가?
+6) 데이터별·seed별반례/최적화한계와주장범위는?
+7) 한정된후속투자근거가남는가?
+
+그림은최대3종: lead/block별score, coverage/width, quality–latency.
+못한비교는표에미실행으로명시하고없는숫자를채우지않는다.
+
+실행순서:
+1. source/data/env/model receipts + prediction0 데이터감사
+2. CPU참조test + 실제Chronosnative/parity/gradient smoke
+3. 전체24fit의고정계약봉인
+4. 두source의R/S/U 선택+repeat 모두완료
+5. 같은CAL에서고정후처리fit, 모든선택봉인
+6. native/MC/direct포함test예측선저장후채점
+7. 검산·한국어보고서·scopedcommit/push
+8. 자동다음실험0, 다른후보전환0으로종료
+
+규약작성만하고종료하지말고, 구현오류가없고사용환경이허용하면
+정해진24fit와대조추론까지수행한다.
+반대로데이터/모델연결이틀렸는데예산을채우려고학습하지않는다.
