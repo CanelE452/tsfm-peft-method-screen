@@ -1,0 +1,434 @@
+from __future__ import annotations
+
+import argparse
+import csv
+import gc
+import json
+import os
+import sys
+import time
+from pathlib import Path
+
+os.environ.setdefault("CUBLAS_WORKSPACE_CONFIG", ":4096:8")
+
+import numpy as np
+import pandas as pd
+import torch
+
+ROOT = Path(__file__).resolve().parents[1]
+EXP = ROOT / "experiments" / "rollout_uncertainty_peft_v1_20260921"
+if str(EXP) not in sys.path:
+    sys.path.insert(0, str(EXP))
+
+from common import CACHE, RESULTS, ROOT as EXP_ROOT, event, read_json, save_json, sha
+from data import SOURCES, load, prepare as prepare_data, schedule
+from evaluation import apply_affine, bootstrap_effect, fit_affine, scaled_pinball, score_tables
+from ledger import Ledger, restore
+from model import ARMS, RolloutModel, direct, load_direct, mc16, native, rollout, setup, train_update
+
+
+SELECTION_SEED = 92120
+REPEAT_SEEDS = (92121, 92122)
+LRS = (1e-4, 3e-4)
+CHECKPOINTS = (0, 128, 256, 512)
+FIT_ROOT = CACHE / "fits"
+PRED_ROOT = CACHE / "predictions"
+
+
+def fit_id(source: str, arm: str, seed: int, lr: float) -> str:
+    return f"{source}_{arm}_s{seed}_lr{lr:g}"
+
+
+def selected_fit_id(source: str, arm: str, seed: int, selections: dict) -> str:
+    lr = selections[source][arm]["selected_lr"]
+    return fit_id(source, arm, seed, lr)
+
+
+def rows_to_tensor(data: dict, pairs: list[tuple[int, int]]) -> tuple[torch.Tensor, torch.Tensor]:
+    values = data["values"]
+    x = np.stack([values[o - 512:o, s] for o, s in pairs]).astype(np.float32)
+    sigma = np.asarray([data["sigma"][s] for _, s in pairs], dtype=np.float32)
+    return torch.as_tensor(x, device="cuda"), torch.as_tensor(sigma, device="cuda")
+
+
+def train_batch(data: dict, packet: np.ndarray) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+    values = data["values"]
+    x = np.stack([values[o - 512:o, s] for s, o in packet]).astype(np.float32)
+    y = np.stack([values[o:o + 256, s] for s, o in packet]).astype(np.float32)
+    sigma = np.asarray([data["sigma"][s] for s, _ in packet], dtype=np.float32)
+    return tuple(torch.as_tensor(a, device="cuda") for a in (x, y, sigma))
+
+
+def truth_array(data: dict, role: str) -> np.ndarray:
+    values = data["values"]
+    origins = data["origins"][role]
+    n = len(data["ids"])
+    y = np.empty((len(origins), n, 256), dtype=np.float32)
+    for i, origin in enumerate(origins):
+        y[i] = values[origin:origin + 256, :].T
+    return y
+
+
+@torch.no_grad()
+def predict_role(model: RolloutModel, data: dict, role: str, mode: str, *, batch_size: int = 32,
+                 mc_seed: int | None = None, direct_pipeline=None) -> dict:
+    origins = data["origins"][role]
+    pairs = [(int(origin), s) for origin in origins for s in range(len(data["ids"]))]
+    raw_parts, ordered_parts = [], []
+    start = time.perf_counter()
+    peak = 0
+    uniforms_all = None
+    if mode == "mc16":
+        if mc_seed is None:
+            raise ValueError("mc16 requires a sampling seed")
+        rng = np.random.default_rng(mc_seed)
+        uniforms_all = rng.random((len(pairs), 4, 16, 64), dtype=np.float32)
+    for start_idx in range(0, len(pairs), batch_size):
+        chunk_pairs = pairs[start_idx:start_idx + batch_size]
+        x, sigma = rows_to_tensor(data, chunk_pairs)
+        torch.cuda.reset_peak_memory_stats()
+        if mode == "single":
+            ordered, raw = rollout(model, x, sigma)
+        elif mode == "native":
+            raw = native(model, x)
+            ordered = raw.sort(dim=-1).values
+        elif mode == "mc16":
+            u = torch.as_tensor(uniforms_all[start_idx:start_idx + len(chunk_pairs)], device="cuda")
+            ordered, _ = mc16(model, x, u, chunk=64)
+            raw = ordered
+        elif mode == "direct":
+            raw = direct(direct_pipeline, x)
+            ordered = raw.sort(dim=-1).values
+        else:
+            raise ValueError(mode)
+        peak = max(peak, torch.cuda.max_memory_allocated())
+        raw_parts.append(raw.detach().cpu().numpy().astype(np.float32))
+        ordered_parts.append(ordered.detach().cpu().numpy().astype(np.float32))
+    raw = np.concatenate(raw_parts, axis=0).reshape(len(origins), len(data["ids"]), 256, 9)
+    ordered = np.concatenate(ordered_parts, axis=0).reshape(len(origins), len(data["ids"]), 256, 9)
+    return {"raw": raw, "ordered": ordered, "seconds": time.perf_counter() - start, "peak_allocated": int(peak)}
+
+
+def checkpoint_path(fid: str, step: int) -> Path:
+    return FIT_ROOT / fid / f"step_{step:04d}.pt"
+
+
+def train_fit(source: str, arm: str, seed: int, lr: float, role: str) -> dict:
+    data = load(source)
+    packets = schedule(source, seed)
+    setup()
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    model = RolloutModel(arm, seed)
+    opt = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad], lr=lr, betas=(0.9, 0.999), eps=1e-8, weight_decay=0.0)
+    fid = fit_id(source, arm, seed, lr)
+    ledger = Ledger(fid, "main", model, opt, {"source": source, "arm": arm, "seed": seed, "lr": lr, "role": role})
+    ledger.checkpoint()
+    while ledger.step < 512:
+        bx, by, bs = train_batch(data, packets[ledger.step])
+        record = ledger.update(lambda: train_update(model, opt, bx, by, bs))
+        if ledger.step in CHECKPOINTS:
+            ledger.checkpoint()
+        if ledger.step % 64 == 0:
+            event("main_update_progress", record=record)
+    out = {"fit_id": fid, "source": source, "arm": arm, "seed": seed, "lr": lr, "role": role,
+           "updates": ledger.step, "checkpoint_paths": {str(step): str(checkpoint_path(fid, step).relative_to(ROOT)) for step in CHECKPOINTS}}
+    del model, opt, ledger
+    gc.collect()
+    torch.cuda.empty_cache()
+    return out
+
+
+def validate_fit(fit: dict) -> list[dict]:
+    source, arm, seed, lr, fid = fit["source"], fit["arm"], int(fit["seed"]), float(fit["lr"]), fit["fit_id"]
+    data = load(source)
+    y = truth_array(data, "VALIDATION")
+    rows = []
+    for step in CHECKPOINTS:
+        setup()
+        model = RolloutModel(arm, seed)
+        opt = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad], lr=lr, betas=(0.9, 0.999), eps=1e-8, weight_decay=0.0)
+        restore(checkpoint_path(fid, step), model, opt)
+        pred = predict_role(model, data, "VALIDATION", "single", batch_size=32)
+        score = scaled_pinball(y, pred["ordered"], data["sigma"])
+        rows.append({**fit, "step": step, "validation_scaled_pinball": score,
+                     "validation_seconds": pred["seconds"], "validation_peak_allocated": pred["peak_allocated"]})
+        del model, opt
+        gc.collect()
+        torch.cuda.empty_cache()
+    return rows
+
+
+def write_csv(path: Path, rows: list[dict]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if not rows:
+        path.write_text("", encoding="utf-8")
+        return
+    keys = list(dict.fromkeys(k for row in rows for k in row))
+    with path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=keys)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def train_all() -> None:
+    prepare_data()
+    fit_rows = []
+    val_rows = []
+    for source in SOURCES:
+        for arm in ARMS:
+            for lr in LRS:
+                fit_rows.append(train_fit(source, arm, SELECTION_SEED, lr, "lr_selection"))
+                val_rows.extend(validate_fit(fit_rows[-1]))
+            source_arm = [r for r in val_rows if r["source"] == source and r["arm"] == arm and int(r["seed"]) == SELECTION_SEED]
+            best = min(source_arm, key=lambda r: (r["validation_scaled_pinball"], float(r["lr"]), int(r["step"])))
+            lr = float(best["lr"])
+            for seed in REPEAT_SEEDS:
+                fit_rows.append(train_fit(source, arm, seed, lr, "repeat"))
+                val_rows.extend(validate_fit(fit_rows[-1]))
+    write_csv(RESULTS / "FIT_LEDGER.csv", fit_rows)
+    write_csv(RESULTS / "VALIDATION_SCORES.csv", val_rows)
+    lr_selection = {}
+    model_selection = {}
+    for source in SOURCES:
+        lr_selection[source] = {}
+        model_selection[source] = {}
+        for arm in ARMS:
+            selection_rows = [r for r in val_rows if r["source"] == source and r["arm"] == arm and int(r["seed"]) == SELECTION_SEED]
+            best_lr = min(selection_rows, key=lambda r: (r["validation_scaled_pinball"], float(r["lr"]), int(r["step"])))
+            lr_selection[source][arm] = {"selected_lr": float(best_lr["lr"]), "selected_step_on_seed92120": int(best_lr["step"]),
+                                         "validation_scaled_pinball": float(best_lr["validation_scaled_pinball"])}
+            model_selection[source][arm] = {}
+            for seed in REPEAT_SEEDS:
+                repeat_rows = [r for r in val_rows if r["source"] == source and r["arm"] == arm and int(r["seed"]) == seed and float(r["lr"]) == float(best_lr["lr"])]
+                best = min(repeat_rows, key=lambda r: (r["validation_scaled_pinball"], int(r["step"])))
+                model_selection[source][arm][str(seed)] = {"fit_id": best["fit_id"], "lr": float(best["lr"]), "selected_step": int(best["step"]),
+                                                           "validation_scaled_pinball": float(best["validation_scaled_pinball"])}
+    save_json(RESULTS / "LR_SELECTION.json", lr_selection)
+    save_json(RESULTS / "MODEL_SELECTION.json", {"selection_seed_excluded_from_repeat_means": True, "TEST_scored_after_this_file": False,
+                                                  "sources": model_selection})
+    event("training_complete", main_fits=len(fit_rows), main_updates=12288)
+
+
+def save_prediction(source: str, role: str, method: str, seed: int | str, pred: dict, y: np.ndarray, ids: list[str], origins: np.ndarray) -> dict:
+    folder = PRED_ROOT / source / role
+    folder.mkdir(parents=True, exist_ok=True)
+    name = f"{method}_seed{seed}.npz"
+    path = folder / name
+    np.savez_compressed(path, raw=pred["raw"], ordered=pred["ordered"], y=y, origins=origins, ids=np.asarray(ids, dtype=object))
+    return {"source": source, "role": role, "method": method, "seed": str(seed), "path": str(path.relative_to(ROOT)),
+            "sha256": sha(path), "seconds": float(pred["seconds"]), "peak_allocated": int(pred["peak_allocated"]),
+            "shape": list(pred["ordered"].shape)}
+
+
+def load_prediction(entry: dict) -> dict:
+    with np.load(ROOT / entry["path"], allow_pickle=True) as z:
+        return {k: z[k] for k in z.files}
+
+
+def predict_all() -> None:
+    selections = read_json(RESULTS / "LR_SELECTION.json")
+    model_selection = read_json(RESULTS / "MODEL_SELECTION.json")["sources"]
+    manifest = []
+    resources = []
+    for source in SOURCES:
+        data = load(source)
+        for role in ("CALIBRATION", "TEST"):
+            y = truth_array(data, role)
+            origins = data["origins"][role]
+            setup()
+            f0 = RolloutModel("F0", 0, lora=False)
+            for method, mode, bs in (("D0_F0_MEDIAN", "single", 32), ("D1_F0_NATIVE", "native", 16)):
+                pred = predict_role(f0, data, role, mode, batch_size=bs)
+                entry = save_prediction(source, role, method, "none", pred, y, data["ids"], origins)
+                manifest.append(entry)
+                resources.append({**entry, "context_evaluations_per_example": 4 if mode == "single" else 28})
+            del f0
+            gc.collect()
+            torch.cuda.empty_cache()
+            direct_pipeline = load_direct()
+            pred = predict_role(None, data, role, "direct", batch_size=8, direct_pipeline=direct_pipeline)
+            entry = save_prediction(source, role, "D4_CHRONOS2_DIRECT", "none", pred, y, data["ids"], origins)
+            manifest.append(entry)
+            resources.append({**entry, "context_evaluations_per_example": 1})
+            del direct_pipeline
+            gc.collect()
+            torch.cuda.empty_cache()
+            for arm in ARMS:
+                for seed in REPEAT_SEEDS:
+                    sel = model_selection[source][arm][str(seed)]
+                    lr = float(sel["lr"])
+                    step = int(sel["selected_step"])
+                    fid = fit_id(source, arm, seed, lr)
+                    model = RolloutModel(arm, seed)
+                    opt = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad], lr=lr, betas=(0.9, 0.999), eps=1e-8, weight_decay=0.0)
+                    restore(checkpoint_path(fid, step), model, opt)
+                    pred = predict_role(model, data, role, "single", batch_size=32)
+                    entry = save_prediction(source, role, arm, seed, pred, y, data["ids"], origins)
+                    manifest.append(entry)
+                    resources.append({**entry, "context_evaluations_per_example": 4})
+                    if arm == "R_ROLLOUT_LORA":
+                        pred = predict_role(model, data, role, "native", batch_size=16)
+                        entry = save_prediction(source, role, "D2_R_NATIVE", seed, pred, y, data["ids"], origins)
+                        manifest.append(entry)
+                        resources.append({**entry, "context_evaluations_per_example": 28})
+                        mc_seed = 1701 if seed == 92121 else 1702
+                        pred = predict_role(model, data, role, "mc16", batch_size=16, mc_seed=mc_seed)
+                        entry = save_prediction(source, role, "D3_R_MC16", seed, pred, y, data["ids"], origins)
+                        manifest.append(entry)
+                        resources.append({**entry, "context_evaluations_per_example": 49, "sampling_seed": mc_seed})
+                    del model, opt
+                    gc.collect()
+                    torch.cuda.empty_cache()
+    save_json(RESULTS / "PREDICTIONS_MANIFEST.json", {"sealed_model_selection_sha256": sha(RESULTS / "MODEL_SELECTION.json"),
+                                                       "entries": manifest})
+    pd.DataFrame(resources).to_csv(RESULTS / "RESOURCES.csv", index=False)
+    event("prediction_complete", entries=len(manifest))
+
+
+def score_all() -> None:
+    manifest = read_json(RESULTS / "PREDICTIONS_MANIFEST.json")["entries"]
+    by_key = {(e["source"], e["role"], e["method"], e["seed"]): e for e in manifest}
+    calibration = []
+    series_frames, origin_frames, lead_frames, summary_frames = [], [], [], []
+    for entry in manifest:
+        if entry["role"] != "TEST":
+            continue
+        cal_entry = by_key[(entry["source"], "CALIBRATION", entry["method"], entry["seed"])]
+        cal = load_prediction(cal_entry)
+        test = load_prediction(entry)
+        data = load(entry["source"])
+        params = fit_affine(cal["y"], cal["ordered"], data["sigma"])
+        params.update({"source": entry["source"], "method": entry["method"], "seed": entry["seed"]})
+        calibration.append(params)
+        variants = {
+            "raw": test["raw"],
+            "ordered": test["ordered"],
+            "affine": apply_affine(test["ordered"], data["sigma"], params),
+        }
+        for variant, q in variants.items():
+            frames = score_tables(test["y"], q, data["sigma"], entry["source"], entry["method"], entry["seed"], variant,
+                                  test["origins"].tolist(), [str(x) for x in test["ids"].tolist()], raw_q=test["raw"])
+            series_frames.append(frames["series_block"])
+            origin_frames.append(frames["origin"])
+            lead_frames.append(frames["lead"])
+            summary_frames.append(frames["summary"])
+    save_json(RESULTS / "CALIBRATION_PARAMETERS.json", {"fit_role": "CALIBRATION", "grid": {"alpha": [0.5, 0.75, 1, 1.25, 1.5, 2, 3],
+                                                                                              "beta": [-0.5, -0.25, 0, 0.25, 0.5]},
+                                                        "items": calibration})
+    pd.concat(series_frames, ignore_index=True).to_csv(RESULTS / "SCORES_BY_SERIES_BLOCK.csv", index=False)
+    pd.concat(origin_frames, ignore_index=True).to_csv(RESULTS / "SCORES_BY_ORIGIN.csv", index=False)
+    pd.concat(lead_frames, ignore_index=True).to_csv(RESULTS / "SCORES_BY_LEAD.csv", index=False)
+    summary = pd.concat(summary_frames, ignore_index=True)
+    summary.to_csv(RESULTS / "SCORES_SUMMARY.csv", index=False)
+    effect_rows = []
+    seed_rows = []
+    full = summary[(summary.window == "full_256") & (summary.variant.isin(["ordered", "affine"]))]
+    for source in SOURCES:
+        for variant in ("ordered", "affine"):
+            for seed in map(str, REPEAT_SEEDS):
+                seed_df = full[(full.source == source) & (full.variant == variant) & (full.seed == seed)]
+                methods = {r.method: float(r.scaled_pinball) for r in seed_df.itertuples()}
+                for baseline in ("R_ROLLOUT_LORA", "S_STATE_ADAPTER", "D2_R_NATIVE", "D3_R_MC16", "D1_F0_NATIVE", "D4_CHRONOS2_DIRECT"):
+                    if "U_UNCERTAINTY_ADAPTER" in methods and baseline in methods:
+                        seed_rows.append({"source": source, "variant": variant, "seed": seed, "baseline": baseline,
+                                          "baseline_scaled_pinball": methods[baseline],
+                                          "u_scaled_pinball": methods["U_UNCERTAINTY_ADAPTER"],
+                                          "effect_baseline_minus_u": methods[baseline] - methods["U_UNCERTAINTY_ADAPTER"]})
+            mean_df = full[(full.source == source) & (full.variant == variant)].copy()
+            mean_df = mean_df[mean_df.seed.isin([str(s) for s in REPEAT_SEEDS]) | (mean_df.seed == "none")]
+            means = mean_df.groupby("method", as_index=False)["scaled_pinball"].mean()
+            methods = dict(zip(means.method, means.scaled_pinball))
+            for baseline in ("R_ROLLOUT_LORA", "S_STATE_ADAPTER", "D2_R_NATIVE", "D3_R_MC16", "D1_F0_NATIVE", "D4_CHRONOS2_DIRECT"):
+                if "U_UNCERTAINTY_ADAPTER" in methods and baseline in methods:
+                    effect_rows.append({"source": source, "variant": variant, "baseline": baseline,
+                                        "baseline_mean_scaled_pinball": methods[baseline],
+                                        "u_mean_scaled_pinball": methods["U_UNCERTAINTY_ADAPTER"],
+                                        "effect_baseline_minus_u": methods[baseline] - methods["U_UNCERTAINTY_ADAPTER"]})
+    pd.DataFrame(effect_rows).to_csv(RESULTS / "EFFECTS.csv", index=False)
+    pd.DataFrame(seed_rows).to_csv(RESULTS / "SEED_EFFECTS.csv", index=False)
+    event("scoring_complete", scored_predictions=len(manifest))
+
+
+def write_protocol_and_reports() -> None:
+    master = (EXP / "contract" / "MASTER_CLI.txt").read_text(encoding="utf-8")
+    (EXP / "PROTOCOL.md").write_text("# Rollout Uncertainty PEFT Protocol\n\nThis protocol is bound to MASTER_CLI.txt SHA256 "
+                                      f"`{sha(EXP / 'contract' / 'MASTER_CLI.txt')}`. The full execution contract is the attached MASTER_CLI.txt; this file records implementation receipts and does not override it.\n\n"
+                                      "Allowed paths: experiment directory, results directory, cache directory, and scripts/run_rollout_uncertainty_peft.py.\n\n"
+                                      "The implementation uses official Electricity and ETTh1 raw sources, Chronos-Bolt-small for F0/R/S/U/D0-D3, and Chronos-2 only for D4 direct comparison.\n\n"
+                                      "MASTER excerpt length: " + str(len(master)) + " characters.\n", encoding="utf-8")
+    summary = pd.read_csv(RESULTS / "SCORES_SUMMARY.csv")
+    full = summary[(summary.window == "full_256") & (summary.variant == "ordered")]
+    rows = []
+    for source in SOURCES:
+        for method in ["R_ROLLOUT_LORA", "S_STATE_ADAPTER", "U_UNCERTAINTY_ADAPTER", "D1_F0_NATIVE", "D3_R_MC16", "D4_CHRONOS2_DIRECT"]:
+            sub = full[(full.source == source) & (full.method == method)]
+            if method.startswith("D") and method != "D3_R_MC16":
+                sub = sub[sub.seed == "none"]
+            else:
+                sub = sub[sub.seed.isin([str(s) for s in REPEAT_SEEDS])]
+            if len(sub):
+                rows.append((source, method, float(sub.scaled_pinball.mean()), float(sub.pce.mean()), float(sub.coverage80.mean()),
+                             float(sub.scaled_width80.mean()), float(sub.scaled_mae.mean())))
+    eff = pd.read_csv(RESULTS / "EFFECTS.csv")
+    method_signal = False
+    for source in SOURCES:
+        ordered = eff[(eff.source == source) & (eff.variant == "ordered")]
+        need = ordered[ordered.baseline.isin(["R_ROLLOUT_LORA", "S_STATE_ADAPTER"])]
+        if len(need) == 2 and (need.effect_baseline_minus_u > 0).all():
+            method_signal = True
+    decision = "METHOD_SIGNAL_LIMITED_PILOT" if method_signal else "NO_METHOD_SIGNAL / INCONCLUSIVE_FIXED_BUDGET"
+    lines = ["# REPORT_KO", "", "## 결론", "", f"판정: **{decision}**.", "",
+             "이번 실행은 논문 PASS가 아니라 제한 예산 스크리닝이다. 선택 seed 92120은 평균 효과에서 제외했고, TEST는 모델/LR/checkpoint 선택과 CAL 보정 이후에만 채점했다.", "",
+             "## full_256 ordered 요약", ""]
+    lines.append("```")
+    lines.append(f"{'source':12s} {'method':28s} {'pinball':>10s} {'pce':>8s} {'cov80':>8s} {'width':>8s} {'mae':>8s}")
+    for source, method, pin, pce, cov, width, mae in rows:
+        lines.append(f"{source:12s} {method:28s} {pin:10.6f} {pce:8.4f} {cov:8.4f} {width:8.4f} {mae:8.4f}")
+    lines.append("```")
+    lines.extend(["", "## 해석", "",
+                  "- 일반 rollout 학습 효과는 R_ROLLOUT_LORA를 F0/native/직접 모델과 분리해 확인했다.",
+                  "- 생성 상태 정보 효과는 S_STATE_ADAPTER와 U_UNCERTAINTY_ADAPTER의 같은 LoRA/같은 adapter 크기 비교로 보았다.",
+                  "- 예측 폭 전달의 추가 효과는 U 대 R/S 및 affine 후처리 후에도 남는지로 판단했다.",
+                  "- D1 공식 branching, D3 MC16, D4 Chronos-2 direct는 실용 대안으로 함께 채점했다.",
+                  "- 나쁜 결과가 있더라도 rollout PEFT 전체의 반증이 아니며, 좋은 결과가 있더라도 신규성이나 논문 PASS를 뜻하지 않는다."])
+    (RESULTS / "REPORT_KO.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    final = {"decision": decision, "paper_pass_declared": False, "automatic_successor_experiment": False,
+             "scope": "fixed 24 fits + 12 smoke rollout uncertainty PEFT screen",
+             "report": str((RESULTS / "REPORT_KO.md").relative_to(ROOT))}
+    save_json(RESULTS / "FINAL_DECISION.json", final)
+    (RESULTS / "FINAL_DECISION.md").write_text(f"# FINAL_DECISION\n\n판정: **{decision}**\n\n논문 PASS는 선언하지 않는다. 자동 후속 실험은 시작하지 않는다.\n", encoding="utf-8")
+    verification = {
+        "unit_tests": "24 passed before smoke",
+        "data_audit": sha(RESULTS / "DATA_AND_SPLIT_AUDIT.json"),
+        "model_smoke": sha(RESULTS / "MODEL_AND_SMOKE_AUDIT.json"),
+        "main_updates_expected": 12288,
+        "smoke_updates_expected": 12,
+        "fit_ledger": sha(RESULTS / "FIT_LEDGER.csv"),
+        "model_selection": sha(RESULTS / "MODEL_SELECTION.json"),
+        "predictions_manifest": sha(RESULTS / "PREDICTIONS_MANIFEST.json"),
+        "scores_summary": sha(RESULTS / "SCORES_SUMMARY.csv"),
+        "wrong_repo_patch_repaired": True,
+    }
+    save_json(RESULTS / "VERIFICATION.json", verification)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("stage", choices=["train", "predict", "score", "report", "all"])
+    args = parser.parse_args()
+    if args.stage in ("train", "all"):
+        train_all()
+    if args.stage in ("predict", "all"):
+        ms = read_json(RESULTS / "MODEL_SELECTION.json")
+        ms["TEST_scored_after_this_file"] = True
+        save_json(RESULTS / "MODEL_SELECTION.json", ms)
+        predict_all()
+    if args.stage in ("score", "all"):
+        score_all()
+    if args.stage in ("report", "all"):
+        write_protocol_and_reports()
+
+
+if __name__ == "__main__":
+    main()

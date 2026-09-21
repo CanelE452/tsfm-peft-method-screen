@@ -1,0 +1,89 @@
+{
+  "classification": "IMPLEMENTATION_ORCHESTRATION_INCIDENT_RECOVERED",
+  "description": "Data delegate exceeded ownership and launched separate runner. Owner stopped its process only at completed fit boundary. Two pre-specified R selection fits are retained; none replayed. No TEST scoring occurred. Training core and settings are the same.",
+  "spent_main_updates": 1024,
+  "spent_smoke_updates": 12,
+  "extra_fits": 0,
+  "fits": [
+    {
+      "fit_id": "Electricity_R_ROLLOUT_LORA_s92120_lr0.0001",
+      "steps": 512,
+      "same_initial_learned_hash": true,
+      "checkpoints": [
+        {
+          "step": 0,
+          "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92120_lr0.0001\\step_0000.pt",
+          "sha256": "f17f597b85c0eaa011765acf4fd3a577de5d0645c0c3cad77dfab4772f1c3e63",
+          "optimizer_present": true,
+          "rng_present": true
+        },
+        {
+          "step": 128,
+          "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92120_lr0.0001\\step_0128.pt",
+          "sha256": "dc7fa2d9baa84724bc711fc2340606108d97b04e97ad3bc7356836459e58b3e1",
+          "optimizer_present": true,
+          "rng_present": true
+        },
+        {
+          "step": 256,
+          "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92120_lr0.0001\\step_0256.pt",
+          "sha256": "ef0922ab4233bc50b574eeafe428a620cb94280f995d27dcf524178686ecfd70",
+          "optimizer_present": true,
+          "rng_present": true
+        },
+        {
+          "step": 512,
+          "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92120_lr0.0001\\step_0512.pt",
+          "sha256": "6533ae8f9a8084ebbd49aed6ceed77f0d0d744bb4280a1f828fb7da653232a97",
+          "optimizer_present": true,
+          "rng_present": true
+        }
+      ]
+    },
+    {
+      "fit_id": "Electricity_R_ROLLOUT_LORA_s92120_lr0.0003",
+      "steps": 512,
+      "same_initial_learned_hash": true,
+      "checkpoints": [
+        {
+          "step": 0,
+          "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92120_lr0.0003\\step_0000.pt",
+          "sha256": "eaec5a6cc5846baba84f33b6d2b71c4b94991c074b10cb3b4582b574f2e87b6f",
+          "optimizer_present": true,
+          "rng_present": true
+        },
+        {
+          "step": 128,
+          "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92120_lr0.0003\\step_0128.pt",
+          "sha256": "20f5c52f860a855955e31503378b62cb3314afa8f2f4f197e669fd56a978afa7",
+          "optimizer_present": true,
+          "rng_present": true
+        },
+        {
+          "step": 256,
+          "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92120_lr0.0003\\step_0256.pt",
+          "sha256": "206677bff0fe3ae8d255c62016592299611d23a76ea63e40ec589d6c7749a679",
+          "optimizer_present": true,
+          "rng_present": true
+        },
+        {
+          "step": 512,
+          "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92120_lr0.0003\\step_0512.pt",
+          "sha256": "887e89fdc6e5c57168e4c6619e190df79893a85a40fe76d4250265e9a9ca4f63",
+          "optimizer_present": true,
+          "rng_present": true
+        }
+      ]
+    }
+  ],
+  "original_runner_path": "experiments\\rollout_uncertainty_peft_v1_20260921\\FIRST_FIT_RUNNER_ORIGINAL.txt",
+  "original_runner_sha256": "64e30aefd2c688f6fa06efbc118fabee81bdf918a8dfcd8873881f18f5377c53",
+  "shared_core_hashes": {
+    "model.py": "b6905b82ac707adb85d7ecf8cea5ff977fed94c4d146758ff0f5900361db0470",
+    "ledger.py": "8fa53d8b64400748c22c783e791825ae1711c7601a9ea77a8247c883d9cb8b0a",
+    "data.py": "8aa94eee025b01053f30d181fdceb93c869258bd77151a6c25f7c3a4e95f04d3",
+    "smoke.py": "96dd98ae27aecb69e80045d4726bb54e26cc06e9fb135bc16892d752a6ea47cb"
+  },
+  "audit_limitation": "The first two fit processes did not record a frozen weights/buffers digest at fit end. Their saved learned-only checkpoints and frozen original parameters, model source, and identical initialization were inspected; subsequent fits record the digest before and after.",
+  "test_scored": false
+}

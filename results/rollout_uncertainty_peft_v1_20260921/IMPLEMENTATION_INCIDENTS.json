@@ -1,0 +1,22 @@
+{
+  "scientific_performance_failure": false,
+  "incidents": [
+    {
+      "stage": "pretraining_api_check",
+      "issue": "Chronos2 official DataLoader attempted to pin CUDA input",
+      "resolution": "independent groups passed as CPU tensors; forward API tested successful",
+      "extra_optimizer_updates": 0
+    },
+    {
+      "stage": "smoke_event_logging",
+      "issue": "event kind argument collided with kind field in committed update record",
+      "resolution": "nest update record in event; checkpoint and ledger retained spent update; no repeated optimizer step",
+      "total_smoke_updates": 12
+    },
+    {
+      "stage": "pretraining_review",
+      "issue": "strengthened future poisoning/save restore validation; first MC crossing; checkpoint/ledger duplicate guard",
+      "resolution": "actual loader future cells changed; learned weights perturbed before restore; checks passed"
+    }
+  ]
+}
