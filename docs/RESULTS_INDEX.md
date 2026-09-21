@@ -246,3 +246,5 @@ PETSA의 승인된8fits/8192 main+4 smoke 및224views·40checkpoint·555,492원�
 ## 고정 MAG 실제 level-shift 최종 확인 — 데이터 차단 (2026-09-21)
 
 상태: **BLOCKED_NO_INDEPENDENT_REAL_LOAD_SOURCE**. 이번 단일 계약의 제한적 새 학습 승인은 있었으나, NYISO1~8월8archives/243CSV/785334행 전체에 공식 system-total entity가 없었다. 성능 확인 전 지정 ISO-NE fallback을 확인했지만 공식 과거 CSV403으로 차단됐다. 새0/16fits,0/16384main,0/8smoke,예측·채점0. 성능FAIL 또는 실험완료로 해석하지 않는다. [한국어 보고](../results/mag_real_levelshift_confirmation_v1_20260921/REPORT.md) · [최종 판단](../results/mag_real_levelshift_confirmation_v1_20260921/FINAL_DECISION.md) · [독립 검산](../results/mag_real_levelshift_confirmation_v1_20260921/VERIFICATION.json) · [단일 계약](../experiments/mag_real_levelshift_confirmation_v1_20260921/CONTRACT.txt). 기존MAG/양성·음성결과보존,자동후속학습0. 공식ISO-NE동일보고서의정당한원본확보및재감사없이는미실행비교를재개할수없다.
+
+2026-09-21 동일 원천 확보 후속: 사용자 ISO Express 가입 완료에 따라 [로컬 인증 설정](../experiments/mag_real_levelshift_confirmation_v1_20260921/AUTH_SETUP_KO.md)을 준비했다. 비밀번호는 채팅에 받지 않으며 Git 제외·0600 파일을 사용한다. 실제 인증/자료 확보/학습은 아직 미실행이고 기존 BLOCKED 판단을 해제하지 않았다.
