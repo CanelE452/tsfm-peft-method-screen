@@ -1,0 +1,27 @@
+{
+  "after": {
+    "original_started_at": 1789828781.0246005,
+    "started_at": 1789970551.3372283,
+    "user_pause_excluded_seconds": 141770.31262779236,
+    "wait_seconds": 60.53526198293548
+  },
+  "at": 1789971967.2421076,
+  "before": {
+    "started_at": 1789828781.0246005,
+    "wait_seconds": 60.53526198293548
+  },
+  "main_cap_unchanged": 16384,
+  "reason": "Exclude verified user-requested stopped time; do not reset active runtime or GPU wait budget",
+  "smoke_cap_unchanged": 8,
+  "verified_pause_intervals": [
+    {
+      "end": 1789838368.2101336,
+      "start": 1789830022.5453253
+    },
+    {
+      "end": 1789971967.2421076,
+      "start": 1789838542.594288
+    }
+  ],
+  "wall_cap_seconds_unchanged": 28800
+}

@@ -241,4 +241,4 @@ PETSA의 승인된8fits/8192 main+4 smoke 및224views·40checkpoint·555,492원�
 
 ## LoRA 선행 여부 직접 대조 (2026-09-19)
 
-상태: 2026-09-20 최신 사용자 지시로 일시정지. 9/16fits 완료, 9408/16384main+8/8smoke, 마지막경로 step192 저장 후 종료. 명시적 재개 요청 전 학습 금지. [보고서](../results/mag_standalone_ablation_v1_20260919/REPORT.md) · [재개 상태 검산](../results/mag_standalone_ablation_v1_20260919/PAUSE_VERIFICATION.json) · [단일 계약](../experiments/mag_standalone_ablation_v1_20260919/CONTRACT.txt). 최종 성능 판단은 보류한다.
+상태: 2026-09-21 실행·평가·독립 검산 완료. 새16fits/16384main+8smoke, 기존B0/PLAIN/MAG 재학습0,192 prediction views/80 checkpoints 검산. SHIFT8에서 no-LoRA MAG는PLAIN보다네패널모두악화했고, B0위추가가치는전력계열에남았다. NESO SHIFT_POINT의standalone이득3.17%도보존한다. [한국어 보고서](../results/mag_standalone_ablation_v1_20260919/REPORT.md) · [최종 판단](../results/mag_standalone_ablation_v1_20260919/FINAL_DECISION.md) · [검산](../results/mag_standalone_ablation_v1_20260919/VERIFICATION.json) · [이득 분해 그림](../results/mag_standalone_ablation_v1_20260919/base_vs_rule.pdf) · [단일 계약](../experiments/mag_standalone_ablation_v1_20260919/CONTRACT.txt). 프로세스종료·자동후속학습0. 논문PASS·LoRA필수성으로일반화하지않는다.
