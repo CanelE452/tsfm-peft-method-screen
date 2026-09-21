@@ -1,0 +1,63 @@
+{
+  "provider": "ISO-NE",
+  "report_url": "https://www.iso-ne.com/isoexpress/web/reports/load-and-demand/-/tree/dmnd-rt-hourly-sys",
+  "official_business_document_url": "https://www.iso-ne.com/static-assets/documents/2017/06/webservices_documentation.xlsx",
+  "document_sha256": "606e45f056cde835ec11558dcfc044c8dd83d67f9b0cf2ed61bba380ca7d98df",
+  "document_rows": [
+    [
+      "Real-Time Hourly System Load Report",
+      "Hourly system load MW for the entire control area, or requested location",
+      "/hourlysysload",
+      "None",
+      "None",
+      "Rolling 7 Years"
+    ],
+    [
+      "/hourlysysload/current",
+      "None",
+      "None"
+    ],
+    [
+      "/hourlysysload/info",
+      "None",
+      "None"
+    ],
+    [
+      "/hourlysysload/current/location/{locationId}",
+      "32",
+      "None"
+    ],
+    [
+      "/hourlysysload/current/locationType/{locationType}",
+      "None",
+      "None",
+      "INT.AREA"
+    ],
+    [
+      "/hourlysysload/day/{day}/location/{locationId}",
+      "32",
+      "Single Day"
+    ],
+    [
+      "/hourlysysload/day/{day}",
+      "None",
+      "Single Day"
+    ],
+    [
+      "/hourlysysload/day/{day}/hour/{sh}",
+      "None",
+      "Single Day, Hour"
+    ]
+  ],
+  "selected_endpoint": "https://webservices.iso-ne.com/api/v1.1/hourlysysload/day/{day}/location/32.json",
+  "selected_target_field": "Load",
+  "selection_before_model_performance": true,
+  "not_used": [
+    "NativeLoad",
+    "ArdDemand",
+    "realtimehourlydemand hub or zone settlement demand"
+  ],
+  "historical_403_record_preserved": true,
+  "api_vs_website_csv_numerical_parity": "NOT_CHECKED_CSV_ACCESS_BLOCKED",
+  "authentication": "user-configured official account; credential contents not included"
+}
