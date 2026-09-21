@@ -1,0 +1,692 @@
+# CLI 실행 지시문 — MAG 주제 최종 계속/중단 확인
+# experiment: mag_real_levelshift_confirmation_v1_20260921
+
+저장소: CanelE452/tsfm-peft-method-screen
+
+이번 작업의 목적은 새로운 PEFT 후보를 만드는 것이 아니다.
+
+현재 MAG를 **한 글자도 바꾸지 않고**, 지금까지 방법 선택에 사용하지 않은 실제 전력 부하 자료에서
+다음 질문 하나만 확인한다.
+
+> 이미 LoRA로 적응된 시계열 예측기 B0 위에 일반 residual adapter를 추가하는 것보다,
+> 현재의 magnitude-aware residual restriction(MAG)을 추가하는 것이
+> 실제 관측의 큰 수준 변화 구간에서도 추가 예측 이득을 주는가?
+
+이 결과로 현재 MAG 방법론 주제에 더 연구 자원을 투입할지 결정한다.
+
+이번 실험에서 금지:
+- 새로운 gate / threshold / rank / loss / adapter 구조
+- 결과를 본 뒤 조건 정의 변경
+- 결과를 본 뒤 데이터셋 교체
+- standalone MAG 개선
+- joint LoRA+MAG
+- gradient/Jacobian/mechanism 분석 확대
+- 새 seed/LR 자동 추가
+- synthetic SHIFT8을 새 primary로 사용
+- 성능이 나쁠 때 후속 rescue experiment 자동 실행
+
+현재 코드의 MAG:
+- 기존 LoRA-adapted B0를 freeze
+- patch embedding 뒤, attention 전의 residual adapter 512→8→512
+- 추가 trainable parameters 8,712
+- raw observation median/MAD 기반 robust scale
+- patch16 내 `abs((x-m)/r) > 3` 비율
+- `g_j = 1 - extreme_fraction_j`
+- `h'_j = h_j + g_j * a_theta(h_j)`
+를 그대로 사용한다.
+
+---
+
+# 0. 이번 실험의 과학적 위치
+
+이 실험은 다음을 주장하려는 것이 아니다.
+
+- MAG가 모든 TSFM에서 우수하다.
+- LoRA가 수학적으로 반드시 선행되어야 한다.
+- MAG가 실제 운영 사건의 원인을 식별한다.
+- 큰 관측은 항상 보존해야 한다.
+- MAG가 더 빠르다.
+- Time-PEFT/PETSA/COSA 전체보다 우수하다.
+
+검증하려는 것은 좁게 다음이다.
+
+> 이미 적응된 전력 부하 예측기에 두 번째 소형 PEFT를 추가하는 설정에서,
+> raw 관측의 robust magnitude 정보를 이용해 추가 residual을 제한하는 현재 MAG가
+> 일반 residual adapter보다 실제 관측의 level-shift-like 구간에서 유용한가?
+
+---
+
+# 1. 최신 저장소 감사
+
+실행 시작 시 원격 main과 로컬 HEAD를 확인하고 SHA를 기록한다.
+
+최소한 아래를 읽고 hash 고정:
+- `results/mag_standalone_ablation_v1_20260919/REPORT.md`
+- `results/learned_gate_comparison_20260919/REPORT.md`
+- `results/petsa_cell_comparison_20260919/REPORT.md`
+- `papers/persistence_adaptation/magnitude_method_20260919/METHOD_SECTION_KO.md`
+- `experiments/c3_weakness_controls_20260918/model.py`
+- `experiments/additive_persistence_validation_v1_20260917/model.py`
+- 기존 B0 / PLAIN / MAG의 training recipe 및 selection rule
+- 기존 Chronos-Bolt-small snapshot receipt
+
+현재 결과를 먼저 요약하되 이번 결과 파일을 만들기 전에는
+새 원천의 future target이나 성능을 읽지 않는다.
+
+기존 핵심 개발 결과를 다음과 같이 기록:
+- electricity_transfer SHIFT8: B0_MAG > B0_PLAIN 약 +3.79%
+- NESO 후반 SHIFT8: B0_MAG > B0_PLAIN 약 +1.94%
+- ETTm1: 추가 가치 없음/음수
+- no-LoRA SHIFT8: F0_MAG < F0_PLAIN
+- 따라서 현재 MAG의 주된 근거는 `already-adapted B0 + second-stage MAG`
+
+`results/mag_real_levelshift_confirmation_v1_20260921/PREFLIGHT_KO.md`
+및 `PARENT_EVIDENCE.json` 작성.
+
+---
+
+# 2. 확인 데이터 원천을 성능 보기 전에 고정
+
+## 2.1 1순위: NYISO Real-Time Actual Load
+
+공식 페이지:
+`https://mis.nyiso.com/public/P-58Blist.htm`
+
+사용 기간:
+- 2026-01-01 00:00:00 이후
+- 2026-09-01 00:00:00 미만
+- 즉 2026년 1~8월의 **완료된 월별 archive만 사용**
+- 9월 partial data는 사용하지 않는다.
+
+이 원천은 현재 MAG/electricity/NESO 결과를 본 뒤 성능 때문에 고르는 것이 아니라,
+이번 계약에서 결과를 보기 전에 **새 provider의 실제 전력 부하 원천**으로 고정한다.
+
+먼저 저장소 tracked text / results / research / manifests에서
+`NYISO`, `P-58B`, `Real-Time Actual Load` 및 다운로드 파일명 흔적을 검색한다.
+
+다음 중 하나라도 있으면:
+- 이 연구에서 예측 성능을 이미 확인한 흔적
+- 현재 MAG/PLAIN/B0 방법 선택에 사용한 흔적
+- 같은 2026 Jan-Aug target 구간을 평가한 흔적
+
+`PRIOR_PERFORMANCE_EXPOSURE`로 BLOCK하고 이유를 기록한다.
+단순 문헌 언급이나 URL만 있는 것은 performance exposure와 구분한다.
+
+## 2.2 NYISO 사용이 성능 평가 전에 기술적으로 BLOCKED일 때만 2순위
+
+ISO New England의 공식 Hourly Real-Time System Demand.
+
+공식 시작 페이지:
+`https://www.iso-ne.com/isoexpress/web/reports/load-and-demand`
+
+2순위 사용 조건:
+- NYISO가 **모델 예측/target score를 한 번도 계산하기 전에**
+  다운로드, 라이선스, schema, 품질 또는 prior-exposure 조건으로 BLOCK된 경우만.
+- NYISO 성능이 나빠서 ISO-NE로 바꾸는 것은 금지.
+
+fallback을 사용하면 `SOURCE_DECISION.json`에
+NYISO block reason, 시각, 성능 미열람 여부를 기록한다.
+
+두 원천 모두 사용할 수 없으면:
+`BLOCKED_NO_INDEPENDENT_REAL_LOAD_SOURCE`
+로 종료한다.
+다른 데이터셋을 임의로 검색해 대체하지 않는다.
+
+---
+
+# 3. NYISO 데이터 계약
+
+## 3.1 raw schema audit
+
+월별 archive Jan-Aug 2026를 공식 페이지에서 받는다.
+원본 zip/csv SHA-256, bytes, download URL, download time을 receipt에 저장.
+
+실제 CSV schema를 읽은 뒤 다음을 검증:
+- timestamp column
+- load-zone/entity column
+- actual load value column
+- timezone/EDT/EST 표기
+- duplicate timestamp/entity
+- missing/nonfinite
+- raw sampling interval
+
+**컬럼명을 예상해서 조용히 대체하지 않는다.**
+
+primary target은 NYISO 전체 system total actual load를 나타내는 canonical entity를 사용한다.
+예: 실제 schema에 `N.Y.I.S.O.` / NYISO total 등 공식 system-total row가 존재해야 한다.
+
+system total entity가 schema상 명확하지 않으면
+`BLOCKED_SCHEMA_NO_SYSTEM_TOTAL`
+로 종료하고 임의 zone 합산을 만들지 않는다.
+
+## 3.2 시간 처리
+
+- 원본 local timestamp를 `America/New_York`로 해석
+- DST fold/gap을 공식 timestamp 정보와 함께 audit
+- UTC로 변환한 뒤 정렬
+- raw frequency가 hourly가 아니면 UTC hour 단위 actual load mean으로 집계
+- 한 hour의 기대 raw sample 수를 schema에서 계산
+- 기대 sample의 80% 미만인 hour는 missing으로 둔다
+- missing 값을 보간해서 채우지 않는다.
+
+모델 origin은 context 512시간과 target 64시간 모두 finite인 경우만 eligible.
+
+## 3.3 split
+
+결과를 보기 전에 고정:
+
+- TRAIN: 2026-01-01 00:00 UTC 이상, 2026-05-01 00:00 UTC 미만
+- V_SELECT: 2026-05-01 00:00 UTC 이상, 2026-07-01 00:00 UTC 미만
+- E_CONFIRM: 2026-07-01 00:00 UTC 이상, 2026-09-01 00:00 UTC 미만
+
+target 64시간 전체가 각 split 내부에 있어야 한다.
+context는 해당 origin 이전의 관측만 사용하며, split 시작 전의 과거 context는 허용한다.
+
+sigma_train은 TRAIN actual load로만 계산.
+
+파일:
+- `SOURCE_RECEIPT.json`
+- `DATA_MANIFEST.json`
+- `ORIGIN_AUDIT.csv`
+- `PRIOR_EXPOSURE_AUDIT.json`
+
+---
+
+# 4. 실제 관측 level-shift 조건을 미래 target 없이 정의
+
+이번 실험의 핵심이다.
+
+E_CONFIRM의 각 legal origin o에 대해,
+예측 직전의 512시간 context x만 사용한다.
+
+최근 32시간:
+`recent = x[-32:]`
+
+그 이전 reference 128시간:
+`reference = x[-160:-32]`
+
+계산:
+```
+m_ref = median(reference)
+m_recent = median(recent)
+r_ref = max(
+    1.4826 * median(abs(reference - m_ref)),
+    0.1 * sigma_train
+)
+
+shift_score S = abs(m_recent - m_ref) / r_ref
+```
+
+이 정의에는 미래 y가 들어가지 않는다.
+
+primary real-shift stratum:
+`S >= 3.0`
+
+secondary descriptive bins:
+- `S < 1`
+- `1 <= S < 2`
+- `2 <= S < 3`
+- `S >= 3`
+
+threshold 3은 이번 결과를 보기 전에 고정한다.
+E_CONFIRM에서 target error를 보고 threshold를 바꾸지 않는다.
+
+중요:
+- `S>=3`이 실제 운영 사건 label이라고 부르지 않는다.
+- `observed large level-shift condition` 또는 `past-defined high-shift stratum`이라고 부른다.
+- 미래가 실제로 계속 상승/하락하는지 여부는 조건 정의에 사용하지 않는다.
+- 미래가 되돌아오는 경우도 그대로 채점한다.
+
+## 4.1 표본 부족 규칙
+
+E_CONFIRM의 `S>=3`에:
+- unique UTC dates가 14일 미만이거나
+- eligible origins가 50개 미만이면
+
+primary stratum을 더 낮은 threshold로 재정의하지 않는다.
+
+`INSUFFICIENT_REAL_SHIFT_COVERAGE`
+를 기록하고:
+- 전체 raw performance
+- 사전 정의된 S bins
+를 기술적으로 보고한 뒤,
+MAG 방법 성공/실패를 강하게 판정하지 않는다.
+
+새 source를 성능 때문에 추가하지 않는다.
+
+---
+
+# 5. 학습 방법은 현재 MAG 논문 설정을 그대로 이식
+
+새 dataset에서 방법 자체를 재현하기 위해
+NYISO TRAIN/V로 source-specific models를 학습한다.
+
+## 5.1 F0
+
+pinned `amazon/chronos-bolt-small`
+- no adaptation
+- evaluation baseline only
+
+## 5.2 B0 = LoRA first-stage
+
+현재 B0와 동일한 구조:
+- q/v rank 8 LoRA
+- alpha 등 현재 실제 B0 설정을 repo에서 읽어 그대로 사용
+- backbone의 나머지 부분 freeze
+- raw input pathway 유지
+
+**현재 B0를 만드는 실제 training recipe를 그대로 복제**한다.
+파라미터 수가 294,912인지 actual model에서 assert.
+
+B0 TRAIN augmentation/loss/update/selection도 현재 B0의 실제 계약을 그대로 가져온다.
+새로운 augmentation state나 loss를 만들지 않는다.
+
+selection:
+- seed `92100`
+- 기존 B0에서 사용한 LR 후보만 재사용
+- V_SELECT에서 현재 B0 selection objective 그대로 사용
+
+repeat:
+- `92101`, `92102`
+
+각 repeat는 selection에서 고정한 LR을 사용하되
+자기 checkpoint step은 자기 V_SELECT로 기존 규칙대로 선택한다.
+
+## 5.3 B0_PLAIN
+
+각 seed의 selected B0를 freeze.
+
+기존 PLAIN과 동일:
+- ResidualAdapter 512→8→512
+- 8,712 params
+- gate=1
+- zero-output init
+- step0 prediction = B0 exact
+
+TRAIN augmentation / loss / updates / checkpoint / LR grid / V selection
+전부 현재 B0_PLAIN 계약 그대로.
+
+## 5.4 B0_MAG
+
+각 seed의 동일 selected B0를 freeze.
+
+기존 MAG를 그대로 사용:
+- 같은 ResidualAdapter
+- 같은 initialization
+- 같은 8,712 params
+- median/MAD/floor0.1sigma/threshold3/patch16 고정
+- raw input clipping 없음
+- MAG gate만 PLAIN과 다름
+- step0 prediction = 같은 B0 exact
+
+**MAG 수식 변경 금지.**
+
+## 5.5 단순 보정 대조 — OUTPUT_CONTEXT
+
+현재 저장소의 기존 `OUTPUT_CONTEXT` 구현을
+변경 없이 같은 B0에 붙인다.
+
+역할:
+- 내부 patch magnitude restriction이 아니어도
+  작은 output-space correction으로 충분한지 보는 보조 대조.
+
+파라미터 수와 정보 권한을 그대로 기록.
+이 대조가 다른 논문의 공식 전체 방법이라고 부르지 않는다.
+
+---
+
+# 6. 학습 예산
+
+정확한 현재 historical contract를 먼저 확인하고,
+아래 상한보다 **더 많이** 돌리지 않는다.
+
+B0:
+- selection seed × existing LR grid
+- repeat seeds 2개
+
+PLAIN:
+- selection seed × existing LR grid
+- repeat seeds 2개
+
+MAG:
+- selection seed × existing LR grid
+- repeat seeds 2개
+
+OUTPUT_CONTEXT:
+- selection seed × existing LR grid
+- repeat seeds 2개
+
+현재처럼 LR grid가 2개라면:
+- 각 family 4 fits
+- 총 16 fits
+
+각 fit 1,024 updates라면:
+- 총 main update cap = 16,384
+
+실제 historical B0/adapter 계약이 다르면
+**historical contract를 우선**하고,
+실행 전에 `TRAINING_BUDGET.json`에 계산된 fit/update 상한을 봉인한다.
+
+새 LR, 새 seed, 새 update budget은 결과를 보고 추가하지 않는다.
+
+smoke는 family/source/architecture별 최소 실제 gradient 연결 확인에만 사용.
+smoke optimizer updates도 별도 cap을 봉인.
+
+---
+
+# 7. V_SELECT은 기존 방법 선택 계약 그대로
+
+중요:
+이번 실제 E_CONFIRM 성능에 맞추기 위해
+V objective를 새로 만들지 않는다.
+
+현재 B0 / PLAIN / MAG가 사용한:
+- TRAIN synthetic augmentation
+- V states
+- normalized loss
+- checkpoint selection objective
+를 repo에서 읽어서 그대로 사용한다.
+
+즉:
+**method training recipe는 기존 개발에서 freeze,
+최종 confirmation의 새로움은 E_CONFIRM의 실제 raw 미래 평가다.**
+
+E_CONFIRM의 level-shift score나 future error를
+LR/checkpoint 선택에 사용하지 않는다.
+
+---
+
+# 8. E_CONFIRM에서는 synthetic offset을 절대 추가하지 않는다
+
+Primary evaluation input/output:
+- 실제 NYISO observed past 512h
+- 실제 NYISO future 64h
+
+금지:
+- SHIFT4/SHIFT8 synthetic transform
+- point/burst injection
+- target offset
+- future-label 기반 state 생성
+- E calibration
+
+E_CONFIRM은 raw actual series만 예측한다.
+
+모델별 prediction을 모두 hash 저장한 뒤에만 target score를 계산.
+
+---
+
+# 9. 주 비교
+
+primary metric:
+- nMAE = MAE / sigma_train
+- lower is better
+
+secondary:
+- raw MAE
+- nRMSE
+- normalized twice-pinball
+- quantile crossing
+
+## Primary scientific contrast
+
+`B0_MAG vs B0_PLAIN`
+on:
+`E_CONFIRM & S>=3`
+
+gain:
+`100 * (1 - nMAE_MAG / nMAE_PLAIN)`
+
+이 하나가 이번 계속/중단 판단의 핵심이다.
+
+## Secondary contrasts
+
+같은 S>=3:
+- B0_MAG vs B0
+- B0_MAG vs OUTPUT_CONTEXT
+- B0_PLAIN vs B0
+- B0 vs F0
+
+전체 E_CONFIRM raw:
+- B0_MAG vs B0_PLAIN
+- B0_MAG vs B0
+- OUTPUT_CONTEXT vs B0
+
+S bins:
+- 각 bin별 MAG vs PLAIN
+- 성능이 좋은 bin만 primary로 승격하지 않는다.
+
+---
+
+# 10. 통계
+
+E_CONFIRM의 모든 hourly origins을 사용할 수 있다.
+그러나 overlapping target을 독립 표본으로 세지 않는다.
+
+paired block bootstrap:
+- calendar 7-day UTC blocks
+- 2,000 draws
+- seeds fixed 92101/92102
+- 두 seed의 score는 separately report
+- aggregate는 seed-mean score
+
+보고:
+- mean gain
+- 95% block interval
+- seed gains
+- unique days
+- origins
+- target timestamp overlap
+- S distribution
+
+bootstrap interval은:
+- optimizer seed 모집단 전체
+- 과거 MAG 후보 탐색
+을 보정한다고 쓰지 않는다.
+
+---
+
+# 11. 이번 프로젝트용 계속/중단 결정 규칙
+
+이 규칙은 과학적 법칙이 아니라
+**빠른 방법론 논문 목표에서 추가 투자를 결정하기 위한 project rule**이다.
+
+## CONTINUE_MAG_METHOD_TOPIC
+
+다음을 모두 만족하면 권고:
+1. primary `S>=3`에서 MAG vs PLAIN 평균 gain > 0
+2. 두 repeat seed 모두 gain >= 0, 적어도 하나는 > 0
+3. 전체 raw E_CONFIRM에서 MAG가 PLAIN보다 1% 초과 악화하지 않음
+4. primary gain이 output correction 하나만으로 완전히 설명되지 않음
+   - 즉 MAG vs OUTPUT_CONTEXT도 방향과 효과 크기를 함께 보고 판단
+5. 실제 raw target을 사용한 결과임을 유지
+
+CI가 0을 포함한다고 자동 FAIL로 만들지 않는다.
+다만 효과가 매우 작고 불확실하면 `WEAK_CONTINUE`로 따로 표시.
+
+## STOP_MAG_AS_PRIMARY_METHOD_TOPIC
+
+아래 중 핵심 하나가 확인되면 권고:
+- primary `S>=3`에서 MAG <= PLAIN
+- MAG의 이득이 실제 raw 조건에서는 사라지고 synthetic 결과에만 남음
+- OUTPUT_CONTEXT 같은 더 단순한 보정이 동일/더 좋은 결과를 내며 MAG의 고유 실용가치가 없음
+- 전체 raw 손해가 목표조건 이득보다 실용적으로 더 커서 사용 가정이 설득되지 않음
+
+STOP이면:
+- 새 gate
+- threshold tuning
+- rank 변경
+- 새 source shopping
+- 추가 seed rescue
+를 자동으로 시작하지 않는다.
+
+기존 positive synthetic results는 삭제하지 않고
+`development stress-test evidence`로 보존한다.
+
+## INCONCLUSIVE_DATA_COVERAGE
+
+실제 high-shift observation이 너무 적으면:
+- MAG 성공/실패를 강제로 판정하지 않음
+- 다른 threshold로 rescue하지 않음
+- 데이터 부족을 명시
+- 추가 데이터 확보 가치만 별도 권고
+
+---
+
+# 12. 공정성 및 누적 비용
+
+반드시 별도 표:
+
+| method | first-stage params | second-stage params | deployed adaptation params | stages | new train updates |
+|---|---:|---:|---:|---:|---:|
+
+B0_MAG:
+- LoRA 294,912
+- MAG 8,712
+- deployed adaptation 303,624
+
+B0_PLAIN:
+- LoRA 294,912
+- PLAIN 8,712
+- same total parameter budget as MAG
+
+OUTPUT_CONTEXT:
+- actual second-stage params 기록
+
+비교의 핵심은 MAG vs PLAIN이므로
+LoRA historical cost는 양쪽에 동일한 공통 출발 비용이다.
+
+"8,712 params라 전체 시스템이 8,712 params"라고 쓰지 않는다.
+"적은 params라 더 빠르다"라고 쓰지 않는다.
+
+---
+
+# 13. 구현 검산
+
+필수:
+- model initial parity:
+  - PLAIN step0 == source/seed B0
+  - MAG step0 == same B0
+  - OUTPUT_CONTEXT step0 == same B0
+- B0 frozen hash before/after
+- MAG/PLAIN initial residual weights same source/seed
+- MAG/PLAIN adapter parameter count same
+- MAG gate only observed x + TRAIN sigma
+- no future y in forward/gate/origin condition
+- raw E_CONFIRM input unchanged
+- all predictions saved before scoring
+- fresh restore first batch exact/within existing contract
+- checkpoint hashes
+- update ledger unique
+- no duplicate optimizer steps
+- scalar nMAE/pinball replay
+- effect recomputation from raw scores
+- split/timestamp/DST audit
+
+필수 산출물:
+- `PREFLIGHT_KO.md`
+- `PROTOCOL.md`
+- `SOURCE_DECISION.json`
+- `SOURCE_RECEIPT.json`
+- `PRIOR_EXPOSURE_AUDIT.json`
+- `DATA_MANIFEST.json`
+- `ORIGIN_AUDIT.csv`
+- `SHIFT_STRATA.csv`
+- `TRAINING_BUDGET.json`
+- `LR_SELECTION.json`
+- `MODEL_SELECTION.json`
+- `UPDATE_LEDGER.jsonl`
+- `PREDICTIONS_MANIFEST.json`
+- `RAW_SCORES.csv`
+- `PRIMARY_EFFECTS.csv`
+- `STRATIFIED_EFFECTS.csv`
+- `SEED_EFFECTS.csv`
+- `RESOURCES.csv`
+- `VERIFICATION.json`
+- `REPORT.md`
+- `FINAL_DECISION.md`
+
+---
+
+# 14. REPORT.md는 시간순 실험 일지가 아니라 아래 구조로 작성
+
+## 1. 한 문장 질문
+실제 관측 level-shift 구간에서 MAG가 일반 second-stage adapter보다 유용한가?
+
+## 2. 데이터 독립성
+- source
+- 기간
+- prior exposure audit
+- raw actual evaluation임을 명시
+
+## 3. primary 결과
+- S>=3 MAG vs PLAIN
+- 두 seed
+- block interval
+- effect size
+
+## 4. 전체 raw trade-off
+- 모든 origin의 MAG/PLAIN/B0/F0/OUTPUT_CONTEXT
+
+## 5. 조건별
+- S bins 전부
+
+## 6. 비용
+- 누적 LoRA + second-stage
+
+## 7. 판단
+아래 중 하나만:
+- `CONTINUE_MAG_METHOD_TOPIC`
+- `WEAK_CONTINUE_MAG_METHOD_TOPIC`
+- `STOP_MAG_AS_PRIMARY_METHOD_TOPIC`
+- `INCONCLUSIVE_DATA_COVERAGE`
+- `BLOCKED_*`
+
+그 이유를 5문장 이내로 명확히 적는다.
+
+---
+
+# 15. 현재 선행과의 연결
+
+문서에는 다음 경계를 유지한다.
+
+Time-PEFT:
+- LoRA + frequency/channel adapters를 함께 학습하는 다른 설정
+- 우리 MAG가 Time-PEFT보다 우수하다고 이번 실험으로 주장하지 않음
+
+MSFT:
+- multi-scale 특화 adaptation과 다른 문제
+
+AdaPTS:
+- multivariate adaptation과 다른 문제
+
+δ-Adapter / COSA:
+- frozen predictor를 보강하는 가까운 큰 연구 설정
+- 정보 권한 / intervention 위치가 다름
+
+현재 MAG의 주장은:
+- `already-adapted forecaster`
+- `second-stage small residual`
+- `observation magnitude-aware restriction`
+의 **구체적인 조건부 추가 가치**에 한정.
+
+---
+
+# 16. 종료 규칙
+
+실험이 끝나면:
+- `docs/RESULTS_INDEX.md`에 scoped 항목 추가
+- scoped commit/push
+- remote hash 확인
+- GPU process 종료 확인
+- 자동 successor 0
+- 새 gate 0
+- threshold tuning 0
+- new-source rescue 0
+- extra seed 0
+- joint training 0
+
+이번 실험은 MAG를 어떻게든 살리기 위한 실험이 아니다.
+
+**실제 raw 전력 관측의 사전 정의된 level-shift 구간에서
+현재 고정 MAG가 일반 adapter보다 추가 가치를 유지하는지 확인하고,
+그 결과로 이 주제를 계속할지 멈출지 결정하는 마지막 핵심 확인이다.**

@@ -242,3 +242,7 @@ PETSA의 승인된8fits/8192 main+4 smoke 및224views·40checkpoint·555,492원�
 ## LoRA 선행 여부 직접 대조 (2026-09-19)
 
 상태: 2026-09-21 실행·평가·독립 검산 완료. 새16fits/16384main+8smoke, 기존B0/PLAIN/MAG 재학습0,192 prediction views/80 checkpoints 검산. SHIFT8에서 no-LoRA MAG는PLAIN보다네패널모두악화했고, B0위추가가치는전력계열에남았다. NESO SHIFT_POINT의standalone이득3.17%도보존한다. [한국어 보고서](../results/mag_standalone_ablation_v1_20260919/REPORT.md) · [최종 판단](../results/mag_standalone_ablation_v1_20260919/FINAL_DECISION.md) · [검산](../results/mag_standalone_ablation_v1_20260919/VERIFICATION.json) · [이득 분해 그림](../results/mag_standalone_ablation_v1_20260919/base_vs_rule.pdf) · [단일 계약](../experiments/mag_standalone_ablation_v1_20260919/CONTRACT.txt). 프로세스종료·자동후속학습0. 논문PASS·LoRA필수성으로일반화하지않는다.
+
+## 고정 MAG 실제 level-shift 최종 확인 — 데이터 차단 (2026-09-21)
+
+상태: **BLOCKED_NO_INDEPENDENT_REAL_LOAD_SOURCE**. 이번 단일 계약의 제한적 새 학습 승인은 있었으나, NYISO1~8월8archives/243CSV/785334행 전체에 공식 system-total entity가 없었다. 성능 확인 전 지정 ISO-NE fallback을 확인했지만 공식 과거 CSV403으로 차단됐다. 새0/16fits,0/16384main,0/8smoke,예측·채점0. 성능FAIL 또는 실험완료로 해석하지 않는다. [한국어 보고](../results/mag_real_levelshift_confirmation_v1_20260921/REPORT.md) · [최종 판단](../results/mag_real_levelshift_confirmation_v1_20260921/FINAL_DECISION.md) · [독립 검산](../results/mag_real_levelshift_confirmation_v1_20260921/VERIFICATION.json) · [단일 계약](../experiments/mag_real_levelshift_confirmation_v1_20260921/CONTRACT.txt). 기존MAG/양성·음성결과보존,자동후속학습0. 공식ISO-NE동일보고서의정당한원본확보및재감사없이는미실행비교를재개할수없다.

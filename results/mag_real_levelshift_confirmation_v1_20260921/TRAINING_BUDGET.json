@@ -1,0 +1,37 @@
+{
+  "status": "NOT_STARTED_DATA_BLOCK",
+  "historical_lr_grid": [
+    0.0001,
+    0.0003
+  ],
+  "selection_seed": 92100,
+  "repeat_seeds": [
+    92101,
+    92102
+  ],
+  "families": [
+    "B0",
+    "B0_PLAIN",
+    "B0_MAG",
+    "OUTPUT_CONTEXT"
+  ],
+  "fits_per_family": 4,
+  "fit_cap": 16,
+  "updates_per_fit": 1024,
+  "main_cap": 16384,
+  "smoke_cap": 8,
+  "smoke_allocation": "at most two per family, contingent on a valid source and implementation checks",
+  "actual_fits": 0,
+  "actual_main_updates": 0,
+  "actual_smoke_updates": 0,
+  "checkpoint_steps": [
+    0,
+    256,
+    512,
+    768,
+    1024
+  ],
+  "V_objective": "equal-condition nMAE: REFERENCE, POINT8, BURST8, SHIFT4, SHIFT8",
+  "tie_break": "smaller LR then earlier checkpoint",
+  "training_permitted_now": false
+}

@@ -1,0 +1,15 @@
+{
+  "time_utc": "2026-09-21T08:44:58.301438+00:00",
+  "NYISO": "BLOCKED_SCHEMA_NO_SYSTEM_TOTAL",
+  "evidence": "NYISO_SCHEMA_AUDIT.json",
+  "forecast_count_at_fallback": 0,
+  "target_score_count_at_fallback": 0,
+  "fallback": "ISO-NE official Hourly Real-Time System Demand",
+  "reason": "all 243 daily CSVs contain only 11 zonal entities; no canonical system total",
+  "status": "BLOCKED_NO_INDEPENDENT_REAL_LOAD_SOURCE",
+  "fallback_status": "BLOCKED_DOWNLOAD_ACCESS",
+  "finished_utc": "2026-09-21T08:47:27.432478+00:00",
+  "fallback_detail": "Official historical search requires CAPTCHA; requested official hourlysystemdemand CSV returned HTTP 403. No challenge bypass attempted.",
+  "performance_viewed": false,
+  "selected_source": null
+}
