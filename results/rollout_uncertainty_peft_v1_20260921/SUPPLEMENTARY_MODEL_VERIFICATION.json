@@ -1,0 +1,259 @@
+{
+  "status": "PASS",
+  "optimizer_updates_added": 0,
+  "ledger_sha256_before_after": "d02bff5292a26f74121b3313ab7ccde65e0bd888979015e74fb479dd4eb151cc",
+  "native_audits": [
+    {
+      "source": "Electricity",
+      "method": "F0_NATIVE",
+      "role": "TRAIN",
+      "model_parameter_count": 47718016,
+      "aggregation_parity": {
+        "max_abs": 0.0,
+        "normalized_max": 0.0,
+        "atol_scale": 2e-05
+      },
+      "context_retention_checks": [
+        {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        }
+      ],
+      "per_call_shapes": [
+        [
+          8,
+          9,
+          64
+        ],
+        [
+          72,
+          9,
+          64
+        ],
+        [
+          72,
+          9,
+          64
+        ],
+        [
+          72,
+          9,
+          64
+        ]
+      ],
+      "raw_trace_path": ".cache\\rollout_uncertainty_peft_v1_20260921\\supplementary_audit\\Electricity_F0_NATIVE.npz",
+      "sha256": "a978fc41b4f0daf8d8351fdc150cc012272acf3745484ec8c87d91fdff5ca34b"
+    },
+    {
+      "source": "Electricity",
+      "method": "R_NATIVE",
+      "role": "TRAIN",
+      "model_parameter_count": 48012928,
+      "aggregation_parity": {
+        "max_abs": 0.0,
+        "normalized_max": 0.0,
+        "atol_scale": 2e-05
+      },
+      "context_retention_checks": [
+        {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        }
+      ],
+      "per_call_shapes": [
+        [
+          8,
+          9,
+          64
+        ],
+        [
+          72,
+          9,
+          64
+        ],
+        [
+          72,
+          9,
+          64
+        ],
+        [
+          72,
+          9,
+          64
+        ]
+      ],
+      "raw_trace_path": ".cache\\rollout_uncertainty_peft_v1_20260921\\supplementary_audit\\Electricity_R_NATIVE.npz",
+      "sha256": "851e9a8aeef12431448e1f5b8e017098a0c5b137d22c198b4b3dedb9c202965c"
+    },
+    {
+      "source": "ETTh1",
+      "method": "F0_NATIVE",
+      "role": "TRAIN",
+      "model_parameter_count": 47718016,
+      "aggregation_parity": {
+        "max_abs": 0.0,
+        "normalized_max": 0.0,
+        "atol_scale": 2e-05
+      },
+      "context_retention_checks": [
+        {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        }
+      ],
+      "per_call_shapes": [
+        [
+          8,
+          9,
+          64
+        ],
+        [
+          72,
+          9,
+          64
+        ],
+        [
+          72,
+          9,
+          64
+        ],
+        [
+          72,
+          9,
+          64
+        ]
+      ],
+      "raw_trace_path": ".cache\\rollout_uncertainty_peft_v1_20260921\\supplementary_audit\\ETTh1_F0_NATIVE.npz",
+      "sha256": "3b6b429925cca7e4239632b3b02faa1da6206524ba64edbea2dd62a9c461e6fc"
+    },
+    {
+      "source": "ETTh1",
+      "method": "R_NATIVE",
+      "role": "TRAIN",
+      "model_parameter_count": 48012928,
+      "aggregation_parity": {
+        "max_abs": 0.0,
+        "normalized_max": 0.0,
+        "atol_scale": 2e-05
+      },
+      "context_retention_checks": [
+        {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        },
+        {
+          "max_abs": 0.0,
+          "normalized_max": 0.0,
+          "atol_scale": 2e-05
+        }
+      ],
+      "per_call_shapes": [
+        [
+          8,
+          9,
+          64
+        ],
+        [
+          72,
+          9,
+          64
+        ],
+        [
+          72,
+          9,
+          64
+        ],
+        [
+          72,
+          9,
+          64
+        ]
+      ],
+      "raw_trace_path": ".cache\\rollout_uncertainty_peft_v1_20260921\\supplementary_audit\\ETTh1_R_NATIVE.npz",
+      "sha256": "99927319853c8d8f75ef81131d5ad5fff17fdc24107e9700aa68194ed86065ae"
+    }
+  ],
+  "chronos2_parameter_count": 119477664,
+  "chronos2_direct_calls": [
+    {
+      "context": {
+        "shape": [
+          8,
+          512
+        ],
+        "unique_values": null,
+        "finite_count": 4096
+      },
+      "group_ids": {
+        "shape": [
+          8
+        ],
+        "unique_values": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "finite_count": null
+      },
+      "num_output_patches": "16",
+      "future_covariates": {
+        "shape": [
+          8,
+          256
+        ],
+        "unique_values": null,
+        "finite_count": 0
+      }
+    }
+  ],
+  "chronos2_prediction_shape": [
+    8,
+    256,
+    9
+  ],
+  "script_sha256": "fc389a2c4dd6a2f56e35723e6d1a112543dfa6d8168ae768cad968627ecaedb2"
+}

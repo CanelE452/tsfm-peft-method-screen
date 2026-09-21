@@ -1,0 +1,48 @@
+{
+  "script_sha256": "e5631c40decd179f1c6ff29f82ef96f1b29d851e134b6d34eb1fda9ec4f71b11",
+  "figure_types": 3,
+  "artifacts": [
+    {
+      "name": "FIGURE_1_BLOCK_SCORES",
+      "caption": "Each point is the mean of repeat seeds 92121/92122; error bars show their range, not a confidence interval. Fixed F0/C2 curves have one model. Electricity: 32 series, 209 TEST origins; ETTh1: 7 series, 135 origins. Paired 7-origin bootstrap CIs are in EFFECTS.csv.",
+      "files": [
+        {
+          "path": "FIGURE_1_BLOCK_SCORES.png",
+          "sha256": "9f9f99b94e4cfbec460cbabf441fd757b35a2b30f902222d12bf5c28bd3302b5"
+        },
+        {
+          "path": "FIGURE_1_BLOCK_SCORES.pdf",
+          "sha256": "0f8aec67546158356b7aab39195f9b198c7066773d4d00cb2d8db962b0adcd9a"
+        }
+      ]
+    },
+    {
+      "name": "FIGURE_2_CALIBRATION_WIDTH",
+      "caption": "Coverage, width, and PCE are separate quantities. Error bars show the range of the same two repeat seeds (not CI); fixed baselines have one model. Coverage is pointwise, not simultaneous trajectory coverage.",
+      "files": [
+        {
+          "path": "FIGURE_2_CALIBRATION_WIDTH.png",
+          "sha256": "be11872265462a461c14c2470e07d1fa64007f209f054122ee4a71e9dd94cd00"
+        },
+        {
+          "path": "FIGURE_2_CALIBRATION_WIDTH.pdf",
+          "sha256": "8b910bc06c49338bba68bbaef2976e318923a93a0d5f052649aaab91bbc614bb"
+        }
+      ]
+    },
+    {
+      "name": "FIGURE_3_QUALITY_LATENCY",
+      "caption": "RTX 4070, FP32, TF32 off. x is mean across model seeds of median wall time from three timed repetitions at batch 8; horizontal bars span mean minima/maxima, vertical bars span two seed scores. These are ranges, not CIs. Loading excluded; GPU/CPU transfer, metadata, sorting and applicable affine included. ETTh1 batch 8 repeats one of its seven independent series. Chronos-2 differs in architecture/size/pretraining.",
+      "files": [
+        {
+          "path": "FIGURE_3_QUALITY_LATENCY.png",
+          "sha256": "ca834c5dfa5d9df62c55211484020198edb25a40d78ca1914f6b72ac74ed9c11"
+        },
+        {
+          "path": "FIGURE_3_QUALITY_LATENCY.pdf",
+          "sha256": "22cc715159e77c1cc46fb217e1feff9ddaa352409ce9f97d9a2985342ab83ea4"
+        }
+      ]
+    }
+  ]
+}
