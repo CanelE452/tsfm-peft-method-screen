@@ -1,0 +1,184 @@
+{
+  "groups": [
+    "input_projection",
+    "encoder_attention",
+    "encoder_ffn",
+    "decoder_self_attention",
+    "decoder_cross_attention",
+    "decoder_ffn",
+    "output_projection"
+  ],
+  "costs_per_rank": {
+    "input_projection": 5184,
+    "encoder_attention": 24576,
+    "encoder_ffn": 30720,
+    "decoder_self_attention": 24576,
+    "decoder_cross_attention": 24576,
+    "decoder_ffn": 30720,
+    "output_projection": 6272
+  },
+  "ranks": {
+    "input_projection": 16,
+    "encoder_attention": 3,
+    "encoder_ffn": 1,
+    "decoder_self_attention": 1,
+    "decoder_cross_attention": 7,
+    "decoder_ffn": 3,
+    "output_projection": 16
+  },
+  "uniform_budget": 586496,
+  "candidate_parameters": 576512,
+  "unused_fraction": 0.0170231340026189,
+  "resource_mismatch": false,
+  "nf4_discrepancy": 0.0025623866822570562,
+  "sensitivities": {
+    "input_projection": {
+      "names": [
+        "input_patch_embedding.hidden_layer",
+        "input_patch_embedding.output_layer",
+        "input_patch_embedding.residual_layer"
+      ],
+      "restored_discrepancy": 0.0012966700596734881,
+      "sensitivity": 0.001265716622583568
+    },
+    "encoder_attention": {
+      "names": [
+        "encoder.block.0.layer.0.SelfAttention.q",
+        "encoder.block.0.layer.0.SelfAttention.k",
+        "encoder.block.0.layer.0.SelfAttention.v",
+        "encoder.block.0.layer.0.SelfAttention.o",
+        "encoder.block.1.layer.0.SelfAttention.q",
+        "encoder.block.1.layer.0.SelfAttention.k",
+        "encoder.block.1.layer.0.SelfAttention.v",
+        "encoder.block.1.layer.0.SelfAttention.o",
+        "encoder.block.2.layer.0.SelfAttention.q",
+        "encoder.block.2.layer.0.SelfAttention.k",
+        "encoder.block.2.layer.0.SelfAttention.v",
+        "encoder.block.2.layer.0.SelfAttention.o",
+        "encoder.block.3.layer.0.SelfAttention.q",
+        "encoder.block.3.layer.0.SelfAttention.k",
+        "encoder.block.3.layer.0.SelfAttention.v",
+        "encoder.block.3.layer.0.SelfAttention.o",
+        "encoder.block.4.layer.0.SelfAttention.q",
+        "encoder.block.4.layer.0.SelfAttention.k",
+        "encoder.block.4.layer.0.SelfAttention.v",
+        "encoder.block.4.layer.0.SelfAttention.o",
+        "encoder.block.5.layer.0.SelfAttention.q",
+        "encoder.block.5.layer.0.SelfAttention.k",
+        "encoder.block.5.layer.0.SelfAttention.v",
+        "encoder.block.5.layer.0.SelfAttention.o"
+      ],
+      "restored_discrepancy": 0.002499620197340846,
+      "sensitivity": 6.276648491621017e-05
+    },
+    "encoder_ffn": {
+      "names": [
+        "encoder.block.0.layer.1.DenseReluDense.wi",
+        "encoder.block.1.layer.1.DenseReluDense.wi",
+        "encoder.block.2.layer.1.DenseReluDense.wi",
+        "encoder.block.3.layer.1.DenseReluDense.wi",
+        "encoder.block.4.layer.1.DenseReluDense.wi",
+        "encoder.block.5.layer.1.DenseReluDense.wi"
+      ],
+      "restored_discrepancy": 0.0026120548136532307,
+      "sensitivity": 0
+    },
+    "decoder_self_attention": {
+      "names": [
+        "decoder.block.0.layer.0.SelfAttention.q",
+        "decoder.block.0.layer.0.SelfAttention.k",
+        "decoder.block.0.layer.0.SelfAttention.v",
+        "decoder.block.0.layer.0.SelfAttention.o",
+        "decoder.block.1.layer.0.SelfAttention.q",
+        "decoder.block.1.layer.0.SelfAttention.k",
+        "decoder.block.1.layer.0.SelfAttention.v",
+        "decoder.block.1.layer.0.SelfAttention.o",
+        "decoder.block.2.layer.0.SelfAttention.q",
+        "decoder.block.2.layer.0.SelfAttention.k",
+        "decoder.block.2.layer.0.SelfAttention.v",
+        "decoder.block.2.layer.0.SelfAttention.o",
+        "decoder.block.3.layer.0.SelfAttention.q",
+        "decoder.block.3.layer.0.SelfAttention.k",
+        "decoder.block.3.layer.0.SelfAttention.v",
+        "decoder.block.3.layer.0.SelfAttention.o",
+        "decoder.block.4.layer.0.SelfAttention.q",
+        "decoder.block.4.layer.0.SelfAttention.k",
+        "decoder.block.4.layer.0.SelfAttention.v",
+        "decoder.block.4.layer.0.SelfAttention.o",
+        "decoder.block.5.layer.0.SelfAttention.q",
+        "decoder.block.5.layer.0.SelfAttention.k",
+        "decoder.block.5.layer.0.SelfAttention.v",
+        "decoder.block.5.layer.0.SelfAttention.o"
+      ],
+      "restored_discrepancy": 0.0025563687086105347,
+      "sensitivity": 6.017973646521568e-06
+    },
+    "decoder_cross_attention": {
+      "names": [
+        "decoder.block.0.layer.1.EncDecAttention.q",
+        "decoder.block.0.layer.1.EncDecAttention.k",
+        "decoder.block.0.layer.1.EncDecAttention.v",
+        "decoder.block.0.layer.1.EncDecAttention.o",
+        "decoder.block.1.layer.1.EncDecAttention.q",
+        "decoder.block.1.layer.1.EncDecAttention.k",
+        "decoder.block.1.layer.1.EncDecAttention.v",
+        "decoder.block.1.layer.1.EncDecAttention.o",
+        "decoder.block.2.layer.1.EncDecAttention.q",
+        "decoder.block.2.layer.1.EncDecAttention.k",
+        "decoder.block.2.layer.1.EncDecAttention.v",
+        "decoder.block.2.layer.1.EncDecAttention.o",
+        "decoder.block.3.layer.1.EncDecAttention.q",
+        "decoder.block.3.layer.1.EncDecAttention.k",
+        "decoder.block.3.layer.1.EncDecAttention.v",
+        "decoder.block.3.layer.1.EncDecAttention.o",
+        "decoder.block.4.layer.1.EncDecAttention.q",
+        "decoder.block.4.layer.1.EncDecAttention.k",
+        "decoder.block.4.layer.1.EncDecAttention.v",
+        "decoder.block.4.layer.1.EncDecAttention.o",
+        "decoder.block.5.layer.1.EncDecAttention.q",
+        "decoder.block.5.layer.1.EncDecAttention.k",
+        "decoder.block.5.layer.1.EncDecAttention.v",
+        "decoder.block.5.layer.1.EncDecAttention.o"
+      ],
+      "restored_discrepancy": 0.0024276436306536198,
+      "sensitivity": 0.00013474305160343647
+    },
+    "decoder_ffn": {
+      "names": [
+        "decoder.block.0.layer.2.DenseReluDense.wi",
+        "decoder.block.1.layer.2.DenseReluDense.wi",
+        "decoder.block.2.layer.2.DenseReluDense.wi",
+        "decoder.block.3.layer.2.DenseReluDense.wi",
+        "decoder.block.4.layer.2.DenseReluDense.wi",
+        "decoder.block.5.layer.2.DenseReluDense.wi"
+      ],
+      "restored_discrepancy": 0.0024740975350141525,
+      "sensitivity": 8.828914724290371e-05
+    },
+    "output_projection": {
+      "names": [
+        "output_patch_embedding.hidden_layer",
+        "output_patch_embedding.output_layer",
+        "output_patch_embedding.residual_layer"
+      ],
+      "restored_discrepancy": 0.0013822612818330526,
+      "sensitivity": 0.0011801254004240036
+    }
+  },
+  "sensitivity_example_forwards": 288,
+  "activation_stat_example_forwards": 32,
+  "activation_collection_shared_with_bf16_reference": true,
+  "probe_sha256": "8a7159d837650b58415d162a5074b0d6a7221e27f6b4e22365cac4df365d03b5",
+  "future_target_access": false,
+  "qera_formula_check": {
+    "official_function_product_max_abs": 2.9802322387695312e-08,
+    "source_sha256": "31e2b847d571cf852331e8c23371f55b7fd3b451e3223ba0fc75cf4cf22dae96",
+    "differences": [
+      "elementwise diagonal multiplication/division instead of dense diagonal solve",
+      "FP32 square/FP64 accumulation for activation RMS",
+      "zero RMS floor 1e-8",
+      "no claim of full QERA benchmark reproduction"
+    ]
+  },
+  "seconds": 1.284778000001097
+}

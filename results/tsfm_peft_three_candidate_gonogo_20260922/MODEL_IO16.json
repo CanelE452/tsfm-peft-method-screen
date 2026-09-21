@@ -1,0 +1,1160 @@
+{
+  "trainable": {},
+  "count": 0,
+  "frozen_hash": "1feab77f76d7019d9cc8fe0a6af984035a224854486e6e93e6a15769f77dab78",
+  "quantized": {
+    "encoder.block.0.layer.0.SelfAttention.q": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.0.layer.0.SelfAttention.k": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.0.layer.0.SelfAttention.v": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.0.layer.0.SelfAttention.o": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.0.layer.1.DenseReluDense.wi": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        524288,
+        1
+      ],
+      "logical_shape": [
+        2048,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.1.layer.0.SelfAttention.q": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.1.layer.0.SelfAttention.k": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.1.layer.0.SelfAttention.v": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.1.layer.0.SelfAttention.o": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.1.layer.1.DenseReluDense.wi": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        524288,
+        1
+      ],
+      "logical_shape": [
+        2048,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.2.layer.0.SelfAttention.q": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.2.layer.0.SelfAttention.k": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.2.layer.0.SelfAttention.v": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.2.layer.0.SelfAttention.o": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.2.layer.1.DenseReluDense.wi": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        524288,
+        1
+      ],
+      "logical_shape": [
+        2048,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.3.layer.0.SelfAttention.q": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.3.layer.0.SelfAttention.k": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.3.layer.0.SelfAttention.v": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.3.layer.0.SelfAttention.o": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.3.layer.1.DenseReluDense.wi": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        524288,
+        1
+      ],
+      "logical_shape": [
+        2048,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.4.layer.0.SelfAttention.q": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.4.layer.0.SelfAttention.k": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.4.layer.0.SelfAttention.v": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.4.layer.0.SelfAttention.o": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.4.layer.1.DenseReluDense.wi": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        524288,
+        1
+      ],
+      "logical_shape": [
+        2048,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.5.layer.0.SelfAttention.q": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.5.layer.0.SelfAttention.k": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.5.layer.0.SelfAttention.v": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.5.layer.0.SelfAttention.o": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "encoder.block.5.layer.1.DenseReluDense.wi": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        524288,
+        1
+      ],
+      "logical_shape": [
+        2048,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.0.layer.0.SelfAttention.q": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.0.layer.0.SelfAttention.k": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.0.layer.0.SelfAttention.v": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.0.layer.0.SelfAttention.o": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.0.layer.1.EncDecAttention.q": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.0.layer.1.EncDecAttention.k": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.0.layer.1.EncDecAttention.v": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.0.layer.1.EncDecAttention.o": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.0.layer.2.DenseReluDense.wi": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        524288,
+        1
+      ],
+      "logical_shape": [
+        2048,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.1.layer.0.SelfAttention.q": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.1.layer.0.SelfAttention.k": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.1.layer.0.SelfAttention.v": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.1.layer.0.SelfAttention.o": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.1.layer.1.EncDecAttention.q": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.1.layer.1.EncDecAttention.k": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.1.layer.1.EncDecAttention.v": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.1.layer.1.EncDecAttention.o": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.1.layer.2.DenseReluDense.wi": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        524288,
+        1
+      ],
+      "logical_shape": [
+        2048,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.2.layer.0.SelfAttention.q": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.2.layer.0.SelfAttention.k": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.2.layer.0.SelfAttention.v": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.2.layer.0.SelfAttention.o": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.2.layer.1.EncDecAttention.q": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.2.layer.1.EncDecAttention.k": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.2.layer.1.EncDecAttention.v": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.2.layer.1.EncDecAttention.o": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.2.layer.2.DenseReluDense.wi": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        524288,
+        1
+      ],
+      "logical_shape": [
+        2048,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.3.layer.0.SelfAttention.q": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.3.layer.0.SelfAttention.k": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.3.layer.0.SelfAttention.v": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.3.layer.0.SelfAttention.o": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.3.layer.1.EncDecAttention.q": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.3.layer.1.EncDecAttention.k": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.3.layer.1.EncDecAttention.v": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.3.layer.1.EncDecAttention.o": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.3.layer.2.DenseReluDense.wi": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        524288,
+        1
+      ],
+      "logical_shape": [
+        2048,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.4.layer.0.SelfAttention.q": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.4.layer.0.SelfAttention.k": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.4.layer.0.SelfAttention.v": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.4.layer.0.SelfAttention.o": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.4.layer.1.EncDecAttention.q": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.4.layer.1.EncDecAttention.k": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.4.layer.1.EncDecAttention.v": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.4.layer.1.EncDecAttention.o": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.4.layer.2.DenseReluDense.wi": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        524288,
+        1
+      ],
+      "logical_shape": [
+        2048,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.5.layer.0.SelfAttention.q": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.5.layer.0.SelfAttention.k": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.5.layer.0.SelfAttention.v": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.5.layer.0.SelfAttention.o": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.5.layer.1.EncDecAttention.q": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.5.layer.1.EncDecAttention.k": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.5.layer.1.EncDecAttention.v": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.5.layer.1.EncDecAttention.o": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        131072,
+        1
+      ],
+      "logical_shape": [
+        512,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    },
+    "decoder.block.5.layer.2.DenseReluDense.wi": {
+      "packed_dtype": "torch.uint8",
+      "packed_shape": [
+        524288,
+        1
+      ],
+      "logical_shape": [
+        2048,
+        512
+      ],
+      "nested": true,
+      "type": "nf4"
+    }
+  },
+  "high_precision": {
+    "shared.weight": "torch.bfloat16",
+    "input_patch_embedding.hidden_layer.weight": "torch.bfloat16",
+    "input_patch_embedding.hidden_layer.bias": "torch.bfloat16",
+    "input_patch_embedding.output_layer.weight": "torch.bfloat16",
+    "input_patch_embedding.output_layer.bias": "torch.bfloat16",
+    "input_patch_embedding.residual_layer.weight": "torch.bfloat16",
+    "input_patch_embedding.residual_layer.bias": "torch.bfloat16",
+    "encoder.block.0.layer.0.SelfAttention.relative_attention_bias.weight": "torch.bfloat16",
+    "encoder.block.0.layer.0.layer_norm.weight": "torch.bfloat16",
+    "encoder.block.0.layer.1.DenseReluDense.wo.weight": "torch.bfloat16",
+    "encoder.block.0.layer.1.layer_norm.weight": "torch.bfloat16",
+    "encoder.block.1.layer.0.layer_norm.weight": "torch.bfloat16",
+    "encoder.block.1.layer.1.DenseReluDense.wo.weight": "torch.bfloat16",
+    "encoder.block.1.layer.1.layer_norm.weight": "torch.bfloat16",
+    "encoder.block.2.layer.0.layer_norm.weight": "torch.bfloat16",
+    "encoder.block.2.layer.1.DenseReluDense.wo.weight": "torch.bfloat16",
+    "encoder.block.2.layer.1.layer_norm.weight": "torch.bfloat16",
+    "encoder.block.3.layer.0.layer_norm.weight": "torch.bfloat16",
+    "encoder.block.3.layer.1.DenseReluDense.wo.weight": "torch.bfloat16",
+    "encoder.block.3.layer.1.layer_norm.weight": "torch.bfloat16",
+    "encoder.block.4.layer.0.layer_norm.weight": "torch.bfloat16",
+    "encoder.block.4.layer.1.DenseReluDense.wo.weight": "torch.bfloat16",
+    "encoder.block.4.layer.1.layer_norm.weight": "torch.bfloat16",
+    "encoder.block.5.layer.0.layer_norm.weight": "torch.bfloat16",
+    "encoder.block.5.layer.1.DenseReluDense.wo.weight": "torch.bfloat16",
+    "encoder.block.5.layer.1.layer_norm.weight": "torch.bfloat16",
+    "encoder.final_layer_norm.weight": "torch.bfloat16",
+    "decoder.block.0.layer.0.SelfAttention.relative_attention_bias.weight": "torch.bfloat16",
+    "decoder.block.0.layer.0.layer_norm.weight": "torch.bfloat16",
+    "decoder.block.0.layer.1.layer_norm.weight": "torch.bfloat16",
+    "decoder.block.0.layer.2.DenseReluDense.wo.weight": "torch.bfloat16",
+    "decoder.block.0.layer.2.layer_norm.weight": "torch.bfloat16",
+    "decoder.block.1.layer.0.layer_norm.weight": "torch.bfloat16",
+    "decoder.block.1.layer.1.layer_norm.weight": "torch.bfloat16",
+    "decoder.block.1.layer.2.DenseReluDense.wo.weight": "torch.bfloat16",
+    "decoder.block.1.layer.2.layer_norm.weight": "torch.bfloat16",
+    "decoder.block.2.layer.0.layer_norm.weight": "torch.bfloat16",
+    "decoder.block.2.layer.1.layer_norm.weight": "torch.bfloat16",
+    "decoder.block.2.layer.2.DenseReluDense.wo.weight": "torch.bfloat16",
+    "decoder.block.2.layer.2.layer_norm.weight": "torch.bfloat16",
+    "decoder.block.3.layer.0.layer_norm.weight": "torch.bfloat16",
+    "decoder.block.3.layer.1.layer_norm.weight": "torch.bfloat16",
+    "decoder.block.3.layer.2.DenseReluDense.wo.weight": "torch.bfloat16",
+    "decoder.block.3.layer.2.layer_norm.weight": "torch.bfloat16",
+    "decoder.block.4.layer.0.layer_norm.weight": "torch.bfloat16",
+    "decoder.block.4.layer.1.layer_norm.weight": "torch.bfloat16",
+    "decoder.block.4.layer.2.DenseReluDense.wo.weight": "torch.bfloat16",
+    "decoder.block.4.layer.2.layer_norm.weight": "torch.bfloat16",
+    "decoder.block.5.layer.0.layer_norm.weight": "torch.bfloat16",
+    "decoder.block.5.layer.1.layer_norm.weight": "torch.bfloat16",
+    "decoder.block.5.layer.2.DenseReluDense.wo.weight": "torch.bfloat16",
+    "decoder.block.5.layer.2.layer_norm.weight": "torch.bfloat16",
+    "decoder.final_layer_norm.weight": "torch.bfloat16",
+    "output_patch_embedding.hidden_layer.weight": "torch.bfloat16",
+    "output_patch_embedding.hidden_layer.bias": "torch.bfloat16",
+    "output_patch_embedding.output_layer.weight": "torch.bfloat16",
+    "output_patch_embedding.output_layer.bias": "torch.bfloat16",
+    "output_patch_embedding.residual_layer.weight": "torch.bfloat16",
+    "output_patch_embedding.residual_layer.bias": "torch.bfloat16"
+  }
+}

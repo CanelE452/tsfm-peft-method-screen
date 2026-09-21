@@ -1,0 +1,64 @@
+{
+  "models": {
+    "small": {
+      "model_id": "amazon/chronos-bolt-small",
+      "revision": "772f3d25d38aec6d914c8949dab4462e2d46f5d8",
+      "path": "E:\\CODING\\proj\\tsfm-peft-method-screen\\.cache\\tsfm_peft_three_candidate_gonogo_20260922\\hf\\models--amazon--chronos-bolt-small\\snapshots\\772f3d25d38aec6d914c8949dab4462e2d46f5d8",
+      "files": {
+        "config.json": {
+          "sha256": "9ca0ebbe049ccebacb0546361e8aa728f0cf104cd18d1838d78d296aa317bd21",
+          "bytes": 1121
+        },
+        "model.safetensors": {
+          "sha256": "06a6a19bbe74bc10a9cd193bd4bf2bf638ae07f7e0d51653ae7ab8ea968a21dd",
+          "bytes": 190888824
+        }
+      }
+    },
+    "base": {
+      "model_id": "amazon/chronos-bolt-base",
+      "revision": "5d9f166d69f47aef3401367a7b842e78fe97b121",
+      "path": "E:\\CODING\\proj\\tsfm-peft-method-screen\\.cache\\tsfm_peft_three_candidate_gonogo_20260922\\hf\\models--amazon--chronos-bolt-base\\snapshots\\5d9f166d69f47aef3401367a7b842e78fe97b121",
+      "files": {
+        "config.json": {
+          "sha256": "46f7e7e695569f67b06178faa4f236c281392945aa2d1bdf844442e57155530b",
+          "bytes": 1123
+        },
+        "model.safetensors": {
+          "sha256": "31f875483a3215bc6880a0837ea608a13ce55f88ad90538c3cdd0b29aeb60b36",
+          "bytes": 821203576
+        }
+      }
+    }
+  },
+  "qera": [
+    {
+      "url": "https://raw.githubusercontent.com/ChengZhang-98/QERA/bd7fc86a2e44d41f95b9b0421f27f5624dd37064/src/qera/fine_tuning/initialization.py",
+      "revision": "bd7fc86a2e44d41f95b9b0421f27f5624dd37064",
+      "sha256": "31e2b847d571cf852331e8c23371f55b7fd3b451e3223ba0fc75cf4cf22dae96",
+      "bytes": 20662
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ChengZhang-98/QERA/bd7fc86a2e44d41f95b9b0421f27f5624dd37064/src/qera/statistic_profiler/scale.py",
+      "revision": "bd7fc86a2e44d41f95b9b0421f27f5624dd37064",
+      "sha256": "c5e4fe599531b89b8d905918f34154b74ff5c17968c362544ad10c0d926734c7",
+      "bytes": 18613
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ChengZhang-98/QERA/bd7fc86a2e44d41f95b9b0421f27f5624dd37064/src/qera/approximate.py",
+      "revision": "bd7fc86a2e44d41f95b9b0421f27f5624dd37064",
+      "sha256": "6bd5e119271b04050991d0bde20c92ecaf32ee75e2c274381486dc05f9fb0bc2",
+      "bytes": 5785
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ChengZhang-98/QERA/bd7fc86a2e44d41f95b9b0421f27f5624dd37064/LICENSE",
+      "revision": "bd7fc86a2e44d41f95b9b0421f27f5624dd37064",
+      "sha256": "5647b9a918f99634e6e6b81ffcf3f837a72f5691425e7a8cdeaaa7f4aa274e31",
+      "bytes": 11370
+    }
+  ],
+  "contract_sha256": "6d09800c04654e70c6b352ebf82d28720c1c1be724b0a0b55507a2761ab97d36",
+  "wheel": {
+    "bitsandbytes-0.50.2-py3-none-win_amd64.whl": "c697963c8fda3dcd0d7ebd9b5211ae4067feef7cd06e0350d4e816a434fe683d"
+  }
+}

@@ -1,0 +1,491 @@
+TSFM PEFT 3후보 — 제한 예산 Go / Hold / No-go 계획
+작성: 2026-09-22 KST
+상태: 설계안. 이 문서 작성은 모델 학습·저장소 수정의 실행 승인이 아니다.
+범위: Q(양자화 복구), F(연합 개인화), T(기반 모델 교체).
+기존 MAG/HIER/rollout/FR의 STOP을 해제하지 않는다.
+
+0. 목적과 판정 범위
+==================
+최상위 목적: 새로운 PEFT 방법론을 발전시킬 다음 후보를 제한된 비용으로 고른다.
+소비처: 사용자가 보고서를 읽고 후속 연구 예산 배분을 결정한다.
+
+예상 결과:
+Q: 같은 저비트 저장 제약에서 예측 민감도를 이용한 rank 배치가 기존 복구보다 유리하다.
+F: 원자료 비공유 상황에서 시간 구조의 개인화가 단순한 개인화보다 유리하다.
+T: 원래 학습 자료 없이 모델을 바꿀 때 적응분 이전이 최근 자료 재학습·일반 증류보다 유리하다.
+
+이들은 아직 신규성이 입증된 방법이 아니다.
+특히 F의 주기 보정은 문제의 활용 여지를 보는 단순 탐침이지, Fourier 보정의 최초 제안이 아니다.
+GO는 '다음 확인에 투자할 근거'이며 논문 PASS가 아니다.
+NO_GO는 '현재 설정/작은 구현에 추가 투자하지 않음'이며 연구 분야 전체의 반증이 아니다.
+최적화·자료·구현의 불확실성은 HOLD 또는 BLOCKED로 남긴다.
+
+계획 가지치기:
+- 세 후보를 한 모델에 결합하지 않는다.
+- 최초부터 다수 데이터·모델·rank·seed를 탐색하지 않는다.
+- LoRA가 F0보다 나빠야만 후보를 허용하는 공통 관문을 만들지 않는다.
+- 메모리, 원자료 비공유, 원래 학습자료 부재는 각각 다른 사용 조건이다.
+- 이 사용 조건의 결과를 제약 없는 범용 예측 우위로 바꾸지 않는다.
+- 실행·수식 검증과 연구 성과 판정을 구분한다.
+
+1. 공통 데이터·모델·학습
+========================
+첫 화면은 Electricity 한 자료로 통일한다.
+출처:
+https://github.com/laiguokun/multivariate-time-series-data
+https://raw.githubusercontent.com/laiguokun/multivariate-time-series-data/master/electricity/electricity.txt.gz
+
+저자 README는 321개 고객의 시간별 소비량이라고 설명한다.
+CSV 행 순서는 hourly slot이다. 없는 달력·요일·시간대 메타데이터를 만들지 않는다.
+Q/T는 16개 고객 계열, F는 그 목록의 처음 4개 고객을 4개 가상 client로 사용한다.
+client는 '공개 고객 계열의 연합학습 시뮬레이션'이지 실제 4개 회사의 개인정보 실험이 아니다.
+
+데이터 선택:
+- 최초 50%에서 finite이고 표준편차>0인 열을 적격 후보로 둔다.
+- SHA256("peft-triage-v1|" + 원래 0-based column index) 오름차순 16개.
+- 전체 역할에서 input/target finite 여부는 누락 검사로만 쓰며 값의 크기로 원점을 선정하지 않는다.
+- 선택 열·raw SHA256·upstream revision·범위를 학습 전에 저장한다.
+- 표준편차 분모도 최초 50%에서 구해 세 후보에 같은 값 사용.
+  F에서는 해당 client가 자기 분모를 보유하고 서버에 원자료를 보내지 않는다.
+- 모두 모델 내부 원래 normalization을 유지한다.
+
+Q/F 시간 분할:
+TRAIN 앞 60%, V 다음 20%, TEST 마지막 20%.
+
+T 시간 분할:
+OLD_TRAIN 앞 50%, OLD_VAL 다음 10%,
+BRIDGE 다음 20%, TEST 마지막 20%.
+BRIDGE 안에서 시간 순서 앞 75%를 적응 학습, 뒤 25%를 적응 검증으로 사용.
+T 신규 모델 학습의 context와 target은 BRIDGE 내부에 있어야 한다.
+기존 OLD_TRAIN/OLD_VAL의 값이나 teacher 학습 배치를 신규 모델에 전달하지 않는다.
+
+공통 입력512시간 -> 출력64시간; 반복 rollout을 하지 않는다.
+TRAIN의 모든 합법적인 hourly origin에서 균등 sampling.
+V/TEST는 6시간 간격의 모든 합법 원점 사용.
+target64가 해당 역할 내부에 완전히 들어와야 한다.
+Q/F context는 과거 역할로 걸칠 수 있다.
+T BRIDGE context는 원래 학습자료 비접근 조건 때문에 BRIDGE 내부로 제한한다.
+TEST는 과거 BRIDGE까지 읽을 수 있고 실제 미래는 채점 때만 사용한다.
+
+Q/F 기반 모델:
+amazon/chronos-bolt-small
+
+T의 모델 교체:
+이전 모델 amazon/chronos-bolt-small -> 새 모델 amazon/chronos-bolt-base.
+이는 같은 계열의 다른 크기 백본으로 옮기는 최초 시험이다.
+Chronos-2 업그레이드나 모든 모델 사이의 이전을 재현한다고 부르지 않는다.
+두 모델의 공식 설정은 native64와 분위수 .1~.9를 지원하지만 내부 크기는 다르다.
+
+모델/라이브러리:
+- 사용 전 실제 config, linear module 목록, tied/shared weight, dtype를 기록한다.
+- 기존 실행 환경은 읽기 전용 재사용 가능.
+- 기존 모델 loader/지표 코드는 재사용할 수 있으나 기존 학습 LoRA/MAG/U는 재사용하지 않는다.
+- 실제 모듈명·개수는 runtime 감사로 확정; 이름을 추정해서 조용히 교체하지 않는다.
+- HF 모델 revision, 파일 SHA, torch/chronos/peft/bitsandbytes 버전을 lock한다.
+- CUDA 문제를 CPU 장기학습으로 우회하지 않는다.
+- NF4 지원 실패를 성능 실패로 분류하지 않는다.
+
+공통 supervised training:
+- seed 92201, 92202. 두 seed 모두 반복용이며 LR 선택 seed가 아니다.
+- learning rate는 결과를 보기 전에 고정. LR grid 없음.
+- Q/T: AdamW lr1e-4, betas(.9,.999), eps1e-8, weight_decay0.
+- F: 공유/개별 low-rank lr3e-4, private output 계수 lr1e-3.
+  모든 private-head 대조에 같은 계수 LR.
+- grad clip1, dropout0/eval mode, scheduler 없음.
+- effective batch8. 두 후보의 같은 방법 비교에는 같은 tuple schedule 사용.
+- Q/T fit당256 updates, checkpoint0/128/256.
+- Q/T의 각 방법은 자기 V의 동일한 true future metric으로 checkpoint 선택.
+  T에 최근 BRIDGE 정답을 쓰므로 label-free adaptation이라고 주장하지 않는다.
+- F는16 rounds × client당4 local updates. 0/8/16 round에서 V 선택.
+- 데이터 전체 성능에 따른 LR/rank/threshold 재탐색 금지.
+- V는 선택 자료이며 TEST에서 좋은 checkpoint를 사후 선택하지 않는다.
+- 비양자화 계산은 동일한 BF16 지원 여부를 검사하고, 필요시 사전에 모든 비교에 공통 dtype를 정한다.
+  정규화/손실 등 원래 FP32 연산은 모델의 안정적 구현을 유지한다.
+- quantized/unquantized 모델의 모든 텐서를 무조건 같은 dtype로 바꾸라는 뜻이 아니다.
+
+지표:
+- 주지표: mean twice-pinball / TRAIN sigma. 계열별 계산 후 동일 가중.
+- 보조: median nMAE, nRMSE, 80% coverage/width, quantile crossing.
+- 모든 방법에서 동일한 quantile ordering 규칙; raw crossing도 저장.
+- 합계/하루주기/메타데이터/teacher 출력 자체를 성능 정답으로 사용하지 않는다.
+- 신경망 성능 평균은 seed별 점수 평균이지 예측 ensemble이 아니다.
+- 데이터가 기존 개발/사전학습에 노출됐을 수 있는 개발 화면임을 명시.
+
+2. 후보 Q: 저비트 예측 능력 복구
+===============================
+질문:
+4bit 모델의 정해진 추가 파라미터 예산을 예측에 민감한 곳에 배치하면
+일반 QLoRA/좋은 초기화/간단한 mixed precision보다 미래 오차가 낮아지는가?
+
+선행 경계:
+- QLoRA는 all-linear 적응을 중요한 기준으로 사용한다. q/v-only를 유일한 기준으로 두지 않는다.
+- LoftQ, QERA는 이미 양자화 오차를 저랭크로 복구한다.
+- TQS는 이미 예측 공간의 민감도를 이용한 precision allocation을 다룬다.
+- 아래 Q_FORECAST는 이 아이디어들을 활용한 작은 empirical probe이며 신규성 미확인.
+
+양자화:
+- 실제 bitsandbytes NF4 weight packing. double quant와 compute dtype를 고정.
+- 공식 backend에서 기본적으로 고정밀 유지하는 층을 일부러 저비트로 바꿔 약한 대조를 만들지 않는다.
+- 실제 quantized linear 목록을 모든 low-bit 방법에서 공유한다.
+- LayerNorm, embeddings, tied weights, 입력/출력 projection의 실제 예외를 공개.
+- fake quantized full FP16 tensors만 사용한 실험은 배포 저장량 검증으로 인정하지 않는다.
+- 저장량은 모든 packed weights + quantization scales/metadata + 고정밀 예외 + adapter를 합산.
+- 원래 BF16 모델의 저장량을 기준으로 저비트 목적 cap=60%를 제안.
+  이는 프로젝트의 초기 저장 제약이지 학술 표준이 아니다.
+- 배치1/8의 peak allocated/reserved VRAM, 실제 artifact bytes, median latency를 별도 측정.
+- 속도가 빠르다는 주장은 별도 실측 없이 하지 않는다.
+
+6개 학습군, 각2seed:
+Q_FP: 비양자화 모델 + 적격 linear 전체 uniform rank4 LoRA.
+Q_STD: NF4 + 같은 범위 uniform rank4 LoRA, 표준 zero-update 초기화.
+Q_LOFTQ: NF4 + uniform rank4 + 명시한 LoftQ 초기화.
+Q_QERA: NF4 + uniform rank4 + QERA-diag형 activation-aware 초기화.
+Q_IO16: 입력/출력 경계의 quantized eligible 층을 BF16에 남기는 단순 mixed precision + Q_QERA.
+Q_FORECAST: NF4 + 같은 QERA-diag 초기화 + 예측 민감도 기반 rank 배치.
+
+Q_IO16의 대상이 기본 quantization 예외와 완전히 같아 Q_QERA와 동일하면,
+중복 학습하지 않고 동일 구성이라고 기록한다. 다른 층을 사후 발명하지 않는다.
+
+초기화 범위:
+- HF replace_lora_weights_loftq는 공식 문서상 1회 교체이며 전체 반복 LoftQ와 동일하지 않다.
+- 사용한 알고리즘을 one-step LoftQ라 정확하게 이름 붙인다.
+- QERA-diag는 공식 코드/수식에 따른 대각 activation 통계 구현을 먼저 대조한다.
+- local 구현이 공식 구현과 같다고 검증하지 못하면 QERA 전체 재현이라 부르지 않는다.
+- 진짜 목표는 final forecasting error. weight/activation 재구성 오차 감소만으로 통과시키지 않는다.
+
+Q_FORECAST의 작은 고정 설계:
+- TRAIN-only 32개 문맥을 동일하게 사용. 미래 y는 sensitivity 계산에 불사용.
+- 모듈을 실제 역할 기준 최대7그룹으로 묶음:
+  input projection, encoder attention, encoder FFN,
+  decoder self-attention, decoder cross-attention, decoder FFN, output projection.
+- 양자화되지 않은 그룹의 복구 민감도는 평가 대상으로 억지로 만들지 않는다.
+- 전체 NF4 모델에서 한 그룹만 원래 precision으로 복원했을 때,
+  BF16 모델의 native64 quantile 예측과의 scale-normalized squared discrepancy가
+  얼마나 줄어드는지를 group sensitivity로 사용한다. 음의 감소는0으로 둔다.
+- sensitivity가0이어도 즉시 분야 전체 NO_GO로 하지 않고 uniform allocation으로 환원.
+- uniform rank4의 총 trainable parameter budget을 P로 고정.
+- group rank를1부터 시작해 최대16까지 정수로 배분.
+  추가 비용 = 그 그룹 모든 LoRA (in_dim+out_dim)의 합.
+  utility=sum sensitivity_g*log(1+rank_g).
+  budget 안에서 marginal utility / parameter cost 최대의 group을1씩 증가.
+  ties는 사전 그룹 순서.
+- 최종 P_candidate <= P; 미사용 budget가5% 넘으면 allocation 비교의 resource mismatch로 보고.
+- group 목록/rank/param count를 TEST 이전 봉인한다.
+- Q_QERA 대 Q_FORECAST의 차이는 rank 배치이며, 교사가 다르거나 정답이 더 많은 차이가 아니다.
+- rank 배치 probe/초기화 비용도 총 adaptation cost에 포함한다.
+- 최대 sensitivity 비용은 32 contexts × (NF4+BF16+그룹7)=288 native64 example forwards.
+  패키지별 보정 통계 수집 비용은 별도 측정한다.
+
+Q fit cap: 6 × 2 × 256 = 3,072 updates.
+Q_FP는 정확도 참조, 나머지 cap 내 기존 방법은 강한 직접 대조.
+Q baseline winner는 V에서 고르고 TEST에서 재선택하지 않는다.
+단일 winner와 비교하면서도 모든 미선택 기준선의 TEST를 공개한다.
+
+Q의 해석:
+- 초기 NF4가 나빠진 것은 방법의 성공이 아니다.
+- 기존 low-bit 방법이 이미 Q_FP와1% 이내이고 Q_FORECAST도 추가1% 이득이 없으면
+  현재 복구 가설에 더 투자하지 않는 방향.
+- 후보가 Q_FP에 근접했다는 것만으로 충분하지 않다.
+- 같은 저장 cap의 V-selected strongest baseline보다 이득이 남아야 한다.
+- Q_IO16이 더 간단하고 충분하면 '시계열 전용 PEFT 필요성 미확보'로 기록한다.
+- 후보가 QERA보다 좋더라도 기존 TQS/rank allocation과의 신규성은 별도 검토한다.
+- 4bit에서 실패했다고2bit로 바꾸어 문제를 강제로 키우지 않는다.
+
+3. 후보 F: 원자료 비공유 조건의 시간 구조 개인화
+===============================================
+질문:
+공개 고객별 실제 차이가 있는 상황에서, 시간 패턴을 현장별로 남기는 작은 적응이
+개별 학습·공유 연합 적응·일반 개인화보다 유용한가?
+
+사용 조건:
+- 고객4개=client4개. 각 client는 자기 TRAIN/V/scale만 학습에 사용.
+- TEST 채점자는 전체를 볼 수 있지만 TEST 정보가 학습/집계로 돌아오지 않음.
+- 원자료 비공유의 소프트웨어 시뮬레이션이며 DP·규제 준수를 증명하지 않음.
+- 원자료 공유 제한 자체의 실제 필요성이 미확정이라는 적용 한계를 명시한다.
+
+집계의 강한 기본:
+- 공유 rank8, q/v 범위의 FFA-LoRA를 사용.
+- A는 같은 고정 초기값, B만 학습·집계하므로
+  mean(B_c) A = mean(B_c A)가 성립.
+- A/B를 각각 평균해 생기는 이미 알려진 aggregation noise를 제안점으로 쓰지 않는다.
+- 모든 개인화 군은 같은 FFA 기반. 로컬 개인 모듈은 서버로 보내지 않음.
+- 독립 LOCAL은 일반 양쪽-factor LoRA r8을 강한 기준으로 사용.
+  FFA와 LOCAL의 trainable parameter 차이를 그대로 공개.
+
+5개 workflow, 각2seed:
+F_LOCAL: client마다 독립 일반 LoRA. 서로 정보 공유 없음.
+F_SHARED: FFA-LoRA 공유만.
+F_AFFINE: F_SHARED + client별 gain/bias 2개.
+F_HEAD: F_SHARED + client별 horizon gain/bias 128개(64×2).
+F_PERIODIC: F_SHARED + client별 고정 주기 basis의 계수7개.
+
+F_PERIODIC은 신규성 확정 방법이 아니라 '단순 시간 구조의 개인화 여지'를 보는 탐침이다.
+개인화 연합학습/Fourier residual의 큰 원리는 기존 방법이다.
+
+정확한 private 출력:
+공통 q_global(h,tau)에 대해
+q'_c(h,tau)=exp(a_c)*q_global(h,tau)+sigma_c*b_c(o,h).
+
+F_AFFINE: b_c(o,h)=b0.
+F_HEAD: q'_c(h,tau)=exp(a_ch)*q_global(h,tau)+sigma_c*b_ch.
+F_PERIODIC:
+b_c(o,h)=b0+b1*(h/64)
+ + u24*sin(2*pi*(o+h)/24)+v24*cos(2*pi*(o+h)/24)
+ + u168*sin(2*pi*(o+h)/168)+v168*cos(2*pi*(o+h)/168).
+총 a,b0,b1,u24,v24,u168,v168=7개.
+모든 개인 계수0 초기화 -> 같은 shared 초기 예측.
+24/168은 hourly periodicity 가설. 실제 요일/달력 레이블이라고 부르지 않는다.
+주파수·harmonic 개수를 결과에 맞춰 바꾸지 않는다.
+
+학습:
+-16 rounds, 매 round 모든4clients 참여, client당4updates, batch8.
+- client별 data schedule을 모든 방법에 동일하게 제공.
+- 각 round 시작에 global B broadcast, client 4 updates, B만 equal-client 평균.
+- private heads 및 private optimizer state는 client에 유지.
+- shared optimizer state의 round마다 reset 규칙은 모든 shared 군에 통일.
+- LOCAL도 총 client당64updates, 같은 경계의 schedule/optimizer 규칙을 사용.
+- global backbone은 한 GPU에서 시간분할하되 모델상 client state를 정확히 분리.
+- 공유/비공유 처리의 누락 여부를 실제 업로드 payload 목록으로 검사한다.
+
+비용:
+workflow당 16×4×4=256 local optimizer updates.
+5 workflows×2seed=10 workflows, 총2,560 updates.
+LOCAL은 seed당4개 독립 모델(두seed면8fits), 나머지는8개 federated runs.
+중앙 fit10개와 같은 비용으로 오해하지 않도록 단위를 구분한다.
+송수신 bytes, 서버 상태 크기, client별 저장량, client별 wall/peak를 보고한다.
+
+평가:
+- primary client-macro normalized pinball.
+- client별 점수·gain 전체4개, worst-client 점수, local LoRA 대비 손익.
+- 최악 client는 TEST에서 순위가 바뀔 수 있으므로 validation-fixed tail도 함께 표시.
+- client4개를 충분한 population generalization 표본으로 부르지 않는다.
+- 서버 V selection에는 각 client의 scalar V score만 전달; raw V/scale 업로드 없음.
+
+F 해석:
+- F_SHARED가 F_LOCAL보다 좋은 것만으로 새 방법 성립 아님.
+- F_AFFINE/F_HEAD로 충분하면 시간 구조 특화의 필요성이 약함.
+- F_PERIODIC의 이득은 '시간 구조를 남길 여지'이지 Fourier regression의 최초성 아님.
+- 이득 없이 local 모델이 더 좋으면 현재 공동 적응 설정의 가치 미확보.
+- 단순 local output 보정만 좋다면 GO_STANDARD_ONLY: 배포 선택 근거는 있어도 신규방법 개발은 보류.
+- F가 GO해도 다음 단계는 알려진 개인화 FL/FFTS와의 차별성 확인이다.
+  새 거대한 hypernetwork를 자동으로 만들지 않는다.
+
+4. 후보 T: 원래 학습자료 없이 백본을 교체
+========================================
+중요한 목적 교정:
+'최근 시계열이 unlabeled'라는 말만으로 합법적인 다음 구간 학습을 금지하지 않는다.
+연속된 최근 관측 BRIDGE 안에는 이미 실현된 input/target 쌍을 만들 수 있다.
+원래 OLD_TRAIN를 못 쓴다는 것과 모든 최근 정답을 못 쓴다는 것은 다르다.
+따라서 이번 설정은 data-free/zero-label 이전이 아니라
+OLD_DATA_UNAVAILABLE + RECENT_BRIDGE_AVAILABLE이다.
+
+질문:
+새 모델에 최근 자료만으로 적응하거나 옛 모델의 최종 예측을 일반 증류하는 것보다,
+옛 적응이 바꾼 예측분을 옮기는 것이 유리한가?
+
+모델:
+A0 = pretrained Bolt-small.
+A1 = OLD_TRAIN으로 일반 q/v r8 LoRA를 학습한 Bolt-small.
+N0 = pretrained Bolt-base.
+N_theta = Bolt-base + q/v r8 LoRA.
+A1은 OLD_VAL로 checkpoint 선택.
+원래 LoRA factor를 서로 다른 크기의 N0에 직접 복사하지 않는다.
+
+준비:
+A1 teacher를 두seed×256updates 학습: 512updates.
+A0/A1/N0의 BRIDGE 예측을 사전 계산하고 모델revision/teacher seed/입력hash에 묶어 저장.
+두 A1 teacher를 평균해서 ensemble을 만들지 않는다. seed별 matched teacher 사용.
+N target training에는 OLD_TRAIN/OLD_VAL raw 값/배치/정답을 전달하지 않는다.
+A1 가중치와 허용된 scale metadata, BRIDGE 실제 값만 허용.
+
+4개 새 모델 학습군, 각2seed:
+T_RECENT: N0 + LoRA, BRIDGE 안의 실제 next64 정답으로만 학습.
+T_KD: 같은 실제 정답 손실 + A1의 최종 예측에 대한 증류.
+T_BLEND: 같은 실제 정답 손실 + 0.5*N0+0.5*A1 혼합 target에 대한 증류.
+T_DELTA: 같은 실제 정답 손실 + N0+(A1-A0) target에 대한 증류.
+
+T_DELTA도 전체 'adapter 이전'의 최초 기법이라고 하지 않는다.
+예측공간의 naive residual transfer가 추가 가치를 보이는지 보는 제한된 후보다.
+TSFM 차이가 다른 경우 같은 delta가 유용하다는 보장은 없다.
+
+수식:
+모든 예측은 같은 원단위64시점×9quantiles에 정렬한다.
+pseudo targets:
+q_KD=q_A1
+q_BLEND=sort(0.5*q_N0+0.5*q_A1)
+q_DELTA=sort(q_N0+q_A1-q_A0)
+
+training:
+L=scaled_twice_pinball(y_bridge,q_Ntheta)
+ + lambda*mean(abs(q_Ntheta-q_pseudo)/sigma).
+lambda=0.5 고정. T_RECENT는 lambda0.
+양쪽 항 값/gradient norm을 기록해 한 항이 사실상 무시됐는지 알 수 있도록 하되,
+결과를 보고 lambda를 다시 선택하지 않는다.
+
+모든 target arm: same init/rank/schedule,256updates, checkpoint0/128/256.
+BRIDGE_VAL의 같은 실제 pinball로 선택한다.
+BRIDGE_VAL은 이미 실현된 최근 자료라는 계약이다.
+이 선택은 'future TEST labels' 사용이 아니지만 '레이블 없는 이전'도 아니다.
+
+cache 비용:
+A0, A1(seed별), N0는 BRIDGE TRAIN/V에만 사전 계산.
+teacher query 수, cache bytes, walltime을 별도 기록.
+teacher0/model0 TEST 예측은 모든 선택 고정 후 비교로만 저장.
+교사에 잘 맞춘 점수가 아니라 실제 TEST 미래 오차가 최종 기준이다.
+
+배포:
+T_KD/BLEND/DELTA는 N_theta 하나로 추론. 옛 A0/A1을 매번 호출하지 않음.
+교사가 필요한 직합 output rule은 비용과 함께 보조 비교로만 보고 가능.
+계속 teacher를 불러놓고 '어댑터가 이전됐다'고 하지 않는다.
+
+budget:
+teacher2fits×256=512.
+target4arms×2seed×256=2,048.
+합계10fits/2,560updates.
+
+T 해석:
+- A1이 A0보다 배운 점, N0가 A1보다 이미 좋은 점을 둘 다 보고.
+- A1이 N0보다 약하다고 delta 전달을 논리적으로 불가능하다고 하지는 않는다.
+- 새 N0가 이미 좋거나 T_RECENT가 충분하면 옛 적응 이전의 필요성은 약함.
+- T_KD/T_BLEND로 충분하면 T_DELTA의 새 기여 미확보.
+- teacher imitation loss만 감소하고 true future score가 개선되지 않으면 GO 아님.
+- 고유 이득이 나와도 Trans-LoRA·task-vector/model-merging/distillation과의 신규성은 별도.
+
+5. 공통 Go / Hold / No-go
+========================
+아래 숫자는 학술적 유의성 기준이 아니라 사전에 제안하는 후속 예산 배분 기준이다.
+실제 실행 전에 사용자가 다른 최소 가치 기준을 선택할 수 있지만 TEST를 본 뒤 변경하지 않는다.
+
+g=100*(E_baseline-E_candidate)/E_baseline. E는 같은 TEST·분모의 점수.
+baseline winner는 허용 자원/정보 조건 안에서 V로만 선택.
+candidate:
+Q=Q_FORECAST
+F=F_PERIODIC
+T=T_DELTA
+
+GO_SCREEN:
+- 반복 점수 평균의 gain >=1.0%.
+- 두seed의 mean difference 방향이 모두 개선.
+- median nMAE 손해가 baseline 대비1%를 초과하지 않음.
+- Q: 실제 배포 weights+adapter가 BF16 참조의60% cap 내부.
+- F: 모든 client 결과 공개; 특정client에서 independent LOCAL 대비
+  5% 초과 손해가 나면 자동 GO가 아니라 TRADEOFF_HOLD.
+  5%도 운영상 위험 허용 제안값이지 과학적 상수 아님.
+- T: N0 그대로와 T_RECENT를 포함해 V-selected best와 경쟁.
+  old data/teacher를 추론 때 다시 사용하는 편법 금지.
+
+NO_GO_CURRENT:
+- 후보 mean gain<=0이고, 두seed 모두1% 이상의 양성 신호도 없음.
+- 혹은 표준/단순 대조가 동일한 목적을 충족하고 후보의 이득이 회복되지 않음.
+- 구현/자원 부족 때문에 음수로 판단하지 않는다.
+
+HOLD_NO_AUTO_TRAIN:
+- 평균은 양수이나1% 미만, seed 방향 반대, 지표 손익 또는 비용 불일치.
+- 마지막 checkpoint에서 모든 검증이 계속 내려가 최적화 미충족 가능성이 큰 경우.
+- 이것은 효과 없음의 증명이 아니라 현재 예산으로 후속 투자 근거가 불확실하다는 상태.
+- HOLD에서도 자동 seed/LR/epoch 추가는0.
+
+BLOCKED_IMPLEMENTATION / BLOCKED_DATA / BLOCKED_RESOURCE:
+- 실제 학습이 안 됨, 진짜 packed4bit가 아님, kernel 불가, teacher/cache 없음 등.
+- 다른 후보는 독립적으로 계속 가능. 성능 실패와 분리.
+
+GO_STANDARD_ONLY:
+- 표준 방법이 실용적으로 잘되지만 후보의 추가 가치가 없음.
+- 이를 새 PEFT 방법론 GO로 승격하지 않는다.
+
+통계:
+- TEST 6h origins에 대해14일 단위의 paired block bootstrap2,000회.
+- 같은 블록 안의 전체 계열/client/horizon을 함께 보존.
+- 두seed별 효과와 seed-score mean 효과를 각각 보고.
+- overlapping targets를 독립 observation으로 세지 않는다.
+- CI가0을 포함했다는 이유만으로 자동 NO_GO하지 않는다.
+- CI는 optimizer population/기존 반복 탐색/새 도메인 일반화까지 보장하지 않는다.
+- 두seed라는 작은 반복 수를 숨기지 않는다.
+
+6. 총 예산과 순서
+================
+Q:3,072 updates
+F:2,560 updates
+T:2,560 updates
+합계:8,192 main optimizer updates.
+각 update는64시점 단일 예측 손실이다. Q calibration·T teacher queries·서버 집계는 별도 비용.
+smoke 전체 상한24 updates -> 전체 optimizer cap8,216.
+
+Q/T의256updates는 충분한 최적화 보장이 아니라 첫 화면의 상한.
+F local64updates/client도 실용적 수렴 상한이라고 주장하지 않는다.
+유리한 후보에만 더 긴 학습 기회를 추가하지 않는다.
+
+권장 실행 순서: Q -> T -> F.
+Q는 실행 기반이 익숙하고, T는 같은 model/data/cache를 활용하기 쉽다.
+F는 상태/집계 관리가 더 복잡하므로 마지막.
+한 후보가 음수라고 다른 후보를 자동 생략하지 않는다.
+첫 화면에서 추가 데이터0, 새 모델쌍0, 새로운 bit-width0, 변형0.
+
+후속:
+각 후보의 GO도 Electricity 한 개발 자료·하나의 모델계열에 한정.
+셋 중 많아야1개를 선택해 두 번째 자료에서 확인하는 별도 계획을 세운다.
+자동으로 세 후보 모두 장기개발하지 않는다.
+
+7. 검산·보고
+============
+공통 확인:
+- 실제 trainable names/count, tied weights, dtype와 동결 상태.
+- future y는 학습손실에만; sensitivity/forecast metadata에 없음.
+- 각 arm의 정보 권한과 raw source hash.
+- selection seed와 repeat seed를 혼용하지 않음(이번은 selection seed 자체 없음).
+- init 비교: zero-LoRA군은 base parity, LoftQ/QERA군은 재구성 초기화이므로 F0 parity 강제하지 않음.
+- 모든 predictions를 저장하고 selection을 봉인한 뒤 TEST 채점.
+- init/final adapter gradients finite와 실제 변화.
+- scalar metric 재계산, 표 score에서 gain 재계산.
+- 최초 조기실행/이탈이 있으면 전체 PASS로 감추지 않음.
+- 메모리 실측은 teacher·FP 복사본을 제거한 새 프로세스에서 추론 기준.
+- F aggregated B의 delta 동치 및 client private tensor 비업로드 검사.
+- T의 student 파일에 teacher 모듈이 포함되지 않는지 검사.
+- 코드/manifest/small score만 version control. raw/credentials/full weights는 제외.
+
+후보별 보고 첫페이지:
+1. 무엇을 해결하려 했나?
+2. 이 사용 제약이 어떤 의미인가?
+3. 가장 강한 단순 대조는 무엇인가?
+4. seed별/평균 gain과 비용은 얼마인가?
+5. 문제 자체/일반방법/후보 중 무엇이 작동했나?
+6. GO_SCREEN / GO_STANDARD_ONLY / HOLD_NO_AUTO_TRAIN / NO_GO_CURRENT / BLOCKED_* 중 무엇인가?
+7. 후속 투자와 신규성 위험을 분리해서5문장 이내 결론.
+
+기존 repo 파일의 내부 필드나 checkpoint 경로를 추정해 사용하지 않는다.
+이번 문서의 arm 이름·새 산출물은 새 정의다.
+사용자 승인 전에는 이 설계문서 밖의 모델 실행·GitHub 생성·push를 수행하지 않는다.
+
+8. 검토한 주요 일차 출처
+========================
+QLoRA (2023/NeurIPS)
+https://papers.neurips.cc/paper_files/paper/2023/hash/1feb87871436031bdc0f2beaa62a049b-Abstract-Conference.html
+LoftQ (2024/ICLR)
+https://proceedings.iclr.cc/paper_files/paper/2024/hash/39ec972afab01e0d8ddc6834a9d12ac1-Abstract-Conference.html
+QERA (2025/ICLR)
+https://proceedings.iclr.cc/paper_files/paper/2025/hash/21718991f6acf19a42376b5c7a8668c5-Abstract-Conference.html
+HF quantization/LoftQ limitations
+https://huggingface.co/docs/peft/developer_guides/quantization
+https://huggingface.co/docs/peft/en/package_reference/lora
+TQS 공개본 (2026; 이 문서는 공개본 방법 설명에 근거, 정식 메인학회로 표기하지 않음)
+https://arxiv.org/html/2606.13300v3
+Improving LoRA in Privacy-preserving Federated Learning (FFA-LoRA,2024/ICLR)
+https://proceedings.iclr.cc/paper_files/paper/2024/hash/4e243e95c913b367775d71d7182b99d9-Abstract-Conference.html
+FLoRA (2024/NeurIPS)
+https://proceedings.neurips.cc/paper_files/paper/2024/hash/28312c9491d60ed0c77f7fff4ad86dd1-Abstract-Conference.html
+Federated Foundation Models on Heterogeneous Time Series (2025/AAAI)
+https://ojs.aaai.org/index.php/AAAI/article/view/33739
+Trans-LoRA (2024/NeurIPS)
+https://proceedings.neurips.cc/paper_files/paper/2024/hash/708fdc7911f11585ee7161518e509ae6-Abstract-Conference.html
+Model config
+https://huggingface.co/amazon/chronos-bolt-small/blob/main/config.json
+https://huggingface.co/amazon/chronos-bolt-base/blob/main/config.json
+
+검증 완료 범위:
+- 선행/공식 문서·모델 config·현재 repo 기록의 확인.
+- 본 문서의 비용 산술.
+아직 미수행:
+- 새로운 NF4/LoftQ/QERA 실제 모델 연결.
+- 연합학습 통신/state 구현.
+- teacher/bridge cache 생성.
+- 위3후보의 학습·예측·성능 검증.

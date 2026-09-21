@@ -1,0 +1,385 @@
+{
+  "canonical_schedules": {
+    "Q_TEST_seed92201": "d9ce8df720b0ed78dde8b0ebc88d8a659bdc206fa7fb5db8cf9174a0fce02852",
+    "Q_TEST_seed92202": "7e770f1f885aa8108a6aa3d44a3cb88b0e7e0693446e436a71df026526eb54ca",
+    "Q_TRAIN_client0_seed92201": "4fc30fadf5186793f734bfb6d7624682201dce5b4698f9a0eb7df3619fe3c1e7",
+    "Q_TRAIN_client0_seed92202": "f08034496f9bb435dbc92baac200abb620dd749e49a3d75ec32abc722411734c",
+    "Q_TRAIN_client1_seed92201": "c33bb343cbdcc972c11c18ce48884dc9d1064a11c22fe9d1a1434015dd21d2de",
+    "Q_TRAIN_client1_seed92202": "4dd1b8407a94f8a9d2163053d4217d1ef82a617cc1f4d48a548b5ad64e35371c",
+    "Q_TRAIN_client2_seed92201": "33d524db47dc9aa98d0e1297f25ace3d6fd70504173b912258631f048e1e9c41",
+    "Q_TRAIN_client2_seed92202": "61e1b0fcb333b333c0bab5f28da959017be32589a7cf80ef5312c0460953c096",
+    "Q_TRAIN_client3_seed92201": "fa368b487d3ed6e7cb81aa0b4b5813ebe0d068801ba0d5a920bd884c21c7e4c3",
+    "Q_TRAIN_client3_seed92202": "eb1c269e0eee60970dcbfd27d1e32ca13bc62bdb804ee9c3bd49bf935eb49784",
+    "Q_TRAIN_seed92201": "d99c7020cea60f1aaf6879db6c877167e566b459f83f3ec9ae804552cc77f991",
+    "Q_TRAIN_seed92202": "8fbd988ece9b2b7a9fbaf26fd7660037eee3d1d49e15d03b5d1f52040bbba17d",
+    "Q_VAL_seed92201": "f14974d802ec04f9ed6d85621a4a4ac46a0b337b33c2c3de2bb669de7a8acf61",
+    "Q_VAL_seed92202": "e11a3e8d5ea24ece9b8d57f1a9fa2d8d137a63f3e249b6946f063d64d2e990cf",
+    "T_BRIDGE_TRAIN_seed92201": "ae1abe24b13f6be68745238c1b2d59481ee0386ce4a818549b40c3d49c225e4a",
+    "T_BRIDGE_TRAIN_seed92202": "3d76e87505d82187733d0c846d3ed812689ff2f98b07fd48d840b02536964eb3",
+    "T_BRIDGE_VAL_seed92201": "cdf97c45ab00307318f71520b5e4abd1d2bfb31f69f821a56dd2a24685fdcb3e",
+    "T_BRIDGE_VAL_seed92202": "e7d4a0c5c6973ec2068fd4fc259ca1081f23dcda042a73cecb7757120ea6bc81",
+    "T_OLD_TRAIN_seed92201": "61caad7e65a9cc01081f15a0493621703771d755072d5c0cff61cf085cf0c258",
+    "T_OLD_TRAIN_seed92202": "bac165e24ffe9bbe93809f1ac2637b8b5c5cd4061aa822fde3fe54010a682f24",
+    "T_OLD_VAL_seed92201": "451ebe5cbe8342060d8b11baef258a6f9d06725277d84672149cef4ab1688b93",
+    "T_OLD_VAL_seed92202": "1acc8d045654d09255bccf4a5069467e948f995ad97f918170c89ca1e80e9d13",
+    "T_TEST_seed92201": "772d149dbe1200969bc478754dc6593a8719db1eac65f2b79024ef71c6cae912",
+    "T_TEST_seed92202": "c36dd866090287197b66836b274ac8e4f93326f256fa3e9df90de97899b2cadf"
+  },
+  "created_at_utc": "2026-09-21T23:48:10.186574+00:00",
+  "data_version": "2026-09-22.v1",
+  "domain_context": {
+    "consumer": "Q/F/T training and audit code",
+    "domain": "hourly multivariate electricity consumption time series",
+    "downstream_decision": "limited-budget PEFT candidate go/hold/no-go screen",
+    "leakage_paths_controlled": [
+      "train50-only sigma and column eligibility",
+      "hash-only deterministic series selection independent of values after eligibility",
+      "time-ordered splits",
+      "Q/F validation and test origins fixed at origin % 6 == 0",
+      "T bridge contexts start inside BRIDGE",
+      "no interpolation or value-based origin filtering"
+    ],
+    "quality_bar": "publication-oriented local experiment audit"
+  },
+  "f_clients": {
+    "count": 4,
+    "ids": [
+      "electricity_col_148",
+      "electricity_col_41",
+      "electricity_col_176",
+      "electricity_col_135"
+    ],
+    "series_indices": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "finite": {
+    "raw_all_finite": true,
+    "raw_finite_count": 8443584,
+    "raw_total_count": 8443584,
+    "selected_all_finite": true,
+    "selected_finite_count": 420864,
+    "selected_nonnegative": true,
+    "selected_total_count": 420864
+  },
+  "hashes": {
+    "canonical_schedules_hash": "06731236e4d6ca3e12ba4c3f7aa4ca194b642000d87efa4630cd0b808cb65f85",
+    "ids_hash": "aec545a69cac414d03eb65786b316e3d558ea9175e2d6a8a45d0c7fe7a975ddc",
+    "origins_hash": "ed7d44bad2f030852e3cb2235aa45d6dfc489b49d81093bc411d788e6eee8329",
+    "packet_sha256": "ac2b1e178e2810680b1752890ddb3d2f44b4738c0bba59d99ddb487c75b0d9e2",
+    "raw_gzip_sha256": "3c4c069588198c1fcc95cace7bb69c99922129edfd673b7286661dad20badefa",
+    "selected_columns_hash": "e258b1d17db43a8cc191fe4b350ac27dafd6b50712944bd2f7a8c83408823b1b",
+    "sigma_float64_hash": "1c5845105befac0efa8bcb970fc3302cb9d6135a7c3a8f1d8c4f20b639d6b3fa",
+    "values_float32_hash": "050a1f889b61372866de78470b1ef3187a6db92e39d3fe3b7694b64738187988"
+  },
+  "notes": [
+    "Column IDs are anonymized original 0-based Electricity columns.",
+    "Sigma uses population std (ddof=0) on the first 50% by time; contract did not specify ddof.",
+    "Origin sets are defined only by split boundaries, context, horizon, and evaluation stride."
+  ],
+  "origins": {
+    "Q_TEST": {
+      "checks": {
+        "context_finite_failures": 0,
+        "contexts_after_context_min_start": true,
+        "nonempty": true,
+        "origin_mod6": true,
+        "target_finite_failures": 0,
+        "targets_end_in_role": true,
+        "targets_start_in_role": true
+      },
+      "context_crosses_role_start": true,
+      "context_min_start": 0,
+      "context_start_max": 25726,
+      "context_start_min": 20536,
+      "count": 866,
+      "hash": "393c00b5e3aba875abad1a796c2274d3c366b8844e6f89ee5107740e456d2274",
+      "hourly_train_or_mod6_eval": "mod6",
+      "max_origin": 26238,
+      "min_origin": 21048,
+      "target_end_exclusive": 26304,
+      "target_end_max_exclusive": 26302,
+      "target_end_min_exclusive": 21112,
+      "target_start": 21043
+    },
+    "Q_TRAIN": {
+      "checks": {
+        "context_finite_failures": 0,
+        "contexts_after_context_min_start": true,
+        "nonempty": true,
+        "origin_mod6": null,
+        "target_finite_failures": 0,
+        "targets_end_in_role": true,
+        "targets_start_in_role": true
+      },
+      "context_crosses_role_start": false,
+      "context_min_start": 0,
+      "context_start_max": 15206,
+      "context_start_min": 0,
+      "count": 15207,
+      "hash": "8615df160c94b726bdd4b7d5fe4a60274a0848e08a599eb3d1fba04336bac038",
+      "hourly_train_or_mod6_eval": "hourly",
+      "max_origin": 15718,
+      "min_origin": 512,
+      "target_end_exclusive": 15782,
+      "target_end_max_exclusive": 15782,
+      "target_end_min_exclusive": 576,
+      "target_start": 0
+    },
+    "Q_VAL": {
+      "checks": {
+        "context_finite_failures": 0,
+        "contexts_after_context_min_start": true,
+        "nonempty": true,
+        "origin_mod6": true,
+        "target_finite_failures": 0,
+        "targets_end_in_role": true,
+        "targets_start_in_role": true
+      },
+      "context_crosses_role_start": true,
+      "context_min_start": 0,
+      "context_start_max": 20464,
+      "context_start_min": 15274,
+      "count": 866,
+      "hash": "ee004a552b0ce4f2d29b7721d441d3b39154e4d078580096ac94a59f40d1ed49",
+      "hourly_train_or_mod6_eval": "mod6",
+      "max_origin": 20976,
+      "min_origin": 15786,
+      "target_end_exclusive": 21043,
+      "target_end_max_exclusive": 21040,
+      "target_end_min_exclusive": 15850,
+      "target_start": 15782
+    },
+    "T_BRIDGE_TRAIN": {
+      "checks": {
+        "context_finite_failures": 0,
+        "contexts_after_context_min_start": true,
+        "nonempty": true,
+        "origin_mod6": null,
+        "target_finite_failures": 0,
+        "targets_end_in_role": true,
+        "targets_start_in_role": true
+      },
+      "context_crosses_role_start": false,
+      "context_min_start": 15782,
+      "context_start_max": 19151,
+      "context_start_min": 15782,
+      "count": 3370,
+      "hash": "d654f64b7793872c8ca050dcc0001330c761ca64933ea6ca16e8857343b7f912",
+      "hourly_train_or_mod6_eval": "hourly",
+      "max_origin": 19663,
+      "min_origin": 16294,
+      "target_end_exclusive": 19727,
+      "target_end_max_exclusive": 19727,
+      "target_end_min_exclusive": 16358,
+      "target_start": 15782
+    },
+    "T_BRIDGE_VAL": {
+      "checks": {
+        "context_finite_failures": 0,
+        "contexts_after_context_min_start": true,
+        "nonempty": true,
+        "origin_mod6": true,
+        "target_finite_failures": 0,
+        "targets_end_in_role": true,
+        "targets_start_in_role": true
+      },
+      "context_crosses_role_start": true,
+      "context_min_start": 15782,
+      "context_start_max": 20464,
+      "context_start_min": 19216,
+      "count": 209,
+      "hash": "b9dd64e36906dca1a3405662c34b538bc0aaba7d8dcc2bedf71843a11b3beef2",
+      "hourly_train_or_mod6_eval": "mod6",
+      "max_origin": 20976,
+      "min_origin": 19728,
+      "target_end_exclusive": 21043,
+      "target_end_max_exclusive": 21040,
+      "target_end_min_exclusive": 19792,
+      "target_start": 19727
+    },
+    "T_OLD_TRAIN": {
+      "checks": {
+        "context_finite_failures": 0,
+        "contexts_after_context_min_start": true,
+        "nonempty": true,
+        "origin_mod6": null,
+        "target_finite_failures": 0,
+        "targets_end_in_role": true,
+        "targets_start_in_role": true
+      },
+      "context_crosses_role_start": false,
+      "context_min_start": 0,
+      "context_start_max": 12576,
+      "context_start_min": 0,
+      "count": 12577,
+      "hash": "03470aeb4c9d49e32a1565bbba3bf196cd831b5c79a4df8ff6bfa0124fc871cc",
+      "hourly_train_or_mod6_eval": "hourly",
+      "max_origin": 13088,
+      "min_origin": 512,
+      "target_end_exclusive": 13152,
+      "target_end_max_exclusive": 13152,
+      "target_end_min_exclusive": 576,
+      "target_start": 0
+    },
+    "T_OLD_VAL": {
+      "checks": {
+        "context_finite_failures": 0,
+        "contexts_after_context_min_start": true,
+        "nonempty": true,
+        "origin_mod6": true,
+        "target_finite_failures": 0,
+        "targets_end_in_role": true,
+        "targets_start_in_role": true
+      },
+      "context_crosses_role_start": true,
+      "context_min_start": 0,
+      "context_start_max": 15202,
+      "context_start_min": 12640,
+      "count": 428,
+      "hash": "10492d393b9c546d3c6aa5087e7c56e1e777327a94524a77c90977c42ef47af9",
+      "hourly_train_or_mod6_eval": "mod6",
+      "max_origin": 15714,
+      "min_origin": 13152,
+      "target_end_exclusive": 15782,
+      "target_end_max_exclusive": 15778,
+      "target_end_min_exclusive": 13216,
+      "target_start": 13152
+    },
+    "T_TEST": {
+      "checks": {
+        "context_finite_failures": 0,
+        "contexts_after_context_min_start": true,
+        "nonempty": true,
+        "origin_mod6": true,
+        "target_finite_failures": 0,
+        "targets_end_in_role": true,
+        "targets_start_in_role": true
+      },
+      "context_crosses_role_start": true,
+      "context_min_start": 15782,
+      "context_start_max": 25726,
+      "context_start_min": 20536,
+      "count": 866,
+      "hash": "393c00b5e3aba875abad1a796c2274d3c366b8844e6f89ee5107740e456d2274",
+      "hourly_train_or_mod6_eval": "mod6",
+      "max_origin": 26238,
+      "min_origin": 21048,
+      "target_end_exclusive": 26304,
+      "target_end_max_exclusive": 26302,
+      "target_end_min_exclusive": 21112,
+      "target_start": 21043
+    }
+  },
+  "packets": {
+    "origins": ".cache\\tsfm_peft_three_candidate_gonogo_20260922\\data\\origins.npz",
+    "packet": ".cache\\tsfm_peft_three_candidate_gonogo_20260922\\data\\electricity_selected_packet.npz",
+    "raw": ".cache\\tsfm_peft_three_candidate_gonogo_20260922\\data\\electricity.txt.gz",
+    "sigma": ".cache\\tsfm_peft_three_candidate_gonogo_20260922\\data\\sigma_float64.npy",
+    "source_packet": ".cache\\tsfm_peft_three_candidate_gonogo_20260922\\data\\source_packet.json",
+    "values": ".cache\\tsfm_peft_three_candidate_gonogo_20260922\\data\\values_float32.npy"
+  },
+  "probe": {
+    "hash": "933c46e3fc7000940c19c8a0242e30879a182b5b90b0948ce26f3c1cab5b4843",
+    "path": ".cache\\tsfm_peft_three_candidate_gonogo_20260922\\data\\probe_seed92200.npy",
+    "shape": [
+      32,
+      2
+    ],
+    "target_access": "none"
+  },
+  "schema": {
+    "context": 512,
+    "delimiter": ",",
+    "has_header": false,
+    "horizon": 64,
+    "ids_count": 16,
+    "native_horizon": 64,
+    "raw_shape": [
+      26304,
+      321
+    ],
+    "sigma_dtype": "float64",
+    "sigma_shape": [
+      16
+    ],
+    "values_dtype": "float32",
+    "values_shape": [
+      26304,
+      16
+    ]
+  },
+  "selection": {
+    "eligible_count": 321,
+    "ids_hash": "aec545a69cac414d03eb65786b316e3d558ea9175e2d6a8a45d0c7fe7a975ddc",
+    "selected_columns_hash": "e258b1d17db43a8cc191fe4b350ac27dafd6b50712944bd2f7a8c83408823b1b",
+    "selected_original_columns": [
+      148,
+      41,
+      176,
+      135,
+      60,
+      316,
+      4,
+      248,
+      95,
+      207,
+      40,
+      157,
+      234,
+      200,
+      206,
+      142
+    ],
+    "selection_rule": "eligible columns sorted by SHA256('peft-triage-v1|' + 0-based column index)",
+    "selection_salt": "peft-triage-v1|",
+    "sigma_ddof": 0,
+    "sigma_hash": "1c5845105befac0efa8bcb970fc3302cb9d6135a7c3a8f1d8c4f20b639d6b3fa",
+    "train50_end": 13152
+  },
+  "source": {
+    "author_repo": "https://github.com/laiguokun/multivariate-time-series-data",
+    "bytes": 17993794,
+    "downloaded_at_utc": "2026-09-21T23:48:09.034596+00:00",
+    "headers": {
+      "content_length": "17993794",
+      "etag": "\"864ba238c46928aa8a6ef66f3e866e732f139fd5d6397d980fc6a1a72792ffaf\"",
+      "last_modified": null
+    },
+    "remote_ref": "refs/heads/master",
+    "sha256": "3c4c069588198c1fcc95cace7bb69c99922129edfd673b7286661dad20badefa",
+    "upstream_revision": "7f402f185cc2435b5e66aed13a3b560ed142e023",
+    "url": "https://raw.githubusercontent.com/laiguokun/multivariate-time-series-data/master/electricity/electricity.txt.gz"
+  },
+  "split": {
+    "n_rows": 26304,
+    "q_test_end": 26304,
+    "q_test_start": 21043,
+    "q_train_end": 15782,
+    "q_train_start": 0,
+    "q_val_end": 21043,
+    "q_val_start": 15782,
+    "t_bridge_end": 21043,
+    "t_bridge_start": 15782,
+    "t_bridge_train_end": 19727,
+    "t_bridge_val_start": 19727,
+    "t_old_train_end": 13152,
+    "t_old_train_start": 0,
+    "t_old_val_end": 15782,
+    "t_old_val_start": 13152,
+    "t_test_end": 26304,
+    "t_test_start": 21043
+  },
+  "status": "PASS",
+  "std": {
+    "hash": "1c5845105befac0efa8bcb970fc3302cb9d6135a7c3a8f1d8c4f20b639d6b3fa",
+    "sigma_ddof": 0,
+    "sigma_max": 1471.7104207174755,
+    "sigma_mean": 373.8693246092069,
+    "sigma_min": 65.20400565447873,
+    "sigma_train50_only": true
+  }
+}
