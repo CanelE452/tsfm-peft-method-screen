@@ -1,0 +1,29 @@
+{
+  "Electricity/R_ROLLOUT_LORA": {
+    "lr": 0.0003,
+    "selection_fit": "Electricity_R_ROLLOUT_LORA_s92120_lr0.0003",
+    "excluded_from_repeat_mean": true,
+    "trials": [
+      "Electricity_R_ROLLOUT_LORA_s92120_lr0.0001",
+      "Electricity_R_ROLLOUT_LORA_s92120_lr0.0003"
+    ]
+  },
+  "Electricity/S_STATE_ADAPTER": {
+    "lr": 0.0003,
+    "selection_fit": "Electricity_S_STATE_ADAPTER_s92120_lr0.0003",
+    "excluded_from_repeat_mean": true,
+    "trials": [
+      "Electricity_S_STATE_ADAPTER_s92120_lr0.0001",
+      "Electricity_S_STATE_ADAPTER_s92120_lr0.0003"
+    ]
+  },
+  "Electricity/U_UNCERTAINTY_ADAPTER": {
+    "lr": 0.0003,
+    "selection_fit": "Electricity_U_UNCERTAINTY_ADAPTER_s92120_lr0.0003",
+    "excluded_from_repeat_mean": true,
+    "trials": [
+      "Electricity_U_UNCERTAINTY_ADAPTER_s92120_lr0.0001",
+      "Electricity_U_UNCERTAINTY_ADAPTER_s92120_lr0.0003"
+    ]
+  }
+}

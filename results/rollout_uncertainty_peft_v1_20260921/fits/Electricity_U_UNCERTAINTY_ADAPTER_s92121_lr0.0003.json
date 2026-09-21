@@ -1,0 +1,42 @@
+{
+  "fit_id": "Electricity_U_UNCERTAINTY_ADAPTER_s92121_lr0.0003",
+  "source": "Electricity",
+  "arm": "U_UNCERTAINTY_ADAPTER",
+  "seed": 92121,
+  "lr": 0.0003,
+  "main_updates": 512,
+  "conditional_batch_forwards_backwards": 2048,
+  "validation": {
+    "0": {
+      "scaled_pinball": 0.1700928924542116,
+      "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_U_UNCERTAINTY_ADAPTER_s92121_lr0.0003\\step_0000.pt",
+      "checkpoint_sha256": "1dd6417d70098a2e12c9bc3b7697e67cf4642a70e128eb66d68a24cd1ae09215"
+    },
+    "128": {
+      "scaled_pinball": 0.16502416398047812,
+      "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_U_UNCERTAINTY_ADAPTER_s92121_lr0.0003\\step_0128.pt",
+      "checkpoint_sha256": "bb0858db92abd08ae135af91d91966f2cffd03c0f6fc636e8666b55f796d05cd"
+    },
+    "256": {
+      "scaled_pinball": 0.16289690169473275,
+      "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_U_UNCERTAINTY_ADAPTER_s92121_lr0.0003\\step_0256.pt",
+      "checkpoint_sha256": "2e1b528f0c3b9563083fc2bf1e4f23e707911825882a1a64293c1eac8349d538"
+    },
+    "512": {
+      "scaled_pinball": 0.1623839558536525,
+      "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_U_UNCERTAINTY_ADAPTER_s92121_lr0.0003\\step_0512.pt",
+      "checkpoint_sha256": "d3a41d4f31d0538f604325e2d505fd9a9663fac392dc75c6484b4f2dfc63e417"
+    }
+  },
+  "selected_step": 512,
+  "selected_validation": 0.1623839558536525,
+  "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_U_UNCERTAINTY_ADAPTER_s92121_lr0.0003\\step_0512.pt",
+  "checkpoint_sha256": "d3a41d4f31d0538f604325e2d505fd9a9663fac392dc75c6484b4f2dfc63e417",
+  "initial_learned_hash": "a387598240c6363d6510472139b70ab9e2d2591d15dadb0231a708b617037ce7",
+  "initial_lora_hash": "1abdc87e73b9bff0472b32446d7136e25a72c1238ac569db2e126162c5d6e1af",
+  "initial_adapter_hash": "f6aa9fbd3096061d077523188cebc8c5fee485225be91dbf840021eedf7d5f3f",
+  "frozen_weights_buffers_unchanged": true,
+  "elapsed_this_process_seconds": 263.36633279998205,
+  "recovered_updates_without_replay": 0,
+  "frozen_digest_scope": "before and after fit in this process"
+}

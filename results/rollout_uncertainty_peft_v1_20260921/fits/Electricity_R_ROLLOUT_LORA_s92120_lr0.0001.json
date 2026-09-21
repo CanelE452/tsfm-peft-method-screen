@@ -1,0 +1,42 @@
+{
+  "fit_id": "Electricity_R_ROLLOUT_LORA_s92120_lr0.0001",
+  "source": "Electricity",
+  "arm": "R_ROLLOUT_LORA",
+  "seed": 92120,
+  "lr": 0.0001,
+  "main_updates": 512,
+  "conditional_batch_forwards_backwards": 2048,
+  "validation": {
+    "0": {
+      "scaled_pinball": 0.1700928924542116,
+      "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92120_lr0.0001\\step_0000.pt",
+      "checkpoint_sha256": "f17f597b85c0eaa011765acf4fd3a577de5d0645c0c3cad77dfab4772f1c3e63"
+    },
+    "128": {
+      "scaled_pinball": 0.16666129637267924,
+      "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92120_lr0.0001\\step_0128.pt",
+      "checkpoint_sha256": "dc7fa2d9baa84724bc711fc2340606108d97b04e97ad3bc7356836459e58b3e1"
+    },
+    "256": {
+      "scaled_pinball": 0.16601325672842132,
+      "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92120_lr0.0001\\step_0256.pt",
+      "checkpoint_sha256": "ef0922ab4233bc50b574eeafe428a620cb94280f995d27dcf524178686ecfd70"
+    },
+    "512": {
+      "scaled_pinball": 0.16489600643185245,
+      "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92120_lr0.0001\\step_0512.pt",
+      "checkpoint_sha256": "6533ae8f9a8084ebbd49aed6ceed77f0d0d744bb4280a1f828fb7da653232a97"
+    }
+  },
+  "selected_step": 512,
+  "selected_validation": 0.16489600643185245,
+  "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92120_lr0.0001\\step_0512.pt",
+  "checkpoint_sha256": "6533ae8f9a8084ebbd49aed6ceed77f0d0d744bb4280a1f828fb7da653232a97",
+  "initial_learned_hash": "57fc14d0825668276a77f726d96fd1ef4f5a1193d111c0495d3ae925c3e4556a",
+  "initial_lora_hash": "57fc14d0825668276a77f726d96fd1ef4f5a1193d111c0495d3ae925c3e4556a",
+  "initial_adapter_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "frozen_weights_buffers_unchanged": true,
+  "elapsed_this_process_seconds": 29.765582700027153,
+  "recovered_updates_without_replay": 512,
+  "frozen_digest_scope": "recovery model only; see PRESEAL_EXECUTION_RECOVERY.json"
+}

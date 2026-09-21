@@ -1,0 +1,254 @@
+{
+  "Electricity/R_ROLLOUT_LORA/92121": {
+    "fit_id": "Electricity_R_ROLLOUT_LORA_s92121_lr0.0003",
+    "source": "Electricity",
+    "arm": "R_ROLLOUT_LORA",
+    "seed": 92121,
+    "lr": 0.0003,
+    "main_updates": 512,
+    "conditional_batch_forwards_backwards": 2048,
+    "validation": {
+      "0": {
+        "scaled_pinball": 0.1700928924542116,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92121_lr0.0003\\step_0000.pt",
+        "checkpoint_sha256": "6ffe4b4a489feaf7c291c685a1edf6c849f956d9f46413f93488eae84864957a"
+      },
+      "128": {
+        "scaled_pinball": 0.16592833342781496,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92121_lr0.0003\\step_0128.pt",
+        "checkpoint_sha256": "a14b98a7628dccb100d65c82a09db417b2d7f5b8049ca8c25da35a6324cdb58a"
+      },
+      "256": {
+        "scaled_pinball": 0.16374626332776024,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92121_lr0.0003\\step_0256.pt",
+        "checkpoint_sha256": "d21bcfdd78a5bb62ee968fc378b0c0f45fd970ff3e6820f7f0139590ae981112"
+      },
+      "512": {
+        "scaled_pinball": 0.16300085987010474,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92121_lr0.0003\\step_0512.pt",
+        "checkpoint_sha256": "52f32ec48d075e6eb4f5a832d0a181a09186fd4d60fb1e91ce81b3e275fa5d07"
+      }
+    },
+    "selected_step": 512,
+    "selected_validation": 0.16300085987010474,
+    "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92121_lr0.0003\\step_0512.pt",
+    "checkpoint_sha256": "52f32ec48d075e6eb4f5a832d0a181a09186fd4d60fb1e91ce81b3e275fa5d07",
+    "initial_learned_hash": "1abdc87e73b9bff0472b32446d7136e25a72c1238ac569db2e126162c5d6e1af",
+    "initial_lora_hash": "1abdc87e73b9bff0472b32446d7136e25a72c1238ac569db2e126162c5d6e1af",
+    "initial_adapter_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "frozen_weights_buffers_unchanged": true,
+    "elapsed_this_process_seconds": 246.01321840001037,
+    "recovered_updates_without_replay": 0,
+    "frozen_digest_scope": "before and after fit in this process"
+  },
+  "Electricity/R_ROLLOUT_LORA/92122": {
+    "fit_id": "Electricity_R_ROLLOUT_LORA_s92122_lr0.0003",
+    "source": "Electricity",
+    "arm": "R_ROLLOUT_LORA",
+    "seed": 92122,
+    "lr": 0.0003,
+    "main_updates": 512,
+    "conditional_batch_forwards_backwards": 2048,
+    "validation": {
+      "0": {
+        "scaled_pinball": 0.1700928924542116,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92122_lr0.0003\\step_0000.pt",
+        "checkpoint_sha256": "a9dad41d2066be182e04067283dd536f624f3b9fef6a87d0b2e7488ab6fad2a8"
+      },
+      "128": {
+        "scaled_pinball": 0.1652634200543673,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92122_lr0.0003\\step_0128.pt",
+        "checkpoint_sha256": "f882a8f01aa4d5d9c38e7a12b3d60d3dc63d286ab0ef32beee8c046c1d6562ea"
+      },
+      "256": {
+        "scaled_pinball": 0.1647016796583705,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92122_lr0.0003\\step_0256.pt",
+        "checkpoint_sha256": "acb01896ec58b3845b57232deb8c3d6d2a240dd0187fe5dbad5125be986387fb"
+      },
+      "512": {
+        "scaled_pinball": 0.16322393598270116,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92122_lr0.0003\\step_0512.pt",
+        "checkpoint_sha256": "8f64672f63316e98ff2b294f760802f897cec031c5b07de3880c57e0fdc1d94a"
+      }
+    },
+    "selected_step": 512,
+    "selected_validation": 0.16322393598270116,
+    "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_R_ROLLOUT_LORA_s92122_lr0.0003\\step_0512.pt",
+    "checkpoint_sha256": "8f64672f63316e98ff2b294f760802f897cec031c5b07de3880c57e0fdc1d94a",
+    "initial_learned_hash": "ebef61469c20972de6d48d06d6bd01237b85d44e967d552e3064cc3dc58d5e74",
+    "initial_lora_hash": "ebef61469c20972de6d48d06d6bd01237b85d44e967d552e3064cc3dc58d5e74",
+    "initial_adapter_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "frozen_weights_buffers_unchanged": true,
+    "elapsed_this_process_seconds": 208.4855138999992,
+    "recovered_updates_without_replay": 0,
+    "frozen_digest_scope": "before and after fit in this process"
+  },
+  "Electricity/S_STATE_ADAPTER/92121": {
+    "fit_id": "Electricity_S_STATE_ADAPTER_s92121_lr0.0003",
+    "source": "Electricity",
+    "arm": "S_STATE_ADAPTER",
+    "seed": 92121,
+    "lr": 0.0003,
+    "main_updates": 512,
+    "conditional_batch_forwards_backwards": 2048,
+    "validation": {
+      "0": {
+        "scaled_pinball": 0.1700928924542116,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_S_STATE_ADAPTER_s92121_lr0.0003\\step_0000.pt",
+        "checkpoint_sha256": "b5f0a11c3a2ad88ce11935944786374a2b7078fd277320f76195029e64441014"
+      },
+      "128": {
+        "scaled_pinball": 0.1649866718036129,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_S_STATE_ADAPTER_s92121_lr0.0003\\step_0128.pt",
+        "checkpoint_sha256": "de33759f825a3aa4f8afd3c999f7fa8dbe313d6626fdeca3396b679274ddede8"
+      },
+      "256": {
+        "scaled_pinball": 0.1628798691334579,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_S_STATE_ADAPTER_s92121_lr0.0003\\step_0256.pt",
+        "checkpoint_sha256": "76c4a3907fe3a2fa200a883157a93b1afccf0d7fb6bf4af875390e8f93f3a7d2"
+      },
+      "512": {
+        "scaled_pinball": 0.16240904212977758,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_S_STATE_ADAPTER_s92121_lr0.0003\\step_0512.pt",
+        "checkpoint_sha256": "50ef30eaf5dd28cb17b34b29ea83b685c96c4ea3c678b5fc95723fe0d03191f6"
+      }
+    },
+    "selected_step": 512,
+    "selected_validation": 0.16240904212977758,
+    "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_S_STATE_ADAPTER_s92121_lr0.0003\\step_0512.pt",
+    "checkpoint_sha256": "50ef30eaf5dd28cb17b34b29ea83b685c96c4ea3c678b5fc95723fe0d03191f6",
+    "initial_learned_hash": "a387598240c6363d6510472139b70ab9e2d2591d15dadb0231a708b617037ce7",
+    "initial_lora_hash": "1abdc87e73b9bff0472b32446d7136e25a72c1238ac569db2e126162c5d6e1af",
+    "initial_adapter_hash": "f6aa9fbd3096061d077523188cebc8c5fee485225be91dbf840021eedf7d5f3f",
+    "frozen_weights_buffers_unchanged": true,
+    "elapsed_this_process_seconds": 252.8147218999802,
+    "recovered_updates_without_replay": 0,
+    "frozen_digest_scope": "before and after fit in this process"
+  },
+  "Electricity/S_STATE_ADAPTER/92122": {
+    "fit_id": "Electricity_S_STATE_ADAPTER_s92122_lr0.0003",
+    "source": "Electricity",
+    "arm": "S_STATE_ADAPTER",
+    "seed": 92122,
+    "lr": 0.0003,
+    "main_updates": 512,
+    "conditional_batch_forwards_backwards": 2048,
+    "validation": {
+      "0": {
+        "scaled_pinball": 0.1700928924542116,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_S_STATE_ADAPTER_s92122_lr0.0003\\step_0000.pt",
+        "checkpoint_sha256": "f16bac6681eb5c06897f487b1bb8420d665f0ad803e68f233c7fad159443706b"
+      },
+      "128": {
+        "scaled_pinball": 0.16403566502311656,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_S_STATE_ADAPTER_s92122_lr0.0003\\step_0128.pt",
+        "checkpoint_sha256": "af448398fd248cdb4eb8704ed5b153595705892ff164bbef52544728c50c8644"
+      },
+      "256": {
+        "scaled_pinball": 0.1638055466239691,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_S_STATE_ADAPTER_s92122_lr0.0003\\step_0256.pt",
+        "checkpoint_sha256": "d53f5ace5b18df25e3087b65eb9020207d424ccfa11d11ee98bf802265a5e7eb"
+      },
+      "512": {
+        "scaled_pinball": 0.16262591755283087,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_S_STATE_ADAPTER_s92122_lr0.0003\\step_0512.pt",
+        "checkpoint_sha256": "cbc92f903aec72a526876fa148bdfa57a99ee4d5fc9b1910d6b9097b4bf863ca"
+      }
+    },
+    "selected_step": 512,
+    "selected_validation": 0.16262591755283087,
+    "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_S_STATE_ADAPTER_s92122_lr0.0003\\step_0512.pt",
+    "checkpoint_sha256": "cbc92f903aec72a526876fa148bdfa57a99ee4d5fc9b1910d6b9097b4bf863ca",
+    "initial_learned_hash": "12893a603442cad293a106fc370c432b206f2e3f9082ec6a37f657c44f01f74d",
+    "initial_lora_hash": "ebef61469c20972de6d48d06d6bd01237b85d44e967d552e3064cc3dc58d5e74",
+    "initial_adapter_hash": "515aa579d654778bd3aaeaf3fda11c39a253c6cb9054575c6eee36bc17eae146",
+    "frozen_weights_buffers_unchanged": true,
+    "elapsed_this_process_seconds": 258.43772159999935,
+    "recovered_updates_without_replay": 0,
+    "frozen_digest_scope": "before and after fit in this process"
+  },
+  "Electricity/U_UNCERTAINTY_ADAPTER/92121": {
+    "fit_id": "Electricity_U_UNCERTAINTY_ADAPTER_s92121_lr0.0003",
+    "source": "Electricity",
+    "arm": "U_UNCERTAINTY_ADAPTER",
+    "seed": 92121,
+    "lr": 0.0003,
+    "main_updates": 512,
+    "conditional_batch_forwards_backwards": 2048,
+    "validation": {
+      "0": {
+        "scaled_pinball": 0.1700928924542116,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_U_UNCERTAINTY_ADAPTER_s92121_lr0.0003\\step_0000.pt",
+        "checkpoint_sha256": "1dd6417d70098a2e12c9bc3b7697e67cf4642a70e128eb66d68a24cd1ae09215"
+      },
+      "128": {
+        "scaled_pinball": 0.16502416398047812,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_U_UNCERTAINTY_ADAPTER_s92121_lr0.0003\\step_0128.pt",
+        "checkpoint_sha256": "bb0858db92abd08ae135af91d91966f2cffd03c0f6fc636e8666b55f796d05cd"
+      },
+      "256": {
+        "scaled_pinball": 0.16289690169473275,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_U_UNCERTAINTY_ADAPTER_s92121_lr0.0003\\step_0256.pt",
+        "checkpoint_sha256": "2e1b528f0c3b9563083fc2bf1e4f23e707911825882a1a64293c1eac8349d538"
+      },
+      "512": {
+        "scaled_pinball": 0.1623839558536525,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_U_UNCERTAINTY_ADAPTER_s92121_lr0.0003\\step_0512.pt",
+        "checkpoint_sha256": "d3a41d4f31d0538f604325e2d505fd9a9663fac392dc75c6484b4f2dfc63e417"
+      }
+    },
+    "selected_step": 512,
+    "selected_validation": 0.1623839558536525,
+    "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_U_UNCERTAINTY_ADAPTER_s92121_lr0.0003\\step_0512.pt",
+    "checkpoint_sha256": "d3a41d4f31d0538f604325e2d505fd9a9663fac392dc75c6484b4f2dfc63e417",
+    "initial_learned_hash": "a387598240c6363d6510472139b70ab9e2d2591d15dadb0231a708b617037ce7",
+    "initial_lora_hash": "1abdc87e73b9bff0472b32446d7136e25a72c1238ac569db2e126162c5d6e1af",
+    "initial_adapter_hash": "f6aa9fbd3096061d077523188cebc8c5fee485225be91dbf840021eedf7d5f3f",
+    "frozen_weights_buffers_unchanged": true,
+    "elapsed_this_process_seconds": 263.36633279998205,
+    "recovered_updates_without_replay": 0,
+    "frozen_digest_scope": "before and after fit in this process"
+  },
+  "Electricity/U_UNCERTAINTY_ADAPTER/92122": {
+    "fit_id": "Electricity_U_UNCERTAINTY_ADAPTER_s92122_lr0.0003",
+    "source": "Electricity",
+    "arm": "U_UNCERTAINTY_ADAPTER",
+    "seed": 92122,
+    "lr": 0.0003,
+    "main_updates": 512,
+    "conditional_batch_forwards_backwards": 2048,
+    "validation": {
+      "0": {
+        "scaled_pinball": 0.1700928924542116,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_U_UNCERTAINTY_ADAPTER_s92122_lr0.0003\\step_0000.pt",
+        "checkpoint_sha256": "28e7a598e4fc3904c1dbdf07006c19a6e7e76f46925ea914f857858511b186ca"
+      },
+      "128": {
+        "scaled_pinball": 0.16401105962090187,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_U_UNCERTAINTY_ADAPTER_s92122_lr0.0003\\step_0128.pt",
+        "checkpoint_sha256": "673afd1c8082004a4473268ead58d3082d4ec1f71cd8f8229864bc5be3f88001"
+      },
+      "256": {
+        "scaled_pinball": 0.16380073619809057,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_U_UNCERTAINTY_ADAPTER_s92122_lr0.0003\\step_0256.pt",
+        "checkpoint_sha256": "23b1ecc18fb9c92ec698ed1e5afb1b9053afa708b46aafb3448682f4a1f59855"
+      },
+      "512": {
+        "scaled_pinball": 0.1626285960020899,
+        "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_U_UNCERTAINTY_ADAPTER_s92122_lr0.0003\\step_0512.pt",
+        "checkpoint_sha256": "2881b8a82aea4c7464a14c20ef7e2dc229a8cba17e7816a64068d5713970d59f"
+      }
+    },
+    "selected_step": 512,
+    "selected_validation": 0.1626285960020899,
+    "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\Electricity_U_UNCERTAINTY_ADAPTER_s92122_lr0.0003\\step_0512.pt",
+    "checkpoint_sha256": "2881b8a82aea4c7464a14c20ef7e2dc229a8cba17e7816a64068d5713970d59f",
+    "initial_learned_hash": "12893a603442cad293a106fc370c432b206f2e3f9082ec6a37f657c44f01f74d",
+    "initial_lora_hash": "ebef61469c20972de6d48d06d6bd01237b85d44e967d552e3064cc3dc58d5e74",
+    "initial_adapter_hash": "515aa579d654778bd3aaeaf3fda11c39a253c6cb9054575c6eee36bc17eae146",
+    "frozen_weights_buffers_unchanged": true,
+    "elapsed_this_process_seconds": 265.3702514000179,
+    "recovered_updates_without_replay": 0,
+    "frozen_digest_scope": "before and after fit in this process"
+  }
+}
