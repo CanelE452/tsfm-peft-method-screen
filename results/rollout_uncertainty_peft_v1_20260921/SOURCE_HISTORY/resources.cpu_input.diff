@@ -1,0 +1,12 @@
+--- resources.original.py
++++ resources.py
+@@ -24,7 +24,8 @@
+                 params=calibration[f'{source}/{key_for(name,seed)}']
+                 def infer(variant):
+                     with torch.no_grad():
+-                        x=xcpu.cuda(); sigma=scpu.cuda()
++                        x=xcpu if kind=='direct' else xcpu.cuda()
++                        sigma=scpu if kind=='direct' else scpu.cuda()
+                         if kind=='single': q=rollout(model,x,sigma)[0]
+                         elif kind=='native': q=native(model,x).sort(dim=-1).values
+                         elif kind=='mc16':

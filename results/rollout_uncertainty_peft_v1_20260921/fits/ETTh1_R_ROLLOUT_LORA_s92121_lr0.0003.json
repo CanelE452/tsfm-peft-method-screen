@@ -1,0 +1,42 @@
+{
+  "fit_id": "ETTh1_R_ROLLOUT_LORA_s92121_lr0.0003",
+  "source": "ETTh1",
+  "arm": "R_ROLLOUT_LORA",
+  "seed": 92121,
+  "lr": 0.0003,
+  "main_updates": 512,
+  "conditional_batch_forwards_backwards": 2048,
+  "validation": {
+    "0": {
+      "scaled_pinball": 0.35093174879009553,
+      "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\ETTh1_R_ROLLOUT_LORA_s92121_lr0.0003\\step_0000.pt",
+      "checkpoint_sha256": "82186627caac1f8bb6a5e254cb50f473b3204e171b6b985a21a0401546e32033"
+    },
+    "128": {
+      "scaled_pinball": 0.32944260228087074,
+      "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\ETTh1_R_ROLLOUT_LORA_s92121_lr0.0003\\step_0128.pt",
+      "checkpoint_sha256": "a0150c3701d49f94886c9ae4f739fce3cc62ce0e45d82341139a75a717c787c0"
+    },
+    "256": {
+      "scaled_pinball": 0.32424538523986546,
+      "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\ETTh1_R_ROLLOUT_LORA_s92121_lr0.0003\\step_0256.pt",
+      "checkpoint_sha256": "73be389100ec2d318b209878cc94316b7fc895dc98dcc8e32a41ecb02e430aee"
+    },
+    "512": {
+      "scaled_pinball": 0.33497012026415957,
+      "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\ETTh1_R_ROLLOUT_LORA_s92121_lr0.0003\\step_0512.pt",
+      "checkpoint_sha256": "2e57aa55bd1ddbc0f5fab6bf43c469e699a9eb770a1ecf7d465f5120e4d728fc"
+    }
+  },
+  "selected_step": 256,
+  "selected_validation": 0.32424538523986546,
+  "checkpoint": ".cache\\rollout_uncertainty_peft_v1_20260921\\fits\\ETTh1_R_ROLLOUT_LORA_s92121_lr0.0003\\step_0256.pt",
+  "checkpoint_sha256": "73be389100ec2d318b209878cc94316b7fc895dc98dcc8e32a41ecb02e430aee",
+  "initial_learned_hash": "1abdc87e73b9bff0472b32446d7136e25a72c1238ac569db2e126162c5d6e1af",
+  "initial_lora_hash": "1abdc87e73b9bff0472b32446d7136e25a72c1238ac569db2e126162c5d6e1af",
+  "initial_adapter_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "frozen_weights_buffers_unchanged": true,
+  "elapsed_this_process_seconds": 122.16986190000898,
+  "recovered_updates_without_replay": 0,
+  "frozen_digest_scope": "before and after fit in this process"
+}

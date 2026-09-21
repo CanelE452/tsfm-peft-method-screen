@@ -24,8 +24,7 @@ def measure_all():
                 params=calibration[f'{source}/{key_for(name,seed)}']
                 def infer(variant):
                     with torch.no_grad():
-                        x=xcpu if kind=='direct' else xcpu.cuda()
-                        sigma=scpu if kind=='direct' else scpu.cuda()
+                        x=xcpu.cuda(); sigma=scpu.cuda()
                         if kind=='single': q=rollout(model,x,sigma)[0]
                         elif kind=='native': q=native(model,x).sort(dim=-1).values
                         elif kind=='mc16':
