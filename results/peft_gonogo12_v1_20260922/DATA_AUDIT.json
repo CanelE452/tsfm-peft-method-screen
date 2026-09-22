@@ -1,0 +1,166 @@
+{
+  "status": "PASS",
+  "domain_context": {
+    "domain": "hourly Electricity univariate probabilistic forecasting",
+    "downstream_decision": "screen two fixed TSFM PEFT hypotheses under temporal split",
+    "quality_bar": "publication-style pilot receipts; zero target leakage tolerance",
+    "primary_leakage_paths": [
+      "TEST target used for model/calibration selection",
+      "future target hidden context used for imputation",
+      "non-adapt sigma for client personalization",
+      "performance-based series selection"
+    ]
+  },
+  "raw": {
+    "path": ".cache\\rollout_uncertainty_peft_v1_20260921\\data\\electricity.txt.gz",
+    "sha256": "3c4c069588198c1fcc95cace7bb69c99922129edfd673b7286661dad20badefa",
+    "bytes": 17993794,
+    "schema": {
+      "format": "gzip csv matrix",
+      "rows": 26304,
+      "selected_columns": 20
+    },
+    "missing_selected_cells": 0
+  },
+  "ids": {
+    "donor": [
+      "307",
+      "132",
+      "138",
+      "289",
+      "31",
+      "319",
+      "109",
+      "152"
+    ],
+    "development": [
+      "169",
+      "171",
+      "207",
+      "211"
+    ],
+    "evaluation": [
+      "160",
+      "83",
+      "227",
+      "145",
+      "181",
+      "141",
+      "190",
+      "26"
+    ],
+    "order": [
+      "307",
+      "132",
+      "138",
+      "289",
+      "31",
+      "319",
+      "109",
+      "152",
+      "169",
+      "171",
+      "207",
+      "211",
+      "160",
+      "83",
+      "227",
+      "145",
+      "181",
+      "141",
+      "190",
+      "26"
+    ]
+  },
+  "ranges": {
+    "donor_train": [
+      0,
+      15576
+    ],
+    "dev_adapt": [
+      14808,
+      15576
+    ],
+    "dev_cal": [
+      15576,
+      15768
+    ],
+    "dev_validation": [
+      15768,
+      16104
+    ],
+    "eval_adapt": [
+      15144,
+      15912
+    ],
+    "eval_cal": [
+      15912,
+      16104
+    ],
+    "eval_test": [
+      16104,
+      16440
+    ]
+  },
+  "origins": {
+    "donor_train_stride6": 2561,
+    "dev_adapt_a_stride6": 29,
+    "dev_adapt_b_stride6": 29,
+    "dev_validation_daily": 14,
+    "eval_test_daily": 14
+  },
+  "sigma": {
+    "donor": {
+      "307": 464.22159130691665,
+      "132": 565.493006403219,
+      "138": 229.97546433496453,
+      "289": 404.10962389210016,
+      "31": 113.16517255480521,
+      "319": 259.9719723067099,
+      "109": 276.55618772110483,
+      "152": 327.8920723225797
+    },
+    "dev": {
+      "169": 537.1099113381161,
+      "171": 437.93386593915636,
+      "207": 98.19042818476078,
+      "211": 467.6199458270399
+    },
+    "eval": {
+      "160": 335.65831542398945,
+      "83": 292.17431590861696,
+      "227": 82.41378362567494,
+      "145": 103.62045173802288,
+      "181": 1279.5858622996443,
+      "141": 188.34358450748326,
+      "190": 97.6698467531097,
+      "26": 79.92664008413522
+    }
+  },
+  "schedule": {
+    "donor_seed": 92251,
+    "shape": [
+      256,
+      4,
+      2
+    ],
+    "sha256": "473f550677cd167054c4621e43bec860924d8eefa10892c382994d75b8226e3e",
+    "per_donor_series_examples": {
+      "307": 128,
+      "132": 128,
+      "138": 128,
+      "289": 128,
+      "31": 128,
+      "319": 128,
+      "109": 128,
+      "152": 128
+    }
+  },
+  "mask": {
+    "block48_mean_partial_patches_dev_adapt": 1.8958333333333333,
+    "block48_min_partial_patches_dev_adapt": 0,
+    "future_hidden_context_values_used_for_interpolation": false,
+    "cal_val_test_mask_seed_independent": true
+  },
+  "test_target_statistics_written": false
+}

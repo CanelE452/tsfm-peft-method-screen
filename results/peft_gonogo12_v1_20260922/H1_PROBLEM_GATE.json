@@ -1,0 +1,39 @@
+{
+  "status": "PASS_PROBLEM_GATE",
+  "passed": true,
+  "clients_passing": 2,
+  "required_clients": 2,
+  "rows": [
+    {
+      "series": 169,
+      "cosine": -0.03091310545101647,
+      "rms_a": 0.07463130283734148,
+      "rms_b": 0.06681657179971842,
+      "pass_client": false
+    },
+    {
+      "series": 171,
+      "cosine": 0.2948999308834925,
+      "rms_a": 0.06158478733382196,
+      "rms_b": 0.05565604988957869,
+      "pass_client": true
+    },
+    {
+      "series": 207,
+      "cosine": -0.09062555504895904,
+      "rms_a": 0.13186065985401926,
+      "rms_b": 0.09994936538570796,
+      "pass_client": false
+    },
+    {
+      "series": 211,
+      "cosine": 0.12562312966123806,
+      "rms_a": 0.06902505838700906,
+      "rms_b": 0.04751908442499861,
+      "pass_client": true
+    }
+  ],
+  "seconds": 0.05783399997744709,
+  "scope": "DEV ADAPT only; no model training, no EVAL forecast scores",
+  "predictions_sha256": "bf245c401a567f78bcd701bb4d06dad9883e518cc573386fd6c045d93fcdaa90"
+}

@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "tests": 10,
+  "scope": "data masks, chronological supports, hidden-value independence, scalar score oracle, coefficient dense equality, set-kernel scalar oracle",
+  "command": "python -m pytest experiments/peft_gonogo12_v1_20260922/test_model.py experiments/peft_gonogo12_v1_20260922/test_data.py experiments/peft_gonogo12_v1_20260922/test_metrics.py -q",
+  "duration_seconds": 4.98
+}

@@ -1,5 +1,7 @@
 # 완료 작업과 검증 기록
 
+[진행] 2026-09-22 사용자가 두 후보 GO/NO-GO 설계 실행을 승인했다. 실제 입력의 native parity는 clean/IID/연속/정렬 결측 모두 최대 오차 0. H1은 DEV 2/4계열에서 사전고정 잔차 조건을 통과했고, H2는 연속 결측 오차 +2.51%, 보간 +50.03%로 학습 전 조건을 통과했다. 아직 효과 검증이나 TEST 결과가 아니다. [H1 gate](../results/peft_gonogo12_v1_20260922/H1_PROBLEM_GATE.json), [H2 gate](../results/peft_gonogo12_v1_20260922/H2_PROBLEM_GATE.json), [구현 중 수정 기록](../results/peft_gonogo12_v1_20260922/IMPLEMENTATION_INCIDENT.json).
+
 [설계] 2026-09-22 두 새 가설의 빠른 GO/NO-GO 안을 고정했다. Electricity donor 8 / DEV 4 / EVAL 8, context 192 / horizon 24, 후보별 2 seed. 최대 108 main fit attempts(짧은 개인화 96개 포함) / 7,680 updates + 18 smoke. 사전 문제 검사, 단순 대조, 1% 선별 기준, 실패·불확실·자원 중단 구분을 명시했다. 기존 cache hash와 분할·예산·mask 기하만 확인했으며 **새 학습·추론 0회, runner 미구현, 실행 합의 대기**다. [설계서](../research/peft_hypothesis_reset_20260922/gonogo_v1/PLAN_KO.md), [고정 설정](../research/peft_hypothesis_reset_20260922/gonogo_v1/DESIGN.json), [설계 검산](../research/peft_hypothesis_reset_20260922/gonogo_v1/DESIGN_CHECK.json).
 
 [검토] 2026-09-22 새 PEFT 가설을 1차 출처 8개와 기존 결과에 대조했다. **짧은 계열의 불확실한 개인화 축소**를 1순위, **관측 위치 기반 attention bias**를 예비로 남겼다. 단순 hurdle 추가는 직접 선행연구와 반례를 고려해 주력에서 제외했다. 모두 성능·신규성 미확인 제안이며 새 fit·optimizer update·모델 추론·자료 다운로드는 0회다. 작은 CPU 수식 검산만 수행했고 자동 후속 실험은 없다. [후보·반론·중단 조건](../research/peft_hypothesis_reset_20260922/REVIEW_KO.md), [출처](../research/peft_hypothesis_reset_20260922/SOURCES.json), [검증 범위](../research/peft_hypothesis_reset_20260922/VERIFICATION.json).

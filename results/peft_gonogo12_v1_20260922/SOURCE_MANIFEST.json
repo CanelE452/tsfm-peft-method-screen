@@ -1,0 +1,77 @@
+{
+  "model": {
+    "revision": "772f3d25d38aec6d914c8949dab4462e2d46f5d8",
+    "path": "E:\\CODING\\proj\\tsfm-peft-method-screen\\.cache\\rollout_uncertainty_peft_v1_20260921\\huggingface\\models--amazon--chronos-bolt-small\\snapshots\\772f3d25d38aec6d914c8949dab4462e2d46f5d8",
+    "files": [
+      {
+        "name": "config.json",
+        "sha256": "9ca0ebbe049ccebacb0546361e8aa728f0cf104cd18d1838d78d296aa317bd21",
+        "bytes": 1121
+      },
+      {
+        "name": "model.safetensors",
+        "sha256": "06a6a19bbe74bc10a9cd193bd4bf2bf638ae07f7e0d51653ae7ab8ea968a21dd",
+        "bytes": 190888824
+      }
+    ],
+    "config": {
+      "_name_or_path": "autogluon/chronos-bolt-small",
+      "architectures": [
+        "ChronosBoltModelForForecasting"
+      ],
+      "chronos_config": {
+        "context_length": 2048,
+        "input_patch_size": 16,
+        "input_patch_stride": 16,
+        "prediction_length": 64,
+        "quantiles": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8,
+          0.9
+        ],
+        "use_reg_token": true
+      },
+      "chronos_pipeline_class": "ChronosBoltPipeline",
+      "classifier_dropout": 0.0,
+      "d_ff": 2048,
+      "d_kv": 64,
+      "d_model": 512,
+      "decoder_start_token_id": 0,
+      "dense_act_fn": "relu",
+      "dropout_rate": 0.1,
+      "eos_token_id": 1,
+      "feed_forward_proj": "relu",
+      "initializer_factor": 0.05,
+      "is_encoder_decoder": true,
+      "is_gated_act": false,
+      "layer_norm_epsilon": 1e-06,
+      "model_type": "t5",
+      "n_positions": 512,
+      "num_decoder_layers": 6,
+      "num_heads": 8,
+      "num_layers": 6,
+      "pad_token_id": 0,
+      "reg_token_id": 1,
+      "relative_attention_max_distance": 128,
+      "relative_attention_num_buckets": 32,
+      "torch_dtype": "float32",
+      "transformers_version": "4.39.3",
+      "use_cache": true,
+      "vocab_size": 2
+    }
+  },
+  "upstream_commit": "10afa9ebe016e514f9d7dc1aa873f66af57e116b",
+  "installed_source": "E:\\CODING\\proj\\hierarchical-tsfm-peft\\.venv\\Lib\\site-packages\\chronos\\chronos_bolt.py",
+  "installed_sha256": "93b3af9e4521ea981c4228b1acaa252321f7a190512f956088394426182c8b8c",
+  "prior_manifest_sha256": "3bf377e209e57766b41147f17b665ca1f15ef131965a9a59378155abacd87034",
+  "plan_sha256": "22512e4483ba7b55a99710a66fc97abc056dd90cbf1c913e4a080d4a7dc2db63",
+  "design_sha256": "b5b464f58540453c4299c2738c998d18c9fbf5bb79c1a40b667052293888a1ff",
+  "repo_head": "94561dc34df6a052bf47114c8c2f1500ad319651",
+  "prior_models_untouched": true
+}
