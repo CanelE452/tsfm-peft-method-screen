@@ -1,0 +1,486 @@
+{
+  "status": "PASS",
+  "domain_context": {
+    "domain": "Sweden SE3 wind-power time series with same-issue ECMWF ensemble forecasts",
+    "downstream_decision": "archive-condition PEFT method screen; not an operational release-time deployment claim",
+    "primary_leakage_paths": [
+      "using valid time as issue time",
+      "future wind-power targets in context",
+      "weather member selection by performance",
+      "TEST-based model/checkpoint/calibration selection"
+    ],
+    "quality_bar": "publication-style pilot receipts with zero target leakage tolerance"
+  },
+  "source_manifest": {
+    "README.md": {
+      "url": "https://raw.githubusercontent.com/KIT-IAI/EvaluatingEnsemblePostProcessing/9d1799ede894606ad349eb66e335d8a814eb8acf/README.md",
+      "path": "E:\\CODING\\proj\\tsfm-peft-method-screen\\.cache\\ab_path_ensemble_screen_v1_20260922\\B\\data\\raw\\README.md",
+      "sha256": "f708001b22fd3666f5d870b5befc1c11bd3111ff3d4b3fd74af743b78a87b43e",
+      "bytes": 2576
+    },
+    "create_correct_structure.R": {
+      "url": "https://raw.githubusercontent.com/KIT-IAI/EvaluatingEnsemblePostProcessing/9d1799ede894606ad349eb66e335d8a814eb8acf/pre_processing/create_correct_structure.R",
+      "path": "E:\\CODING\\proj\\tsfm-peft-method-screen\\.cache\\ab_path_ensemble_screen_v1_20260922\\B\\data\\raw\\pre_processing__create_correct_structure.R",
+      "sha256": "28b63055e6d6c70cfe46091fabaf062546f5ebeebb88f04a7433f0f39c1b0e26",
+      "bytes": 5117
+    },
+    "workflow_train.R": {
+      "url": "https://raw.githubusercontent.com/KIT-IAI/EvaluatingEnsemblePostProcessing/9d1799ede894606ad349eb66e335d8a814eb8acf/workflows/workflow_train.R",
+      "path": "E:\\CODING\\proj\\tsfm-peft-method-screen\\.cache\\ab_path_ensemble_screen_v1_20260922\\B\\data\\raw\\workflows__workflow_train.R",
+      "sha256": "3fb743ad2ee1fb1f2a1ed5d45b087aca3f4efdb35ff41d10e9d00ff6543497c6",
+      "bytes": 7874
+    },
+    "workflow_predict.R": {
+      "url": "https://raw.githubusercontent.com/KIT-IAI/EvaluatingEnsemblePostProcessing/9d1799ede894606ad349eb66e335d8a814eb8acf/workflows/workflow_predict.R",
+      "path": "E:\\CODING\\proj\\tsfm-peft-method-screen\\.cache\\ab_path_ensemble_screen_v1_20260922\\B\\data\\raw\\workflows__workflow_predict.R",
+      "sha256": "722bd651037304701afa1838f3971ade9261f219a50083d7a37d1e597d4f7f32",
+      "bytes": 18180
+    },
+    "ensembles": {
+      "url": "https://raw.githubusercontent.com/KIT-IAI/EvaluatingEnsemblePostProcessing/9d1799ede894606ad349eb66e335d8a814eb8acf/pre_processing/Data/Sweden_Zone3_Ensembles.csv",
+      "path": "E:\\CODING\\proj\\tsfm-peft-method-screen\\.cache\\ab_path_ensemble_screen_v1_20260922\\B\\data\\raw\\pre_processing__Data__Sweden_Zone3_Ensembles.csv",
+      "sha256": "4cf5deabddde032aa2ac0088e0949ad4f2e6f882ec1552dbe062777093580458",
+      "bytes": 76799776
+    },
+    "control": {
+      "url": "https://raw.githubusercontent.com/KIT-IAI/EvaluatingEnsemblePostProcessing/9d1799ede894606ad349eb66e335d8a814eb8acf/pre_processing/Data/Sweden_Zone3_Control.csv",
+      "path": "E:\\CODING\\proj\\tsfm-peft-method-screen\\.cache\\ab_path_ensemble_screen_v1_20260922\\B\\data\\raw\\pre_processing__Data__Sweden_Zone3_Control.csv",
+      "sha256": "9b3f14939df87e84ca0234bc7bb33645945fe04681040be8f8aa5560f35d61ae",
+      "bytes": 1497619
+    },
+    "power": {
+      "url": "https://raw.githubusercontent.com/KIT-IAI/EvaluatingEnsemblePostProcessing/9d1799ede894606ad349eb66e335d8a814eb8acf/pre_processing/Data/Sweden_Zone3_Power.csv",
+      "path": "E:\\CODING\\proj\\tsfm-peft-method-screen\\.cache\\ab_path_ensemble_screen_v1_20260922\\B\\data\\raw\\pre_processing__Data__Sweden_Zone3_Power.csv",
+      "sha256": "0dc52bbc97efb55a06e51392d5075895bcd92bda30d44eaba64961450aa97dbb",
+      "bytes": 377663
+    }
+  },
+  "schema": {
+    "ensembles": {
+      "shape_with_added_issue": [
+        679950,
+        10
+      ],
+      "original_columns": [
+        "time",
+        "number",
+        "u100",
+        "v100",
+        "t2m",
+        "sp",
+        "speed",
+        "horizon",
+        "is_origin"
+      ],
+      "added_columns": [
+        "issue"
+      ]
+    },
+    "control": {
+      "shape_with_added_issue": [
+        13599,
+        9
+      ],
+      "original_columns": [
+        "time",
+        "u100",
+        "v100",
+        "t2m",
+        "sp",
+        "speed",
+        "horizon",
+        "is_origin"
+      ],
+      "added_columns": [
+        "issue"
+      ]
+    },
+    "power": {
+      "shape_with_added_issue": [
+        14088,
+        4
+      ],
+      "original_columns": [
+        "time",
+        "wind_power",
+        "horizon"
+      ],
+      "added_columns": [
+        "issue"
+      ]
+    },
+    "weather_columns_used": [
+      "u100",
+      "v100",
+      "t2m",
+      "sp",
+      "speed"
+    ]
+  },
+  "time_mapping": {
+    "power_time_interpretation": "valid time",
+    "issue_formula": "issue = time - horizon_hours",
+    "horizons_hours": [
+      3,
+      6,
+      9,
+      12,
+      15,
+      18,
+      21,
+      24
+    ],
+    "timezone_evidence": "create_correct_structure.R uses as.POSIXct(filter_time, tz='UTC'); CSV timestamps are stored without offset and treated as archive UTC.",
+    "release_time_verification": "RELEASE_TIME_UNVERIFIED: archive-defined issue experiment only, not an operational real-time backtest.",
+    "role_counts": {
+      "TRAIN": 1074,
+      "CAL": 180,
+      "VAL": 183,
+      "TEST": 242
+    },
+    "split_policy": {
+      "TRAIN": [
+        "1900-01-01",
+        "2018-01-01"
+      ],
+      "CAL": [
+        "2018-01-01",
+        "2018-07-01"
+      ],
+      "VAL": [
+        "2018-07-01",
+        "2019-01-01"
+      ],
+      "TEST": [
+        "2019-01-01",
+        "2019-09-01"
+      ]
+    },
+    "contract_actual_range": "official actual Sweden power records cover valid times 2015-01-05 through 2019-11-01; this run uses issue roles whose targets stay before 2019-09-01, so TEST last issue is 2019-08-30.",
+    "power_valid_time_audit": {
+      "duplicate_valid_times": 0,
+      "duplicate_values_identical": true,
+      "valid_time_min": "2015-01-05 03:00:00",
+      "valid_time_max": "2019-11-01 00:00:00",
+      "unique_valid_times": 14088,
+      "diff_counts_hours": {
+        "0 days 03:00:00": 14087
+      }
+    },
+    "dropped_after_complete_issue_check": [
+      {
+        "issue": "2015-01-05 00:00:00",
+        "reason": "'missing context or target power'"
+      },
+      {
+        "issue": "2015-01-06 00:00:00",
+        "reason": "'missing context or target power'"
+      },
+      {
+        "issue": "2015-01-07 00:00:00",
+        "reason": "'missing context or target power'"
+      },
+      {
+        "issue": "2015-01-08 00:00:00",
+        "reason": "'missing context or target power'"
+      },
+      {
+        "issue": "2015-01-09 00:00:00",
+        "reason": "'missing context or target power'"
+      },
+      {
+        "issue": "2015-01-10 00:00:00",
+        "reason": "'missing context or target power'"
+      },
+      {
+        "issue": "2015-01-11 00:00:00",
+        "reason": "'missing context or target power'"
+      },
+      {
+        "issue": "2015-01-12 00:00:00",
+        "reason": "'missing context or target power'"
+      },
+      {
+        "issue": "2015-01-13 00:00:00",
+        "reason": "'missing context or target power'"
+      },
+      {
+        "issue": "2015-01-14 00:00:00",
+        "reason": "'missing context or target power'"
+      },
+      {
+        "issue": "2015-01-15 00:00:00",
+        "reason": "'missing context or target power'"
+      },
+      {
+        "issue": "2015-01-16 00:00:00",
+        "reason": "'missing context or target power'"
+      },
+      {
+        "issue": "2015-01-17 00:00:00",
+        "reason": "'missing context or target power'"
+      },
+      {
+        "issue": "2015-01-18 00:00:00",
+        "reason": "'missing context or target power'"
+      },
+      {
+        "issue": "2015-01-19 00:00:00",
+        "reason": "'missing context or target power'"
+      },
+      {
+        "issue": "2015-01-20 00:00:00",
+        "reason": "'missing context or target power'"
+      },
+      {
+        "issue": "2015-01-21 00:00:00",
+        "reason": "'missing context or target power'"
+      }
+    ],
+    "dropped_count": 17,
+    "missing_reason_counts": {
+      "early_context_missing_power": 17,
+      "weather_key_missing": 0
+    }
+  },
+  "member_audit": {
+    "members": [
+      1,
+      50
+    ],
+    "member_count": 50,
+    "complete_issue_requirements": "50 members x 8 horizons for ensemble, 8 horizons for control, 8 horizons for power",
+    "coverage": {
+      "ensemble_issues": 1700,
+      "control_issues": 1700,
+      "power_issues": 1761,
+      "complete_common_issues": 1699,
+      "role_eligible_issues": 1696,
+      "first_complete_issue": "2015-01-05 00:00:00",
+      "last_complete_issue": "2019-08-30 00:00:00",
+      "bad_member_issue_number_keys_first10": [
+        {
+          "issue": "2019-08-31 00:00:00",
+          "number": 1,
+          "horizons": [
+            3,
+            6,
+            9,
+            12,
+            15,
+            18,
+            21
+          ],
+          "rows": 7
+        },
+        {
+          "issue": "2019-08-31 00:00:00",
+          "number": 2,
+          "horizons": [
+            3,
+            6,
+            9,
+            12,
+            15,
+            18,
+            21
+          ],
+          "rows": 7
+        },
+        {
+          "issue": "2019-08-31 00:00:00",
+          "number": 3,
+          "horizons": [
+            3,
+            6,
+            9,
+            12,
+            15,
+            18,
+            21
+          ],
+          "rows": 7
+        },
+        {
+          "issue": "2019-08-31 00:00:00",
+          "number": 4,
+          "horizons": [
+            3,
+            6,
+            9,
+            12,
+            15,
+            18,
+            21
+          ],
+          "rows": 7
+        },
+        {
+          "issue": "2019-08-31 00:00:00",
+          "number": 5,
+          "horizons": [
+            3,
+            6,
+            9,
+            12,
+            15,
+            18,
+            21
+          ],
+          "rows": 7
+        },
+        {
+          "issue": "2019-08-31 00:00:00",
+          "number": 6,
+          "horizons": [
+            3,
+            6,
+            9,
+            12,
+            15,
+            18,
+            21
+          ],
+          "rows": 7
+        },
+        {
+          "issue": "2019-08-31 00:00:00",
+          "number": 7,
+          "horizons": [
+            3,
+            6,
+            9,
+            12,
+            15,
+            18,
+            21
+          ],
+          "rows": 7
+        },
+        {
+          "issue": "2019-08-31 00:00:00",
+          "number": 8,
+          "horizons": [
+            3,
+            6,
+            9,
+            12,
+            15,
+            18,
+            21
+          ],
+          "rows": 7
+        },
+        {
+          "issue": "2019-08-31 00:00:00",
+          "number": 9,
+          "horizons": [
+            3,
+            6,
+            9,
+            12,
+            15,
+            18,
+            21
+          ],
+          "rows": 7
+        },
+        {
+          "issue": "2019-08-31 00:00:00",
+          "number": 10,
+          "horizons": [
+            3,
+            6,
+            9,
+            12,
+            15,
+            18,
+            21
+          ],
+          "rows": 7
+        }
+      ],
+      "bad_control_issue_keys_first10": [
+        {
+          "issue": "2019-08-31 00:00:00",
+          "horizons": [
+            3,
+            6,
+            9,
+            12,
+            15,
+            18,
+            21
+          ],
+          "rows": 7
+        }
+      ],
+      "exact_member_key_check_pass": false,
+      "exact_control_key_check_pass": false
+    },
+    "control_is_independent_path": true,
+    "control_not_used_as_main_perturbed_member": true
+  },
+  "prepared_npz": {
+    "path": "E:\\CODING\\proj\\tsfm-peft-method-screen\\.cache\\ab_path_ensemble_screen_v1_20260922\\B\\data\\Sweden_SE3_B_packet.npz",
+    "sha256": "a3319587b740793903ef610dae27e9540c14fb275ef0a930d4efa073882c9afd",
+    "bytes": 24741020
+  },
+  "arrays": {
+    "x": [
+      1679,
+      128
+    ],
+    "y": [
+      1679,
+      8
+    ],
+    "weather": [
+      1679,
+      50,
+      8,
+      5
+    ],
+    "control": [
+      1679,
+      8,
+      5
+    ],
+    "weather_standardized": true,
+    "x_y_raw_mw": true,
+    "sigma_train_power_raw_mw_float64": 458.55513418214764,
+    "sigma_train_power_scope": "all TRAIN target y(issue+3h..+24h) raw MW values after common finite issue filtering",
+    "weather_scale_train_forecasts_only": true,
+    "all_arrays_finite_after_filter": true
+  },
+  "workflow_w_parameters_evidence": {
+    "create_correct_structure_R": "w_parameters is a function argument used to select weather columns and to add ensemble/control/observation columns.",
+    "workflow_train_R": "workflow_train passes caller-provided weather_params into create_correct_structure(..., w_parameters = weather_params).",
+    "workflow_predict_R": "workflow_predict follows the same caller-provided weather_params pattern.",
+    "fixed_list_limit": "No hard-coded weather_params call list was found in the pinned workflow files; this run fixes all common numeric forecast weather fields present in ensemble/control CSV: u100,v100,t2m,sp,speed."
+  },
+  "license_and_release_limits": {
+    "repository_license_file_found": false,
+    "raw_redistribution": "raw CSV and model weights are local cache only and not pushed",
+    "readme_data_rights_note": "README states ECMWF data were obtained through an academic licence for research purposes.",
+    "release_time": "actual operational forecast publication delay not verified"
+  },
+  "schedules": {
+    "92301": {
+      "path": "E:\\CODING\\proj\\tsfm-peft-method-screen\\.cache\\ab_path_ensemble_screen_v1_20260922\\B\\schedule_92301.npz",
+      "sha256": "f88aca070997b88bd50519bdd8686500b8f3aa8565b5db7245915ddb08a00a77",
+      "shape": [
+        256,
+        4
+      ]
+    },
+    "92302": {
+      "path": "E:\\CODING\\proj\\tsfm-peft-method-screen\\.cache\\ab_path_ensemble_screen_v1_20260922\\B\\schedule_92302.npz",
+      "sha256": "fea2b6c6572c57b9538a7b6a115ffacba27c50f4b36f8c185751b3a31a229cca",
+      "shape": [
+        256,
+        4
+      ]
+    }
+  }
+}

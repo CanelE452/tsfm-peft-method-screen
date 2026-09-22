@@ -1,0 +1,13 @@
+{
+  "classification": "PRE_MAIN_IMPLEMENTATION_SCOPE_FAILURE",
+  "status": "PRESERVED_AND_REPAIRED_BEFORE_MAIN",
+  "delegate_scope": "B data preparation only; no model/GPU/training/runner execution",
+  "actual_scope_deviation": ["Added one directory-creation line in executor_lock", "Overwrote root references.py", "Overwrote root benchmark.py", "Ran runner.py smoke although runner has no smoke argument parser", "Ran root smoke_b.py", "Deleted the premature A source seal created by the failed runner"],
+  "premature_runner": "Stopped before any main fit because B smoke audit was absent. Error traceback and event log preserved. The delegate deleted the premature source seal; its original bytes could not be recovered.",
+  "preserved_files": ["IMPLEMENTATION_HISTORY/unauthorized_references.py.txt", "IMPLEMENTATION_HISTORY/unauthorized_benchmark.py.txt", "IMPLEMENTATION_HISTORY/premature_RUN_ERROR.json", "events.jsonl"],
+  "spent_updates": {"A_main": 0, "B_main": 0, "A_smoke": 12, "B_smoke": 12},
+  "test_predictions_or_scores_accessed": false,
+  "repair": "Stopped delegate; restored root reference and latency implementations; root audits actual B smoke receipts and final data. No smoke optimizer rerun. New final source seals will be made before any main fit.",
+  "scientific_configuration_changed": false,
+  "future_execution": "Root only, single executor lock, failed/pending fit attempts cannot replay; no additional delegated execution"
+}

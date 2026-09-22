@@ -1,0 +1,81 @@
+{
+  "status": "PASS",
+  "raw_path": "E:\\CODING\\proj\\tsfm-peft-method-screen\\.cache\\continuation_lora_v1_20260922\\data\\solar_AL_7f402f185cc2435b5e66aed13a3b560ed142e023.txt.gz",
+  "raw_sha256": "1ae9329c3e1032acbb8dd080bfc397c44507006812a715d2788f172820489a1c",
+  "source": "https://raw.githubusercontent.com/laiguokun/multivariate-time-series-data/7f402f185cc2435b5e66aed13a3b560ed142e023/solar-energy/solar_AL.txt.gz",
+  "old_hourly_cache_sha256": "ab67aa0cf89356ebd0643f700fcc7d1c38285fefa96d49f57a4f40c3d5cce8bc",
+  "raw_shape": [
+    52560,
+    137
+  ],
+  "hourly_shape": [
+    8760,
+    8
+  ],
+  "selected_original_zero_based_columns": [
+    36,
+    10,
+    44,
+    119,
+    62,
+    104,
+    116,
+    118
+  ],
+  "aggregation": "six consecutive 10-minute rows mean; float64 aggregation then float32 storage",
+  "sigma_train_only": [
+    9.068706895060801,
+    8.589281725630212,
+    13.072522501829242,
+    6.347770835813044,
+    8.656935970018818,
+    14.14431571820817,
+    9.09616444740971,
+    9.039825976426783
+  ],
+  "missing": 0,
+  "calendar_timezone_invented": false,
+  "prior_exposure": "Reused development source, not independent confirmation",
+  "roles": {
+    "TRAIN": {
+      "range": [
+        0,
+        5256
+      ],
+      "samples": 36936,
+      "origins": 4617,
+      "first_origin": 512,
+      "last_origin": 5128
+    },
+    "CAL": {
+      "range": [
+        5256,
+        6132
+      ],
+      "samples": 256,
+      "origins": 32,
+      "first_origin": 5256,
+      "last_origin": 6000
+    },
+    "VAL": {
+      "range": [
+        6132,
+        7008
+      ],
+      "samples": 248,
+      "origins": 31,
+      "first_origin": 6144,
+      "last_origin": 6864
+    },
+    "TEST": {
+      "range": [
+        7008,
+        8760
+      ],
+      "samples": 544,
+      "origins": 68,
+      "first_origin": 7008,
+      "last_origin": 8616
+    }
+  }
+}

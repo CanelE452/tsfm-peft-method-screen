@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "smoke_updates": 12,
+  "forecast_slice": "native indices 1:9, +3..+24h after last observation issue-3h",
+  "native_initial_parity": true,
+  "zero_condition_decoder_parity": true,
+  "future_target_replacement": true,
+  "save_restore": true,
+  "batch_reorder": true,
+  "set_member_scenario_permutation": true,
+  "identical_member_reduction": true,
+  "scenario_second_update_gradients": {
+    "pool.queries.weight": 1.7948512720522558e-07,
+    "pool.mix.weight": 1.6720002804504475e-07,
+    "pool.encoder.0.weight": 0.0004712964582722634
+  },
+  "arms": {
+    "TARGET": {
+      "trainable": 294912,
+      "small_module_parameters": 0,
+      "initial_trainable_sha": "d32a8d8f3f945faf573ede361a299d745541673c851205ca9bce465030b1806a",
+      "final_trainable_sha": "92b4504633dfcbc5f78fcefafdd1fa520d0563edb13ced48a883d133aa36aca4",
+      "target_forward_calls_per_distribution": 1,
+      "set_hidden": null
+    },
+    "CONTROL": {
+      "trainable": 299577,
+      "small_module_parameters": 4665,
+      "initial_trainable_sha": "ae0830ba9fe3d70c6337f66d65498bfed104f5d6b4133c9b93ed4fab70bdb60e",
+      "final_trainable_sha": "4f6aa7f1c3540f3e973d65f5d46fdd362002b45221f40f8e94c58375042c5881",
+      "target_forward_calls_per_distribution": 1,
+      "set_hidden": null
+    },
+    "MOMENTS": {
+      "trainable": 300857,
+      "small_module_parameters": 5945,
+      "initial_trainable_sha": "3c54f2db678123adfac9414f57d00dc84f46b279e14940215522b2ae844bf27e",
+      "final_trainable_sha": "730aa4e8efd3cfd0d046a7007c57f6773566e74ddff92bd0b08642e33c5e00e8",
+      "target_forward_calls_per_distribution": 1,
+      "set_hidden": null
+    },
+    "SET": {
+      "trainable": 303737,
+      "small_module_parameters": 8825,
+      "initial_trainable_sha": "ce646f7d56e166517a0cbe1428f716ff9dbffe30264b08881356541f36dcb10b",
+      "final_trainable_sha": "8b409df8e9e04c0eb4a12764257a2fda166d4d93079d61e21957e7bab2ca0e2e",
+      "target_forward_calls_per_distribution": 1,
+      "set_hidden": 107
+    },
+    "MEMBER": {
+      "trainable": 299577,
+      "small_module_parameters": 4665,
+      "initial_trainable_sha": "ae0830ba9fe3d70c6337f66d65498bfed104f5d6b4133c9b93ed4fab70bdb60e",
+      "final_trainable_sha": "6d55dddc737b365d222a0f0ceaeb7c7f6862944c19d3725e182fdcbbd318a859",
+      "target_forward_calls_per_distribution": 1,
+      "set_hidden": null
+    },
+    "SCENARIO3": {
+      "trainable": 303708,
+      "small_module_parameters": 8796,
+      "initial_trainable_sha": "f34cba60fde512563b10ae3fc0ff542769cedff4e325bf51084fe922cd4caafe",
+      "final_trainable_sha": "0dacdf3b7a59324684d35b2133eb9ac2879f31bab9906959cdf57d010fc4c87f",
+      "target_forward_calls_per_distribution": 1,
+      "set_hidden": null
+    }
+  }
+}

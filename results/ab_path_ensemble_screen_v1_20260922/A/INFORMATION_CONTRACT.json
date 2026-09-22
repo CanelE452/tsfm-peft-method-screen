@@ -1,0 +1,10 @@
+{
+  "context": 512,
+  "horizon": 128,
+  "first64": "frozen F0 raw quantile-labelled paths",
+  "training_origins": "all hourly legal origins; uniform series/origin",
+  "future_y_routing": false,
+  "scale": "TRAIN only",
+  "baseline_selection": "VAL after CAL; prior to TEST",
+  "teacher": "same-seed newly trained FULL9 only"
+}

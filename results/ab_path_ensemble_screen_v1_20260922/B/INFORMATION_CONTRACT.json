@@ -1,0 +1,12 @@
+{
+  "context": "128 actual wind_power observations strictly before issue; last context = issue - 3h",
+  "target": "wind_power at issue+3h ... issue+24h",
+  "weather": "same archive issue; 50 perturbed members, 8 leads, standardized by TRAIN forecast mean/std",
+  "control": "same issue control path, standardized with same TRAIN forecast mean/std",
+  "forbidden": [
+    "future target in context",
+    "future observed weather",
+    "old forecast vintages as same-issue ensemble"
+  ],
+  "release_time_limit": "actual forecast publication delay not verified"
+}

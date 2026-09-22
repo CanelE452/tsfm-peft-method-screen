@@ -1,0 +1,27 @@
+이 번들은 A/B 두 후보의 제한 예산 실험 지시다.
+
+1. MASTER_CLI.txt가 유일한 실행 계약이다.
+2. reference_core.py는 수학/작은 모듈 참조이며 완성 runner가 아니다.
+3. test_reference.py와 CPU_TEST_LOG.txt는 22개 CPU 검사 결과다.
+4. 실제 Chronos 연결/CSV 전체 판독/GPU 학습/비용 검사는 CLI가 별도로 수행한다.
+5. B는 실제 SE3 풍력 자료이다. 부하 실험도, 합성 Onshore/Offshore 실험도 아니다.
+6. A는 기존 Solar 원천의 개발 자료 재사용이다. 독립 외부 확증으로 쓰지 않는다.
+7. 최대 24 fits / 6,144 main + 24 smoke updates. 자동 후속 0.
+8. source code seal 전에 어떤 helper도 학습을 시작하지 않는다.
+
+CLI 전달문:
+첨부 MASTER_CLI.txt를 A/B의 단일 실행 계약으로 사용해.
+기존 tsfm-peft-method-screen에서 새 ab_path_ensemble_screen_v1_20260922 경로만 작성해.
+A는 학습형 3경로가 고정·medoid·전역3경로와 단일경로보다 필요한지,
+B는 같은 issue의 실제 기상 앙상블을 이용하는 작은 경로 모듈이
+평균·분산·용량을 맞춘 집합 인코더·모든멤버혼합보다 필요한지 검증해.
+B 데이터를 실제 SE3 wind power로 정했다는 범위와 issue/release 시각 한계를 보고해.
+자료나 구현이 막히면 BLOCKED로 분리하고 성능 실패로 처리하지 마.
+모든 선택/CAL을 봉인하고 TEST 예측을 저장한 다음 채점해.
+참조 코드가 완성 trainer라고 가정하지 말고 실제 연결 검사를 해.
+A router의 prototype gradient를 detach하지 마.
+B의 모든멤버 대조도 target TSFM을 한 번만 계산하고 작은 head를 벡터화해.
+결과를 살리려고 추가 seed/LR/rank/source/prototype 수를 바꾸지 마.
+실행 가능한 두 후보의 학습·평가·검산을 완료하고 AB_SUMMARY_KO.md와
+각 REPORT_KO.md/FINAL_DECISION.md를 scoped commit/push해.
+방법론 GO와 단순 압축/추가정보의 유용성을 구분하고 다음 자동실험 없이 종료해.

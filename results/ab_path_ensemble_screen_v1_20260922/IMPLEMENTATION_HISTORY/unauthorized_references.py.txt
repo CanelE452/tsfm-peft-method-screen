@@ -1,0 +1,126 @@
+from __future__ import annotations
+
+import pickle
+import gc
+
+import numpy as np
+import torch
+from sklearn.ensemble import GradientBoostingRegressor
+
+from common import CACHE, ROOT, RESULTS, save, sha, read
+from evaluation import calibrate, loadpred, path, predict
+from model import ModelA
+
+
+def _b_features(raw: dict, indices: np.ndarray) -> tuple[np.ndarray, np.ndarray, tuple[int, int]]:
+    sigma = float(raw["sigma"])
+    rows, targets = [], []
+    for idx in indices:
+        hist = raw["x"][idx, -8:] / sigma
+        weather = raw["weather"][idx]
+        control = raw["control"][idx]
+        for h in range(8):
+            wh = weather[:, h, :]
+            feat = np.concatenate(
+                [
+                    np.asarray([(h + 1) / 8.0], dtype=np.float32),
+                    hist.astype(np.float32),
+                    wh.mean(0),
+                    wh.std(0),
+                    np.quantile(wh, [0.1, 0.5, 0.9], axis=0).reshape(-1).astype(np.float32),
+                    control[h].astype(np.float32),
+                ]
+            )
+            rows.append(feat)
+            targets.append(raw["y"][idx, h])
+    return np.asarray(rows, dtype=np.float32), np.asarray(targets, dtype=np.float32), (len(indices), 8)
+
+
+def _gbqr_models(raw: dict):
+    model_path = CACHE / "B" / "references" / "gbqr_models.pkl"
+    if model_path.exists():
+        with model_path.open("rb") as f:
+            return pickle.load(f)
+    train_idx = np.flatnonzero(raw["role"] == "TRAIN")
+    x, y, _ = _b_features(raw, train_idx)
+    models = []
+    for tau in np.arange(1, 10) / 10:
+        m = GradientBoostingRegressor(loss="quantile", alpha=float(tau), n_estimators=100, max_depth=2, learning_rate=0.05, random_state=92300)
+        m.fit(x, y)
+        models.append(m)
+    model_path.parent.mkdir(parents=True, exist_ok=True)
+    with model_path.open("wb") as f:
+        pickle.dump(models, f)
+    return models
+
+
+def _gbqr_prediction(raw: dict, role: str) -> dict:
+    indices = np.flatnonzero(raw["role"] == role)
+    x, _, shape = _b_features(raw, indices)
+    qs = np.stack([m.predict(x) for m in _gbqr_models(raw)], -1).reshape(shape[0], shape[1], 9)
+    qs = np.sort(qs.astype(np.float32), axis=-1)
+    return {
+        "z": qs,
+        "p": np.full_like(qs, 1 / 9, dtype=np.float32),
+        "y": raw["y"][indices].astype(np.float32),
+        "sigma": np.full(len(indices), float(raw["sigma"]), dtype=np.float32),
+        "pairs": np.stack([np.zeros(len(indices), dtype=np.int64), indices.astype(np.int64)], 1),
+    }
+
+
+def prepare(c: str) -> None:
+    if c != "B":
+        return
+    from bdata_adapter import Wind
+
+    d = Wind()
+    cal = read(RESULTS / "B" / "CALIBRATION.json")
+    cal.setdefault("0", {})
+    for role in ("CAL", "VAL"):
+        p = path("B", 0, "GBQR", role)
+        if not p.exists():
+            pred = _gbqr_prediction(d.raw, role)
+            p.parent.mkdir(parents=True, exist_ok=True)
+            np.savez_compressed(p, **pred)
+            save(p.with_suffix(".json"), {"sha256": sha(p), "examples": len(pred["z"]), "reference": "GBQR"})
+    cal["0"]["GBQR"] = calibrate(loadpred(path("B", 0, "GBQR", "CAL")), "B")
+    save(RESULTS / "B" / "CALIBRATION.json", cal)
+    save(RESULTS / "B" / "GBQR_REFERENCE.json", {"status": "PASS", "quantile_models": 9, "features": "last8 power, ensemble lead mean/std/q10/q50/q90, control path, lead index", "hyperparameter_search": False})
+
+
+def _save_pred(c: str, seed: int, arm: str, role: str, pred: dict) -> None:
+    p = path(c, seed, arm, role)
+    if p.exists():
+        return
+    p.parent.mkdir(parents=True, exist_ok=True)
+    np.savez_compressed(p, **pred)
+    save(p.with_suffix(".json"), {"sha256": sha(p), "examples": len(pred["z"]), "reference": arm})
+
+
+def _a_refs(packet: dict) -> None:
+    for arm, model_arm in (("F0_NATIVE", "FULL9"), ("F0_MEDIAN", "MEDIAN1")):
+        m = ModelA(model_arm, seed=92300, lora=False).cuda()
+        predict(m, packet, "A", path("A", 0, arm, "TEST"))
+        del m
+        gc.collect()
+        torch.cuda.empty_cache()
+    old = ROOT / ".cache/continuation_lora_v1_20260922/predictions/TEST/CHRONOS2_DIRECT.npz"
+    if old.exists() and not path("A", 0, "CHRONOS2_DIRECT", "TEST").exists():
+        with np.load(old) as z:
+            q = z["q"].transpose(1, 0, 2, 3).reshape(-1, 128, 9).astype(np.float32)
+        if q.shape[:2] == packet["y"].shape:
+            _save_pred(
+                "A",
+                0,
+                "CHRONOS2_DIRECT",
+                "TEST",
+                {"z": np.sort(q, axis=-1), "p": np.full_like(q, 1 / 9), "y": packet["y"], "sigma": packet["sigma"], "pairs": packet["pairs"]},
+            )
+
+
+def test(c: str, d, packet: dict) -> None:
+    if c == "A":
+        _a_refs(packet)
+    if c == "B":
+        pred = _gbqr_prediction(d.raw, "TEST")
+        _save_pred("B", 0, "GBQR", "TEST", pred)

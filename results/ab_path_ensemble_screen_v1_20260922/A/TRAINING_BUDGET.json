@@ -1,0 +1,21 @@
+{
+  "main_fit_cap": 12,
+  "updates_per_fit": 256,
+  "main_update_cap": 3072,
+  "smoke_update_cap": 12,
+  "seeds": [
+    92301,
+    92302
+  ],
+  "optimizer": "AdamW",
+  "lora_lr": 0.0001,
+  "module_lr": 0.0003,
+  "effective_batch": 4,
+  "checkpoints": [
+    0,
+    128,
+    256
+  ],
+  "selection": "raw VAL CRPS then common CAL then VAL baseline",
+  "failed_attempts_count": true
+}

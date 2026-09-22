@@ -1,0 +1,228 @@
+from __future__ import annotations
+
+import math
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+from common import CACHE, RESULTS, ROOT, SEEDS, read, save, sha
+from evaluation import apply_cal, loadpred, metric
+
+
+def _pred_files(c: str) -> list[Path]:
+    return sorted((CACHE / c / "predictions").rglob("TEST*.npz"))
+
+
+def _identity(p: Path, c: str) -> tuple[int, str]:
+    rel = p.relative_to(CACHE / c / "predictions").parts
+    return int(rel[0]), rel[1]
+
+
+def _summarize(pred: dict, c: str, cal=None) -> tuple[dict, pd.DataFrame]:
+    z = pred["z"] if cal is None else apply_cal(pred, cal)
+    m = metric(z, pred["p"], pred["y"], pred["sigma"])
+    sl = slice(64, 128) if c == "A" else slice(0, pred["y"].shape[1])
+    row = {name: float(values[:, sl].mean()) for name, values in m.items() if values.ndim == 2}
+    leads = pd.DataFrame({"lead": np.arange(sl.start, sl.stop) + 1, **{name: values[:, sl].mean(0) for name, values in m.items() if values.ndim == 2}})
+    return row, leads
+
+
+def _resource(c: str) -> pd.DataFrame:
+    rows = []
+    for p in sorted((RESULTS / c / "fits").glob("*.json")):
+        r = read(p)
+        if r.get("phase") != "main":
+            continue
+        rows.append(
+            {
+                "candidate": c,
+                "key": r["key"],
+                "phase": "training",
+                "seconds": r["fit_seconds"],
+                "updates": r["steps"],
+                "ms_per_update": 1000 * r["fit_seconds"] / r["steps"],
+                "trainable_parameters": r["trainable_parameters"],
+                "peak_allocated_mib": r["peak_allocated"] / 2**20,
+                "peak_reserved_mib": r["peak_reserved"] / 2**20,
+            }
+        )
+    for p in sorted((CACHE / c / "predictions").rglob("TEST*.json")):
+        r = read(p)
+        rows.append(
+            {
+                "candidate": c,
+                "key": str(p.relative_to(CACHE / c / "predictions")).replace("\\", "/"),
+                "phase": "prediction",
+                "seconds": r.get("seconds", math.nan),
+                "updates": 0,
+                "ms_per_update": math.nan,
+                "trainable_parameters": math.nan,
+                "peak_allocated_mib": math.nan,
+                "peak_reserved_mib": math.nan,
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def _score_candidate(c: str) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    calibration = read(RESULTS / c / "CALIBRATION.json")
+    rows, lead_rows = [], []
+    raw_by_key = {}
+    for p in _pred_files(c):
+        seed, arm = _identity(p, c)
+        pred = loadpred(p)
+        raw_by_key[(seed, arm)] = pred
+        for variant, cal in (("raw", None), ("calibrated", calibration.get(str(seed), {}).get(arm))):
+            if variant == "calibrated" and cal is None:
+                continue
+            summary, leads = _summarize(pred, c, cal)
+            rows.append({"candidate": c, "seed": seed, "arm": arm, "variant": variant, **summary})
+            leads.insert(0, "variant", variant)
+            leads.insert(0, "arm", arm)
+            leads.insert(0, "seed", seed)
+            leads.insert(0, "candidate", c)
+            lead_rows.append(leads)
+    scores = pd.DataFrame(rows)
+    lead_scores = pd.concat(lead_rows, ignore_index=True)
+    baseline = read(RESULTS / c / "BASELINE_SELECTION.json")["baseline"]
+    target = "CONTEXT3" if c == "A" else "SCENARIO3"
+    effects = []
+    for seed in SEEDS:
+        cand = scores[(scores.seed == seed) & (scores.arm == target) & (scores.variant == "calibrated")]
+        if cand.empty:
+            cand = scores[(scores.seed == seed) & (scores.arm == target) & (scores.variant == "raw")]
+        bseed = 0 if baseline == "GBQR" else seed
+        base = scores[(scores.seed == bseed) & (scores.arm == baseline) & (scores.variant == "calibrated")]
+        if base.empty:
+            base = scores[(scores.seed == bseed) & (scores.arm == baseline) & (scores.variant == "raw")]
+        if cand.empty or base.empty:
+            continue
+        bs, cs = float(base.iloc[0]["crps"]), float(cand.iloc[0]["crps"])
+        effects.append(
+            {
+                "candidate": c,
+                "seed": seed,
+                "method_arm": target,
+                "baseline_arm": baseline,
+                "baseline_score": bs,
+                "method_score": cs,
+                "absolute_effect": bs - cs,
+                "relative_gain_percent": 100 * (bs - cs) / bs,
+            }
+        )
+    seed_effects = pd.DataFrame(effects)
+    return scores, lead_scores, seed_effects
+
+
+def _decision(c: str, effects: pd.DataFrame, scores: pd.DataFrame) -> str:
+    if effects.empty or len(effects) < 2:
+        return f"BLOCKED_{c}_COMPARISON_INCOMPLETE"
+    good = (effects.relative_gain_percent >= 1.0).all()
+    positive = (effects.relative_gain_percent > 0).all()
+    if c == "A":
+        return "GO_A_METHOD_SCREEN" if good else ("HOLD_NO_AUTO_RESCUE" if positive else "NO_GO_A_CURRENT")
+    return "GO_B_METHOD_SCREEN_ARCHIVE_CONDITIONED" if good else ("HOLD_NO_AUTO_RESCUE" if positive else "NO_GO_B_CURRENT")
+
+
+def _plot(c: str, scores: pd.DataFrame, effects: pd.DataFrame) -> None:
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    fig, axes = plt.subplots(1, 2, figsize=(11, 4), layout="constrained")
+    use = scores[scores.variant == "calibrated"]
+    if use.empty:
+        use = scores[scores.variant == "raw"]
+    order = use.groupby("arm").crps.mean().sort_values().index.tolist()
+    means = use.groupby("arm").crps.mean().reindex(order)
+    axes[0].bar(range(len(means)), means.values, color="#4477AA")
+    axes[0].set_xticks(range(len(means)), means.index, rotation=35, ha="right")
+    axes[0].set_ylabel("normalized CRPS")
+    axes[0].set_title(f"{c}: TEST score")
+    if not effects.empty:
+        axes[1].bar([str(s) for s in effects.seed], effects.relative_gain_percent, color=["#228833" if v > 0 else "#CC6677" for v in effects.relative_gain_percent])
+    axes[1].axhline(0, color="black", linewidth=0.8)
+    axes[1].axhline(1, color="gray", linestyle="--", linewidth=0.8)
+    axes[1].set_ylabel("gain over V-fixed baseline (%)")
+    axes[1].set_title("method effect")
+    fig.savefig(RESULTS / c / "RESULTS.png", dpi=180)
+    plt.close(fig)
+
+
+def _write_report(c: str, scores: pd.DataFrame, lead_scores: pd.DataFrame, effects: pd.DataFrame, resources: pd.DataFrame, decision: str) -> None:
+    baseline = read(RESULTS / c / "BASELINE_SELECTION.json")["baseline"]
+    target = "CONTEXT3" if c == "A" else "SCENARIO3"
+    data_limit = (
+        "Solar-energy 개발 자료 재사용 화면이며 독립 외부 확증이 아니다."
+        if c == "A"
+        else "SE3 실제 풍력과 같은 issue archive ensemble을 사용했지만 운영 release delay는 검증하지 못했다."
+    )
+    score_table = scores[scores.variant.isin(["calibrated", "raw"])].groupby(["arm", "variant"])[["crps", "pinball", "nmae", "raw_mae", "coverage", "width"]].mean().reset_index()
+    text = f"""# {c} 결과 보고
+
+실행 상태: COMPLETE. 최종 판단: **{decision}**.
+
+비교 기준은 TEST를 보기 전에 VAL+CAL로 고정했다. 선택된 강한 기준선은 `{baseline}`이고, 새 후보 arm은 `{target}`이다. {data_limit}
+
+```text
+{score_table.to_string(index=False, float_format=lambda x: f'{x:.6f}')}
+```
+
+seed별 후보 효과:
+
+```text
+{effects.to_string(index=False, float_format=lambda x: f'{x:.6f}') if not effects.empty else 'comparison incomplete'}
+```
+
+양수 gain은 후보가 기준선보다 낮은 CRPS를 냈다는 뜻이다. 이 수치는 논문 PASS가 아니라 다음 투자 판단용이다. 결과가 약해도 LR/rank/seed/prototype 수를 추가 탐색하지 않았다.
+
+![result summary](RESULTS.png)
+
+검산과 산출물: `SCORES.csv`, `SEED_EFFECTS.csv`, `LEAD_SCORES.csv`, `RESOURCES.csv`, `VERIFICATION.json`. raw data, model weights, checkpoint, prediction arrays는 `.cache`에만 있고 GitHub에는 manifest와 검산 범위만 올린다.
+"""
+    (RESULTS / c / "REPORT_KO.md").write_text(text, encoding="utf-8")
+    (RESULTS / c / "FINAL_DECISION.md").write_text(
+        f"# FINAL DECISION {c}\n\nDECISION: {decision}\nMETHOD_ARM: {target}\nBASELINE_ARM: {baseline}\nPAPER_PASS: NOT_CLAIMED\nAUTOMATIC_FOLLOWUP: NONE\n",
+        encoding="utf-8",
+    )
+
+
+def run() -> None:
+    summary_rows = []
+    for c in ("A", "B"):
+        manifest = read(RESULTS / c / "PREDICTIONS_MANIFEST.json")
+        assert manifest["all_test_predictions_saved"] and manifest["test_scoring_started"] is False
+        scores, lead_scores, effects = _score_candidate(c)
+        resources = _resource(c)
+        decision = _decision(c, effects, scores)
+        scores.to_csv(RESULTS / c / "SCORES.csv", index=False)
+        lead_scores.to_csv(RESULTS / c / "LEAD_SCORES.csv", index=False)
+        effects.to_csv(RESULTS / c / "SEED_EFFECTS.csv", index=False)
+        resources.to_csv(RESULTS / c / "RESOURCES.csv", index=False)
+        _plot(c, scores, effects)
+        verification = {
+            "status": "PASS",
+            "test_predictions_saved_before_scoring": True,
+            "prediction_file_count": len(manifest["files"]),
+            "scores_rows": int(len(scores)),
+            "seed_effect_rows": int(len(effects)),
+            "main_updates": int(read(RESULTS / c / "BUDGET_STATE.json")["main_updates"]),
+            "smoke_updates": int(read(RESULTS / c / "BUDGET_STATE.json")["smoke_updates"]),
+            "decision": decision,
+        }
+        save(RESULTS / c / "VERIFICATION.json", verification)
+        _write_report(c, scores, lead_scores, effects, resources, decision)
+        summary_rows.append({"candidate": c, "decision": decision, "baseline": read(RESULTS / c / "BASELINE_SELECTION.json")["baseline"], "mean_gain_percent": float(effects.relative_gain_percent.mean()) if not effects.empty else np.nan})
+    summary = pd.DataFrame(summary_rows)
+    summary.to_csv(RESULTS / "AB_SUMMARY.csv", index=False)
+    (RESULTS / "AB_SUMMARY_KO.md").write_text(
+        "# A/B 요약\n\n"
+        "두 후보 모두 정해진 예산과 TEST-before-score 절차로 종료했다. 논문 PASS는 선언하지 않는다.\n\n"
+        f"```text\n{summary.to_string(index=False, float_format=lambda x: f'{x:.6f}')}\n```\n\n"
+        "자동 후속 실험은 실행하지 않는다.\n",
+        encoding="utf-8",
+    )
+    save(RESULTS / "FOLLOWUP_RECOMMENDATION.json", {"automatic_followup": False, "paper_pass": False, "summary": summary_rows})
+    save(RESULTS / "ARTIFACT_MANIFEST.json", {"files": [{"path": str(p.relative_to(ROOT)), "sha256": sha(p), "bytes": p.stat().st_size} for p in sorted(RESULTS.rglob("*")) if p.is_file()]})

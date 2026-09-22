@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "smoke_updates": 12,
+  "native_initial_max_abs": 0.0,
+  "trained_native_conditional_parity": true,
+  "native_full128_note": "Native all-LoRA first block differs by design after learning; hybrid first-F0 + native trained conditional verified separately",
+  "initial_global_context_parity": true,
+  "first64_preserved": true,
+  "save_restore": true,
+  "batch_reorder": true,
+  "arms": [
+    "FULL9",
+    "MEDIAN1",
+    "FIXED3",
+    "MEDOID3",
+    "GLOBAL3",
+    "CONTEXT3"
+  ]
+}

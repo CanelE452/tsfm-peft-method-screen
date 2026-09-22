@@ -1,0 +1,41 @@
+{
+  "status": "CPU_REFERENCE_TESTS_PASSED_NOT_GPU_VERIFIED",
+  "cpu_test_count": 22,
+  "actual_data_download_and_audit": false,
+  "actual_chronos_lora_wiring_verified": false,
+  "gpu_training_runs": 0,
+  "new_main_optimizer_updates": 0,
+  "planned_max_fits": 24,
+  "planned_main_updates": 6144,
+  "planned_smoke_updates": 24,
+  "planned_total_optimizer_cap": 6168,
+  "A_router_parameters": {
+    "global": 30,
+    "context": 4886
+  },
+  "B_data_scope": "Actual Sweden bidding zone SE3 wind power + same-issue ECMWF ensemble archive",
+  "B_time_evidence": "Power CSV time is valid time; issue=time-horizon. Weather full payload remains to be audited.",
+  "B_deployment_limit": "Actual operational forecast release/publication times not verified.",
+  "files": {
+    "CPU_TEST_LOG.txt": {
+      "sha256": "965de2e01443a354ec3b5958e82ff298cdc6ea2ab5d1c225aaf7df9e1e2d6e6f",
+      "bytes": 1655
+    },
+    "MASTER_CLI.txt": {
+      "sha256": "d636cb5fc65b10baa48121d963fe12119dff3c555f98975510a57b02c52da2ab",
+      "bytes": 36478
+    },
+    "START_HERE_KO.txt": {
+      "sha256": "09fbb913dfe51d5f1e6b1ebbb1dcca8ff2124ecb4dbd3b640c1e5f34c7b35575",
+      "bytes": 2043
+    },
+    "reference_core.py": {
+      "sha256": "4fff208161a43e96f5a2dc27269e7e4c12832df6486d9b776ee6869e52b7857e",
+      "bytes": 7774
+    },
+    "test_reference.py": {
+      "sha256": "fc8c9590b05c393e8809651732dafa2fb6b66a59eac696f8821e64866a856f98",
+      "bytes": 5554
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "ensembles": {
+    "shape_with_added_issue": [
+      679950,
+      10
+    ],
+    "original_columns": [
+      "time",
+      "number",
+      "u100",
+      "v100",
+      "t2m",
+      "sp",
+      "speed",
+      "horizon",
+      "is_origin"
+    ],
+    "added_columns": [
+      "issue"
+    ]
+  },
+  "control": {
+    "shape_with_added_issue": [
+      13599,
+      9
+    ],
+    "original_columns": [
+      "time",
+      "u100",
+      "v100",
+      "t2m",
+      "sp",
+      "speed",
+      "horizon",
+      "is_origin"
+    ],
+    "added_columns": [
+      "issue"
+    ]
+  },
+  "power": {
+    "shape_with_added_issue": [
+      14088,
+      4
+    ],
+    "original_columns": [
+      "time",
+      "wind_power",
+      "horizon"
+    ],
+    "added_columns": [
+      "issue"
+    ]
+  },
+  "weather_columns_used": [
+    "u100",
+    "v100",
+    "t2m",
+    "sp",
+    "speed"
+  ]
+}

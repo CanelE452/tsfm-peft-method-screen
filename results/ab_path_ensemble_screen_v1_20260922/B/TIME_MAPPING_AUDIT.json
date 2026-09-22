@@ -1,0 +1,126 @@
+{
+  "power_time_interpretation": "valid time",
+  "issue_formula": "issue = time - horizon_hours",
+  "horizons_hours": [
+    3,
+    6,
+    9,
+    12,
+    15,
+    18,
+    21,
+    24
+  ],
+  "timezone_evidence": "create_correct_structure.R uses as.POSIXct(filter_time, tz='UTC'); CSV timestamps are stored without offset and treated as archive UTC.",
+  "release_time_verification": "RELEASE_TIME_UNVERIFIED: archive-defined issue experiment only, not an operational real-time backtest.",
+  "role_counts": {
+    "TRAIN": 1074,
+    "CAL": 180,
+    "VAL": 183,
+    "TEST": 242
+  },
+  "split_policy": {
+    "TRAIN": [
+      "1900-01-01",
+      "2018-01-01"
+    ],
+    "CAL": [
+      "2018-01-01",
+      "2018-07-01"
+    ],
+    "VAL": [
+      "2018-07-01",
+      "2019-01-01"
+    ],
+    "TEST": [
+      "2019-01-01",
+      "2019-09-01"
+    ]
+  },
+  "contract_actual_range": "official actual Sweden power records cover valid times 2015-01-05 through 2019-11-01; this run uses issue roles whose targets stay before 2019-09-01, so TEST last issue is 2019-08-30.",
+  "power_valid_time_audit": {
+    "duplicate_valid_times": 0,
+    "duplicate_values_identical": true,
+    "valid_time_min": "2015-01-05 03:00:00",
+    "valid_time_max": "2019-11-01 00:00:00",
+    "unique_valid_times": 14088,
+    "diff_counts_hours": {
+      "0 days 03:00:00": 14087
+    }
+  },
+  "dropped_after_complete_issue_check": [
+    {
+      "issue": "2015-01-05 00:00:00",
+      "reason": "'missing context or target power'"
+    },
+    {
+      "issue": "2015-01-06 00:00:00",
+      "reason": "'missing context or target power'"
+    },
+    {
+      "issue": "2015-01-07 00:00:00",
+      "reason": "'missing context or target power'"
+    },
+    {
+      "issue": "2015-01-08 00:00:00",
+      "reason": "'missing context or target power'"
+    },
+    {
+      "issue": "2015-01-09 00:00:00",
+      "reason": "'missing context or target power'"
+    },
+    {
+      "issue": "2015-01-10 00:00:00",
+      "reason": "'missing context or target power'"
+    },
+    {
+      "issue": "2015-01-11 00:00:00",
+      "reason": "'missing context or target power'"
+    },
+    {
+      "issue": "2015-01-12 00:00:00",
+      "reason": "'missing context or target power'"
+    },
+    {
+      "issue": "2015-01-13 00:00:00",
+      "reason": "'missing context or target power'"
+    },
+    {
+      "issue": "2015-01-14 00:00:00",
+      "reason": "'missing context or target power'"
+    },
+    {
+      "issue": "2015-01-15 00:00:00",
+      "reason": "'missing context or target power'"
+    },
+    {
+      "issue": "2015-01-16 00:00:00",
+      "reason": "'missing context or target power'"
+    },
+    {
+      "issue": "2015-01-17 00:00:00",
+      "reason": "'missing context or target power'"
+    },
+    {
+      "issue": "2015-01-18 00:00:00",
+      "reason": "'missing context or target power'"
+    },
+    {
+      "issue": "2015-01-19 00:00:00",
+      "reason": "'missing context or target power'"
+    },
+    {
+      "issue": "2015-01-20 00:00:00",
+      "reason": "'missing context or target power'"
+    },
+    {
+      "issue": "2015-01-21 00:00:00",
+      "reason": "'missing context or target power'"
+    }
+  ],
+  "dropped_count": 17,
+  "missing_reason_counts": {
+    "early_context_missing_power": 17,
+    "weather_key_missing": 0
+  }
+}

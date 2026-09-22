@@ -1,0 +1,603 @@
+A/B TSFM PEFT — 빠른 독립 Go/Hold/No-go 실행 계약
+작성일: 2026-09-22 KST
+실험 이름: ab_path_ensemble_screen_v1_20260922
+이 파일이 유일한 최상위 계약이다. 이전 Q/T/F·MAG·HIER·U 규약과 합치지 않는다.
+reference_core.py는 수식/작은 모듈의 참조 부품이며 완성된 runner가 아니다.
+
+================================================================
+0. 목적·승인·해석 범위
+================================================================
+사용자 요청: 후보 A/B를 빠르게 직접 검증할 실험 설계와 CLI 실행 지시.
+CLI에 이 번들을 전달하면 아래 범위의 구현·점검·정해진 학습·평가를 수행한다.
+현재 문서 작성자가 이 두 실험의 데이터 판독/GPU 학습을 완료한 것은 아니다.
+기존 STOP을 해제하거나 다른 실험을 재개하는 승인이 아니다.
+
+최상위 목적: '효과가 있는 기존 방법을 적용했다'가 아니라, 작은 새 변경에
+후속 PEFT 방법론 연구를 투자할 이유가 있는지를 판단한다.
+소비처: 사용자가 두 결과에서 많아야 하나를 다음 검증 대상으로 선택한다.
+
+A: TSFM의 9개 후속 예측 경로를 3개 대표 경로로 줄일 때,
+   입력에 따라 경로·혼합 비중을 학습하는 작은 모듈이 고정/군집/전역 학습
+   경로보다 좋은 품질–추론 비용 절충을 만드는가?
+B: 같은 발행 시점의 실제 미래 기상 앙상블을 이용할 때,
+   경로를 보존한 3-시나리오 적응이 평균·분산, 일반 집합 인코더,
+   모든 멤버를 쓰는 단순 혼합보다 실제 풍력 예측을 개선하는가?
+
+B의 범위 변경을 숨기지 않는다:
+- 앞선 설명에서 부하 예측을 예로 들었으나, 빠른 paired-data 실험을 위해
+  첫 B 자료는 실제 스웨덴 SE3 풍력 발전량으로 한정한다.
+- 따라서 B 결과로 부하 예측 우위를 주장하지 않는다.
+- 같은 저자 저장소의 Onshore/Offshore 목표값은 합성이므로 사용 금지.
+- 이전 vintage 실험처럼 발행 날짜가 다른 예보를 ensemble member로 쓰지 않는다.
+
+예상 결과 / 목적 지지 / 후속 판단:
+A: 3경로 후보가 단순 3경로보다 정확하고 9경로보다 실제 계산이 작다.
+   -> 압축된 예측 방식의 추가 가치. 품질이 비슷해도 비용상 이점이 필요하다.
+B: 동일 미래정보를 주었을 때 후보가 일반 요약·집합·멤버혼합보다 정확하다.
+   -> 앙상블 정보를 처리하는 작은 적응의 추가 가치.
+두 후보 모두 단순 대안과 같으면 -> GO_INFORMATION_ONLY 또는 GO_STANDARD_ONLY,
+   새 방법론 성공은 아니다.
+
+가지치기:
+- A/B를 한 모델로 결합하지 않는다. 한 후보의 TEST 결과로 다른 후보를 바꾸지 않는다.
+- 알려진 CRPS, 집합 attention, 분포 증류, LoRA 사용 자체를 신규성으로 주장하지 않는다.
+- 단순 대조에 같은 학습·teacher·보정·자료 권한을 준다.
+- 개발 자료의 음성 결과를 분야 전체의 반증으로 바꾸지 않는다.
+- 자동 v2, 추가 LR/rank/seed, 데이터 교체, 새 ensemble size 탐색은 모두 0.
+
+================================================================
+1. 저장소·환경·재사용 범위
+================================================================
+기본 저장소: CanelE452/tsfm-peft-method-screen
+설계 시 확인 HEAD: f31b5834f6d6258713f6c7d08f44adbb54880e7c
+실행 시작 시 actual local/remote HEAD와 dirty files를 기록한다.
+최신 HEAD가 달라졌으면 변경을 읽되 과거 실행 파일·checkpoint를 덮어쓰지 않는다.
+
+새 경로만 사용:
+ experiments/ab_path_ensemble_screen_v1_20260922/{A,B,contract}/
+ results/ab_path_ensemble_screen_v1_20260922/{A,B}/
+ .cache/ab_path_ensemble_screen_v1_20260922/{A,B}/
+공유 utility는 새 실험 아래에 둔다. 기존 모듈 수정 금지.
+기존 저장소가 없으면 인증된 gh로 clone. 새 원격 저장소/공개 전환은 하지 않는다.
+
+재사용할 수 있는 실제 코드의 출발점:
+ experiments/continuation_lora_v1_20260922/model.py
+ experiments/branch_mixture_lora_v1_20260922/
+ results/continuation_lora_v1_20260922/DATA_AUDIT.json
+여기에서 모델 로딩, 공식 9경로 parity, 원자료 처리, 검산 패턴만 재사용한다.
+이전 선택된 LoRA 가중치·TEST 선택 결과는 새 초기값으로 가져오지 않는다.
+
+중요: 기존 branch_context가 first.detach()를 하며 update가
+ctx.requires_grad==False를 assert한다. 이를 학습형 A router 출력에 그대로
+복사하면 prototype 학습 gradient가 끊긴다. §5의 구분을 구현한다.
+
+환경:
+- 작동하는 Python3.11 CUDA venv는 읽기 전용 검사 후 재사용 가능.
+- torch, chronos-forecasting, peft, transformers, numpy, pandas, scipy,
+  sklearn, safetensors, pytest, requests, matplotlib, psutil.
+- 필요시 새 venv. 시스템 드라이버/global 패키지 변경 금지.
+- model/config/code/package revisions와 SHA256, GPU/VRAM 기록.
+- 기본 FP32, TF32off, dropout eval. CUDA 없으면 CPU 참조/자료검사까지만.
+- 같은 precision을 모든 같은-문제 대조에 적용. OOM이면 microbatch만 줄인다.
+- 다른 사용자의 프로세스 종료 금지. 비밀키/원자료/HF weights를 Git에 올리지 않는다.
+- 원격 push 불가시 로컬 결과 보존 후 BLOCKED_PUSH로 따로 보고.
+
+================================================================
+2. 공통 학습·선택·예산
+================================================================
+두 후보 모두 기본 backbone amazon/chronos-bolt-small, q/v LoRA r8 alpha16.
+실제 target module 목록과 trainable 수를 기록한다. 기대 LoRA약294,912개이나
+숫자가 다르면 모듈을 임의로 더하고 빼지 말고 config/version부터 점검한다.
+
+seed: 92301, 92302. 두 개 모두 반복용. 별도 LR 선택 seed 없음.
+optimizer: AdamW betas(.9,.999), eps1e-8, weight_decay0, clip_norm1.
+scheduler 없음. effective batch4. 최대256 optimizer updates/fit.
+LoRA LR=1e-4; 새 소형 모듈 LR=3e-4. 동일 종류의 모듈 대조에 동일 LR.
+checkpoint0/128/256. raw primary VALIDATION으로 선택; 동점 이른 step.
+모든 fit을256까지 실행하되 final 보고는 V-selected를 사용한다.
+고정256 결과도 저장하면 진단으로 표시하고 주 판정으로 갈아끼우지 않는다.
+
+TRAIN sampling: 합법 origin을 균등 sampling; A는 계열도 균등.
+같은 seed의 같은 문제에는 미리 봉인한 (origin,series) packet을 공유.
+모델 RNG와 데이터 RNG 분리. parent/teacher 선택 때문에 packet이 변하지 않음.
+
+A: 6종 ×2seed =12fits, 3,072 main updates.
+B: 6종 ×2seed =12fits, 3,072 main updates.
+합계: 최대24fits /6,144 main optimizer updates.
+실제모델 smoke는 A12+B12=24updates 이내(실패 호출도 포함).
+전체 optimizer cap=6,168.
+B 자료가 막히면 A는 독립적으로 완료. B를 다른 자료로 자동 대체하지 않는다.
+CPU 통계모델·보정계수 fitting은 별도 횟수/시간으로 기록.
+
+모든 학습 전에 해당 후보 전체 source hash·데이터·예산·설정을 봉인한다.
+도우미가 먼저 학습을 실행하지 못하게 단일 executor lock 사용.
+update intent/commit 장부와 optimizer/RNG checkpoint로 중복 재실행 방지.
+실행 이탈을 발견하면 원본/diff/spent updates를 보존하고 덮어써서 PASS로 만들지 않는다.
+
+================================================================
+3. 분포 표현·손실·공통 보정 — 두 후보 공통
+================================================================
+finite predictive distribution P= sum_i p_i delta(z_i), p_i>=0,sum p_i=1.
+학습/주평가에 쓸 정확한 이산 CRPS:
+ CRPS(P,y)=sum_i p_i |z_i-y| - .5 sum_ij p_i p_j |z_i-z_j|.
+reference_core.py의 sorted O(N log N) 식을 pairwise 식과 대조한다.
+이는 선언한 유한분포의 정확한 점수다. 원래 연속분포 CRPS나 전체경로 joint score가 아니다.
+분위수 labelled 값들을 같은 질량의 지지점으로 해석하는 근사임을 명시한다.
+IID sample 보정이나 원래 ensemble member가 진짜 정답시나리오라는 해석은 하지 않는다.
+
+후보 A의 분포 증류:
+ D(P,T)=E|X-Z|-.5E|X-X'|-.5E|Z-Z'|=integral(F_P-F_T)^2.
+teacher weights/atoms detach. D>=0 수치검사. TRAIN scale로 나눈다.
+
+주지표: 이산 CRPS / 해당 TRAIN sigma, origin·horizon 평균, A는 series동일가중.
+B는 실제 MW target의 TRAIN sigma 하나.
+보조: 같은 .1,.2,...,.9 분위수의 normalized twice-pinball, median nMAE,
+80% 포함률/폭, raw MAE, 예측 음수 비율, 시간/메모리.
+가중분포 분위수는 left-inverse discrete CDF로 통일.
+이 readout은 native의 선형 quantile interpolation과 다르므로 별도 이름으로 기록한다.
+손실은 weighted CRPS로 계산해 mixture weight까지 미분한다.
+searchsorted로 분위수를 읽는 연산을 학습 loss에 쓰고 routing gradient를 기대하지 않는다.
+native API의 실제9quantile 결과는 추가 실용대조로 보존한다.
+분포적 해상도가 다른 모델의 CRPS 하나만으로 전면 우위를 선언하지 않는다.
+
+단순 출력 보정은 모든 학습/고정/통계 대조에 같은 기회:
+ z'_i = median(P)+beta*sigma+alpha*(z_i-median(P)); 질량 p_i 불변.
+ alpha={.5,.75,1,1.25,1.5,2,3}; beta={-.5,-.25,0,.25,.5}.
+CAL에서 CRPS 최소를 선택. 동점 identity거리 -> alpha -> |beta| -> signed beta.
+A는 first64/tail64 두 블록, B는8개의 forecast lead별 계수.
+첫 모델 checkpoint는 raw V로 고정 -> CAL계수 고정 -> 보정된 V로 baseline 선택.
+그 뒤 모든 TEST 예측 저장 후 채점. TEST로 baseline/보정/체크포인트를 고르지 않는다.
+주 판단은 같은 CAL 기회를 준 결과; raw 결과와 차이를 함께 남긴다.
+선택된 보정이 TEST에서 반드시 좋아진다고 보장하지 않는다.
+
+================================================================
+4. A 데이터·실제 예측 문제
+================================================================
+A는 기존 Solar-energy의 실제 발전량 자료를 재사용한 개발 화면이다.
+다른 논문/최근 네 실험에 노출된 자료이며 독립 확증이라고 부르지 않는다.
+공식 저자 저장소:
+ https://github.com/laiguokun/multivariate-time-series-data
+원본:
+ https://raw.githubusercontent.com/laiguokun/multivariate-time-series-data/master/solar-energy/solar_AL.txt.gz
+
+원본 137열·10분 간격을 겹치지 않는6행 평균으로 시간별 집계.
+이전 DATA_AUDIT의 8개 열 [36,10,44,119,62,104,116,118]을 그대로 사용.
+실제 original0-based index라는 계약과 집계/hash를 재확인.
+이 목록이 원본과 안 맞으면 데이터 오류로 중단하고 다른 열을 고르지 않는다.
+없는 calendar date/timezone을 만들어 넣지 않는다.
+기존 hourly cache가 같은 원본/집계/열 hash와 일치하면 복사 없이 재사용.
+
+시간순 TRAIN60/CAL10/VAL10/TEST20%.
+context512h, horizon128h=2×64h; 최초과거 보존, 후속문맥길이576.
+TRAIN은 모든합법 hourly origin, CAL/V/TEST는24슬롯 간격.
+모든 target128은 해당 role 안에 들어옴. context는 과거 role로 걸쳐도 됨.
+TRAIN-only sigma. missing은 보간하지 않고 input/target128 유한성으로 원점정의.
+
+첫64는 공통 F0로 고정. A는 첫예측을 만드는 새 방법이 아니라
+그 뒤65–128을 적은 경로로 근사하는 문제다.
+이 보존 자체와 from_second LoRA는 기존에 알려진 설정이며 새 기여가 아니다.
+공통 초기 F0 첫64 raw quantile-labelled 9개 경로를 사용하고 임의 sort로 바꾸지 않는다.
+원생 공식9경로 초기/학습후 wrapper parity를 실제 TRAIN 문맥으로 검사한다.
+
+================================================================
+5. A 학습군 — 동일한 증류와 계산 권한
+================================================================
+A_FULL9: teacher/reference.
+- 첫64 F0 동결; 후속9 contexts에 q/v LoRA를 학습.
+- 9branches×9atoms=81 후반분포를 실제 후반 y에 대한 CRPS로 학습.
+- first64의 추가손실 없음. 기존 CONTINUATION과 같다고 단정하지 말고
+  현재 loss/배수/분모를 정확히 명시.
+- 각 seed256updates, V로 teacher checkpoint 선택.
+
+그 다음 다섯 student는 SAME seed의 선택된 A_FULL9 LoRA에서 시작.
+teacher끼리 ensemble하지 않는다. 기존 네 과거 teacher checkpoint는 가져오지 않는다.
+같은 target sequence와 같은 선택 teacher 분포를 모든 student에 제공.
+student loss:
+ L=mean(CRPS(P_student,y)/sigma)+0.5*mean(D(P_student,P_teacher)/sigma).
+모든 student256updates, native64후속 한 번, 첫F0공통.
+teacher pseudo를 더 많이 사용한 후보만의 정보우위 금지.
+
+A_MEDIAN1:
+ firstF0의 q.5 경로1개. 후속9atoms. 동일 distillation/LoRA 학습.
+ 단일경로가 충분한지 보는 매우 중요한 대조.
+
+A_FIXED3:
+ firstF0 q.2/q.5/q.8 (0-based indexes1,4,7), weight각1/3.
+
+A_MEDOID3:
+ firstF0의9개 완전한64h 경로에서3개 medoids를 고름.
+ 9C3=84개 조합의 원 경로→가장 가까운 medoid squared distance합 최소.
+ 거리=64h mean squared discrepancy / 동일 observed scale².
+ tie는 index tuple사전순; 각원경로의동률할당은앞medoid.
+ mixture weight=배정된 원래9경로의 비율. 전체원경로/가중치보존검사.
+ 후속모델9개를 계산한 뒤 medoid를 고르는 편법 금지.
+
+A_GLOBAL3:
+ input-independent 학습logit27개로3개 prototype convex mixtures;
+ 학습mixinglogit3개. 총router30params.
+ prototype_k=sum_j a_kj*firstF0_path_j, sum_j a_kj=1.
+ lead마다 다른 a를 만들지 않고 한 경로64h 전체에 같은 a를 사용.
+
+A_CONTEXT3 (유일한 A 제안):
+ router input=firstF0 raw paths를 observed x mean/std로 normalize한576-vector.
+ tinyMLP 576→8→30(GELU). 총4,886params.
+ 첫27logit=3×9 softmax -> prototype; 마지막3=softmax mixtureweight.
+ down 동일seed, upweight0, upbias는GLOBAL초기logit과 동일.
+ GLOBAL/CONTEXT 초기prototype,weights,prediction이 동일해야 함.
+ init 각row의1/4/7 중심 weight.9, 다른8개는.1/8, 최종mix1/3.
+ fixed3와는 smoothed 초기경로가 다름을 기록.
+ total params차이는 약4.9K vs공통LoRA294.9K; 정확한equal-param주장 금지.
+ prototype는 기존경로들의 convex hull 안, 정보권한은관측+첫F0뿐.
+
+중요한 gradient:
+ - F0 first paths와 teacher는 detach/no_grad.
+ - 학습된 attention으로 만든 prototype는 detach하지 않는다.
+ - backbone은 frozen parameters여도 context→후속loss gradient를 통과시킨다.
+ - router prototypelogit과 mixturelogit 양쪽 실제 gradient/변화를 검사.
+ - 원생 branch_context의 detach/assert를 후보에 그대로 가져오지 않는다.
+ - 처음 zero up이면 down gradient0일수있어2update에서 검사.
+ - teacher/student 서로 optimizer state 공유 금지.
+
+teacher/F0 cache:
+훈련packet의unique문맥, CAL/V/TEST별 공식raw firstpaths를 필요한역할에서저장가능.
+teacher train targets는TRAIN 문맥에서만 생성. TESTteacher는평가비교만.
+훈련student의후속backbone은LoRA가바뀌므로후속표현을고정캐시하지않음.
+cache형성의 model/input/rolehash, query수,walltime,bytes를기록.
+추론benchmark에서는새입력의F0first forward를반드시계산.
+
+학습0 대조:
+- F0_NATIVE 공식128, F0_MEDIAN singlepath128.
+- A_FULL9 및선택학생 모두0/selected result.
+- Chronos-2 직접128, observed512, 각계열별독립group, nofuturecovariates.
+  이전cache는정확한모델/input/date계약이같을때만재사용;아니면고정추론.
+  다른백본을모듈인과대조라고하지않음. 동일9quantile pinball/MAE/coverage/비용비교.
+- 전체9branch를이미평가한뒤3개만쓴시간이라고계산하지않음.
+
+================================================================
+6. A Go / Hold / No-go
+================================================================
+primary region=후반65–128. full128/first64는별도표. first64보존확인.
+main score=CAL후finite-mixture normalized CRPS; raw와9quantile pinball도공개.
+V에서 K<=3의MEDIAN/FIXED/MEDOID/GLOBAL 중baseline고정.
+후보를전체9teacher만과비교하고단순3/1경로를빼지않음.
+
+GO_A_METHOD_SCREEN (후속예산용 사전 기준):
+1. 해당 V-selected reduced baseline보다평균CRPS>=1% 개선, 두seed모두개선.
+2. FULL9보다CRPS손해1%이내, 같은9quantile pinball손해도1%이내.
+3. 동일환경 batch8 end-to-end128 latency가FULL9보다>=15%감소.
+4. median nMAE가reduced baseline보다1%넘게악화하지않음.
+5. CAL을동등하게주어도고유이득이남음.
+이숫자는논문채택/유의성상수가아니라지금사용자의후속투자기준이다.
+
+GO_A_COMPRESSION_ONLY:
+단순fixed/medoid/global도같이좋아서낮은경로수가유용하지만후보고유이득없음.
+이때는새방법론GO가아님.
+NO_GO_A_CURRENT:
+단순reducedbaseline보다후보가나쁘거나같고, 비용상추가쓸이유도없음.
+정확도는비슷하지만cost조건미달/작은양수/seed혼합 -> HOLD_NO_AUTO_RESCUE.
+전체9teacher가F0+보정/median보다이미나쁜경우 그teacher품질만회복했다고GO금지.
+C2가동일9quantile품질/실측비용에서더좋으면실용대안으로보고.
+메모리나다른제약없이Bolt유지를정답으로가정하지않음.
+
+================================================================
+7. B 자료 — 발행시점·유효시점·실제관측을 먼저 확인
+================================================================
+저자공식저장소:
+ https://github.com/KIT-IAI/EvaluatingEnsemblePostProcessing
+pin: 9d1799ede894606ad349eb66e335d8a814eb8acf
+논문: Evaluating ensemble post-processing for wind power forecasts
+(Wind Energy,2022 online; DOI10.1002/we.2736).
+
+필수3개파일(깨끗한pinned rawURL로받고 SHA256 저장):
+ pre_processing/Data/Sweden_Zone3_Ensembles.csv
+ pre_processing/Data/Sweden_Zone3_Control.csv
+ pre_processing/Data/Sweden_Zone3_Power.csv
+참고읽기:
+ README.md
+ pre_processing/create_correct_structure.R
+같은repository의실제호출script에서w_parameters와시간변환을확인.
+추가 ERA5다운로드/ECMWF계정/TIGGE대규모탐색은이번범위아님.
+
+확인된원본Power앞부분:
+ header="time","wind_power","horizon"
+ 2015-01-05 03:00:00,842,3
+ ...
+ 2015-01-06 00:00:00,428,24
+따라서이파일의time은valid time이다. issue=time-horizon_hours로복원.
+time을issue로보고다시horizon을더하는오류금지.
+공식R코드는number1..50을ensemble로,control을51번째로합친다.
+이번은50perturbed members를main ensemble로,control은독립단일경로대조로사용.
+각daily issue의h={3,6,9,12,15,18,21,24}가모두존재하는지actualCSV검사.
+논문일부요약표의horizon나열에서18h가빠져있어도actual자료와결과표를근거로
+8horizons를쓰며 discrepancy를문서에남긴다.
+
+날짜범위:공식actual Sweden자료의2015-01-05~2019-08-31 범위에한정.
+TIMEZONE은공식source의UTC표기와대조. 증거없이local timezone변환하지않음.
+Main split issue calendar:
+ TRAIN: issue<2018-01-01
+ CAL: 2018-01-01<=issue<2018-07-01
+ VAL: 2018-07-01<=issue<2019-01-01
+ TEST: 2019-01-01<=issue<2019-09-01.
+모든target validtimes가해당role기간안에있어야한다. 경계걸친마지막issue제외.
+
+B는3h grid의actual power를사용.
+context128 observations strictly BEFORE issue(마지막=issue−3h), 총16일.
+predict y(issue+3h),...,y(issue+24h) 여덟개.
+중요오프셋: lastcontext=issue−3h인F0출력의index0은issue,
+index1..8이target+3..+24다. 모델출력first8을그냥써서3h당기지않음.
+최소native9개출력을계산하고index1:9만loss/평가.
+actualpower를hourly인것처럼불리거나중간값을보간하지않음.
+
+같은validtime의power중복은동일값인지검사;불일치면평균으로숨기지않음.
+context128와8targets, 50members×8leads의필수weather가finite인issue만공통사용.
+누락이유별counts와split범위를모든군공통으로저장. 성능기반member/issue선정금지.
+단일시스템자료: TEST최소60dailyissues미만이면BLOCKED_COVERAGE,
+이는자료검증이불충분함이지ensemble PEFT실패가아님.
+
+기상변수:
+저자코드w_parameters,실제ens/control양쪽schema로식별된100m풍속/u/v,
+2m온도,지표기압의공통forecast fields를사용. 정확한이름은실제읽어서manifest에고정.
+있는변수를성능에따라선택하지않음. 풍속이파생변수라면저자정의와같이만계산.
+number,horizon,time,is_origin은날씨값으로넣지않음.
+ENS/CONTROL같은전처리. TRAINforecast로변수별mean/std만추정.
+Power파일은확인된wind_power 원단위MW. synthetic/임의capacity normalization금지.
+source권한/배포조건읽기, raw재배포안함. license가미표기면재배포허가라고추정안함.
+
+아카이브정보권한의한계:
+issued cycle time은검증가능하지만실제다운로드가능/발표지연은별도다.
+이번baseline모두archive-defined issue에서forecast가주어졌다는공통조건의실험이다.
+확인되지않은운영상release time까지검증했다고쓰지않음.
+과거actual도strictlyprior만사용하지만공식발표지연을보장한실시간backtest는아님.
+RELEASE_TIME_UNVERIFIED라면methodological-pilot만보고,운영배포GO선언금지.
+이와달리issue/valid mapping자체를해결못하면BLOCKED_DATA하고학습시작금지.
+
+B data audit는모델score이전에끝낸다. source가막히면B를합성풍력/oldvintage로대체금지.
+큰CSV는연결tool에서내용이비어돌아올수있다. 로컬에서공식rawdownload후schema를검사.
+이문서작성자는Power앞부분과R전처리를읽었지만전체ensemblepayload검증은하지못했다.
+
+================================================================
+8. B 학습군·작은 구조
+================================================================
+B의후속8시점예측은A의128h rollout과다른문제. 점수를A/B간직접평균금지.
+같은pretrained Bolt-small에서시작, q/v rank8과새모듈동시에학습.
+모든군이동일past power128와같은issuefutureweather권한을가짐.
+B_TARGET은정보의가치를확인하는참고이며후보고유효과의유일한상대가아님.
+
+공통target-only기반예측 q0[b,h,9] = Bolt출력index1..8.
+basehistoryfeature r[b,h] = [q0(h,:)/sigma, last8actual/sigma, h/8] =18dims.
+centering은TRAINmean으로공통적용가능하나선택전에고정해전군동일.
+routercontext R=[flatten(q08×9)/sigma,last8actual/sigma] =80dims.
+모듈은이특징만사용,진짜미래power/ERA5미래관측입력금지.
+
+공통weatherpath E:
+ member의8leads×Pvariables전체를flatten ->D=8P.
+ E: D→32→16 GELU. 시간/변수위치고정,memberindexembedding없음.
+ condition decoder C: concat(r18,z16)=34→64→9 GELU.
+ output=q0(h,:)+sigma*C(...).
+C마지막weight/bias0초기화. 모든conditionalbranch의초기분포=q0.
+말단bias0로만처음보존;학습후원래성능보장은아님.
+
+B_TARGET:
+ target-only LoRA,기상어댑터없음. 9지지점분포.
+
+B_CONTROL:
+ 공통E에동일issue control8lead path, C로조건주입. 9지지점.
+
+B_MOMENTS:
+ 50member의각lead/variable mean,std를연결해2D→32→16 encoder.
+ 나머지C동일. 관측발행시점ensemble정보를단순통계로사용. 9지지점.
+
+B_SET (일반집합대조):
+ 각완전한memberpath E ->50개16vector를평균 ->z ->generic head.
+ 모든member/전체temporal path를봄. 후보만시간경로를본다는주장금지.
+ simple mean/std보다넓은표현력을가지는DeepSets형대조.
+ generic head는 [r18,z16]34 -> hidden ->30: 27개수정분과3개혼합logit.
+ q0의9지지점을3번복사하고각9개에수정분을더한27지지점,softmax3질량/9.
+ 따라서후보와같이3-component/27-support capacity를갖는다.
+ 9지지점대조만두고후보의27지지점해상도이득을경로구조의효과로세지않음.
+ hidden폭을64부터증가시켜 (LoRA제외)소형모듈params가B_SCENARIO3 이상이면서
+ 최소가되는정수폭을사용. upperbound512, count차이공개, 모든계수실제사용.
+ 이선택은TEST이전counts-only로고정. 마지막층zero초기화로처음q0동일.
+ 임의deadweights를추가하지않음.
+
+B_MEMBER (강한모든멤버혼합):
+ base Bolt는한번만계산. 50path 각각E→공유C→9개의target지지점.
+ 최종50×9=450개equal atoms의분포.
+ 각멤버loss를별도로평균하지않고최종mixture CRPS로학습.
+ 멤버마다큰TSFM을50번다시호출하게만들어비용을인위적으로키우지않음.
+ weighted sorted CRPS를써450²대형텐서불필요.
+
+B_SCENARIO3 (유일한B제안,효과/신규성미확인):
+ E각memberpath→key16.
+ R80→48 projection을3개의query16로reshape.
+ attention a[k,m]=softmax_m(query_k dot key_m/sqrt16).
+ complete representative weather path c_k=sum_m a[k,m]*weather_path_m.
+ 같은a로모든lead/variable를결합해시점별독립shuffle하지않음.
+ z_k=E(c_k), C(r,z_k)→3개×9target atoms.
+ mixing=softmax(Linear(R80,3)); 초기mix uniform.
+ 최종27지지점weight=pi_k/9.
+ attention/key/query는정답loss까지gradient가통과,prototype/weight detach금지.
+ routing query는서로다른작은random init; 동일query로완전대칭을만들지않음.
+ E,C init은가능한공통군간seed를맞추고그차이/size를hash로기록.
+
+B 모든6군을같은actual-y finite CRPS/sigma로학습,teacher없음.
+정확한분포의대수적CRPS를사용하고coverage penalty를추가하지않음.
+B_TARGET도같은9finite atoms 해석;F0원분위수pinball보조평가를보존.
+혼합가중치에는CRPS로gradient,quantile-inversion으로학습하지않음.
+member mixture=weather uncertainty+conditional dispersion의제한된근사이지
+참covariateposterior또는기상오류교정을보장하는확률모형은아님.
+
+학습0/CPU 대조:
+- F0target-only.
+- seasonal naive(power same3h slot 24h전) pointforecast;degenerate분포와CAL.
+- B_GBQR: 같은과거last8 +50member의lead별mean/std/.1,.5,.9 +controlpath +lead
+  특징을쓰는quantile gradientboosting(9quantile models).
+  sklearn GradientBoostingRegressor(loss='quantile', alpha=tau,
+    n_estimators=100,max_depth=2,learning_rate=.05, random_state=92300).
+  TRAIN의issue/lead행으로학습, Vhyperparameter탐색없음, CPUfit9개기록.
+  raw/공통정렬/CAL 기회는다른모델과동일.
+- author의완전한EMOS/RF pipeline 재현이라고부르지않음.
+  미래reanalysis trainonly추가준비/원논문전체재현은이번범위밖.
+- 실제입출력조건에맞는ChronosX전체와의정식성능우위도이번만으로주장금지.
+
+================================================================
+9. B Go / Hold / No-go
+================================================================
+primary=+3..+24의8시점CAL후CRPS/sigma.
+공통9quantilepinball,coverage80,width,medianMAE,lead별/연도월별도보고.
+후보의직접baseline은 CONTROL/MOMENTS/SET/MEMBER/GBQR중V로고른best.
+TARGET만이겼다는이유로methodGO를주지않음.
+
+GO_B_METHOD_SCREEN:
+- V-selected strongest 같은정보대조보다mean primary>=1%개선,두seed같은방향.
+- SET/MEMBER와의쌍별결과도공개하고동일보정후이득이남음.
+- medianMAE 추가손해1%이내. 단순히구간을넓혀coverage를맞춘것아님.
+- 동일member권한,rawtarget,valid/issue계약충족.
+- B기본목적은accuracy: 추론속도개선을필수로하지않지만 SET대비>25%latency증가면
+  GO대신TRADEOFF_HOLD로사용가치재검토. 모델별실제bytes/count도함께읽음.
+- release timestamp미확인시모든GO는archive-conditioned methodpilot일뿐.
+
+GO_B_INFORMATION_ONLY:
+미래기상/ensemble은유용하지만MOMENTS/SET/MEMBER/GBQR로충분.
+새PEFT방법론GO는아님. 새prototype수를늘리는rescue금지.
+NO_GO_B_CURRENT:
+후보가강한대조에우위없고실용cost추가이득도없음.
+ensemble이control보다낫지않아도'모든ensemble불필요'로일반화금지.
+작은양수/반대seed/계층별손익혼합 ->HOLD_NO_AUTO_RESCUE.
+
+================================================================
+10. 통계·정확한 비용 비교
+================================================================
+원점블록pairedbootstrap2,000회:
+A는연속14일원점(24h stride), B는연속14dailyissue.
+같은블록안전체horizon/series/seed를함께묶고원점수까지재표집.
+seed별효과와두seed-score평균효과둘다표시. predictionensemble아님.
+TEST재표집구간은현재선택모델/원천에조건부;후보탐색/새도메인/optimizerpopulation보장아님.
+CI가0포함이면자동FAIL하지않고,0불포함이면자동GO하지않음.
+1%/15%/25%는프로젝트의추가투자기준이며분야의통계법칙이아님.
+학습상한에서도V가계속개선되면OPTIMIZATION_LIMIT 플래그,
+현재구현의부정적판단을모델능력전체의반증으로사용하지않음.
+
+자원측정:
+- 실제장치,같은precision,batch1/8,10warmup+30timed repetitions.
+- 모델순서를고정순환/교차시켜장치부하편향을줄임, cuda synchronize 전후.
+- latency raw repetitions/median/IQR;teacher cache/fit/validation시간분리.
+- walltime에CPU↔GPU전송,router,ensemble preparation,quantile,CAL 포함.
+- peak allocated/reserved 각각보고. 모델한번에하나만상주시켜공정비교.
+- A 실제inference128에는firstF0계산포함;cachehit만측정금지.
+- A trainingtotal에는teacher2fits/cachecost포함,studentmarginal과구분.
+- B 모든방법에서targetTSFM forward1회. 멤버별작은C연산만M회/vectorized.
+- 9→3개라는호출수차이를3배속도라고쓰지않음.
+- Bmember1개=독립날짜1개로세지않음.
+
+================================================================
+11. 필수 실모델·자료 검산
+================================================================
+공통:
+1. officialwrapper/native parity, actualforecasttimeindex.
+2. LoRA trainable목록/initialhash,backboneweights+persistent/nonpersistentbuffers범위공개.
+3. 미래y치환이forwardinputs/routing/forecastcache를바꾸지않음(optimizer0).
+4. 각학습군parametergradientfinite,실제변화;zero-initfirststep의정상0은구분.
+5. save/restore, batch/series reorder일치.
+6. targetrole분리,TRAINscaleonly,CAL/V/TEST누출검사.
+7. modelselection/CAL고정후TESTpredictions모두저장,그다음채점.
+8. scalar CRPS/pinball/coverage, rawscore→relativegain재계산.
+9. failure/repaired범위와쓰인optimizer예산보존.
+
+A 추가:
+- native9paths의rawquantilelabel유지.
+- weightedCRPS=직접pairwise, uniform81=기존empirical CRPS의동치.
+- energy D(P,P)=0,nonnegative tolerance.
+- assignment convexity, mixturemass1,Medoid전경로allocation합9.
+- GLOBAL/CONTEXT step0출력동일.
+- router prototypegradient가뒤TSFM에서실제로전달되고2step변화.
+- first64F0보존, teacherfreeze, inference시teacher전체9호출없음.
+
+B 추가:
+- known Power header time=valid, issue=time−horizon,8horizon정렬.
+- 50members가같은issue인지,각member의8h×P trajectory가정렬되었는지.
+- TESTfuturewindforecast는허용되지만관측futureweather/target는금지.
+- memberpermute후SET/MEMBER/CAND분포일치;CONTROL은고유한forecast구분.
+- 모든member를동일경로로만들면합성대표가같은경로로환원.
+- weightedprototypes가원래weathertrajectory의convexhull안.
+- modelcontext마지막issue−3h,forecastindex1:9를실제timestamp테스트.
+- author원자료판독증거/한계. origin/missing탈락내역공통고정.
+
+첨부reference의22CPUtests는위전체검사를대신하지않음.
+실제Chronos에붙이기전TEST용원자료오차를보지않고TRAIN으로만확인.
+
+================================================================
+12. 실행 순서·산출물·종료
+================================================================
+1. MASTER와currentrepo읽기,기존STOP/dirty상태보존.
+2. A와B의data/model/env preflight. B대용량파일형식확인병행가능.
+3. CPUreference+실모델smoke;후보별코드/규약/fitbudget봉인.
+4. A_FULL9 teacher두개선택,필요한TRAINcache,5students×2학습.
+5. Bdata가유효하면6arms×2학습. A성능을이유로B중단하지않음.
+6. 각후보의neural선택→같은CAL→baseline선택봉인.
+7. 전체예측·runtime저장후최종채점/독립검산.
+8. 아래결과작성하고scopedcommit/push. 자동다음실험0.
+
+후보별최소파일:
+ PROTOCOL.md / DATA_AUDIT.json / INFORMATION_CONTRACT.json
+ SOURCE_AND_MODEL_MANIFEST.json / ENVIRONMENT.json / requirements-lock.txt
+ TRAINING_BUDGET.json / CPU_TESTS.json / MODEL_SMOKE_AUDIT.json
+ SOURCE_SEAL.json / UPDATE_LEDGER.jsonl / FIT_LEDGER.csv
+ MODEL_SELECTION.json / CALIBRATION.json / BASELINE_SELECTION.json
+ PREDICTIONS_MANIFEST.json / SCORES.csv / SEED_EFFECTS.csv / LEAD_SCORES.csv
+ RESOURCES.csv / VERIFICATION.json / REPORT_KO.md / FINAL_DECISION.md
+B추가: CSV_SCHEMA.json / TIME_MAPPING_AUDIT.json / MEMBER_AUDIT.json / SOURCE_LIMITS.md
+A추가: TEACHER_CACHE_MANIFEST.json / ROUTER_GRADIENT_AUDIT.json
+최상위: AB_SUMMARY_KO.md / FOLLOWUP_RECOMMENDATION.json
+큰raw/model/cache를push하지않음. 새권한/비밀키를공개하지않음.
+
+보고서첫페이지에서각각답한다:
+A: full9가얼마나좋은가? 3경로만으로충분한가? context-conditionedrouter가
+   fixed/medoid/global/median보다좋은가? 실제빠르고정확한가?
+B: 미래기상자체의이득은? ensemble이control보다추가이득인가?
+   후보가moments/set/member/통계대조보다필요한가? timestamp가어디까지검증됐나?
+
+요약표:
+ Candidate | scientific condition | strongest V-fixed comparator |
+ mean gain | seed effects | primary and point tradeoff | actual latency/memory |
+ data/source limitations | GO/HOLD/NO_GO/BLOCKED | novelty status
+
+둘다약하면NONE. 표준방법만좋으면그대로인정.
+양성이어도다음확인추천은최대1개,다른자료확인은별도승인전자동실행하지않음.
+B가막히면A와합쳐'전체실험실패'라고쓰지않음.
+
+================================================================
+13. 출처와 기여 경계
+================================================================
+A현재분기구현:
+https://github.com/CanelE452/tsfm-peft-method-screen/blob/f31b5834f6d6258713f6c7d08f44adbb54880e7c/experiments/continuation_lora_v1_20260922/model.py
+https://github.com/amazon-science/chronos-forecasting/blob/main/src/chronos/chronos_bolt.py
+A관련선행:
+Ensemble Distribution Distillation (2020/ICLR): 분포증류원리기존.
+https://arxiv.org/abs/1905.00076
+Beyond Accuracy: Are Time Series Foundation Models Well-Calibrated? (2026/ICLR)
+https://proceedings.iclr.cc/paper_files/paper/2026/hash/9af2b1d6acf561af9c4cf70d52c7a49d-Abstract-Conference.html
+
+B실제pairedsource와기존후처리:
+https://doi.org/10.1002/we.2736
+https://github.com/KIT-IAI/EvaluatingEnsemblePostProcessing/tree/9d1799ede894606ad349eb66e335d8a814eb8acf
+ChronosX: Adapting Pretrained Time Series Models with Exogenous Variables (2025/AISTATS)
+https://proceedings.mlr.press/v258/arango25a.html
+Set Transformer: A Framework for Attention-based Permutation-Invariant Neural Networks (2019/ICML)
+https://proceedings.mlr.press/v97/lee19d.html
+
+위선행은방법필요성과강한대조를정하는근거다.
+대표경로+LoRA,집합인코더+LoRA의조합에최초성을보장하지않는다.
+현재제안은알려진원리위의명시적인방법가설이며개발용검사다.
+GO는다음투자이유,논문PASS가아님. NO_GO는현작은설계의중단이지분야전체반증아님.
+
+문서작성자가확인한범위:
+- GitHub기존분기코드,paired-data저자R코드,PowerCSV앞부분,공식논문/문서.
+- 참조weightedCRPS/energy/router22CPUtests와budget산술.
+미확인:
+- 전체Sweden ensemble/control CSV의runtime schema와누락/타임스탬프.
+- 실제새Chronos-router연결과GPUgrad/latency.
+- A/B24개학습경로의성능.
+================================================================
+END — 규약작성만하고멈추지말고자료/구현이유효한후보만정해진범위로완료.
+================================================================

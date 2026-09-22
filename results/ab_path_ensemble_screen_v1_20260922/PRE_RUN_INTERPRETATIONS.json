@@ -1,0 +1,14 @@
+{
+  "status": "FIXED_BEFORE_MAIN_AND_TEST",
+  "sole_contract": "experiments/ab_path_ensemble_screen_v1_20260922/contract/MASTER_CLI.txt",
+  "native_A_parity": "Initial native full128 exact; after LoRA, first block deliberately remains F0, and subsequent native64 conditional calls are compared separately.",
+  "B_seasonal_naive": "For leads3..21 use observed issue-21..issue-3. For lead24, issue itself is unavailable; recursively repeat the issue-24 observation. No future truth supplied.",
+  "CAL_tie_identity_distance": "Squared Euclidean (alpha-1)^2+beta^2, then alpha, abs(beta), signed beta.",
+  "bootstrap": {"seed": 92300, "replicates": 2000, "block_origins": 14, "noncircular": true, "joint_across_seeds_series_horizons": true, "mean_effect": "ratio of two seed mean scores, not an ensemble prediction"},
+  "optimization_limit": "Flag an arm when its mean raw VAL CRPS strictly improves at0,128,256; flag is a limitation, not permission for more updates.",
+  "cost": "Both seeds trained/evaluated; runtime uses selected seed92301 to isolate architecture cost, same inputs, opposing model order rounds,10warmup+30timed per batch1/8.",
+  "A_compression_only": "A simple reduced arm also has FULL9 CRPS and common9-quantile pinball degradation <=1% and batch8 latency saving>=15%, with no contextual-router-specific advantage; teacher must not be worse than calibrated F0 native/median.",
+  "B_information_only": "A prespecified same-information alternative improves over TARGET by>=1% in mean and both seed directions while the proposed module lacks incremental advantage.",
+  "scientific_thresholds_changed": false,
+  "automatic_followup": false
+}
