@@ -1,0 +1,97 @@
+{
+  "gate": "V0a",
+  "pass": true,
+  "criterion": "cofr diff <= 0.5pp",
+  "max_cofr_diff_pp": 0.0,
+  "max_mase_bias_abs_diff": 4.826613833053273e-07,
+  "n_forecasts": 1750,
+  "paper_repo": "sfcheng-research/icdm-2026-reproduction@067687b19c39e1c492565cc95c365042c62443b1",
+  "sample": "stratified 250 items, origins [72,73,74,75,76,77,78]",
+  "note": "참조 CSV 에만 part 컬럼 존재하여 merge 키에서 제외. 그 외 컬럼 동일. cofr 는 완전 일치, mase/bias 만 1e-7 수준 차이(GPU 비결정성).",
+  "rows": [
+    {
+      "config": "standard_zs",
+      "metric": "cofr_0.70",
+      "ref": 0.6051428571428571,
+      "got": 0.6051428571428571,
+      "diff_pp": 0.0
+    },
+    {
+      "config": "standard_zs",
+      "metric": "cofr_0.80",
+      "ref": 0.6054285714285714,
+      "got": 0.6054285714285714,
+      "diff_pp": 0.0
+    },
+    {
+      "config": "standard_zs",
+      "metric": "cofr_0.90",
+      "ref": 0.6068571428571429,
+      "got": 0.6068571428571429,
+      "diff_pp": 0.0
+    },
+    {
+      "config": "standard_zs",
+      "metric": "cofr_0.95",
+      "ref": 0.6094285714285714,
+      "got": 0.6094285714285714,
+      "diff_pp": 0.0
+    },
+    {
+      "config": "standard_zs",
+      "metric": "mase",
+      "ref": 0.6260561589365655,
+      "got": 0.6260561680523273,
+      "abs_diff": 9.115761812061862e-09
+    },
+    {
+      "config": "standard_zs",
+      "metric": "bias",
+      "ref": -9.250802794308534,
+      "got": -9.2508027711351,
+      "abs_diff": 2.3173432950329698e-08
+    },
+    {
+      "config": "nonzero_zs",
+      "metric": "cofr_0.70",
+      "ref": 0.7636190476190478,
+      "got": 0.7636190476190478,
+      "diff_pp": 0.0
+    },
+    {
+      "config": "nonzero_zs",
+      "metric": "cofr_0.80",
+      "ref": 0.7704761904761905,
+      "got": 0.7704761904761905,
+      "diff_pp": 0.0
+    },
+    {
+      "config": "nonzero_zs",
+      "metric": "cofr_0.90",
+      "ref": 0.777904761904762,
+      "got": 0.777904761904762,
+      "diff_pp": 0.0
+    },
+    {
+      "config": "nonzero_zs",
+      "metric": "cofr_0.95",
+      "ref": 0.7821904761904763,
+      "got": 0.7821904761904763,
+      "diff_pp": 0.0
+    },
+    {
+      "config": "nonzero_zs",
+      "metric": "mase",
+      "ref": 0.7564539143548343,
+      "got": 0.7564539581945138,
+      "abs_diff": 4.3839679442214674e-08
+    },
+    {
+      "config": "nonzero_zs",
+      "metric": "bias",
+      "ref": -2.86015150986399,
+      "got": -2.860151992525373,
+      "abs_diff": 4.826613833053273e-07
+    }
+  ]
+}
