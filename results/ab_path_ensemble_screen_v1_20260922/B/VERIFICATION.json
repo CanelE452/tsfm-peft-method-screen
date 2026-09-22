@@ -1,0 +1,26 @@
+{
+  "main_fits": 12,
+  "main_updates": 3072,
+  "smoke_updates": 12,
+  "unique_intent_commit_pairs": 3084,
+  "frozen_all_unchanged": true,
+  "optimization_limit_arms": [
+    "TARGET",
+    "CONTROL",
+    "MOMENTS",
+    "SET",
+    "MEMBER",
+    "SCENARIO3"
+  ],
+  "status": "PASS",
+  "max_pairwise_crps_absolute_error": 7.077671781985373e-15,
+  "cal_grid_evaluations_recomputed": 4200,
+  "cal_verification_seconds": 0.3011561999737751,
+  "original_cal_separate_wall_time_available": false,
+  "cal_coefficients_reproduced": true,
+  "checkpoint_selection_reproduced": true,
+  "bootstrap": "2000 paired non-circular moving blocks, 14 origins; seeds and series kept jointly; fixed RNG92300; two training seeds only",
+  "baseline_selection_reproduced": true,
+  "table_effect_arithmetic_rechecked": true,
+  "stored_test_distribution_weights_valid": true
+}

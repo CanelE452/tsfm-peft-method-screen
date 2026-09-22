@@ -1,0 +1,89 @@
+{
+  "decisions": [
+    {
+      "candidate": "A",
+      "proposal": "CONTEXT3",
+      "baseline": "FIXED3",
+      "mean_gain_pct": 0.042900575538418195,
+      "seed_gain_pct": [
+        0.07193967844361104,
+        0.013871104472085172
+      ],
+      "point_gain_pct": -0.11619396911637381,
+      "latency_batch8_ms": {
+        "FULL9": 58.858299991698004,
+        "MEDIAN1": 37.035849993117154,
+        "FIXED3": 40.1100500166649,
+        "MEDOID3": 41.49249999318272,
+        "GLOBAL3": 41.28084998228587,
+        "CONTEXT3": 40.59479999705218,
+        "F0_NATIVE": 48.84780001884792,
+        "F0_MEDIAN": 27.913400015677325,
+        "CHRONOS2": 23.27809999405872
+      },
+      "novelty_claim": false,
+      "automatic_followup": false,
+      "checks": {
+        "gain_at_least_1pct": false,
+        "both_seeds_positive": true,
+        "full9_crps_loss_at_most_1pct": true,
+        "full9_pinball_loss_at_most_1pct": true,
+        "latency_saving_at_least_15pct": true,
+        "point_loss_at_most_1pct": true,
+        "teacher_not_weaker_than_f0": true
+      },
+      "simple_compression_arms": [
+        "FIXED3",
+        "MEDOID3",
+        "GLOBAL3"
+      ],
+      "full9_gain_pct": 0.030855954800945717,
+      "full9_pinball_gain_pct": 0.2164876838051666,
+      "latency_saving_vs_full9_pct": 31.02960839375568,
+      "teacher_weak_veto": false,
+      "status": "GO_A_COMPRESSION_ONLY"
+    },
+    {
+      "candidate": "B",
+      "proposal": "SCENARIO3",
+      "baseline": "GBQR",
+      "mean_gain_pct": -57.97671071711616,
+      "seed_gain_pct": [
+        -55.35403387320403,
+        -60.599387561028294
+      ],
+      "point_gain_pct": -67.22854045322629,
+      "latency_batch8_ms": {
+        "TARGET": 17.49425000161864,
+        "CONTROL": 17.1511999797076,
+        "MOMENTS": 17.721199998049997,
+        "SET": 18.110999997588806,
+        "MEMBER": 25.58449999196455,
+        "SCENARIO3": 18.154550009057857,
+        "F0": 14.228149986593053,
+        "NAIVE": 0.29414999880827963,
+        "GBQR": 2.5560000067343935
+      },
+      "novelty_claim": false,
+      "automatic_followup": false,
+      "checks": {
+        "gain_at_least_1pct": false,
+        "both_seeds_positive": false,
+        "point_loss_at_most_1pct": false,
+        "latency_increase_vs_set_at_most_25pct": true
+      },
+      "information_useful_arms": [
+        "CONTROL",
+        "MOMENTS",
+        "SET",
+        "MEMBER",
+        "GBQR"
+      ],
+      "latency_increase_vs_set_pct": 0.24046166128237623,
+      "release_time": "RELEASE_TIME_UNVERIFIED",
+      "operational_go": false,
+      "status": "GO_B_INFORMATION_ONLY"
+    }
+  ],
+  "additional_optimizer_updates": 0
+}

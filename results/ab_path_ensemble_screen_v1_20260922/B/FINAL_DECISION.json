@@ -1,0 +1,41 @@
+{
+  "candidate": "B",
+  "proposal": "SCENARIO3",
+  "baseline": "GBQR",
+  "mean_gain_pct": -57.97671071711616,
+  "seed_gain_pct": [
+    -55.35403387320403,
+    -60.599387561028294
+  ],
+  "point_gain_pct": -67.22854045322629,
+  "latency_batch8_ms": {
+    "TARGET": 17.49425000161864,
+    "CONTROL": 17.1511999797076,
+    "MOMENTS": 17.721199998049997,
+    "SET": 18.110999997588806,
+    "MEMBER": 25.58449999196455,
+    "SCENARIO3": 18.154550009057857,
+    "F0": 14.228149986593053,
+    "NAIVE": 0.29414999880827963,
+    "GBQR": 2.5560000067343935
+  },
+  "novelty_claim": false,
+  "automatic_followup": false,
+  "checks": {
+    "gain_at_least_1pct": false,
+    "both_seeds_positive": false,
+    "point_loss_at_most_1pct": false,
+    "latency_increase_vs_set_at_most_25pct": true
+  },
+  "information_useful_arms": [
+    "CONTROL",
+    "MOMENTS",
+    "SET",
+    "MEMBER",
+    "GBQR"
+  ],
+  "latency_increase_vs_set_pct": 0.24046166128237623,
+  "release_time": "RELEASE_TIME_UNVERIFIED",
+  "operational_go": false,
+  "status": "GO_B_INFORMATION_ONLY"
+}

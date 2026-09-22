@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "main_fits": 24,
+  "main_updates": 6144,
+  "smoke_updates": 24,
+  "total_updates": 6168,
+  "seed_and_mean_effects_checked": 576,
+  "latency_aggregates_checked": 36,
+  "first64_raw_and_cal_preserved": true,
+  "initializations_verified": true,
+  "source_and_selection_seals_intact": true,
+  "all_test_predictions_saved_before_scoring": true,
+  "method_followup": "NONE",
+  "automatic_followup": false,
+  "limitations": [
+    "B release time unverified",
+    "B all neural arms optimization-limited at256 updates",
+    "Solar exposed development dataset",
+    "Original CAL separate wall time unavailable",
+    "Pre-main scope incident preserved; premature seal bytes unrecoverable"
+  ],
+  "sources_after_main": {
+    "analysis\\diagnostic_predictions.py": "2ea7a77783982cce8f19a2792419496e580f7a02a26d6156cea7e913eb5bad02",
+    "analysis\\fair_benchmark.py": "a086c672209dd6fe5187b1fe966ec37e1f2bfe39e6863e2795368f1f8bf964f6",
+    "analysis\\fair_runtime_support.py": "205049c7caee33549f6db30f87345f21743632a8e0689db50a86cf976dfd7a8c",
+    "analysis\\final_audit.py": "eab6ca74baf5e88fd1b1438a4a6beb704bee3dc6fa807e8dbb654f6fb68041ea",
+    "analysis\\finalize.py": "318d0b6465c4eaf433f31803633186e47c88bd387815fd2887df534668709ffc",
+    "analysis\\publication_audit.py": "f6e0a4b8b16857184b3239ca61511b7bad9e0e92588a09ba6f001a8640de5734",
+    "analysis\\report.py": "330ef20f290a11ace69ea07848335a0ae595bce3614e0c7e018a16333072b160",
+    "analysis\\verify_fair_runtime.py": "c753a268969e96e80bbe0c04de07a973d768c2341e010205f440fc484e0d4253"
+  }
+}

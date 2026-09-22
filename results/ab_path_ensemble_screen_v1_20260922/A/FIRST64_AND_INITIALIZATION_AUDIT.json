@@ -1,0 +1,102 @@
+{
+  "status": "PASS",
+  "preserved_blocks": [
+    {
+      "arm": "FULL9",
+      "seed": 92301,
+      "raw_atom_max_abs": 0.0,
+      "cal_atom_max_abs": 0.0
+    },
+    {
+      "arm": "MEDIAN1",
+      "seed": 92301,
+      "raw_atom_max_abs": 0.0,
+      "cal_atom_max_abs": 0.0
+    },
+    {
+      "arm": "FIXED3",
+      "seed": 92301,
+      "raw_atom_max_abs": 0.0,
+      "cal_atom_max_abs": 0.0
+    },
+    {
+      "arm": "MEDOID3",
+      "seed": 92301,
+      "raw_atom_max_abs": 0.0,
+      "cal_atom_max_abs": 0.0
+    },
+    {
+      "arm": "GLOBAL3",
+      "seed": 92301,
+      "raw_atom_max_abs": 0.0,
+      "cal_atom_max_abs": 0.0
+    },
+    {
+      "arm": "CONTEXT3",
+      "seed": 92301,
+      "raw_atom_max_abs": 0.0,
+      "cal_atom_max_abs": 0.0
+    },
+    {
+      "arm": "FULL9",
+      "seed": 92302,
+      "raw_atom_max_abs": 0.0,
+      "cal_atom_max_abs": 0.0
+    },
+    {
+      "arm": "MEDIAN1",
+      "seed": 92302,
+      "raw_atom_max_abs": 0.0,
+      "cal_atom_max_abs": 0.0
+    },
+    {
+      "arm": "FIXED3",
+      "seed": 92302,
+      "raw_atom_max_abs": 0.0,
+      "cal_atom_max_abs": 0.0
+    },
+    {
+      "arm": "MEDOID3",
+      "seed": 92302,
+      "raw_atom_max_abs": 0.0,
+      "cal_atom_max_abs": 0.0
+    },
+    {
+      "arm": "GLOBAL3",
+      "seed": 92302,
+      "raw_atom_max_abs": 0.0,
+      "cal_atom_max_abs": 0.0
+    },
+    {
+      "arm": "CONTEXT3",
+      "seed": 92302,
+      "raw_atom_max_abs": 0.0,
+      "cal_atom_max_abs": 0.0
+    }
+  ],
+  "global_context_identity": [
+    {
+      "seed": 92301,
+      "all_raw_atoms_and_weights_identical": true,
+      "calibration_equal": true
+    },
+    {
+      "seed": 92302,
+      "all_raw_atoms_and_weights_identical": true,
+      "calibration_equal": true
+    }
+  ],
+  "initialization": [
+    {
+      "seed": 92301,
+      "a_all_students_same_selected_teacher_lora": true,
+      "b_all_arms_identical_initial_lora": true
+    },
+    {
+      "seed": 92302,
+      "a_all_students_same_selected_teacher_lora": true,
+      "b_all_arms_identical_initial_lora": true
+    }
+  ],
+  "additional_optimizer_updates": 0
+}
