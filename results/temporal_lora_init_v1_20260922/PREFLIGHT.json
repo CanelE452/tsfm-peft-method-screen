@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "smoke": [
+    {
+      "arm": "RANDOM",
+      "native_parity": true,
+      "initial_equal": true,
+      "restore": true,
+      "gradient_norms": [
+        0.02845599316060543,
+        0.02808558940887451
+      ],
+      "frozen_unchanged": true
+    },
+    {
+      "arm": "PCA",
+      "native_parity": true,
+      "initial_equal": true,
+      "restore": true,
+      "gradient_norms": [
+        0.1043078824877739,
+        0.10116828233003616
+      ],
+      "frozen_unchanged": true
+    },
+    {
+      "arm": "TEMP",
+      "native_parity": true,
+      "initial_equal": true,
+      "restore": true,
+      "gradient_norms": [
+        0.05407135933637619,
+        0.05181590095162392
+      ],
+      "frozen_unchanged": true
+    },
+    {
+      "arm": "SHUFFLE",
+      "native_parity": true,
+      "initial_equal": true,
+      "restore": true,
+      "gradient_norms": [
+        0.07272801548242569,
+        0.07100361585617065
+      ],
+      "frozen_unchanged": true
+    }
+  ],
+  "smoke_updates": 8,
+  "main_updates": 0,
+  "actual_qv_parity": true
+}

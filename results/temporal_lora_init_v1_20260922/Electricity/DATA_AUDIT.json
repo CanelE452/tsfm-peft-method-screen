@@ -1,0 +1,94 @@
+{
+  "status": "PASS",
+  "upstream": {
+    "repo": "laiguokun/multivariate-time-series-data",
+    "branch": "master",
+    "path": "electricity/electricity.txt.gz",
+    "commit": "7f402f185cc2435b5e66aed13a3b560ed142e023"
+  },
+  "raw_path": "E:\\CODING\\proj\\tsfm-peft-method-screen\\.cache\\rollout_uncertainty_peft_v1_20260921\\data\\electricity.txt.gz",
+  "raw_sha256": "3c4c069588198c1fcc95cace7bb69c99922129edfd673b7286661dad20badefa",
+  "prepared_input_sha256": "400c1eead55af7b534fdee5f6345f60ae4a5f9764c9ee89f08c2622d9104c6df",
+  "selected_ids": [
+    "211",
+    "160",
+    "303",
+    "17",
+    "109",
+    "319",
+    "152",
+    "140"
+  ],
+  "shape": [
+    26304,
+    8
+  ],
+  "edges": [
+    0,
+    15782,
+    18412,
+    21043,
+    26304
+  ],
+  "sigma": [
+    468.71668536693596,
+    361.82453764298384,
+    426.26440284635873,
+    41.22350353620195,
+    277.43319830803375,
+    260.0917399315796,
+    326.65572912056115,
+    182.6308578625251
+  ],
+  "roles": {
+    "TRAIN": {
+      "examples": 123704,
+      "first": [
+        0,
+        256
+      ],
+      "last": [
+        7,
+        15718
+      ]
+    },
+    "CAL": {
+      "examples": 328,
+      "first": [
+        0,
+        15782
+      ],
+      "last": [
+        7,
+        18342
+      ]
+    },
+    "VAL": {
+      "examples": 328,
+      "first": [
+        0,
+        18412
+      ],
+      "last": [
+        7,
+        20972
+      ]
+    },
+    "TEST": {
+      "examples": 656,
+      "first": [
+        0,
+        21043
+      ],
+      "last": [
+        7,
+        26227
+      ]
+    }
+  },
+  "basis_contexts": 256,
+  "basis_contexts_disjoint_per_series": true,
+  "context": 256,
+  "horizon": 64,
+  "prior_exposed_development_data": true
+}
