@@ -1,0 +1,151 @@
+{
+  "status": "PASS",
+  "records": [
+    {
+      "arm": "Q_FP",
+      "seed": 92201,
+      "serialized_prediction_max_abs": 0.0,
+      "official_native_prediction_exact": true,
+      "buffer_hash": "dfa87fbb118e037bc1df45a554075b61be145f2a4a5a0ec300e6aa9a66b16ad2",
+      "serialized_buffer_exact": true,
+      "input_shape": [
+        8,
+        512
+      ]
+    },
+    {
+      "arm": "Q_FP",
+      "seed": 92202,
+      "serialized_prediction_max_abs": 0.0,
+      "official_native_prediction_exact": true,
+      "buffer_hash": "dfa87fbb118e037bc1df45a554075b61be145f2a4a5a0ec300e6aa9a66b16ad2",
+      "serialized_buffer_exact": true,
+      "input_shape": [
+        8,
+        512
+      ]
+    },
+    {
+      "arm": "Q_STD",
+      "seed": 92201,
+      "serialized_prediction_max_abs": 0.0,
+      "official_native_prediction_exact": true,
+      "buffer_hash": "dfa87fbb118e037bc1df45a554075b61be145f2a4a5a0ec300e6aa9a66b16ad2",
+      "serialized_buffer_exact": true,
+      "input_shape": [
+        8,
+        512
+      ]
+    },
+    {
+      "arm": "Q_STD",
+      "seed": 92202,
+      "serialized_prediction_max_abs": 0.0,
+      "official_native_prediction_exact": true,
+      "buffer_hash": "dfa87fbb118e037bc1df45a554075b61be145f2a4a5a0ec300e6aa9a66b16ad2",
+      "serialized_buffer_exact": true,
+      "input_shape": [
+        8,
+        512
+      ]
+    },
+    {
+      "arm": "Q_LOFTQ",
+      "seed": 92201,
+      "serialized_prediction_max_abs": 0.0,
+      "official_native_prediction_exact": true,
+      "buffer_hash": "dfa87fbb118e037bc1df45a554075b61be145f2a4a5a0ec300e6aa9a66b16ad2",
+      "serialized_buffer_exact": true,
+      "input_shape": [
+        8,
+        512
+      ]
+    },
+    {
+      "arm": "Q_LOFTQ",
+      "seed": 92202,
+      "serialized_prediction_max_abs": 0.0,
+      "official_native_prediction_exact": true,
+      "buffer_hash": "dfa87fbb118e037bc1df45a554075b61be145f2a4a5a0ec300e6aa9a66b16ad2",
+      "serialized_buffer_exact": true,
+      "input_shape": [
+        8,
+        512
+      ]
+    },
+    {
+      "arm": "Q_QERA",
+      "seed": 92201,
+      "serialized_prediction_max_abs": 0.0,
+      "official_native_prediction_exact": true,
+      "buffer_hash": "dfa87fbb118e037bc1df45a554075b61be145f2a4a5a0ec300e6aa9a66b16ad2",
+      "serialized_buffer_exact": true,
+      "input_shape": [
+        8,
+        512
+      ]
+    },
+    {
+      "arm": "Q_QERA",
+      "seed": 92202,
+      "serialized_prediction_max_abs": 0.0,
+      "official_native_prediction_exact": true,
+      "buffer_hash": "dfa87fbb118e037bc1df45a554075b61be145f2a4a5a0ec300e6aa9a66b16ad2",
+      "serialized_buffer_exact": true,
+      "input_shape": [
+        8,
+        512
+      ]
+    },
+    {
+      "arm": "Q_IO16",
+      "seed": 92201,
+      "serialized_prediction_max_abs": 0.0,
+      "official_native_prediction_exact": true,
+      "buffer_hash": "dfa87fbb118e037bc1df45a554075b61be145f2a4a5a0ec300e6aa9a66b16ad2",
+      "serialized_buffer_exact": true,
+      "input_shape": [
+        8,
+        512
+      ]
+    },
+    {
+      "arm": "Q_IO16",
+      "seed": 92202,
+      "serialized_prediction_max_abs": 0.0,
+      "official_native_prediction_exact": true,
+      "buffer_hash": "dfa87fbb118e037bc1df45a554075b61be145f2a4a5a0ec300e6aa9a66b16ad2",
+      "serialized_buffer_exact": true,
+      "input_shape": [
+        8,
+        512
+      ]
+    },
+    {
+      "arm": "Q_FORECAST",
+      "seed": 92201,
+      "serialized_prediction_max_abs": 0.0,
+      "official_native_prediction_exact": true,
+      "buffer_hash": "dfa87fbb118e037bc1df45a554075b61be145f2a4a5a0ec300e6aa9a66b16ad2",
+      "serialized_buffer_exact": true,
+      "input_shape": [
+        8,
+        512
+      ]
+    },
+    {
+      "arm": "Q_FORECAST",
+      "seed": 92202,
+      "serialized_prediction_max_abs": 0.0,
+      "official_native_prediction_exact": true,
+      "buffer_hash": "dfa87fbb118e037bc1df45a554075b61be145f2a4a5a0ec300e6aa9a66b16ad2",
+      "serialized_buffer_exact": true,
+      "input_shape": [
+        8,
+        512
+      ]
+    }
+  ],
+  "optimizer_updates": 0,
+  "note": "post-training parity using saved selected adapters and original versus serialized packed base; no new fitting"
+}

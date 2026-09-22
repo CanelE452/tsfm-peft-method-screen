@@ -1,0 +1,93 @@
+{
+  "run": "F_LOCAL_92201",
+  "arm": "F_LOCAL",
+  "seed": 92201,
+  "selected_step": 16,
+  "validation": [
+    {
+      "step": 0,
+      "client_scalars": [
+        0.1526154300038588,
+        0.17840445355776718,
+        0.099364555806492,
+        0.1402613250344102
+      ],
+      "pinball": 0.14266144110063206,
+      "checkpoint_sha256": "b6f8afffa0307378e73bf7b90a9c3a95a32349bd6e2c049375fd6cfc816e3491"
+    },
+    {
+      "step": 8,
+      "client_scalars": [
+        0.15254904662124336,
+        0.17784689196003126,
+        0.09895375343638595,
+        0.13993730107177874
+      ],
+      "pinball": 0.14232174827235983,
+      "checkpoint_sha256": "8f2a05a4df897a19eabf03c5fd26899cb8821f17f65675c2c075e05206294efd"
+    },
+    {
+      "step": 16,
+      "client_scalars": [
+        0.1520214920414583,
+        0.1776715273860395,
+        0.09917417375449081,
+        0.13962887105632282
+      ],
+      "pinball": 0.14212401605957786,
+      "checkpoint_sha256": "83b000b04c76d180c11f9e95b13dcf741ad762cff77583de8d9fd48c085c96b2"
+    }
+  ],
+  "updates": 256,
+  "unit": "4 independent local fits",
+  "seconds": 18.062045800004853,
+  "frozen_unchanged": true,
+  "selected_checkpoint_sha256": "83b000b04c76d180c11f9e95b13dcf741ad762cff77583de8d9fd48c085c96b2",
+  "clients": [
+    {
+      "client": 0,
+      "local_updates": 64,
+      "seconds": 3.4473595000163186,
+      "peak_allocated": 161186304,
+      "private_parameter_bytes": 0,
+      "private_optimizer_tensor_bytes": 0,
+      "adapter_tensor_bytes": 1179648
+    },
+    {
+      "client": 1,
+      "local_updates": 64,
+      "seconds": 3.424973899993347,
+      "peak_allocated": 161186304,
+      "private_parameter_bytes": 0,
+      "private_optimizer_tensor_bytes": 0,
+      "adapter_tensor_bytes": 1179648
+    },
+    {
+      "client": 2,
+      "local_updates": 64,
+      "seconds": 3.510786500031827,
+      "peak_allocated": 161186304,
+      "private_parameter_bytes": 0,
+      "private_optimizer_tensor_bytes": 0,
+      "adapter_tensor_bytes": 1179648
+    },
+    {
+      "client": 3,
+      "local_updates": 64,
+      "seconds": 3.4553984999656677,
+      "peak_allocated": 161186304,
+      "private_parameter_bytes": 0,
+      "private_optimizer_tensor_bytes": 0,
+      "adapter_tensor_bytes": 1179648
+    }
+  ],
+  "uploaded_bytes": 0,
+  "downloaded_bytes": 0,
+  "server_adapter_state_bytes": 0,
+  "initial_trainable_hash": "c08a63b9bc90e414eb4d6455f1af00d3e1764fa3b894e8edbf1a9aa4da007178",
+  "frozen_A_bytes_per_client": 0,
+  "communication_scope": "round B transfer only; common pretrained backbone and seed-defined frozen A provisioning excluded",
+  "private_state_upload": false,
+  "server_validation_payload": "four scalars per validation round",
+  "communication": []
+}

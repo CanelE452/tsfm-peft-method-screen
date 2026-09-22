@@ -1,9 +1,9 @@
 {
   "smoke": 24,
-  "main": 5632,
+  "main": 8192,
   "Q": 3072,
   "T": 2560,
-  "F": 0,
+  "F": 2560,
   "runs": {
     "Q_smoke_Q_FP": 2,
     "Q_smoke_Q_STD": 2,
@@ -38,6 +38,16 @@
     "F_smoke_F_LOCAL": 2,
     "F_smoke_F_AFFINE": 2,
     "F_smoke_F_HEAD": 2,
-    "F_smoke_F_PERIODIC": 2
+    "F_smoke_F_PERIODIC": 2,
+    "F_LOCAL_92201": 256,
+    "F_SHARED_92201": 256,
+    "F_AFFINE_92201": 256,
+    "F_HEAD_92201": 256,
+    "F_PERIODIC_92201": 256,
+    "F_LOCAL_92202": 256,
+    "F_SHARED_92202": 256,
+    "F_AFFINE_92202": 256,
+    "F_HEAD_92202": 256,
+    "F_PERIODIC_92202": 256
   }
 }
