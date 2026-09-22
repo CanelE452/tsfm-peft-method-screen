@@ -1,0 +1,119 @@
+{
+  "checks": {
+    "cpu_only": true,
+    "no_interpolation": true,
+    "origins_use_global_rows": true,
+    "train_schedule_contexts_begin_at_or_after_offset": true,
+    "train_schedule_targets_wholly_in_bridge_train": true,
+    "validation_contexts_begin_at_or_after_offset": true,
+    "validation_targets_wholly_in_bridge_val": true,
+    "values_are_exact_bridge_slice": true
+  },
+  "created_at_utc": "2026-09-21T23:54:21.436290+00:00",
+  "data_version": "2026-09-22.t-bridge-v1",
+  "global_rows": {
+    "bridge_end_exclusive": 21043,
+    "bridge_train_end_exclusive": 19727,
+    "bridge_val_start_inclusive": 19727,
+    "offset": 15782,
+    "old_rows_excluded_from_values": [
+      0,
+      15782
+    ]
+  },
+  "purpose": "CPU-only independent packet proving T student access can be restricted to BRIDGE rows.",
+  "seeds": {
+    "92201": {
+      "bridge_train_end_exclusive": 19727,
+      "bridge_val_start_inclusive": 19727,
+      "hashes": {
+        "ids": "aec545a69cac414d03eb65786b316e3d558ea9175e2d6a8a45d0c7fe7a975ddc",
+        "origins": "b9dd64e36906dca1a3405662c34b538bc0aaba7d8dcc2bedf71843a11b3beef2",
+        "schedule": "ae1abe24b13f6be68745238c1b2d59481ee0386ce4a818549b40c3d49c225e4a",
+        "sigma": "1c5845105befac0efa8bcb970fc3302cb9d6135a7c3a8f1d8c4f20b639d6b3fa",
+        "values": "494e16918dc1d1a784b853b68b30deea4ff5fe3433ba37297b2639ebb218837f"
+      },
+      "ids_count": 16,
+      "origins_dtype": "int64",
+      "origins_shape": [
+        209
+      ],
+      "packet": ".cache\\tsfm_peft_three_candidate_gonogo_20260922\\bridge\\t_bridge_seed92201.npz",
+      "packet_sha256": "603262d60b203b3a09793616243414a6418b0ebe7139d73a0a647b8102f89e0a",
+      "schedule_dtype": "int64",
+      "schedule_shape": [
+        256,
+        8,
+        2
+      ],
+      "seed": 92201,
+      "sigma_dtype": "float64",
+      "sigma_shape": [
+        16
+      ],
+      "values_dtype": "float32",
+      "values_global_end_exclusive": 21043,
+      "values_global_start_inclusive": 15782,
+      "values_shape": [
+        5261,
+        16
+      ]
+    },
+    "92202": {
+      "bridge_train_end_exclusive": 19727,
+      "bridge_val_start_inclusive": 19727,
+      "hashes": {
+        "ids": "aec545a69cac414d03eb65786b316e3d558ea9175e2d6a8a45d0c7fe7a975ddc",
+        "origins": "b9dd64e36906dca1a3405662c34b538bc0aaba7d8dcc2bedf71843a11b3beef2",
+        "schedule": "3d76e87505d82187733d0c846d3ed812689ff2f98b07fd48d840b02536964eb3",
+        "sigma": "1c5845105befac0efa8bcb970fc3302cb9d6135a7c3a8f1d8c4f20b639d6b3fa",
+        "values": "494e16918dc1d1a784b853b68b30deea4ff5fe3433ba37297b2639ebb218837f"
+      },
+      "ids_count": 16,
+      "origins_dtype": "int64",
+      "origins_shape": [
+        209
+      ],
+      "packet": ".cache\\tsfm_peft_three_candidate_gonogo_20260922\\bridge\\t_bridge_seed92202.npz",
+      "packet_sha256": "4b37caa62c5d4a2c825eb7dc70d9b7c30522d23277c7336b2ee4955c667111f1",
+      "schedule_dtype": "int64",
+      "schedule_shape": [
+        256,
+        8,
+        2
+      ],
+      "seed": 92202,
+      "sigma_dtype": "float64",
+      "sigma_shape": [
+        16
+      ],
+      "values_dtype": "float32",
+      "values_global_end_exclusive": 21043,
+      "values_global_start_inclusive": 15782,
+      "values_shape": [
+        5261,
+        16
+      ]
+    }
+  },
+  "source_api_used_by_build_only": {
+    "calls": [
+      "load()",
+      "schedule('T_BRIDGE_TRAIN', seed)"
+    ],
+    "module": "experiments\\tsfm_peft_three_candidate_gonogo_20260922\\data.py"
+  },
+  "status": "PASS",
+  "student_api_contract": {
+    "allowed_reads": "one independent .cache/<NAME>/bridge/t_bridge_seed<seed>.npz packet",
+    "forbidden_reads": [
+      ".cache/<NAME>/data/electricity_selected_packet.npz",
+      ".cache/<NAME>/data/values_float32.npy",
+      ".cache/<NAME>/data/origins.npz",
+      ".cache/<NAME>/data/sigma_float64.npy",
+      ".cache/<NAME>/data/electricity.txt.gz",
+      "experiments/<NAME>/data.py"
+    ],
+    "function": "load_bridge(seed)"
+  }
+}
