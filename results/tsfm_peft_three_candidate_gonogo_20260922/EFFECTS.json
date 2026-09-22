@@ -1,0 +1,2889 @@
+{
+  "comparisons": [
+    {
+      "category": "Q",
+      "comparison": "candidate_vs_V_selected",
+      "seed": 92201,
+      "baseline": "Q_IO16",
+      "candidate": "Q_FORECAST",
+      "primary_V_selected": true,
+      "test_reselection": false,
+      "baseline_mean": 0.16340966527340536,
+      "candidate_mean": 0.16400869186801129,
+      "difference": -0.0005990265946059286,
+      "gain_pct": -0.36657965953463045,
+      "ci_difference": [
+        -0.0009767903277357478,
+        -0.00038305933076847245
+      ],
+      "ci_gain_pct": [
+        -0.5940849789696596,
+        -0.24161587775205987
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.1634096652734053,
+          "candidate_mean": 0.16400869186801129,
+          "difference": -0.0005990265946059781,
+          "gain_pct": -0.3665796595346608
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "Q",
+      "comparison": "candidate_vs_V_selected",
+      "seed": 92202,
+      "baseline": "Q_IO16",
+      "candidate": "Q_FORECAST",
+      "primary_V_selected": true,
+      "test_reselection": false,
+      "baseline_mean": 0.1632919709427615,
+      "candidate_mean": 0.16349993717779795,
+      "difference": -0.00020796623503648292,
+      "gain_pct": -0.12735851850877655,
+      "ci_difference": [
+        -0.0006452824394922816,
+        0.00010133750658624699
+      ],
+      "ci_gain_pct": [
+        -0.41399716580312623,
+        0.06364044755997462
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.1632919709427615,
+          "candidate_mean": 0.16349993717779795,
+          "difference": -0.00020796623503646638,
+          "gain_pct": -0.12735851850876642
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "Q",
+      "comparison": "candidate_vs_V_selected",
+      "seed": "score_mean",
+      "baseline": [
+        "Q_IO16",
+        "Q_IO16"
+      ],
+      "candidate": [
+        "Q_FORECAST",
+        "Q_FORECAST"
+      ],
+      "primary_V_selected": true,
+      "test_reselection": false,
+      "baseline_mean": 0.16335081810808344,
+      "candidate_mean": 0.16375431452290462,
+      "difference": -0.0004034964148212058,
+      "gain_pct": -0.24701217875396653,
+      "ci_difference": [
+        -0.0006588880429509549,
+        -0.00028639155187629167
+      ],
+      "ci_gain_pct": [
+        -0.4215009625656871,
+        -0.17325239302839554
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.1634096652734053,
+          "candidate_mean": 0.16400869186801129,
+          "difference": -0.0005990265946059781,
+          "gain_pct": -0.3665796595346608
+        },
+        {
+          "seed_index": 1,
+          "baseline_mean": 0.1632919709427615,
+          "candidate_mean": 0.16349993717779795,
+          "difference": -0.00020796623503646638,
+          "gain_pct": -0.12735851850876642
+        }
+      ],
+      "n_seeds": 2,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "Q",
+      "comparison": "diagnostic_vs_Q_FP",
+      "seed": 92201,
+      "baseline": "Q_FP",
+      "candidate": "Q_FORECAST",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.16334320830040147,
+      "candidate_mean": 0.16400869186801129,
+      "difference": -0.0006654835676097829,
+      "gain_pct": -0.40741428709169486,
+      "ci_difference": [
+        -0.0010979248947203864,
+        -0.00045422272627914056
+      ],
+      "ci_gain_pct": [
+        -0.6737321405776325,
+        -0.28400046815853486
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.16334320830040147,
+          "candidate_mean": 0.16400869186801129,
+          "difference": -0.0006654835676098148,
+          "gain_pct": -0.4074142870917144
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "Q",
+      "comparison": "diagnostic_vs_Q_FP",
+      "seed": 92202,
+      "baseline": "Q_FP",
+      "candidate": "Q_FORECAST",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.16320615516099837,
+      "candidate_mean": 0.16349993717779795,
+      "difference": -0.0002937820167995933,
+      "gain_pct": -0.18000670165275656,
+      "ci_difference": [
+        -0.0007799047210591486,
+        1.5663617754784578e-05
+      ],
+      "ci_gain_pct": [
+        -0.5039590031281265,
+        0.009452162689033788
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.16320615516099837,
+          "candidate_mean": 0.16349993717779795,
+          "difference": -0.00029378201679958194,
+          "gain_pct": -0.1800067016527496
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "Q",
+      "comparison": "diagnostic_vs_Q_FP",
+      "seed": "score_mean",
+      "baseline": [
+        "Q_FP",
+        "Q_FP"
+      ],
+      "candidate": [
+        "Q_FORECAST",
+        "Q_FORECAST"
+      ],
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.1632746817306999,
+      "candidate_mean": 0.16375431452290462,
+      "difference": -0.0004796327922046886,
+      "gain_pct": -0.29375821598340623,
+      "ci_difference": [
+        -0.0008046728098079191,
+        -0.00034279935521396775
+      ],
+      "ci_gain_pct": [
+        -0.5088714110982246,
+        -0.20667985999263433
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.16334320830040147,
+          "candidate_mean": 0.16400869186801129,
+          "difference": -0.0006654835676098148,
+          "gain_pct": -0.4074142870917144
+        },
+        {
+          "seed_index": 1,
+          "baseline_mean": 0.16320615516099837,
+          "candidate_mean": 0.16349993717779795,
+          "difference": -0.00029378201679958194,
+          "gain_pct": -0.1800067016527496
+        }
+      ],
+      "n_seeds": 2,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "Q",
+      "comparison": "diagnostic_vs_Q_STD",
+      "seed": 92201,
+      "baseline": "Q_STD",
+      "candidate": "Q_FORECAST",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.16447252746022326,
+      "candidate_mean": 0.16400869186801129,
+      "difference": 0.0004638355922119858,
+      "gain_pct": 0.2820140234813147,
+      "ci_difference": [
+        2.986784267090185e-05,
+        0.0006978884055912007
+      ],
+      "ci_gain_pct": [
+        0.016984627122726283,
+        0.4351780168763461
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.16447252746022326,
+          "candidate_mean": 0.16400869186801129,
+          "difference": 0.0004638355922119697,
+          "gain_pct": 0.2820140234813049
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "Q",
+      "comparison": "diagnostic_vs_Q_STD",
+      "seed": 92202,
+      "baseline": "Q_STD",
+      "candidate": "Q_FORECAST",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.16397335891466658,
+      "candidate_mean": 0.16349993717779795,
+      "difference": 0.00047342173686858917,
+      "gain_pct": 0.28871869186686766,
+      "ci_difference": [
+        0.00034520256120582234,
+        0.0005453689320255411
+      ],
+      "ci_gain_pct": [
+        0.2177052630332894,
+        0.3334922843901358
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.16397335891466658,
+          "candidate_mean": 0.16349993717779795,
+          "difference": 0.0004734217368686233,
+          "gain_pct": 0.2887186918668885
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "Q",
+      "comparison": "diagnostic_vs_Q_STD",
+      "seed": "score_mean",
+      "baseline": [
+        "Q_STD",
+        "Q_STD"
+      ],
+      "candidate": [
+        "Q_FORECAST",
+        "Q_FORECAST"
+      ],
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.1642229431874449,
+      "candidate_mean": 0.16375431452290462,
+      "difference": 0.0004686286645402868,
+      "gain_pct": 0.28536126283243607,
+      "ci_difference": [
+        0.00022290367096404343,
+        0.0005907718635206507
+      ],
+      "ci_gain_pct": [
+        0.13736835931600663,
+        0.36979189598913154
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.16447252746022326,
+          "candidate_mean": 0.16400869186801129,
+          "difference": 0.0004638355922119697,
+          "gain_pct": 0.2820140234813049
+        },
+        {
+          "seed_index": 1,
+          "baseline_mean": 0.16397335891466658,
+          "candidate_mean": 0.16349993717779795,
+          "difference": 0.0004734217368686233,
+          "gain_pct": 0.2887186918668885
+        }
+      ],
+      "n_seeds": 2,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "Q",
+      "comparison": "diagnostic_vs_Q_LOFTQ",
+      "seed": 92201,
+      "baseline": "Q_LOFTQ",
+      "candidate": "Q_FORECAST",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.16433299526935635,
+      "candidate_mean": 0.16400869186801129,
+      "difference": 0.0003243034013450938,
+      "gain_pct": 0.19734527494830345,
+      "ci_difference": [
+        -7.652818693990362e-05,
+        0.0005668835238329596
+      ],
+      "ci_gain_pct": [
+        -0.04730987767894589,
+        0.3572988526852704
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.16433299526935635,
+          "candidate_mean": 0.16400869186801129,
+          "difference": 0.0003243034013450663,
+          "gain_pct": 0.19734527494828671
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "Q",
+      "comparison": "diagnostic_vs_Q_LOFTQ",
+      "seed": 92202,
+      "baseline": "Q_LOFTQ",
+      "candidate": "Q_FORECAST",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.1639495877529471,
+      "candidate_mean": 0.16349993717779795,
+      "difference": 0.00044965057514911725,
+      "gain_pct": 0.27426148568710534,
+      "ci_difference": [
+        0.00029437418798297714,
+        0.0005292699606285479
+      ],
+      "ci_gain_pct": [
+        0.1885664820798075,
+        0.31894825079623595
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.16394958775294707,
+          "candidate_mean": 0.16349993717779795,
+          "difference": 0.00044965057514911866,
+          "gain_pct": 0.2742614856871063
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "Q",
+      "comparison": "diagnostic_vs_Q_LOFTQ",
+      "seed": "score_mean",
+      "baseline": [
+        "Q_LOFTQ",
+        "Q_LOFTQ"
+      ],
+      "candidate": [
+        "Q_FORECAST",
+        "Q_FORECAST"
+      ],
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.16414129151115173,
+      "candidate_mean": 0.16375431452290462,
+      "difference": 0.00038697698824710554,
+      "gain_pct": 0.23575846435984354,
+      "ci_difference": [
+        0.00016818182957398752,
+        0.0005030538296290476
+      ],
+      "ci_gain_pct": [
+        0.10232626171578442,
+        0.31273609101735694
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.16433299526935635,
+          "candidate_mean": 0.16400869186801129,
+          "difference": 0.0003243034013450663,
+          "gain_pct": 0.19734527494828671
+        },
+        {
+          "seed_index": 1,
+          "baseline_mean": 0.16394958775294707,
+          "candidate_mean": 0.16349993717779795,
+          "difference": 0.00044965057514911866,
+          "gain_pct": 0.2742614856871063
+        }
+      ],
+      "n_seeds": 2,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "Q",
+      "comparison": "diagnostic_vs_Q_QERA",
+      "seed": 92201,
+      "baseline": "Q_QERA",
+      "candidate": "Q_FORECAST",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.16413137181441997,
+      "candidate_mean": 0.16400869186801129,
+      "difference": 0.0001226799464086859,
+      "gain_pct": 0.0747449710877928,
+      "ci_difference": [
+        -0.0002797763270568216,
+        0.0003631031866002463
+      ],
+      "ci_gain_pct": [
+        -0.16948512460927703,
+        0.22835527776169673
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.16413137181441997,
+          "candidate_mean": 0.16400869186801129,
+          "difference": 0.00012267994640868807,
+          "gain_pct": 0.07474497108779411
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "Q",
+      "comparison": "diagnostic_vs_Q_QERA",
+      "seed": 92202,
+      "baseline": "Q_QERA",
+      "candidate": "Q_FORECAST",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.1636536291307492,
+      "candidate_mean": 0.16349993717779795,
+      "difference": 0.00015369195295123823,
+      "gain_pct": 0.09391295125416851,
+      "ci_difference": [
+        9.52326705152981e-05,
+        0.00018972997616300606
+      ],
+      "ci_gain_pct": [
+        0.06055638758823611,
+        0.11561809562741501
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.1636536291307492,
+          "candidate_mean": 0.16349993717779795,
+          "difference": 0.00015369195295125704,
+          "gain_pct": 0.09391295125418
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "Q",
+      "comparison": "diagnostic_vs_Q_QERA",
+      "seed": "score_mean",
+      "baseline": [
+        "Q_QERA",
+        "Q_QERA"
+      ],
+      "candidate": [
+        "Q_FORECAST",
+        "Q_FORECAST"
+      ],
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.1638925004725846,
+      "candidate_mean": 0.16375431452290462,
+      "difference": 0.0001381859496799618,
+      "gain_pct": 0.08431499262107914,
+      "ci_difference": [
+        -6.620743936172529e-05,
+        0.0002543260395808733
+      ],
+      "ci_gain_pct": [
+        -0.04044834538752149,
+        0.1615871896229764
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.16413137181441997,
+          "candidate_mean": 0.16400869186801129,
+          "difference": 0.00012267994640868807,
+          "gain_pct": 0.07474497108779411
+        },
+        {
+          "seed_index": 1,
+          "baseline_mean": 0.1636536291307492,
+          "candidate_mean": 0.16349993717779795,
+          "difference": 0.00015369195295125704,
+          "gain_pct": 0.09391295125418
+        }
+      ],
+      "n_seeds": 2,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "Q",
+      "comparison": "diagnostic_vs_Q_IO16",
+      "seed": 92201,
+      "baseline": "Q_IO16",
+      "candidate": "Q_FORECAST",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.16340966527340536,
+      "candidate_mean": 0.16400869186801129,
+      "difference": -0.0005990265946059286,
+      "gain_pct": -0.36657965953463045,
+      "ci_difference": [
+        -0.0009767903277357478,
+        -0.00038305933076847245
+      ],
+      "ci_gain_pct": [
+        -0.5940849789696596,
+        -0.24161587775205987
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.1634096652734053,
+          "candidate_mean": 0.16400869186801129,
+          "difference": -0.0005990265946059781,
+          "gain_pct": -0.3665796595346608
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "Q",
+      "comparison": "diagnostic_vs_Q_IO16",
+      "seed": 92202,
+      "baseline": "Q_IO16",
+      "candidate": "Q_FORECAST",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.1632919709427615,
+      "candidate_mean": 0.16349993717779795,
+      "difference": -0.00020796623503648292,
+      "gain_pct": -0.12735851850877655,
+      "ci_difference": [
+        -0.0006452824394922816,
+        0.00010133750658624699
+      ],
+      "ci_gain_pct": [
+        -0.41399716580312623,
+        0.06364044755997462
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.1632919709427615,
+          "candidate_mean": 0.16349993717779795,
+          "difference": -0.00020796623503646638,
+          "gain_pct": -0.12735851850876642
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "Q",
+      "comparison": "diagnostic_vs_Q_IO16",
+      "seed": "score_mean",
+      "baseline": [
+        "Q_IO16",
+        "Q_IO16"
+      ],
+      "candidate": [
+        "Q_FORECAST",
+        "Q_FORECAST"
+      ],
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.16335081810808344,
+      "candidate_mean": 0.16375431452290462,
+      "difference": -0.0004034964148212058,
+      "gain_pct": -0.24701217875396653,
+      "ci_difference": [
+        -0.0006588880429509549,
+        -0.00028639155187629167
+      ],
+      "ci_gain_pct": [
+        -0.4215009625656871,
+        -0.17325239302839554
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.1634096652734053,
+          "candidate_mean": 0.16400869186801129,
+          "difference": -0.0005990265946059781,
+          "gain_pct": -0.3665796595346608
+        },
+        {
+          "seed_index": 1,
+          "baseline_mean": 0.1632919709427615,
+          "candidate_mean": 0.16349993717779795,
+          "difference": -0.00020796623503646638,
+          "gain_pct": -0.12735851850876642
+        }
+      ],
+      "n_seeds": 2,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "candidate_vs_V_selected",
+      "seed": 92201,
+      "baseline": "T_BLEND",
+      "candidate": "T_DELTA",
+      "primary_V_selected": true,
+      "test_reselection": false,
+      "baseline_mean": 0.15956932139608906,
+      "candidate_mean": 0.15965295964448253,
+      "difference": -8.363824839344819e-05,
+      "gain_pct": -0.052414992845547126,
+      "ci_difference": [
+        -0.00022890241492061638,
+        9.626753197420272e-05
+      ],
+      "ci_gain_pct": [
+        -0.1429818535343791,
+        0.06328845318229386
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.1595693213960891,
+          "candidate_mean": 0.15965295964448253,
+          "difference": -8.36382483934417e-05,
+          "gain_pct": -0.05241499284554305
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "candidate_vs_V_selected",
+      "seed": 92202,
+      "baseline": "T_BLEND",
+      "candidate": "T_DELTA",
+      "primary_V_selected": true,
+      "test_reselection": false,
+      "baseline_mean": 0.15951691567624032,
+      "candidate_mean": 0.15974449982418196,
+      "difference": -0.0002275841479416777,
+      "gain_pct": -0.14267085529887527,
+      "ci_difference": [
+        -0.0004151388355473265,
+        -1.6244162036469995e-05
+      ],
+      "ci_gain_pct": [
+        -0.2644389166708295,
+        -0.010428623630699598
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.15951691567624032,
+          "candidate_mean": 0.15974449982418196,
+          "difference": -0.00022758414794163406,
+          "gain_pct": -0.1426708552988479
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "candidate_vs_V_selected",
+      "seed": "score_mean",
+      "baseline": [
+        "T_BLEND",
+        "T_BLEND"
+      ],
+      "candidate": [
+        "T_DELTA",
+        "T_DELTA"
+      ],
+      "primary_V_selected": true,
+      "test_reselection": false,
+      "baseline_mean": 0.1595431185361647,
+      "candidate_mean": 0.15969872973433225,
+      "difference": -0.00015561119816756357,
+      "gain_pct": -0.0975355124027428,
+      "ci_difference": [
+        -0.00031906900458348187,
+        3.8481618969764474e-05
+      ],
+      "ci_gain_pct": [
+        -0.2010055557347544,
+        0.024786272008804858
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.1595693213960891,
+          "candidate_mean": 0.15965295964448253,
+          "difference": -8.36382483934417e-05,
+          "gain_pct": -0.05241499284554305
+        },
+        {
+          "seed_index": 1,
+          "baseline_mean": 0.15951691567624032,
+          "candidate_mean": 0.15974449982418196,
+          "difference": -0.00022758414794163406,
+          "gain_pct": -0.1426708552988479
+        }
+      ],
+      "n_seeds": 2,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "diagnostic_vs_A0",
+      "seed": 92201,
+      "baseline": "A0",
+      "candidate": "T_DELTA",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.163421215166346,
+      "candidate_mean": 0.15965295964448253,
+      "difference": 0.0037682555218634755,
+      "gain_pct": 2.305854547726731,
+      "ci_difference": [
+        0.0031460487177819635,
+        0.004195539368428128
+      ],
+      "ci_gain_pct": [
+        1.963310206160356,
+        2.6160413844561683
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.163421215166346,
+          "candidate_mean": 0.15965295964448253,
+          "difference": 0.0037682555218634672,
+          "gain_pct": 2.305854547726726
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "diagnostic_vs_A0",
+      "seed": 92202,
+      "baseline": "A0",
+      "candidate": "T_DELTA",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.163421215166346,
+      "candidate_mean": 0.15974449982418196,
+      "difference": 0.003676715342164016,
+      "gain_pct": 2.2498396786619765,
+      "ci_difference": [
+        0.0030553513071149866,
+        0.004139598712416736
+      ],
+      "ci_gain_pct": [
+        1.8949505206929438,
+        2.590451179529668
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.163421215166346,
+          "candidate_mean": 0.15974449982418196,
+          "difference": 0.003676715342164044,
+          "gain_pct": 2.249839678661994
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "diagnostic_vs_A0",
+      "seed": "score_mean",
+      "baseline": [
+        "A0",
+        "A0"
+      ],
+      "candidate": [
+        "T_DELTA",
+        "T_DELTA"
+      ],
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.163421215166346,
+      "candidate_mean": 0.15969872973433225,
+      "difference": 0.0037224854320137457,
+      "gain_pct": 2.277847113194354,
+      "ci_difference": [
+        0.003106892176656901,
+        0.0041592731892734726
+      ],
+      "ci_gain_pct": [
+        1.9295161198949664,
+        2.6001345057995
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.163421215166346,
+          "candidate_mean": 0.15965295964448253,
+          "difference": 0.0037682555218634672,
+          "gain_pct": 2.305854547726726
+        },
+        {
+          "seed_index": 1,
+          "baseline_mean": 0.163421215166346,
+          "candidate_mean": 0.15974449982418196,
+          "difference": 0.003676715342164044,
+          "gain_pct": 2.249839678661994
+        }
+      ],
+      "n_seeds": 2,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "diagnostic_vs_T_A1",
+      "seed": 92201,
+      "baseline": "T_A1",
+      "candidate": "T_DELTA",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.16312656325445943,
+      "candidate_mean": 0.15965295964448253,
+      "difference": 0.0034736036099768924,
+      "gain_pct": 2.1293917683770816,
+      "ci_difference": [
+        0.0027577456656810726,
+        0.0038754076169959122
+      ],
+      "ci_gain_pct": [
+        1.7323367388704365,
+        2.399196634486958
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.16312656325445943,
+          "candidate_mean": 0.15965295964448253,
+          "difference": 0.003473603609976894,
+          "gain_pct": 2.129391768377083
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "diagnostic_vs_T_A1",
+      "seed": 92202,
+      "baseline": "T_A1",
+      "candidate": "T_DELTA",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.1631593397530628,
+      "candidate_mean": 0.15974449982418196,
+      "difference": 0.003414839928880812,
+      "gain_pct": 2.0929478717240944,
+      "ci_difference": [
+        0.002734164417344016,
+        0.003825625068988915
+      ],
+      "ci_gain_pct": [
+        1.707592090690981,
+        2.38231318240717
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.1631593397530628,
+          "candidate_mean": 0.15974449982418196,
+          "difference": 0.003414839928880836,
+          "gain_pct": 2.092947871724109
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "diagnostic_vs_T_A1",
+      "seed": "score_mean",
+      "baseline": [
+        "T_A1",
+        "T_A1"
+      ],
+      "candidate": [
+        "T_DELTA",
+        "T_DELTA"
+      ],
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.16314295150376112,
+      "candidate_mean": 0.15969872973433225,
+      "difference": 0.0034442217694288517,
+      "gain_pct": 2.1111679895955837,
+      "ci_difference": [
+        0.0027452042178220315,
+        0.0038492961563128497
+      ],
+      "ci_gain_pct": [
+        1.718901271020549,
+        2.390854243560667
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.16312656325445943,
+          "candidate_mean": 0.15965295964448253,
+          "difference": 0.003473603609976894,
+          "gain_pct": 2.129391768377083
+        },
+        {
+          "seed_index": 1,
+          "baseline_mean": 0.1631593397530628,
+          "candidate_mean": 0.15974449982418196,
+          "difference": 0.003414839928880836,
+          "gain_pct": 2.092947871724109
+        }
+      ],
+      "n_seeds": 2,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "diagnostic_vs_N0",
+      "seed": 92201,
+      "baseline": "N0",
+      "candidate": "T_DELTA",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.15973119583077422,
+      "candidate_mean": 0.15965295964448253,
+      "difference": 7.8236186291697e-05,
+      "gain_pct": 0.04897990394724373,
+      "ci_difference": [
+        -7.147041832717224e-05,
+        0.00024832657961251694
+      ],
+      "ci_gain_pct": [
+        -0.04592932025276285,
+        0.158992313635974
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.15973119583077422,
+          "candidate_mean": 0.15965295964448253,
+          "difference": 7.823618629168583e-05,
+          "gain_pct": 0.04897990394723674
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "diagnostic_vs_N0",
+      "seed": 92202,
+      "baseline": "N0",
+      "candidate": "T_DELTA",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.15973119583077422,
+      "candidate_mean": 0.15974449982418196,
+      "difference": -1.3303993407762519e-05,
+      "gain_pct": -0.008328988798066294,
+      "ci_difference": [
+        -0.00021328411380737837,
+        0.0002173475360841709
+      ],
+      "ci_gain_pct": [
+        -0.13354319414726604,
+        0.14146126133259113
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.15973119583077422,
+          "candidate_mean": 0.15974449982418196,
+          "difference": -1.3303993407737247e-05,
+          "gain_pct": -0.008328988798050472
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "diagnostic_vs_N0",
+      "seed": "score_mean",
+      "baseline": [
+        "N0",
+        "N0"
+      ],
+      "candidate": [
+        "T_DELTA",
+        "T_DELTA"
+      ],
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.15973119583077422,
+      "candidate_mean": 0.15969872973433225,
+      "difference": 3.2466096441967175e-05,
+      "gain_pct": 0.020325457574588677,
+      "ci_difference": [
+        -0.00014103729198904118,
+        0.00022705849083617626
+      ],
+      "ci_gain_pct": [
+        -0.08755237224884761,
+        0.1467989397954549
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.15973119583077422,
+          "candidate_mean": 0.15965295964448253,
+          "difference": 7.823618629168583e-05,
+          "gain_pct": 0.04897990394723674
+        },
+        {
+          "seed_index": 1,
+          "baseline_mean": 0.15973119583077422,
+          "candidate_mean": 0.15974449982418196,
+          "difference": -1.3303993407737247e-05,
+          "gain_pct": -0.008328988798050472
+        }
+      ],
+      "n_seeds": 2,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "diagnostic_vs_T_RECENT",
+      "seed": 92201,
+      "baseline": "T_RECENT",
+      "candidate": "T_DELTA",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.15965628461139758,
+      "candidate_mean": 0.15965295964448253,
+      "difference": 3.3249669150596026e-06,
+      "gain_pct": 0.0020825781604229057,
+      "ci_difference": [
+        -0.00021178740997810941,
+        0.00018922451458391572
+      ],
+      "ci_gain_pct": [
+        -0.13725610035874863,
+        0.11702615425371282
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.15965628461139758,
+          "candidate_mean": 0.15965295964448253,
+          "difference": 3.324966915047023e-06,
+          "gain_pct": 0.0020825781604150266
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "diagnostic_vs_T_RECENT",
+      "seed": 92202,
+      "baseline": "T_RECENT",
+      "candidate": "T_DELTA",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.15971763101503045,
+      "candidate_mean": 0.15974449982418196,
+      "difference": -2.6868809151563763e-05,
+      "gain_pct": -0.016822694514568175,
+      "ci_difference": [
+        -0.00023679479478849397,
+        0.0001722317952099354
+      ],
+      "ci_gain_pct": [
+        -0.15612124357805904,
+        0.10657755353353014
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.15971763101503045,
+          "candidate_mean": 0.15974449982418196,
+          "difference": -2.686880915150902e-05,
+          "gain_pct": -0.0168226945145339
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "diagnostic_vs_T_RECENT",
+      "seed": "score_mean",
+      "baseline": [
+        "T_RECENT",
+        "T_RECENT"
+      ],
+      "candidate": [
+        "T_DELTA",
+        "T_DELTA"
+      ],
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.15968695781321401,
+      "candidate_mean": 0.15969872973433225,
+      "difference": -1.1771921118252505e-05,
+      "gain_pct": -0.007371873870890654,
+      "ci_difference": [
+        -0.00022373218887340268,
+        0.0001768070602780272
+      ],
+      "ci_gain_pct": [
+        -0.14616407019367403,
+        0.10883258829113576
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.15965628461139758,
+          "candidate_mean": 0.15965295964448253,
+          "difference": 3.324966915047023e-06,
+          "gain_pct": 0.0020825781604150266
+        },
+        {
+          "seed_index": 1,
+          "baseline_mean": 0.15971763101503045,
+          "candidate_mean": 0.15974449982418196,
+          "difference": -2.686880915150902e-05,
+          "gain_pct": -0.0168226945145339
+        }
+      ],
+      "n_seeds": 2,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "diagnostic_vs_T_KD",
+      "seed": 92201,
+      "baseline": "T_KD",
+      "candidate": "T_DELTA",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.15973119583077422,
+      "candidate_mean": 0.15965295964448253,
+      "difference": 7.8236186291697e-05,
+      "gain_pct": 0.04897990394724373,
+      "ci_difference": [
+        -7.147041832717224e-05,
+        0.00024832657961251694
+      ],
+      "ci_gain_pct": [
+        -0.04592932025276285,
+        0.158992313635974
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.15973119583077422,
+          "candidate_mean": 0.15965295964448253,
+          "difference": 7.823618629168583e-05,
+          "gain_pct": 0.04897990394723674
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "diagnostic_vs_T_KD",
+      "seed": 92202,
+      "baseline": "T_KD",
+      "candidate": "T_DELTA",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.15973119583077422,
+      "candidate_mean": 0.15974449982418196,
+      "difference": -1.3303993407762519e-05,
+      "gain_pct": -0.008328988798066294,
+      "ci_difference": [
+        -0.00021328411380737837,
+        0.0002173475360841709
+      ],
+      "ci_gain_pct": [
+        -0.13354319414726604,
+        0.14146126133259113
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.15973119583077422,
+          "candidate_mean": 0.15974449982418196,
+          "difference": -1.3303993407737247e-05,
+          "gain_pct": -0.008328988798050472
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "diagnostic_vs_T_KD",
+      "seed": "score_mean",
+      "baseline": [
+        "T_KD",
+        "T_KD"
+      ],
+      "candidate": [
+        "T_DELTA",
+        "T_DELTA"
+      ],
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.15973119583077422,
+      "candidate_mean": 0.15969872973433225,
+      "difference": 3.2466096441967175e-05,
+      "gain_pct": 0.020325457574588677,
+      "ci_difference": [
+        -0.00014103729198904118,
+        0.00022705849083617626
+      ],
+      "ci_gain_pct": [
+        -0.08755237224884761,
+        0.1467989397954549
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.15973119583077422,
+          "candidate_mean": 0.15965295964448253,
+          "difference": 7.823618629168583e-05,
+          "gain_pct": 0.04897990394723674
+        },
+        {
+          "seed_index": 1,
+          "baseline_mean": 0.15973119583077422,
+          "candidate_mean": 0.15974449982418196,
+          "difference": -1.3303993407737247e-05,
+          "gain_pct": -0.008328988798050472
+        }
+      ],
+      "n_seeds": 2,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "diagnostic_vs_T_BLEND",
+      "seed": 92201,
+      "baseline": "T_BLEND",
+      "candidate": "T_DELTA",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.15956932139608906,
+      "candidate_mean": 0.15965295964448253,
+      "difference": -8.363824839344819e-05,
+      "gain_pct": -0.052414992845547126,
+      "ci_difference": [
+        -0.00022890241492061638,
+        9.626753197420272e-05
+      ],
+      "ci_gain_pct": [
+        -0.1429818535343791,
+        0.06328845318229386
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.1595693213960891,
+          "candidate_mean": 0.15965295964448253,
+          "difference": -8.36382483934417e-05,
+          "gain_pct": -0.05241499284554305
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "diagnostic_vs_T_BLEND",
+      "seed": 92202,
+      "baseline": "T_BLEND",
+      "candidate": "T_DELTA",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.15951691567624032,
+      "candidate_mean": 0.15974449982418196,
+      "difference": -0.0002275841479416777,
+      "gain_pct": -0.14267085529887527,
+      "ci_difference": [
+        -0.0004151388355473265,
+        -1.6244162036469995e-05
+      ],
+      "ci_gain_pct": [
+        -0.2644389166708295,
+        -0.010428623630699598
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.15951691567624032,
+          "candidate_mean": 0.15974449982418196,
+          "difference": -0.00022758414794163406,
+          "gain_pct": -0.1426708552988479
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "diagnostic_vs_T_BLEND",
+      "seed": "score_mean",
+      "baseline": [
+        "T_BLEND",
+        "T_BLEND"
+      ],
+      "candidate": [
+        "T_DELTA",
+        "T_DELTA"
+      ],
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.1595431185361647,
+      "candidate_mean": 0.15969872973433225,
+      "difference": -0.00015561119816756357,
+      "gain_pct": -0.0975355124027428,
+      "ci_difference": [
+        -0.00031906900458348187,
+        3.8481618969764474e-05
+      ],
+      "ci_gain_pct": [
+        -0.2010055557347544,
+        0.024786272008804858
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.1595693213960891,
+          "candidate_mean": 0.15965295964448253,
+          "difference": -8.36382483934417e-05,
+          "gain_pct": -0.05241499284554305
+        },
+        {
+          "seed_index": 1,
+          "baseline_mean": 0.15951691567624032,
+          "candidate_mean": 0.15974449982418196,
+          "difference": -0.00022758414794163406,
+          "gain_pct": -0.1426708552988479
+        }
+      ],
+      "n_seeds": 2,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "F",
+      "comparison": "candidate_vs_V_selected",
+      "seed": 92201,
+      "baseline": "F_LOCAL",
+      "candidate": "F_PERIODIC",
+      "primary_V_selected": true,
+      "test_reselection": false,
+      "baseline_mean": 0.14749208586323018,
+      "candidate_mean": 0.14799004348199976,
+      "difference": -0.0004979576187695863,
+      "gain_pct": -0.337616500475384,
+      "ci_difference": [
+        -0.0007872940904962379,
+        -0.0002781707376710304
+      ],
+      "ci_gain_pct": [
+        -0.5449624472274321,
+        -0.19285665019280882
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.14749208586323018,
+          "candidate_mean": 0.14799004348199976,
+          "difference": -0.0004979576187695844,
+          "gain_pct": -0.3376165004753828
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 4,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "F",
+      "comparison": "candidate_vs_V_selected",
+      "seed": 92202,
+      "baseline": "F_LOCAL",
+      "candidate": "F_PERIODIC",
+      "primary_V_selected": true,
+      "test_reselection": false,
+      "baseline_mean": 0.14773494020025613,
+      "candidate_mean": 0.14824541300738941,
+      "difference": -0.0005104728071333021,
+      "gain_pct": -0.34553288913330277,
+      "ci_difference": [
+        -0.0009217106376755048,
+        -4.3939679629528335e-05
+      ],
+      "ci_gain_pct": [
+        -0.6358018740047263,
+        -0.03035310807516748
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.14773494020025613,
+          "candidate_mean": 0.14824541300738944,
+          "difference": -0.0005104728071333164,
+          "gain_pct": -0.3455328891333124
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 4,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "F",
+      "comparison": "candidate_vs_V_selected",
+      "seed": "score_mean",
+      "baseline": [
+        "F_LOCAL",
+        "F_LOCAL"
+      ],
+      "candidate": [
+        "F_PERIODIC",
+        "F_PERIODIC"
+      ],
+      "primary_V_selected": true,
+      "test_reselection": false,
+      "baseline_mean": 0.14761351303174314,
+      "candidate_mean": 0.14811772824469457,
+      "difference": -0.0005042152129514447,
+      "gain_pct": -0.3415779508228472,
+      "ci_difference": [
+        -0.0007601452251402418,
+        -0.00026296356875981616
+      ],
+      "ci_gain_pct": [
+        -0.5210722375383621,
+        -0.18449073720460515
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.14749208586323018,
+          "candidate_mean": 0.14799004348199976,
+          "difference": -0.0004979576187695844,
+          "gain_pct": -0.3376165004753828
+        },
+        {
+          "seed_index": 1,
+          "baseline_mean": 0.14773494020025613,
+          "candidate_mean": 0.14824541300738944,
+          "difference": -0.0005104728071333164,
+          "gain_pct": -0.3455328891333124
+        }
+      ],
+      "n_seeds": 2,
+      "n_origins": 866,
+      "n_series": 4,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "F",
+      "comparison": "diagnostic_vs_F_LOCAL",
+      "seed": 92201,
+      "baseline": "F_LOCAL",
+      "candidate": "F_PERIODIC",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.14749208586323018,
+      "candidate_mean": 0.14799004348199976,
+      "difference": -0.0004979576187695863,
+      "gain_pct": -0.337616500475384,
+      "ci_difference": [
+        -0.0007872940904962379,
+        -0.0002781707376710304
+      ],
+      "ci_gain_pct": [
+        -0.5449624472274321,
+        -0.19285665019280882
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.14749208586323018,
+          "candidate_mean": 0.14799004348199976,
+          "difference": -0.0004979576187695844,
+          "gain_pct": -0.3376165004753828
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 4,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "F",
+      "comparison": "diagnostic_vs_F_LOCAL",
+      "seed": 92202,
+      "baseline": "F_LOCAL",
+      "candidate": "F_PERIODIC",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.14773494020025613,
+      "candidate_mean": 0.14824541300738941,
+      "difference": -0.0005104728071333021,
+      "gain_pct": -0.34553288913330277,
+      "ci_difference": [
+        -0.0009217106376755048,
+        -4.3939679629528335e-05
+      ],
+      "ci_gain_pct": [
+        -0.6358018740047263,
+        -0.03035310807516748
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.14773494020025613,
+          "candidate_mean": 0.14824541300738944,
+          "difference": -0.0005104728071333164,
+          "gain_pct": -0.3455328891333124
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 4,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "F",
+      "comparison": "diagnostic_vs_F_LOCAL",
+      "seed": "score_mean",
+      "baseline": [
+        "F_LOCAL",
+        "F_LOCAL"
+      ],
+      "candidate": [
+        "F_PERIODIC",
+        "F_PERIODIC"
+      ],
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.14761351303174314,
+      "candidate_mean": 0.14811772824469457,
+      "difference": -0.0005042152129514447,
+      "gain_pct": -0.3415779508228472,
+      "ci_difference": [
+        -0.0007601452251402418,
+        -0.00026296356875981616
+      ],
+      "ci_gain_pct": [
+        -0.5210722375383621,
+        -0.18449073720460515
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.14749208586323018,
+          "candidate_mean": 0.14799004348199976,
+          "difference": -0.0004979576187695844,
+          "gain_pct": -0.3376165004753828
+        },
+        {
+          "seed_index": 1,
+          "baseline_mean": 0.14773494020025613,
+          "candidate_mean": 0.14824541300738944,
+          "difference": -0.0005104728071333164,
+          "gain_pct": -0.3455328891333124
+        }
+      ],
+      "n_seeds": 2,
+      "n_origins": 866,
+      "n_series": 4,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "F",
+      "comparison": "diagnostic_vs_F_SHARED",
+      "seed": 92201,
+      "baseline": "F_SHARED",
+      "candidate": "F_PERIODIC",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.1478696889806209,
+      "candidate_mean": 0.14799004348199976,
+      "difference": -0.00012035450137885906,
+      "gain_pct": -0.08139227329722197,
+      "ci_difference": [
+        -0.00031323662203365673,
+        3.629404043050643e-05
+      ],
+      "ci_gain_pct": [
+        -0.21502891784308806,
+        0.02593650249131604
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.1478696889806209,
+          "candidate_mean": 0.14799004348199976,
+          "difference": -0.00012035450137887205,
+          "gain_pct": -0.08139227329723074
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 4,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "F",
+      "comparison": "diagnostic_vs_F_SHARED",
+      "seed": 92202,
+      "baseline": "F_SHARED",
+      "candidate": "F_PERIODIC",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.1479213118369847,
+      "candidate_mean": 0.14824541300738941,
+      "difference": -0.00032410117040474466,
+      "gain_pct": -0.21910376968662726,
+      "ci_difference": [
+        -0.0007286164787087284,
+        0.0001442667502613396
+      ],
+      "ci_gain_pct": [
+        -0.48444176289508667,
+        0.10169703841931187
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.14792131183698468,
+          "candidate_mean": 0.14824541300738944,
+          "difference": -0.00032410117040476694,
+          "gain_pct": -0.21910376968664236
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 4,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "F",
+      "comparison": "diagnostic_vs_F_SHARED",
+      "seed": "score_mean",
+      "baseline": [
+        "F_SHARED",
+        "F_SHARED"
+      ],
+      "candidate": [
+        "F_PERIODIC",
+        "F_PERIODIC"
+      ],
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.1478955004088028,
+      "candidate_mean": 0.14811772824469457,
+      "difference": -0.00022222783589180155,
+      "gain_pct": -0.15026003852553613,
+      "ci_difference": [
+        -0.0005047345185754421,
+        6.946940154838862e-05
+      ],
+      "ci_gain_pct": [
+        -0.33956158230360106,
+        0.048381372053339464
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.1478696889806209,
+          "candidate_mean": 0.14799004348199976,
+          "difference": -0.00012035450137887205,
+          "gain_pct": -0.08139227329723074
+        },
+        {
+          "seed_index": 1,
+          "baseline_mean": 0.14792131183698468,
+          "candidate_mean": 0.14824541300738944,
+          "difference": -0.00032410117040476694,
+          "gain_pct": -0.21910376968664236
+        }
+      ],
+      "n_seeds": 2,
+      "n_origins": 866,
+      "n_series": 4,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "F",
+      "comparison": "diagnostic_vs_F_AFFINE",
+      "seed": 92201,
+      "baseline": "F_AFFINE",
+      "candidate": "F_PERIODIC",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.14784397000650223,
+      "candidate_mean": 0.14799004348199976,
+      "difference": -0.00014607347549751854,
+      "gain_pct": -0.09880245740904696,
+      "ci_difference": [
+        -0.00032058289089334686,
+        -3.234193119254602e-05
+      ],
+      "ci_gain_pct": [
+        -0.22270248192663852,
+        -0.02271794211838994
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.14784397000650223,
+          "candidate_mean": 0.14799004348199976,
+          "difference": -0.0001460734754975268,
+          "gain_pct": -0.09880245740905255
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 4,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "F",
+      "comparison": "diagnostic_vs_F_AFFINE",
+      "seed": 92202,
+      "baseline": "F_AFFINE",
+      "candidate": "F_PERIODIC",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.1480480286861491,
+      "candidate_mean": 0.14824541300738941,
+      "difference": -0.00019738432124031266,
+      "gain_pct": -0.13332451839581927,
+      "ci_difference": [
+        -0.000386724030740163,
+        -1.6237786972118542e-05
+      ],
+      "ci_gain_pct": [
+        -0.26322956668154224,
+        -0.011764264446029047
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.1480480286861491,
+          "candidate_mean": 0.14824541300738944,
+          "difference": -0.00019738432124033478,
+          "gain_pct": -0.1333245183958342
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 4,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "F",
+      "comparison": "diagnostic_vs_F_AFFINE",
+      "seed": "score_mean",
+      "baseline": [
+        "F_AFFINE",
+        "F_AFFINE"
+      ],
+      "candidate": [
+        "F_PERIODIC",
+        "F_PERIODIC"
+      ],
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.14794599934632566,
+      "candidate_mean": 0.14811772824469457,
+      "difference": -0.00017172889836891597,
+      "gain_pct": -0.11607539178326622,
+      "ci_difference": [
+        -0.0003200367207181521,
+        -4.421927189110881e-05
+      ],
+      "ci_gain_pct": [
+        -0.22296000600551316,
+        -0.031701584179383555
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.14784397000650223,
+          "candidate_mean": 0.14799004348199976,
+          "difference": -0.0001460734754975268,
+          "gain_pct": -0.09880245740905255
+        },
+        {
+          "seed_index": 1,
+          "baseline_mean": 0.1480480286861491,
+          "candidate_mean": 0.14824541300738944,
+          "difference": -0.00019738432124033478,
+          "gain_pct": -0.1333245183958342
+        }
+      ],
+      "n_seeds": 2,
+      "n_origins": 866,
+      "n_series": 4,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "F",
+      "comparison": "diagnostic_vs_F_HEAD",
+      "seed": 92201,
+      "baseline": "F_HEAD",
+      "candidate": "F_PERIODIC",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.14799439461260844,
+      "candidate_mean": 0.14799004348199976,
+      "difference": 4.351130608677867e-06,
+      "gain_pct": 0.0029400644666762064,
+      "ci_difference": [
+        -0.00015979731863162072,
+        0.00013203697102349548
+      ],
+      "ci_gain_pct": [
+        -0.11201794203020059,
+        0.09426001637819946
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.14799439461260847,
+          "candidate_mean": 0.14799004348199976,
+          "difference": 4.351130608704068e-06,
+          "gain_pct": 0.00294006446669391
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 4,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "F",
+      "comparison": "diagnostic_vs_F_HEAD",
+      "seed": 92202,
+      "baseline": "F_HEAD",
+      "candidate": "F_PERIODIC",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.14823050510978575,
+      "candidate_mean": 0.14824541300738941,
+      "difference": -1.4907897603697582e-05,
+      "gain_pct": -0.010057239967344216,
+      "ci_difference": [
+        -0.0004046270610918836,
+        0.000390043133362948
+      ],
+      "ci_gain_pct": [
+        -0.27416649173001234,
+        0.274381912893269
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.14823050510978575,
+          "candidate_mean": 0.14824541300738944,
+          "difference": -1.4907897603694265e-05,
+          "gain_pct": -0.010057239967341978
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 4,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "F",
+      "comparison": "diagnostic_vs_F_HEAD",
+      "seed": "score_mean",
+      "baseline": [
+        "F_HEAD",
+        "F_HEAD"
+      ],
+      "candidate": [
+        "F_PERIODIC",
+        "F_PERIODIC"
+      ],
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.14811244986119707,
+      "candidate_mean": 0.14811772824469457,
+      "difference": -5.278383497509842e-06,
+      "gain_pct": -0.003563767598508063,
+      "ci_difference": [
+        -0.000236842326621209,
+        0.00022696006641300664
+      ],
+      "ci_gain_pct": [
+        -0.1615212429631583,
+        0.1614304693237453
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.14799439461260847,
+          "candidate_mean": 0.14799004348199976,
+          "difference": 4.351130608704068e-06,
+          "gain_pct": 0.00294006446669391
+        },
+        {
+          "seed_index": 1,
+          "baseline_mean": 0.14823050510978575,
+          "candidate_mean": 0.14824541300738944,
+          "difference": -1.4907897603694265e-05,
+          "gain_pct": -0.010057239967341978
+        }
+      ],
+      "n_seeds": 2,
+      "n_origins": 866,
+      "n_series": 4,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "old_teacher_A1_vs_A0",
+      "seed": 92201,
+      "baseline": "A0",
+      "candidate": "T_A1",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.163421215166346,
+      "candidate_mean": 0.16312656325445943,
+      "difference": 0.0002946519118865832,
+      "gain_pct": 0.18030211780438535,
+      "ci_difference": [
+        0.0001586121010290646,
+        0.0005194670711704492
+      ],
+      "ci_gain_pct": [
+        0.0961900901707621,
+        0.3274197327999219
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.163421215166346,
+          "candidate_mean": 0.16312656325445943,
+          "difference": 0.00029465191188657314,
+          "gain_pct": 0.18030211780437919
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "old_teacher_A1_vs_A0",
+      "seed": 92202,
+      "baseline": "A0",
+      "candidate": "T_A1",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.163421215166346,
+      "candidate_mean": 0.1631593397530628,
+      "difference": 0.00026187541328320476,
+      "gain_pct": 0.16024566517672906,
+      "ci_difference": [
+        7.521566299021654e-05,
+        0.0005107096077403923
+      ],
+      "ci_gain_pct": [
+        0.04703177345541368,
+        0.32315880309620815
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.163421215166346,
+          "candidate_mean": 0.1631593397530628,
+          "difference": 0.00026187541328320796,
+          "gain_pct": 0.160245665176731
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "old_teacher_A1_vs_A0",
+      "seed": "score_mean",
+      "baseline": [
+        "A0",
+        "A0"
+      ],
+      "candidate": [
+        "T_A1",
+        "T_A1"
+      ],
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.163421215166346,
+      "candidate_mean": 0.16314295150376112,
+      "difference": 0.00027826366258489407,
+      "gain_pct": 0.17027389149055724,
+      "ci_difference": [
+        0.00012098177248175941,
+        0.0005143915937895938
+      ],
+      "ci_gain_pct": [
+        0.07343175737250936,
+        0.3233215327620154
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.163421215166346,
+          "candidate_mean": 0.16312656325445943,
+          "difference": 0.00029465191188657314,
+          "gain_pct": 0.18030211780437919
+        },
+        {
+          "seed_index": 1,
+          "baseline_mean": 0.163421215166346,
+          "candidate_mean": 0.1631593397530628,
+          "difference": 0.00026187541328320796,
+          "gain_pct": 0.160245665176731
+        }
+      ],
+      "n_seeds": 2,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "new_base_N0_vs_old_teacher_A1",
+      "seed": 92201,
+      "baseline": "T_A1",
+      "candidate": "N0",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.16312656325445943,
+      "candidate_mean": 0.15973119583077422,
+      "difference": 0.0033953674236851953,
+      "gain_pct": 2.081431347504574,
+      "ci_difference": [
+        0.002620115739715737,
+        0.0038425617254306144
+      ],
+      "ci_gain_pct": [
+        1.6477273761953208,
+        2.367734512485632
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.16312656325445943,
+          "candidate_mean": 0.15973119583077422,
+          "difference": 0.0033953674236852083,
+          "gain_pct": 2.0814313475045814
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "new_base_N0_vs_old_teacher_A1",
+      "seed": 92202,
+      "baseline": "T_A1",
+      "candidate": "N0",
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.1631593397530628,
+      "candidate_mean": 0.15973119583077422,
+      "difference": 0.003428143922288574,
+      "gain_pct": 2.1011018599836064,
+      "ci_difference": [
+        0.0026746121532288513,
+        0.003911291888716203
+      ],
+      "ci_gain_pct": [
+        1.6732129014844388,
+        2.4029037668224675
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.1631593397530628,
+          "candidate_mean": 0.15973119583077422,
+          "difference": 0.0034281439222885735,
+          "gain_pct": 2.101101859983606
+        }
+      ],
+      "n_seeds": 1,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    },
+    {
+      "category": "T",
+      "comparison": "new_base_N0_vs_old_teacher_A1",
+      "seed": "score_mean",
+      "baseline": [
+        "T_A1",
+        "T_A1"
+      ],
+      "candidate": [
+        "N0",
+        "N0"
+      ],
+      "primary_V_selected": false,
+      "test_reselection": false,
+      "baseline_mean": 0.16314295150376112,
+      "candidate_mean": 0.15973119583077422,
+      "difference": 0.003411755672986885,
+      "gain_pct": 2.0912675917281227,
+      "ci_difference": [
+        0.002654543744597426,
+        0.003869196838990901
+      ],
+      "ci_gain_pct": [
+        1.6604693112878086,
+        2.3849003328865743
+      ],
+      "seed_effects": [
+        {
+          "seed_index": 0,
+          "baseline_mean": 0.16312656325445943,
+          "candidate_mean": 0.15973119583077422,
+          "difference": 0.0033953674236852083,
+          "gain_pct": 2.0814313475045814
+        },
+        {
+          "seed_index": 1,
+          "baseline_mean": 0.1631593397530628,
+          "candidate_mean": 0.15973119583077422,
+          "difference": 0.0034281439222885735,
+          "gain_pct": 2.101101859983606
+        }
+      ],
+      "n_seeds": 2,
+      "n_origins": 866,
+      "n_series": 16,
+      "bootstrap_seed": 92200,
+      "reps": 2000,
+      "block": 56,
+      "zero_denominator_draws": 0,
+      "positive_favors": "candidate",
+      "method": "paired_non_circular_moving_block_percentile",
+      "quantile_method": "linear",
+      "aggregation": "equal_series_and_fixed_seed_score_mean",
+      "scope": "origin uncertainty conditional on fixed seeds and series; not optimizer-population uncertainty"
+    }
+  ],
+  "decision_evidence": {
+    "Q": {
+      "mechanical_category": "NO_GO_CURRENT",
+      "reasons": [
+        "nonpositive_mean_without_any_seed_at_least_1pct_positive_signal"
+      ],
+      "mean_gain_pct": -0.24701217875396653,
+      "seed_gain_pct": [
+        -0.3665796595346608,
+        -0.12735851850876642
+      ],
+      "both_seed_differences_positive": false,
+      "nmae_harm_pct": 0.2525210364638639,
+      "resource_ok": true,
+      "allocation_mismatch": false,
+      "optimization_flag": false,
+      "max_F_client_harm_pct_vs_LOCAL": null,
+      "manual_interpretation_required": true,
+      "GO_STANDARD_ONLY": "Not automatically assigned; report whether existing methods suffice using displayed comparisons, without a new threshold.",
+      "automatic_followup_training": false,
+      "selected_baselines": [
+        "Q_IO16",
+        "Q_IO16"
+      ],
+      "candidate": "Q_FORECAST",
+      "monotonic_pairs_by_seed": [
+        false,
+        false
+      ],
+      "nmae_baseline_score_mean": 0.20466102704963107,
+      "nmae_candidate_score_mean": 0.2051778391963744,
+      "unused_parameter_fraction": 0.0170231340026189,
+      "baseline_vs_Q_FP_gap_pct": [
+        0.040685482852498754,
+        0.05258121648567018
+      ],
+      "candidate_storage_ratio_by_seed": [
+        0.48079550661837717,
+        0.48079550661837717
+      ]
+    },
+    "T": {
+      "mechanical_category": "NO_GO_CURRENT",
+      "reasons": [
+        "nonpositive_mean_without_any_seed_at_least_1pct_positive_signal"
+      ],
+      "mean_gain_pct": -0.0975355124027428,
+      "seed_gain_pct": [
+        -0.05241499284554305,
+        -0.1426708552988479
+      ],
+      "both_seed_differences_positive": false,
+      "nmae_harm_pct": 0.09370400414663725,
+      "resource_ok": true,
+      "allocation_mismatch": false,
+      "optimization_flag": false,
+      "max_F_client_harm_pct_vs_LOCAL": null,
+      "manual_interpretation_required": true,
+      "GO_STANDARD_ONLY": "Not automatically assigned; report whether existing methods suffice using displayed comparisons, without a new threshold.",
+      "automatic_followup_training": false,
+      "selected_baselines": [
+        "T_BLEND",
+        "T_BLEND"
+      ],
+      "candidate": "T_DELTA",
+      "monotonic_pairs_by_seed": [
+        false,
+        false
+      ],
+      "nmae_baseline_score_mean": 0.1996751874578095,
+      "nmae_candidate_score_mean": 0.19986229110374476
+    },
+    "F": {
+      "mechanical_category": "NO_GO_CURRENT",
+      "reasons": [
+        "nonpositive_mean_without_any_seed_at_least_1pct_positive_signal"
+      ],
+      "mean_gain_pct": -0.3415779508228472,
+      "seed_gain_pct": [
+        -0.3376165004753828,
+        -0.3455328891333124
+      ],
+      "both_seed_differences_positive": false,
+      "nmae_harm_pct": 0.3257702267716847,
+      "resource_ok": true,
+      "allocation_mismatch": false,
+      "optimization_flag": false,
+      "max_F_client_harm_pct_vs_LOCAL": 0.7819485714868595,
+      "manual_interpretation_required": true,
+      "GO_STANDARD_ONLY": "Not automatically assigned; report whether existing methods suffice using displayed comparisons, without a new threshold.",
+      "automatic_followup_training": false,
+      "selected_baselines": [
+        "F_LOCAL",
+        "F_LOCAL"
+      ],
+      "candidate": "F_PERIODIC",
+      "monotonic_pairs_by_seed": [
+        true,
+        false
+      ],
+      "nmae_baseline_score_mean": 0.18563341352453674,
+      "nmae_candidate_score_mean": 0.18623815191673965
+    }
+  },
+  "diagnostic_baselines_are_not_TEST_reselection": true
+}

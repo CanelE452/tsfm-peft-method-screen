@@ -1,6 +1,8 @@
 from common import *
 import math
 import subprocess
+import csv
+import re
 
 
 def main():
@@ -58,6 +60,23 @@ def main():
         all_files.extend(p for p in directory.rglob('*') if p.is_file() and '__pycache__' not in str(p) and p.suffix!='.pyc')
     forbidden=[p for p in all_files if p.suffix in ['.pt','.npz','.npy','.parquet','.safetensors','.whl']]
     assert not forbidden
+    final=read(RESULTS/'FINAL_CLASSIFICATION.json')
+    assert final['recommendation'] is None
+    for category in ['Q','T','F']:
+        for name in ['REPORT_KO.md','FINAL_DECISION.md']:
+            assert final[category]['decision'] in (RESULTS/category/name).read_text(encoding='utf-8')
+    with (RESULTS/'resource_table.csv').open(newline='',encoding='utf-8') as handle:
+        assert len(list(csv.DictReader(handle)))==68
+    for name in ['triage_effects','Q_results','T_results','F_results']:
+        for extension in ['png','svg']:
+            assert (RESULTS/'figures'/f'{name}.{extension}').stat().st_size>1000
+    link_count=0
+    for path in [p for p in all_files if p.suffix=='.md']:
+        for destination in re.findall(r'!?\[[^\]]*\]\(([^)]+)\)',path.read_text(encoding='utf-8')):
+            if '://' in destination or destination.startswith('#'):continue
+            target=(path.parent/destination.split('#',1)[0]).resolve()
+            assert target.exists(),(str(path),destination)
+            link_count+=1
     record={'status':'SCOPED_CHECKS_PASS_WITH_DISCLOSED_SMOKE_REPAIR','main_updates':8192,'smoke_updates':24,
             'successful_smoke_updates':23,'failed_smoke_updates':1,'failure_record':'F_SMOKE_FAILURE.json',
             'fits_or_workflows':32,
@@ -69,6 +88,7 @@ def main():
             'qera_factor_difference_disclosed_before_test':True,
             'all_test_predictions_before_scoring':seal['all_saved_before_scoring'],
             'prediction_count':len(seal['predictions']),'no_raw_weights_checkpoints_in_publish_scope':True,
+            'report_local_links_verified':link_count,'resource_table_rows':68,'figure_files':8,
             'automatic_followup_experiments':0,'time':time.time()}
     write(RESULTS/'VERIFICATION.json',record)
     manifest={}

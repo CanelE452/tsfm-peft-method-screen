@@ -73,6 +73,25 @@ def main():
         text+=f"\n주 비교의 paired 14일 block bootstrap 95% CI는 **[{ci[0]:+.3f}%, {ci[1]:+.3f}%]**이다. 6시간 간격 TEST 원점 866개를 56개씩 묶어 2,000회 재표집하고 모든 계열·두 seed를 함께 보존했다. overlapping target을 독립 표본으로 세지 않았다. CI는 고정된 두 seed와 계열에 조건부이며 optimizer population과 새 자료 일반화를 보장하지 않는다.\n\n"
         text+='[모든 seed 점수](../scores.csv) · [계열 점수](../series_scores.csv) · [seed별/평균 효과와 CI](../seed_effects.csv) · [자원 표](../resource_table.csv)\n'
         text+='\n## 선택과 구현\n\n'
+        checkpoint_rows=[]
+        cost_rows=[]
+        for arm in ARMS[category]:
+            fit_values=[read(RESULTS/'fits'/f'{arm}_{s}'/'FIT.json') for s in SEEDS] if arm not in ['A0','N0'] else []
+            if fit_values:
+                checkpoint_rows.append([arm,*[v['selected_step'] for v in fit_values]])
+            measurements=[r for r in resource_rows if r['arm']==arm]
+            b1=[r for r in measurements if r['batch']==1]
+            b8=[r for r in measurements if r['batch']==8]
+            cost_rows.append([arm,f"{np.mean([r['total_artifact_bytes'] for r in b1])/2**20:.2f}",
+                f"{np.mean([r['median_seconds'] for r in b1])*1000:.2f}",
+                f"{np.mean([r['median_seconds'] for r in b8])*1000:.2f}",
+                f"{max(r['peak_allocated'] for r in b8)/2**20:.2f}",
+                f"{max(r['peak_reserved'] for r in b8)/2**20:.2f}",
+                f"{np.mean([v['seconds'] for v in fit_values]):.2f}" if fit_values else 'N/A'])
+        text+='V 선택 checkpoint다. Q/T 단위는 update, F는 round이며 0은 학습 전 초기값이다.\n\n'
+        text+=md_table(['Method','Seed92201','Seed92202'],checkpoint_rows)+'\n'
+        text+='새 프로세스 추론 실측이다. latency는 각 seed 프로세스의 20회 median을 평균했으며 VRAM은 두 seed 중 큰 값이다. Fit seconds는 학습·검증 구간 평균으로 초기화와 별도 감사 비용을 포함한 전체 작업 시간이 아니다.\n\n'
+        text+=md_table(['Method','Artifact MiB','Batch1 ms','Batch8 ms','Allocated MiB (B8)','Reserved MiB (B8)','Fit seconds'],cost_rows)+'\n'
         if category=='Q':
             a=read(RESULTS/'Q_ALLOCATION.json')
             text+=f"Chronos-Bolt-small의 eligible linear 102개 전체를 사용했다. NF4는 실제90개 linear를 packed uint8로 저장하고 backend 기본 고정밀 예외12개를 유지했다. IO16은 경계6개를 추가 BF16으로 유지하므로84개를 양자화했다. uniform rank4는 {a['uniform_budget']:,}개, Q_FORECAST는 {a['candidate_parameters']:,}개 trainable parameter로 미사용 예산 {a['unused_fraction']*100:.3f}%다. rank map은 TEST 전에 봉인했다.\n\n"
@@ -85,15 +104,22 @@ def main():
             text+='RECENT도 실제 최근 y로 학습했다. KD·BLEND·DELTA는 같은 true loss에 lambda0.5의 pseudo L1을 추가했다. 같은 seed의 A1을 사용했고 교사 ensemble은 없다. 학생 checkpoint에는 base의 q/v LoRA만 있으며 추론에 A0/A1을 호출하지 않는다. label-free/data-free 방법이라고 부르지 않는다.\n\n'
             text+=f"교사 cache 생성은 총 {sum(t['example_queries'] for t in teacher):,} example queries / {sum(t['batch_calls'] for t in teacher):,} batch calls, {sum(t['seconds'] for t in teacher):.2f}초, {sum(t['cache_bytes'] for t in teacher)/2**20:.2f} MiB였다. 입력·모델 revision·matched teacher checkpoint hash를 묶었다. 실제 true/pseudo loss와 각각의 gradient norm은 모든 update의 training.jsonl에 남겼다.\n\n"
             text+='A1 대 A0와 N0 대 A1 비교는 seed_effects.csv의 진단 행에 모두 공개했다. 교사가 새 모델보다 약한 것만으로 delta 이전의 논리적 불가능성을 주장하지 않는다.\n'
+            text+='T_KD는 두 seed 모두 V에서 step0이 선택되어 TEST 점수가 N0와 같다. 256 updates를 실행했지만 학습된 checkpoint의 V 개선이 없어 초기값을 선택한 결과다.\n'
         else:
             text+='선택한16개 열의 처음4개(col148/41/176/135)를 client로 사용했다. 각 client는 자기 값·scale로만 학습한다. 공유 FFA는 seed별 같은 A를 고정하고 B만 학습·equal-client 평균했다. LOCAL은 양쪽 factor를 학습하므로 trainable count가 다르며 INITIAL_AUDIT에 공개했다.\n\n'
             text+='16 rounds ×4 clients ×4 local updates, client당64 updates다. 공유 optimizer는 round마다 reset, private optimizer state는 client에 유지했다. 실제 업로드 key는 B뿐이고, mean(B)A=mean(BA)를 NumPy 산술과 함께 검산했다. 서버 V 선택에는 네 scalar만 반환했다. public series의 소프트웨어 시뮬레이션이며 실제4회사·DP·규제 준수 실험이 아니다.\n\n'
             text+='AFFINE2개, HEAD128개, PERIODIC7개의 private coefficient를 같은 lr1e-3으로 학습했다. 주기24/168은 hourly slot 가설이며 weekday label이 아니다. [모든 client의 LOCAL/SHARED 대비 손익](../F_client_effects.csv)과 [validation-fixed tail](../F_validation_fixed_tail.csv)을 공개했다. TEST worst-client를 선택 과정에 사용하지 않았다.\n\n'
+            client_rows=[]
+            for arm in ARMS['F']:
+                client_scores=np.mean([summaries[f'{arm}_{s}']['by_series']['pinball'] for s in SEEDS],axis=0)
+                client_rows.append([arm,*[f'{v:.6f}' for v in client_scores],f'{np.mean(client_scores):.6f}',f'{np.max(client_scores):.6f}'])
+            text+='두 seed 점수를 평균한 client별 primary다. 마지막 열은 TEST의 기술 통계이며 선택에 사용하지 않았다.\n\n'
+            text+=md_table(['Method','col148','col41','col176','col135','Client mean','TEST worst'],client_rows)+'\n'
             text+=f"계약의 보수적 client 위험 검사에서 확인한 최대 LOCAL 대비 손해는 {evidence['max_F_client_harm_pct_vs_LOCAL']:.3f}%다. 추론 latency/VRAM은 client0 대표 입력이고, 모든 client의 학습 wall/peak·저장·통신은 FIT에 별도 기록했다. 자원표의 adapter bytes는 네 client 전체 workflow 상태이며 한 client의 배포 크기라고 해석하지 않는다.\n\n"
             text+='F smoke 최초 AFFINE1 update 뒤 동결 hash 검사가 실패했다. PEFT disable_adapter 복원이 고정 A의 requires_grad를 켠 것이 원인이었고, optimizer0 재현으로 tensor 값 변화 없이 mask/hash가 바뀜을 확인했다. mask 복원 후 남은5 smoke updates 안에서 검증을 마쳤다. 실패1회도24회 상한에 포함하며 F main 이전 문제였다. 수정 전 source와 장부를 보존했고 main 재학습은 없었다.\n'
         text+='\n## 판정 범위와 검산\n\n'
         text+=f"수치 판정은 `{evidence['mechanical_category']}`, 최종 해석은 `{label}`이다. 검증이 마지막 checkpoint까지 계속 개선하는 경우의 flag는 `{evidence['optimization_flag']}`이며 자동 연장하지 않았다. {NOVELTY[category]}하므로 한 데이터·두 seed의 결과를 최초 방법론이나 논문 PASS로 바꾸지 않는다.\n\n"
-        text+='학습의 frozen hash는 가중치와 persistent buffer를 포함한다. nonpersistent quantiles metadata의 학습 전후 hash는 수집하지 않았으며 배포 roundtrip의 buffer/공식 예측 검사를 별도 수행했다. [검산 범위](../VERIFICATION.json), [실행 무결성 설명](../../../experiments/'+NAME+'/DECISION_DETAILS.md), [source·cache manifest](../MANIFEST.json)를 함께 확인해야 한다.\n\n'
+        text+='학습의 frozen hash는 가중치와 persistent buffer를 포함한다. nonpersistent quantiles metadata의 학습 전후 hash는 수집하지 않았으며 Q 배포 roundtrip의 buffer/공식 예측 검사를 별도 수행했다. [검산 범위](../VERIFICATION.json), [실행 무결성 설명](../../../experiments/'+NAME+'/DECISION_DETAILS.md), [source·cache manifest](../MANIFEST.json)를 함께 확인해야 한다.\n\n'
         text+='GitHub에는 코드·표·그림·hash를 남겼고 raw data, HF weights, checkpoint, 전체 예측 cache는 제외했다. 수치 재생에는 로컬 cache 또는 동일 계약의 재실행이 필요하다. 추가 seed/LR/rank/bit-width/dataset/자동 v2는 실행하지 않는다.\n'
         (folder/'REPORT_KO.md').write_text(text,encoding='utf-8')
         decision=f"# {category}: {label}\n\n{introduction}\n"

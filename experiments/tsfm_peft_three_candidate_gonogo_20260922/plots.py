@@ -12,6 +12,8 @@ def save(fig,name):
     directory=RESULTS/'figures';directory.mkdir(exist_ok=True)
     fig.savefig(directory/f'{name}.png',dpi=220,facecolor='white')
     fig.savefig(directory/f'{name}.svg',facecolor='white')
+    svg=directory/f'{name}.svg'
+    svg.write_text('\n'.join(line.rstrip() for line in svg.read_text(encoding='utf-8').splitlines())+'\n',encoding='utf-8')
     plt.close(fig)
 
 
