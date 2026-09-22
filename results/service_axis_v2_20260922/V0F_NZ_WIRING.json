@@ -1,0 +1,35 @@
+{
+  "gate": "V0f",
+  "pass": true,
+  "criterion": "probe [0,0,2,4]: 원 정규화 loc 1.5 / NZ loc 3.0 이 추론과 학습 경로 모두에서 성립",
+  "probe_input": [
+    0,
+    0,
+    2,
+    4
+  ],
+  "orig": {
+    "mode": "orig",
+    "infer_loc": 1.5,
+    "infer_scale": 1.658312439918518,
+    "train_loc": 1.5,
+    "train_scale": 1.658312439918518,
+    "same_class": true
+  },
+  "nz": {
+    "mode": "nz",
+    "infer_loc": 3.0,
+    "infer_scale": 1.0,
+    "train_loc": 3.0,
+    "train_scale": 1.0,
+    "same_class": true
+  },
+  "note": "계약 §1-12 의 신규 발견 검증. fit() 이 Chronos2Model 을 새로 만들어 state_dict 를 복사하므로 인스턴스 런타임 패치는 학습 모델에 전달되지 않는다(v1 방식). chronos.chronos_bolt.InstanceNorm.forward 를 클래스 수준에서 교체하고 orig/nz 를 각각 별도 프로세스에서 실행하면 학습 경로에도 적용된다. train_loc 이 3.0 으로 나오는 것이 그 증거이며, v1 방식이었다면 1.5 였을 것이다.",
+  "fit_args": {
+    "finetune_mode": "lora",
+    "num_steps": 2,
+    "batch_size": 8,
+    "learning_rate": 0.0001,
+    "seed": 0
+  }
+}
