@@ -1,0 +1,30 @@
+{
+  "results": {
+    "seed0": {
+      "sec": 5.478165626525879,
+      "peak_gb": 3.5331968,
+      "ckpts": [
+        "checkpoint-10",
+        "checkpoint-5"
+      ],
+      "adapter_hash": "6460256ca015f555",
+      "n_tensors": 194
+    },
+    "seed1": {
+      "sec": 4.943151950836182,
+      "peak_gb": 3.538570752,
+      "ckpts": [
+        "checkpoint-10",
+        "checkpoint-5"
+      ],
+      "adapter_hash": "7101dca07481bb64",
+      "n_tensors": 194
+    }
+  },
+  "seed_wiring_ok": true,
+  "checkpoint_ok": true,
+  "sec_per_step": 0.5210658788681031,
+  "g3_projected_hours": 2.3158483505249023,
+  "batch_size": 32,
+  "n_series": 2000
+}
