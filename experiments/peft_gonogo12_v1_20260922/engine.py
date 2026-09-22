@@ -51,7 +51,7 @@ def fit_model(model,d,pairs,key,candidate,datagroup,lr,seed,ridge=False,missing=
     ledger.finish(key)
     report=dict(key=key,candidate=candidate,phase=phase,steps=steps,seconds=seconds,
                 trainable_parameters=sum(p.numel() for p in parameters),peak_allocated_bytes=torch.cuda.max_memory_allocated(),
-                peak_reserved_bytes=torch.cuda.max_memory_reserved(),frozen_unchanged=True,seed=seed,
+                peak_reserved_bytes=torch.cuda.max_memory_reserved(),frozen_unchanged=True,frozen_sha256=frozen,seed=seed,
                 schedule_sha256=sha(folder/'schedule.npz'),initial_sha256=tensor_hash(initial.items()),
                 final_sha256=tensor_hash(model.learned().items()),losses=losses)
     save(RESULTS/'fits'/f'{key}.json',report);save(folder/'complete.json',report)

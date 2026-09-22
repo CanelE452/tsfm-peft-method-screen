@@ -1,0 +1,151 @@
+{
+  "status": "PASS",
+  "code_paths": [
+    {
+      "key": "smoke_h2_QV_LORA",
+      "candidate": "h2",
+      "phase": "smoke",
+      "steps": 2,
+      "seconds": 0.1374327999947127,
+      "trainable_parameters": 294912,
+      "peak_allocated_bytes": 656118784,
+      "peak_reserved_bytes": 721420288,
+      "frozen_unchanged": true,
+      "seed": 92260,
+      "schedule_sha256": "e620ac2c29939d9e2ca44101bf06e87bf15b562bcf38be42c32ff4b517b39a2a",
+      "initial_sha256": "4e894b64994ef513ea134dc6d12b0aa14359b60bfed1484c6590017acfc9c967",
+      "final_sha256": "916f8dffb630a6308e8de57f9699e5ab7556a88e7f4176793c49a619c769e7db",
+      "losses": [
+        {
+          "step": 1,
+          "loss": 0.12280574440956116,
+          "grad_norm": 0.05064510181546211
+        },
+        {
+          "step": 2,
+          "loss": 0.17733268439769745,
+          "grad_norm": 0.05720401927828789
+        }
+      ],
+      "initial_f0_parity_scaled": 0.0
+    },
+    {
+      "key": "smoke_h2_SET_BIAS",
+      "candidate": "h2",
+      "phase": "smoke",
+      "steps": 2,
+      "seconds": 0.05469769999035634,
+      "trainable_parameters": 24,
+      "peak_allocated_bytes": 453697536,
+      "peak_reserved_bytes": 494927872,
+      "frozen_unchanged": true,
+      "seed": 92260,
+      "schedule_sha256": "e620ac2c29939d9e2ca44101bf06e87bf15b562bcf38be42c32ff4b517b39a2a",
+      "initial_sha256": "30a42ad1a522c4cab9c8c0d5dbdefb9ca1b33f61aa18a302da6dbcfd82a62927",
+      "final_sha256": "ab2c95561347b14a3966db77f218430d0084f07bc21cd557c94cd0b626b95012",
+      "losses": [
+        {
+          "step": 1,
+          "loss": 0.12280574440956116,
+          "grad_norm": 0.0003733561607077718
+        },
+        {
+          "step": 2,
+          "loss": 0.17724859714508057,
+          "grad_norm": 0.00044175019138492644
+        }
+      ],
+      "initial_f0_parity_scaled": 0.0,
+      "trained_clean_parity_scaled": 0.0,
+      "trained_aligned_parity_scaled": 0.0
+    },
+    {
+      "key": "smoke_h2_CENTROID_BIAS",
+      "candidate": "h2",
+      "phase": "smoke",
+      "steps": 2,
+      "seconds": 0.05428149999352172,
+      "trainable_parameters": 24,
+      "peak_allocated_bytes": 453703680,
+      "peak_reserved_bytes": 494927872,
+      "frozen_unchanged": true,
+      "seed": 92260,
+      "schedule_sha256": "e620ac2c29939d9e2ca44101bf06e87bf15b562bcf38be42c32ff4b517b39a2a",
+      "initial_sha256": "30a42ad1a522c4cab9c8c0d5dbdefb9ca1b33f61aa18a302da6dbcfd82a62927",
+      "final_sha256": "9a0ad72040f423bf6ee42ec62d97a1ad5d86814824374aebcfd4337640f03114",
+      "losses": [
+        {
+          "step": 1,
+          "loss": 0.12280574440956116,
+          "grad_norm": 1.7523401766084135e-05
+        },
+        {
+          "step": 2,
+          "loss": 0.1772528886795044,
+          "grad_norm": 4.224303484079428e-05
+        }
+      ],
+      "initial_f0_parity_scaled": 0.0,
+      "trained_clean_parity_scaled": 0.0
+    },
+    {
+      "key": "smoke_h2_KEY_BIAS",
+      "candidate": "h2",
+      "phase": "smoke",
+      "steps": 2,
+      "seconds": 0.05332440001075156,
+      "trainable_parameters": 24,
+      "peak_allocated_bytes": 453703680,
+      "peak_reserved_bytes": 494927872,
+      "frozen_unchanged": true,
+      "seed": 92260,
+      "schedule_sha256": "e620ac2c29939d9e2ca44101bf06e87bf15b562bcf38be42c32ff4b517b39a2a",
+      "initial_sha256": "30a42ad1a522c4cab9c8c0d5dbdefb9ca1b33f61aa18a302da6dbcfd82a62927",
+      "final_sha256": "808c57ad028b98ebeef000927024a49bf06863d4ffca67ca27c6170fc91e2fe5",
+      "losses": [
+        {
+          "step": 1,
+          "loss": 0.12280574440956116,
+          "grad_norm": 0.00029607806936837733
+        },
+        {
+          "step": 2,
+          "loss": 0.17725685238838196,
+          "grad_norm": 0.00021441718854475766
+        }
+      ],
+      "initial_f0_parity_scaled": 0.0,
+      "trained_clean_parity_scaled": 0.0
+    },
+    {
+      "key": "smoke_h2_GENERIC_BIAS",
+      "candidate": "h2",
+      "phase": "smoke",
+      "steps": 2,
+      "seconds": 0.05734560001292266,
+      "trainable_parameters": 24,
+      "peak_allocated_bytes": 453703680,
+      "peak_reserved_bytes": 494927872,
+      "frozen_unchanged": true,
+      "seed": 92260,
+      "schedule_sha256": "e620ac2c29939d9e2ca44101bf06e87bf15b562bcf38be42c32ff4b517b39a2a",
+      "initial_sha256": "30a42ad1a522c4cab9c8c0d5dbdefb9ca1b33f61aa18a302da6dbcfd82a62927",
+      "final_sha256": "b73d586c5addbf4fbf04b31b5a3d250c308b4971ac86cb81df8d3c0cf91e89e0",
+      "losses": [
+        {
+          "step": 1,
+          "loss": 0.12280574440956116,
+          "grad_norm": 0.0006779718678444624
+        },
+        {
+          "step": 2,
+          "loss": 0.17724236845970154,
+          "grad_norm": 0.0007309263455681503
+        }
+      ],
+      "initial_f0_parity_scaled": 0.0,
+      "trained_clean_parity_scaled": 0.0
+    }
+  ],
+  "updates": 10
+}
