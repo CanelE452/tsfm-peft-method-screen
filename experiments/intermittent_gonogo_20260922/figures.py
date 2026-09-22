@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 ASSETS = Path.home() / '.claude/agents/viz-expert/assets'
 plt.style.use(ASSETS / 'analysis.mplstyle')
 sys.path.insert(0, str(ASSETS))
-from palette import color_for, colors_for, SEMANTIC, LINESTYLE, ALPHA  # noqa: E402
+from palette import color_for, colors_for, SEMANTIC, LINESTYLE  # noqa: E402
 
 ROOT = Path('/home/minjae/Documents/github/tsfm-peft-method-screen')
 OUT = ROOT / 'results/intermittent_gonogo_20260922'
@@ -203,14 +203,14 @@ THRESH = 1.0
 
 fig, ax = plt.subplots(figsize=(10.5, 5.2))
 c_bar = color_for('ref-lgb')
-for i, (lab, d) in enumerate(G2B):
+for i, (_lab, d) in enumerate(G2B):
     ax.barh(i, d['delta_pct'], height=0.42, color=c_bar, zorder=3)
     ax.plot([d['ci'][0], d['ci'][1]], [i, i], color='black', lw=1.4, zorder=4)
     for b in d['ci']:
         ax.plot([b, b], [i - 0.08, i + 0.08], color='black', lw=1.4, zorder=4)
     ax.text(d['ci'][1] + 0.03, i,
-            f"{d['delta_pct']:+.2f}%   CI [{d['ci'][0]:+.2f}, {d['ci'][1]:+.2f}]",
-            va='center', ha='left', fontsize=9.5, family='monospace')
+            f"{d['delta_pct']:+.2f}%  CI [{d['ci'][0]:+.2f}, {d['ci'][1]:+.2f}]",
+            va='center', ha='left', fontsize=9, family='monospace')
 
 ax.axvline(0, color=SEMANTIC['zero'], ls=LINESTYLE['zero'], lw=0.8, zorder=2)
 ax.axvline(THRESH, color=SEMANTIC['threshold'], ls=LINESTYLE['threshold'], lw=1.6, zorder=5)
