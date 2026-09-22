@@ -1,0 +1,827 @@
+{
+  "status": "PASS",
+  "classification": "DATA_CLOCK_LEDGER_AUDIT",
+  "source": "Electricity",
+  "series_index_convention": {
+    "packet_and_issued_ledgers": "local48 indexes",
+    "original_ids": {
+      "DONOR": [
+        66,
+        62,
+        52,
+        69,
+        140,
+        291,
+        18,
+        205,
+        234,
+        312,
+        75,
+        153,
+        130,
+        13,
+        303,
+        80,
+        71,
+        152,
+        203,
+        298,
+        216,
+        275,
+        150,
+        196,
+        25,
+        23,
+        287,
+        1,
+        297,
+        204,
+        228,
+        266
+      ],
+      "DEV": [
+        41,
+        293,
+        199,
+        173,
+        201,
+        73,
+        118,
+        46
+      ],
+      "TEST": [
+        202,
+        138,
+        48,
+        5,
+        294,
+        68,
+        237,
+        142
+      ]
+    },
+    "local_roles": {
+      "DONOR": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "DEV": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "TEST": [
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ]
+    }
+  },
+  "time_edges": [
+    0,
+    7891,
+    15782,
+    21043,
+    26304
+  ],
+  "checks": [
+    {
+      "name": "all_main_complete",
+      "status": "PASS",
+      "details": {
+        "status": "COMPLETE",
+        "counts": {
+          "offline": 8192,
+          "A_local": 6144,
+          "B_online": 12288,
+          "smoke": 14
+        }
+      }
+    },
+    {
+      "name": "static_no_future_boundary_trace",
+      "status": "PASS",
+      "details": {
+        "tasks_episode_requires_prefix_length_equal_issue": true,
+        "tasks_episode_initializes_unreleased_y_as_nan": true,
+        "tasks_episode_uses_visible_count_min_64_t_minus_s": true,
+        "tasks_query_context_uses_prefix_before_issue": true,
+        "runner_uses_asof_for_fit_generator_support": true,
+        "runner_uses_asof_for_fixed_eval": true,
+        "runner_uses_asof_for_online_b": true,
+        "issuer_prevents_overwrite": true
+      }
+    },
+    {
+      "name": "source_seal_hashes",
+      "status": "PASS",
+      "details": {
+        "source_files": {
+          "common.py": {
+            "expected": "831b707c1b47831d89b8a42a24331e416695da6cb5aace07f37d7eb4ac5f0230",
+            "actual": "831b707c1b47831d89b8a42a24331e416695da6cb5aace07f37d7eb4ac5f0230",
+            "match": true
+          },
+          "data.py": {
+            "expected": "7250b6cc067fff64489ac73124e9348207889ba1714caaf46a487eedc2a6a171",
+            "actual": "7250b6cc067fff64489ac73124e9348207889ba1714caaf46a487eedc2a6a171",
+            "match": true
+          },
+          "model.py": {
+            "expected": "0ba2c8aea16096fa2d819e658a6e1d4d091bbd1523d30e1255e5b808d4963896",
+            "actual": "0ba2c8aea16096fa2d819e658a6e1d4d091bbd1523d30e1255e5b808d4963896",
+            "match": true
+          },
+          "preflight.py": {
+            "expected": "33d4cd2a3462e0d16e03cb6b8ccc44fc070a749a6260daec1771f544adaf76f5",
+            "actual": "33d4cd2a3462e0d16e03cb6b8ccc44fc070a749a6260daec1771f544adaf76f5",
+            "match": true
+          },
+          "PROTOCOL.md": {
+            "expected": "b6f1990dfb12f4fc8ed1716a65c8c2275cc2d609ea4ca5bd5fc6a048b47e2cde",
+            "actual": "b6f1990dfb12f4fc8ed1716a65c8c2275cc2d609ea4ca5bd5fc6a048b47e2cde",
+            "match": true
+          },
+          "PURPOSE_AND_PRIOR.md": {
+            "expected": "21dc582bb9664f976e707f17b3b0a16df5d2b63968c260858adf43b3953ccd6b",
+            "actual": "21dc582bb9664f976e707f17b3b0a16df5d2b63968c260858adf43b3953ccd6b",
+            "match": true
+          },
+          "runner.py": {
+            "expected": "7d27176a71729a5b97a302ffd121c7ad955caee2367623fe1d7e2196a1caaac5",
+            "actual": "7d27176a71729a5b97a302ffd121c7ad955caee2367623fe1d7e2196a1caaac5",
+            "match": true
+          },
+          "tasks.py": {
+            "expected": "d4f1064b7b955ffea1f16d6cce4c0fea334efb0172d5940c0d916a92ffcc7cd4",
+            "actual": "d4f1064b7b955ffea1f16d6cce4c0fea334efb0172d5940c0d916a92ffcc7cd4",
+            "match": true
+          },
+          "contract/00_MASTER_CLI.txt": {
+            "expected": "70d3020648da11ecedc2dc7f019b35f6b34b149cee0ab38c12c2221215e75683",
+            "actual": "70d3020648da11ecedc2dc7f019b35f6b34b149cee0ab38c12c2221215e75683",
+            "match": true
+          },
+          "contract/01_A_AMORTIZED_CLI.txt": {
+            "expected": "5a874a2d829c9adf19a7ddc5429ebfe087333534f38d18d1d0be6ff0e6c24219",
+            "actual": "5a874a2d829c9adf19a7ddc5429ebfe087333534f38d18d1d0be6ff0e6c24219",
+            "match": true
+          },
+          "contract/02_B_PARTIAL_CLI.txt": {
+            "expected": "4a08521d8d73ce1fcf9f04124a29a8a84b96b270d9ba8cdf397ce706debeda4e",
+            "actual": "4a08521d8d73ce1fcf9f04124a29a8a84b96b270d9ba8cdf397ce706debeda4e",
+            "match": true
+          },
+          "contract/BUDGET_CHECK.json": {
+            "expected": "c80dc9c35293d378f55f22287bbd6a563bc181aff55232d3f8b829afe9d0278f",
+            "actual": "c80dc9c35293d378f55f22287bbd6a563bc181aff55232d3f8b829afe9d0278f",
+            "match": true
+          },
+          "contract/MANIFEST.json": {
+            "expected": "970013929f8e502e1348eb2aa72ee6e96984766b309a493816808d409d56468f",
+            "actual": "970013929f8e502e1348eb2aa72ee6e96984766b309a493816808d409d56468f",
+            "match": true
+          },
+          "contract/README.md": {
+            "expected": "948281c08f339e65b9bef33c529c0ba682e5e2a37a6ab7406e592af4f0596d46",
+            "actual": "948281c08f339e65b9bef33c529c0ba682e5e2a37a6ab7406e592af4f0596d46",
+            "match": true
+          },
+          "contract/reference_core.py": {
+            "expected": "1f7b6f56fad9c36ddd9374782b810ddbf7cf40d73f991fa4904c503caa660bdc",
+            "actual": "1f7b6f56fad9c36ddd9374782b810ddbf7cf40d73f991fa4904c503caa660bdc",
+            "match": true
+          },
+          "contract/test_reference_core.py": {
+            "expected": "25d7af7a150b8a88aa4fb8e6db47432048a927b7b4e032fd13818fa8b540ab7a",
+            "actual": "25d7af7a150b8a88aa4fb8e6db47432048a927b7b4e032fd13818fa8b540ab7a",
+            "match": true
+          },
+          "contract/TEST_RESULTS.txt": {
+            "expected": "d0db1aba34228fc02007f1d812dd5d474c50442ec1acc9e9a509cb3b18769514",
+            "actual": "d0db1aba34228fc02007f1d812dd5d474c50442ec1acc9e9a509cb3b18769514",
+            "match": true
+          },
+          "vendor/cosa_core.py": {
+            "expected": "a53df696bfdabe48cec944a0e71d5e6435c09459f399952107169a2d600e44f5",
+            "actual": "a53df696bfdabe48cec944a0e71d5e6435c09459f399952107169a2d600e44f5",
+            "match": true
+          },
+          "vendor/COSA_LICENSE.txt": {
+            "expected": "09ee9e203ad9bb0548ce248e0906ba3215d6feb47e54f02c8fbf82349fe07f39",
+            "actual": "09ee9e203ad9bb0548ce248e0906ba3215d6feb47e54f02c8fbf82349fe07f39",
+            "match": true
+          },
+          "vendor/COSA_PROVENANCE.json": {
+            "expected": "0cbb5c71884d763e68e029fc0b4d86d7b63d36a896e815bb9670d47e31d190cc",
+            "actual": "0cbb5c71884d763e68e029fc0b4d86d7b63d36a896e815bb9670d47e31d190cc",
+            "match": true
+          }
+        },
+        "data_files": {
+          "DATA_SOURCE.json": {
+            "expected": "29223d86a73a5958e424e49cb962a110ce4174a1bbc0156116c98b7c4e6a28be",
+            "actual": "29223d86a73a5958e424e49cb962a110ce4174a1bbc0156116c98b7c4e6a28be",
+            "match": true
+          },
+          "ENVIRONMENT.json": {
+            "expected": "053f2433062d3ecbe96d4d3afb2464df2a6f7f8bec3b9ab4f261a7a76dc8f913",
+            "actual": "053f2433062d3ecbe96d4d3afb2464df2a6f7f8bec3b9ab4f261a7a76dc8f913",
+            "match": true
+          },
+          "IMPLEMENTATION_NOTES.json": {
+            "expected": "cc38b74e6f28270be241c94626d578783756f2b8c11885d123c333e6803c9870",
+            "actual": "cc38b74e6f28270be241c94626d578783756f2b8c11885d123c333e6803c9870",
+            "match": true
+          },
+          "MODEL_MAP.json": {
+            "expected": "0f44220b5ffae36a0557d79beb331cc58b8e0ae2a4159be7ce63511a3a6291d1",
+            "actual": "0f44220b5ffae36a0557d79beb331cc58b8e0ae2a4159be7ce63511a3a6291d1",
+            "match": true
+          },
+          "PREFLIGHT.json": {
+            "expected": "cde70fe86403cf3a5c8d5d59da2dca0165c3db2cc14c116bd46a6e5ac93fd964",
+            "actual": "cde70fe86403cf3a5c8d5d59da2dca0165c3db2cc14c116bd46a6e5ac93fd964",
+            "match": true
+          },
+          "SERIES_SPLIT.json": {
+            "expected": "88de6e75fd81ab5ed10d405bb600013c563e76e45102522151b60d604f96133a",
+            "actual": "88de6e75fd81ab5ed10d405bb600013c563e76e45102522151b60d604f96133a",
+            "match": true
+          },
+          "SUPPORT_QUERY_AUDIT.json": {
+            "expected": "b60e6854d0e8cc33f2e3434426f449e994169d03509469de7546bcb19ff317a7",
+            "actual": "b60e6854d0e8cc33f2e3434426f449e994169d03509469de7546bcb19ff317a7",
+            "match": true
+          },
+          "TIME_SPLIT.json": {
+            "expected": "344ff1533f61b46cb0c90d42b0959c5b4c6a3aadf8f765aeafa6ce563c70356d",
+            "actual": "344ff1533f61b46cb0c90d42b0959c5b4c6a3aadf8f765aeafa6ce563c70356d",
+            "match": true
+          },
+          "TRAIN_PACKET_MANIFEST.json": {
+            "expected": "9922b96ea41079056117e26821f89ad828e5c8d4d55a9153e46626eb48381552",
+            "actual": "9922b96ea41079056117e26821f89ad828e5c8d4d55a9153e46626eb48381552",
+            "match": true
+          },
+          "UPSTREAM_CODE.json": {
+            "expected": "f27f4613c7b96560f1f655245c57b18087b569b10d8a3636e7c1f99f82f9b140",
+            "actual": "f27f4613c7b96560f1f655245c57b18087b569b10d8a3636e7c1f99f82f9b140",
+            "match": true
+          }
+        }
+      }
+    },
+    {
+      "name": "A_selection_seal_hashes",
+      "status": "PASS",
+      "details": {
+        "source_seal_match": true,
+        "files": {
+          "MODEL_SELECTION.json": {
+            "expected": "5c34e60ecec92015daec70ad5697d43ef306f044821f027f38a9e7e75bc61055",
+            "actual": "5c34e60ecec92015daec70ad5697d43ef306f044821f027f38a9e7e75bc61055",
+            "match": true
+          },
+          "BASELINE_SELECTION.json": {
+            "expected": "aacfad15600ddaf27d237c9a9d28aa1fe6750efcd6699658681b63b40ff59a28",
+            "actual": "aacfad15600ddaf27d237c9a9d28aa1fe6750efcd6699658681b63b40ff59a28",
+            "match": true
+          }
+        }
+      }
+    },
+    {
+      "name": "B_selection_seal_hashes",
+      "status": "PASS",
+      "details": {
+        "source_seal_match": true,
+        "files": {
+          "MODEL_SELECTION.json": {
+            "expected": "0180d9442f6523306302a21cc653dad2381b5a35c46ca86bd6eca0ae0d7df1f3",
+            "actual": "0180d9442f6523306302a21cc653dad2381b5a35c46ca86bd6eca0ae0d7df1f3",
+            "match": true
+          },
+          "BASELINE_SELECTION.json": {
+            "expected": "54c41366e0032b455eaa1ed3678269645fe0617ca9424d2cec18bc82de876232",
+            "actual": "54c41366e0032b455eaa1ed3678269645fe0617ca9424d2cec18bc82de876232",
+            "match": true
+          }
+        }
+      }
+    },
+    {
+      "name": "raw_and_selected_cache_hashes",
+      "status": "PASS",
+      "details": {
+        "raw_path": ".cache/rollout_uncertainty_peft_v1_20260921/data/electricity.txt.gz",
+        "raw_expected": "3c4c069588198c1fcc95cace7bb69c99922129edfd673b7286661dad20badefa",
+        "raw_actual": "3c4c069588198c1fcc95cace7bb69c99922129edfd673b7286661dad20badefa",
+        "selected_path": ".cache/residual_feedback_peft_screen_v1_20260922/data/electricity_selected_48_float32.npy",
+        "selected_expected": "e40f6f90f36d4dddd90b97251434bbf8f10077b76a727634ba50a7de9ddcbf2c",
+        "selected_actual": "e40f6f90f36d4dddd90b97251434bbf8f10077b76a727634ba50a7de9ddcbf2c"
+      }
+    },
+    {
+      "name": "series_split_local_original_mapping",
+      "status": "PASS",
+      "details": {
+        "json_ids": {
+          "DONOR": [
+            66,
+            62,
+            52,
+            69,
+            140,
+            291,
+            18,
+            205,
+            234,
+            312,
+            75,
+            153,
+            130,
+            13,
+            303,
+            80,
+            71,
+            152,
+            203,
+            298,
+            216,
+            275,
+            150,
+            196,
+            25,
+            23,
+            287,
+            1,
+            297,
+            204,
+            228,
+            266
+          ],
+          "DEV": [
+            41,
+            293,
+            199,
+            173,
+            201,
+            73,
+            118,
+            46
+          ],
+          "TEST": [
+            202,
+            138,
+            48,
+            5,
+            294,
+            68,
+            237,
+            142
+          ]
+        },
+        "data_ids": {
+          "DONOR": [
+            66,
+            62,
+            52,
+            69,
+            140,
+            291,
+            18,
+            205,
+            234,
+            312,
+            75,
+            153,
+            130,
+            13,
+            303,
+            80,
+            71,
+            152,
+            203,
+            298,
+            216,
+            275,
+            150,
+            196,
+            25,
+            23,
+            287,
+            1,
+            297,
+            204,
+            228,
+            266
+          ],
+          "DEV": [
+            41,
+            293,
+            199,
+            173,
+            201,
+            73,
+            118,
+            46
+          ],
+          "TEST": [
+            202,
+            138,
+            48,
+            5,
+            294,
+            68,
+            237,
+            142
+          ]
+        },
+        "local_indices": {
+          "DONOR": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "DEV": [
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39
+          ],
+          "TEST": [
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47
+          ]
+        }
+      }
+    },
+    {
+      "name": "time_split_edges",
+      "status": "PASS",
+      "details": {
+        "json_edges": [
+          0,
+          7891,
+          15782,
+          21043,
+          26304
+        ],
+        "data_edges": [
+          0,
+          7891,
+          15782,
+          21043,
+          26304
+        ]
+      }
+    },
+    {
+      "name": "training_schedules_unchanged_and_donor_only",
+      "status": "PASS",
+      "details": {
+        "92401": {
+          "base_schedule": {
+            "path": ".cache/residual_feedback_peft_screen_v1_20260922/data/packets/base_schedule_seed92401.npy",
+            "sha_match": true,
+            "equals_Data_schedule": true,
+            "donor_series_only": true,
+            "issue_window_ok": true,
+            "shape": [
+              512,
+              8,
+              2
+            ]
+          },
+          "meta_schedule": {
+            "path": ".cache/residual_feedback_peft_screen_v1_20260922/data/packets/meta_schedule_seed92401.npy",
+            "sha_match": true,
+            "equals_Data_schedule": true,
+            "donor_series_only": true,
+            "issue_window_ok": true,
+            "shape": [
+              512,
+              4,
+              2
+            ]
+          }
+        },
+        "92402": {
+          "base_schedule": {
+            "path": ".cache/residual_feedback_peft_screen_v1_20260922/data/packets/base_schedule_seed92402.npy",
+            "sha_match": true,
+            "equals_Data_schedule": true,
+            "donor_series_only": true,
+            "issue_window_ok": true,
+            "shape": [
+              512,
+              8,
+              2
+            ]
+          },
+          "meta_schedule": {
+            "path": ".cache/residual_feedback_peft_screen_v1_20260922/data/packets/meta_schedule_seed92402.npy",
+            "sha_match": true,
+            "equals_Data_schedule": true,
+            "donor_series_only": true,
+            "issue_window_ok": true,
+            "shape": [
+              512,
+              4,
+              2
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "episode_packets_unchanged_and_role_scoped",
+      "status": "PASS",
+      "details": {
+        "A": {
+          "DEV": {
+            "path": ".cache/residual_feedback_peft_screen_v1_20260922/data/packets/episodes_A_DEV.npy",
+            "sha_match": true,
+            "equals_Data_episodes": true,
+            "local_series_role": "DEV",
+            "role_series_ok": true,
+            "query_target_inside_role": true,
+            "shape": [
+              96,
+              2
+            ]
+          },
+          "TEST": {
+            "path": ".cache/residual_feedback_peft_screen_v1_20260922/data/packets/episodes_A_TEST.npy",
+            "sha_match": true,
+            "equals_Data_episodes": true,
+            "local_series_role": "TEST",
+            "role_series_ok": true,
+            "query_target_inside_role": true,
+            "shape": [
+              96,
+              2
+            ]
+          }
+        },
+        "B": {
+          "DEV": {
+            "path": ".cache/residual_feedback_peft_screen_v1_20260922/data/packets/episodes_B_DEV.npy",
+            "sha_match": true,
+            "equals_Data_episodes": true,
+            "local_series_role": "DEV",
+            "role_series_ok": true,
+            "query_target_inside_role": true,
+            "shape": [
+              384,
+              2
+            ]
+          },
+          "TEST": {
+            "path": ".cache/residual_feedback_peft_screen_v1_20260922/data/packets/episodes_B_TEST.npy",
+            "sha_match": true,
+            "equals_Data_episodes": true,
+            "local_series_role": "TEST",
+            "role_series_ok": true,
+            "query_target_inside_role": true,
+            "shape": [
+              384,
+              2
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "support_clock_contract",
+      "status": "PASS",
+      "details": {
+        "meta": {
+          "A": {
+            "series_index_scope": "local48",
+            "role": "DONOR",
+            "minimum_support_issue": 7896,
+            "all_support_issues_at_or_after_T1": true,
+            "support_contexts_have_256_history": true,
+            "visible_counts_match_contract": true,
+            "A_support_targets_realized_before_query": true
+          },
+          "B": {
+            "series_index_scope": "local48",
+            "role": "DONOR",
+            "minimum_support_issue": 8088,
+            "all_support_issues_at_or_after_T1": true,
+            "support_contexts_have_256_history": true,
+            "visible_counts_match_contract": true,
+            "A_support_targets_realized_before_query": true
+          }
+        },
+        "A_DEV": {
+          "A": {
+            "series_index_scope": "local48",
+            "role": "DEV",
+            "minimum_support_issue": 15552,
+            "all_support_issues_at_or_after_T1": true,
+            "support_contexts_have_256_history": true,
+            "visible_counts_match_contract": true,
+            "A_support_targets_realized_before_query": true
+          }
+        },
+        "A_TEST": {
+          "A": {
+            "series_index_scope": "local48",
+            "role": "TEST",
+            "minimum_support_issue": 20800,
+            "all_support_issues_at_or_after_T1": true,
+            "support_contexts_have_256_history": true,
+            "visible_counts_match_contract": true,
+            "A_support_targets_realized_before_query": true
+          }
+        },
+        "B_DEV": {
+          "B": {
+            "series_index_scope": "local48",
+            "role": "DEV",
+            "minimum_support_issue": 15720,
+            "all_support_issues_at_or_after_T1": true,
+            "support_contexts_have_256_history": true,
+            "visible_counts_match_contract": true,
+            "A_support_targets_realized_before_query": true
+          }
+        },
+        "B_TEST": {
+          "B": {
+            "series_index_scope": "local48",
+            "role": "TEST",
+            "minimum_support_issue": 20984,
+            "all_support_issues_at_or_after_T1": true,
+            "support_contexts_have_256_history": true,
+            "visible_counts_match_contract": true,
+            "A_support_targets_realized_before_query": true
+          }
+        }
+      }
+    },
+    {
+      "name": "reference_forecast_ledger",
+      "status": "PASS",
+      "details": {
+        "count": 26113,
+        "local_series_index": true,
+        "bad_examples": []
+      }
+    },
+    {
+      "name": "issued_forecast_ledgers",
+      "status": "PASS",
+      "details": {
+        "A": {
+          "all_test_saved_status": "COMPLETE",
+          "issued_rows": 7296,
+          "unique_keys": 7296,
+          "unique_files": 7296,
+          "unique_hashes": 5916,
+          "content_hash_uniqueness_required": false,
+          "reason": "Identical forecasts across arms are legitimate, especially c=1 at checkpoint0; issuance keys and paths must be unique, and every file must match its recorded hash.",
+          "role_counts": {
+            "DEV": 4416,
+            "TEST": 2880
+          },
+          "local_series_index": true,
+          "original_test_ids": [
+            202,
+            138,
+            48,
+            5,
+            294,
+            68,
+            237,
+            142
+          ],
+          "bad_examples": []
+        },
+        "B": {
+          "all_test_saved_status": "COMPLETE",
+          "issued_rows": 23040,
+          "unique_keys": 23040,
+          "unique_files": 23040,
+          "unique_hashes": 16397,
+          "content_hash_uniqueness_required": false,
+          "reason": "Identical forecasts across arms are legitimate, especially c=1 at checkpoint0; issuance keys and paths must be unique, and every file must match its recorded hash.",
+          "role_counts": {
+            "DEV": 14592,
+            "TEST": 8448
+          },
+          "local_series_index": true,
+          "original_test_ids": [
+            202,
+            138,
+            48,
+            5,
+            294,
+            68,
+            237,
+            142
+          ],
+          "bad_examples": []
+        }
+      }
+    },
+    {
+      "name": "cpu_prefix_and_mask_poisoning",
+      "status": "PASS",
+      "details": {
+        "series_local": 40,
+        "series_original": 202,
+        "issue": 21048,
+        "asof_returns_copy": true,
+        "future_poison_does_not_change_cpu_episode": true,
+        "masked_residual_selects_observed_cells_before_math": true
+      }
+    }
+  ],
+  "failures": [],
+  "performance_files_read": false,
+  "selection_contents_parsed": false,
+  "optimizer_or_inference_rerun": false
+}

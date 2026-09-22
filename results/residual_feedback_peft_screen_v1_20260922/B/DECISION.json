@@ -1,0 +1,101 @@
+{
+  "label": "NO_GO_CURRENT_RECIPE",
+  "baseline": "STATIC_LONG320",
+  "simple_baseline_from_sealed_dev": null,
+  "primary": [
+    {
+      "candidate": "B_TIME",
+      "control": "STATIC_LONG320",
+      "candidate_score": 0.20718278431209933,
+      "control_score": 0.20301278596954186,
+      "improvement_pct": -2.054057000716747,
+      "ci_low": -5.01485409869732,
+      "ci_high": -0.5048300609936154,
+      "series_ci_low": -3.028161670920926,
+      "series_ci_high": -0.9372630530849791
+    },
+    {
+      "candidate": "B_TIME",
+      "control": "B_SET",
+      "candidate_score": 0.20718278431209933,
+      "control_score": 0.20718278431209933,
+      "improvement_pct": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "series_ci_low": 0.0,
+      "series_ci_high": 0.0
+    },
+    {
+      "candidate": "B_TIME",
+      "control": "B_FULLGEN",
+      "candidate_score": 0.20718278431209933,
+      "control_score": 0.20718278431209933,
+      "improvement_pct": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "series_ci_low": 0.0,
+      "series_ci_high": 0.0
+    }
+  ],
+  "seed_effects": [
+    {
+      "candidate": "B_TIME",
+      "control": "B_FULLGEN",
+      "seed": 92401,
+      "candidate_score": 0.20786685022401982,
+      "control_score": 0.20786685022401982,
+      "improvement_pct": 0.0
+    },
+    {
+      "candidate": "B_TIME",
+      "control": "B_FULLGEN",
+      "seed": 92402,
+      "candidate_score": 0.20649871840017883,
+      "control_score": 0.20649871840017883,
+      "improvement_pct": 0.0
+    },
+    {
+      "candidate": "B_TIME",
+      "control": "B_SET",
+      "seed": 92401,
+      "candidate_score": 0.20786685022401982,
+      "control_score": 0.20786685022401982,
+      "improvement_pct": 0.0
+    },
+    {
+      "candidate": "B_TIME",
+      "control": "B_SET",
+      "seed": 92402,
+      "candidate_score": 0.20649871840017883,
+      "control_score": 0.20649871840017883,
+      "improvement_pct": 0.0
+    },
+    {
+      "candidate": "B_TIME",
+      "control": "STATIC_LONG320",
+      "seed": 92401,
+      "candidate_score": 0.20786685022401982,
+      "control_score": 0.20350950467771986,
+      "improvement_pct": -2.1411017402849675
+    },
+    {
+      "candidate": "B_TIME",
+      "control": "STATIC_LONG320",
+      "seed": 92402,
+      "candidate_score": 0.20649871840017883,
+      "control_score": 0.20251606726136392,
+      "improvement_pct": -1.966585265392773
+    }
+  ],
+  "late48_effects": {
+    "STATIC_LONG320": -2.522345212452337,
+    "B_SET": 0.0,
+    "B_FULLGEN": 0.0
+  },
+  "specific_signal": false,
+  "all_selected_final_checkpoint": false,
+  "efficiency": null,
+  "classification": "SCIENTIFIC_SCREEN_RESULT",
+  "no_novelty_claim": true,
+  "automatic_followup": false
+}

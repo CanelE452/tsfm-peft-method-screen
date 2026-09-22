@@ -1,0 +1,14 @@
+{
+  "before_test_scoring": true,
+  "changes": {
+    "checkpoints_audit.py": {
+      "before": "da5548edaf6250a19f7204d31b35b164cbf6e22b87cc9caf29799dd2c6c04a1b",
+      "after": "a435bdc8e751147942d09279042a0842d2ce1ad1e8b3922566311e54079686d6"
+    },
+    "report.py": {
+      "before": "1e3134ba1732b16e32c4ffac6cdb4f6187a4e22c5e451cffe32b02752464730c",
+      "after": "802ba60d75fef5e7fc9145ac7f453f6b93f7b17373160be0320de73b73532a0a"
+    }
+  },
+  "reason": "Added field trainable parameter counts to checkpoint audit and explicit offline/episode/stream scope plus independent audit links to Korean summary. No scoring, thresholds, model selection or training changes."
+}

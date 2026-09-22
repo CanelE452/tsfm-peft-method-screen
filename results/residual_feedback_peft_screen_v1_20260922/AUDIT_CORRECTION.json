@@ -1,0 +1,9 @@
+{
+  "classification": "VERIFIER_IMPLEMENTATION_FIX",
+  "initial_report": "DATA_POSTRUN_AUDIT_INITIAL.json",
+  "reason": "Verifier incorrectly demanded content hashes differ across arms. Shared initialization and selected checkpoint0 legitimately yield byte-identical prediction files. Removed content-uniqueness assertion only; key/path uniqueness, file integrity, metadata and visibility checks retained.",
+  "training_changes": false,
+  "prediction_changes": false,
+  "additional_updates": 0,
+  "source_after": "8d408fac507cd66c6decfba59f76d7624e0afe09532a9776a311517b77c7feee"
+}

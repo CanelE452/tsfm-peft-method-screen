@@ -1,0 +1,181 @@
+{
+  "status": "PASS",
+  "offline_fits": [
+    {
+      "arm": "G0",
+      "seed": 92401,
+      "status": "PASS"
+    },
+    {
+      "arm": "STATIC",
+      "seed": 92401,
+      "status": "PASS"
+    },
+    {
+      "arm": "A_NOERROR",
+      "seed": 92401,
+      "status": "PASS"
+    },
+    {
+      "arm": "A_SET",
+      "seed": 92401,
+      "status": "PASS"
+    },
+    {
+      "arm": "A_TIME",
+      "seed": 92401,
+      "status": "PASS"
+    },
+    {
+      "arm": "B_FULLGEN",
+      "seed": 92401,
+      "status": "PASS"
+    },
+    {
+      "arm": "B_SET",
+      "seed": 92401,
+      "status": "PASS"
+    },
+    {
+      "arm": "B_TIME",
+      "seed": 92401,
+      "status": "PASS"
+    },
+    {
+      "arm": "G0",
+      "seed": 92402,
+      "status": "PASS"
+    },
+    {
+      "arm": "STATIC",
+      "seed": 92402,
+      "status": "PASS"
+    },
+    {
+      "arm": "A_NOERROR",
+      "seed": 92402,
+      "status": "PASS"
+    },
+    {
+      "arm": "A_SET",
+      "seed": 92402,
+      "status": "PASS"
+    },
+    {
+      "arm": "A_TIME",
+      "seed": 92402,
+      "status": "PASS"
+    },
+    {
+      "arm": "B_FULLGEN",
+      "seed": 92402,
+      "status": "PASS"
+    },
+    {
+      "arm": "B_SET",
+      "seed": 92402,
+      "status": "PASS"
+    },
+    {
+      "arm": "B_TIME",
+      "seed": 92402,
+      "status": "PASS"
+    }
+  ],
+  "checkpoint_files": 48,
+  "stream_final_optimizer_states": 128,
+  "field_trainable_parameters": {
+    "B_COEFF": 288,
+    "B_COSA_CELL": 4481,
+    "B_WAIT_AND_MASKED": 294912
+  },
+  "initial_new_G0_bank_equal": true,
+  "initial_generator_encoder_equal": true,
+  "initial_heads_zero": true,
+  "dev_selection_checks": [
+    {
+      "track": "A",
+      "arm": "STATIC",
+      "seed": 92401
+    },
+    {
+      "track": "A",
+      "arm": "STATIC",
+      "seed": 92402
+    },
+    {
+      "track": "A",
+      "arm": "A_NOERROR",
+      "seed": 92401
+    },
+    {
+      "track": "A",
+      "arm": "A_NOERROR",
+      "seed": 92402
+    },
+    {
+      "track": "A",
+      "arm": "A_SET",
+      "seed": 92401
+    },
+    {
+      "track": "A",
+      "arm": "A_SET",
+      "seed": 92402
+    },
+    {
+      "track": "A",
+      "arm": "A_TIME",
+      "seed": 92401
+    },
+    {
+      "track": "A",
+      "arm": "A_TIME",
+      "seed": 92402
+    },
+    {
+      "track": "B",
+      "arm": "STATIC",
+      "seed": 92401
+    },
+    {
+      "track": "B",
+      "arm": "STATIC",
+      "seed": 92402
+    },
+    {
+      "track": "B",
+      "arm": "B_FULLGEN",
+      "seed": 92401
+    },
+    {
+      "track": "B",
+      "arm": "B_FULLGEN",
+      "seed": 92402
+    },
+    {
+      "track": "B",
+      "arm": "B_SET",
+      "seed": 92401
+    },
+    {
+      "track": "B",
+      "arm": "B_SET",
+      "seed": 92402
+    },
+    {
+      "track": "B",
+      "arm": "B_TIME",
+      "seed": 92401
+    },
+    {
+      "track": "B",
+      "arm": "B_TIME",
+      "seed": 92402
+    }
+  ],
+  "independent_test_score_checks": 40,
+  "ratio_of_seed_mean_scores": true,
+  "extra_optimizer_updates": 0,
+  "model_forward_calls": 0
+}

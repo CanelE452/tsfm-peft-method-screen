@@ -1,0 +1,106 @@
+{
+  "label": "NO_GO_CURRENT_RECIPE",
+  "baseline": "STATIC_LONG512",
+  "simple_baseline_from_sealed_dev": "STATIC_LONG512",
+  "primary": [
+    {
+      "candidate": "A_TIME",
+      "control": "STATIC_LONG512",
+      "candidate_score": 0.18003542399274983,
+      "control_score": 0.1747132691772025,
+      "improvement_pct": -3.0462224424118167,
+      "ci_low": -6.147203031395508,
+      "ci_high": -0.5458821995295995,
+      "series_ci_low": -6.147203031395508,
+      "series_ci_high": -0.5458821995295995
+    },
+    {
+      "candidate": "A_TIME",
+      "control": "A_SET",
+      "candidate_score": 0.18003542399274983,
+      "control_score": 0.18005888861055108,
+      "improvement_pct": 0.013031635362370508,
+      "ci_low": -0.0013378910443240242,
+      "ci_high": 0.057430957726405364,
+      "series_ci_low": -0.0013378910443240242,
+      "series_ci_high": 0.057430957726405364
+    },
+    {
+      "candidate": "A_TIME",
+      "control": "A_NOERROR",
+      "candidate_score": 0.18003542399274983,
+      "control_score": 0.18003388751472324,
+      "improvement_pct": -0.0008534382319957956,
+      "ci_low": -0.010754103073853938,
+      "ci_high": 0.00564350759036186,
+      "series_ci_low": -0.010754103073853938,
+      "series_ci_high": 0.00564350759036186
+    }
+  ],
+  "seed_effects": [
+    {
+      "candidate": "A_TIME",
+      "control": "A_NOERROR",
+      "seed": 92401,
+      "candidate_score": 0.179604471340672,
+      "control_score": 0.179606012223995,
+      "improvement_pct": 0.0008579241328909859
+    },
+    {
+      "candidate": "A_TIME",
+      "control": "A_NOERROR",
+      "seed": 92402,
+      "candidate_score": 0.18046637664482765,
+      "control_score": 0.18046176280545148,
+      "improvement_pct": -0.0025566853079750373
+    },
+    {
+      "candidate": "A_TIME",
+      "control": "A_SET",
+      "seed": 92401,
+      "candidate_score": 0.179604471340672,
+      "control_score": 0.1797407487198949,
+      "improvement_pct": 0.07581885587628623
+    },
+    {
+      "candidate": "A_TIME",
+      "control": "A_SET",
+      "seed": 92402,
+      "candidate_score": 0.18046637664482765,
+      "control_score": 0.18037702850120726,
+      "improvement_pct": -0.049534103296178245
+    },
+    {
+      "candidate": "A_TIME",
+      "control": "STATIC_LONG512",
+      "seed": 92401,
+      "candidate_score": 0.179604471340672,
+      "control_score": 0.1744151314104251,
+      "improvement_pct": -2.9752808075095283
+    },
+    {
+      "candidate": "A_TIME",
+      "control": "STATIC_LONG512",
+      "seed": 92402,
+      "candidate_score": 0.18046637664482765,
+      "control_score": 0.17501140694397985,
+      "improvement_pct": -3.116922374433506
+    }
+  ],
+  "late48_effects": {
+    "STATIC_LONG512": -3.433485363747857,
+    "A_SET": 0.024641064170094484,
+    "A_NOERROR": 0.0005023780041080173
+  },
+  "specific_signal": false,
+  "all_selected_final_checkpoint": false,
+  "efficiency": {
+    "same_quality": true,
+    "operational_measured_saving20": false,
+    "isolated_compute_efficiency_confirmed": false,
+    "reason": "Journal overhead differs between optimizer and forward-only timings; conservatively do not award GO from this timing alone"
+  },
+  "classification": "SCIENTIFIC_SCREEN_RESULT",
+  "no_novelty_claim": true,
+  "automatic_followup": false
+}
