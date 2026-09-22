@@ -1,0 +1,8 @@
+{
+  "classification": "PREFLIGHT_IMPLEMENTATION_FAILURE_REPAIRED",
+  "error": "cuDNN RNN backward only supported in training mode; contract requires eval/dropout0",
+  "fix": "Disable cuDNN backend; preserve exact architecture/eval/FP32/optimizer/seed",
+  "failed_attempt_completed_smoke_updates": 2,
+  "failed_attempt_main_updates": 0,
+  "no_hyperparameter_search": true
+}

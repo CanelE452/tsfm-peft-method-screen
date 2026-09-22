@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "edges": [
+    0,
+    7891,
+    15782,
+    21043,
+    26304
+  ],
+  "roles": {
+    "BASE_TRAIN": {
+      "start": 0,
+      "end": 7891,
+      "series_role": "DONOR"
+    },
+    "META_TRAIN": {
+      "start": 7891,
+      "end": 15782,
+      "series_role": "DONOR"
+    },
+    "DEV": {
+      "start": 15782,
+      "end": 21043,
+      "series_role": "DEV"
+    },
+    "TEST": {
+      "start": 21043,
+      "end": 26304,
+      "series_role": "TEST"
+    }
+  },
+  "context": 256,
+  "horizon": 64,
+  "clock": {
+    "context": "[issue-256, issue)",
+    "target": "[issue, issue+64)",
+    "available_at_t": "values with index < t only",
+    "current_y_t_available": false
+  },
+  "scale_rule": "max(std(context, ddof=0), 1e-6*mean(abs(context)), 1e-6)",
+  "leakage_controls": {
+    "base_and_meta_training_series": "DONOR only",
+    "dev_test_series_excluded_from_generator_training": true,
+    "test_truth_used_by_scorer_only": true,
+    "timestamps_fabricated": false
+  }
+}

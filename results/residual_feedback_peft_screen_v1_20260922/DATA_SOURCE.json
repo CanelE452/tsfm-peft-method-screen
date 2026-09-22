@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "domain_context": {
+    "domain": "hourly electricity load time-series forecasting",
+    "downstream_decision": "screen whether residual/partial-feedback PEFT adds value beyond shared LoRA and simple lawful controls",
+    "quality_bar": "publication-style pilot receipts with zero leakage tolerance",
+    "primary_leakage_paths": [
+      "using DEV/TEST targets to select columns",
+      "using query future targets in context or adaptation",
+      "letting evaluation series labels train generator weights",
+      "computing hidden future residuals before masking"
+    ]
+  },
+  "source_url": "https://raw.githubusercontent.com/laiguokun/multivariate-time-series-data/master/electricity/electricity.txt.gz",
+  "pinned_source_url": "https://raw.githubusercontent.com/laiguokun/multivariate-time-series-data/7f402f185cc2435b5e66aed13a3b560ed142e023/electricity/electricity.txt.gz",
+  "upstream": {
+    "repo": "laiguokun/multivariate-time-series-data",
+    "branch": "master",
+    "path": "electricity/electricity.txt.gz",
+    "commit": "7f402f185cc2435b5e66aed13a3b560ed142e023"
+  },
+  "raw_path": ".cache/rollout_uncertainty_peft_v1_20260921/data/electricity.txt.gz",
+  "raw_sha256": "3c4c069588198c1fcc95cace7bb69c99922129edfd673b7286661dad20badefa",
+  "raw_bytes": 17993794,
+  "schema": {
+    "format": "gzip csv matrix",
+    "timestamp_column": false,
+    "rows_time_axis": true,
+    "n_rows": 26304,
+    "n_columns_raw": 321,
+    "dtype_loaded": "float32"
+  },
+  "time_axis": {
+    "unit": "hourly_slot_index",
+    "calendar_dates_fabricated": false,
+    "row_index_start": 0,
+    "row_index_end_exclusive": 26304,
+    "row_index_duplicates": 0,
+    "frequency_metadata": "README describes hourly rows; no timestamp column is present in the matrix"
+  },
+  "missing": {
+    "raw_nonfinite_cells": 0,
+    "selected_nonfinite_cells": 0,
+    "interpolation_applied": false,
+    "imputation_applied": false
+  },
+  "duplicate_metadata": {
+    "duplicate_full_rows": 0,
+    "duplicate_rows_used_for_exclusion": false
+  },
+  "selected_cache": {
+    "path": ".cache/residual_feedback_peft_screen_v1_20260922/data/electricity_selected_48_float32.npy",
+    "sha256": "e40f6f90f36d4dddd90b97251434bbf8f10077b76a727634ba50a7de9ddcbf2c",
+    "shape": [
+      26304,
+      48
+    ]
+  },
+  "prior_exposure_caveat": "Electricity was used in earlier local PEFT screens. The held-out claim here is only the new residual_feedback_v1 donor/dev/test series and time split, not global prior non-exposure."
+}

@@ -1,0 +1,141 @@
+{
+  "status": "PASS",
+  "source": "Electricity",
+  "context": 256,
+  "horizon": 64,
+  "seed_schedules": {
+    "92401": {
+      "base_schedule": {
+        "path": ".cache/residual_feedback_peft_screen_v1_20260922/data/packets/base_schedule_seed92401.npy",
+        "sha256": "deb63a4e9a2c747fefc17900623f5943cf0191040cba5b8561bb92b0dd6e77c0",
+        "shape": [
+          512,
+          8,
+          2
+        ],
+        "allowed_series_role": "DONOR",
+        "unique_series": 32,
+        "min_issue": 256,
+        "max_issue": 7827
+      },
+      "meta_schedule": {
+        "path": ".cache/residual_feedback_peft_screen_v1_20260922/data/packets/meta_schedule_seed92401.npy",
+        "sha256": "4664ee21f3bc78dd5d042912ebc99a5b4e5afdf91316f0d2017576a74f02e3bc",
+        "shape": [
+          512,
+          4,
+          2
+        ],
+        "allowed_series_role": "DONOR",
+        "issue_grid_hours": 8,
+        "unique_series": 32,
+        "min_issue": 8152,
+        "max_issue": 15712
+      }
+    },
+    "92402": {
+      "base_schedule": {
+        "path": ".cache/residual_feedback_peft_screen_v1_20260922/data/packets/base_schedule_seed92402.npy",
+        "sha256": "9e10444d087a58274d98e8a57f0748eb3ffd6f4dcd2a47a49a44776dfa7c0df1",
+        "shape": [
+          512,
+          8,
+          2
+        ],
+        "allowed_series_role": "DONOR",
+        "unique_series": 32,
+        "min_issue": 258,
+        "max_issue": 7823
+      },
+      "meta_schedule": {
+        "path": ".cache/residual_feedback_peft_screen_v1_20260922/data/packets/meta_schedule_seed92402.npy",
+        "sha256": "aedc114229596a9ff4f76176d49e25cd19d153d8d2d29c833250a7c848955e6a",
+        "shape": [
+          512,
+          4,
+          2
+        ],
+        "allowed_series_role": "DONOR",
+        "issue_grid_hours": 8,
+        "unique_series": 32,
+        "min_issue": 8152,
+        "max_issue": 15704
+      }
+    }
+  },
+  "episodes": {
+    "A": {
+      "DEV": {
+        "path": ".cache/residual_feedback_peft_screen_v1_20260922/data/packets/episodes_A_DEV.npy",
+        "sha256": "f73a65d5ef16a94f135686e95119d04371d12fd91d6f65e30ce90572a585b823",
+        "shape": [
+          96,
+          2
+        ],
+        "ordered": "series_then_time",
+        "first_pair": [
+          32,
+          15808
+        ],
+        "last_pair": [
+          39,
+          20928
+        ]
+      },
+      "TEST": {
+        "path": ".cache/residual_feedback_peft_screen_v1_20260922/data/packets/episodes_A_TEST.npy",
+        "sha256": "eaf5d2d2a12c09b4f53dbf518e8711ea87b32d496dcdf8cd5e0c4005dec18a63",
+        "shape": [
+          96,
+          2
+        ],
+        "ordered": "series_then_time",
+        "first_pair": [
+          40,
+          21056
+        ],
+        "last_pair": [
+          47,
+          26240
+        ]
+      }
+    },
+    "B": {
+      "DEV": {
+        "path": ".cache/residual_feedback_peft_screen_v1_20260922/data/packets/episodes_B_DEV.npy",
+        "sha256": "bb79694ac26a81bb932d1c89482c9f272de38ee8139c02c2dbaf44be2c83b69f",
+        "shape": [
+          384,
+          2
+        ],
+        "ordered": "series_then_time",
+        "first_pair": [
+          32,
+          15784
+        ],
+        "last_pair": [
+          39,
+          16160
+        ]
+      },
+      "TEST": {
+        "path": ".cache/residual_feedback_peft_screen_v1_20260922/data/packets/episodes_B_TEST.npy",
+        "sha256": "7c3aa1b0bbe4fa9ac114a905df19788176de825efc234b6d9d48a6f66706d43e",
+        "shape": [
+          384,
+          2
+        ],
+        "ordered": "series_then_time",
+        "first_pair": [
+          40,
+          21048
+        ],
+        "last_pair": [
+          47,
+          21424
+        ]
+      }
+    }
+  },
+  "all_schedules_written_before_main_training": true
+}

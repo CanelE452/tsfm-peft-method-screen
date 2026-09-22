@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "cpu_reference_tests": 18,
+  "native_parity": true,
+  "long_context_parity": true,
+  "dynamic_c1_parity": true,
+  "per_task_mapping": true,
+  "coefficient_effect": true,
+  "nan_poison_feature_loss_invariant": true,
+  "generator_gradient": [
+    {
+      "arm": "B_TIME",
+      "encoder_gradient": true,
+      "head_gradient": true,
+      "restore": true
+    },
+    {
+      "arm": "B_SET",
+      "encoder_gradient": true,
+      "head_gradient": true,
+      "restore": true
+    }
+  ],
+  "COSA_official_core_parity": true,
+  "frozen_unchanged": true,
+  "smoke_updates": 14,
+  "main_updates": 0,
+  "cudnn_disabled_for_eval_GRU_backward": true
+}

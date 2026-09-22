@@ -1,0 +1,96 @@
+{
+  "status": "PASS",
+  "A": {
+    "support_issues_relative_to_query": [
+      -256,
+      -192,
+      -128,
+      -64
+    ],
+    "support_targets_all_end_before_query": true,
+    "episode_rule": "12 query issues per series on a 64-hour grid, ordered series then time",
+    "DEV": {
+      "count": 96,
+      "series_count": 8,
+      "issue_count_per_series": 12,
+      "first_pair": [
+        32,
+        15808
+      ],
+      "last_pair": [
+        39,
+        20928
+      ],
+      "min_issue": 15808,
+      "max_issue": 20928,
+      "all_query_targets_inside_role": true
+    },
+    "TEST": {
+      "count": 96,
+      "series_count": 8,
+      "issue_count_per_series": 12,
+      "first_pair": [
+        40,
+        21056
+      ],
+      "last_pair": [
+        47,
+        26240
+      ],
+      "min_issue": 21056,
+      "max_issue": 26240,
+      "all_query_targets_inside_role": true
+    }
+  },
+  "B": {
+    "support_issues_relative_to_query": [
+      -64,
+      -32,
+      -16,
+      -8
+    ],
+    "visible_counts": [
+      64,
+      32,
+      16,
+      8
+    ],
+    "episode_rule": "48 consecutive 8-hour issue ticks per series, ordered series then time",
+    "DEV": {
+      "count": 384,
+      "series_count": 8,
+      "issue_count_per_series": 48,
+      "first_pair": [
+        32,
+        15784
+      ],
+      "last_pair": [
+        39,
+        16160
+      ],
+      "min_issue": 15784,
+      "max_issue": 16160,
+      "all_query_targets_inside_role": true
+    },
+    "TEST": {
+      "count": 384,
+      "series_count": 8,
+      "issue_count_per_series": 48,
+      "first_pair": [
+        40,
+        21048
+      ],
+      "last_pair": [
+        47,
+        21424
+      ],
+      "min_issue": 21048,
+      "max_issue": 21424,
+      "all_query_targets_inside_role": true
+    }
+  },
+  "asof_prefix_returns_copy": true,
+  "future_values_required_for_context_or_feature": false,
+  "nan_then_mask_pattern_allowed": false,
+  "evaluation_targets_separate_scorer_method": "scorer_targets"
+}

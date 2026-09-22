@@ -1,0 +1,597 @@
+# MASTER — 오차 기반 적응 생성 / 부분 정답 적응 생성: 독립 실행 계약
+# 작성: 2026-09-22 KST
+# 대상 저장소: CanelE452/tsfm-peft-method-screen
+# 새 작업명: residual_feedback_peft_screen_v1_20260922
+# 상태: 사용자가 두 후보의 실행용 CLI 지시문을 요청함. 본 문서는 이 두 실험만 승인된 범위로 정의한다.
+
+0. 목적·범위·판정의 의미
+======================
+[설계] 최상위 목적: 두 학습형 PEFT 후보의 추가 가치가 있는지 확인하여 후속 연구 예산을 배분한다.
+소비처: 사용자가 원점수·반복·실제 비용·선행 중복을 읽고 다음 주제를 선택한다.
+
+A_AMORTIZED:
+이미 실현된 과거 예측오차를 이용해 새 계열의 저랭크 수정을 한 번에 생성한다.
+기대 결과: 일반 생성기·출력 보정보다 유용하며, 짧은 LoRA와 비슷한/더 좋은 품질을 적은 현장 계산으로 얻음.
+
+B_PARTIAL:
+예측 정답이 일부만 도착했을 때, 그 오차로 이후의 새로운 미래 예측에 유효한 저랭크 수정을 생성한다.
+기대 결과: 최신 문맥·단순 masked LoRA·출력 보정·완전 정답만 읽는 생성기보다 추가 가치가 있음.
+
+[중요] A/B는 이전 path/ensemble A/B와 이름만 같고 다른 실험이다.
+기존 TEMP/MAG/HIER/rollout/QTF/branch-mixture를 수정·재개하지 않는다.
+두 후보를 하나의 최종 모델로 합치지 않는다. A가 음성이어도 B를 생략하지 않는다.
+공통으로 재사용하는 것은 신규 데이터 계약·신규 donor 공유 모델·구현 기반뿐이다.
+
+[확인] 172fee06d4e299c1f70bd2a29774d7328fdd0ea1에서:
+- temporal_lora_init_v1_20260922는 HOLD로 종료.
+- 예전 candidate_05_repaired는 부분 정답+미공개 예측 보존 규제였고 FAIL.
+  따라서 부분 정답이라는 문제 자체를 이번에 처음 다뤘다고 쓰지 않는다.
+[설계] B는 미공개 예측을 고정하는 규제가 아니라, donor의 이후 실제 정답으로 수정 생성기를 학습한다.
+
+GO는 논문 PASS/신규성 확보가 아니다. NO_GO는 이 작은 구현·조건의 투자 중단이다.
+일반 LoRA/출력 보정/일반 생성기가 잘되고 특화 부분이 필요 없으면 STANDARD_SUFFICIENT로 분리한다.
+
+0.1 목적-행동 연결과 가지치기
+---------------------------
+행동 / 필요한 목적 / 없으면 무엇이 무너지나 / 예상 결과
+- donor-dev-test 계열 분리: 새 계열 일반화 확인 + 계열 암기 배제 / 시간만 나누면 새 계열 적응 주장 불가 /
+  donor에 없던 계열에서도 오차가 개선되어야 한다.
+- 신규 공통 LoRA 기준: 유효한 적응 출발점 제공 + 메타학습의 추가 정보/비용을 통제 /
+  후보만 donor 지식을 얻는 비교가 되지 않도록 한다.
+- SET·NOERROR/FULLONLY 대조: 일반 생성기 효과 구분 + 시간/부분오차 정보의 필요성 확인 /
+  특화 후보가 이 대조와 같으면 특화 방법론의 근거가 약하다.
+- 인과적 시계/발행 장부: 배포 가능한 정보만 사용 + 이미 맞춘 과거를 예측 성과로 재채점하는 오류 방지 /
+  모든 주평가 target index는 해당 발행시각 이상이다.
+- 총비용 기록: 새 계열당 절감과 준비 비용 구분 + 실제 반복 사용에서 회수 가능한지 확인 /
+  사전학습을 빼고 한 번짜리 forward만으로 효율 성공을 주장하지 않는다.
+
+삭제/강등한 일:
+- '먼저 LoRA가 F0보다 실패해야 한다'는 관문: 삭제.
+- support 오차를 잘 맞췄다는 것만으로 성공: 삭제. 실제 미래 query loss가 기준.
+- 새로운 데이터/lag/rank/생성기 폭 탐색: 이번 범위에서 삭제.
+- 정답이 덜 도착했다는 이유로 미래를 억지로 pseudo target으로 채우는 규칙: 삭제.
+- 정식 DSOF/PROCEED/COSA 전체를 재현했다는 주장: 이 작은 파일럿에서는 금지.
+
+1. 저장소·환경·실행 안전
+======================
+[설계] 이 MASTER가 유일한 실행 계약이다. 01_A / 02_B는 동일 공통설정의 범위별 사본이다.
+새 경로 예:
+  experiments/residual_feedback_peft_screen_v1_20260922/
+  results/residual_feedback_peft_screen_v1_20260922/
+  .cache/residual_feedback_peft_screen_v1_20260922/  (Git 제외)
+
+- 현재 main SHA, local HEAD, dirty files, OS/GPU/driver/Python/torch/chronos/peft를 먼저 기록.
+- 기존 작업을 reset/clean/delete/stash하거나 다른 프로세스를 종료하지 않는다.
+- 이미 동일 작업명이 있으면 원본을 보존하고 정확한 프로토콜/hash/장부로 완료/재개 가능 여부 확인.
+  성능을 이미 본 설정을 새 사전등록처럼 덮어쓰지 않는다.
+- 검증된 격리 CUDA 환경 재사용. 시스템 드라이버나 다른 환경의 패키지는 바꾸지 않는다.
+- 정상 GPU가 없으면 CPU 자료/참조 테스트까지만 수행하고 RESOURCE_BLOCK.
+- FP32, TF32 off, dropout0/eval. 이는 forward/backward 금지가 아니다.
+- RNG seed = 92401, 92402. 둘 다 반복용이며 선택용 seed를 끼워 넣지 않는다.
+- 모델 로딩·데이터·실모델 smoke를 마친 뒤, main optimizer 시작 전에 코드/config/hash를 봉인한다.
+- 동시 GPU executor 1개. 각 optimizer intent/commit을 장부로 기록. 불명확한 update를 자동 재생하지 않는다.
+- 재현 정보/코드/작은 점수표만 scoped commit/push. raw data, credentials, HF weights, 예측 대용량은 제외.
+- 이 지시문은 새 GitHub 저장소 생성/공개 전환/기존 STOP 해제를 요구하지 않는다.
+
+기존 파일은 읽고 계약을 확인한 부분만 재사용:
+  experiments/temporal_lora_init_v1_20260922/model.py
+  results/temporal_lora_init_v1_20260922/REPORT_KO.md
+  results/candidate_05_repaired/RESULT.md
+  docs/CANDIDATE_05_RECOVERY.md
+내부 변수·checkpoint 경로는 실제 파일을 확인한 뒤 사용한다. 과거 학습 checkpoint는 재사용 금지.
+
+2. 데이터와 두 종류의 분리
+========================
+[확인] 저자 배포본은 321개 고객의 hourly electricity 자료를 설명한다.
+Source README: https://github.com/laiguokun/multivariate-time-series-data
+Data: https://raw.githubusercontent.com/laiguokun/multivariate-time-series-data/master/electricity/electricity.txt.gz
+
+[설계] 첫 화면은 Electricity 하나. 고객들을 별도 단변량 계열로 예측하며 동시 다른 고객 입력을 넣지 않는다.
+원본 bytes/hash/upstream revision/shape/finite/중복·빈도 메타데이터를 감사한다.
+실제 timestamp가 없는 행렬에 날짜·weekday를 만들어 붙이지 않는다. 시간은 원본 행 index다.
+
+계열 선택:
+- 첫30%에서 finite이고 nonconstant인 열만 품질 적격으로 둔다. 예측오차로 고르지 않는다.
+- 원래 0-based column ID를 문자열로 두고 SHA256('feedback-peft-v1|' + id) 순서.
+- 첫32 = DONOR, 다음8 = DEV_SERIES, 다음8 = TEST_SERIES. 총48.
+- 부족하면 데이터 BLOCK; 계열 수/기준을 성능에 맞춰 변경하지 않는다.
+- 과거 실험 노출 여부를 조사하되 성능 때문에 재선택하지 않는다.
+  여기서 held-out은 이번 meta 학습의 계열 분리이지, 사전학습/과거 개발 비노출 보증이 아니다.
+
+시간 역할(모든 열의 동일 행 경계, N은 전체 행 수):
+  T0=0, T1=floor(.30N), T2=floor(.60N), T3=floor(.80N), T4=N.
+  BASE_TRAIN [T0,T1): DONOR만 공통 LoRA 준비.
+  META_TRAIN [T1,T2): DONOR만 생성기/공유 대조 학습.
+  DEV [T2,T3): DEV_SERIES만 checkpoint·baseline·short-update 선택.
+  TEST [T3,T4): TEST_SERIES만 최종 평가.
+
+모든 방법:
+  context C=256 hours, native horizon H=64 hours.
+  정답 구간은 [issue,issue+64); 시각t에 사용 가능한 관측은 index<t.
+  query context=[t-256,t), query target=[t,t+64).
+
+[설계] 입력/오차 특징과 loss의 규모는 현재 query context에서만 계산한다:
+  s_t=max(std(x_query,ddof0),1e-6*mean(abs(x_query)),1e-6).
+  이것은 이전 TRAIN-sigma 지표와 다른 'past-context scaled pinball'이며 이름을 구분한다.
+  새 계열의 전체 과거 통계를 생성기에 몰래 제공하지 않는다.
+  같은 query의 모든 방법/지원태스크/보정은 동일한 s_t 사용.
+  raw MAE, raw pinball 및 계열별 점수도 같이 남긴다.
+  모델 자체의 native instance normalization은 유지한다.
+
+정확한 clock:
+  예측 발행s는 y[s:s+64]를 예측한다.
+  현재t에 visible[j] := (s+j<t).
+  시각t 관측 y[t]는 아직 도착하지 않음.
+  미래값 NaN/무작위독으로 바꿔도 당시 feature/업데이트/발행예측은 바뀌면 안 됨.
+
+3. 신규 공통 출발점: G0와 STATIC
+==============================
+[설계] backbone = amazon/chronos-bolt-small.
+검증된 model revision을 실제 config/weights SHA로 고정. 예전 loader의 native64 parity를 재검사.
+공식 코드: https://github.com/amazon-science/chronos-forecasting/blob/main/src/chronos/chronos_bolt.py
+
+q/v rank8, alpha16, dropout0 LoRA. expected historical count294912지만 실제 구조에서 확인한다.
+원래 backbone은 frozen; LoRA A/B만 학습. 이름을 바꿔 숫자에 억지로 맞추지 않는다.
+
+G0:
+- seed별 별도 신규 모델2개.
+- DONOR BASE_TRAIN만 512updates, batch8, AdamW1e-4, wd0, clip1, scheduler 없음.
+- checkpoint512를 고정 reference로 사용. dev/test로 reference 시점을 선택하지 않는다.
+- G0는 이후 support의 '진단용 기준 예측기'로 계속 동결.
+- META/DEV/TEST support의 발행시각은 G0 학습 종료시각 T1 이상이어야 한다.
+  과거 전체를 학습한 모델로 그보다 이전 시점의 online 예측을 재현했다고 주장하지 않는다.
+
+STATIC:
+- 각 G0에서 이어서 DONOR META_TRAIN query packet으로512updates, batch4.
+- 생성기 없이 일반 LoRA만. 후보들과 같은 query/정답/샘플 순서/optimizer 기회.
+- 0/128/512 checkpoint 저장.
+- STATIC 학습 packet은 A와 B가 완전히 같게 하므로 두 후보가 동일 학습을 재사용 가능.
+- A/B가 다른 DEV 평가에서 다른 STATIC checkpoint를 고를 수 있음. 학습 재실행하지 않음.
+
+후보의 동적 저랭크 bank:
+  deltaW_l(task) = (alpha/r) * B_l diag(c_task,l) A_l
+  c_task,l = 1 + generator_phi(support)_l
+- G0의 이미 학습된 A/B를 초기 bank로 사용.
+- META_TRAIN에서는 A/B와 generator를 함께 학습. 원래 backbone만 frozen.
+- generator의 마지막 projection=0 -> 초기 c=1 -> 같은 seed G0 예측 보존.
+- c를 [-eps,eps] 등 임의 작은 범위에 추가 제한하지 않는다. c의 크기/분산/유한성은 기록.
+- test에서 generator 방법은 phi/A/B를 동결하고 계수만 forward로 생성한다.
+- 이전에 미세조정한 모델이 필수라는 주장 아님. 이번은 같은 유효한 기저에서 시작하는 비교다.
+
+구현상의 결정적 금지:
+  생성된 c를 .data/copy_/load_state_dict/nn.Parameter로 설치하지 않는다.
+  h' = W0 h + scale * B((A h) * c) 형태의 functional 연산으로 gradient를 phi까지 전달한다.
+  기존 PEFT LoRA와 새 dynamic delta를 둘 다 더해 double-count하지 않는다.
+  batch마다 계수가 다르므로 layer/module/batch 매핑을 실제로 테스트한다.
+  q/v encoder/decoder/cross-attention 모든 target의 해당 계수를 일관되게 사용한다.
+
+4. support 특징·생성기 공통 작은 구조
+==================================
+[미검증 설계] 하이퍼네트워크는 알려진 큰 원리다. 아래는 제한된 신규 구현 가설이며 선행 전체가 아니다.
+
+support forecast1개마다 274차원 record:
+  1) G0 native median 예측64개 / s_t.
+  2) max(q.9-q.1,0) 예측폭64개 / s_t.
+  3) 관측된 (y-q.5)/s_t residual64개; 미도착 부분은0.
+  4) visible mask64개.
+  5) 해당 support의 과거256개를16개씩 평균한16값 / s_t.
+  6) (현재t - support발행s)/256, visible_fraction 두 값.
+총 64*4+16+2=274.
+q median은 native0.5 채널. 주손실의 quantile channel을 마음대로 정렬하지 않는다.
+폭 음수 여부는 원래 crossing으로 별도 공개한다.
+
+[주의] y 전체에 먼저 normalization/subtraction을 하고 mask와 곱하지 않는다.
+관측된 index만 select한 뒤 residual/loss를 계산. 미도착 NaN*0의 gradient 오염을 막는다.
+모든 mask가0인 task는 loss 집계에서 제외. labels0인 optimizer를 가짜 update로 세지 않는다.
+
+G0 예측은 reference model+seed+series+issue+context hash로 cache한다.
+G0는 이후 adapted model의 '현재 자기 오차'가 아니라 고정 진단 예측기다. 보고서에도 이 제한을 명시.
+후보별 생성기/bank가 달라져도 reference forecast는 같아야 한다.
+
+SET와 TIME:
+- 공통 record encoder274->32 GELU->32 GELU.
+- TIME: 과거발행이 빠른 순서대로4records를 GRU(input32,hidden32,1layer)로 읽음.
+- SET: 같은 record들을 encode 후 평균하고32->97 GELU->32 MLP.
+- 둘 다 head32->(target_module_count*8), head weight/bias0 초기화.
+- SET aggregation은 GRU보다 파라미터1개 많음. 전체 파라미터를 실제 기록.
+- SET도 age/maturity metadata를 똑같이 받음. 시간을 전혀 모르는 약한 대조로 만들지 않음.
+- TIME과SET에 같은 record encoder/head initial weights 복사. aggregation만 구조 차이.
+
+처음부터 generator+bank를 모두0으로 초기화하면 죽는 경로가 생긴다.
+G0 bank는 nonzero이고 head만0. 첫 update에는 head gradient, 이후 encoder/GRU까지 gradient가 통과하는지 확인.
+모든 파라미터가 첫 update부터 nonzero gradient여야 한다는 잘못된 assert를 쓰지 않는다.
+
+5. 동일 손실·선택·계산 예산
+==========================
+primary loss/score:
+  각 target의 native quantile .1,...,.9에 mean twice-pinball / s_t.
+  계열별 평균 후 equal-series 평균. 낮을수록 좋음.
+  exact CRPS라고 부르지 않는다.
+secondary:
+  median context-scaled MAE, raw MAE/pinball,80% coverage/width,crossing,
+  전/후반 lead구간 점수, 계열별/seed별 결과, 비용.
+모든 모델의 point forecast는 같은 native median 채널.
+추가 CAL 보정 탐색은 없음. 단순 AFFINE은 아래의 합법 support만으로 맞춘 별도 대조.
+
+모든 offline fit512updates; chkpt0/128/512; 생성기 batch4query tasks.
+AdamW lr1e-4, betas(.9,.999),eps1e-8,wd0,clip1. lr grid/새 seed 없음.
+각 track의 동일 seed는 같은 시각query packet 순서. static/generator의 loss 정답이 동일.
+같은 지원표본을 여러번 사용해도 실제 독립 표본 수가 늘었다고 세지 않는다.
+
+[효율] reference support cache는 계산 절약 수단이지 후보의 공짜 정보가 아니다.
+모든 cache 생성비용/teacher calls/bytes 공개. 단독 배포 비용에는 필요한 계산 전부 각각 청구.
+개별 LoRA도 동일 reference cache에 접근할 수 있지만 필요 없는 계산을 억지로 비용에 넣지 않는다.
+공통 비용과 비교 연구용만 필요한 비용을 별도 집계한다.
+
+16 offline fits의 분해(두 후보 함께 실행):
+  G0 2fits x512 =1024.
+  STATIC 2fits x512 =1024.
+  A 생성기3종 x2seeds x512=3072.
+  B 생성기3종 x2seeds x512=3072.
+  합계16fits /8192 offline updates.
+짧은 현장 적응/online 대조의 optimizer도 아래에서 별도로 세며, 무료 평가라고 부르지 않는다.
+
+6. 공통 검증 및 배포 주장 한계
+=============================
+[설계] 데이터·계열 분리, clock, gradient, 비용과 대응되는 gate만 검사한다.
+- 원자료/model/init/hash 및 donor/dev/test ID 교집합0.
+- G0 native256->64 및 long-context 무학습 대조 parity.
+- c=1인 dynamic bank가 같은 G0 LoRA와 일치.
+- 학습된 c를 바꾸면 예측이 실제로 바뀌며 그 gradient가 generator로 전파.
+- 같은 batch에서 series를 섞어도 per-task c가 다른 series로 전달되지 않음.
+- 미도착/미래 값을 NaN/큰값으로 바꿔도 feature/loss/issued prediction 불변.
+- support 자체와 미래 query target이 섞이지 않음.
+- SET record 순서를 바꾸어도 같은 예측. TIME은 순서민감할 수 있으나 불변이면 진단으로 기록.
+- 저장/복원, 동결 W0 hash, optimizer states, unique update ledger.
+- offlineTEST 차단과 onlineTEST의 합법적 과거 피드백을 다르게 처리(아래 B).
+- raw 점수에서 ratio-of-means 개선율을 재계산, seed 평균은 예측 ensemble이 아님.
+- TEST score/late leads/쉬운계열을 보고 기준선·checkpoint를 재선택하지 않는다.
+
+참조 코드의18개 CPU 검사는 작은 tensor/clock/gradient 연산만 확인한 것이다.
+실제 Chronos를 실행한 검사가 아니며, 실제 model integration smoke를 대체하지 않는다.
+
+A. 새 계열의 오차 기반 적응 생성
+===============================
+A의 가설: 시간순 support 오차로 생성한 작은 수정이, 일반 집합형 생성기/오차를 안 쓰는 생성기보다
+미래 예측에 유용하며 짧은 현장 LoRA보다 적응 계산을 줄일 수 있다.
+이 평가에서는 episode마다 초기 모델로 reset한다. 이전 평가 episode의 gradient나 c를 다음으로 넘기지 않는다.
+
+A1. Episode
+-----------
+현재query issue=t.
+support issue=[t-256,t-192,t-128,t-64], 각 context256,target64.
+모든4support target이 t이전에 완전히 실현되어 있다.
+가장 오래된 raw context는 t-512이므로 전체 정보 범위는[t-512,t).
+현재 예측기 입력은[t-256,t). query target=[t,t+64).
+
+DONOR metaquery t는 T1+256 이상이고 t+64<=T2.
+4support issue>=T1, G0가 학습에 사용하지 않은 이후 예측문제의 residual이다.
+오프라인 메타학습의 뒤쪽 query 정답은 정당한 학습 y다.
+생성기 입력에 query y를 넣는 것은 금지.
+
+DEV/TEST:
+- 각각 DEV_SERIES8 / TEST_SERIES8.
+- 해당역할 안에서 t와 t+64가 합법인64슬롯 grid를 만든다.
+- 12개의 시간 index를 linspace로 분산해 사전 선택. 겹치는 선택/불충분한 구간이면 BLOCK.
+- 데이터의 예측 난이도·오차를 보고 episode를 고르지 않는다.
+- 각 query의 support에는 이전 역할의 관측도 허용. 현재 t이전에 이미 알려진 값이기 때문이다.
+- 이른 test episode의 정답이 이후 episode support에 포함되는 것은 합법적이지만,
+  A의 모델/optimizer는 episode마다 reset하고 운영의 누적학습이라고 부르지 않는다.
+
+A2. Offline 학습군
+-------------------
+STATIC: 공통 단순 donor LoRA 대조.
+A_NOERROR: TIME generator와 같은 구조. record의 명시적 residual64만0.
+  raw context에 포함된 관측까지 숨기는 대조는 아님. '명시적 오차 특징의 필요성'을 시험.
+A_SET: support 전체를 같은 metadata와 함께 일반 집합형 생성기로 처리.
+A_TIME(후보): 시간순 support를 읽는 생성기.
+3generator x2seed x512updates. loss는 generated c로 예측한 미래 query pinball.
+기존 G0/STATIC만 다른자료, 후보만 donor 다량학습처럼 비교하지 않는다.
+
+A3. 필수 기존 대조(추가 donor fit 없음)
+--------------------------------------
+G0, STATIC frozen256 및 STATIC_LONG512: 오래된 support context까지 최신문맥으로 넣는 cheap 대조.
+A_AFFINE: 선택된 STATIC의 support 예측으로 gain/bias를 맞추고 current 예측에 적용.
+  alpha=[.5,.75,1,1.25,1.5,2], beta=[-.5,-.25,0,.25,.5].
+  q'=median+alpha*(q-median)+beta*s_t. support pinball 최소, tie identity거리/alpha/abs(beta)/beta.
+  query target로 보정하지 않음. native median의 별도 gain이 필요한 경우 함부로 식을 늘리지 않음.
+A_LOCAL: 같은 donor 정보를 학습한 STATIC에서 q/v LoRA A/B를 support4개로 추가 학습.
+A_COEFF: A_TIME의 선택된 bank A/B를 가져와 generator를 사용하지 않고 c=1에서 c만 support로 최적화.
+  이렇게 생성기보다 작은 계수최적화로 충분한지도 확인한다.
+
+현장 적응 대조:
+- A_LOCAL/A_COEFF은 모든 DEV/TEST episode마다 원래 checkpoint/reset optimizer에서 시작.
+- AdamW lr1e-4, wd0. batch=support4개. loss는4개의 full64pinball/s_t equal-task mean.
+- 최대8updates; 0/1/4/8에 query예측 저장. 동일 계산을 반복하지 않고 한 trajectory의 prefix 사용.
+- DEV8계열x12episodes로 k∈{0,1,4,8}를 방법별·seed공통으로 선택해 고정.
+- TEST에서는 선택된 k가 primary; 전체 고정 budget curve는 보조로 공개하고 TEST에서 k를 다시 고르지 않는다.
+- 정확히 같은 native query 예측 손실을 사용하고 생성기에만 추가 출력 CAL을 주지 않는다.
+
+A4. 선택 순서
+--------------
+1) offline STATIC/A_NOERROR/A_SET/A_TIME의0/128/512를 DEV episodes의 query true loss로 선택.
+2) A_AFFINE/LOCAL/COEFF의 합법적 적응을 같은DEV에서 평가; localk와 기준선 고정.
+3) source/checkpoint/k/baseline manifest를 봉인.
+4) TEST episode들의 support만 제공하는 executor로 적응·발행예측을 모두 저장.
+5) TEST query 정답은 scorer에서만 읽어 채점.
+현재 test episode의 query 정답을 현장 적응에 쓰면 즉시 무효다.
+
+A5. 해석·비용
+--------------
+- A_TIME vs A_SET: 같은 오차/시각 정보의 일반 생성기 이상인가?
+- A_TIME vs A_NOERROR: 명시적인 예측오차가 필요한가?
+- A_TIME vs STATIC/STATIC_LONG512/A_AFFINE: 간단한 무학습·보정으로 충분한가?
+- A_TIME vs A_LOCAL/A_COEFF: 동일 support에서 반복 최적화할 필요를 얼마나 줄이는가?
+
+대표적인 GO 가설은 '같은 품질에 더 적은 새 계열 적응 계산'이다.
+오차생성 자체에 효과가 있어도 TIME=SET이면 TIME 특화 신규성 GO로 세지 않는다.
+설명용 inference ablation: A_TIME의 같은 support record 순서만 역전하여 계수/예측 차이 기록(재학습0).
+이 ablation이 흔들린다고 '순수한 인과적 시간 효과'가 입증되는 것은 아니다.
+
+총비용:
+- G0 준비 + 해당generator donor meta학습 + support기준예측 + 생성 + queryforward.
+- 현장 cost는 support q4회의 native forward도 포함. 기존에cache가 있었다고 가정한 비용은 별도.
+- STATIC_LONG512는 필요 없는 support q를 억지로4회 계산시켜 비용을 올리지 않는다.
+- offline추가비용 DeltaTprep, 실제 현장비용 tbase,tgen을 나란히 표시.
+  tgen<tbase이면 손익분기 episode수 ceil(DeltaTprep/(tbase-tgen)), 아니면 NEVER_RECOVERED.
+- 같은품질 조건을 만족하지 않으면 손익분기 숫자만으로 효율성공으로 세지 않는다.
+
+A 추가 현장 optimizer cap:
+  2 baselines(LOCAL,COEFF) x2roles(DEV,TEST) x8series x12episodes x2seeds x8updates
+  =6,144updates.
+이 값도 실제 학습이고 offline8192 바깥의 무료검사로 숨기지 않는다.
+
+B. 부분 도착 정답에서 이후 예측에 유효한 수정 생성
+==================================================
+B의 가설: 공개된 짧은 prefix 오차로 현재 미래예측에 유효한 c를 생성하도록 미리 학습하면,
+단순 partial-label SGD·완전정답 대기·출력 보정보다 유리할 수 있다.
+
+[범위] generator의 online weights는 고정되고 c만 관측 피드백에 따라 매시각 재생성된다.
+이는 학습된 amortized online adaptation이지, 매시각 generator 전체를 SGD로 재학습하는 방법이 아니다.
+일반 online대조는 아래 정의대로 상태/optimizer를 계열별 stream 안에서 유지한다.
+
+B1. 정보 시계와 reference forecast 장부
+--------------------------------------
+예측 issue grid는8시간 간격이다.
+현재 t의4support issue=[t-64,t-32,t-16,t-8].
+각 forecast target은64개. visible counts=[64,32,16,8].
+가장 오래된 context는 t-320이고 query context는[t-256,t).
+G0_FIXED라는 동일 reference model의 각 support예측은 해당 과거 issue에서 x[:issue]만 보고 생성·봉인한다.
+G0_FIXED는 전 model selection 이후에도 바뀌지 않으므로 reference forecast 재현은 deterministic해야 한다.
+생성기 자신의 최근 예측을 reference로 갈아끼우지 않는다.
+
+시간t에서의 순서:
+  (1) y[index<t]만 reveal.
+  (2) 발행된G0 forecast와 reveal된 y로 support records 작성.
+  (3) baseline online update 또는 generator계수 산출.
+  (4) 모든방법에 똑같은 최신문맥 x[t-256:t] 제공.
+  (5) 미래[t:t+64] 예측을 issue ledger에 저장·해시.
+  (6) 다음t+8로 이동.
+같은 target이 후에 학습에 사용되어도 원래 issued forecast를 덮어쓰거나 다시채점하지 않는다.
+현재 y[t]나 이후 target이(1)~(5)에 들어오면 무효.
+
+B_META_TRAIN:
+  DONOR의 t>=T1+256, t+64<=T2에서 A와 같은 query packet 사용.
+  네 과거문제의 y는 부분mask를 적용해 입력에만 제한한다.
+  currentquery의64시간 true loss로 generator/bank를 학습한다.
+  이는 donor의 공개된 과거를 이용한 offline 학습이지 TEST 미래 사용이 아니다.
+
+B_DEV/TEST:
+  DEV_SERIES8 / TEST_SERIES8, 해당역할 시작이후 첫 합법8h grid를 tstart.
+  매stream48개의 연속ticks, tstart+8*j,j=0..47.
+  마지막query64개가 역할 안에 들어와야 한다. 선택은 성능과 무관하고 사전에봉인.
+  48ticks는384시간 grid 범위의 제한된 파일럿이며 수개월/전체계절 온라인평가라고 부르지 않는다.
+  tstart-64부터 reference issue를 'warm-up 발행'해 최초support 장부를 채운다.
+  warm-up의 관측은 합법적 history이고 baseline optimizer는 tstart전에는 실행하지 않는다.
+
+B2. Offline 학습군
+-------------------
+STATIC: A와 동일 donorquery를 학습한 기존공통 대조. 비용 재사용.
+B_FULLGEN: TIME와 같은 구조/시각정보이나 아직 완성되지 않은 세support의 residual/mask는 모두0.
+  완성된 t-64 task의64개 정답만 입력에 사용. 미래예측 자체와 과거context 요약은 동일정보로 유지.
+B_SET: 모든 도착정답을 읽는 일반 SET 생성기.
+B_TIME(후보): 도착prefix/예측거리/age와 시간순 support를 읽는 TIME 생성기.
+3종x2seedx512updates. 모두같은 queryloss/스케줄. 미공개예측을 보존하는 penalty 없음.
+
+B3. 기존 저비용/online 대조
+---------------------------
+G0 및 STATIC 최신context256, STATIC_LONG320.
+B_AFFINE: 동일4support의 도착정답만 사용해 A와동일alpha/beta grid로 매시각 보정. 미래점수 선택 금지.
+
+네 개 실제 optimizer stream:
+B_WAIT: STATIC q/v LoRA; 완전히 실현된 task(t-64)만 loss 사용.
+B_MASKED: 같은 STATIC q/v LoRA; 네task의 visible 정답만 사용.
+B_COEFF: B_TIME의 선택된 low-rank bank 고정; c만1에서 시작해 visibleloss로 최적화.
+B_COSA_CELL: frozen STATIC + 공식COSA SimpleOutputAdapter의 linear core를 같은정보권한으로 적용.
+
+공통:
+- 계열마다 독립모델상태/optimizer. stream 시작에만 초기화하고48ticks 동안 유지.
+- 매tick2optimizer updates. batch는해당tick의support tasks.
+- WAIT는1task를 사용하지만 update2회를맞춤. mask방법은4task 중각task의 관측셀평균후 equal-task.
+- 도착정답의 replay는허용하되 몇unique target/lead cell을반복썼는지 보고.
+- LoRA/c의lr1e-4. COSA corelr1e-3(모든해당stream동일,실행전고정). wd0,clip1.
+- B_COEFF는 generator를사용하지않음. 생성기없이같은bank의계수최적화로충분한지확인.
+- baseline을계열간공유하여 TEST 계열에서학습한값이 다른TEST계열로흘러가지않음.
+
+COSA_CELL 정확한 범위:
+Official file: https://github.com/bigbases/COSA_ICLR2026/blob/master/tta/cosa.py
+검토한 file blob SHA:09c0aafbbcc69ea0c65b49e869b575bcf5809214.
+반드시 이 blob/실제저장revision을기록하고 license 확인후 필요한원본core만 가져온다.
+SimpleOutputAdapter(pred_len64,buffer_context_size5,n_vars9,var_wise_gating=False,adapter_type='Linear').
+- 9는이번 quantile채널을 같은mapping으로 처리하기 위한 이식이며 원논문의9변량 실험이아님.
+- nativeforecast/s_t를 y로, 실제과거context의[mean,std,min,max,last]/s_t를 context_data로 사용.
+- correction후 다시*s_t하여원단위복원.
+- 과거 support의 모델 입력/요약통계는 support issue 이전 값으로만 구성한다. COSA 입력 정규화는 그 support context의 s_s, 현재 query는 s_t를 사용한다. 비교 loss의 분모는 공통 s_t다.
+- 현재시각에 현재 baseline 모델로 과거 support를 재계산해 gradient를 얻는 것은 허용한다. 이를 과거에 실제 발행했던 예측으로 저장하거나 소급채점하지 않는다.
+- 공식Xavier(gain0.1) 비영linear, gate0초기화 유지. linear와gate를둘다0으로하여죽는경로를만들지않음.
+- PAAS/CALR/온라인스케줄/원논문loss전체는재현하지않음. 이번고정clock/공통pinball로cell만이식.
+- COSA 전체/DSOF/PROCEED보다우수하다고 이비교로주장하지않음.
+- nativecore parity/라이선스/연결확인이막히면 'COSA_BASELINE_BLOCKED'를보고하고,
+  해당강한대조누락을숨긴 GO_METHOD를내리지않음. 나머지비교는개발결과로완료가능.
+
+B4. DEV 선택과 TEST 순차평가
+-----------------------------
+1) STATIC/B_FULLGEN/B_SET/B_TIME의0/128/512 donorcheckpoint를DEV의같은48tick시계로평가해선택.
+   weights를고정한각candidate는지원오차만조건으로읽는다. queryy로checkpoint별gradient학습금지.
+2) 그선택본에서 네online대조의DEV stream을1회실행. 미래전체로besttick모델을고르지않음.
+3) baseline winner/lr/선택checkpoint/초기streamstate를봉인.
+4) TEST8계열에서동일clock으로각방법48ticks진행.
+5) onlineTEST의 y[index<t]는계약상학습입력. 그러나 전체TEST array를optimizer로넘기지않는다.
+   executor는as-of accessor로prefix만받고, scorer는별도권한으로후에issuedforecasts를채점.
+6) TEST전체를한번도열지않았다고거짓선언하지않는다.
+   올바른주장: '각발행시각에알수없는future값은학습/조건생성에서접근하지않음'.
+
+B5. 추가 가치 질문
+-------------------
+B_TIME vsB_FULLGEN: 부분정답추가가필요한가?
+B_TIME vsB_SET: 같은정보의일반생성기로충분한가?
+B_TIME vsB_MASKED: 합법적으로도착한정답을그냥SGD로쓰는것보다좋은가?
+B_TIME vsB_COSA_CELL/B_AFFINE: 내부PEFT보다간단한출력보정으로충분한가?
+B_TIME vsSTATIC_LONG320: 추가로본과거context길이차이만으로설명되는가?
+
+후보에미래y를주는oracle는이배치에넣지않는다. 목적과무관한상의오류분석을늘리지않는다.
+전체64lead가primary;17..64의latelead는사전정한secondary. 좋은lead만primary로바꾸지않음.
+처음16ticks/중간16/끝16의점수도기술적으로보고하되 TEST로상태를선택하지않는다.
+
+B actual online optimizer cap:
+  4methods(WAIT,MASKED,COEFF,COSA_CELL) x2roles x8series x2seeds x48ticks x2updates
+  =12,288updates.
+단순forward-only 생성기와비교할때 이 비용을시간/메모리로제시한다.
+여기에G0진단forecast추가호출,생성기forward,issuedprediction저장비용을따로기록.
+
+7. 판정: 목적·방법 고유성·비용을 분리
+===================================
+[설계] 수치는 후속 투자 기준안이며 보편적 논문 기준이 아니다. TEST 후 완화/강화하지 않는다.
+비교는 mean of seed scores의 ratio, 양수개선. TEST에서baseline winner를골라바꾸지않음.
+DEV의같은metric으로강한단순대조를미리고르고 모든기준선의TEST결과도공개한다.
+
+A:
+- '빠른 새계열 적응' 화면: DEV-selected LOCAL/COEFF와 같은품질(오차1% 이내)에서
+  support계산포함 현장latency가20%이상절감되고 두seed방향이같아야 효율신호.
+- 특화방법 신호는 A_TIME이 A_SET와A_NOERROR보다 둘다오차0.5%이상개선하고
+  단순 STATIC/longcontext/AFFINE로동일이득이설명되지않는경우.
+- 고정된동일품질조건의비용과그냥최저오차둘을모두공개. 계산이비싸지만정확한경우 TRADEOFF.
+- TIME=SET이면 일반생성기유용성은보존하되 시간특화PEFT성공으로세지않음.
+
+B:
+- DEV-selected strongest lawful baseline과 B_SET 및B_FULLGEN에대해
+  B_TIME의primary평균개선0.5%이상,두seed개선방향을후속투자신호로제안.
+- 비용은따로보고하며 '정확도1등이라속도/메모리도효율적'이라고하지않음.
+- 현재시각이후의latelead17..64에서도방향을보조로보지만모든lead승리필수는아님.
+- 후보만partialy사용하고baseline은받지못한정보차이로신규성주장금지.
+
+공통 label:
+  GO_NEXT_METHOD_CHECK: 특화부분직접대조와목표효과가같이남음. 선행·다른자료확인이필요.
+  GO_GENERIC_ONLY: 일반오차생성/피드백/단순보정은유용하지만새시간구조는불필요.
+  HOLD_NO_AUTO_TRAIN: 작은양수,seed반대,시간측정잡음,서로다른cost/quality절충,모두끝checkpoint여서수렴불확실.
+  NO_GO_CURRENT_RECIPE: 후보가강한대조보다일관되게불리하고별도목적이득도없음.
+  BLOCKED_IMPLEMENTATION/DATA/RESOURCE: 과학적음성결과와분리.
+시간 측정은 같은 장치/precision/batch에서 방법 실행순서를 두 seed 사이에 뒤집고, 고정 snapshot의 읽기전용 forward를5회 반복해 중앙값과 범위를 공개한다. optimizer benchmark를 추가 재실행해 상한을 초과하지 않는다. 짧은 GPU 실행의 차이가 불안정하면 비용 판정은 HOLD다.
+0.49%를효과0이라부르지않고HOLD로남긴다. 0.5%를넘어도신규성PASS라부르지않는다.
+
+통계:
+- A: seed별·계열별·12episode시간별공개. hierarchical paired resampling2,000회:
+  8testseries를재표집하고 각series의3개연속episode블록을재표집해같은쌍을유지.
+- B: seed별·계열별공개. 8tick=64시간연속block의paired bootstrap2,000회,
+  같은block의모든method/lead와seed를함께유지.8testseries resampling도별도보고.
+- 두seed/8계열/16일stream이모집단일반화를보장하지않음. CI는참고이며단독GOgate아님.
+- 같은계열이같은calendar를공유하는상관은남으므로 '완전독립반복'으로부르지않음.
+
+8. 비용 상한과 실행 순서
+=======================
+함께 실행:
+  신규offline16fits =8,192updates.
+  A현장비교 =최대6,144updates.
+  Bonline비교 =최대12,288updates.
+  실제main전체 =26,624updates.
+  실제model smoke 전체최대32updates.
+  모든optimizer상한 =26,656updates.
+
+계산상한에는 generator/c/COSA의작은update도포함된다.
+한update의batch/역전파비용은다르므로 totals만으로과거실험과속도를비교하지않는다.
+선택된k가작거나corebaseline이BLOCKED이면실제횟수는줄수있다. 최대횟수를완료횟수로쓰지않음.
+
+A만실행: 공통G0/STATIC4fits+generator6fits=10offlinefits/5,120updates;
+  A현장6,144+smoke16 -> 최대11,280updates.
+B만실행: 같은공통4fits+generator6fits=10offlinefits/5,120updates;
+  Bonline12,288+smoke16 -> 최대17,424updates.
+두개별실행의공통결과를재사용할때data/source/seed/model/packet hash 완전일치필수.
+
+실행순서:
+  환경/계열·시간분리 -> reference CPU검사 -> 실제G0 wrapper검사 -> 봉인 -> G0/STATIC
+  -> A 3generators+대조+평가 -> B 3generators+대조+평가 -> 독립재계산/종합보고.
+A성과가나빠도 B가같은구현이라고자의적으로취소하지않는다.
+이 배치 안에서 새데이터0,새lr0,hidden/rank/lag탐색0,자동v2=0,추가seed=0.
+고정예산의미수렴은HOLD로보고. 결과가좋아질때까지학습을늘리지않는다.
+
+9. 참조부품과 실제 구현 범위
+===========================
+reference_core.py / test_reference_core.py는 이문서의
+  clock/masking/record/SET-TIME/functional lowrank/issuedledger/break-even
+를 작은torch tensors로검사한다.
+현재18개syntheticCPUtests 통과. 전체Chronos연결/데이터/GPU학습/메타일반화는검사하지않았다.
+
+CLI가실제로구현해야할것:
+  데이터as-of accessor,격리된series split,Chronos-LoRA bank변환,
+  episode생성,G0cache,donortraining,기준선현장/online학습,
+  checkpoint선택,prequential발행,비용계측,결과분석.
+참조파일이있다는이유로'완성runner제공'이라고보고하지않는다.
+
+10. 산출물
+==========
+공통:
+  PROTOCOL.md, PURPOSE_AND_PRIOR.md, ENVIRONMENT.json, requirements-lock.txt,
+  DATA_SOURCE.json,SERIES_SPLIT.json,TIME_SPLIT.json,MODEL_MAP.json,
+  SUPPORT_QUERY_AUDIT.json,REFERENCE_FORECAST_MANIFEST.json,TRAIN_PACKET_MANIFEST.json,
+  PREFLIGHT.json,SOURCE_SEAL.json,UPDATE_LEDGER.jsonl,SHARED_CHECKPOINTS.json.
+A/B각각:
+  MODEL_SELECTION.json,BASELINE_SELECTION.json,SELECTION_SEAL.json,
+  ISSUED_FORECASTS.jsonl,PREDICTION_MANIFEST.json,RAW_SCORES.csv,
+  SEED_EFFECTS.csv,SERIES_EFFECTS.csv,LEAD_SCORES.csv,ADAPTATION_BUDGET_CURVES.csv,
+  RESOURCES.csv,AMORTIZATION_COSTS.csv,VERIFICATION.json,REPORT_KO.md,FINAL_DECISION.md.
+최종:
+  RESIDUAL_FEEDBACK_SUMMARY_KO.md.
+
+보고서 첫표:
+  후보 / 같은정보의최강대조 / 직접특화대조 / 원점수 / 효과 / 두seed / 총비용 / 판정 / 미검증신규성.
+답할질문:
+  1) 일반 donor적응은유효한가?
+  2) 새계열/새시각의피드백은유용한가?
+  3) 일반생성기/단순SGD/출력보정으로충분한가?
+  4) 시간순/부분정답특화구조의추가효과가남는가?
+  5) 메타준비+reference호출까지비용을회수할수있는가?
+  6) 실행·표본·최적화의한계는무엇인가?
+
+11. 선행 경계·검토한 일차 출처
+=============================
+[확인] 다음은관련문제/방법의존재근거이며 본신규구현의효과를입증하는출처가아니다.
+
+Parameter-efficient Multi-task Fine-tuning for Transformers via Shared Hypernetworks (2021/ACL)
+https://aclanthology.org/2021.acl-long.47/
+공유hypernetwork로adapter생성은이미알려짐. 우리의차별성은검증대상이지확정아님.
+
+Amortized Bayesian Meta-Learning for Low-Rank Adaptation of Large Language Models (2025/UncertaiNLP workshop)
+https://aclanthology.org/2025.uncertainlp-main.17/
+메타LoRA/새task일반화의가까운선행. 이번구현은Bayesianposterior/해당전체알고리즘재현아님.
+
+Fast and Slow Streams for Online Time Series Forecasting Without Information Leakage (2025/ICLR)
+https://proceedings.iclr.cc/paper_files/paper/2025/hash/46e624c244cff669223d488defd4e835-Abstract-Conference.html
+https://github.com/yyalau/iclr2025_dsof
+부분정답/미래만평가하는문제와가까움. 이번fixedclock이DSOF전체재현은아님.
+
+Proactive Model Adaptation Against Concept Drift for Online Time Series Forecasting (2025/KDD)
+https://lifan-zhao.github.io/publication/proceed/
+https://github.com/SJTU-DMTai/OnlineTSF
+parameter adjustment generator가이미존재. '생성기를붙였다'를최초성으로주장하지않음.
+
+COSA: Context-aware Output-Space Adapter for Test-Time Adaptation in Time Series Forecasting (2026/ICLR)
+https://proceedings.iclr.cc/paper_files/paper/2026/hash/2a8ce71baac4c89bf9ff479d8240c7d9-Abstract-Conference.html
+https://github.com/bigbases/COSA_ICLR2026/blob/master/tta/cosa.py
+공식linearcore이식의차이(quantile/정보clock/loss/schedule)를명시.
+
+12. 종료
+========
+실제 구현이 정상이고 범위 내이면 계획서만 만들고 끝내지 말고, 해당 파일에 지정된 실험의 학습·예측·검산을 완료한다.
+막힌부분은알아서다른데이터/모델로대체하지말고 원인·수행횟수·완료범위를보고.
+새로고친버그를새방법효과로세지않음. 기존실험의STOP/HOLD기록은보존.
+완료후 scoped commit/push,remoteSHA확인,자기GPU작업종료. 자동후속실험은0.
