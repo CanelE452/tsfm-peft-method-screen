@@ -1,0 +1,312 @@
+{
+  "domain_context": {
+    "domain": "hourly multivariate time-series forecasting used as independent univariate targets",
+    "downstream_decision": "screen whether native branching mixture-loss LoRA adds value over per-branch component loss under identical Chronos rollout data",
+    "quality_bar": "publication-style pilot receipts; zero leakage tolerance; no interpolation",
+    "primary_leakage_paths": [
+      "future target values entering rollout context",
+      "TEST-based model, LR, checkpoint, or loss selection",
+      "non-TRAIN scaling",
+      "choosing columns, origins, or seeds after seeing outcomes"
+    ]
+  },
+  "budget": {
+    "train_updates": 512,
+    "batch_size": 4,
+    "seeds": [
+      92231,
+      92232
+    ],
+    "schedule_shape": [
+      512,
+      4,
+      2
+    ],
+    "context": 512,
+    "horizon": 128,
+    "stride": 24
+  },
+  "repository_exposure": {
+    "tool": "rg",
+    "returncode": 0,
+    "match_count": 1,
+    "matches": [
+      "docs\\ANCHOR_WINDOW_STUDY_PROTOCOL.md:23:Sources: [UCI Beijing PM2.5, CC BY 4.0](https://archive.ics.uci.edu/dataset/381/beijing%2Bpm2%2B5%2Bdata), [official ETT dataset](https://github.com/zhouhaoyi/ETDataset), [electricity distribution](https://github.com/laiguokun/multivariate-time-series-data). ETTm2 and ETTh2 are resolutions of the same underlying transformer, so ETTh2 was not counted as an independent new source."
+    ],
+    "conclusion": "ETTh2 is mentioned in this repository; treat this as a same-family public ETT source, not a fully unseen independent source."
+  },
+  "source": {
+    "source_url": "https://github.com/zhouhaoyi/ETDataset/blob/main/ETT-small/ETTh2.csv",
+    "pinned_raw_url": "https://raw.githubusercontent.com/zhouhaoyi/ETDataset/1d16c8f4f943005d613b5bc962e9eeb06058cf07/ETT-small/ETTh2.csv",
+    "upstream": {
+      "repo": "zhouhaoyi/ETDataset",
+      "branch": "main",
+      "path": "ETT-small/ETTh2.csv",
+      "commit": "1d16c8f4f943005d613b5bc962e9eeb06058cf07",
+      "api_url": "https://api.github.com/repos/zhouhaoyi/ETDataset/commits/main?path=ETT-small/ETTh2.csv"
+    },
+    "raw_path": ".cache\\branch_mixture_lora_v1_20260922\\data\\ETTh2_1d16c8f4f943005d613b5bc962e9eeb06058cf07.csv",
+    "raw_sha256": "a3dc2c597b9218c7ce1cd55eb77b283fd459a1d09d753063f944967dd6b9218b",
+    "raw_bytes": 2417960,
+    "schema": {
+      "format": "csv",
+      "header": [
+        "date",
+        "HUFL",
+        "HULL",
+        "MUFL",
+        "MULL",
+        "LUFL",
+        "LULL",
+        "OT"
+      ],
+      "n_rows": 17420,
+      "target_columns": [
+        "HUFL",
+        "HULL",
+        "MUFL",
+        "MULL",
+        "LUFL",
+        "LULL",
+        "OT"
+      ],
+      "values_shape": [
+        17420,
+        7
+      ]
+    },
+    "time_axis": {
+      "timestamp_column": "date",
+      "timezone_invented": false,
+      "first_timestamp": "2016-07-01 00:00:00",
+      "last_timestamp": "2018-06-26 19:00:00",
+      "all_hourly_diffs": true,
+      "duplicate_timestamps": 0,
+      "expected_rows_from_timestamp_span": 17420
+    },
+    "selection": {
+      "selected_columns": [
+        "HUFL",
+        "HULL",
+        "MUFL",
+        "MULL",
+        "LUFL",
+        "LULL",
+        "OT"
+      ],
+      "selection_rule": "all seven official ETTh2 target columns; no performance or missingness based column selection"
+    },
+    "dataset": "ETTh2",
+    "selected_shape": {
+      "T": 17420,
+      "N": 7
+    },
+    "ids": [
+      "HUFL",
+      "HULL",
+      "MUFL",
+      "MULL",
+      "LUFL",
+      "LULL",
+      "OT"
+    ],
+    "split_policy": "time-ordered fractions TRAIN 60%, CALIBRATION 10%, VALIDATION 10%, TEST 20%",
+    "split_edges": {
+      "TRAIN": {
+        "start": 0,
+        "end": 10452
+      },
+      "CALIBRATION": {
+        "start": 10452,
+        "end": 12194
+      },
+      "VALIDATION": {
+        "start": 12194,
+        "end": 13936
+      },
+      "TEST": {
+        "start": 13936,
+        "end": 17420
+      }
+    },
+    "missing": {
+      "selected_nonfinite_cells": 0,
+      "interpolation_applied": false
+    },
+    "train_sigma_population": {
+      "HUFL": 9.958342454671984,
+      "HULL": 4.333438983181361,
+      "MUFL": 15.631775435640373,
+      "MULL": 2.879358273263432,
+      "LUFL": 5.215094166015248,
+      "LULL": 7.722466095611662,
+      "OT": 11.97597708266052
+    },
+    "origin_audit": {
+      "TRAIN": {
+        "n_origins": 409,
+        "first_origin": 528,
+        "last_origin": 10320,
+        "origin_stride_hours_unique": [
+          24
+        ],
+        "all_origin_mod_24_zero": true,
+        "context_window_first": [
+          16,
+          528
+        ],
+        "context_window_last": [
+          9808,
+          10320
+        ],
+        "target_window_first": [
+          528,
+          656
+        ],
+        "target_window_last": [
+          10320,
+          10448
+        ],
+        "target_windows_inside_role": true,
+        "context_ends_before_target_starts": true,
+        "target_overlap_hours_min": 104,
+        "target_overlap_hours_max": 104
+      },
+      "CALIBRATION": {
+        "n_origins": 67,
+        "first_origin": 10464,
+        "last_origin": 12048,
+        "origin_stride_hours_unique": [
+          24
+        ],
+        "all_origin_mod_24_zero": true,
+        "context_window_first": [
+          9952,
+          10464
+        ],
+        "context_window_last": [
+          11536,
+          12048
+        ],
+        "target_window_first": [
+          10464,
+          10592
+        ],
+        "target_window_last": [
+          12048,
+          12176
+        ],
+        "target_windows_inside_role": true,
+        "context_ends_before_target_starts": true,
+        "target_overlap_hours_min": 104,
+        "target_overlap_hours_max": 104
+      },
+      "VALIDATION": {
+        "n_origins": 67,
+        "first_origin": 12216,
+        "last_origin": 13800,
+        "origin_stride_hours_unique": [
+          24
+        ],
+        "all_origin_mod_24_zero": true,
+        "context_window_first": [
+          11704,
+          12216
+        ],
+        "context_window_last": [
+          13288,
+          13800
+        ],
+        "target_window_first": [
+          12216,
+          12344
+        ],
+        "target_window_last": [
+          13800,
+          13928
+        ],
+        "target_windows_inside_role": true,
+        "context_ends_before_target_starts": true,
+        "target_overlap_hours_min": 104,
+        "target_overlap_hours_max": 104
+      },
+      "TEST": {
+        "n_origins": 140,
+        "first_origin": 13944,
+        "last_origin": 17280,
+        "origin_stride_hours_unique": [
+          24
+        ],
+        "all_origin_mod_24_zero": true,
+        "context_window_first": [
+          13432,
+          13944
+        ],
+        "context_window_last": [
+          16768,
+          17280
+        ],
+        "target_window_first": [
+          13944,
+          14072
+        ],
+        "target_window_last": [
+          17280,
+          17408
+        ],
+        "target_windows_inside_role": true,
+        "context_ends_before_target_starts": true,
+        "target_overlap_hours_min": 104,
+        "target_overlap_hours_max": 104
+      },
+      "all_windows_finite": {
+        "TRAIN": true,
+        "CALIBRATION": true,
+        "VALIDATION": true,
+        "TEST": true
+      }
+    },
+    "leakage_controls": {
+      "sigma_fit_role": "TRAIN only",
+      "origin_generation_uses_test_targets_for_selection": false,
+      "origins_require_future_finite_for_quality_only": true,
+      "future_targets_used_in_context": false,
+      "target_wholly_inside_role": true,
+      "schedule_uses_training_origins_only": true
+    },
+    "prepared_npz": {
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\data\\ETTh2.npz",
+      "sha256": "ebde1376cadde3c5b0f4797f66d7962db9553d11317e1e79f6a60ec7ed8358d1",
+      "bytes": 174958
+    },
+    "quality_decision": "PASS",
+    "train_schedules": {
+      "92231": {
+        "path": ".cache\\branch_mixture_lora_v1_20260922\\data\\schedule_ETTh2_seed92231.npz",
+        "sha256": "9d8c0e22385259a8af78babdef0328bb30a854b77b0fdfd4b762a3f8b139eb55",
+        "bytes": 6447,
+        "shape": [
+          512,
+          4,
+          2
+        ],
+        "unique_series_indices": 7,
+        "unique_train_origins": 406,
+        "selection_rule": "fixed before outcome by sha256-seeded numpy RNG; identical schedule is reused across arms"
+      },
+      "92232": {
+        "path": ".cache\\branch_mixture_lora_v1_20260922\\data\\schedule_ETTh2_seed92232.npz",
+        "sha256": "1e53f03d63bbbc863a6dae36a8df6b92daaa1040ba5f1d3f8a01abf3548a838b",
+        "bytes": 6496,
+        "shape": [
+          512,
+          4,
+          2
+        ],
+        "unique_series_indices": 7,
+        "unique_train_origins": 406,
+        "selection_rule": "fixed before outcome by sha256-seeded numpy RNG; identical schedule is reused across arms"
+      }
+    }
+  }
+}
