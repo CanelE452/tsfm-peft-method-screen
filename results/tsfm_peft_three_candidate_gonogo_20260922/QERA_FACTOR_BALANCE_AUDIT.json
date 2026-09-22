@@ -1,0 +1,24 @@
+{
+  "time": 1790036633.1575956,
+  "optimizer_updates": 0,
+  "before_test_scoring": true,
+  "official_runtime_factors": "B=U*S; A=Vh*D^-1",
+  "local_factors": "B=U*sqrt(S); A=sqrt(S)*Vh*D^-1",
+  "local_matches_official_function_docstring_but_not_runtime_factor_scaling": true,
+  "product_max_abs": 2.384185791015625e-07,
+  "official_A_norm": 2.468935012817383,
+  "local_A_norm": 7.52620267868042,
+  "official_B_norm": 18.757963180541992,
+  "local_B_norm": 6.111680507659912,
+  "identical_initial_product_does_not_establish_identical_optimization": true,
+  "scope": "QERA-diag balanced-factor local variant, not an exact official QERA implementation",
+  "affected_arms": [
+    "Q_QERA",
+    "Q_IO16",
+    "Q_FORECAST"
+  ],
+  "all_affected_arms_share_same_variant": true,
+  "source_and_fits_preserved": true,
+  "new_training": 0,
+  "source_sha256": "31e2b847d571cf852331e8c23371f55b7fd3b451e3223ba0fc75cf4cf22dae96"
+}

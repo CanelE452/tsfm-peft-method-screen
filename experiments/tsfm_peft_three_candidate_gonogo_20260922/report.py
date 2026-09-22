@@ -77,6 +77,7 @@ def main():
             a=read(RESULTS/'Q_ALLOCATION.json')
             text+=f"Chronos-Bolt-small의 eligible linear 102개 전체를 사용했다. NF4는 실제90개 linear를 packed uint8로 저장하고 backend 기본 고정밀 예외12개를 유지했다. IO16은 경계6개를 추가 BF16으로 유지하므로84개를 양자화했다. uniform rank4는 {a['uniform_budget']:,}개, Q_FORECAST는 {a['candidate_parameters']:,}개 trainable parameter로 미사용 예산 {a['unused_fraction']*100:.3f}%다. rank map은 TEST 전에 봉인했다.\n\n"
             text+='LoftQ는 HF 공식 one-step replacement이며 전체 iterative LoftQ가 아니다. QERA-diag는 공식 residual×RMS-scale SVD 수식과 동일 packed matrix에서 수치 대조했다. factor product 최대 차이는 '+f"{a['qera_formula_check']['official_function_product_max_abs']:.3g}"+'였지만, 전체 QERA 논문 재현이라고 부르지 않는다. activation RMS는 동일 TRAIN-only32 contexts로 계산했다. sensitivity는 미래 y를 읽지 않고 최대288 example forwards를 사용했다.\n\n'
+            text+='**QERA 구현 범위:** 공식 코드의 docstring은 sqrt(S)를 A/B에 나누지만 실제 helper 본문은 B=U*S, A=Vh*D^-1이다. 이번 구현은 B=U*sqrt(S), A=sqrt(S)*Vh*D^-1인 balanced-factor 로컬 변형이다. 초기 product 일치는 factor별 초기값/최적화 동치를 뜻하지 않는다. Q_QERA·Q_IO16·Q_FORECAST에 동일 변형을 사용했으며, 이 차이는 학습 후 TEST 채점 전에 확인해 [별도 감사](../QERA_FACTOR_BALANCE_AUDIT.json)에 남겼다. 정확한 공식 QERA보다 우월하다고 해석할 수 없고, 새 학습으로 교체하지 않았다.\n\n'
             text+='저장량은 직렬화된 packed weights·scales/metadata·고정밀 예외·config·선택 adapter를 합산했다. 기준 분모는 BF16 pretrained base이고 60% cap은 프로젝트의 운영 제약이다. 새 프로세스에서 실제 packed artifact를 읽어 batch1/8을 측정했으며 배포 파일의 공식/native 예측 parity도 검사했다. 4bit가 자동으로 빠르다고 가정하지 않았다.\n\n'
             text+='원래 각 fit 초기화 타이밍이 별도로 계측되지 않아 같은 고정 초기화의 runtime-only 재생 결과를 resources/*_initialization.json에 별도로 저장했다. optimizer와 sensitivity probe를 추가하지 않았으며 원래 학습의 직접 계측값으로 표기하지 않는다.\n'
         elif category=='T':
@@ -107,6 +108,7 @@ def main():
     text+='모든 비교는 Electricity16개 계열(F4 client), past512/native64, seed92201/92202에서 수행했다. 선택용 seed는 없으며 두 seed 점수를 평균했다. Q3072 + T2560 + F2560 = **main8192**, smoke는 실패1회 포함 **24**, 전체8216 optimizer 호출이다. F_LOCAL의 두 workflow는 각4개 독립 client 모델이므로 중앙 fit10개와 동일한 단위라고 부르지 않는다.\n\n'
     text+='Q/T/F는 독립 후보이며 기존 MAG/HIER/rollout/FR을 재개하거나 기존 학습 checkpoint를 초기값으로 사용하지 않았다. 각 후보 source를 main 전에 봉인하고 V로 checkpoint와 baseline을 선택했다. 34개 TEST prediction을 모두 저장한 다음에만 채점했고, raw scalar metric과 gain을 독립 재계산했다.\n\n'
     text+='F preflight의 PEFT requires_grad 복원 문제는 main 전에 수정했다. 실패 기록을 성공 기록으로 덮지 않았고 실패1 update도 장부에 포함했다. 검산은 동결 persistent state와 저장/복원 및 source/prediction hash 범위이며, nonpersistent metadata의 학습 전후 hash와 원래 fit별 Q 초기화 타이밍은 수집하지 않은 제한을 공개했다.\n\n'
+    text+='QERA 계열은 공식 코드 본문의 factor scaling과 다른 **balanced-factor QERA-diag 로컬 변형**이다. 초기 product의 수치 일치만 검증되며, 공식 QERA와 학습 동작이 같다는 뜻은 아니다. 같은 변형을 세 QERA arm에 공통 적용했고 발견 후 재학습하지 않았다. [구현 차이 감사](QERA_FACTOR_BALANCE_AUDIT.json)를 함께 읽어야 한다.\n\n'
     text+='## 결과와 검산 자료\n\n'
     text+='- [Raw/seed scores](scores.csv), [series scores](series_scores.csv), [seed effects / CI](seed_effects.csv)\n'
     text+='- [Resource table](resource_table.csv), [F client effects](F_client_effects.csv), [F validation-fixed tail](F_validation_fixed_tail.csv)\n'

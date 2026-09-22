@@ -1,0 +1,176 @@
+{
+  "small": {
+    "tied": {
+      "encoder_is_shared": false,
+      "decoder_is_shared": false,
+      "encoder_weight_pointer_matches": true,
+      "decoder_weight_pointer_matches": true
+    },
+    "config": {
+      "transformers_version": "5.17.0",
+      "architectures": [
+        "ChronosBoltModelForForecasting"
+      ],
+      "output_hidden_states": false,
+      "return_dict": true,
+      "dtype": "bfloat16",
+      "chunk_size_feed_forward": 0,
+      "is_encoder_decoder": true,
+      "id2label": {
+        "0": "LABEL_0",
+        "1": "LABEL_1"
+      },
+      "label2id": {
+        "LABEL_0": 0,
+        "LABEL_1": 1
+      },
+      "problem_type": null,
+      "vocab_size": 2,
+      "d_model": 512,
+      "d_kv": 64,
+      "d_ff": 2048,
+      "num_layers": 6,
+      "num_decoder_layers": 6,
+      "num_heads": 8,
+      "relative_attention_num_buckets": 32,
+      "relative_attention_max_distance": 128,
+      "dropout_rate": 0.1,
+      "layer_norm_epsilon": 1e-06,
+      "initializer_factor": 0.05,
+      "feed_forward_proj": "relu",
+      "use_cache": true,
+      "pad_token_id": 0,
+      "eos_token_id": 1,
+      "classifier_dropout": 0.0,
+      "is_decoder": false,
+      "dense_act_fn": "relu",
+      "is_gated_act": false,
+      "scale_decoder_outputs": true,
+      "tie_word_embeddings": true,
+      "_name_or_path": "E:\\CODING\\proj\\tsfm-peft-method-screen\\.cache\\tsfm_peft_three_candidate_gonogo_20260922\\hf\\models--amazon--chronos-bolt-small\\snapshots\\772f3d25d38aec6d914c8949dab4462e2d46f5d8",
+      "chronos_config": {
+        "context_length": 2048,
+        "input_patch_size": 16,
+        "input_patch_stride": 16,
+        "prediction_length": 64,
+        "quantiles": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8,
+          0.9
+        ],
+        "use_reg_token": true
+      },
+      "chronos_pipeline_class": "ChronosBoltPipeline",
+      "decoder_start_token_id": 0,
+      "model_type": "t5",
+      "n_positions": 512,
+      "reg_token_id": 1,
+      "output_attentions": false
+    },
+    "buffers": {
+      "quantiles": {
+        "shape": [
+          9
+        ],
+        "dtype": "torch.bfloat16"
+      }
+    },
+    "inspection_device": "cpu",
+    "training_updates": 0,
+    "scope": "post-fit read-only instance audit; model class/source and persistent state were audited before fits",
+    "inspection_assertion_correction": "Embedding module objects are distinct; their weight tensors share storage. An initial inspection-only assertion incorrectly required module object identity. No model or fit changed."
+  },
+  "base": {
+    "tied": {
+      "encoder_is_shared": false,
+      "decoder_is_shared": false,
+      "encoder_weight_pointer_matches": true,
+      "decoder_weight_pointer_matches": true
+    },
+    "config": {
+      "transformers_version": "5.17.0",
+      "architectures": [
+        "ChronosBoltModelForForecasting"
+      ],
+      "output_hidden_states": false,
+      "return_dict": true,
+      "dtype": "bfloat16",
+      "chunk_size_feed_forward": 0,
+      "is_encoder_decoder": true,
+      "id2label": {
+        "0": "LABEL_0",
+        "1": "LABEL_1"
+      },
+      "label2id": {
+        "LABEL_0": 0,
+        "LABEL_1": 1
+      },
+      "problem_type": null,
+      "vocab_size": 2,
+      "d_model": 768,
+      "d_kv": 64,
+      "d_ff": 3072,
+      "num_layers": 12,
+      "num_decoder_layers": 12,
+      "num_heads": 12,
+      "relative_attention_num_buckets": 32,
+      "relative_attention_max_distance": 128,
+      "dropout_rate": 0.1,
+      "layer_norm_epsilon": 1e-06,
+      "initializer_factor": 0.05,
+      "feed_forward_proj": "relu",
+      "use_cache": true,
+      "pad_token_id": 0,
+      "eos_token_id": 1,
+      "classifier_dropout": 0.0,
+      "is_decoder": false,
+      "dense_act_fn": "relu",
+      "is_gated_act": false,
+      "scale_decoder_outputs": true,
+      "tie_word_embeddings": true,
+      "_name_or_path": "E:\\CODING\\proj\\tsfm-peft-method-screen\\.cache\\tsfm_peft_three_candidate_gonogo_20260922\\hf\\models--amazon--chronos-bolt-base\\snapshots\\5d9f166d69f47aef3401367a7b842e78fe97b121",
+      "chronos_config": {
+        "context_length": 2048,
+        "input_patch_size": 16,
+        "input_patch_stride": 16,
+        "prediction_length": 64,
+        "quantiles": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8,
+          0.9
+        ],
+        "use_reg_token": true
+      },
+      "chronos_pipeline_class": "ChronosBoltPipeline",
+      "decoder_start_token_id": 0,
+      "model_type": "t5",
+      "n_positions": 512,
+      "reg_token_id": 1,
+      "output_attentions": false
+    },
+    "buffers": {
+      "quantiles": {
+        "shape": [
+          9
+        ],
+        "dtype": "torch.bfloat16"
+      }
+    },
+    "inspection_device": "cpu",
+    "training_updates": 0,
+    "scope": "post-fit read-only instance audit; model class/source and persistent state were audited before fits",
+    "inspection_assertion_correction": "Embedding module objects are distinct; their weight tensors share storage. An initial inspection-only assertion incorrectly required module object identity. No model or fit changed."
+  }
+}

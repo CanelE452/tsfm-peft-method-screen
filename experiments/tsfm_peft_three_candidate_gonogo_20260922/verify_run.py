@@ -7,6 +7,11 @@ def main():
     ledger=read(RESULTS/'OPTIMIZER_LEDGER.json')
     assert (ledger['main'],ledger['smoke'],ledger['Q'],ledger['T'],ledger['F'])==(8192,24,3072,2560,2560)
     assert sum(ledger['runs'].values())==8216
+    successful_smoke=sum(read(p).get('updates',0) for p in (RESULTS/'smoke').glob('*.json'))
+    assert successful_smoke==23
+    failure=read(RESULTS/'F_SMOKE_FAILURE.json')
+    assert failure['failed_smoke_updates_charged']==1
+    assert sha(EXP/'forensics/F_smoke_original.py')==failure['original_source_sha256']
     fits=list((RESULTS/'fits').glob('*/FIT.json'))
     assert len(fits)==32
     all_fit=[]
@@ -41,6 +46,10 @@ def main():
         for relative,digest in sealed['source'].items():assert sha(ROOT/relative)==digest,relative
         sources[candidate]=sha(RESULTS/f'{candidate}_SOURCE_SEAL.json')
     assert read(RESULTS/'ARTIFACT_RELOAD_PARITY.json')['status']=='PASS'
+    evaluation=read(RESULTS/'EVALUATION_SOURCE_SEAL.json')
+    for relative,digest in evaluation['source'].items():assert sha(ROOT/relative)==digest,relative
+    qera=read(RESULTS/'QERA_FACTOR_BALANCE_AUDIT.json')
+    assert qera['before_test_scoring'] and qera['new_training']==0
     seal=read(RESULTS/'TEST_PREDICTIONS_SEAL.json')
     assert sha(RESULTS/'SELECTIONS.json')==seal['selection_sha256']
     for key,item in seal['predictions'].items():assert sha(ROOT/item['path'])==item['sha256']
@@ -56,6 +65,8 @@ def main():
             'fits':sorted(all_fit),'source_seals':sources,'all_checkpoint_hashes_verified':True,
             'all_training_logs_finite':True,'all_frozen_persistent_state_hashes_unchanged':True,
             'nonpersistent_buffer_scope':'serialized/original selected Q inference buffers match; training frozen hash uses state_dict persistent state',
+            'qera_implementation_scope':'balanced-factor local QERA-diag variant; official runtime factor scaling differs, product equivalence only',
+            'qera_factor_difference_disclosed_before_test':True,
             'all_test_predictions_before_scoring':seal['all_saved_before_scoring'],
             'prediction_count':len(seal['predictions']),'no_raw_weights_checkpoints_in_publish_scope':True,
             'automatic_followup_experiments':0,'time':time.time()}

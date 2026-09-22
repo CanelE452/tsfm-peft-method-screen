@@ -10,3 +10,5 @@
 - [Trans-LoRA, NeurIPS 2024](https://proceedings.neurips.cc/paper_files/paper/2024/hash/708fdc7911f11585ee7161518e509ae6-Abstract-Conference.html): 모델 교체 시 적응 지식 이전은 기존 문제이다. 본 T는 실제 최근 BRIDGE target을 활용하는 예측 residual transfer이며, synthetic-data 기반 Trans-LoRA나 data-free 이전을 재현한다고 부르지 않는다.
 
 통제의 수치적 성공은 논문 신규성, 다른 데이터 일반화, 제출 가능성의 검증을 대신하지 않는다. 최초50% scale과 공개 Electricity는 기존 개발/사전학습 노출 가능성이 있는 개발 화면이다.
+
+학습 후 TEST 채점 전 추가 확인: QERA 함수 docstring의 balanced sqrt(S) 분배와 실제 helper 본문의 U*S / Vh 분배가 다르다. 로컬 구현은 전자이고 product만 수치 일치한다. factor scaling과 최적화까지 동일하다는 주장을 하지 않는다. Q_QERA/Q_IO16/Q_FORECAST에 같은 로컬 변형을 사용했으며 학습을 다시 실행하지 않았다. 결과의 QERA_FACTOR_BALANCE_AUDIT.json에 차이를 보존한다.

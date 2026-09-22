@@ -1,0 +1,51 @@
+{
+  "arm": "N0",
+  "seed": 0,
+  "fresh_process_pid": 51112,
+  "load_seconds": 0.9292212000000291,
+  "measurements": [
+    {
+      "batch": 1,
+      "median_seconds": 0.0238118000124814,
+      "peak_allocated": 421628928,
+      "peak_reserved": 436207616,
+      "finite": true,
+      "repetitions": 20,
+      "warmup": 3
+    },
+    {
+      "batch": 8,
+      "median_seconds": 0.023970549998921342,
+      "peak_allocated": 431906304,
+      "peak_reserved": 446693376,
+      "finite": true,
+      "repetitions": 20,
+      "warmup": 3
+    }
+  ],
+  "base_artifact_bytes": 410619112,
+  "adapter_artifact_bytes": 0,
+  "total_artifact_bytes": 410619112,
+  "bf16_small_reference_bytes": 95453989,
+  "storage_ratio": 4.301749107625036,
+  "storage_cap": 0.6,
+  "teacher_or_fp_copy_present": false,
+  "inference_client": null,
+  "actual_serialized_packed_artifact_loaded": false,
+  "packed_modules": {},
+  "all_model_parameters_on_cuda": true,
+  "artifact_scope": "single deployed model plus adapter",
+  "checkpoint_sha256": null,
+  "deployment_files": {
+    "config.json": {
+      "bytes": 1208,
+      "sha256": "fc71c6b9cba6e32112b128eca12ca5eb333369d5f253ced07a3f2a2317aea322"
+    },
+    "model.safetensors": {
+      "bytes": 410617904,
+      "sha256": "31536f803106ca94656deda6fcece15a21d167379cf3362647259ab171f27e82"
+    }
+  },
+  "model_trainable_count": 0,
+  "buffer_hash_inference": "beb89cf157eba124e7285588e3e8fe08aa4156217ac2b06c04024e4222d1fcf5"
+}

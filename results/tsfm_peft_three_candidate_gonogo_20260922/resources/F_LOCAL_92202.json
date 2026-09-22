@@ -1,0 +1,51 @@
+{
+  "arm": "F_LOCAL",
+  "seed": 92202,
+  "fresh_process_pid": 44612,
+  "load_seconds": 0.4852058000105899,
+  "measurements": [
+    {
+      "batch": 1,
+      "median_seconds": 0.018145299996831454,
+      "peak_allocated": 106887680,
+      "peak_reserved": 138412032,
+      "finite": true,
+      "repetitions": 20,
+      "warmup": 3
+    },
+    {
+      "batch": 8,
+      "median_seconds": 0.01795105000201147,
+      "peak_allocated": 111976448,
+      "peak_reserved": 144703488,
+      "finite": true,
+      "repetitions": 20,
+      "warmup": 3
+    }
+  ],
+  "base_artifact_bytes": 95453989,
+  "adapter_artifact_bytes": 4822455,
+  "total_artifact_bytes": 100276444,
+  "bf16_small_reference_bytes": 95453989,
+  "storage_ratio": 1.0505212516576965,
+  "storage_cap": 0.6,
+  "teacher_or_fp_copy_present": false,
+  "inference_client": 0,
+  "actual_serialized_packed_artifact_loaded": false,
+  "packed_modules": {},
+  "all_model_parameters_on_cuda": true,
+  "artifact_scope": "workflow state (all four clients) plus common backbone",
+  "checkpoint_sha256": "752b438fd2e5688e4b2d1aed39aeaf8242527033c69d580fb8bd253cabe86813",
+  "deployment_files": {
+    "config.json": {
+      "bytes": 1205,
+      "sha256": "4f9f564c68255d8d57571482ed2afb4262e9fabbed1b8f18d319266e0fcdbddd"
+    },
+    "model.safetensors": {
+      "bytes": 95452784,
+      "sha256": "a03f6447862404efb9764a7f60439c26cd7a7d7d966f99726a88d1d9616562d3"
+    }
+  },
+  "model_trainable_count": 294912,
+  "buffer_hash_inference": "dfa87fbb118e037bc1df45a554075b61be145f2a4a5a0ec300e6aa9a66b16ad2"
+}
