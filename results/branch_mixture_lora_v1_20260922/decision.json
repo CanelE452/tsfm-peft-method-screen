@@ -1,0 +1,32 @@
+{
+  "execution": "COMPLETE",
+  "scientific_decision": "POSITIVE_PILOT_SIGNAL",
+  "positive_seeds": 2,
+  "primary": {
+    "selected": true,
+    "variant": "ordered",
+    "window": "block2",
+    "effect": 0.007246557807628912,
+    "relative_percent": 2.4742921069250103,
+    "ci95_low": -0.0025542470495811182,
+    "ci95_high": 0.021824154780040284,
+    "bootstrap_block": 7,
+    "draws": 2000
+  },
+  "calibrated": {
+    "selected": true,
+    "variant": "affine",
+    "window": "block2",
+    "effect": 0.00799937182365737,
+    "relative_percent": 2.7368611156064153,
+    "ci95_low": -0.0015778277573241927,
+    "ci95_high": 0.02200917933899001,
+    "bootstrap_block": 7,
+    "draws": 2000
+  },
+  "novelty": "NOT_ESTABLISHED",
+  "paper_pass": false,
+  "automatic_followup": false,
+  "practical_advantage": "NOT_ESTABLISHED_VS_CALIBRATED_F0",
+  "mixture_degradation_vs_calibrated_f0_percent": 1.852259
+}

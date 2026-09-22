@@ -1,5 +1,7 @@
 # 완료 작업과 검증 기록
 
+[확인] 2026-09-22 native branch-mixture LoRA 제한 실험을 4/4 fits·2,048 main+4 smoke updates로 완료했다. ETTh2 후반65–128에서 MIXTURE는 COMPONENT보다 두seed 각각3.13%/1.81%, 평균2.47% 개선했지만95%구간은0을 포함한다. 동일CAL 보정 후 개선2.74%, 그러나 F0 단순보정보다1.85% 악화했다. 손실 변경의 반복 방향 신호이며 실용적 새 방법 우위·논문PASS는 미확보다. native parity 최대오차0, CPU11tests,16개 checkpoint 선택 재검산. [한국어 보고서·그림](../results/branch_mixture_lora_v1_20260922/REPORT_KO.md), [판단](../results/branch_mixture_lora_v1_20260922/FINAL_DECISION.md), [검산](../results/branch_mixture_lora_v1_20260922/VERIFICATION.json), [독립 사후 검산](../results/branch_mixture_lora_v1_20260922/POSTRUN_AUDIT.json). 관련ETTm2 원천 노출을 명시했고 자동 후속학습 없이 종료했다.
+
 2026-09-18 기준. 표의 링크는 완료된 실행 또는 검토 결과다. 과거 FAIL/STOP은 당시 고정 실험의 판정으로 보존한다. 최신 재검토의 후속 연구 우선순위는 방법론 성공이나 새로운 실험 실행을 뜻하지 않는다.
 
 [통합 완료] 한국어 원고 v3에 기존 C3/MAG 대조와 최신 학습 요인·내부 기전·선행 검토를 본문으로 통합했다. 16쪽·표9개·그림8개·참고문헌12개, 기존 표1–5 및 음성 결과 보존, 새 학습·추론·bootstrap0회다. [PDF·DOCX·원문](../papers/persistence_adaptation/manuscript_v3_integrated_20260919/README.md), [검산](../papers/persistence_adaptation/manuscript_v3_integrated_20260919/AUDIT.json), [남은 제출 작업](../papers/persistence_adaptation/manuscript_v3_integrated_20260919/INTEGRATION_NOTES_KO.md). 원고 통합 완료를 신규성·독립 검증·게재 완료로 부르지 않는다.

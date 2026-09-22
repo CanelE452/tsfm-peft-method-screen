@@ -1,0 +1,677 @@
+{
+  "selection_seal_sha": "1b180a381fff07578feda871425dcef4d96c7ada03252df75453dca036a9c084",
+  "test_scored": false,
+  "files": [
+    {
+      "key": "CHRONOS2_DIRECT",
+      "role": "CALIBRATION",
+      "seconds": 1.2768244000035338,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 559520768,
+      "peak_reserved_bytes": 583008256,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\CALIBRATION\\CHRONOS2_DIRECT.npz",
+      "sha256": "3c94ead4496a8e7b09078206af4ae052c64cce89fef4a2b8ad36a8a02112c6ae",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "COMPONENT_s92231",
+      "role": "CALIBRATION",
+      "seconds": 2.5530124999932013,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\CALIBRATION\\COMPONENT_s92231.npz",
+      "sha256": "c624323f01eb4527a3dc5c7365099b1af05f2ff9f635ede83114e3ac16644e1f",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "COMPONENT_s92232",
+      "role": "CALIBRATION",
+      "seconds": 2.3671035999723244,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\CALIBRATION\\COMPONENT_s92232.npz",
+      "sha256": "6b51711e927d200e43f5066a11edd2e10fb265ae7dbf92cf06ae7e2e43f57cac",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "F0_NATIVE",
+      "role": "CALIBRATION",
+      "seconds": 1.9219102000060957,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 349642752,
+      "peak_reserved_bytes": 394264576,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\CALIBRATION\\F0_NATIVE.npz",
+      "sha256": "127a693caddda153b51c9193c453b6891a7d2d4219e9dd3ebc41cb553cb4889f",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "MIXTURE_s92231",
+      "role": "CALIBRATION",
+      "seconds": 2.323797499993816,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\CALIBRATION\\MIXTURE_s92231.npz",
+      "sha256": "9dcf6ce0ac24ff9c4eea10ac07713c733f3281d1ef75c56bc5d6167d804426dd",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "MIXTURE_s92232",
+      "role": "CALIBRATION",
+      "seconds": 2.3632469000003766,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\CALIBRATION\\MIXTURE_s92232.npz",
+      "sha256": "f8427a9d7340a2c60ee006de5c85aab8d498d7dcb059f2b34d1b22e07c8be8cf",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "CHRONOS2_DIRECT",
+      "role": "TEST",
+      "seconds": 2.6686137999931816,
+      "examples": 980,
+      "batch": 8,
+      "peak_allocated_bytes": 559913984,
+      "peak_reserved_bytes": 583008256,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\TEST\\CHRONOS2_DIRECT.npz",
+      "sha256": "51b72a1b271762c1bb422b6bf04884c169fd765a51cba2cae1ee9e8906175f9a",
+      "shapes": {
+        "q": [
+          140,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "COMPONENT_s92231",
+      "role": "TEST",
+      "seconds": 5.087698799994541,
+      "examples": 980,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\TEST\\COMPONENT_s92231.npz",
+      "sha256": "af3ac30e95ba26ab6f39f6945eeb7dc4b1cef525910e7569d5100dcea6f1aaa3",
+      "shapes": {
+        "q": [
+          140,
+          7,
+          128,
+          9
+        ],
+        "components": [
+          140,
+          7,
+          9,
+          64,
+          9
+        ]
+      }
+    },
+    {
+      "key": "COMPONENT_s92231_fixed512",
+      "role": "TEST",
+      "seconds": 5.04855409997981,
+      "examples": 980,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\TEST\\COMPONENT_s92231_fixed512.npz",
+      "sha256": "1b5c0db0c95f305f3dee3f3b2fa4e393dcf08d6de212b1270da129f76505c660",
+      "shapes": {
+        "q": [
+          140,
+          7,
+          128,
+          9
+        ],
+        "components": [
+          140,
+          7,
+          9,
+          64,
+          9
+        ]
+      }
+    },
+    {
+      "key": "COMPONENT_s92232",
+      "role": "TEST",
+      "seconds": 5.324815500003751,
+      "examples": 980,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\TEST\\COMPONENT_s92232.npz",
+      "sha256": "06e59c026a532e9a964dd3887e3238f5dc214c135946d8026ccfeb594b882513",
+      "shapes": {
+        "q": [
+          140,
+          7,
+          128,
+          9
+        ],
+        "components": [
+          140,
+          7,
+          9,
+          64,
+          9
+        ]
+      }
+    },
+    {
+      "key": "COMPONENT_s92232_fixed512",
+      "role": "TEST",
+      "seconds": 5.213517900003353,
+      "examples": 980,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\TEST\\COMPONENT_s92232_fixed512.npz",
+      "sha256": "06e59c026a532e9a964dd3887e3238f5dc214c135946d8026ccfeb594b882513",
+      "shapes": {
+        "q": [
+          140,
+          7,
+          128,
+          9
+        ],
+        "components": [
+          140,
+          7,
+          9,
+          64,
+          9
+        ]
+      }
+    },
+    {
+      "key": "F0_NATIVE",
+      "role": "TEST",
+      "seconds": 4.224249799997779,
+      "examples": 980,
+      "batch": 8,
+      "peak_allocated_bytes": 349642752,
+      "peak_reserved_bytes": 394264576,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\TEST\\F0_NATIVE.npz",
+      "sha256": "9e5464935f587bcbb09b770297f5e4f23f33890d6e8c96f5e15895e915398c84",
+      "shapes": {
+        "q": [
+          140,
+          7,
+          128,
+          9
+        ],
+        "components": [
+          140,
+          7,
+          9,
+          64,
+          9
+        ]
+      }
+    },
+    {
+      "key": "MIXTURE_s92231",
+      "role": "TEST",
+      "seconds": 5.107633600011468,
+      "examples": 980,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\TEST\\MIXTURE_s92231.npz",
+      "sha256": "8fe86f63a4dc123a6d35f6bcb86c925760d924d987164a52be8f48f3d6ed5741",
+      "shapes": {
+        "q": [
+          140,
+          7,
+          128,
+          9
+        ],
+        "components": [
+          140,
+          7,
+          9,
+          64,
+          9
+        ]
+      }
+    },
+    {
+      "key": "MIXTURE_s92231_fixed512",
+      "role": "TEST",
+      "seconds": 5.186677799996687,
+      "examples": 980,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\TEST\\MIXTURE_s92231_fixed512.npz",
+      "sha256": "8fe86f63a4dc123a6d35f6bcb86c925760d924d987164a52be8f48f3d6ed5741",
+      "shapes": {
+        "q": [
+          140,
+          7,
+          128,
+          9
+        ],
+        "components": [
+          140,
+          7,
+          9,
+          64,
+          9
+        ]
+      }
+    },
+    {
+      "key": "MIXTURE_s92232",
+      "role": "TEST",
+      "seconds": 5.343960099999094,
+      "examples": 980,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\TEST\\MIXTURE_s92232.npz",
+      "sha256": "3bb7297e12bfa63d02380dc55013363de5c5826acbd96f0b6d59b598b2c8dadc",
+      "shapes": {
+        "q": [
+          140,
+          7,
+          128,
+          9
+        ],
+        "components": [
+          140,
+          7,
+          9,
+          64,
+          9
+        ]
+      }
+    },
+    {
+      "key": "MIXTURE_s92232_fixed512",
+      "role": "TEST",
+      "seconds": 5.0710478000110015,
+      "examples": 980,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\TEST\\MIXTURE_s92232_fixed512.npz",
+      "sha256": "3bb7297e12bfa63d02380dc55013363de5c5826acbd96f0b6d59b598b2c8dadc",
+      "shapes": {
+        "q": [
+          140,
+          7,
+          128,
+          9
+        ],
+        "components": [
+          140,
+          7,
+          9,
+          64,
+          9
+        ]
+      }
+    },
+    {
+      "key": "COMPONENT_s92231_step0",
+      "role": "VALIDATION",
+      "seconds": 2.4900570000172593,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 316874752,
+      "peak_reserved_bytes": 350224384,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\VALIDATION\\COMPONENT_s92231_step0.npz",
+      "sha256": "fab7af3a7a6adb02485471fbcc1a0b79eaff807717172e0a3848b6134293390d",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "COMPONENT_s92231_step128",
+      "role": "VALIDATION",
+      "seconds": 2.3850756000028923,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 353978880,
+      "peak_reserved_bytes": 530579456,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\VALIDATION\\COMPONENT_s92231_step128.npz",
+      "sha256": "351cfbf0af66b50227df6301c1d21607828d1f6a8f32e7dad936ad1885dcb97c",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "COMPONENT_s92231_step256",
+      "role": "VALIDATION",
+      "seconds": 2.454411300015636,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 353978880,
+      "peak_reserved_bytes": 530579456,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\VALIDATION\\COMPONENT_s92231_step256.npz",
+      "sha256": "968f38d089378ce249f04b88ed00bd298c49caf9fe3b17001aa71db6b56bf8cf",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "COMPONENT_s92231_step512",
+      "role": "VALIDATION",
+      "seconds": 2.3035220000019763,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 353978880,
+      "peak_reserved_bytes": 530579456,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\VALIDATION\\COMPONENT_s92231_step512.npz",
+      "sha256": "4136ec853045ccbd7027968fc3d2abc9b603de26402df2bb79a0d20b040661ad",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "COMPONENT_s92232_step0",
+      "role": "VALIDATION",
+      "seconds": 2.322821899986593,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\VALIDATION\\COMPONENT_s92232_step0.npz",
+      "sha256": "fab7af3a7a6adb02485471fbcc1a0b79eaff807717172e0a3848b6134293390d",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "COMPONENT_s92232_step128",
+      "role": "VALIDATION",
+      "seconds": 2.4103507999971043,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 354372096,
+      "peak_reserved_bytes": 536870912,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\VALIDATION\\COMPONENT_s92232_step128.npz",
+      "sha256": "eb43578911842251496a420543b2d783783124d98da4d766877c27956c8a10ee",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "COMPONENT_s92232_step256",
+      "role": "VALIDATION",
+      "seconds": 2.309585600014543,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 354372096,
+      "peak_reserved_bytes": 536870912,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\VALIDATION\\COMPONENT_s92232_step256.npz",
+      "sha256": "766c9feb17c5fb7f2b6b036053bb4a9f20355ae063f35a71c81bb8e5f8e35cb2",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "COMPONENT_s92232_step512",
+      "role": "VALIDATION",
+      "seconds": 2.292657900019549,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 354372096,
+      "peak_reserved_bytes": 536870912,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\VALIDATION\\COMPONENT_s92232_step512.npz",
+      "sha256": "fd7a132e276b17debb042c3563d5bb0932ac359350d969d704c6d50e713fa836",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "MIXTURE_s92231_step0",
+      "role": "VALIDATION",
+      "seconds": 2.335404399986146,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\VALIDATION\\MIXTURE_s92231_step0.npz",
+      "sha256": "fab7af3a7a6adb02485471fbcc1a0b79eaff807717172e0a3848b6134293390d",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "MIXTURE_s92231_step128",
+      "role": "VALIDATION",
+      "seconds": 2.3082171000132803,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 354372096,
+      "peak_reserved_bytes": 536870912,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\VALIDATION\\MIXTURE_s92231_step128.npz",
+      "sha256": "7480bc8f0b056f518efddf8785b4d0ac151c6d99997cfa7bfcaf5bc65830dc73",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "MIXTURE_s92231_step256",
+      "role": "VALIDATION",
+      "seconds": 2.366433099989081,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 354372096,
+      "peak_reserved_bytes": 536870912,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\VALIDATION\\MIXTURE_s92231_step256.npz",
+      "sha256": "53e02c7ec0e9bfde13ec6fc355cf5f7be4de2c8f1ae4fe8c35ff584c0541668f",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "MIXTURE_s92231_step512",
+      "role": "VALIDATION",
+      "seconds": 2.3281565999786835,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 354372096,
+      "peak_reserved_bytes": 536870912,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\VALIDATION\\MIXTURE_s92231_step512.npz",
+      "sha256": "4d2a66269bf21b6e4719296480415cd634d33591674168daba6ffa60fec436f6",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "MIXTURE_s92232_step0",
+      "role": "VALIDATION",
+      "seconds": 2.3158857000235002,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\VALIDATION\\MIXTURE_s92232_step0.npz",
+      "sha256": "fab7af3a7a6adb02485471fbcc1a0b79eaff807717172e0a3848b6134293390d",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "MIXTURE_s92232_step128",
+      "role": "VALIDATION",
+      "seconds": 2.301068300002953,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 354372096,
+      "peak_reserved_bytes": 536870912,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\VALIDATION\\MIXTURE_s92232_step128.npz",
+      "sha256": "f6fda1df97422283b59babb437ab073d06b17f817fbeabfcb12251fd73c9b225",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "MIXTURE_s92232_step256",
+      "role": "VALIDATION",
+      "seconds": 2.2880462000030093,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 354372096,
+      "peak_reserved_bytes": 536870912,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\VALIDATION\\MIXTURE_s92232_step256.npz",
+      "sha256": "185f5ab0353c902b7fa08656a49134b335437a099f59515f81e518dfda1a7a9b",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "MIXTURE_s92232_step512",
+      "role": "VALIDATION",
+      "seconds": 2.3108573999779765,
+      "examples": 469,
+      "batch": 8,
+      "peak_allocated_bytes": 354372096,
+      "peak_reserved_bytes": 536870912,
+      "path": ".cache\\branch_mixture_lora_v1_20260922\\predictions\\VALIDATION\\MIXTURE_s92232_step512.npz",
+      "sha256": "2a648234eef441c1768c65476b21cff5ee225e6c2d86f9fa433f024268f01c4c",
+      "shapes": {
+        "q": [
+          67,
+          7,
+          128,
+          9
+        ]
+      }
+    }
+  ]
+}
