@@ -1,0 +1,38 @@
+{
+  "cap": 4,
+  "consumed": 4,
+  "updates": [
+    {
+      "arm": "SHARED",
+      "step": 1,
+      "loss": 0.1336255669593811,
+      "first_loss": 0.07688406109809875,
+      "continuation_loss": 0.05674150958657265,
+      "grad_norm": 0.032315630465745926
+    },
+    {
+      "arm": "SHARED",
+      "step": 2,
+      "loss": 0.1330225169658661,
+      "first_loss": 0.07669034600257874,
+      "continuation_loss": 0.056332170963287354,
+      "grad_norm": 0.031297340989112854
+    },
+    {
+      "arm": "CONTINUATION",
+      "step": 1,
+      "loss": 0.05674150958657265,
+      "first_loss": 0.0,
+      "continuation_loss": 0.05674150958657265,
+      "grad_norm": 0.0233401358127594
+    },
+    {
+      "arm": "CONTINUATION",
+      "step": 2,
+      "loss": 0.056400224566459656,
+      "first_loss": 0.0,
+      "continuation_loss": 0.056400224566459656,
+      "grad_norm": 0.02278032712638378
+    }
+  ]
+}

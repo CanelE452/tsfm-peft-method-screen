@@ -1,0 +1,373 @@
+{
+  "domain_context": {
+    "domain": "10-minute solar PV multivariate time series aggregated to hourly forecasting targets",
+    "downstream_decision": "fixed-source continuation LoRA pilot data contract; do not use scores to choose data",
+    "quality_bar": "publication-style pilot receipts; zero leakage tolerance; no interpolation",
+    "primary_leakage_paths": [
+      "future target values entering context",
+      "TEST-based model, LR, checkpoint, or data selection",
+      "non-TRAIN scaling",
+      "column choice based on zero-rate or forecasting performance"
+    ]
+  },
+  "budget": {
+    "train_updates": 512,
+    "batch_size": 4,
+    "seeds": [
+      92241,
+      92242
+    ],
+    "schedule_shape": [
+      512,
+      4,
+      2
+    ],
+    "context": 512,
+    "horizon": 128,
+    "stride": 24
+  },
+  "repository_exposure": {
+    "tool": "rg",
+    "pattern": "solar_AL|solar-energy|solarenergy",
+    "returncode": 1,
+    "match_count": 0,
+    "matches": [],
+    "conclusion": "Scoped rg found no prior solar_AL/solar-energy/solarenergy mentions; this does not rule out upstream pretraining exposure."
+  },
+  "source": {
+    "source_url": "https://github.com/laiguokun/multivariate-time-series-data/blob/master/solar-energy/solar_AL.txt.gz",
+    "pinned_raw_url": "https://raw.githubusercontent.com/laiguokun/multivariate-time-series-data/7f402f185cc2435b5e66aed13a3b560ed142e023/solar-energy/solar_AL.txt.gz",
+    "upstream": {
+      "repo": "laiguokun/multivariate-time-series-data",
+      "branch": "master",
+      "path": "solar-energy/solar_AL.txt.gz",
+      "commit": "7f402f185cc2435b5e66aed13a3b560ed142e023",
+      "commit_date": "2017-04-09T18:19:22Z",
+      "html_url": "https://github.com/laiguokun/multivariate-time-series-data/commit/7f402f185cc2435b5e66aed13a3b560ed142e023",
+      "api_url": "https://api.github.com/repos/laiguokun/multivariate-time-series-data/commits/master?path=solar-energy/solar_AL.txt.gz"
+    },
+    "contents_metadata": {
+      "api_url": "https://api.github.com/repos/laiguokun/multivariate-time-series-data/contents/solar-energy/solar_AL.txt.gz?ref=master",
+      "name": "solar_AL.txt.gz",
+      "path": "solar-energy/solar_AL.txt.gz",
+      "type": "file",
+      "size": 8748993,
+      "git_blob_sha": "08a1f235546b3708309ff4fb544a54bb82e4f5e7",
+      "download_url": "https://raw.githubusercontent.com/laiguokun/multivariate-time-series-data/master/solar-energy/solar_AL.txt.gz"
+    },
+    "readme_evidence": {
+      "url": "https://raw.githubusercontent.com/laiguokun/multivariate-time-series-data/master/README.md",
+      "sha256": "fa5e75b4638f607e3a0ac1de6c8b3862dd5883ad5eb26441c59e3449ef626253",
+      "evidence_lines": [
+        {
+          "line": 3,
+          "text": "In this githup repo, we provide four data sets could be used for researches related to the multivariate time series signals. The format is same for the different datasets. Assumed a time series signal contains T time stamps and n sensors at each time stamp, the data file would include T lines, and each line has n real number splited by comma."
+        },
+        {
+          "line": 19,
+          "text": "### Solar Energy"
+        },
+        {
+          "line": 21,
+          "text": "The raw data is in http://www.nrel.gov/grid/solar-power-data.html : It contains the solar power production records in the year of 2006, which is sampled every 10 minutes from 137 PV plants in Alabama State."
+        }
+      ]
+    },
+    "raw_path": ".cache\\continuation_lora_v1_20260922\\data\\solar_AL_7f402f185cc2435b5e66aed13a3b560ed142e023.txt.gz",
+    "raw_sha256": "1ae9329c3e1032acbb8dd080bfc397c44507006812a715d2788f172820489a1c",
+    "raw_bytes": 8748993,
+    "schema": {
+      "format": "gzip csv matrix",
+      "raw_shape": [
+        52560,
+        137
+      ],
+      "hourly_shape": [
+        8760,
+        137
+      ],
+      "timestamp_column": false,
+      "selected_columns": [
+        "36",
+        "10",
+        "44",
+        "119",
+        "62",
+        "104",
+        "116",
+        "118"
+      ]
+    },
+    "aggregation": {
+      "input_resolution": "10-minute rows by official README",
+      "output_resolution": "hourly row index",
+      "method": "chronological disjoint six-row arithmetic means",
+      "rows_per_hour": 6,
+      "raw_rows": 52560,
+      "hourly_rows": 8760,
+      "invented_timestamps": false,
+      "first_hour_raw_row_span": [
+        0,
+        6
+      ],
+      "last_hour_raw_row_span": [
+        52554,
+        52560
+      ]
+    },
+    "time_axis": {
+      "unit": "hourly_slot_index_after_disjoint_mean",
+      "timezone_invented": false,
+      "calendar_dates_invented": false,
+      "readme_year": "2006"
+    },
+    "raw_missing": {
+      "nonfinite_cells": 0,
+      "interpolation_applied": false
+    },
+    "hourly_missing": {
+      "nonfinite_cells": 0,
+      "interpolation_applied": false
+    },
+    "selection": {
+      "candidate_columns": 137,
+      "eligible_columns_train_finite_positive_sigma": 137,
+      "selected_zero_based_columns": [
+        36,
+        10,
+        44,
+        119,
+        62,
+        104,
+        116,
+        118
+      ],
+      "selection_rule": "first 8 by sha256('continuation-v1|solar|'+zero_based_column_id) among TRAIN-only finite positive-variance columns; no zero-rate or performance filter",
+      "selected_hashes": {
+        "36": "023383430b7db95d9aa7ebfac509f92f3f8e678c66b8e417be51a8408b304637",
+        "10": "02a98a6d67a2c1feffd95293684a4c48f582894109940dcda176dc85b73d2d06",
+        "44": "02afd30a56890239af4697209f0b550fcb5dd7d9968be129047177ff9ccdc7bd",
+        "119": "02f18ce3566712856780f8c9c5f4ce6f931168f88dce3a88e77e174b2a34a227",
+        "62": "06c3e84faa7c7517aa94eb8e3a8fc19c59153f96971e6b0242cca0eba10082e9",
+        "104": "07cbfe5f88683fdf889ce86ebb5b978606f994e9c879f98be5f7a1d0cc503b3a",
+        "116": "0922128ad7aa05a091cb52d92716f49f1b74df82dd1e5d36afa820732abc7641",
+        "118": "0d43639a8cce3f5ccb4213ecc631917afb420968e5c1e10f011f2ca801706195"
+      }
+    },
+    "dataset": "SolarEnergy-hourly8",
+    "selected_shape": {
+      "T": 8760,
+      "N": 8
+    },
+    "ids": [
+      "36",
+      "10",
+      "44",
+      "119",
+      "62",
+      "104",
+      "116",
+      "118"
+    ],
+    "split_policy": "time-ordered hourly rows: TRAIN 60%, CALIBRATION 10%, VALIDATION 10%, TEST 20%",
+    "split_edges": {
+      "TRAIN": {
+        "start": 0,
+        "end": 5256
+      },
+      "CALIBRATION": {
+        "start": 5256,
+        "end": 6132
+      },
+      "VALIDATION": {
+        "start": 6132,
+        "end": 7008
+      },
+      "TEST": {
+        "start": 7008,
+        "end": 8760
+      }
+    },
+    "selected_missing": {
+      "selected_nonfinite_cells": 0,
+      "interpolation_applied": false
+    },
+    "train_sigma_population": {
+      "36": 9.068706895060801,
+      "10": 8.589281725630212,
+      "44": 13.072522501829242,
+      "119": 6.347770835813044,
+      "62": 8.656935970018818,
+      "104": 14.14431571820817,
+      "116": 9.09616444740971,
+      "118": 9.039825976426783
+    },
+    "origin_audit": {
+      "TRAIN": {
+        "n_origins": 192,
+        "first_origin": 528,
+        "last_origin": 5112,
+        "origin_stride_hours_unique": [
+          24
+        ],
+        "all_origin_mod_24_zero": true,
+        "context_window_first": [
+          16,
+          528
+        ],
+        "context_window_last": [
+          4600,
+          5112
+        ],
+        "target_window_first": [
+          528,
+          656
+        ],
+        "target_window_last": [
+          5112,
+          5240
+        ],
+        "target_windows_inside_role": true,
+        "context_ends_before_target_starts": true,
+        "target_overlap_hours_min": 104,
+        "target_overlap_hours_max": 104
+      },
+      "CALIBRATION": {
+        "n_origins": 32,
+        "first_origin": 5256,
+        "last_origin": 6000,
+        "origin_stride_hours_unique": [
+          24
+        ],
+        "all_origin_mod_24_zero": true,
+        "context_window_first": [
+          4744,
+          5256
+        ],
+        "context_window_last": [
+          5488,
+          6000
+        ],
+        "target_window_first": [
+          5256,
+          5384
+        ],
+        "target_window_last": [
+          6000,
+          6128
+        ],
+        "target_windows_inside_role": true,
+        "context_ends_before_target_starts": true,
+        "target_overlap_hours_min": 104,
+        "target_overlap_hours_max": 104
+      },
+      "VALIDATION": {
+        "n_origins": 31,
+        "first_origin": 6144,
+        "last_origin": 6864,
+        "origin_stride_hours_unique": [
+          24
+        ],
+        "all_origin_mod_24_zero": true,
+        "context_window_first": [
+          5632,
+          6144
+        ],
+        "context_window_last": [
+          6352,
+          6864
+        ],
+        "target_window_first": [
+          6144,
+          6272
+        ],
+        "target_window_last": [
+          6864,
+          6992
+        ],
+        "target_windows_inside_role": true,
+        "context_ends_before_target_starts": true,
+        "target_overlap_hours_min": 104,
+        "target_overlap_hours_max": 104
+      },
+      "TEST": {
+        "n_origins": 68,
+        "first_origin": 7008,
+        "last_origin": 8616,
+        "origin_stride_hours_unique": [
+          24
+        ],
+        "all_origin_mod_24_zero": true,
+        "context_window_first": [
+          6496,
+          7008
+        ],
+        "context_window_last": [
+          8104,
+          8616
+        ],
+        "target_window_first": [
+          7008,
+          7136
+        ],
+        "target_window_last": [
+          8616,
+          8744
+        ],
+        "target_windows_inside_role": true,
+        "context_ends_before_target_starts": true,
+        "target_overlap_hours_min": 104,
+        "target_overlap_hours_max": 104
+      },
+      "all_windows_finite": {
+        "TRAIN": true,
+        "CALIBRATION": true,
+        "VALIDATION": true,
+        "TEST": true
+      }
+    },
+    "leakage_controls": {
+      "sigma_fit_role": "TRAIN only",
+      "column_selection_uses_test_target_or_performance": false,
+      "origin_generation_uses_test_targets_for_selection": false,
+      "origins_require_future_finite_for_quality_only": true,
+      "future_targets_used_in_context": false,
+      "target_wholly_inside_role": true,
+      "schedule_uses_training_origins_only": true
+    },
+    "prepared_npz": {
+      "path": ".cache\\continuation_lora_v1_20260922\\data\\SolarEnergy_hourly8.npz",
+      "sha256": "ab67aa0cf89356ebd0643f700fcc7d1c38285fefa96d49f57a4f40c3d5cce8bc",
+      "bytes": 89109
+    },
+    "quality_decision": "PASS",
+    "train_schedules": {
+      "92241": {
+        "path": ".cache\\continuation_lora_v1_20260922\\data\\schedule_SolarEnergy_seed92241.npz",
+        "sha256": "3ad2abb11c24a1a988af807316f40e2babda905006c1a85b073980149f1a3065",
+        "bytes": 5966,
+        "shape": [
+          512,
+          4,
+          2
+        ],
+        "unique_series_indices": 8,
+        "unique_train_origins": 192,
+        "selection_rule": "fixed before outcome by sha256-seeded numpy RNG; identical schedule is reused across arms"
+      },
+      "92242": {
+        "path": ".cache\\continuation_lora_v1_20260922\\data\\schedule_SolarEnergy_seed92242.npz",
+        "sha256": "eb59a3bf0ef59887e8788157090a77ef3f09dc95111bbed07b34aac47ec5b611",
+        "bytes": 5960,
+        "shape": [
+          512,
+          4,
+          2
+        ],
+        "unique_series_indices": 8,
+        "unique_train_origins": 192,
+        "selection_rule": "fixed before outcome by sha256-seeded numpy RNG; identical schedule is reused across arms"
+      }
+    }
+  }
+}
