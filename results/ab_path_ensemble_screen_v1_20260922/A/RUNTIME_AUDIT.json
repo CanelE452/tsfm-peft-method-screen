@@ -1,0 +1,96 @@
+{
+  "status": "PASS",
+  "warmup": 10,
+  "timed": 30,
+  "batches": [
+    1,
+    8
+  ],
+  "round_orders": [
+    [
+      "FULL9",
+      "MEDIAN1",
+      "FIXED3",
+      "MEDOID3",
+      "GLOBAL3",
+      "CONTEXT3",
+      "F0_NATIVE",
+      "F0_MEDIAN",
+      "CHRONOS2"
+    ],
+    [
+      "CHRONOS2",
+      "F0_MEDIAN",
+      "F0_NATIVE",
+      "CONTEXT3",
+      "GLOBAL3",
+      "MEDOID3",
+      "FIXED3",
+      "MEDIAN1",
+      "FULL9"
+    ]
+  ],
+  "model_one_at_a_time": true,
+  "a_first_f0_computed_every_call": true,
+  "b_target_forward_once": true,
+  "includes": "CPU copy, weather normalization, H2D, model, routing/member preparation, D2H, CAL, nine discrete CDF quantiles",
+  "excludes": "disk I/O and model loading",
+  "unused_weather_not_transferred": true,
+  "parameter_counts": [
+    {
+      "arm": "FULL9",
+      "seed": 92301,
+      "trainable_parameters": 294912,
+      "resident_parameter_bytes": 192051712
+    },
+    {
+      "arm": "MEDIAN1",
+      "seed": 92301,
+      "trainable_parameters": 294912,
+      "resident_parameter_bytes": 192051712
+    },
+    {
+      "arm": "FIXED3",
+      "seed": 92301,
+      "trainable_parameters": 294912,
+      "resident_parameter_bytes": 192051712
+    },
+    {
+      "arm": "MEDOID3",
+      "seed": 92301,
+      "trainable_parameters": 294912,
+      "resident_parameter_bytes": 192051712
+    },
+    {
+      "arm": "GLOBAL3",
+      "seed": 92301,
+      "trainable_parameters": 294942,
+      "resident_parameter_bytes": 192051832
+    },
+    {
+      "arm": "CONTEXT3",
+      "seed": 92301,
+      "trainable_parameters": 299798,
+      "resident_parameter_bytes": 192071256
+    },
+    {
+      "arm": "F0_NATIVE",
+      "seed": 0,
+      "trainable_parameters": 0,
+      "resident_parameter_bytes": 190872064
+    },
+    {
+      "arm": "F0_MEDIAN",
+      "seed": 0,
+      "trainable_parameters": 0,
+      "resident_parameter_bytes": 190872064
+    },
+    {
+      "arm": "CHRONOS2",
+      "seed": 0,
+      "trainable_parameters": 119477664,
+      "resident_parameter_bytes": 477910656
+    }
+  ],
+  "benchmark_seed": 92301
+}

@@ -1,0 +1,96 @@
+{
+  "status": "PASS",
+  "warmup": 10,
+  "timed": 30,
+  "batches": [
+    1,
+    8
+  ],
+  "round_orders": [
+    [
+      "TARGET",
+      "CONTROL",
+      "MOMENTS",
+      "SET",
+      "MEMBER",
+      "SCENARIO3",
+      "F0",
+      "NAIVE",
+      "GBQR"
+    ],
+    [
+      "GBQR",
+      "NAIVE",
+      "F0",
+      "SCENARIO3",
+      "MEMBER",
+      "SET",
+      "MOMENTS",
+      "CONTROL",
+      "TARGET"
+    ]
+  ],
+  "model_one_at_a_time": true,
+  "a_first_f0_computed_every_call": true,
+  "b_target_forward_once": true,
+  "includes": "CPU copy, weather normalization, H2D, model, routing/member preparation, D2H, CAL, nine discrete CDF quantiles",
+  "excludes": "disk I/O and model loading",
+  "unused_weather_not_transferred": true,
+  "parameter_counts": [
+    {
+      "arm": "TARGET",
+      "seed": 92301,
+      "trainable_parameters": 294912,
+      "resident_parameter_bytes": 192051712
+    },
+    {
+      "arm": "CONTROL",
+      "seed": 92301,
+      "trainable_parameters": 299577,
+      "resident_parameter_bytes": 192070372
+    },
+    {
+      "arm": "MOMENTS",
+      "seed": 92301,
+      "trainable_parameters": 300857,
+      "resident_parameter_bytes": 192075492
+    },
+    {
+      "arm": "SET",
+      "seed": 92301,
+      "trainable_parameters": 303737,
+      "resident_parameter_bytes": 192087012
+    },
+    {
+      "arm": "MEMBER",
+      "seed": 92301,
+      "trainable_parameters": 299577,
+      "resident_parameter_bytes": 192070372
+    },
+    {
+      "arm": "SCENARIO3",
+      "seed": 92301,
+      "trainable_parameters": 303708,
+      "resident_parameter_bytes": 192086896
+    },
+    {
+      "arm": "F0",
+      "seed": 0,
+      "trainable_parameters": 0,
+      "resident_parameter_bytes": 190872064
+    },
+    {
+      "arm": "NAIVE",
+      "seed": 0,
+      "trainable_parameters": 0,
+      "resident_parameter_bytes": null
+    },
+    {
+      "arm": "GBQR",
+      "seed": 0,
+      "trainable_parameters": 0,
+      "resident_parameter_bytes": null
+    }
+  ],
+  "benchmark_seed": 92301
+}
