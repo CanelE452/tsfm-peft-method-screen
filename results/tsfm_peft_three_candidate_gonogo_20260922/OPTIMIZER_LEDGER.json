@@ -1,8 +1,8 @@
 {
-  "smoke": 16,
-  "main": 3072,
+  "smoke": 24,
+  "main": 5632,
   "Q": 3072,
-  "T": 0,
+  "T": 2560,
   "F": 0,
   "runs": {
     "Q_smoke_Q_FP": 2,
@@ -24,6 +24,20 @@
     "Q_IO16_92202": 256,
     "Q_FORECAST_92202": 256,
     "T_smoke_small": 2,
-    "T_smoke_base": 2
+    "T_smoke_base": 2,
+    "T_A1_92201": 256,
+    "T_A1_92202": 256,
+    "T_RECENT_92201": 256,
+    "T_KD_92201": 256,
+    "T_BLEND_92201": 256,
+    "T_DELTA_92201": 256,
+    "T_RECENT_92202": 256,
+    "T_KD_92202": 256,
+    "T_BLEND_92202": 256,
+    "T_DELTA_92202": 256,
+    "F_smoke_F_LOCAL": 2,
+    "F_smoke_F_AFFINE": 2,
+    "F_smoke_F_HEAD": 2,
+    "F_smoke_F_PERIODIC": 2
   }
 }
