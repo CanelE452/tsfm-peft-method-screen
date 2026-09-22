@@ -1,0 +1,116 @@
+{
+  "gate": "A0 (부분 — Q1~Q6 전제 확인까지)",
+  "status": "IN_PROGRESS",
+  "premises": {
+    "Q1": {
+      "claim": "기존 Favorita LLM 외생 인코더 산출물이 이 머신에 있다",
+      "result": "NOT_FOUND",
+      "detail": "m5dataset 에 favorita 파일럿 설정·산출물(configs/favorita_pilot.yaml, outputs/favorita/pilot, reports/favorita/pilot)은 있으나 계약 §2.3 이 말한 'TEXT_RECOVERY', 'LOCO' 기록은 검색되지 않았다. 다른 저장소·세션에 있을 수 있다. §3 Q1 대로 기록만 하고 이 실험은 그대로 진행한다(수치 재사용 없음).",
+      "searched": [
+        "grep -rl TEXT_RECOVERY|LOCO over ~/Documents/github (*.md,*.json,*.py)",
+        "find -iname *favorita*"
+      ]
+    },
+    "Q2": {
+      "claim": "달력에 이벤트 이름·유형 열이 두 쌍, 이름 약 30개",
+      "result": "CONFIRMED",
+      "columns": [
+        "event_name_1",
+        "event_type_1",
+        "event_name_2",
+        "event_type_2"
+      ],
+      "n_unique_names": 30,
+      "types": [
+        "Cultural",
+        "National",
+        "Religious",
+        "Sporting"
+      ],
+      "days_with_name_1": 162,
+      "days_with_name_2": 5,
+      "total_occurrences": 167
+    },
+    "Q3": {
+      "claim": "문맥에 없던 범주가 미래에만 나올 때 오류 없이 처리",
+      "result": "CONFIRMED",
+      "handled": true,
+      "max_diff_newcat_vs_none": 0.020837783813476562,
+      "interpretation": "오류 없이 처리되고 예측도 바뀌지만 차이가 0.0208 로 미미하다(예측 수준 20 대비 0.1%). 미관측 범주는 '이벤트가 있다'는 신호 정도만 전달되는 것으로 보이며, 계약 §11 여섯째가 지적한 ICL-OH 의 미관측 성능 해석 근거가 된다."
+    },
+    "Q4": {
+      "claim": "실수 미래 공변량을 실제로 쓴다",
+      "result": "CONFIRMED",
+      "toy": "target = 10*cov + noise",
+      "pred_cov_plus3": 32.577247619628906,
+      "pred_cov_minus3": -32.63285827636719,
+      "pred_no_cov": -0.4950277507305145,
+      "expected": "+-30 부근",
+      "follows": true
+    },
+    "Q5": {
+      "claim": "텍스트 인코더를 받을 수 있고 결정적이다",
+      "result": "CONFIRMED",
+      "encoder": "BAAI/bge-small-en-v1.5",
+      "dim": 384,
+      "determinism_max_diff": 0.0,
+      "note": "sentence-transformers 6.1.0 신규 설치"
+    },
+    "Q6": {
+      "claim": "fit 이 공변량 dict 입력으로 LoRA 학습을 돈다",
+      "result": "CONFIRMED",
+      "smoke": "2 step, batch 8, past_covariates 포함",
+      "ok": true
+    }
+  },
+  "occurrences": {
+    "eval_window": "d_1307 ~ d_1941",
+    "raw": {
+      "n": 53,
+      "n_names": 30
+    },
+    "after_exclusion_1_neighbor": {
+      "n": 32,
+      "n_names": 22,
+      "rule": "평가 창 [d_e-1, d_e] 전후 3일 = [d-4, d+3] 안에 다른 이벤트"
+    },
+    "after_exclusion_2_closure": {
+      "n": 31,
+      "n_names": 21,
+      "rule": "평가 당일 70계열 총판매 < 직전 28일 일평균의 10%",
+      "excluded": [
+        [
+          "2015-12-25",
+          "Christmas"
+        ]
+      ]
+    },
+    "minimum_required": {
+      "n": 30,
+      "n_names": 20
+    },
+    "meets_minimum": true,
+    "caution": "여유가 1건·1개뿐이다. 제외 규칙 해석이 조금만 달라져도 INCONCLUSIVE_FEW_EVENTS 로 떨어진다."
+  },
+  "aggregation_check": {
+    "claim": "store x dept 70계열 합산",
+    "n_series": 70,
+    "n_days": 1941,
+    "total_matches_source": true,
+    "total": 66927176
+  },
+  "environment_change": {
+    "transformers": "4.57.6 -> 5.17.0 (sentence-transformers 설치가 끌어올림)",
+    "sentence_transformers": "6.1.0 신규",
+    "regression_check": "chronos 2.3.2 정상. v2 캐시(Q_zs.npy) 200계열 재추론 대조 max|diff| = 0.000000",
+    "verdict": "회귀 없음"
+  },
+  "planner_premise_errors": [],
+  "executor_errors_corrected": [
+    {
+      "what": "첫 발생 수 계산에서 '제외 후 0건' 이라고 보고했으나 틀렸다",
+      "cause": "pandas 에서 r.name 이 열 값이 아니라 Series 인덱스 속성을 반환해 자기 자신이 항상 '다른 이벤트'로 잡혔다",
+      "corrected": "제외 후 31건 / 이름 21개"
+    }
+  ]
+}
