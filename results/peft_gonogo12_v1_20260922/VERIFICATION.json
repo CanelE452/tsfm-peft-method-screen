@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "main_fits": 108,
+  "main_updates": 7680,
+  "smoke_updates": 18,
+  "completed_fit_receipts": 117,
+  "primary_rows": 23968,
+  "scalar_metric_oracle": true,
+  "all_prediction_hashes": true,
+  "all_frozen_weights_unchanged": true,
+  "source_design_and_selection_seals_unchanged": true,
+  "schedule_and_chronology_checks": true,
+  "actual_shared_basis_zero_coefficient_parity": [
+    {
+      "seed": 92251,
+      "part": "cal",
+      "max_scaled_difference": 6.215998583400891e-07
+    },
+    {
+      "seed": 92251,
+      "part": "validation",
+      "max_scaled_difference": 9.090900013063099e-07
+    },
+    {
+      "seed": 92252,
+      "part": "cal",
+      "max_scaled_difference": 5.574828621130645e-07
+    },
+    {
+      "seed": 92252,
+      "part": "validation",
+      "max_scaled_difference": 9.090900013063099e-07
+    }
+  ],
+  "structural_invariants": "PASS",
+  "automatic_followup": false,
+  "limitation": "Independent scalar metric and schedule checks within the same codebase; not external replication. Raw/model/prediction caches are local."
+}

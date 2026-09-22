@@ -1,0 +1,11 @@
+{
+  "status": "NO_UNRESOLVED_BLOCKER_FOUND",
+  "reviewer": "branch_next_step_review; read-only agent",
+  "scope": ["data exposure and chronological selection", "model and training flow", "resume and immutable seals", "reference availability", "finalizer effect alignment and conditional bootstrap", "fixed decision rules"],
+  "resolved_before_main": ["verify original MAIN_START sources/design and preserve existing selection seal", "verify cached fit initial/frozen hashes", "mark candidate-specific reference parity failure unverified"],
+  "negative_control_mode": "PERMUTED_G uses the U_SHRINK DEV-selected RAW/CAL mode",
+  "execution_by_reviewer": false,
+  "external_replication": false,
+  "cpu_tests": {"pre_main": 13, "finalizer_synthetic_and_seal": 3, "total": 16},
+  "test_targets_accessed_by_review": false
+}

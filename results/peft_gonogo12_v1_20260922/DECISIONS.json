@@ -1,0 +1,247 @@
+{
+  "h1": {
+    "decision": "NO_GO_CURRENT_RECIPE",
+    "proposal": "U_SHRINK",
+    "baseline": "LOCAL_LORA",
+    "primary": {
+      "seed_effects": [
+        1.3689536435671539,
+        1.2585024883558402
+      ],
+      "mean_effect_pct": 1.313728065961497,
+      "winning_clients": 6,
+      "conditional_ci95": [
+        0.16595778682119253,
+        2.6746644806157924
+      ]
+    },
+    "comparisons": {
+      "F0": {
+        "seed_effects": [
+          -0.578885974944943,
+          0.4696818882249513
+        ],
+        "mean_effect_pct": -0.05460204335999583,
+        "winning_clients": 4,
+        "conditional_ci95": [
+          -0.7725060130049307,
+          0.69482879592686
+        ]
+      },
+      "SHARED": {
+        "seed_effects": [
+          0.002709369053791154,
+          -0.003125333852137346
+        ],
+        "mean_effect_pct": -0.00020798239917309605,
+        "winning_clients": 4,
+        "conditional_ci95": [
+          -0.007093108207087266,
+          0.004214365220627942
+        ]
+      },
+      "LOCAL_LORA": {
+        "seed_effects": [
+          1.3689536435671539,
+          1.2585024883558402
+        ],
+        "mean_effect_pct": 1.313728065961497,
+        "winning_clients": 6,
+        "conditional_ci95": [
+          0.16595778682119253,
+          2.6746644806157924
+        ]
+      },
+      "RIDGE": {
+        "seed_effects": [
+          -0.07412522590063939,
+          0.024678972945417203
+        ],
+        "mean_effect_pct": -0.02472312647761109,
+        "winning_clients": 2,
+        "conditional_ci95": [
+          -0.0675373877433576,
+          0.01947929194364754
+        ]
+      },
+      "UNSHRUNK": {
+        "seed_effects": [
+          -0.031872415600128656,
+          0.00795482851619944
+        ],
+        "mean_effect_pct": -0.011958793541964607,
+        "winning_clients": 4,
+        "conditional_ci95": [
+          -0.03601081289785117,
+          0.014539526811597595
+        ]
+      },
+      "FIXED_SHRINK": {
+        "seed_effects": [
+          -0.031872415600128656,
+          0.00795482851619944
+        ],
+        "mean_effect_pct": -0.011958793541964607,
+        "winning_clients": 4,
+        "conditional_ci95": [
+          -0.03601081289785117,
+          0.014539526811597595
+        ]
+      },
+      "PERMUTED_G": {
+        "seed_effects": [
+          -9.550742711137507e-05,
+          -0.0009103774529304944
+        ],
+        "mean_effect_pct": -0.0005029424400209348,
+        "winning_clients": 3,
+        "conditional_ci95": [
+          -0.002211711142248927,
+          0.0004221838299411496
+        ]
+      },
+      "CHRONOS2_DIRECT": {
+        "seed_effects": [
+          -2.5972140561436747,
+          -1.5276044609764152
+        ],
+        "mean_effect_pct": -2.062409258560045,
+        "winning_clients": 2,
+        "conditional_ci95": [
+          -5.487602591521781,
+          0.7842709535485042
+        ]
+      }
+    },
+    "mechanisms_pass": false,
+    "dominating_bolt_baselines": [],
+    "nonpositive_controls": [
+      "PERMUTED_G"
+    ],
+    "undertrained": false,
+    "practical_comparison": "MECHANISM_SIGNAL_ONLY",
+    "go_label": null,
+    "h1_fraction_worse_than_shared": {
+      "U_SHRINK": 0.5,
+      "UNSHRUNK": 0.5,
+      "FIXED_SHRINK": 0.5,
+      "LOCAL_LORA": 0.75,
+      "RIDGE": 0.25
+    },
+    "scope": "Previously exposed Electricity; 8 evaluation series, 14 dates, 2 training seeds; no novelty or paper PASS claim"
+  },
+  "h2": {
+    "decision": "NO_GO_CURRENT_RECIPE",
+    "proposal": "SET_BIAS",
+    "baseline": "F0_INTERP",
+    "primary": {
+      "seed_effects": [
+        44.208137587682906,
+        44.17616529360315
+      ],
+      "mean_effect_pct": 44.19215144064303,
+      "winning_clients": 8,
+      "conditional_ci95": [
+        35.39698710065883,
+        51.67239393730364
+      ]
+    },
+    "comparisons": {
+      "F0_NATIVE": {
+        "seed_effects": [
+          -0.010501605235756793,
+          -0.0678139986589294
+        ],
+        "mean_effect_pct": -0.0391578019473431,
+        "winning_clients": 3,
+        "conditional_ci95": [
+          -0.06908927453485227,
+          -0.016017810474724958
+        ]
+      },
+      "F0_INTERP": {
+        "seed_effects": [
+          44.208137587682906,
+          44.17616529360315
+        ],
+        "mean_effect_pct": 44.19215144064303,
+        "winning_clients": 8,
+        "conditional_ci95": [
+          35.39698710065883,
+          51.67239393730364
+        ]
+      },
+      "QV_LORA": {
+        "seed_effects": [
+          -0.5643999989137335,
+          -0.538491374601931
+        ],
+        "mean_effect_pct": -0.5514456867578322,
+        "winning_clients": 1,
+        "conditional_ci95": [
+          -1.092989152268743,
+          -0.18100293327749462
+        ]
+      },
+      "CENTROID_BIAS": {
+        "seed_effects": [
+          -0.008742053505329443,
+          -0.06551429434260436
+        ],
+        "mean_effect_pct": -0.0371281739239669,
+        "winning_clients": 3,
+        "conditional_ci95": [
+          -0.06872657074602599,
+          -0.013689470428259218
+        ]
+      },
+      "KEY_BIAS": {
+        "seed_effects": [
+          -0.011114557688354586,
+          -0.06826755811654842
+        ],
+        "mean_effect_pct": -0.039691057902451504,
+        "winning_clients": 4,
+        "conditional_ci95": [
+          -0.0873088887482841,
+          -0.01216806478517791
+        ]
+      },
+      "GENERIC_BIAS": {
+        "seed_effects": [
+          0.046761029598625804,
+          -0.00032168952583176946
+        ],
+        "mean_effect_pct": 0.02321967003639702,
+        "winning_clients": 6,
+        "conditional_ci95": [
+          -0.2605246053813932,
+          0.2314955317435673
+        ]
+      },
+      "CHRONOS2_DIRECT": {
+        "seed_effects": [
+          -2.0194559457546966,
+          -2.077919598092533
+        ],
+        "mean_effect_pct": -2.048687771923615,
+        "winning_clients": 3,
+        "conditional_ci95": [
+          -4.501793754291243,
+          -0.37622338769514385
+        ]
+      }
+    },
+    "mechanisms_pass": false,
+    "dominating_bolt_baselines": [],
+    "nonpositive_controls": [
+      "KEY_BIAS",
+      "CENTROID_BIAS"
+    ],
+    "undertrained": false,
+    "practical_comparison": "MECHANISM_SIGNAL_ONLY",
+    "go_label": null,
+    "h1_fraction_worse_than_shared": null,
+    "scope": "Previously exposed Electricity; 8 evaluation series, 14 dates, 2 training seeds; no novelty or paper PASS claim"
+  }
+}

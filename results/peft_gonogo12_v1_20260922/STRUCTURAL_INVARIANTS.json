@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "seed": 92261,
+      "arm": "SET_BIAS",
+      "condition": "ALIGNED48_LAST",
+      "max_scaled_difference": 0.0
+    },
+    {
+      "seed": 92261,
+      "arm": "SET_BIAS",
+      "condition": "CLEAN",
+      "max_scaled_difference": 0.0
+    },
+    {
+      "seed": 92262,
+      "arm": "SET_BIAS",
+      "condition": "ALIGNED48_LAST",
+      "max_scaled_difference": 0.0
+    },
+    {
+      "seed": 92262,
+      "arm": "SET_BIAS",
+      "condition": "CLEAN",
+      "max_scaled_difference": 0.0
+    },
+    {
+      "seed": 92261,
+      "arm": "CENTROID_BIAS",
+      "condition": "CLEAN",
+      "max_scaled_difference": 0.0
+    },
+    {
+      "seed": 92262,
+      "arm": "CENTROID_BIAS",
+      "condition": "CLEAN",
+      "max_scaled_difference": 0.0
+    },
+    {
+      "seed": 92261,
+      "arm": "KEY_BIAS",
+      "condition": "CLEAN",
+      "max_scaled_difference": 0.0
+    },
+    {
+      "seed": 92262,
+      "arm": "KEY_BIAS",
+      "condition": "CLEAN",
+      "max_scaled_difference": 0.0
+    },
+    {
+      "seed": 92261,
+      "arm": "GENERIC_BIAS",
+      "condition": "CLEAN",
+      "max_scaled_difference": 0.0
+    },
+    {
+      "seed": 92262,
+      "arm": "GENERIC_BIAS",
+      "condition": "CLEAN",
+      "max_scaled_difference": 0.0
+    }
+  ],
+  "scope": "raw forecasts; affine calibration may change clean forecasts"
+}
