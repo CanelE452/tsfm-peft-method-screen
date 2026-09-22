@@ -1,0 +1,116 @@
+{
+  "status": "DESIGN_ARITHMETIC_AND_EXISTING_CACHE_CHECKS_PASS",
+  "scope": "No new forecasting, training, performance gate, or runner test. Mask geometry is CPU combinatorics only.",
+  "new_neural_fits": 0,
+  "new_optimizer_updates": 0,
+  "new_model_inference": 0,
+  "new_dataset_downloads": 0,
+  "actual_planned_fit_attempts": 108,
+  "actual_planned_main_updates": 7680,
+  "planned_smoke_updates": 18,
+  "h1": {
+    "fits": 98,
+    "updates": 5120,
+    "microfits": 96,
+    "clients_per_seed": 12
+  },
+  "h2": {
+    "fits": 10,
+    "updates": 2560
+  },
+  "role_ids_disjoint": true,
+  "selection_reproduced": true,
+  "chronology_valid": true,
+  "adapt_origin_counts": {
+    "dev": [
+      {
+        "range": [
+          14808,
+          15192
+        ],
+        "train_origins": 29,
+        "diagnostic_daily_origins": 8
+      },
+      {
+        "range": [
+          15192,
+          15576
+        ],
+        "train_origins": 29,
+        "diagnostic_daily_origins": 8
+      }
+    ],
+    "eval": [
+      {
+        "range": [
+          15144,
+          15528
+        ],
+        "train_origins": 29,
+        "diagnostic_daily_origins": 8
+      },
+      {
+        "range": [
+          15528,
+          15912
+        ],
+        "train_origins": 29,
+        "diagnostic_daily_origins": 8
+      }
+    ]
+  },
+  "cal_origins_per_series": 8,
+  "test_origins_per_series": 14,
+  "block48_geometry": {
+    "possible_starts": 145,
+    "fully_patch_aligned_starts": 10,
+    "mean_partial_patches": 1.8620689655172413,
+    "aligned_last48_has_zero_partial_patches": true,
+    "note": "No forecast effect measured. SET delta must be zero when every surviving patch is fully observed."
+  },
+  "raw_sha_verified": "3c4c069588198c1fcc95cace7bb69c99922129edfd673b7286661dad20badefa",
+  "cached_model_checks": [
+    {
+      "name": "config.json",
+      "sha256": "9ca0ebbe049ccebacb0546361e8aa728f0cf104cd18d1838d78d296aa317bd21"
+    },
+    {
+      "name": "model.safetensors",
+      "sha256": "06a6a19bbe74bc10a9cd193bd4bf2bf638ae07f7e0d51653ae7ab8ea968a21dd"
+    }
+  ],
+  "preflight_model_parity": "NOT_RUN",
+  "native_chronos2_reference": "NOT_RUN",
+  "gpu_smoke": "NOT_RUN",
+  "scientific_outcomes": "NOT_RUN",
+  "prior_files": [
+    {
+      "path": "research/peft_hypothesis_reset_20260922/REVIEW_KO.md",
+      "sha256": "f4898ab9ab7b6b07e6802a20cdf57426d971e154cf2d319a78e316b763ecb3d9"
+    },
+    {
+      "path": "research/peft_hypothesis_reset_20260922/VERIFICATION.json",
+      "sha256": "1f3218e99ddf7d12ac8b619edbd2696f70f5920bed9e3f3685de833a826e9fb4"
+    },
+    {
+      "path": "results/continuation_lora_v1_20260922/REPORT_KO.md",
+      "sha256": "1c3002c805984bb84b504dcddd09b844b6fb68f58f459230055cc7cefa69e049"
+    },
+    {
+      "path": "results/rollout_uncertainty_peft_v1_20260921/DATA_AND_SPLIT_AUDIT.json",
+      "sha256": "ac8ad1bfdb6e9701c76ca10ca4c297d4314fd364397326675ace617ed3954348"
+    }
+  ],
+  "design_files": [
+    {
+      "path": "PLAN_KO.md",
+      "sha256": "22512e4483ba7b55a99710a66fc97abc056dd90cbf1c913e4a080d4a7dc2db63"
+    },
+    {
+      "path": "DESIGN.json",
+      "sha256": "b5b464f58540453c4299c2738c998d18c9fbf5bb79c1a40b667052293888a1ff"
+    }
+  ],
+  "local_markdown_links_valid": true,
+  "prior_files_unchanged_after_design": true
+}
