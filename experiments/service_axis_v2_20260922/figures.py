@@ -82,8 +82,8 @@ ax.text(len(labels) - 0.55, (T_STOCK + 7.4) / 2, 'pass region (no window reaches
         ha='right', va='center', fontsize=9, color=SEMANTIC['threshold'])
 ax.axhline(v3['mean'], color=c3, ls='--', lw=1.1, alpha=0.9)
 ax.axhline(v1['mean'], color=c1, ls='--', lw=1.1, alpha=0.9)
-ax.text(len(labels) - 0.35, v3['mean'] + 0.22, f"V3 mean {v3['mean']:+.2f}", color=c3,
-        fontsize=9, va='bottom', ha='right')
+ax.text(len(labels) - 0.35, v3['mean'] - 0.22, f"V3 mean {v3['mean']:+.2f}", color=c3,
+        fontsize=9, va='top', ha='right')
 ax.text(len(labels) - 0.35, v1['mean'] - 0.22, f"V1 mean {v1['mean']:+.2f}", color=c1,
         fontsize=9, va='top', ha='right')
 
@@ -225,7 +225,7 @@ hy = len(arms) - 0.38
 ax.text(COL['mean'], hy, 'PRB mean', ha='right', va='bottom', color='0.35', **MONO)
 ax.text(COL['neg'], hy, 'neg / 12', ha='right', va='bottom', color='0.35', **MONO)
 ax.text(COL['flag'], hy, 'systematic', ha='center', va='bottom', color='0.35', **MONO)
-ax.axvline(X_SEP, color='0.8', lw=1.0, ymin=0.14, zorder=1)
+ax.axvline(X_SEP, color='0.8', lw=1.0, ymin=0.245, zorder=1)
 
 ax.axvline(0, color=SEMANTIC['zero'], ls=LINESTYLE['zero'], lw=1.2, zorder=1)
 ax.text(0.006, hy, 'unbiased', fontsize=9, color='0.35', va='bottom')
