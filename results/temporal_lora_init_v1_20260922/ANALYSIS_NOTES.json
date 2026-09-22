@@ -1,0 +1,9 @@
+{
+  "classification": "ANALYSIS_VERIFICATION_FIX",
+  "main_training_affected": false,
+  "extra_optimizer_updates": 0,
+  "issue": "Exact Python dict equality rejected CAL loss recomputation differences <= 6e-17; alpha/beta and all selections identical.",
+  "correction": "Require exact chosen alpha/beta/grid count; numerical score tolerance 1e-14, matching independent metric audit.",
+  "failures_in_data_or_main_training": 0,
+  "timing_limit": "Same update counts reached target; one ETTh1 RANDOM run slower, cause not identified. No algorithmic speedup claim."
+}
