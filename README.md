@@ -4,7 +4,30 @@ Independent Chronos-2 development screen. Round 0 and Round 1 only; Round 2 requ
 
 No prior experiment outputs are used as new evidence. Raw data and cached model weights may be reused with provenance hashes. All source is local to this repository.
 
-## Latest completed execution — intermittent-demand PEFT direction closed
+## Latest completed execution — service-axis PEFT direction closed
+
+The [service-axis report](results/service_axis_v2_20260922/REPORT_KO.md) closes the remaining
+"fix intermittent-demand service with PEFT" direction at **NO_GO_NO_HEADROOM_SERVICE**. Under a
+method-agnostic empirical-residual stocking policy on 29,502 common M5 daily series over eight
+held-out windows, the decision gate failed: a LightGBM trained directly on the target data needs
+**3.13% more** inventory than the best training-free option (zero-shot Chronos-2) to hit the same
+0.90 fill target, with all 8/8 windows pointing the same way against a +3.0% pass threshold. The
+narrative gate also failed in the opposite direction from the source paper — the foundation model
+does **not** trail classical intermittent methods on service here (−3.86%, 8/8 windows).
+
+A six-rung ladder traces the previous experiment's +43.78% result to a single choice: switching
+from per-series-equal fill weighting to unit weighting moves it to −1.02% (a 44.8pp swing that
+flips the sign), while the remaining five rungs together move it under 0.5pp. Per-window bias over
+twelve windows shows systematic under-forecasting only for median extraction, not for the quantile
+integral. All seven V0 instrument checks passed, including the source-paper reproduction skipped
+last time (fill proxy **0.000000pp**) and an independent recomputation at 0.000e+00. The RAF
+spare-parts check reached no 0.90 fill even at τ=0.99 and is reported as INCONCLUSIVE_UNREACHED
+without changing windows or policy. Zero LoRA fits were run; the pilot required passing the
+decision gate. See the [decision summary](results/service_axis_v2_20260922/FINAL_DECISION.md),
+[execution contract](experiments/service_axis_v2_20260922/PROTOCOL_V2.md), and
+[seal](results/service_axis_v2_20260922/SEAL.json). No training is running.
+
+## Previous completed execution — intermittent-demand PEFT direction closed
 
 The [go/no-go report](results/intermittent_gonogo_20260922/REPORT.md) closes the "fix TSFM underprediction on intermittent demand with PEFT" direction at **NO_GO_NO_HEADROOM**. Across the full set of 30,458 eligible M5 daily series (test days d_1914–d_1941), the prespecified decision chain ran three of its four gates: the problem-exists gate passed (zero-shot point-forecast bias −1.65%, CI [−2.38, −0.92]); the gap-exists gate passed (swapping in a nonzero-conditional input normalization — no training involved — lowers the inventory needed for a 0.90 fill target from 16.381 to 9.209, a 43.78% improvement, CI [+41.13, +46.54]); the adaptation-headroom gate failed (a LightGBM model trained directly on the target data beats zero-shot Chronos-2 by only 0.50% RMSSE, short of the required 1.0%, across all three covariate/training-origin settings tried). Per the fixed decision rule, the LoRA pilot gate was not run.
 
