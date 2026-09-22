@@ -1,0 +1,120 @@
+{
+  "V0b": {
+    "pass": true,
+    "delta": 43.784152211748534,
+    "expected": 43.784,
+    "stock90": {
+      "ZS-QMEAN": 18.449267635701055,
+      "ZS-Q80": null,
+      "ZS-Q90": 16.380732798987598,
+      "NZ-QMEAN": 9.208567816879052
+    },
+    "zs_best": "ZS-Q90"
+  },
+  "V0c": {
+    "pass": true,
+    "unit_tests": [
+      true,
+      true,
+      true
+    ],
+    "paper_parity_max_abs": 0.0
+  },
+  "V0d": {
+    "pass": true,
+    "max_rel": 0.0,
+    "max_abs": 0.0,
+    "cache_reusable": true
+  },
+  "V0e": {
+    "pass": true,
+    "statsforecast": "2.1.1",
+    "rows": [
+      {
+        "series": "A",
+        "finite": true,
+        "nonneg": true,
+        "snaive_eq_last7": true,
+        "sba": 0.8389028607356178,
+        "sba_ref_a0.1": 1.5487811955890887,
+        "tsb": 0.6877014856516812,
+        "tsb_ref_a0.1": 0.687701485651681,
+        "ses": 0.5241207579197504
+      },
+      {
+        "series": "B",
+        "finite": true,
+        "nonneg": true,
+        "snaive_eq_last7": true,
+        "sba": 2.96875,
+        "sba_ref_a0.1": 2.96875,
+        "tsb": 1.5366534141645003,
+        "tsb_ref_a0.1": 0.39281379141645006,
+        "ses": 0.011449952408258517
+      },
+      {
+        "series": "C",
+        "finite": true,
+        "nonneg": true,
+        "snaive_eq_last7": true,
+        "sba": 0.95,
+        "sba_ref_a0.1": 0.95,
+        "tsb": 1.0,
+        "tsb_ref_a0.1": 0.7712320754503901,
+        "ses": 1.0
+      }
+    ]
+  },
+  "V0g": {
+    "pass": true,
+    "checks": [
+      {
+        "check": "학습 표적 끝 <= d_1549",
+        "ok": true
+      },
+      {
+        "check": "CAL-A 표적이 CAL-B 시작 이전",
+        "ok": true
+      },
+      {
+        "check": "CAL-B 표적 끝 < EVAL 시작",
+        "ok": true
+      },
+      {
+        "check": "EVAL 창 서로 겹치지 않음",
+        "ok": true
+      },
+      {
+        "check": "EVAL 마지막 표적 = d_1941",
+        "ok": true
+      },
+      {
+        "check": "적격성·SBC 는 d_1549 까지만",
+        "ok": true
+      }
+    ],
+    "windows": {
+      "TRAIN_END": 1549,
+      "CAL_A": [
+        1549,
+        1577
+      ],
+      "CAL_B": [
+        1605,
+        1633,
+        1661,
+        1689
+      ],
+      "EVAL": [
+        1717,
+        1745,
+        1773,
+        1801,
+        1829,
+        1857,
+        1885,
+        1913
+      ]
+    }
+  }
+}

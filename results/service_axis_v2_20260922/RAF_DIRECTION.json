@@ -1,0 +1,77 @@
+{
+  "n_common": 4697,
+  "S_best": "SBA",
+  "BEST_FREE": "ZS-Q",
+  "eval_i90": {
+    "ZS-Q": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "NZ-Q": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "SNAIVE": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "SES": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "SBA": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "TSB": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "REF-LGB-U": [
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "V1_gap": [
+    NaN,
+    NaN,
+    NaN,
+    NaN
+  ],
+  "V1_mean": NaN,
+  "V3_delta": [
+    NaN,
+    NaN,
+    NaN,
+    NaN
+  ],
+  "V3_mean": NaN,
+  "status": "INCONCLUSIVE_UNREACHED",
+  "reason": "EVAL 4창 x 전 arm 에서 I@90 미도달. tau=0.99 에서도 최대 단위충족률 0.45 (목표 0.90). 원인: CAL-B 가 2창 x 5블록 = 계열당 잔차 10개뿐이라 상위 분위수가 실제 수요 스파이크를 덮지 못한다. RAF 수요는 0 비율 0.894, 6개월 창 계열당 평균 8.4 로 희소하고 스파이크가 크다. 계약 §13 첫째 리스크(ERP 가 CAL-B 잔차로 EVAL 을 보정한다는 가정)의 RAF 발현이며, §13 지시대로 창·정책을 바꾸지 않고 그대로 보고한다.",
+  "diagnostic": {
+    "n_residuals_per_series": 10,
+    "max_U_at_tau_0.99_o60": {
+      "ZS-Q": 0.4524,
+      "SBA": 0.4413,
+      "REF-LGB-U": 0.4492
+    },
+    "eval_w1_zero_rate": 0.894,
+    "eval_w1_demand_per_series": 8.387,
+    "n_common": 4697
+  },
+  "effect_on_verdict": "판정 게이트가 아니므로 M5 판정 토큰은 바뀌지 않는다. 부호를 비교할 수 없어 PARTIAL_SCOPE 를 붙일 근거도 없다. 부품 수요에서의 방향은 미확인으로 남는다."
+}
