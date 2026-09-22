@@ -17,7 +17,7 @@ does **not** trail classical intermittent methods on service here (−3.86%, 8/8
 
 A six-rung ladder traces the previous experiment's +43.78% result to a single choice: switching
 from per-series-equal fill weighting to unit weighting moves it to −1.02% (a 44.8pp swing that
-flips the sign), while the remaining five rungs together move it under 0.5pp. Per-window bias over
+flips the sign), while the remaining five rungs all sit between -1.18% and -0.54%, a 0.64pp band. Per-window bias over
 twelve windows shows systematic under-forecasting only for median extraction, not for the quantile
 integral. All seven V0 instrument checks passed, including the source-paper reproduction skipped
 last time (fill proxy **0.000000pp**) and an independent recomputation at 0.000e+00. The RAF
