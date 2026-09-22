@@ -1,5 +1,7 @@
 # 완료 작업과 검증 기록
 
+[확인] 2026-09-22 continuation-only LoRA 후속을 사전고정 Solar8계열·4/4fits·2,048main+4smoke로 완료했다. 동일CAL F0 대비 후반 개선은 두seed0.32%/2.12%, 평균1.22%지만95%구간은0을 포함한다. SHARED는1.70% 개선으로 더 좋았고, 후반 전용 구조는 SHARED보다0.50% 악화했다. 첫64 F0완전보존·학습계산시간20.82%절감과 추가정확도우위미확보를 구분한다. 이전ETTh2 VAL 감쇠진단은두seed모두λ1최선이며기존TEST재평가0. [한국어 보고서·그림](../results/continuation_lora_v1_20260922/REPORT_KO.md), [최종 판단](../results/continuation_lora_v1_20260922/FINAL_DECISION.md), [검산](../results/continuation_lora_v1_20260922/VERIFICATION.json), [사후 감사](../results/continuation_lora_v1_20260922/POSTRUN_AUDIT.json). 작은 실용방향pilot신호이며 신규성·논문PASS·배포우위확정은 아니다. 자동후속실험없이종료했다.
+
 [확인] 2026-09-22 native branch-mixture LoRA 제한 실험을 4/4 fits·2,048 main+4 smoke updates로 완료했다. ETTh2 후반65–128에서 MIXTURE는 COMPONENT보다 두seed 각각3.13%/1.81%, 평균2.47% 개선했지만95%구간은0을 포함한다. 동일CAL 보정 후 개선2.74%, 그러나 F0 단순보정보다1.85% 악화했다. 손실 변경의 반복 방향 신호이며 실용적 새 방법 우위·논문PASS는 미확보다. native parity 최대오차0, CPU11tests,16개 checkpoint 선택 재검산. [한국어 보고서·그림](../results/branch_mixture_lora_v1_20260922/REPORT_KO.md), [판단](../results/branch_mixture_lora_v1_20260922/FINAL_DECISION.md), [검산](../results/branch_mixture_lora_v1_20260922/VERIFICATION.json), [독립 사후 검산](../results/branch_mixture_lora_v1_20260922/POSTRUN_AUDIT.json). 관련ETTm2 원천 노출을 명시했고 자동 후속학습 없이 종료했다.
 
 2026-09-18 기준. 표의 링크는 완료된 실행 또는 검토 결과다. 과거 FAIL/STOP은 당시 고정 실험의 판정으로 보존한다. 최신 재검토의 후속 연구 우선순위는 방법론 성공이나 새로운 실험 실행을 뜻하지 않는다.

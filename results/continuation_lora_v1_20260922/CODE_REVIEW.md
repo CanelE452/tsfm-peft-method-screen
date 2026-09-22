@@ -11,4 +11,6 @@ Reviewed model.py, runner.py, preflight.py and attenuation.py against PROTOCOL.m
 
 Fresh execution order: generate SOURCE_MANIFEST with `preflight.provenance()` before `attenuation.py`; then complete `preflight.py`, `runner.py all`, and `finalize.py`. Existing completed smoke receipts prevent silently repeating smoke optimizer steps. The current Stage D used that order and completed with exact endpoint parity.
 
-Finalizer is reviewed separately after its implementation. Actual smoke receipts and CPU tests support the implementation review; they do not establish predictive benefit.
+The finalizer was subsequently reviewed at source commit 7091a6038ca1179dcb3077295e575ba8e6e4167e. No blocking issue was found in tensor axes, twice-pinball/81-atom CRPS, independent VAL selection/CAL grid recomputation, CAL/TEST first64 equality, practical decision direction, paired origin bootstrap or source/prediction/checkpoint hash checks. Syntax checks passed. No extra GPU/model/optimizer work was performed for this review.
+
+The prediction manifest's `test_scored=false` records its creation before final scoring; VERIFICATION.json and decision.json describe the completed scoring stage. Model provenance is checked in preflight and again in the root post-run audit. Actual smoke receipts and CPU tests support the implementation review; they do not establish predictive benefit.

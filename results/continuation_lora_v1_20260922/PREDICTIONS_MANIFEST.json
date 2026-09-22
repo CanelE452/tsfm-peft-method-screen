@@ -1,0 +1,677 @@
+{
+  "selection_seal_sha": "b54d041811bc6bdfba4733c8aad6f0ac913c0002f5ed3baa8b013959d2aedcd4",
+  "test_scored": false,
+  "files": [
+    {
+      "key": "CHRONOS2_DIRECT",
+      "role": "CALIBRATION",
+      "seconds": 0.6830557999783196,
+      "examples": 256,
+      "batch": 8,
+      "peak_allocated_bytes": 559520768,
+      "peak_reserved_bytes": 583008256,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\CALIBRATION\\CHRONOS2_DIRECT.npz",
+      "sha256": "7ed00ccd1312f18ac17fc89dd06def7bdf0cb8d61fca7baec495372045f7bb4d",
+      "shapes": {
+        "q": [
+          32,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "CONTINUATION_s92241",
+      "role": "CALIBRATION",
+      "seconds": 1.3204065000172704,
+      "examples": 256,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\CALIBRATION\\CONTINUATION_s92241.npz",
+      "sha256": "1b81df11f7619919f8af2fcd85405d30f0a9f42ab9ccdc28757e4dd17081e94f",
+      "shapes": {
+        "q": [
+          32,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "CONTINUATION_s92242",
+      "role": "CALIBRATION",
+      "seconds": 1.3444933999853674,
+      "examples": 256,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\CALIBRATION\\CONTINUATION_s92242.npz",
+      "sha256": "ebb5da6fe3ef9c42b1f98c30cf021d5a5badbc9600d6bcfd5dfa7fb593310402",
+      "shapes": {
+        "q": [
+          32,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "F0_NATIVE",
+      "role": "CALIBRATION",
+      "seconds": 1.0891394999925978,
+      "examples": 256,
+      "batch": 8,
+      "peak_allocated_bytes": 349642752,
+      "peak_reserved_bytes": 394264576,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\CALIBRATION\\F0_NATIVE.npz",
+      "sha256": "49b2ac49813ea05938f046ebb49bb30f0a6e8b127ac17adca91171a5928e9ad2",
+      "shapes": {
+        "q": [
+          32,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "SHARED_s92241",
+      "role": "CALIBRATION",
+      "seconds": 1.2454607000108808,
+      "examples": 256,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\CALIBRATION\\SHARED_s92241.npz",
+      "sha256": "5fb6f24359affe5a79584cad83e51d8b27ef8f932651905c6e2a8ea6fb274e1b",
+      "shapes": {
+        "q": [
+          32,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "SHARED_s92242",
+      "role": "CALIBRATION",
+      "seconds": 1.2519410999957472,
+      "examples": 256,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\CALIBRATION\\SHARED_s92242.npz",
+      "sha256": "1fd69df9fb6d8ce771164eea0174f45144ce1886fe2eb61a552ab1f18fbbf965",
+      "shapes": {
+        "q": [
+          32,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "CHRONOS2_DIRECT",
+      "role": "TEST",
+      "seconds": 1.3835732000006828,
+      "examples": 544,
+      "batch": 8,
+      "peak_allocated_bytes": 559520768,
+      "peak_reserved_bytes": 583008256,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\TEST\\CHRONOS2_DIRECT.npz",
+      "sha256": "7092671be78fe98de14f1f1597c5ab7208b7ef5b00607fe0a1241186d4158009",
+      "shapes": {
+        "q": [
+          68,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "CONTINUATION_s92241",
+      "role": "TEST",
+      "seconds": 2.9831144000054337,
+      "examples": 544,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\TEST\\CONTINUATION_s92241.npz",
+      "sha256": "54000963e4b3870b188fc6123e3187652fd07f55d3a22ae4ec14a399899edd1d",
+      "shapes": {
+        "q": [
+          68,
+          8,
+          128,
+          9
+        ],
+        "components": [
+          68,
+          8,
+          9,
+          64,
+          9
+        ]
+      }
+    },
+    {
+      "key": "CONTINUATION_s92241_fixed512",
+      "role": "TEST",
+      "seconds": 3.0975405999924988,
+      "examples": 544,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\TEST\\CONTINUATION_s92241_fixed512.npz",
+      "sha256": "5f1d21d9d1562fe2f7144d5f7f2e73e2ecd258de8f9f3dbee3e2e5f0a3a5482e",
+      "shapes": {
+        "q": [
+          68,
+          8,
+          128,
+          9
+        ],
+        "components": [
+          68,
+          8,
+          9,
+          64,
+          9
+        ]
+      }
+    },
+    {
+      "key": "CONTINUATION_s92242",
+      "role": "TEST",
+      "seconds": 3.100180300010834,
+      "examples": 544,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\TEST\\CONTINUATION_s92242.npz",
+      "sha256": "1fc776c6ee71e16ce6cb5dfda1e887d7a94d978f46e2cb06685993ebec4ea611",
+      "shapes": {
+        "q": [
+          68,
+          8,
+          128,
+          9
+        ],
+        "components": [
+          68,
+          8,
+          9,
+          64,
+          9
+        ]
+      }
+    },
+    {
+      "key": "CONTINUATION_s92242_fixed512",
+      "role": "TEST",
+      "seconds": 2.9629248999990523,
+      "examples": 544,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\TEST\\CONTINUATION_s92242_fixed512.npz",
+      "sha256": "69050c228d2943d116021df9ed6996a23575f51f4347477e091cd353045026ae",
+      "shapes": {
+        "q": [
+          68,
+          8,
+          128,
+          9
+        ],
+        "components": [
+          68,
+          8,
+          9,
+          64,
+          9
+        ]
+      }
+    },
+    {
+      "key": "F0_NATIVE",
+      "role": "TEST",
+      "seconds": 2.3215796999866143,
+      "examples": 544,
+      "batch": 8,
+      "peak_allocated_bytes": 349642752,
+      "peak_reserved_bytes": 394264576,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\TEST\\F0_NATIVE.npz",
+      "sha256": "670081bf240dad56e8abbb38637f532c88eebcac5a0fd02af2d3740ab27fbf99",
+      "shapes": {
+        "q": [
+          68,
+          8,
+          128,
+          9
+        ],
+        "components": [
+          68,
+          8,
+          9,
+          64,
+          9
+        ]
+      }
+    },
+    {
+      "key": "SHARED_s92241",
+      "role": "TEST",
+      "seconds": 2.78939530000207,
+      "examples": 544,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\TEST\\SHARED_s92241.npz",
+      "sha256": "309efbff2e0b058c95b3f25fefd543ff1b546ae846653b4d515699871a363d29",
+      "shapes": {
+        "q": [
+          68,
+          8,
+          128,
+          9
+        ],
+        "components": [
+          68,
+          8,
+          9,
+          64,
+          9
+        ]
+      }
+    },
+    {
+      "key": "SHARED_s92241_fixed512",
+      "role": "TEST",
+      "seconds": 2.7668000000121538,
+      "examples": 544,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\TEST\\SHARED_s92241_fixed512.npz",
+      "sha256": "8cabf49b92e4cb47174691d68d30388311ba7f6c3063b0a3547ce344df606dca",
+      "shapes": {
+        "q": [
+          68,
+          8,
+          128,
+          9
+        ],
+        "components": [
+          68,
+          8,
+          9,
+          64,
+          9
+        ]
+      }
+    },
+    {
+      "key": "SHARED_s92242",
+      "role": "TEST",
+      "seconds": 2.744456300017191,
+      "examples": 544,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\TEST\\SHARED_s92242.npz",
+      "sha256": "2bcdcc0b6446a9a60ab3e6bf4d4c2ffce299a6416ed2e36788d013f5cab5ad44",
+      "shapes": {
+        "q": [
+          68,
+          8,
+          128,
+          9
+        ],
+        "components": [
+          68,
+          8,
+          9,
+          64,
+          9
+        ]
+      }
+    },
+    {
+      "key": "SHARED_s92242_fixed512",
+      "role": "TEST",
+      "seconds": 2.9427883000171278,
+      "examples": 544,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\TEST\\SHARED_s92242_fixed512.npz",
+      "sha256": "3a3328948d500bd02f2c92254fc482c2c68fa6b8e884152b534fd9dde58f7a46",
+      "shapes": {
+        "q": [
+          68,
+          8,
+          128,
+          9
+        ],
+        "components": [
+          68,
+          8,
+          9,
+          64,
+          9
+        ]
+      }
+    },
+    {
+      "key": "CONTINUATION_s92241_step0",
+      "role": "VALIDATION",
+      "seconds": 1.3190905999799725,
+      "examples": 248,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\VALIDATION\\CONTINUATION_s92241_step0.npz",
+      "sha256": "89d67800f2146f4a2d6eab44c5e5f7f8a2ca6e2059a3b9e117b07937c603692b",
+      "shapes": {
+        "q": [
+          31,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "CONTINUATION_s92241_step128",
+      "role": "VALIDATION",
+      "seconds": 1.294401499995729,
+      "examples": 248,
+      "batch": 8,
+      "peak_allocated_bytes": 354372096,
+      "peak_reserved_bytes": 534773760,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\VALIDATION\\CONTINUATION_s92241_step128.npz",
+      "sha256": "7922329b1c183b8fadab077023c085136a630cfa025e07dabb3b6c95e9b8e7e1",
+      "shapes": {
+        "q": [
+          31,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "CONTINUATION_s92241_step256",
+      "role": "VALIDATION",
+      "seconds": 1.337200899986783,
+      "examples": 248,
+      "batch": 8,
+      "peak_allocated_bytes": 354372096,
+      "peak_reserved_bytes": 534773760,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\VALIDATION\\CONTINUATION_s92241_step256.npz",
+      "sha256": "00fff9fc2f6b9f6a0c63c458a2f0b97f612410406dcaf706ec7e7e4d879c7401",
+      "shapes": {
+        "q": [
+          31,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "CONTINUATION_s92241_step512",
+      "role": "VALIDATION",
+      "seconds": 1.290145200007828,
+      "examples": 248,
+      "batch": 8,
+      "peak_allocated_bytes": 354372096,
+      "peak_reserved_bytes": 534773760,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\VALIDATION\\CONTINUATION_s92241_step512.npz",
+      "sha256": "8031b367212f26dc91ddb9c32924ffde44ecad3f793426f9e2ad8db12faf43b6",
+      "shapes": {
+        "q": [
+          31,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "CONTINUATION_s92242_step0",
+      "role": "VALIDATION",
+      "seconds": 1.3220557000022382,
+      "examples": 248,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\VALIDATION\\CONTINUATION_s92242_step0.npz",
+      "sha256": "89d67800f2146f4a2d6eab44c5e5f7f8a2ca6e2059a3b9e117b07937c603692b",
+      "shapes": {
+        "q": [
+          31,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "CONTINUATION_s92242_step128",
+      "role": "VALIDATION",
+      "seconds": 1.2880983999930322,
+      "examples": 248,
+      "batch": 8,
+      "peak_allocated_bytes": 354372096,
+      "peak_reserved_bytes": 534773760,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\VALIDATION\\CONTINUATION_s92242_step128.npz",
+      "sha256": "29a9f459506cab20c6655d5accac1ef88445076cb87255a72adaace4260f0770",
+      "shapes": {
+        "q": [
+          31,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "CONTINUATION_s92242_step256",
+      "role": "VALIDATION",
+      "seconds": 1.2846757000079378,
+      "examples": 248,
+      "batch": 8,
+      "peak_allocated_bytes": 354372096,
+      "peak_reserved_bytes": 534773760,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\VALIDATION\\CONTINUATION_s92242_step256.npz",
+      "sha256": "f393e06ada99a119c33a3f76761792d4f6c2a0a61a56c951484595ecfa4b7690",
+      "shapes": {
+        "q": [
+          31,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "CONTINUATION_s92242_step512",
+      "role": "VALIDATION",
+      "seconds": 1.295173699996667,
+      "examples": 248,
+      "batch": 8,
+      "peak_allocated_bytes": 354372096,
+      "peak_reserved_bytes": 534773760,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\VALIDATION\\CONTINUATION_s92242_step512.npz",
+      "sha256": "34c0d31743bd6599299b7440b64f9316f1c7a2f0a3a2dda8fd396e50d513aaf4",
+      "shapes": {
+        "q": [
+          31,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "SHARED_s92241_step0",
+      "role": "VALIDATION",
+      "seconds": 1.3897977999877185,
+      "examples": 248,
+      "batch": 8,
+      "peak_allocated_bytes": 316874752,
+      "peak_reserved_bytes": 350224384,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\VALIDATION\\SHARED_s92241_step0.npz",
+      "sha256": "89d67800f2146f4a2d6eab44c5e5f7f8a2ca6e2059a3b9e117b07937c603692b",
+      "shapes": {
+        "q": [
+          31,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "SHARED_s92241_step128",
+      "role": "VALIDATION",
+      "seconds": 1.194354100007331,
+      "examples": 248,
+      "batch": 8,
+      "peak_allocated_bytes": 353978880,
+      "peak_reserved_bytes": 530579456,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\VALIDATION\\SHARED_s92241_step128.npz",
+      "sha256": "00a7c212f09c561c550f28f0c5062507754d377df996d831f5b9a776153f2db3",
+      "shapes": {
+        "q": [
+          31,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "SHARED_s92241_step256",
+      "role": "VALIDATION",
+      "seconds": 1.17749279999407,
+      "examples": 248,
+      "batch": 8,
+      "peak_allocated_bytes": 353978880,
+      "peak_reserved_bytes": 530579456,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\VALIDATION\\SHARED_s92241_step256.npz",
+      "sha256": "fc5c473b4d912756eae7ffdec1b9ba2729d84f2043eeceabf8601678bcf72b64",
+      "shapes": {
+        "q": [
+          31,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "SHARED_s92241_step512",
+      "role": "VALIDATION",
+      "seconds": 1.1952358999988064,
+      "examples": 248,
+      "batch": 8,
+      "peak_allocated_bytes": 353978880,
+      "peak_reserved_bytes": 530579456,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\VALIDATION\\SHARED_s92241_step512.npz",
+      "sha256": "a02be72c3f02c41999f9b31668fb190cfd578984925ca794e7cabe2bfa5a484b",
+      "shapes": {
+        "q": [
+          31,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "SHARED_s92242_step0",
+      "role": "VALIDATION",
+      "seconds": 1.2414656000037212,
+      "examples": 248,
+      "batch": 8,
+      "peak_allocated_bytes": 350822400,
+      "peak_reserved_bytes": 396361728,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\VALIDATION\\SHARED_s92242_step0.npz",
+      "sha256": "89d67800f2146f4a2d6eab44c5e5f7f8a2ca6e2059a3b9e117b07937c603692b",
+      "shapes": {
+        "q": [
+          31,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "SHARED_s92242_step128",
+      "role": "VALIDATION",
+      "seconds": 1.2077167999814264,
+      "examples": 248,
+      "batch": 8,
+      "peak_allocated_bytes": 354372096,
+      "peak_reserved_bytes": 536870912,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\VALIDATION\\SHARED_s92242_step128.npz",
+      "sha256": "0394745d397387bd8416b07b4936aea1f6576a63c2323e0fc8b0994dab6b4275",
+      "shapes": {
+        "q": [
+          31,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "SHARED_s92242_step256",
+      "role": "VALIDATION",
+      "seconds": 1.3413836999970954,
+      "examples": 248,
+      "batch": 8,
+      "peak_allocated_bytes": 354372096,
+      "peak_reserved_bytes": 536870912,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\VALIDATION\\SHARED_s92242_step256.npz",
+      "sha256": "e41e70ebcf72b386c226d70bc848bc82e332777a988ca2b8d0f7ccaee1330528",
+      "shapes": {
+        "q": [
+          31,
+          8,
+          128,
+          9
+        ]
+      }
+    },
+    {
+      "key": "SHARED_s92242_step512",
+      "role": "VALIDATION",
+      "seconds": 1.2048979999963194,
+      "examples": 248,
+      "batch": 8,
+      "peak_allocated_bytes": 354372096,
+      "peak_reserved_bytes": 536870912,
+      "path": ".cache\\continuation_lora_v1_20260922\\predictions\\VALIDATION\\SHARED_s92242_step512.npz",
+      "sha256": "8c83fe942ac63568427cdae523bd72fb33d06caec6cfbd02b3db49c221c98076",
+      "shapes": {
+        "q": [
+          31,
+          8,
+          128,
+          9
+        ]
+      }
+    }
+  ]
+}

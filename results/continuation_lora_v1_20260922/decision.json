@@ -1,0 +1,58 @@
+{
+  "execution": "COMPLETE",
+  "scientific_decision": "PRACTICAL_DIRECTION_POSITIVE_PILOT_SIGNAL",
+  "primary_practical": {
+    "comparison": "CONTINUATION_vs_F0_NATIVE",
+    "baseline": "F0_NATIVE",
+    "candidate": "CONTINUATION",
+    "selected": true,
+    "variant": "affine",
+    "window": "block2",
+    "baseline_score": 0.12365074686281485,
+    "candidate_score": 0.1221444378807527,
+    "effect": 0.0015063089820621471,
+    "relative_percent": 1.2181964284723246,
+    "ci95_low": -0.005582513500284024,
+    "ci95_high": 0.010915433637953503,
+    "bootstrap_block": 7,
+    "draws": 2000
+  },
+  "practical_positive_seeds": 2,
+  "structural": {
+    "ordered": {
+      "comparison": "CONTINUATION_vs_SHARED",
+      "baseline": "SHARED",
+      "candidate": "CONTINUATION",
+      "selected": true,
+      "variant": "ordered",
+      "window": "block2",
+      "baseline_score": 0.12154250495558339,
+      "candidate_score": 0.1221444378807527,
+      "effect": -0.0006019329251693089,
+      "relative_percent": -0.4952447914326537,
+      "ci95_low": -0.0013902923505679369,
+      "ci95_high": -0.00017881150447499484,
+      "bootstrap_block": 7,
+      "draws": 2000
+    },
+    "affine": {
+      "comparison": "CONTINUATION_vs_SHARED",
+      "baseline": "SHARED",
+      "candidate": "CONTINUATION",
+      "selected": true,
+      "variant": "affine",
+      "window": "block2",
+      "baseline_score": 0.12154250495558339,
+      "candidate_score": 0.1221444378807527,
+      "effect": -0.0006019329251693089,
+      "relative_percent": -0.4952447914326537,
+      "ci95_low": -0.0013902923505679369,
+      "ci95_high": -0.00017881150447499484,
+      "bootstrap_block": 7,
+      "draws": 2000
+    }
+  },
+  "novelty": "NOT_ESTABLISHED_KNOWN_GATING_TRANSFER",
+  "paper_pass": false,
+  "automatic_followup": false
+}
