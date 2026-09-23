@@ -1,0 +1,27 @@
+{
+  "F0_RAW_vs_F0_FEATURE": {
+    "normalized_max_abs_diff": 0.5629674578441086,
+    "context_scale": 2.118546485900879,
+    "differ": true,
+    "note": "§2-E 확인: 입력 view 가 다르면 F0 예측도 다르다. 따라서 FI/LI 의 초기 동일성은 F0_FEATURE 기준으로만 요구한다."
+  },
+  "lora_B_init_zero": {
+    "max_abs": 0.0,
+    "pass": true
+  },
+  "L0_vs_F0_RAW": {
+    "normalized_max_diff": 0.0,
+    "atol": 1e-05,
+    "pass": true,
+    "note": "raw view 를 쓰는 L0/FM/LM 은 B=0 에서 F0_RAW 와 같아야 한다"
+  },
+  "FI_vs_F0_FEATURE": {
+    "normalized_max_diff": 0.0,
+    "atol": 1e-05,
+    "pass": true,
+    "note": "feature view 를 쓰는 FI/LI 는 B=0 에서 F0_FEATURE 와 같아야 한다"
+  },
+  "ledger": {
+    "forward": 4
+  }
+}

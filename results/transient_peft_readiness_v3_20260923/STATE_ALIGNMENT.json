@@ -1,0 +1,154 @@
+{
+  "config": {
+    "p": 16,
+    "ctx_len": 33,
+    "H": 17,
+    "n_ctx_patch": 3,
+    "n_out_patch": 2
+  },
+  "token_map": [
+    {
+      "idx": 0,
+      "kind": "context_patch",
+      "raw_start": 0,
+      "raw_end": 0,
+      "left_pad": 15,
+      "right_pad": 0,
+      "all_padding": false
+    },
+    {
+      "idx": 1,
+      "kind": "context_patch",
+      "raw_start": 1,
+      "raw_end": 16,
+      "left_pad": 0,
+      "right_pad": 0,
+      "all_padding": false
+    },
+    {
+      "idx": 2,
+      "kind": "context_patch",
+      "raw_start": 17,
+      "raw_end": 32,
+      "left_pad": 0,
+      "right_pad": 0,
+      "all_padding": false
+    },
+    {
+      "idx": 3,
+      "kind": "REG",
+      "raw_start": null,
+      "raw_end": null,
+      "note": "model.py:600-604 use_reg_token. 중립 modulation"
+    },
+    {
+      "idx": 4,
+      "kind": "output_patch",
+      "raw_start": 33,
+      "raw_end": 48,
+      "represents_command_window": [
+        33,
+        48
+      ],
+      "beyond_H_padding": 0
+    },
+    {
+      "idx": 5,
+      "kind": "output_patch",
+      "raw_start": 49,
+      "raw_end": 49,
+      "represents_command_window": [
+        49,
+        49
+      ],
+      "beyond_H_padding": 15
+    }
+  ],
+  "row_map": [
+    {
+      "row": 0,
+      "task": 0,
+      "variable": "target"
+    },
+    {
+      "row": 1,
+      "task": 0,
+      "variable": "state_m0"
+    },
+    {
+      "row": 2,
+      "task": 0,
+      "variable": "state_m1"
+    }
+  ],
+  "tests": {
+    "1_row_permutation_invariance": {
+      "max_abs_diff_target_row": 5.7220458984375e-06,
+      "atol": 1e-05,
+      "pass": true
+    },
+    "2_cross_task_isolation": {
+      "max_abs_diff_task0": 0.0,
+      "atol": 1e-05,
+      "pass": true
+    },
+    "3_patch_boundary_mapping": {
+      "agg_ctx_patches": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.22313016653060913,
+          0.687289297580719
+        ],
+        [
+          -0.1696871966123581,
+          -0.3928089737892151
+        ]
+      ],
+      "manual_last_valid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.22313016653060913,
+          0.687289297580719
+        ],
+        [
+          -0.1696871966123581,
+          -0.3928089737892151
+        ]
+      ],
+      "pass": true,
+      "REG_neutral": true,
+      "left_pad": 15
+    },
+    "4_no_state_carryover": {
+      "max_abs_diff": 0.0,
+      "pass": true,
+      "note": "같은 입력이면 항상 같은 상태. 이전 batch 영향 없음"
+    },
+    "5_future_target_does_not_leak": {
+      "max_abs_diff_pred": 0.0,
+      "atol": 1e-06,
+      "pass": true,
+      "note": "예측은 불변이어야 한다. loss 가 달라지는 것은 정상"
+    },
+    "6_command_plan_changes_state": {
+      "future_state_diff": 5.0,
+      "past_state_diff": 0.0,
+      "pass": true,
+      "note": "미래 계획 변경은 미래 상태만 바꾸고 과거 상태는 그대로여야 한다"
+    }
+  },
+  "ledger": {
+    "forward": 5,
+    "backward": 0
+  },
+  "summary": {
+    "pass": 6,
+    "total": 6
+  }
+}

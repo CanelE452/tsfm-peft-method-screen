@@ -1,0 +1,53 @@
+{
+  "observed_at": "2026-09-23T19:10:43.287751+09:00",
+  "base_url_from_docs": "https://api.boptest.net",
+  "classification": "DNS_RESOLUTION_FAILED",
+  "observations": [
+    {
+      "cmd": "getent ahosts api.boptest.net",
+      "exit": 2,
+      "stdout": "",
+      "note": "해석 실패"
+    },
+    {
+      "cmd": "curl --connect-timeout 10 --max-time 20 -I https://api.boptest.net",
+      "exit": 6,
+      "stderr": "curl: (6) Could not resolve host: api.boptest.net",
+      "curl_code_meaning": "CURLE_COULDNT_RESOLVE_HOST (S5)"
+    },
+    {
+      "cmd": "getent ahosts api.boptest.net (재검사 1회)",
+      "exit": 2,
+      "note": "일시 오류 아님"
+    },
+    {
+      "cmd": "curl https://ibpsa.github.io/project1-boptest/",
+      "exit": 0,
+      "http": 200,
+      "note": "대조: 공식 문서 호스트는 정상"
+    }
+  ],
+  "not_determined": [
+    "서비스 생존 여부",
+    "인증 필요 여부",
+    "testcase 목록",
+    "live 서버 버전"
+  ],
+  "explicitly_not_claimed": "DNS 실패만으로 네트워크 정책 차단 또는 서비스 중단을 확정하지 않는다 (v3 §2-F).",
+  "api_calls": {
+    "select": 0,
+    "initialize": 0,
+    "advance": 0,
+    "stop": 0,
+    "total_http_requests": 3
+  },
+  "smoke_performed": false,
+  "config_changes": {
+    "dns": 0,
+    "proxy": 0,
+    "firewall": 0,
+    "tls_verify_disabled": false,
+    "ip_pinning": 0
+  },
+  "correction_to_v2": "v2 의 AUTH_OR_POLICY_BLOCKED 는 과한 판정이었다. 관찰된 것은 DNS 해석 실패뿐이다."
+}

@@ -1,0 +1,37 @@
+{
+  "FI": {
+    "learned": false,
+    "state_requires_grad": false,
+    "loss": 0.6243919730186462,
+    "log_tau_is_parameter": false,
+    "log_tau_grad_norm": null,
+    "gradient_reaches_tau": false,
+    "trainable_params_in_state": 0,
+    "lora_trainable_params": 1179648,
+    "lora_grad_norms_nonzero": 96,
+    "lora_grad_count": 192
+  },
+  "LI": {
+    "learned": true,
+    "state_requires_grad": true,
+    "loss": 0.6243919730186462,
+    "log_tau_is_parameter": true,
+    "log_tau_grad_norm": 0.012278014793992043,
+    "gradient_reaches_tau": true,
+    "trainable_params_in_state": 2,
+    "lora_trainable_params": 1179648,
+    "lora_grad_norms_nonzero": 96,
+    "lora_grad_count": 192
+  },
+  "verdict": {
+    "LI_gradient_path": "OK",
+    "FI_is_truly_fixed": true,
+    "note": "LI 의 tau 까지 gradient 가 도달하고 FI 는 학습 파라미터가 0 이어야 2x2 의 F/L 축이 성립한다. 이 검사는 배선 확인이며 성능·수렴을 뜻하지 않는다."
+  },
+  "ledger": {
+    "model_load": 1,
+    "forward": 2,
+    "backward": 2,
+    "update": 0
+  }
+}

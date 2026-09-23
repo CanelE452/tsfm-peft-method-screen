@@ -1,0 +1,45 @@
+{
+  "formula": {
+    "B0_equals_W0h": {
+      "max_abs_diff": 0.0,
+      "atol": 1e-10,
+      "pass": true
+    },
+    "c0_equals_plain_lora": {
+      "max_abs_diff": 0.0,
+      "atol": 1e-10,
+      "pass": true
+    },
+    "c0_NOT_equal_W0h": {
+      "max_abs_diff": 0.362620979761402,
+      "pass": true,
+      "note": "c=0 은 F0 를 보장하지 않는다. B=0 이 필요하다 (v2 문서의 오류)"
+    },
+    "c_nonzero_changes_output": {
+      "max_abs_diff_vs_c0": 0.26700857970094094,
+      "pass": true
+    },
+    "scalar_fixture": {
+      "got": 3.0,
+      "expected": 3.0,
+      "W0h_alone": 2.0,
+      "pass": true
+    }
+  },
+  "loss_reduction": {
+    "rows_target_only": 1,
+    "loss_target_only": 0.20069056749343872,
+    "rows_with_2cov": 3,
+    "loss_with_2cov": 0.4237726032733917,
+    "ratio_l2_over_l0": 2.1115721011015944,
+    "expected_if_diluted_by_rows": 0.3333333333333333,
+    "reduction_in_source": "loss.mean(dim=-1).sum(dim=-1).mean()  # horizon 평균, quantile 합, batch(행) 평균",
+    "diluted": false
+  },
+  "ledger": {
+    "model_load": 1,
+    "forward": 2,
+    "backward": 0,
+    "update": 0
+  }
+}

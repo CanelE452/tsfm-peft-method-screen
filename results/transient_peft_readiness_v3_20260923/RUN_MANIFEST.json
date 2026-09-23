@@ -1,0 +1,69 @@
+{
+  "created": "2026-09-23T19:11:07.109027+09:00",
+  "baseline_commit": "877236bb4a0ab9e9e7c9509a8f89ffaa46761304",
+  "head_at_start": "877236bb4a0ab9e9e7c9509a8f89ffaa46761304",
+  "env": {
+    "python": "3.11.15",
+    "torch": "2.8.0+cu128",
+    "chronos": "2.3.2",
+    "peft": "0.18.1",
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "device_used_for_checks": "cpu"
+  },
+  "code_hashes": {
+    "test_formula_and_loss.py": "75d354435ba735d9",
+    "test_roundtrip.py": "99156394732836f2",
+    "test_state_gradient.py": "7ad34fe2a5311db8",
+    "trace_tokens.py": "ef55b3a914b2a2f4"
+  },
+  "installed_source_hashes": {
+    "model.py": "2aaab2f90cc9bb48",
+    "pipeline.py": "9fad1e4fb7251471",
+    "preprocess.py": "a6da6192bc3e51a2"
+  },
+  "budget_allowed": {
+    "forward": 64,
+    "backward": 24,
+    "update": 24,
+    "cpu_min": 30,
+    "gpu_min": 30
+  },
+  "actual_counts": {
+    "model_load": 10,
+    "forward": 24,
+    "backward": 10,
+    "optimizer_update": 0,
+    "research_fit": 0,
+    "api_select": 0,
+    "api_advance": 0,
+    "api_stop": 0,
+    "package_install": 0,
+    "docker_install": 0
+  },
+  "counting_note": "각 JSON 의 ledger 합산. trace 1, loss 2, rowwise 2, gradient 시도 3회x2, anomaly 1, state_alignment 6, mod_path 3, f0_views 4. optimizer update 는 0 회다.",
+  "retry_ledger": [
+    {
+      "attempt": 1,
+      "failure": "RuntimeError: element 0 of tensors does not require grad",
+      "cause": "backbone 전체 동결 + LoRA 미부착으로 학습 파라미터 0. v3 §6 요구(네 arm 모두 attention LoRA 학습)를 빠뜨림",
+      "patch": "peft LoraConfig(q,k,v,o) 부착, 출력층 제외",
+      "saved": "/tmp/attempt1_no_lora.py"
+    },
+    {
+      "attempt": 2,
+      "failure": "log_tau.grad = nan",
+      "cause": "target 행의 future_covariates 를 NaN 으로 넣고 마스크 미지정",
+      "patch": "값 0 + future_covariates_mask 명시",
+      "saved": "/tmp/attempt2_nan_grad.py"
+    },
+    {
+      "attempt": 3,
+      "failure": "log_tau.grad = nan (동일 증상, 다른 원인)",
+      "cause": "anomaly detection 으로 특정: AsinhBackward0 NaN. _compute_loss 가 NaN 이 든 future_target 을 instance_norm->arcsinh 에 통과시키며, loc_scale 이 graph 위 context 에 연결돼 NaN 이 역전파됨 (model.py:532, chronos_bolt.py:120)",
+      "patch": "future_target NaN -> 0, future_target_mask 명시 전달",
+      "saved": "/tmp/attempt3_no_target_mask.py"
+    }
+  ],
+  "tolerances_unchanged": true,
+  "note": "허용오차나 assertion 을 느슨하게 바꾸지 않았다. 실패는 원인을 특정한 뒤에만 수정했다."
+}

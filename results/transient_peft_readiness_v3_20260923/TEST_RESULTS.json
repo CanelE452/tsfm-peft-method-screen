@@ -1,0 +1,207 @@
+{
+  "tests": [
+    {
+      "test": "token_axis_order",
+      "criterion": "분위수 축이 출력 projection 이후에 생기는가",
+      "observed": "out_features 336 == n_q*out_patch 336",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "encoder_axis_shape",
+      "criterion": "일반 forward 내부는 (행, 토큰, hidden)",
+      "observed": "attention q in=[[3, 6, 768]]",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "patch_feature_dim",
+      "criterion": "패치 특징 = p*3 (값·마스크·시간인코딩)",
+      "observed": "input_patch_embedding in=[[3, 3, 48]], p=16",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "formula/B0_equals_W0h",
+      "criterion": "§5 수식",
+      "observed": "0.0",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "formula/c0_equals_plain_lora",
+      "criterion": "§5 수식",
+      "observed": "0.0",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "formula/c0_NOT_equal_W0h",
+      "criterion": "§5 수식",
+      "observed": "0.362620979761402",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "formula/c_nonzero_changes_output",
+      "criterion": "§5 수식",
+      "observed": "",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "formula/scalar_fixture",
+      "criterion": "§5 수식",
+      "observed": "3.0",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "loss_denominator_is_row_count",
+      "criterion": "공변량 행이 batch 평균 분모에 포함되는가",
+      "observed": "target_row/scalar=3.0000, batch=3, 공변량행 기여=True",
+      "status": "CONFIRMED_CONFOUND",
+      "reason": "INPUT arm 은 같은 target 오차에 더 작은 scalar loss 를 받는다"
+    },
+    {
+      "test": "FI_truly_fixed",
+      "criterion": "FI 의 상태 학습 파라미터 0",
+      "observed": "trainable_state=0, grad=None",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "LI_gradient_reaches_tau",
+      "criterion": "LI 의 log_tau 까지 유한한 gradient",
+      "observed": "log_tau.grad_norm=0.012278014793992043",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "lora_shared_by_both_arms",
+      "criterion": "두 arm 모두 attention LoRA 가 학습 대상",
+      "observed": "lora_trainable=1179648",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "roundtrip_tau_exact",
+      "criterion": "새 프로세스에서 tau 정확 복원",
+      "observed": "tau_exact_match=True, strict_load unexpected=[]",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "frozen_output_head_preserved",
+      "criterion": "native 출력층 해시 보존",
+      "observed": "d6c8634b24a455b8 == d6c8634b24a455b8",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "MOD_path_gradient",
+      "criterion": "§6.3 MOD 경로 gradient",
+      "observed": "test_mod_path.py 로 수행",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "boptest_smoke",
+      "criterion": "§3.3 단일 인스턴스 smoke",
+      "observed": "미실행",
+      "status": "NOT_RUN",
+      "reason": "DNS_RESOLUTION_FAILED 로 서비스에 도달하지 못함"
+    },
+    {
+      "test": "state_align/1_row_permutation_invariance",
+      "criterion": "§4.4 상태 정렬",
+      "observed": "{'max_abs_diff_target_row': 5.7220458984375e-06, 'atol': 1e-05, 'pass': True}",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "state_align/2_cross_task_isolation",
+      "criterion": "§4.4 상태 정렬",
+      "observed": "{'max_abs_diff_task0': 0.0, 'atol': 1e-05, 'pass': True}",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "state_align/3_patch_boundary_mapping",
+      "criterion": "§4.4 상태 정렬",
+      "observed": "{'pass': True, 'REG_neutral': True, 'left_pad': 15}",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "state_align/4_no_state_carryover",
+      "criterion": "§4.4 상태 정렬",
+      "observed": "{'max_abs_diff': 0.0, 'pass': True}",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "state_align/5_future_target_does_not_leak",
+      "criterion": "§4.4 상태 정렬",
+      "observed": "{'max_abs_diff_pred': 0.0, 'atol': 1e-06, 'pass': True}",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "state_align/6_command_plan_changes_state",
+      "criterion": "§4.4 상태 정렬",
+      "observed": "{'future_state_diff': 5.0, 'past_state_diff': 0.0, 'pass': True}",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "token_map_table",
+      "criterion": "§4.3 토큰 대응 표(행·패치·padding·REG·미래구간)",
+      "observed": "6 토큰, row_map 3행",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "mod_path_wiring",
+      "criterion": "§6.3 MOD 경로 배선",
+      "observed": "c 초기 0, B=0 첫 step 에서 mod/tau grad 0 (정상)",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "mod_path_active_gradient",
+      "criterion": "§6.3 active-path 에서 tau 까지 gradient",
+      "observed": "mod_g=3.116e-03, tau_g=3.661e-05",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "F0_raw_vs_feature",
+      "criterion": "§2-E 입력 view 가 다르면 F0 도 다른가",
+      "observed": "normalized_max_diff=5.6297e-01",
+      "status": "CONFIRMED",
+      "reason": "FI/LI 의 초기 동일성은 F0_FEATURE 기준으로만 요구한다"
+    },
+    {
+      "test": "L0_preserves_F0_RAW",
+      "criterion": "B=0 에서 raw view F0 보존",
+      "observed": "0.00e+00",
+      "status": "PASS",
+      "reason": ""
+    },
+    {
+      "test": "FI_preserves_F0_FEATURE",
+      "criterion": "B=0 에서 feature view F0 보존",
+      "observed": "0.00e+00",
+      "status": "PASS",
+      "reason": ""
+    }
+  ],
+  "summary": {
+    "PASS": 25,
+    "FAIL": 0,
+    "NOT_RUN": 1,
+    "CONFIRMED_CONFOUND": 1,
+    "CONFIRMED": 1
+  }
+}

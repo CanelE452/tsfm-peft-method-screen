@@ -1,0 +1,36 @@
+{
+  "n_tok": 6,
+  "arms": {
+    "FM": {
+      "c_init_is_zero": true,
+      "loss": 0.20069068670272827,
+      "lora_grad_norm_sum": 11.026257487980262,
+      "modulator_grad_norm": 0.0,
+      "log_tau_grad_norm": null,
+      "B_is_zero_at_init": true,
+      "note_first_step": "B=0 이므로 c/tau gradient 가 0 인 것은 정상. 아래 active-path 로 따로 확인"
+    },
+    "LM": {
+      "c_init_is_zero": true,
+      "loss": 0.20069068670272827,
+      "lora_grad_norm_sum": 11.026257487980262,
+      "modulator_grad_norm": 0.0,
+      "log_tau_grad_norm": 0.0,
+      "B_is_zero_at_init": true,
+      "note_first_step": "B=0 이므로 c/tau gradient 가 0 인 것은 정상. 아래 active-path 로 따로 확인"
+    }
+  },
+  "active_path": {
+    "modulator": 0.003115985309705138,
+    "log_tau": 3.661232767626643e-05,
+    "gradient_reaches_modulator": true,
+    "gradient_reaches_tau": true,
+    "note": "배선 검사 전용. 본학습 초기화 변경이 아니다"
+  },
+  "ledger": {
+    "forward": 3,
+    "backward": 3,
+    "update": 0
+  },
+  "verdict": "MOD_PATH_WIRED_OK"
+}

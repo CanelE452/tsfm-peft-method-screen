@@ -1,0 +1,23 @@
+{
+  "target_only": {
+    "batch": 1,
+    "per_row": [
+      0.20069056749343872
+    ],
+    "scalar": 0.20069056749343872
+  },
+  "with_2cov": {
+    "batch": 3,
+    "per_row": [
+      1.2713178396224976,
+      0.0,
+      0.0
+    ],
+    "scalar": 0.4237726032733917
+  },
+  "cov_rows_contribute_zero": true,
+  "denominator_is_row_count": true,
+  "target_row_over_scalar": 3.000000070326213,
+  "conclusion": "공변량 행은 분자에 기여하지 않지만 batch 평균 분모에 포함된다. INPUT arm 은 같은 target 오차에 대해 더 작은 scalar loss 를 받는다.",
+  "forward_calls": 2
+}
