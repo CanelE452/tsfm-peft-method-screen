@@ -1,0 +1,31 @@
+작업 유형: 고정 패키지 1회 실행·결과 push. 코드 작성·수정·연구 해석 금지.
+대상: CanelE452/tsfm-peft-method-screen
+
+목적: 풍력 관계 변화 / 호흡 주기 변동 / 좌표계 민감도의 세 후보에서 사전 정의한 점수가 TSFM 예측의 어려운 구간을 가르는지 확인한다. GO는 새 PEFT 효과나 신규성 판정이 아니다.
+
+1. ZIP을 저장소 밖의 새 경로에 압축 해제한다. 원본 ZIP과 이전 실패 자료를 그대로 보존한다.
+2. 대상 저장소의 실제 루트로 이동한다. main과 origin을 확인하되 reset/rebase/checkout/stash/pull을 임의로 하지 않는다. 기존 staged 변경이 있으면 실행하지 않는다.
+3. 아래 한 줄을 정확히 한 번 실행한다. 압축해제 경로만 바꾼다.
+
+python3 -B /실제/압축해제경로/topic_axis_gonogo_v1_20260925/run.py --repo "$PWD" --publish
+
+4. 이미 보유한 SDWPF KDD 자료가 있으면 최초 실행 전에만 다음 경로 인자를 추가할 수 있다.
+   --wind-csv /실제경로/sdwpf_245days_v1.csv --wind-locations /실제경로/turb_location.csv
+   또는 --wind-archive /실제경로/sdwpf_kddcup.zip
+   없으면 공식 공개 데이터 자동다운로드 경로를 사용한다. 다른 스키마로 변환하거나 파일명을 속여 맞추지 않는다.
+5. .py/JSON/manifest/선택 기준/분할/seed/시간 길이/정규화 강도를 수정하지 않는다. __pycache__/pyc를 manifest에 추가하지 않는다.
+6. 기존 .venv와 모델 cache만 사용한다. 라이브러리 설치, 모델 다운로드, LoRA/PEFT 학습, 새 시뮬레이션, 다른 모델로 fallback 금지.
+7. 데이터 다운로드는 패키지에 고정된 공식 URL·한도 안에서 허용한다. raw 데이터/모델은 cache에만 저장하며 코드와 작은 결과만 push한다.
+8. 각 후보는 독립 subprocess로 최대15분 실행된다. 하나의 데이터/환경 실패로 다른 후보를 중단하지 않는다. package가 실패를 기록하는 동안 임의로 가로채서 수정하지 않는다.
+9. source mismatch/환경/실행/Git 실패가 있으면 재실행하거나 성공시킬 코드를 만들지 않는다. 안전한 Git 상태이면 패키지가 실패 결과도 게시한다. 게시가 막히면 receipt와 최초 오류를 반환한다.
+10. CLI는 결과를 해석하여 주제를 바꾸지 않는다. 해석과 다음 수정은 ChatGPT에서 수행한다.
+
+마지막 보고:
+- 실제 실행 명령 / 종료 코드
+- commit SHA와 PUSH_VERIFIED 여부
+- results/topic_axis_gonogo_v1_20260925/run_<UTC>/ALL_TOPICS.json
+- 각 후보 axis_status와 action을 수정 없이 그대로
+- .cache/topic_axis_gonogo_v1_20260925/<run>_RECEIPT.json 경로/내용
+- 최초 실패가 있으면 후보 이름과 원시 오류
+
+주의: 프로세스 exit0 또는 push 성공은 과학적 GO가 아니다. BLOCKED/INCONCLUSIVE와 NO_GO를 구분한다. 이미 고정한 자료가 부족하면 자료를 늘리거나 threshold를 낮추지 않는다. 'git add .'와 force push는 금지한다.

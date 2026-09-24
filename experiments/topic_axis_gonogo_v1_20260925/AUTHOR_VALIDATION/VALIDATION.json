@@ -1,0 +1,57 @@
+{
+  "status": "AUTHOR_CODE_AND_CONTRACT_TESTS_PASSED",
+  "package": "topic_axis_gonogo_v1_20260925",
+  "created_utc": "2026-09-24T23:02:08.420326+00:00",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "unit_tests": {
+    "executed": 60,
+    "passed": 60,
+    "failed": 0,
+    "log": "AUTHOR_VALIDATION/UNIT_TESTS.txt"
+  },
+  "python_files_syntax_checked": 14,
+  "tests_include": [
+    "TRAIN-only model statistics and proxy fitting; TEST-label poisoning counterexamples",
+    "BIDMC context-only peaks and complete-cycle forecasting; causal block averaging; schema-shaped synthetic CSV",
+    "Trajectory canonicalization and rotations; context-only normalization; published 17-field schema parser",
+    "SDWPF timestamp/quality masks; TRAIN-only empirical neighbour banks; local synthetic KDD CSV/ZIP",
+    "Native API-shaped mock outputs, target/covariate separation, future-label exclusion",
+    "Entire per-topic selection/sealing/scoring flow with explicitly substituted test-only data and model",
+    "Missing native model classified BLOCKED, not scientific NO_GO",
+    "Local bare-Git push of failure outcomes and preservation of unrelated dirty file/index protection",
+    "Generated LF CSV and text do not reproduce previous CRLF publication failure",
+    "Standard-library entrypoint help; no model-training operations in inference path"
+  ],
+  "native_chronos_execution": "NOT_RUN_AUTHOR_RUNTIME: chronos-forecasting is not installed",
+  "public_dataset_full_download": "NOT_RUN_AUTHOR_RUNTIME: container networking could not resolve data hosts; primary documentation/schema inspected via web/connector",
+  "gpu_execution": "NOT_RUN_AUTHOR_RUNTIME",
+  "actual_three_topic_scientific_results": "NOT_RUN; must be produced by the Ubuntu run",
+  "github_user_repository_written_by_author": false,
+  "git_test_scope": "temporary local bare Git only, NOT user GitHub",
+  "native_F0_or_method_performance_claimed": false,
+  "new_lora_fit": 0,
+  "new_peft_fit": 0,
+  "source_sha256": {
+    "run.py": "5e17a7698fa5fc0a7df0a74f0714351449bebd78815133e49cd8690ec8d4eadb",
+    "tests/test_contracts.py": "9288ea505d9559b19b5be35570cc42fbcebedbcc77d98bf367bc61031bd49a35",
+    "tests/test_integration.py": "9140fe48dc8b89b210ed98ef03fc2abb36802c8b7532a2537e675334d90ee97c",
+    "triage/__init__.py": "05f9aa607b022813f4ae021ad2e4f9f4bb21d775e17c83023cc5ca823d948add",
+    "triage/common.py": "9976b473238a6702b4c83915e308da86df9acc3bd0e5cbb417691a998c348629",
+    "triage/coordinates.py": "391ebf441c91bc79395b71993c53ce9551ffca18e790f9d8b4fa14750d66b7c0",
+    "triage/engine.py": "02799920ad459f9c4bbb7b7b4b3d41084342bc3e89d707f6013d3be55d7ce857",
+    "triage/gitops.py": "f1332da252539ea4b9fe7c78446d422be79ae2d1e5fa61bd6c75b71c69ceb906",
+    "triage/network.py": "ec58585866f03845e7738ad0349b0b5cb5c702c3363f2244a9ba5f6300aeb45f",
+    "triage/predictors.py": "3db6db223d5abeb8136a59a925665b17f58a7c114259dffb785bdb7bfff7018a",
+    "triage/respiration.py": "2a518f05b61816c241d528f10ea63586c7e563ed3e253bbbb11742dd4c85e89f",
+    "triage/statistics.py": "94eec7473cf14d997b4726b023012f3ffb6b07b12a4d583be05aa0191501a9f1",
+    "triage/wind.py": "6aa0aecd925a7bc4f74e30f9632f43d203de8caf5aa961dbab5861b55564355f",
+    "triage/worker.py": "4677afe9aeaa6c59ae84308fb53186bcf9291acf2619da2e5f72af97831aad6b"
+  },
+  "limitations": [
+    "Passing unit and mock tests does not certify live URLs, original-data quality, or native model compatibility.",
+    "GO is a finite-sample exploratory axis signal only; standard-LoRA and PEFT superiority remain untested.",
+    "Time/dataset/support limits can yield BLOCKED or INCONCLUSIVE rather than a binary scientific answer.",
+    "Coordinate representation stress is distinct from intrinsic motion complexity.",
+    "Ndir-based empirical relationships are not identified physical wake directions."
+  ]
+}

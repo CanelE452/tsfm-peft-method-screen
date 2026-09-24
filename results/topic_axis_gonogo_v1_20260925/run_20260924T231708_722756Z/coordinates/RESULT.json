@@ -1,0 +1,257 @@
+{
+  "cuts_from_train": [
+    2.226700395469173,
+    2.7767467323884447
+  ],
+  "estimator_agreement_spearman": 0.870321563532603,
+  "models": {
+    "SIMPLE": {
+      "group_means": {
+        "eth": 0.12428539511400129,
+        "hotel": 0.21941065913506655,
+        "univ": 0.20362757439115683,
+        "zara1": 0.07097866610759113,
+        "zara2": 0.14346824482183337
+      },
+      "high_minus_low": {
+        "n_groups": 2,
+        "mean": 0.0014006981529253032,
+        "lower": -0.1282761791929387,
+        "upper": 0.13107757549878932,
+        "alpha": 0.016666666666666666,
+        "positive_groups": 1,
+        "scope": "exploratory cluster bootstrap; few clusters do not support population proof"
+      },
+      "contrasts": [
+        {
+          "group": "univ",
+          "low_n": 9,
+          "high_n": 13,
+          "difference": -0.1282761791929387
+        },
+        {
+          "group": "zara2",
+          "low_n": 15,
+          "high_n": 2,
+          "difference": 0.13107757549878932
+        }
+      ],
+      "score_error_spearman_descriptive": 0.03592400470284394
+    },
+    "RIDGE_RAW": {
+      "group_means": {
+        "eth": 0.1412806268359443,
+        "hotel": 0.19977953619561634,
+        "univ": 0.23645091280085392,
+        "zara1": 0.09487408678357684,
+        "zara2": 0.1550380248152841
+      },
+      "high_minus_low": {
+        "n_groups": 2,
+        "mean": 0.08724735502228315,
+        "lower": -0.038062365760794414,
+        "upper": 0.2125570758053607,
+        "alpha": 0.016666666666666666,
+        "positive_groups": 1,
+        "scope": "exploratory cluster bootstrap; few clusters do not support population proof"
+      },
+      "contrasts": [
+        {
+          "group": "univ",
+          "low_n": 9,
+          "high_n": 13,
+          "difference": -0.038062365760794414
+        },
+        {
+          "group": "zara2",
+          "low_n": 15,
+          "high_n": 2,
+          "difference": 0.2125570758053607
+        }
+      ],
+      "score_error_spearman_descriptive": 0.10343054644528114
+    },
+    "RIDGE_STRUCTURE": {
+      "group_means": {
+        "eth": 0.16097921635255089,
+        "hotel": 0.2024445622441569,
+        "univ": 0.2372565650299155,
+        "zara1": 0.10026981767982941,
+        "zara2": 0.1619816807544808
+      },
+      "high_minus_low": {
+        "n_groups": 2,
+        "mean": 0.07011681624231163,
+        "lower": -0.048026232673465785,
+        "upper": 0.18825986515808904,
+        "alpha": 0.016666666666666666,
+        "positive_groups": 1,
+        "scope": "exploratory cluster bootstrap; few clusters do not support population proof"
+      },
+      "contrasts": [
+        {
+          "group": "univ",
+          "low_n": 9,
+          "high_n": 13,
+          "difference": -0.048026232673465785
+        },
+        {
+          "group": "zara2",
+          "low_n": 15,
+          "high_n": 2,
+          "difference": 0.18825986515808904
+        }
+      ],
+      "score_error_spearman_descriptive": 0.09962525795669977
+    },
+    "F0": {
+      "group_means": {
+        "eth": 0.22816623572699787,
+        "hotel": 0.28959485803408686,
+        "univ": 0.2663608587640707,
+        "zara1": 0.21270524028563728,
+        "zara2": 0.21904254257177375
+      },
+      "high_minus_low": {
+        "n_groups": 2,
+        "mean": 0.036213410825325434,
+        "lower": -0.11717998919215958,
+        "upper": 0.18960681084281045,
+        "alpha": 0.016666666666666666,
+        "positive_groups": 1,
+        "scope": "exploratory cluster bootstrap; few clusters do not support population proof"
+      },
+      "contrasts": [
+        {
+          "group": "univ",
+          "low_n": 9,
+          "high_n": 13,
+          "difference": -0.11717998919215958
+        },
+        {
+          "group": "zara2",
+          "low_n": 15,
+          "high_n": 2,
+          "difference": 0.18960681084281045
+        }
+      ],
+      "score_error_spearman_descriptive": -0.09321373145453593
+    },
+    "CANONICAL_F0": {
+      "group_means": {
+        "eth": 0.16601233259118545,
+        "hotel": 0.20060951875198146,
+        "univ": 0.23651699184155925,
+        "zara1": 0.17379746920262776,
+        "zara2": 0.18489925313504468
+      },
+      "high_minus_low": {
+        "n_groups": 2,
+        "mean": 0.0878117220905377,
+        "lower": -0.04349294891046118,
+        "upper": 0.21911639309153658,
+        "alpha": 0.016666666666666666,
+        "positive_groups": 1,
+        "scope": "exploratory cluster bootstrap; few clusters do not support population proof"
+      },
+      "contrasts": [
+        {
+          "group": "univ",
+          "low_n": 9,
+          "high_n": 13,
+          "difference": -0.04349294891046118
+        },
+        {
+          "group": "zara2",
+          "low_n": 15,
+          "high_n": 2,
+          "difference": 0.21911639309153658
+        }
+      ],
+      "score_error_spearman_descriptive": 0.12394109664592243
+    }
+  },
+  "label": "pilot_proxy_not_validated_complexity",
+  "adjusted_F0_contrast": {
+    "summary": {
+      "n_groups": 2,
+      "mean": 0.011406627417764471,
+      "lower": -0.08675419343284287,
+      "upper": 0.10956744826837181,
+      "alpha": 0.016666666666666666,
+      "positive_groups": 1,
+      "scope": "exploratory cluster bootstrap; few clusters do not support population proof"
+    },
+    "per_group": [
+      {
+        "group": "univ",
+        "low_n": 9,
+        "high_n": 13,
+        "difference": -0.08675419343284287
+      },
+      {
+        "group": "zara2",
+        "low_n": 15,
+        "high_n": 2,
+        "difference": 0.10956744826837181
+      }
+    ],
+    "adjustment_model_hash": "eedd6537963e03054523662f80d77692fb81da75cce655d133ed7f563aaf4e21",
+    "nuisances": "context entropy, scale, variation, trend, topic covariate; CAL-only fit"
+  },
+  "selected_simple": "RIDGE_RAW",
+  "simple_benefit": {
+    "n_groups": 5,
+    "mean": 0.07768930959025819,
+    "lower": 0.04614582976757846,
+    "upper": 0.10565313270906451,
+    "alpha": 0.016666666666666666,
+    "positive_groups": 5,
+    "scope": "exploratory cluster bootstrap; few clusters do not support population proof"
+  },
+  "axis_status": "INCONCLUSIVE_STRATUM_SUPPORT",
+  "action": "HOLD_NO_NEW_ADAPTER",
+  "neural_adaptation_tested": false,
+  "novelty_established": false,
+  "practical_sufficiency": "NOT_ESTABLISHED",
+  "no_go_scope": "only this proxy, task, sample and zero-shot reference",
+  "coordinate_stress": {
+    "status": "INCONCLUSIVE_ROTATION_STRESS",
+    "mean_equivariance_defect": 0.09701838186096089,
+    "paired_penalty_by_scene": {
+      "n_groups": 5,
+      "mean": 0.0012420084964701386,
+      "lower": -0.023619923772556915,
+      "upper": 0.02002136418227825,
+      "alpha": 0.016666666666666666,
+      "positive_groups": 3,
+      "scope": "exploratory cluster bootstrap; few clusters do not support population proof"
+    },
+    "rotations_are_independent_samples": false,
+    "intrinsic_motion_complexity_claimed": false,
+    "scope": "mean fixed-yaw penalty, not worst-angle selected after inspecting labels; only five scenes"
+  },
+  "topic": "coordinates",
+  "source_kind": "real_public_dataset",
+  "backend_error": null,
+  "native_backend": {
+    "model": "amazon/chronos-2",
+    "snapshot": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+    "device": "cuda",
+    "torch": "2.8.0+cu128",
+    "chronos": "2.3.2",
+    "downloads": 0,
+    "optimizer_steps": 0,
+    "known_future_covariates": false
+  },
+  "model_operations": {
+    "actual_forward_calls": 209,
+    "forecast_windows": 829,
+    "optimizer_updates": 0
+  },
+  "ridge_coefficient_fits": 12,
+  "wall_seconds": 9.679060383001342,
+  "seal_sha256": "20ebdbfe6a5ca174697b1061e793c24296022f8ed6e351555df612d45dc5502d",
+  "selection_limit": "GO means a diagnostic axis deserves further LoRA tests, not method novelty or practical value",
+  "estimator_agreement_threshold_status": "predeclared heuristic screening value, NOT literature-established cutoff"
+}

@@ -1,0 +1,31 @@
+{
+  "package": "topic_axis_gonogo_v1_20260925",
+  "scope": "THREE_DIFFICULTY_AXES_ZERO_SHOT_PILOT_NOT_PEFT_METHOD_VALIDATION",
+  "topics": [
+    "respiration",
+    "coordinates",
+    "wind"
+  ],
+  "device": "auto",
+  "alphas": [
+    0.01,
+    0.1,
+    1.0,
+    10.0,
+    100.0
+  ],
+  "alpha_family": 0.016666666666666666,
+  "min_contrast_groups": 4,
+  "min_agreement": 0.5,
+  "heuristic_notice": "4 groups and .5 agreement are conservative small-pilot triage choices, not validated scientific thresholds; GO is exploratory only",
+  "topic_timeout_seconds": 900,
+  "download_seconds": 600,
+  "download_bytes_per_topic": 1153433600,
+  "package_install": false,
+  "model_download": false,
+  "new_lora_fit": false,
+  "new_peft_fit": false,
+  "code_retry": false,
+  "acquisition": "official data URLs and pinned EqMotion data only; existing SDWPF csv/archive optional by path",
+  "no_go_meaning": "only this finite-sample proxy task; never absence of all information or impossibility of PEFT"
+}

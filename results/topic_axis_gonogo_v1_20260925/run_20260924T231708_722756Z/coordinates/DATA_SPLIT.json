@@ -1,0 +1,133 @@
+{
+  "scenes": {
+    "eth": {
+      "bounds": {
+        "train": [
+          78,
+          658
+        ],
+        "cal": [
+          658,
+          890
+        ],
+        "test": [
+          890,
+          1122
+        ]
+      },
+      "n": {
+        "train": 6,
+        "cal": 3,
+        "test": 22
+      }
+    },
+    "hotel": {
+      "bounds": {
+        "train": [
+          0,
+          903
+        ],
+        "cal": [
+          903,
+          1264
+        ],
+        "test": [
+          1264,
+          1626
+        ]
+      },
+      "n": {
+        "train": 27,
+        "cal": 16,
+        "test": 21
+      }
+    },
+    "zara1": {
+      "bounds": {
+        "train": [
+          0,
+          451
+        ],
+        "cal": [
+          451,
+          631
+        ],
+        "test": [
+          631,
+          811
+        ]
+      },
+      "n": {
+        "train": 64,
+        "cal": 16,
+        "test": 32
+      }
+    },
+    "zara2": {
+      "bounds": {
+        "train": [
+          1,
+          527
+        ],
+        "cal": [
+          527,
+          737
+        ],
+        "test": [
+          737,
+          947
+        ]
+      },
+      "n": {
+        "train": 64,
+        "cal": 16,
+        "test": 32
+      }
+    },
+    "univ": {
+      "bounds": {
+        "train": [
+          0,
+          222
+        ],
+        "cal": [
+          222,
+          310
+        ],
+        "test": [
+          310,
+          399
+        ]
+      },
+      "n": {
+        "train": 64,
+        "cal": 16,
+        "test": 32
+      }
+    }
+  },
+  "heading_histogram_train": [
+    0.13692946058091288,
+    0.04564315352697095,
+    0.02074688796680498,
+    0.04149377593360996,
+    0.05394190871369295,
+    0.03734439834024896,
+    0.06639004149377593,
+    0.12863070539419086,
+    0.1078838174273859,
+    0.04149377593360996,
+    0.024896265560165973,
+    0.024896265560165973,
+    0.03734439834024896,
+    0.029045643153526972,
+    0.04979253112033195,
+    0.15352697095435686
+  ],
+  "source_commit": "5aec2e0b61c511fa93a24138dd90da59a089084b",
+  "coordinates": "author x/z planar positions; diagnostic trajectories, not full EqMotion benchmark",
+  "sampling": "8 observed and 12 future samples; dataset convention 2.5 Hz (3.2 s / 4.8 s)",
+  "uncertainty_unit": "physical scene (5), not each rotated copy or each pedestrian",
+  "held_out": "chronological windows within scenes; NOT unseen-scene or guaranteed unseen-person generalization",
+  "last_tenth": "not scored; raw download contains these rows"
+}

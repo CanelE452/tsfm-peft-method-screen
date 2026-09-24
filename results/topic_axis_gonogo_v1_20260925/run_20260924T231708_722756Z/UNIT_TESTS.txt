@@ -1,0 +1,67 @@
+test01_json_strict_nan (test_contracts.Contracts.test01_json_strict_nan) ... ok
+test02_csv_lf (test_contracts.Contracts.test02_csv_lf) ... ok
+test03_entropy_constant (test_contracts.Contracts.test03_entropy_constant) ... ok
+test04_entropy_scale (test_contracts.Contracts.test04_entropy_scale) ... ok
+test05_error_mask (test_contracts.Contracts.test05_error_mask) ... ok
+test06_vector_rotation_error_invariant (test_contracts.Contracts.test06_vector_rotation_error_invariant) ... ok
+test07_ridge_fit_multitarget (test_contracts.Contracts.test07_ridge_fit_multitarget) ... ok
+test08_ridge_constant_columns (test_contracts.Contracts.test08_ridge_constant_columns) ... ok
+test09_no_future_in_features (test_contracts.Contracts.test09_no_future_in_features) ... ok
+test10_ridge_prediction_no_future_values (test_contracts.Contracts.test10_ridge_prediction_no_future_values) ... ok
+test11_train_scaling_not_test (test_contracts.Contracts.test11_train_scaling_not_test) ... ok
+test12_cal_select_group_weight (test_contracts.Contracts.test12_cal_select_group_weight) ... ok
+test13_cluster_bootstrap_mean (test_contracts.Contracts.test13_cluster_bootstrap_mean) ... ok
+test14_cluster_bootstrap_negative (test_contracts.Contracts.test14_cluster_bootstrap_negative) ... ok
+test15_no_group_support (test_contracts.Contracts.test15_no_group_support) ... ok
+test16_strata_train_fixed (test_contracts.Contracts.test16_strata_train_fixed) ... ok
+test17_group_contrast_no_pseudo_replication (test_contracts.Contracts.test17_group_contrast_no_pseudo_replication) ... ok
+test18_proxy_collapsed (test_contracts.Contracts.test18_proxy_collapsed) ... ok
+test19_resp_period_constant (test_contracts.Contracts.test19_resp_period_constant) ... ok
+test20_resp_irregular_higher (test_contracts.Contracts.test20_resp_irregular_higher) ... ok
+test21_resp_short_support (test_contracts.Contracts.test21_resp_short_support) ... ok
+test22_resp_cycle_shape (test_contracts.Contracts.test22_resp_cycle_shape) ... ok
+test23_resp_context_future_poison (test_contracts.Contracts.test23_resp_context_future_poison) ... ok
+test24_rotation_inverse (test_contracts.Contracts.test24_rotation_inverse) ... ok
+test25_canonical_yaw_invariance (test_contracts.Contracts.test25_canonical_yaw_invariance) ... ok
+test26_cv_equivariant (test_contracts.Contracts.test26_cv_equivariant) ... ok
+test27_motion_parser_verified_columns (test_contracts.Contracts.test27_motion_parser_verified_columns) ... ok
+test28_motion_bad_schema_rejected (test_contracts.Contracts.test28_motion_bad_schema_rejected) ... ok
+test29_motion_split_no_target_overlap (test_contracts.Contracts.test29_motion_split_no_target_overlap) ... ok
+test30_motion_heading_novelty_only_past (test_contracts.Contracts.test30_motion_heading_novelty_only_past) ... ok
+test31_wind_weights_sum_one (test_contracts.Contracts.test31_wind_weights_sum_one) ... ok
+test32_wind_wrap_continuity (test_contracts.Contracts.test32_wind_wrap_continuity) ... ok
+test33_wind_turnover_detects_change (test_contracts.Contracts.test33_wind_turnover_detects_change) ... ok
+test34_wind_context_imputation (test_contracts.Contracts.test34_wind_context_imputation) ... ok
+test35_wind_bad_quality_not_filled (test_contracts.Contracts.test35_wind_bad_quality_not_filled) ... ok
+test36_neighbours_no_self (test_contracts.Contracts.test36_neighbours_no_self) ... ok
+test37_wind_bank_future_poison (test_contracts.Contracts.test37_wind_bank_future_poison) ... ok
+test38_no_synthetic_data_on_download_fail (test_contracts.Contracts.test38_no_synthetic_data_on_download_fail) ... ok
+test39_cache_checksum_rejects (test_contracts.Contracts.test39_cache_checksum_rejects) ... ok
+test40_bytecode_free_current_sources (test_contracts.Contracts.test40_bytecode_free_current_sources) ... ok
+test41_native_input_does_not_receive_future_target (test_contracts.Contracts.test41_native_input_does_not_receive_future_target) ... ok
+test42_native_shape_contract (test_contracts.Contracts.test42_native_shape_contract) ... ok
+test43_nogo_is_not_missing_reference (test_contracts.Contracts.test43_nogo_is_not_missing_reference) ... /home/minjae/Documents/github/tsfm-peft-method-screen/experiments/topic_axis_gonogo_v1_20260925/triage/statistics.py:67: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  return float(spearmanr(a[m],b[m]).statistic)
+ok
+test44_no_circular_test_thresholds (test_contracts.Contracts.test44_no_circular_test_thresholds) ... ok
+test45_equal_forecast_information (test_contracts.Contracts.test45_equal_forecast_information) ... ok
+test46_physical_data_dont_enter_package (test_contracts.Contracts.test46_physical_data_dont_enter_package) ... ok
+test47_case_invalid_past_rejected (test_contracts.Contracts.test47_case_invalid_past_rejected) ... ok
+test48_scope_not_peft (test_contracts.Contracts.test48_scope_not_peft) ... ok
+test49_engine_complete_single_topic (test_integration.Integration.test49_engine_complete_single_topic) ... ok
+test50_engine_coordinate_stress (test_integration.Integration.test50_engine_coordinate_stress) ... ok
+test51_engine_missing_native_not_nogo (test_integration.Integration.test51_engine_missing_native_not_nogo) ... ok
+test52_wind_csv_loader_timestamps_and_masks (test_integration.Integration.test52_wind_csv_loader_timestamps_and_masks) ... ok
+test53_wind_archive_does_not_extract_paths (test_integration.Integration.test53_wind_archive_does_not_extract_paths) ... ok
+test54_resp_loader_causal_block_mean (test_integration.Integration.test54_resp_loader_causal_block_mean) ... ok
+test55_git_failed_report_and_unrelated_changes (test_integration.Integration.test55_git_failed_report_and_unrelated_changes) ... ok
+test56_git_existing_index_blocks (test_integration.Integration.test56_git_existing_index_blocks) ... ok
+test57_run_entrypoint_help_is_stdlib (test_integration.Integration.test57_run_entrypoint_help_is_stdlib) ... ok
+test58_numeric_bank_no_test_labels (test_integration.Integration.test58_numeric_bank_no_test_labels) ... ok
+test59_all_topic_error_isolation (test_integration.Integration.test59_all_topic_error_isolation) ... ok
+test60_no_training_import_path (test_integration.Integration.test60_no_training_import_path) ... ok
+
+----------------------------------------------------------------------
+Ran 60 tests in 1.257s
+
+OK

@@ -1,0 +1,60 @@
+{
+  "package_sha256": "5ee94ad17414d76bf463a8d6b9ddc879eeeb167f19736f24626ac10ede05f373",
+  "git_start": {
+    "head": "05768d721bf1d17748baaab3f6de2daf1fd196a0",
+    "branch": "main",
+    "dirty_before": ""
+  },
+  "config": {
+    "package": "topic_axis_gonogo_v1_20260925",
+    "scope": "THREE_DIFFICULTY_AXES_ZERO_SHOT_PILOT_NOT_PEFT_METHOD_VALIDATION",
+    "topics": [
+      "respiration",
+      "coordinates",
+      "wind"
+    ],
+    "device": "auto",
+    "alphas": [
+      0.01,
+      0.1,
+      1.0,
+      10.0,
+      100.0
+    ],
+    "alpha_family": 0.016666666666666666,
+    "min_contrast_groups": 4,
+    "min_agreement": 0.5,
+    "heuristic_notice": "4 groups and .5 agreement are conservative small-pilot triage choices, not validated scientific thresholds; GO is exploratory only",
+    "topic_timeout_seconds": 900,
+    "download_seconds": 600,
+    "download_bytes_per_topic": 1153433600,
+    "package_install": false,
+    "model_download": false,
+    "new_lora_fit": false,
+    "new_peft_fit": false,
+    "code_retry": false,
+    "acquisition": "official data URLs and pinned EqMotion data only; existing SDWPF csv/archive optional by path",
+    "no_go_meaning": "only this finite-sample proxy task; never absence of all information or impossibility of PEFT"
+  },
+  "processes": {
+    "respiration": {
+      "returncode": 3,
+      "elapsed_s": 28.044898394029588
+    },
+    "coordinates": {
+      "returncode": 0,
+      "elapsed_s": 10.838286619982682
+    },
+    "wind": {
+      "returncode": 3,
+      "elapsed_s": 2.0195570020005107
+    }
+  },
+  "elapsed_s": 43.276204310008325,
+  "code_modified": false,
+  "new_lora_fit": 0,
+  "new_peft_fit": 0,
+  "optimizer_updates": 0,
+  "model_downloads": 0,
+  "independence": "topics run independently; technical failure does not reject a hypothesis"
+}
