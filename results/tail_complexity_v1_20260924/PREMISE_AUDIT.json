@@ -1,0 +1,202 @@
+{
+  "contract": "00_MASTER_CLI_tail_complexity_v1_20260924.txt",
+  "contract_sha256": "dec57ecdba0690cbf2877b6cb014372be85151b2c04dd766c4687f2e0dc71ba3",
+  "utc": 1790233820.9836876,
+  "date_local": "2026-09-24 16:10:20",
+  "environment": {
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.16",
+    "executable": "E:\\CODING\\proj\\hierarchical-tsfm-peft\\.venv\\Scripts\\python.exe",
+    "torch_cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 4070",
+    "vram_gib": 12.0,
+    "packages": {
+      "chronos-forecasting": "2.3.2",
+      "torch": "2.10.0+cu128",
+      "peft": "0.21.0",
+      "transformers": "5.17.0",
+      "scipy": "1.17.1",
+      "numpy": "2.4.6",
+      "pandas": "2.3.3",
+      "statsmodels": "0.15.0",
+      "arch": null,
+      "yfinance": null
+    },
+    "contract_claim": "Ubuntu 22.04, RTX 3080 10GB, torch 2.8.0+cu128",
+    "matches_contract": false,
+    "note": "execution environment differs from the contract claim; timings and VRAM are not comparable to it"
+  },
+  "Q1_out_of_grid_equals_099": {
+    "status": "CONFIRMED",
+    "values": {
+      "0.95": 1.6088900566101074,
+      "0.99": 2.6582961082458496,
+      "0.995": 2.6582961082458496,
+      "0.999": 2.6582961082458496
+    },
+    "training_quantiles": [
+      0.01,
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95,
+      0.99
+    ],
+    "n_training_quantiles": 21,
+    "warning_logged": true,
+    "code_citations": {
+      "model_py_260": "self.num_quantiles = len(self.chronos_config.quantiles)",
+      "model_py_268": "out_dim=self.num_quantiles * self.chronos_config.output_patch_size,",
+      "pipeline_predict_quantiles_def": [
+        763
+      ],
+      "pipeline_warning_lines": [
+        807
+      ]
+    },
+    "mechanism": "utils.interpolate_quantiles pads the grid with the max value at level 1.0, so levels above 0.99 return the 0.99 value"
+  },
+  "Q2_intervals_formula": {
+    "status": "CONFIRMED_VS_PUBLIC_IMPLEMENTATION",
+    "max_abs_difference_vs_r_implementation": 0.0,
+    "r_source": "https://rdrr.io/cran/envoutliers/src/R/extremevalue.R (envoutliers::extremal.index.intervals)",
+    "r_code": [
+      "theta = min(1, (2 * (sum(T))^2) / (length(T) * sum(T^2)))",
+      "theta = min(1, (2 * (sum(T - 1))^2) / (length(T) * sum((T - 1) * (T - 2))))"
+    ],
+    "note": "length(T) == N-1 for N exceedances, so the contract formula and the published implementation agree exactly; the original JRSS-B 2003 PDF could not be text-extracted in this environment (poppler/pypdf unavailable), so the primary evidence is the published implementation, not the paper text"
+  },
+  "Q3_armax_extremal_index": {
+    "status": "CONFIRMED",
+    "phi_0.5": {
+      "theta_hat": 0.4954563316926039,
+      "expected": 0.5
+    },
+    "phi_0.9": {
+      "theta_hat": 0.1067140413198801,
+      "expected": 0.09999999999999998
+    },
+    "iid": {
+      "theta_hat": 1.0,
+      "expected": 1.0
+    },
+    "gate": "S0b requires phi=0.5 in [0.45,0.55] and iid in [0.9,1.0]"
+  },
+  "Q4_genpareto_sign": {
+    "status": "CONFIRMED",
+    "fitted_c": 0.21707318359976616,
+    "fitted_scale": 1.0286921047742674,
+    "target_xi": 0.25,
+    "gate": "S0b requires xi_hat in [0.20,0.30]",
+    "convention": "scipy c == GPD shape xi (positive c = heavy tail)"
+  },
+  "Q5_spectral_entropy_definition": {
+    "status": "NOT_VERIFIED",
+    "openreview": "https://openreview.net/forum?id=n8seTOinYs",
+    "fetch_result": "HTTPError: HTTP Error 403: Forbidden",
+    "summary_source": "https://lacuna.tiptreesystems.com/work/time-peft-... (states only: temporal complexity derived from spectral entropy)",
+    "fallback_used": "contract section 2 fallback: standard normalized spectral entropy",
+    "definition_to_use": "Welch periodogram -> p_k = P_k / sum(P_k) over non-DC frequencies; SE = -sum p_k log p_k / log(K); computed on the same series used for difficulty measurement, plus the residual variant as secondary",
+    "consequence": "the claim \"independent of the Time-PEFT axis\" (H2) is weaker because the original definition could not be read"
+  },
+  "Q6_financial_data": {
+    "status": "AVAILABLE_VIA_YAHOO_CHART_API",
+    "wikipedia_sp100": {
+      "bytes": 182103,
+      "sha256": "355d574ab2ec9783c4b89cd215386fc368051762770fcdb7f307884ca9e07393",
+      "candidate_symbols": 0,
+      "sample": [],
+      "url": "https://en.wikipedia.org/wiki/S%26P_100"
+    },
+    "yahoo_chart_api": {
+      "AAPL": {
+        "rows": 5154,
+        "adjclose": true,
+        "nan_fraction": 0.0,
+        "first": "2005-01-03T14:30:00",
+        "last": "2025-06-27T13:30:00",
+        "sha256": "d74bdfd03dcbfbd1e4bc1e168104ed15086f02df5ae4555bd3fb21485a1c35bb"
+      },
+      "XOM": {
+        "rows": 5154,
+        "adjclose": true,
+        "nan_fraction": 0.0,
+        "first": "2005-01-03T14:30:00",
+        "last": "2025-06-27T13:30:00",
+        "sha256": "cfdafadc4236dd2987207ebc50c844747a28ac2c5324978b5438af980c82e488"
+      },
+      "JPM": {
+        "rows": 5154,
+        "adjclose": true,
+        "nan_fraction": 0.0,
+        "first": "2005-01-03T14:30:00",
+        "last": "2025-06-27T13:30:00",
+        "sha256": "bfd30cebbe9f98acb51ad2879493c8492964975aeb1b9f86973a3eda3828ced8"
+      }
+    },
+    "stooq": {
+      "bytes": 796,
+      "usable": false,
+      "note": "JS challenge page returned"
+    },
+    "packages": {
+      "yfinance": null,
+      "pandas_datareader": null
+    },
+    "note": "no data package is installed; the audit fetched the public Yahoo chart endpoint directly over HTTPS"
+  },
+  "Q7_arch_package": {
+    "status": "MISSING",
+    "version": null,
+    "needed_for": "S2 references: AR(1)-GARCH(1,1)-t and the conditional-EVT filter (contract section 6.1)",
+    "consequence": "S2 cannot run its reference models until this is resolved"
+  },
+  "Q8_fit_prediction_length_1": {
+    "status": "CONFIRMED",
+    "seconds": 3.3305215000291355,
+    "num_steps": 2,
+    "peak_vram_gib": 1.02,
+    "returned": "Chronos2Pipeline",
+    "note": "throwaway smoke fit; not part of the 14-fit budget"
+  },
+  "gate_section_12": {
+    "files_and_functions": "PASS: chronos 2.3.2 model.py/pipeline.py citations resolve; Chronos2Pipeline.fit accepts every argument named in section 6.1",
+    "numeric_premises": "PASS for Q1/Q3/Q4 (see above); Q5 unverified, Q7 missing, environment differs",
+    "leakage_design": "PENDING: to be re-checked per stage in S0f",
+    "outputs_absent": {
+      "results": [],
+      "experiments": [
+        "00_MASTER_CLI_tail_complexity_v1_20260924.txt",
+        "premise_audit.py"
+      ]
+    },
+    "repo": {
+      "head": "ab2d1a7c523566fff3469da1587cf46afe813d5b",
+      "branch": "main",
+      "untracked_leftover": [
+        "?? chronos-2-finetuned/",
+        "?? experiments/internal_adaptation_gap_v1_20260922/",
+        "?? experiments/tail_complexity_v1_20260924/"
+      ]
+    }
+  },
+  "blocking": [
+    "Q7_arch_package"
+  ],
+  "verdict": "PREMISES_OK_EXCEPT_Q7_arch_package"
+}
