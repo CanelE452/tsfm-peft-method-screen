@@ -1,0 +1,62 @@
+test_01_schedule_matches_published_hashes (recheck.tests.DataContracts.test_01_schedule_matches_published_hashes) ... ok
+test_02_boundary_uses_preceding_interval (recheck.tests.DataContracts.test_02_boundary_uses_preceding_interval) ... ok
+test_03_no_plan_for_t0_or_beyond_end (recheck.tests.DataContracts.test_03_no_plan_for_t0_or_beyond_end) ... ok
+test_04_context_endpoints_inclusive (recheck.tests.DataContracts.test_04_context_endpoints_inclusive) ... ok
+test_05_older_target_cannot_enter_features (recheck.tests.DataContracts.test_05_older_target_cannot_enter_features) ... ok
+test_06_older_command_cannot_enter_features_or_age (recheck.tests.DataContracts.test_06_older_command_cannot_enter_features_or_age) ... ok
+test_07_future_targets_not_in_features (recheck.tests.DataContracts.test_07_future_targets_not_in_features) ... ok
+test_08_future_realized_command_not_used_as_plan (recheck.tests.DataContracts.test_08_future_realized_command_not_used_as_plan) ... ok
+test_09_plan_changes_every_arm (recheck.tests.DataContracts.test_09_plan_changes_every_arm) ... ok
+test_10_common_plan_prefix_identical (recheck.tests.DataContracts.test_10_common_plan_prefix_identical) ... ok
+test_11_no_out_of_context_named_lags (recheck.tests.DataContracts.test_11_no_out_of_context_named_lags) ... ok
+test_12_censored_age_not_full_episode_age (recheck.tests.DataContracts.test_12_censored_age_not_full_episode_age) ... ok
+test_13_future_target_does_not_change_panels (recheck.tests.DataContracts.test_13_future_target_does_not_change_panels) ... ok
+test_14_upcoming_change_not_called_settled (recheck.tests.DataContracts.test_14_upcoming_change_not_called_settled) ... ok
+test_15_exact_future_horizon_and_grid (recheck.tests.DataContracts.test_15_exact_future_horizon_and_grid) ... ok
+test_16_reserve_refused_before_open (recheck.tests.DataContracts.test_16_reserve_refused_before_open) ... ok
+test_17_dev_refused_before_seal (recheck.tests.DataContracts.test_17_dev_refused_before_seal) ... ok
+test_18_hash_mismatch_refused (recheck.tests.DataContracts.test_18_hash_mismatch_refused) ... ok
+test_19_symlink_source_refused (recheck.tests.DataContracts.test_19_symlink_source_refused) ... ok
+test_20_all_five_dimensions_and_labels (recheck.tests.DataContracts.test_20_all_five_dimensions_and_labels) ... ok
+TRAIN SUPPLY_15M
+TRAIN SUPPLY_30M
+TRAIN ZONE_60M
+TRAIN ZONE_120M
+TRAIN ZONE_360M
+DEV 5 SUPPLY_15M
+DEV 5 SUPPLY_30M
+DEV 5 ZONE_60M
+DEV 5 ZONE_120M
+DEV 5 ZONE_360M
+DEV 6 SUPPLY_15M
+DEV 6 SUPPLY_30M
+DEV 6 ZONE_60M
+DEV 6 ZONE_120M
+DEV 6 ZONE_360M
+test_29_engine_completed_without_gate (recheck.tests.EndToEndContracts.test_29_engine_completed_without_gate) ... ok
+test_30_reserve_not_opened_and_dev_after_seal (recheck.tests.EndToEndContracts.test_30_reserve_not_opened_and_dev_after_seal) ... ok
+test_31_nested_selection_never_uses_outer_holdout (recheck.tests.EndToEndContracts.test_31_nested_selection_never_uses_outer_holdout) ... ok
+test_32_no_candidate_selection_all_tasks (recheck.tests.EndToEndContracts.test_32_no_candidate_selection_all_tasks) ... ok
+test_33_predictions_independently_replay (recheck.tests.EndToEndContracts.test_33_predictions_independently_replay) ... ok
+test_34_budget_true_attempt_counts (recheck.tests.EndToEndContracts.test_34_budget_true_attempt_counts) ... ok
+test_35_empty_panels_no_nan_no_fake_zero (recheck.tests.EndToEndContracts.test_35_empty_panels_no_nan_no_fake_zero) ... ok
+test_36_invalid_seal_cannot_authorize_dev (recheck.tests.EndToEndContracts.test_36_invalid_seal_cannot_authorize_dev) ... ok
+test_37_frozen_model_hashes_match_seal (recheck.tests.EndToEndContracts.test_37_frozen_model_hashes_match_seal) ... ok
+test_38_all_negative_is_not_information_absence (recheck.tests.EndToEndContracts.test_38_all_negative_is_not_information_absence) ... ok
+test_39_fixed_alpha_comparison_retained (recheck.tests.EndToEndContracts.test_39_fixed_alpha_comparison_retained) ... ok
+test_40_temporal_overlap_rejected (recheck.tests.EndToEndContracts.test_40_temporal_overlap_rejected) ... ok
+test_41_local_bare_push_exact_scope_preserves_unrelated (recheck.tests.PublicationContracts.test_41_local_bare_push_exact_scope_preserves_unrelated) ... ok
+test_42_existing_staged_change_refused (recheck.tests.PublicationContracts.test_42_existing_staged_change_refused) ... ok
+test_21_svd_matches_normal_equations (recheck.tests.RidgeContracts.test_21_svd_matches_normal_equations) ... ok
+test_22_rank_deficient_more_columns_than_rows (recheck.tests.RidgeContracts.test_22_rank_deficient_more_columns_than_rows) ... ok
+test_23_standardization_training_only (recheck.tests.RidgeContracts.test_23_standardization_training_only) ... ok
+test_24_zero_variance_and_constant_target (recheck.tests.RidgeContracts.test_24_zero_variance_and_constant_target) ... ok
+test_25_alpha_tie_prefers_stronger (recheck.tests.RidgeContracts.test_25_alpha_tie_prefers_stronger) ... ok
+test_26_exact_model_save_restore (recheck.tests.RidgeContracts.test_26_exact_model_save_restore) ... ok
+test_27_sklearn_parity_if_installed (recheck.tests.RidgeContracts.test_27_sklearn_parity_if_installed) ... ok
+test_28_invalid_values_raise (recheck.tests.RidgeContracts.test_28_invalid_values_raise) ... ok
+
+----------------------------------------------------------------------
+Ran 42 tests in 1.446s
+
+OK

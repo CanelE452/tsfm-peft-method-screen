@@ -1,0 +1,52 @@
+{
+  "scope": "AUTHOR_TESTS_ONLY; actual BOPTEST re-evaluation NOT_RUN",
+  "unit_tests": {
+    "run": 42,
+    "passed": 42,
+    "failed": 0,
+    "skipped": 0
+  },
+  "compiled_python_files": 10,
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "numpy": "2.3.5",
+  "scikit_learn_reference": "1.8.0",
+  "ridge_reference": "SVD solver compared against normal equations and sklearn Ridge; tolerances fixed before tests",
+  "full_shape_fixture": {
+    "scope": "SYNTHETIC_INTERFACE_FIXTURE_ONLY_NOT_BOPTEST",
+    "native_boptest_refit": "NOT_RUN_IN_AUTHOR_RUNTIME",
+    "testcase_shapes": "same 5 physical-time configurations; synthetic scalar values",
+    "elapsed_seconds": 4.500168737000195,
+    "counts": {
+      "ridge_fit_attempts": 537,
+      "ridge_fit_completed": 537,
+      "svd_attempts": 120,
+      "svd_completed": 120,
+      "neural_fit": 0,
+      "optimizer_updates": 0,
+      "simulation_calls": 0,
+      "reserve_measurement_files_opened": 0
+    },
+    "all_prediction_replays_passed": true,
+    "n_replays": 25,
+    "public_bytes": 4806797,
+    "peak_rss_kib": 139580,
+    "reserve_opened": false
+  },
+  "source_boptest_measurement_bytes_available_in_author_runtime": false,
+  "actual_BOPTEST_regression_scores": "NOT_COMPUTED_HERE; CLI executes the pinned files on Ubuntu",
+  "github_publication_from_author_runtime": false,
+  "git_test": "local temporary bare Git: exact allowlist, ignored *.log, failure report push, unrelated worktree preserved; staged user changes refused",
+  "scope_note": "Tests ran more than once during development. These counts describe the final validation runs, NOT cumulative development compute. No actual-data or neural fit was performed here.",
+  "code_sha256": {
+    "execute.py": "b1e792c79f7703459baf565938c7373a5168f1f3b3b7370739aa3e095969f5ba",
+    "recheck/__init__.py": "7e9dcc1c23fe84be3dd7cf9b71350e4dcb9038f6667720830f42f94c83de1f0e",
+    "recheck/common.py": "2d11d54e61942e13c45069d73d56e259be25495e4aa553c5f71de9e3ccc9ab26",
+    "recheck/data.py": "f6033ce7cdf032a86c402e840445c4f42f06d28aa337f9673d6414787c79ad61",
+    "recheck/engine.py": "0e79f1f24508f9ef2dd038e3f887f850afbd5a6bff333d7bcce00e507273659f",
+    "recheck/evaluate.py": "9aca9cebb0c498ae8c4a8304acb4c3ad4b5f23f05aa37a4ad24995a4949b9679",
+    "recheck/gitops.py": "4e307eede236fd2d9c6cee22c76e4d3f0ce65d28e18108c1548f5c4d6e2f4cd7",
+    "recheck/ridge.py": "48ba1ad44c390a0a4db0b156bd9d69fc05bf2019d511a8ec8ced3e960777ab62",
+    "recheck/tests.py": "85c3ad76eae32e1005078eeb4e86d857ad752f6cf022d5f6907071020e78fba4",
+    "recheck/worker.py": "b9164844425a5f29233bf83e699394e95cb638aec1c50d83fa1bcc596821c67b"
+  }
+}

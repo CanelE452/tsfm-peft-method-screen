@@ -1,0 +1,227 @@
+{
+  "package_name": "transient_recheck_v2_20260924",
+  "version": "2.0.0",
+  "purpose": "BOUNDED_RETROSPECTIVE_INFORMATION_CONTRACT_RECHECK",
+  "repository": "CanelE452/tsfm-peft-method-screen",
+  "reviewed_main": "bdd91d2172df77bfad8ac04209dbe44bfcdf7edb",
+  "source_commit": "948134f36a49300f6ca0c405f4757760d8f0cfdc",
+  "source_result": "results/transient_difficulty_screen_v1_20260924/run_20260924T075030Z",
+  "source_experiment": "experiments/transient_difficulty_screen_v1_20260924",
+  "source_data": {
+    "0": {
+      "relative_path": "results/transient_difficulty_screen_v1_20260924/run_20260924T075030Z/episodes/episode_00.csv.gz",
+      "sha256": "55e98f1d1d8ddeb9027313ffd73fa7eed5bd43c7330dd50562db46246d05dad1",
+      "schedule_sha256": "6d8ce98da98b7900255d66e90be3184c5b35e4f3be87f714fbd42a91e27b090f",
+      "start_day": 8,
+      "n_samples": 2881,
+      "dt_s": 30
+    },
+    "1": {
+      "relative_path": "results/transient_difficulty_screen_v1_20260924/run_20260924T075030Z/episodes/episode_01.csv.gz",
+      "sha256": "e6466b27a4a64204f4966b2b9a57421b47a2ba468579e8b94c51e4f99b280aae",
+      "schedule_sha256": "4b89217296621d19820cb58bd0b469a6489f7f3ac038746f7e2d1e54a9aa4350",
+      "start_day": 12,
+      "n_samples": 2881,
+      "dt_s": 30
+    },
+    "2": {
+      "relative_path": "results/transient_difficulty_screen_v1_20260924/run_20260924T075030Z/episodes/episode_02.csv.gz",
+      "sha256": "9d33ba8c0f8c24bf8dc4f734e47fbfa56c0dcd1d1a0a15f490329b12eaa07ce4",
+      "schedule_sha256": "1370b23729fe53b6f0971cc6539df59ecce17523fae230ad1d7dfdac0b204d16",
+      "start_day": 16,
+      "n_samples": 2881,
+      "dt_s": 30
+    },
+    "3": {
+      "relative_path": "results/transient_difficulty_screen_v1_20260924/run_20260924T075030Z/episodes/episode_03.csv.gz",
+      "sha256": "0b88df7954909dd59be15ab824290f2380fe32f495b8b6325ec9927fa6407ace",
+      "schedule_sha256": "6587bc13cc7ddb0265d84b477c85319e59e0280d2a1002204f4e82f2515f6051",
+      "start_day": 20,
+      "n_samples": 2881,
+      "dt_s": 30
+    },
+    "4": {
+      "relative_path": "results/transient_difficulty_screen_v1_20260924/run_20260924T075030Z/episodes/episode_04.csv.gz",
+      "sha256": "8c2048884ceefa227287166552957b245f309f3311bfc53c1ef3a89ad9870396",
+      "schedule_sha256": "9e0dc1f44db391248352c468ff730bc35172048b097348cafaf1decbce39a2ef",
+      "start_day": 24,
+      "n_samples": 2881,
+      "dt_s": 30
+    },
+    "5": {
+      "relative_path": "results/transient_difficulty_screen_v1_20260924/run_20260924T075030Z/episodes/episode_05.csv.gz",
+      "sha256": "141d829a71b81e8a161d3018f273663a1539bd61ea93b0a4127236aefe207819",
+      "schedule_sha256": "e205b127208c7528ffc4c1a6a373a4aaadac9132529b4365bc5d480e86e21f18",
+      "start_day": 28,
+      "n_samples": 2881,
+      "dt_s": 30
+    },
+    "6": {
+      "relative_path": "results/transient_difficulty_screen_v1_20260924/run_20260924T075030Z/episodes/episode_06.csv.gz",
+      "sha256": "22f62caa88f3eb3f2c95a5df4016d05f7dbc2dd312259aabc61b34e5434368f3",
+      "schedule_sha256": "21381ca8d8a1efa2f722d76fc1c9a6efd32d16e89a867a629505e30bbec53084",
+      "start_day": 32,
+      "n_samples": 2881,
+      "dt_s": 30
+    }
+  },
+  "train_episodes": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "dev_episodes": [
+    5,
+    6
+  ],
+  "never_open_episodes": [
+    7
+  ],
+  "candidates": [
+    {
+      "name": "SUPPLY_15M",
+      "target": "reaTSup_y",
+      "sample_s": 30,
+      "context_s": 7200,
+      "horizon_s": 900,
+      "origin_stride_s": 600
+    },
+    {
+      "name": "SUPPLY_30M",
+      "target": "reaTSup_y",
+      "sample_s": 30,
+      "context_s": 7200,
+      "horizon_s": 1800,
+      "origin_stride_s": 600
+    },
+    {
+      "name": "ZONE_60M",
+      "target": "reaTZon_y",
+      "sample_s": 300,
+      "context_s": 43200,
+      "horizon_s": 3600,
+      "origin_stride_s": 1800
+    },
+    {
+      "name": "ZONE_120M",
+      "target": "reaTZon_y",
+      "sample_s": 300,
+      "context_s": 43200,
+      "horizon_s": 7200,
+      "origin_stride_s": 1800
+    },
+    {
+      "name": "ZONE_360M",
+      "target": "reaTZon_y",
+      "sample_s": 300,
+      "context_s": 43200,
+      "horizon_s": 21600,
+      "origin_stride_s": 1800
+    }
+  ],
+  "arms": [
+    "CURRENT_PLAN",
+    "HISTORY_SUMMARY_PLAN",
+    "HISTORY_LAGS_PLAN"
+  ],
+  "alpha_grid": [
+    0.01,
+    0.1,
+    1.0,
+    10.0,
+    100.0,
+    1000.0,
+    10000.0
+  ],
+  "fixed_alpha_control": 1.0,
+  "inner_validation": "expanding episode prefix -> next episode, TRAIN only",
+  "outer_train_holdouts": [
+    2,
+    3,
+    4
+  ],
+  "alpha_selection": "equal-episode ALL-origin MAE; exact tie picks larger alpha",
+  "candidate_selection": "NONE; all five predeclared candidates reported, DEV never chooses a winner",
+  "transform_fit": "training partition only, population std, zero-variance cutoff 1e-12",
+  "target_lags_s": [
+    300,
+    900,
+    1800,
+    3600,
+    7200,
+    14400,
+    28800
+  ],
+  "target_summary_windows_s": [
+    600,
+    1800,
+    3600,
+    7200
+  ],
+  "command_summary_windows_s": [
+    1800,
+    7200,
+    21600
+  ],
+  "context_boundary": "inclusive [origin-context_s,origin]; no clamping/repeating unavailable lags",
+  "recent_window_s": {
+    "SUPPLY_15M": 900,
+    "SUPPLY_30M": 900,
+    "ZONE_60M": 3600,
+    "ZONE_120M": 3600,
+    "ZONE_360M": 3600
+  },
+  "panels": [
+    "ALL",
+    "RECENT_OR_PLANNED_CHANGE",
+    "RECENT_PAST_CHANGE",
+    "CHANGE_IN_PLAN",
+    "NO_RECENT_OR_PLANNED_CHANGE",
+    "MULTIPLE_CHANGES_IN_CONTEXT"
+  ],
+  "panel_note": "Operational window definitions, NOT estimated physical tau or proven complexity. No thresholds tuned on errors.",
+  "schedule": {
+    "seed_base": 926240,
+    "n_control_steps": 288,
+    "control_step_s": 300,
+    "levels": [
+      0.0,
+      0.35,
+      0.7,
+      1.0
+    ],
+    "dwell_steps": [
+      6,
+      12,
+      18,
+      24,
+      36
+    ]
+  },
+  "sampling": "point selection only; no interpolation; target endpoint t+h, applied input over preceding interval",
+  "future_information": "reconstructed prescheduled command only; no future observations/weather",
+  "interpretation": "observational incremental value of specified predictor representations, not causal identification or PEFT gain",
+  "budgets": {
+    "threads": 2,
+    "worker_timeout_s": 1800,
+    "max_fit_attempts": 540,
+    "max_svd_attempts": 180,
+    "max_public_mib": 64,
+    "max_private_mib": 128,
+    "max_episode_compressed_mib": 4,
+    "max_episode_decompressed_mib": 16
+  },
+  "forbidden": {
+    "new_simulations": true,
+    "torch_or_chronos_runs": true,
+    "lora_or_peft_fits": true,
+    "reserve_open_or_score": true,
+    "automatic_rerun": true,
+    "package_install": true,
+    "network_except_git_publish": true
+  },
+  "decisions": "Descriptive only: sign per episode, MAE difference and support. No arbitrary 2%/rho gate, no NO_HISTORY_SIGNAL token.",
+  "origin_grid": "preserve v1 grid C-dt+k*stride; discard origins without a full inclusive C-second history"
+}

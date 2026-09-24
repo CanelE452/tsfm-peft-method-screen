@@ -1,0 +1,47 @@
+{
+  "started": "2026-09-24T11:21:30.694775+00:00",
+  "kind": "BOUNDED_RETROSPECTIVE_INFORMATION_CONTRACT_RECHECK",
+  "config_sha256": "1d992c16660a6f5b96c741befabe71ac99d792361786392c6c464a999944514d",
+  "source_commit": "948134f36a49300f6ca0c405f4757760d8f0cfdc",
+  "source_result": "results/transient_difficulty_screen_v1_20260924/run_20260924T075030Z",
+  "python": "3.11.15 (main, Jun  2 2026, 22:26:03) [Clang 22.1.3 ]",
+  "numpy": "2.4.6",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "results_are_retrospective": true,
+  "reserve_open_or_scoring_allowed": false,
+  "future_plan_provenance": "deterministic plan reconstruction, not operational issue-time log",
+  "alphas": [
+    0.01,
+    0.1,
+    1.0,
+    10.0,
+    100.0,
+    1000.0,
+    10000.0
+  ],
+  "scope": "Ridge only; no simulator, Chronos, torch, LoRA or TMD",
+  "prior_negative_result_preserved": true,
+  "status": "COMPLETED",
+  "finished": "2026-09-24T11:21:34.206167+00:00",
+  "elapsed_seconds": 3.5115844040410593,
+  "actual_counts": {
+    "ridge_fit_attempts": 531,
+    "ridge_fit_completed": 531,
+    "svd_attempts": 120,
+    "svd_completed": 120,
+    "neural_fit": 0,
+    "optimizer_updates": 0,
+    "simulation_calls": 0,
+    "reserve_measurement_files_opened": 0
+  },
+  "opened_episodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "unit_tests_excluded_from_fit_counts": true
+}

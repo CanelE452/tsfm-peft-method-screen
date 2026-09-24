@@ -1,0 +1,27 @@
+작업: 작성자가 제공한 고정 ZIP 실행·GitHub 게시. CLI는 코드 작성·수정·결과 해석을 하지 않는다.
+
+대상은 CanelE452/tsfm-peft-method-screen의 BOPTEST 전환 이력 재검증이다.
+다른 최근 연구 트랙을 변경하지 않는다. 이전 v1 부정 결과·원자료·v5를 보존한다.
+이번은 새 시뮬레이션이나 PEFT 학습이 아니다. 기존 episode 0~6만 사용하는 제한된 회귀 재평가다.
+
+1. 새 ZIP을 저장소 밖의 새 경로에 압축 해제한다. 기존 ZIP·해제본을 고치거나 덮어쓰지 않는다.
+2. 실제 tsfm-peft-method-screen 로컬 Git 루트로 이동한다. 임의 pull/rebase/reset/stash/checkout 금지.
+3. 아래 명령을 정확히 한 번 실행한다. 압축해제경로만 실제 값으로 바꾼다.
+
+python3 -B /실제/압축해제경로/transient_recheck_v2_20260924/execute.py --repo "$PWD" --publish
+
+4. .py, manifest, 설정, alpha, split, 특징, 패널, 평가 기준을 변경하지 않는다. 실패를 성공시키기 위한 재실행 금지.
+5. 원자료 episode 7은 열거나 해시 계산하거나 채점하지 않는다. 누락 파일을 다시 수집하거나 다른 파일로 대체하지 않는다.
+6. 패키지 설치·모델 다운로드·Docker/API 호출·GPU·Chronos/F0 추론·LoRA/PEFT 학습을 하지 않는다.
+7. 기존 staged 변경이나 local/remote HEAD 차이가 있으면 스크립트가 막는다. 강제 해결하지 말고 receipt를 전달한다.
+8. 스크립트는 성공·실패 모두 안전한 범위에서 패키지와 작은 결과만 commit·push한다.
+   무관한 파일 git add, 직접 commit, force-push, 결과 삭제·수정 금지.
+9. 마지막에 다음만 전달한다.
+   - 실제 실행 명령과 종료 코드
+   - 압축해제 폴더 바깥 EXECUTION_RECEIPT.json
+   - commit SHA / push 확인 상태 / 결과의 저장소 상대경로
+   - 최초 오류와 원시 로그 경로 또는 FINAL_DECISION.json의 실행 상태
+   - 새 시뮬레이션 0 / neural fit 0 / reserve access 0 여부
+
+42개 self-test는 합성 fixture와 로컬 임시 bare Git만 사용한다. 사용자 실험 결과가 아니다.
+Ridge 재검증 정상 종료도 PEFT 성공이나 정보 가치 확인을 뜻하지 않는다. 분석은 ChatGPT에서 한다.
