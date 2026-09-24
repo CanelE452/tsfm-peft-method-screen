@@ -1,0 +1,103 @@
+{
+  "run_id": "run_20260924T075030Z",
+  "head_at_start": "ab2d1a7c523566fff3469da1587cf46afe813d5b",
+  "config": {
+    "name": "transient_difficulty_screen_v1_20260924",
+    "kind": "DIFFICULTY_DISCOVERY_NOT_PEFT_TRAINING",
+    "testcase": "bestest_hydronic_heat_pump",
+    "boptest_url": "http://127.0.0.1:8000",
+    "episode_hours": 24,
+    "control_step_s": 300,
+    "warmup_s": 86400,
+    "episode_start_days": [
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36
+    ],
+    "splits": {
+      "train": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "dev": [
+        5,
+        6
+      ],
+      "reserve": [
+        7
+      ]
+    },
+    "schedule_seed_base": 926240,
+    "candidate_configs": [
+      {
+        "name": "SUPPLY_15M",
+        "target": "reaTSup_y",
+        "sample_s": 30,
+        "context_s": 7200,
+        "horizon_s": 900,
+        "origin_stride_s": 600
+      },
+      {
+        "name": "SUPPLY_30M",
+        "target": "reaTSup_y",
+        "sample_s": 30,
+        "context_s": 7200,
+        "horizon_s": 1800,
+        "origin_stride_s": 600
+      },
+      {
+        "name": "ZONE_60M",
+        "target": "reaTZon_y",
+        "sample_s": 300,
+        "context_s": 43200,
+        "horizon_s": 3600,
+        "origin_stride_s": 1800
+      },
+      {
+        "name": "ZONE_120M",
+        "target": "reaTZon_y",
+        "sample_s": 300,
+        "context_s": 43200,
+        "horizon_s": 7200,
+        "origin_stride_s": 1800
+      },
+      {
+        "name": "ZONE_360M",
+        "target": "reaTZon_y",
+        "sample_s": 300,
+        "context_s": 43200,
+        "horizon_s": 21600,
+        "origin_stride_s": 1800
+      }
+    ],
+    "ridge_alpha": 1.0,
+    "train_gate": {
+      "min_mean_history_gain_pct": 2.0,
+      "min_positive_train_folds": 4
+    },
+    "dev_gate": {
+      "require_positive_each_dev_episode": true
+    },
+    "f0_max_origins_total": 64,
+    "chronos_device": "cpu",
+    "chronos_dtype": "float32",
+    "threads": 2,
+    "network_download_allowed": false,
+    "package_install_allowed": false,
+    "new_peft_fit_allowed": false,
+    "reserve_scoring_allowed": false,
+    "max_wall_minutes": 90
+  },
+  "research_fit": 0,
+  "lora_fit": 0,
+  "peft_fit": 0,
+  "reserve_scored": false
+}

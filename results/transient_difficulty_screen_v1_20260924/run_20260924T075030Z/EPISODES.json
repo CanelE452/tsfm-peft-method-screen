@@ -1,0 +1,93 @@
+{
+  "episodes": [
+    {
+      "episode": 0,
+      "start_day": 8,
+      "n_samples": 2881,
+      "stored_dt_s": 30.0,
+      "n_transitions": 14,
+      "schedule_sha256": "6d8ce98da98b7900255d66e90be3184c5b35e4f3be87f714fbd42a91e27b090f",
+      "file_sha256": "55e98f1d1d8ddeb9027313ffd73fa7eed5bd43c7330dd50562db46246d05dad1"
+    },
+    {
+      "episode": 1,
+      "start_day": 12,
+      "n_samples": 2881,
+      "stored_dt_s": 30.0,
+      "n_transitions": 17,
+      "schedule_sha256": "4b89217296621d19820cb58bd0b469a6489f7f3ac038746f7e2d1e54a9aa4350",
+      "file_sha256": "e6466b27a4a64204f4966b2b9a57421b47a2ba468579e8b94c51e4f99b280aae"
+    },
+    {
+      "episode": 2,
+      "start_day": 16,
+      "n_samples": 2881,
+      "stored_dt_s": 30.0,
+      "n_transitions": 13,
+      "schedule_sha256": "1370b23729fe53b6f0971cc6539df59ecce17523fae230ad1d7dfdac0b204d16",
+      "file_sha256": "9d33ba8c0f8c24bf8dc4f734e47fbfa56c0dcd1d1a0a15f490329b12eaa07ce4"
+    },
+    {
+      "episode": 3,
+      "start_day": 20,
+      "n_samples": 2881,
+      "stored_dt_s": 30.0,
+      "n_transitions": 18,
+      "schedule_sha256": "6587bc13cc7ddb0265d84b477c85319e59e0280d2a1002204f4e82f2515f6051",
+      "file_sha256": "0b88df7954909dd59be15ab824290f2380fe32f495b8b6325ec9927fa6407ace"
+    },
+    {
+      "episode": 4,
+      "start_day": 24,
+      "n_samples": 2881,
+      "stored_dt_s": 30.0,
+      "n_transitions": 16,
+      "schedule_sha256": "9e0dc1f44db391248352c468ff730bc35172048b097348cafaf1decbce39a2ef",
+      "file_sha256": "8c2048884ceefa227287166552957b245f309f3311bfc53c1ef3a89ad9870396"
+    },
+    {
+      "episode": 5,
+      "start_day": 28,
+      "n_samples": 2881,
+      "stored_dt_s": 30.0,
+      "n_transitions": 15,
+      "schedule_sha256": "e205b127208c7528ffc4c1a6a373a4aaadac9132529b4365bc5d480e86e21f18",
+      "file_sha256": "141d829a71b81e8a161d3018f273663a1539bd61ea93b0a4127236aefe207819"
+    },
+    {
+      "episode": 6,
+      "start_day": 32,
+      "n_samples": 2881,
+      "stored_dt_s": 30.0,
+      "n_transitions": 17,
+      "schedule_sha256": "21381ca8d8a1efa2f722d76fc1c9a6efd32d16e89a867a629505e30bbec53084",
+      "file_sha256": "22f62caa88f3eb3f2c95a5df4016d05f7dbc2dd312259aabc61b34e5434368f3"
+    },
+    {
+      "episode": 7,
+      "start_day": 36,
+      "n_samples": 2881,
+      "stored_dt_s": 30.0,
+      "n_transitions": 19,
+      "schedule_sha256": "1fd21ddeeac976208691f14c867da42401e40aee584b2f582850a880e502c0a4",
+      "file_sha256": "dfd68fb029c4a5c0b2b70b9fca0e90a4edad632a3d95a63eee087cd56bc44f11"
+    }
+  ],
+  "splits": {
+    "train": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "dev": [
+      5,
+      6
+    ],
+    "reserve": [
+      7
+    ]
+  },
+  "reserve_note": "episode 7 collected and hashed only; analysis code never opens it"
+}

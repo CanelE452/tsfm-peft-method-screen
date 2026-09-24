@@ -1,0 +1,14 @@
+작업 유형: 고정 ZIP 실행·결과 게시. 코드 작성·수정·재해석 금지.
+
+1. ZIP을 저장소 밖 새 폴더에 압축 해제한다.
+2. CanelE452/tsfm-peft-method-screen 로컬 저장소 루트로 이동한다.
+3. 아래를 정확히 한 번 실행한다. 압축해제경로만 바꾼다.
+
+python3 /실제/압축해제경로/transient_difficulty_screen_v1_20260924/execute.py --repo "$PWD" --publish
+
+4. `.py`, RUN_CONFIG.json, split, target/horizon 후보, threshold, seed, ridge alpha, schedule 수정 금지.
+5. 패키지 설치·모델 다운로드·LR/seed 탐색·LoRA/PEFT 학습·RESERVE scoring 금지.
+6. 로컬 BOPTEST가 꺼져 있으면 패키지가 기존 sibling project1-boptest에서 `docker compose up -d --no-build web worker provision`을 한 번만 시도한다. 실패하면 코드 수정 없이 실패 결과를 남긴다.
+7. exit code가 0이 아니어도 성공시키려고 수정/재실행하지 않는다.
+8. 결과 해석·주제 변경·새 코드 제작은 하지 않는다. 분석은 ChatGPT에서 한다.
+9. 마지막에는 실행 명령/종료코드, commit SHA/push 상태, 결과 상대경로, FINAL_DECISION token, research fit 0/LoRA fit 0/reserve scoring 0 여부만 전달한다.
