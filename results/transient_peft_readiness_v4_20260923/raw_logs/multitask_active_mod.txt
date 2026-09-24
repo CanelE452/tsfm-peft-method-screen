@@ -1,0 +1,15 @@
+  [PASS] 4_same_task_rows_share_state
+  [PASS] 5_different_task_rows_differ
+  [PASS] 1_row_permutation_invariance
+  [PASS] 2_taskB_change_does_not_affect_taskA
+  [PASS] 3_taskA_command_changes_taskA
+  [PASS] 6_patch_boundary_impulse
+  [PASS] 7_no_state_carryover
+  [PASS] D_rows_equals_tokens_counterexample
+  -> 8/8
+
+Loading weights:   0%|          | 0/170 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 170/170 [00:00<00:00, 13591.39it/s]
+/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/transient_peft_readiness_v4_20260923/test_multitask_active_mod.py:35: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:835.)
+  same = float((c_rows[0]-c_rows[1]).abs().max())

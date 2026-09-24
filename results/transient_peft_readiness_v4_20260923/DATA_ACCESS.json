@@ -1,0 +1,83 @@
+{
+  "checked_utc": "2026-09-23T14:22:09.758628+00:00",
+  "trigger": "사용자가 직접 GET https://api.boptest.net/testcases 를 실행해 같은 실패를 확인했고, 원인이 우리 망인지 서비스인지 가르기 위해 1회 진단했다. 반복 polling 이 아니다.",
+  "status": "DATA_ACCESS_BLOCKED",
+  "reason_code": "UPSTREAM_DNS_ZONE_UNSERVED",
+  "previous_reason_code": "DNS_RESOLUTION_FAILED",
+  "evidence": [
+    {
+      "check": "일반 도메인 해석 (시스템 resolver)",
+      "result": "github.com / pypi.org / huggingface.co 전부 정상",
+      "means": "이 PC 의 DNS 자체는 살아 있다"
+    },
+    {
+      "check": "getent hosts api.boptest.net / boptest.net / www.boptest.net",
+      "result": "전부 실패",
+      "means": "서브도메인이 아니라 apex 도메인 단위로 안 잡힌다"
+    },
+    {
+      "check": "dig api.boptest.net (시스템 resolver)",
+      "result": "SERVFAIL"
+    },
+    {
+      "check": "dig +cd api.boptest.net (DNSSEC 검증 해제)",
+      "result": "SERVFAIL",
+      "means": "우리 쪽 DNSSEC 검증 실패가 원인이 아니다"
+    },
+    {
+      "check": "dig +trace boptest.net",
+      "result": ".net 은 sima.ns.cloudflare.com / logan.ns.cloudflare.com 으로 위임",
+      "means": "등록 자체는 살아 있다"
+    },
+    {
+      "check": "dig @logan.ns.cloudflare.com api.boptest.net",
+      "result": "REFUSED"
+    },
+    {
+      "check": "dig @sima.ns.cloudflare.com api.boptest.net",
+      "result": "REFUSED",
+      "means": "권한 서버 두 대가 모두 이 zone 을 서빙하지 않는다 (dangling delegation)"
+    },
+    {
+      "check": "dig @logan.ns.cloudflare.com cloudflare.com (대조군)",
+      "result": "NOERROR",
+      "means": "그 서버는 정상 동작한다. boptest.net zone 만 없다"
+    },
+    {
+      "check": "dig api.dev.boptest.net",
+      "result": "SERVFAIL",
+      "means": "dev 배포 호스트도 같은 zone 이라 동일"
+    },
+    {
+      "check": "Anthropic 측 WebFetch https://api.boptest.net/testcases",
+      "result": "getaddrinfo ETIMEOUT",
+      "means": "우리 망 밖에서도 해석되지 않는다"
+    }
+  ],
+  "conclusion": "boptest.net 의 권한 네임서버가 해당 zone 을 서빙하지 않아 전 세계 어떤 resolver 에서도 해석되지 않는다. 로컬 네트워크 차단이 아니므로 다른 망으로 옮겨도 열리지 않는다.",
+  "docs_say": {
+    "public_service": "https://api.boptest.net/<request> (ibpsa/project1-boptest README)",
+    "local": "docker compose up web worker provision -> http://127.0.0.1:8000, swagger /docs",
+    "note": "문서는 공개 서비스를 여전히 안내하지만 2026-09-23 기준 DNS 가 죽어 있다"
+  },
+  "what_does_not_help": [
+    "다른 네트워크/테더링",
+    "resolver 변경",
+    "재시도 polling"
+  ],
+  "options_for_next_stage": [
+    {
+      "option": "로컬 BOPTEST (docker compose up web worker provision)",
+      "blocked_by": "v4 지시문이 이번 단계에서 설치·Docker 를 금지한다. 사용자 승인 사항",
+      "note": "BOPTEST 의 표준 사용법이며 공개 서비스 없이도 동일 testcase 를 쓸 수 있다"
+    },
+    {
+      "option": "공개 서비스 복구를 기다린다",
+      "blocked_by": "복구 시점 미상. 우리가 통제할 수 없다"
+    },
+    {
+      "option": "다른 설비 도메인 데이터로 교체",
+      "blocked_by": "difficulty 정의부터 다시 해야 한다"
+    }
+  ]
+}

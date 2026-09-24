@@ -1,0 +1,108 @@
+{
+  "contract": "TARGET_ROW_MEAN_CORRECTION",
+  "version": "v4.2026-09-23",
+  "dtype": "float64",
+  "atol": 1e-10,
+  "cases": [
+    {
+      "n_cov_rows": 0,
+      "total_rows": 1,
+      "active_target_rows": 1,
+      "correction_factor": 1.0,
+      "native_scalar": 2.1146217790220065,
+      "corrected_scalar": 2.1146217790220065,
+      "method_B_scalar": 2.1146217790220065,
+      "A_equals_B": true,
+      "corrected_equals_base": true,
+      "corrected_grad_equals_base": true,
+      "native_grad_ratio_vs_base": 1.0,
+      "zero_loss_row_grad_max": 0.0,
+      "inactive_rows_are_exactly_zero": true
+    },
+    {
+      "n_cov_rows": 1,
+      "total_rows": 2,
+      "active_target_rows": 1,
+      "correction_factor": 2.0,
+      "native_scalar": 1.0573108895110033,
+      "corrected_scalar": 2.1146217790220065,
+      "method_B_scalar": 2.1146217790220065,
+      "A_equals_B": true,
+      "corrected_equals_base": true,
+      "corrected_grad_equals_base": true,
+      "native_grad_ratio_vs_base": 0.5,
+      "zero_loss_row_grad_max": 0.0,
+      "inactive_rows_are_exactly_zero": true
+    },
+    {
+      "n_cov_rows": 2,
+      "total_rows": 3,
+      "active_target_rows": 1,
+      "correction_factor": 3.0,
+      "native_scalar": 0.7048739263406688,
+      "corrected_scalar": 2.1146217790220065,
+      "method_B_scalar": 2.1146217790220065,
+      "A_equals_B": true,
+      "corrected_equals_base": true,
+      "corrected_grad_equals_base": true,
+      "native_grad_ratio_vs_base": 0.3333333333333333,
+      "zero_loss_row_grad_max": 0.0,
+      "inactive_rows_are_exactly_zero": true
+    },
+    {
+      "n_cov_rows": 4,
+      "total_rows": 5,
+      "active_target_rows": 1,
+      "correction_factor": 5.0,
+      "native_scalar": 0.4229243558044013,
+      "corrected_scalar": 2.1146217790220065,
+      "method_B_scalar": 2.1146217790220065,
+      "A_equals_B": true,
+      "corrected_equals_base": true,
+      "corrected_grad_equals_base": true,
+      "native_grad_ratio_vs_base": 0.19999999999999998,
+      "zero_loss_row_grad_max": 0.0,
+      "inactive_rows_are_exactly_zero": true
+    }
+  ],
+  "tests": {
+    "corrected_scalar_invariant": {
+      "pass": true
+    },
+    "corrected_gradient_invariant": {
+      "pass": true
+    },
+    "native_dilutes_by_row_count": {
+      "ratios": [
+        1.0,
+        0.5,
+        0.3333333333333333,
+        0.19999999999999998
+      ],
+      "expected": [
+        1.0,
+        0.5,
+        0.3333333333333333,
+        0.2
+      ],
+      "pass": true
+    },
+    "zero_loss_rows_have_zero_grad": {
+      "max": 0.0,
+      "pass": true
+    },
+    "method_A_equals_method_B": {
+      "pass": true
+    },
+    "inactive_rows_exactly_zero_loss": {
+      "pass": true,
+      "note": "방법 A(배수) 가 유효하려면 inactive row loss 가 정확히 0 이어야 한다"
+    }
+  },
+  "summary": {
+    "pass": 6,
+    "total": 6
+  },
+  "all_pass": true,
+  "disclaimer": "underlying quantile loss 는 native 와 동일하고 row reduction 만 고쳤다. '완전히 native scalar loss 와 동일' 이라고 부르지 않는다."
+}

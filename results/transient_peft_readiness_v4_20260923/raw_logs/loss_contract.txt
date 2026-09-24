@@ -1,0 +1,14 @@
+/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/transient_peft_readiness_v4_20260923/test_loss_contract.py:50: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:835.)
+  base_scalar = float(corrected); base_grad = g_target.clone()
+  cov 0: native 2.11462178  corrected 2.11462178  factor 1.0  A==B True
+  cov 1: native 1.05731089  corrected 2.11462178  factor 2.0  A==B True
+  cov 2: native 0.70487393  corrected 2.11462178  factor 3.0  A==B True
+  cov 4: native 0.42292436  corrected 2.11462178  factor 5.0  A==B True
+
+  [PASS] corrected_scalar_invariant
+  [PASS] corrected_gradient_invariant
+  [PASS] native_dilutes_by_row_count
+  [PASS] zero_loss_rows_have_zero_grad
+  [PASS] method_A_equals_method_B
+  [PASS] inactive_rows_exactly_zero_loss

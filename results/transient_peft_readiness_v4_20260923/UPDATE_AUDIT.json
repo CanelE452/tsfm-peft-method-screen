@@ -1,0 +1,446 @@
+{
+  "lr": 0.1,
+  "steps_per_arm": 3,
+  "arms": {
+    "L0": {
+      "arm": "L0",
+      "trainable_inventory": {
+        "lora": 1179648,
+        "modulator": 0,
+        "state_gen": 0
+      },
+      "steps": [
+        {
+          "step": 0,
+          "loss_native": 2.441725254058838,
+          "loss_corrected": 4.883450508117676,
+          "correction": {
+            "total_rows": 4,
+            "active_target_rows": 2,
+            "correction_factor": 2.0
+          },
+          "grad_norm": {
+            "lora": 30.66392707824707,
+            "modulator": null,
+            "state_gen": null
+          },
+          "loraB_norm": 3.0663928985595703,
+          "mod_norm": null,
+          "tau": null,
+          "loraB_delta": 3.0663928985595703,
+          "mod_delta": null,
+          "tau_delta": null,
+          "log_tau_delta": null
+        },
+        {
+          "step": 1,
+          "loss_native": 4.262808322906494,
+          "loss_corrected": 8.525616645812988,
+          "correction": {
+            "total_rows": 4,
+            "active_target_rows": 2,
+            "correction_factor": 2.0
+          },
+          "grad_norm": {
+            "lora": 33.252723693847656,
+            "modulator": null,
+            "state_gen": null
+          },
+          "loraB_norm": 3.7369277477264404,
+          "mod_norm": null,
+          "tau": null,
+          "loraB_delta": 0.6705348491668701,
+          "mod_delta": null,
+          "tau_delta": null,
+          "log_tau_delta": null
+        },
+        {
+          "step": 2,
+          "loss_native": 3.463348865509033,
+          "loss_corrected": 6.926697731018066,
+          "correction": {
+            "total_rows": 4,
+            "active_target_rows": 2,
+            "correction_factor": 2.0
+          },
+          "grad_norm": {
+            "lora": 86.05142211914062,
+            "modulator": null,
+            "state_gen": null
+          },
+          "loraB_norm": 8.819547653198242,
+          "mod_norm": null,
+          "tau": null,
+          "loraB_delta": 5.082619905471802,
+          "mod_delta": null,
+          "tau_delta": null,
+          "log_tau_delta": null
+        }
+      ],
+      "frozen_head_preserved": true,
+      "loraB_changed": true,
+      "mod_changed": null,
+      "tau_changed": null,
+      "log_tau_total_delta": null,
+      "state_grad_reached": null,
+      "state_trainable_zero_for_fixed": true,
+      "verdict": "L0_UPDATE_OK"
+    },
+    "FI": {
+      "arm": "FI",
+      "trainable_inventory": {
+        "lora": 1179648,
+        "modulator": 0,
+        "state_gen": 0
+      },
+      "steps": [
+        {
+          "step": 0,
+          "loss_native": 1.241451621055603,
+          "loss_corrected": 4.965806484222412,
+          "correction": {
+            "total_rows": 8,
+            "active_target_rows": 2,
+            "correction_factor": 4.0
+          },
+          "grad_norm": {
+            "lora": 31.460662841796875,
+            "modulator": null,
+            "state_gen": null
+          },
+          "loraB_norm": 3.146066427230835,
+          "mod_norm": null,
+          "tau": null,
+          "loraB_delta": 3.146066427230835,
+          "mod_delta": null,
+          "tau_delta": null,
+          "log_tau_delta": null
+        },
+        {
+          "step": 1,
+          "loss_native": 2.050711154937744,
+          "loss_corrected": 8.202844619750977,
+          "correction": {
+            "total_rows": 8,
+            "active_target_rows": 2,
+            "correction_factor": 4.0
+          },
+          "grad_norm": {
+            "lora": 31.068613052368164,
+            "modulator": null,
+            "state_gen": null
+          },
+          "loraB_norm": 3.753023624420166,
+          "mod_norm": null,
+          "tau": null,
+          "loraB_delta": 0.606957197189331,
+          "mod_delta": null,
+          "tau_delta": null,
+          "log_tau_delta": null
+        },
+        {
+          "step": 2,
+          "loss_native": 1.0784375667572021,
+          "loss_corrected": 4.313750267028809,
+          "correction": {
+            "total_rows": 8,
+            "active_target_rows": 2,
+            "correction_factor": 4.0
+          },
+          "grad_norm": {
+            "lora": 45.48566436767578,
+            "modulator": null,
+            "state_gen": null
+          },
+          "loraB_norm": 5.626507759094238,
+          "mod_norm": null,
+          "tau": null,
+          "loraB_delta": 1.8734841346740723,
+          "mod_delta": null,
+          "tau_delta": null,
+          "log_tau_delta": null
+        }
+      ],
+      "frozen_head_preserved": true,
+      "loraB_changed": true,
+      "mod_changed": null,
+      "tau_changed": null,
+      "log_tau_total_delta": null,
+      "state_grad_reached": null,
+      "state_trainable_zero_for_fixed": true,
+      "verdict": "FI_UPDATE_OK"
+    },
+    "LI": {
+      "arm": "LI",
+      "trainable_inventory": {
+        "lora": 1179648,
+        "modulator": 0,
+        "state_gen": 4
+      },
+      "steps": [
+        {
+          "step": 0,
+          "loss_native": 1.241451621055603,
+          "loss_corrected": 4.965806484222412,
+          "correction": {
+            "total_rows": 8,
+            "active_target_rows": 2,
+            "correction_factor": 4.0
+          },
+          "grad_norm": {
+            "lora": 31.460662841796875,
+            "modulator": null,
+            "state_gen": 0.8217769861221313
+          },
+          "loraB_norm": 3.146066427230835,
+          "mod_norm": null,
+          "tau": [
+            3.9852397441864014,
+            16.006044387817383
+          ],
+          "loraB_delta": 3.146066427230835,
+          "mod_delta": null,
+          "tau_delta": 0.014760255813598633,
+          "log_tau_delta": 0.003696918487548828
+        },
+        {
+          "step": 1,
+          "loss_native": 2.055751323699951,
+          "loss_corrected": 8.223005294799805,
+          "correction": {
+            "total_rows": 8,
+            "active_target_rows": 2,
+            "correction_factor": 4.0
+          },
+          "grad_norm": {
+            "lora": 31.051353454589844,
+            "modulator": null,
+            "state_gen": 0.3142545223236084
+          },
+          "loraB_norm": 3.7493388652801514,
+          "mod_norm": null,
+          "tau": [
+            4.004263877868652,
+            15.824116706848145
+          ],
+          "loraB_delta": 0.6032724380493164,
+          "mod_delta": null,
+          "tau_delta": 0.18192768096923828,
+          "log_tau_delta": 0.011431217193603516
+        },
+        {
+          "step": 2,
+          "loss_native": 1.083925724029541,
+          "loss_corrected": 4.335702896118164,
+          "correction": {
+            "total_rows": 8,
+            "active_target_rows": 2,
+            "correction_factor": 4.0
+          },
+          "grad_norm": {
+            "lora": 45.93196105957031,
+            "modulator": null,
+            "state_gen": 0.050836432725191116
+          },
+          "loraB_norm": 5.653422832489014,
+          "mod_norm": null,
+          "tau": [
+            4.010815620422363,
+            15.769145011901855
+          ],
+          "loraB_delta": 1.9040839672088623,
+          "mod_delta": null,
+          "tau_delta": 0.05497169494628906,
+          "log_tau_delta": 0.0034799575805664062
+        }
+      ],
+      "frozen_head_preserved": true,
+      "loraB_changed": true,
+      "mod_changed": null,
+      "tau_changed": true,
+      "log_tau_total_delta": 0.014533519744873047,
+      "state_grad_reached": null,
+      "state_trainable_zero_for_fixed": null,
+      "verdict": "LI_UPDATE_OK"
+    },
+    "FM": {
+      "arm": "FM",
+      "trainable_inventory": {
+        "lora": 1179648,
+        "modulator": 16,
+        "state_gen": 0
+      },
+      "steps": [
+        {
+          "step": 0,
+          "loss_native": 2.441725254058838,
+          "loss_corrected": 4.883450508117676,
+          "correction": {
+            "total_rows": 4,
+            "active_target_rows": 2,
+            "correction_factor": 2.0
+          },
+          "grad_norm": {
+            "lora": 30.66392707824707,
+            "modulator": 0.0,
+            "state_gen": null
+          },
+          "loraB_norm": 3.0663928985595703,
+          "mod_norm": 0.0,
+          "tau": null,
+          "loraB_delta": 3.0663928985595703,
+          "mod_delta": 0.0,
+          "tau_delta": null,
+          "log_tau_delta": null
+        },
+        {
+          "step": 1,
+          "loss_native": 4.264027118682861,
+          "loss_corrected": 8.528054237365723,
+          "correction": {
+            "total_rows": 4,
+            "active_target_rows": 2,
+            "correction_factor": 2.0
+          },
+          "grad_norm": {
+            "lora": 33.4006233215332,
+            "modulator": 0.5585203170776367,
+            "state_gen": null
+          },
+          "loraB_norm": 3.739142894744873,
+          "mod_norm": 0.06111995875835419,
+          "tau": null,
+          "loraB_delta": 0.6727499961853027,
+          "mod_delta": 0.028079893440008163,
+          "tau_delta": null,
+          "log_tau_delta": null
+        },
+        {
+          "step": 2,
+          "loss_native": 3.4984426498413086,
+          "loss_corrected": 6.996885299682617,
+          "correction": {
+            "total_rows": 4,
+            "active_target_rows": 2,
+            "correction_factor": 2.0
+          },
+          "grad_norm": {
+            "lora": 88.2541732788086,
+            "modulator": 0.9112845063209534,
+            "state_gen": null
+          },
+          "loraB_norm": 9.017423629760742,
+          "mod_norm": 0.09024282544851303,
+          "tau": null,
+          "loraB_delta": 5.278280735015869,
+          "mod_delta": 0.029122866690158844,
+          "tau_delta": null,
+          "log_tau_delta": null
+        }
+      ],
+      "frozen_head_preserved": true,
+      "loraB_changed": true,
+      "mod_changed": true,
+      "tau_changed": null,
+      "log_tau_total_delta": null,
+      "state_grad_reached": null,
+      "state_trainable_zero_for_fixed": true,
+      "verdict": "FM_UPDATE_OK"
+    },
+    "LM": {
+      "arm": "LM",
+      "trainable_inventory": {
+        "lora": 1179648,
+        "modulator": 16,
+        "state_gen": 4
+      },
+      "steps": [
+        {
+          "step": 0,
+          "loss_native": 2.441725254058838,
+          "loss_corrected": 4.883450508117676,
+          "correction": {
+            "total_rows": 4,
+            "active_target_rows": 2,
+            "correction_factor": 2.0
+          },
+          "grad_norm": {
+            "lora": 30.66392707824707,
+            "modulator": 0.0,
+            "state_gen": 0.0
+          },
+          "loraB_norm": 3.0663928985595703,
+          "mod_norm": 0.0,
+          "tau": [
+            4.0,
+            16.0
+          ],
+          "loraB_delta": 3.0663928985595703,
+          "mod_delta": 0.0,
+          "tau_delta": 0.0,
+          "log_tau_delta": 0.0
+        },
+        {
+          "step": 1,
+          "loss_native": 4.264027118682861,
+          "loss_corrected": 8.528054237365723,
+          "correction": {
+            "total_rows": 4,
+            "active_target_rows": 2,
+            "correction_factor": 2.0
+          },
+          "grad_norm": {
+            "lora": 33.4006233215332,
+            "modulator": 0.5585203170776367,
+            "state_gen": 0.0028574098832905293
+          },
+          "loraB_norm": 3.739142894744873,
+          "mod_norm": 0.06111995875835419,
+          "tau": [
+            3.999936580657959,
+            16.000015258789062
+          ],
+          "loraB_delta": 0.6727499961853027,
+          "mod_delta": 0.028079893440008163,
+          "tau_delta": 6.341934204101562e-05,
+          "log_tau_delta": 1.5854835510253906e-05
+        },
+        {
+          "step": 2,
+          "loss_native": 3.4984424114227295,
+          "loss_corrected": 6.996884822845459,
+          "correction": {
+            "total_rows": 4,
+            "active_target_rows": 2,
+            "correction_factor": 2.0
+          },
+          "grad_norm": {
+            "lora": 88.2541732788086,
+            "modulator": 0.9112627506256104,
+            "state_gen": 0.014282769523561
+          },
+          "loraB_norm": 9.017422676086426,
+          "mod_norm": 0.09024229645729065,
+          "tau": [
+            3.999403476715088,
+            15.994328498840332
+          ],
+          "loraB_delta": 5.278279781341553,
+          "mod_delta": 0.029122337698936462,
+          "tau_delta": 0.005686759948730469,
+          "log_tau_delta": 0.0003554821014404297
+        }
+      ],
+      "frozen_head_preserved": true,
+      "loraB_changed": true,
+      "mod_changed": true,
+      "tau_changed": true,
+      "log_tau_total_delta": 0.00035452842712402344,
+      "state_grad_reached": null,
+      "state_trainable_zero_for_fixed": null,
+      "verdict": "LM_UPDATE_OK"
+    }
+  },
+  "total_optimizer_updates": 15,
+  "all_pass": true
+}

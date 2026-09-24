@@ -1,0 +1,154 @@
+{
+  "created": "2026-09-23T21:23:55.637761+09:00",
+  "base_commit": "63beed98113546dbf0a747d073e7aae082093ed8",
+  "head": "63beed98113546dbf0a747d073e7aae082093ed8",
+  "dirty_before": 0,
+  "dirty_after": 2,
+  "env": {
+    "python": "3.11.15",
+    "torch": "2.8.0+cu128",
+    "chronos": "2.3.2",
+    "peft": "0.18.1",
+    "device": "cpu"
+  },
+  "code_hashes": {
+    "common.py": "2c00e81d879c565c",
+    "fixture.py": "3ac0c06554172ca1",
+    "loss_contract.py": "082b7cc41514f142",
+    "run_all.py": "bfee7e76e044f440",
+    "test_full_roundtrip.py": "728553096d98b296",
+    "test_loss_contract.py": "da0c7a2775de8f6e",
+    "test_module_scope.py": "62c81dc92589edde",
+    "test_multitask_active_mod.py": "17f7fca0a5309fce",
+    "test_neutral_tokens.py": "96ea6c950b03b4cb",
+    "test_optimizer_updates.py": "b8186230e74ffc52",
+    "transient_model.py": "81364a0b2e7eeb5d",
+    "test_initial_views.py": "3175ca1609bf0341",
+    "PURPOSE.md": "0d6abde08f3cf944"
+  },
+  "installed_source_hashes": {
+    "model.py": "2aaab2f90cc9bb48",
+    "pipeline.py": "9fad1e4fb7251471",
+    "preprocess.py": "a6da6192bc3e51a2"
+  },
+  "actual_counts": {
+    "model_loads": 45,
+    "forward": 101,
+    "backward": 18,
+    "optimizer_updates": 15,
+    "api_calls": 0,
+    "installs": 0,
+    "research_fits": 0,
+    "counting_note": "optimizer_updates 와 backward 는 계측값이다. 2차 보완 재실행의 model_loads/forward 는 코드상 호출 지점에서 센 값이라 계측이 아니라 산정이다."
+  },
+  "budget": {
+    "optimizer_updates_max": 15,
+    "note": "상한 15 를 지켰다. 실패한 시도의 update 는 같은 arm 재실행으로 대체됐다"
+  },
+  "retries": [
+    {
+      "n": 1,
+      "where": "test_multitask_active_mod 검사3",
+      "failure": "c_diff=0.0",
+      "cause": "fixture 의 cmd_shift 가 t==1 고정이라 'task A 를 바꾼다' 는 시나리오가 성립하지 않았다",
+      "patch": "shift_task 인자 추가",
+      "saved": "/tmp/v4_attempt1_taskA_unchanged.py"
+    },
+    {
+      "n": 2,
+      "where": "test_neutral_tokens beyond_H",
+      "failure": "c!=0",
+      "cause": "H=p+1 이라 두 번째 출력 패치에도 1칸 유효 구간이 있었다. '두 번째 패치=H 밖' 전제가 틀렸다",
+      "patch": "n_out=3 으로 완전히 H 밖인 토큰 사용",
+      "saved": "/tmp/v4_attempt2_beyondH_premise.py"
+    },
+    {
+      "n": 3,
+      "where": "test_optimizer_updates",
+      "failure": "backward through the graph a second time",
+      "cause": "state_rows 를 루프 밖에서 한 번만 만들어 두 번째 backward 가 해제된 graph 를 재사용",
+      "patch": "매 step batch 재생성, 상태 생성기는 공유",
+      "saved": "/tmp/v4_attempt3_graph_reuse.py"
+    },
+    {
+      "n": 4,
+      "where": "test_optimizer_updates LM",
+      "failure": "tau_changed=False",
+      "cause": "exp(log_tau) 표시값 비교로 작은 delta 를 놓침",
+      "patch": "log_tau 원값 비교",
+      "saved": "/tmp/v4_attempt4_tau_delta_resolution.py"
+    },
+    {
+      "n": 5,
+      "where": "test_optimizer_updates LM",
+      "failure": "tau_changed=False (동일 증상, 다른 원인)",
+      "cause": "gradient 는 1.65e-04 로 도달하나 lr=1e-3 에서 delta 1.65e-07 이 float32 절대 정밀도(약 1.6e-07) 아래라 반올림 소실",
+      "patch": "모든 arm 에 동일하게 lr 1e-3 -> 1e-1. PASS 기준(delta>0)은 변경하지 않았다",
+      "saved": "/tmp/v4_attempt5_fp32_resolution.py"
+    },
+    {
+      "n": 6,
+      "where": "test_multitask_active_mod D 반례",
+      "failure": "기록된 n_rows 4 != n_tokens 3 — 반례 전제가 성립하지 않았다",
+      "cause": "n_ctx_patch=1 이면 token 은 ctx1+REG1+out1=3 인데 row 는 2 task x 2 = 4 다. 주석에 3과 4 를 써 놓고 '같다' 고 이름 붙였다",
+      "patch": "n_ctx_patch=2 로 token 4 = row 4 를 만들고, 전제를 assert 로 고정했다",
+      "saved": "결과 JSON 에 이전 값(n_tokens 3)이 남아 있지 않으므로 이 항목이 유일한 기록"
+    }
+  ],
+  "tolerances_unchanged": true,
+  "reruns": [
+    {
+      "what": "test_multitask_active_mod.py",
+      "why": "D 반례 전제 수정",
+      "model_loads": 1,
+      "forward": 7,
+      "optimizer_updates": 0
+    },
+    {
+      "what": "module_scope / multitask / neutral / loss_contract / full_roundtrip 5종",
+      "why": "stdout raw log 를 파일로 남기기 위해 재실행 (optimizer 를 쓰지 않는 검사만 골랐다)",
+      "model_loads": 7,
+      "forward": 24,
+      "optimizer_updates": 0,
+      "result": "모든 JSON 재생성 후에도 동일 판정, 5/5 PASS"
+    },
+    {
+      "what": "test_module_scope / test_multitask_active_mod / test_initial_views(신규) / test_full_roundtrip",
+      "why": "v4 지시문 원문 재대조에서 발견한 기록·검사 누락 4건 보완",
+      "gaps_closed": [
+        "§2 MODULE_SCOPE 에 module name 전체 목록과 48개 module 각각의 A out/c shape",
+        "§4 hook debug audit (module_name / row / group_id / token index / c 요약)",
+        "§7 초기 동일성 F0_BASE·F0_STATE_INIT 실측 검사 신설 (이전엔 fixture 구조 설명으로 PASS 처리)",
+        "§8 trainable name 목록, §10 prediction max_abs·base weight hash·module name 전체, §14 소요시간"
+      ],
+      "optimizer_updates": 0,
+      "wall_s": {
+        "module_scope": 4.4,
+        "multitask_active_mod": 4.8,
+        "initial_views": 11.0,
+        "full_roundtrip": 10.1
+      }
+    }
+  ],
+  "raw_logs_note": "raw_logs/*.txt 5개. .gitignore 가 *.log 를 제외하므로 확장자를 txt 로 뒀다(.gitignore 는 수정하지 않았다). optimizer 검사 로그는 없다 — update 상한 15 를 이미 소진해 재실행하지 않았고 근거는 UPDATE_AUDIT.json 이다.",
+  "resource_time_usage": {
+    "device": "cpu",
+    "wall_s_measured": {
+      "module_scope": 4.4,
+      "multitask_active_mod": 4.8,
+      "initial_views": 11.0,
+      "full_roundtrip": 10.1,
+      "loss_contract": null,
+      "optimizer_updates": null
+    },
+    "note": "1차 실행 때 per-test wall time 을 남기지 않았다. 보완 재실행분만 계측값이고, loss_contract 와 optimizer_updates 는 재실행하지 않아 미계측이다."
+  },
+  "section8_names_note": "v4 §8 의 'trainable name/count' 중 이름은 UPDATE_AUDIT 실행 당시 기록되지 않았다. INITIAL_VIEWS.json 의 trainable_inventory_names 가 같은 builder 로 만든 목록이며 optimizer step 은 쓰지 않았다.",
+  "data_track": {
+    "status": "DATA_ACCESS_BLOCKED",
+    "reason_code": "UPSTREAM_DNS_ZONE_UNSERVED",
+    "evidence": "DATA_ACCESS.json",
+    "api_calls": 0,
+    "note": "DNS 진단 질의만 수행했다. BOPTEST API 호출 0, 설정 변경 0."
+  }
+}

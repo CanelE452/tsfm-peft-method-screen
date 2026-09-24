@@ -1,0 +1,108 @@
+{
+  "tests": [
+    {
+      "requirement": "§13-1 time-attention modulation 정확 커버리지",
+      "observed": "time 48/48, 변조 48, hook 48. module name 전체 목록과 48개 module 각각의 A out/c shape 기록",
+      "status": "PASS",
+      "evidence": "MODULE_SCOPE.json",
+      "failure_reason": ""
+    },
+    {
+      "requirement": "§13-2 group attention 에 modulation 없음",
+      "observed": "group_modulated [], group LoRA trainable True",
+      "status": "PASS",
+      "evidence": "MODULE_SCOPE.json",
+      "failure_reason": ""
+    },
+    {
+      "requirement": "§13-3 shape mismatch silent skip 0",
+      "observed": "skipped 0 (불일치 시 ShapeMismatch 예외)",
+      "status": "PASS",
+      "evidence": "MODULE_SCOPE.json",
+      "failure_reason": ""
+    },
+    {
+      "requirement": "§13-4 task 별 c_rows mapping",
+      "observed": "same-task diff 0.0, cross-task 0.0566",
+      "status": "PASS",
+      "evidence": "ACTIVE_MOD_ALIGNMENT.json",
+      "failure_reason": ""
+    },
+    {
+      "requirement": "§13-5 active MOD 격리·순열",
+      "observed": "8/8 (D 반례 rows 4 == tokens 4). hook debug audit 48건 저장",
+      "status": "PASS",
+      "evidence": "ACTIVE_MOD_ALIGNMENT.json",
+      "failure_reason": ""
+    },
+    {
+      "requirement": "§13-6 REG/padding/all-masked c=0 (학습된 weight 에서도)",
+      "observed": "6/6, max_abs 전부 0.0",
+      "status": "PASS",
+      "evidence": "NEUTRAL_TOKEN_AUDIT.json",
+      "failure_reason": ""
+    },
+    {
+      "requirement": "§13-7 모든 arm 동일 raw command 정보 권한",
+      "observed": "L0/FM/LM step0 == F0_BASE (max_abs 0.0), FI/LI step0 == F0_STATE_INIT (0.0), FI·LI 동일 tau init (0.0), view gap 2.1395 기록",
+      "status": "PASS",
+      "evidence": "INITIAL_VIEWS.json",
+      "failure_reason": ""
+    },
+    {
+      "requirement": "§13-8 TARGET_ROW_MEAN_CORRECTION 불변성",
+      "observed": "corrected scalar/gradient 가 cov 0/1/2/4 에서 동일, native 는 1/N 희석, A==B",
+      "status": "PASS",
+      "evidence": "LOSS_CONTRACT.json",
+      "failure_reason": ""
+    },
+    {
+      "requirement": "§13-9 L0/FI/FM/LI/LM 3-step update",
+      "observed": "L0_UPDATE_OK FI_UPDATE_OK FM_UPDATE_OK LI_UPDATE_OK LM_UPDATE_OK. trainable 이름 목록은 INITIAL_VIEWS.json (사후 동일 builder)",
+      "status": "PASS",
+      "evidence": "UPDATE_AUDIT.json",
+      "failure_reason": ""
+    },
+    {
+      "requirement": "§13-10 output head/backbone 동결",
+      "observed": "time 48/48, 변조 48, hook 48. module name 전체 목록과 48개 module 각각의 A out/c shape 기록",
+      "status": "PASS",
+      "evidence": "UPDATE_AUDIT.json",
+      "failure_reason": ""
+    },
+    {
+      "requirement": "§13-11 새 프로세스 prediction roundtrip",
+      "observed": "prediction max_abs 0.0 (tol 1e-06), SHA 동일, log_tau/modulator exact, base weight hash 동일, unexpected keys 0",
+      "status": "PASS",
+      "evidence": "FULL_ROUNDTRIP.json",
+      "failure_reason": ""
+    },
+    {
+      "requirement": "§13-12 코드/카운트/해시 무결성",
+      "observed": "time 48/48, 변조 48, hook 48. module name 전체 목록과 48개 module 각각의 A out/c shape 기록",
+      "status": "PASS",
+      "evidence": "RUN_MANIFEST.json",
+      "failure_reason": ""
+    },
+    {
+      "requirement": "§12 DATA track",
+      "observed": "DATA_ACCESS_BLOCKED / UPSTREAM_DNS_ZONE_UNSERVED — boptest.net 권한 NS 2대가 REFUSED (동일 서버는 cloudflare.com 에 NOERROR). 우리 망 문제가 아니다",
+      "status": "NOT_RUN",
+      "evidence": "DATA_ACCESS.json",
+      "failure_reason": "서비스에 도달하지 못함"
+    }
+  ],
+  "summary": {
+    "PASS": 12,
+    "FAIL": 0,
+    "NOT_RUN": 1
+  },
+  "MODEL_READINESS": "MODEL_READY",
+  "DATA_READINESS": "DATA_ACCESS_BLOCKED",
+  "unverified": [
+    "TRANSIENT difficulty 존재: 미검증",
+    "일반 LoRA residual: 미검증",
+    "LM > LoRA: 미검증",
+    "novelty: 미확정"
+  ]
+}

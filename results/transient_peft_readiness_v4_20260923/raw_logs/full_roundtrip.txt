@@ -1,0 +1,16 @@
+  [PASS] log_tau_exact
+  [PASS] modulator_exact
+  [PASS] frozen_head_same
+  [PASS] prediction_sha_same
+  [PASS] prediction_within_tol
+  [PASS] prediction_exact
+  [PASS] base_weights_same
+  [PASS] c_rows_same
+  [PASS] hook_coverage_same
+  [PASS] no_unexpected_keys
+
+Loading weights:   0%|          | 0/170 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 170/170 [00:00<00:00, 14705.02it/s]
+/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/transient_peft_readiness_v4_20260923/test_full_roundtrip.py:70: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:835.)
+  "mod_norm": float(tp.modulator.lin.weight.norm()),

@@ -1,0 +1,971 @@
+{
+  "num_layers": 12,
+  "expected_time_modules": 48,
+  "time_lora_modules": 48,
+  "group_lora_modules": 48,
+  "total_lora_modules": 96,
+  "hooked_modules": 48,
+  "hook_invocations": 48,
+  "modules_actually_modulated": 48,
+  "skipped": 0,
+  "group_modulated": [],
+  "time_module_names": [
+    "encoder.block.0.layer.0.self_attention.k",
+    "encoder.block.0.layer.0.self_attention.o",
+    "encoder.block.0.layer.0.self_attention.q",
+    "encoder.block.0.layer.0.self_attention.v",
+    "encoder.block.1.layer.0.self_attention.k",
+    "encoder.block.1.layer.0.self_attention.o",
+    "encoder.block.1.layer.0.self_attention.q",
+    "encoder.block.1.layer.0.self_attention.v",
+    "encoder.block.10.layer.0.self_attention.k",
+    "encoder.block.10.layer.0.self_attention.o",
+    "encoder.block.10.layer.0.self_attention.q",
+    "encoder.block.10.layer.0.self_attention.v",
+    "encoder.block.11.layer.0.self_attention.k",
+    "encoder.block.11.layer.0.self_attention.o",
+    "encoder.block.11.layer.0.self_attention.q",
+    "encoder.block.11.layer.0.self_attention.v",
+    "encoder.block.2.layer.0.self_attention.k",
+    "encoder.block.2.layer.0.self_attention.o",
+    "encoder.block.2.layer.0.self_attention.q",
+    "encoder.block.2.layer.0.self_attention.v",
+    "encoder.block.3.layer.0.self_attention.k",
+    "encoder.block.3.layer.0.self_attention.o",
+    "encoder.block.3.layer.0.self_attention.q",
+    "encoder.block.3.layer.0.self_attention.v",
+    "encoder.block.4.layer.0.self_attention.k",
+    "encoder.block.4.layer.0.self_attention.o",
+    "encoder.block.4.layer.0.self_attention.q",
+    "encoder.block.4.layer.0.self_attention.v",
+    "encoder.block.5.layer.0.self_attention.k",
+    "encoder.block.5.layer.0.self_attention.o",
+    "encoder.block.5.layer.0.self_attention.q",
+    "encoder.block.5.layer.0.self_attention.v",
+    "encoder.block.6.layer.0.self_attention.k",
+    "encoder.block.6.layer.0.self_attention.o",
+    "encoder.block.6.layer.0.self_attention.q",
+    "encoder.block.6.layer.0.self_attention.v",
+    "encoder.block.7.layer.0.self_attention.k",
+    "encoder.block.7.layer.0.self_attention.o",
+    "encoder.block.7.layer.0.self_attention.q",
+    "encoder.block.7.layer.0.self_attention.v",
+    "encoder.block.8.layer.0.self_attention.k",
+    "encoder.block.8.layer.0.self_attention.o",
+    "encoder.block.8.layer.0.self_attention.q",
+    "encoder.block.8.layer.0.self_attention.v",
+    "encoder.block.9.layer.0.self_attention.k",
+    "encoder.block.9.layer.0.self_attention.o",
+    "encoder.block.9.layer.0.self_attention.q",
+    "encoder.block.9.layer.0.self_attention.v"
+  ],
+  "group_module_names": [
+    "encoder.block.0.layer.1.self_attention.k",
+    "encoder.block.0.layer.1.self_attention.o",
+    "encoder.block.0.layer.1.self_attention.q",
+    "encoder.block.0.layer.1.self_attention.v",
+    "encoder.block.1.layer.1.self_attention.k",
+    "encoder.block.1.layer.1.self_attention.o",
+    "encoder.block.1.layer.1.self_attention.q",
+    "encoder.block.1.layer.1.self_attention.v",
+    "encoder.block.10.layer.1.self_attention.k",
+    "encoder.block.10.layer.1.self_attention.o",
+    "encoder.block.10.layer.1.self_attention.q",
+    "encoder.block.10.layer.1.self_attention.v",
+    "encoder.block.11.layer.1.self_attention.k",
+    "encoder.block.11.layer.1.self_attention.o",
+    "encoder.block.11.layer.1.self_attention.q",
+    "encoder.block.11.layer.1.self_attention.v",
+    "encoder.block.2.layer.1.self_attention.k",
+    "encoder.block.2.layer.1.self_attention.o",
+    "encoder.block.2.layer.1.self_attention.q",
+    "encoder.block.2.layer.1.self_attention.v",
+    "encoder.block.3.layer.1.self_attention.k",
+    "encoder.block.3.layer.1.self_attention.o",
+    "encoder.block.3.layer.1.self_attention.q",
+    "encoder.block.3.layer.1.self_attention.v",
+    "encoder.block.4.layer.1.self_attention.k",
+    "encoder.block.4.layer.1.self_attention.o",
+    "encoder.block.4.layer.1.self_attention.q",
+    "encoder.block.4.layer.1.self_attention.v",
+    "encoder.block.5.layer.1.self_attention.k",
+    "encoder.block.5.layer.1.self_attention.o",
+    "encoder.block.5.layer.1.self_attention.q",
+    "encoder.block.5.layer.1.self_attention.v",
+    "encoder.block.6.layer.1.self_attention.k",
+    "encoder.block.6.layer.1.self_attention.o",
+    "encoder.block.6.layer.1.self_attention.q",
+    "encoder.block.6.layer.1.self_attention.v",
+    "encoder.block.7.layer.1.self_attention.k",
+    "encoder.block.7.layer.1.self_attention.o",
+    "encoder.block.7.layer.1.self_attention.q",
+    "encoder.block.7.layer.1.self_attention.v",
+    "encoder.block.8.layer.1.self_attention.k",
+    "encoder.block.8.layer.1.self_attention.o",
+    "encoder.block.8.layer.1.self_attention.q",
+    "encoder.block.8.layer.1.self_attention.v",
+    "encoder.block.9.layer.1.self_attention.k",
+    "encoder.block.9.layer.1.self_attention.o",
+    "encoder.block.9.layer.1.self_attention.q",
+    "encoder.block.9.layer.1.self_attention.v"
+  ],
+  "all_lora_module_names": [
+    "encoder.block.0.layer.0.self_attention.k",
+    "encoder.block.0.layer.0.self_attention.o",
+    "encoder.block.0.layer.0.self_attention.q",
+    "encoder.block.0.layer.0.self_attention.v",
+    "encoder.block.0.layer.1.self_attention.k",
+    "encoder.block.0.layer.1.self_attention.o",
+    "encoder.block.0.layer.1.self_attention.q",
+    "encoder.block.0.layer.1.self_attention.v",
+    "encoder.block.1.layer.0.self_attention.k",
+    "encoder.block.1.layer.0.self_attention.o",
+    "encoder.block.1.layer.0.self_attention.q",
+    "encoder.block.1.layer.0.self_attention.v",
+    "encoder.block.1.layer.1.self_attention.k",
+    "encoder.block.1.layer.1.self_attention.o",
+    "encoder.block.1.layer.1.self_attention.q",
+    "encoder.block.1.layer.1.self_attention.v",
+    "encoder.block.10.layer.0.self_attention.k",
+    "encoder.block.10.layer.0.self_attention.o",
+    "encoder.block.10.layer.0.self_attention.q",
+    "encoder.block.10.layer.0.self_attention.v",
+    "encoder.block.10.layer.1.self_attention.k",
+    "encoder.block.10.layer.1.self_attention.o",
+    "encoder.block.10.layer.1.self_attention.q",
+    "encoder.block.10.layer.1.self_attention.v",
+    "encoder.block.11.layer.0.self_attention.k",
+    "encoder.block.11.layer.0.self_attention.o",
+    "encoder.block.11.layer.0.self_attention.q",
+    "encoder.block.11.layer.0.self_attention.v",
+    "encoder.block.11.layer.1.self_attention.k",
+    "encoder.block.11.layer.1.self_attention.o",
+    "encoder.block.11.layer.1.self_attention.q",
+    "encoder.block.11.layer.1.self_attention.v",
+    "encoder.block.2.layer.0.self_attention.k",
+    "encoder.block.2.layer.0.self_attention.o",
+    "encoder.block.2.layer.0.self_attention.q",
+    "encoder.block.2.layer.0.self_attention.v",
+    "encoder.block.2.layer.1.self_attention.k",
+    "encoder.block.2.layer.1.self_attention.o",
+    "encoder.block.2.layer.1.self_attention.q",
+    "encoder.block.2.layer.1.self_attention.v",
+    "encoder.block.3.layer.0.self_attention.k",
+    "encoder.block.3.layer.0.self_attention.o",
+    "encoder.block.3.layer.0.self_attention.q",
+    "encoder.block.3.layer.0.self_attention.v",
+    "encoder.block.3.layer.1.self_attention.k",
+    "encoder.block.3.layer.1.self_attention.o",
+    "encoder.block.3.layer.1.self_attention.q",
+    "encoder.block.3.layer.1.self_attention.v",
+    "encoder.block.4.layer.0.self_attention.k",
+    "encoder.block.4.layer.0.self_attention.o",
+    "encoder.block.4.layer.0.self_attention.q",
+    "encoder.block.4.layer.0.self_attention.v",
+    "encoder.block.4.layer.1.self_attention.k",
+    "encoder.block.4.layer.1.self_attention.o",
+    "encoder.block.4.layer.1.self_attention.q",
+    "encoder.block.4.layer.1.self_attention.v",
+    "encoder.block.5.layer.0.self_attention.k",
+    "encoder.block.5.layer.0.self_attention.o",
+    "encoder.block.5.layer.0.self_attention.q",
+    "encoder.block.5.layer.0.self_attention.v",
+    "encoder.block.5.layer.1.self_attention.k",
+    "encoder.block.5.layer.1.self_attention.o",
+    "encoder.block.5.layer.1.self_attention.q",
+    "encoder.block.5.layer.1.self_attention.v",
+    "encoder.block.6.layer.0.self_attention.k",
+    "encoder.block.6.layer.0.self_attention.o",
+    "encoder.block.6.layer.0.self_attention.q",
+    "encoder.block.6.layer.0.self_attention.v",
+    "encoder.block.6.layer.1.self_attention.k",
+    "encoder.block.6.layer.1.self_attention.o",
+    "encoder.block.6.layer.1.self_attention.q",
+    "encoder.block.6.layer.1.self_attention.v",
+    "encoder.block.7.layer.0.self_attention.k",
+    "encoder.block.7.layer.0.self_attention.o",
+    "encoder.block.7.layer.0.self_attention.q",
+    "encoder.block.7.layer.0.self_attention.v",
+    "encoder.block.7.layer.1.self_attention.k",
+    "encoder.block.7.layer.1.self_attention.o",
+    "encoder.block.7.layer.1.self_attention.q",
+    "encoder.block.7.layer.1.self_attention.v",
+    "encoder.block.8.layer.0.self_attention.k",
+    "encoder.block.8.layer.0.self_attention.o",
+    "encoder.block.8.layer.0.self_attention.q",
+    "encoder.block.8.layer.0.self_attention.v",
+    "encoder.block.8.layer.1.self_attention.k",
+    "encoder.block.8.layer.1.self_attention.o",
+    "encoder.block.8.layer.1.self_attention.q",
+    "encoder.block.8.layer.1.self_attention.v",
+    "encoder.block.9.layer.0.self_attention.k",
+    "encoder.block.9.layer.0.self_attention.o",
+    "encoder.block.9.layer.0.self_attention.q",
+    "encoder.block.9.layer.0.self_attention.v",
+    "encoder.block.9.layer.1.self_attention.k",
+    "encoder.block.9.layer.1.self_attention.o",
+    "encoder.block.9.layer.1.self_attention.q",
+    "encoder.block.9.layer.1.self_attention.v"
+  ],
+  "modulated_module_names": [
+    "encoder.block.0.layer.0.self_attention.k",
+    "encoder.block.0.layer.0.self_attention.o",
+    "encoder.block.0.layer.0.self_attention.q",
+    "encoder.block.0.layer.0.self_attention.v",
+    "encoder.block.1.layer.0.self_attention.k",
+    "encoder.block.1.layer.0.self_attention.o",
+    "encoder.block.1.layer.0.self_attention.q",
+    "encoder.block.1.layer.0.self_attention.v",
+    "encoder.block.10.layer.0.self_attention.k",
+    "encoder.block.10.layer.0.self_attention.o",
+    "encoder.block.10.layer.0.self_attention.q",
+    "encoder.block.10.layer.0.self_attention.v",
+    "encoder.block.11.layer.0.self_attention.k",
+    "encoder.block.11.layer.0.self_attention.o",
+    "encoder.block.11.layer.0.self_attention.q",
+    "encoder.block.11.layer.0.self_attention.v",
+    "encoder.block.2.layer.0.self_attention.k",
+    "encoder.block.2.layer.0.self_attention.o",
+    "encoder.block.2.layer.0.self_attention.q",
+    "encoder.block.2.layer.0.self_attention.v",
+    "encoder.block.3.layer.0.self_attention.k",
+    "encoder.block.3.layer.0.self_attention.o",
+    "encoder.block.3.layer.0.self_attention.q",
+    "encoder.block.3.layer.0.self_attention.v",
+    "encoder.block.4.layer.0.self_attention.k",
+    "encoder.block.4.layer.0.self_attention.o",
+    "encoder.block.4.layer.0.self_attention.q",
+    "encoder.block.4.layer.0.self_attention.v",
+    "encoder.block.5.layer.0.self_attention.k",
+    "encoder.block.5.layer.0.self_attention.o",
+    "encoder.block.5.layer.0.self_attention.q",
+    "encoder.block.5.layer.0.self_attention.v",
+    "encoder.block.6.layer.0.self_attention.k",
+    "encoder.block.6.layer.0.self_attention.o",
+    "encoder.block.6.layer.0.self_attention.q",
+    "encoder.block.6.layer.0.self_attention.v",
+    "encoder.block.7.layer.0.self_attention.k",
+    "encoder.block.7.layer.0.self_attention.o",
+    "encoder.block.7.layer.0.self_attention.q",
+    "encoder.block.7.layer.0.self_attention.v",
+    "encoder.block.8.layer.0.self_attention.k",
+    "encoder.block.8.layer.0.self_attention.o",
+    "encoder.block.8.layer.0.self_attention.q",
+    "encoder.block.8.layer.0.self_attention.v",
+    "encoder.block.9.layer.0.self_attention.k",
+    "encoder.block.9.layer.0.self_attention.o",
+    "encoder.block.9.layer.0.self_attention.q",
+    "encoder.block.9.layer.0.self_attention.v"
+  ],
+  "per_module_shapes": [
+    {
+      "module": "encoder.block.0.layer.0.self_attention.q",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.0.layer.0.self_attention.k",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.0.layer.0.self_attention.v",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.0.layer.0.self_attention.o",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.1.layer.0.self_attention.q",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.1.layer.0.self_attention.k",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.1.layer.0.self_attention.v",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.1.layer.0.self_attention.o",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.2.layer.0.self_attention.q",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.2.layer.0.self_attention.k",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.2.layer.0.self_attention.v",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.2.layer.0.self_attention.o",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.3.layer.0.self_attention.q",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.3.layer.0.self_attention.k",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.3.layer.0.self_attention.v",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.3.layer.0.self_attention.o",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.4.layer.0.self_attention.q",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.4.layer.0.self_attention.k",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.4.layer.0.self_attention.v",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.4.layer.0.self_attention.o",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.5.layer.0.self_attention.q",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.5.layer.0.self_attention.k",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.5.layer.0.self_attention.v",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.5.layer.0.self_attention.o",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.6.layer.0.self_attention.q",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.6.layer.0.self_attention.k",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.6.layer.0.self_attention.v",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.6.layer.0.self_attention.o",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.7.layer.0.self_attention.q",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.7.layer.0.self_attention.k",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.7.layer.0.self_attention.v",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.7.layer.0.self_attention.o",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.8.layer.0.self_attention.q",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.8.layer.0.self_attention.k",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.8.layer.0.self_attention.v",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.8.layer.0.self_attention.o",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.9.layer.0.self_attention.q",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.9.layer.0.self_attention.k",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.9.layer.0.self_attention.v",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.9.layer.0.self_attention.o",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.10.layer.0.self_attention.q",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.10.layer.0.self_attention.k",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.10.layer.0.self_attention.v",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.10.layer.0.self_attention.o",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.11.layer.0.self_attention.q",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.11.layer.0.self_attention.k",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.11.layer.0.self_attention.v",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    },
+    {
+      "module": "encoder.block.11.layer.0.self_attention.o",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ]
+    }
+  ],
+  "sample_shapes": [
+    {
+      "module": "encoder.block.0.layer.0.self_attention.q",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ],
+      "n_rows": 4,
+      "n_tokens": 4,
+      "group_ids": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "c_absmax_by_token": [
+        0.030874403193593025,
+        0.010726971551775932,
+        0.0,
+        0.007160147186368704
+      ],
+      "c_absmax_by_row": [
+        0.030874403193593025,
+        0.030874403193593025,
+        0.02345869690179825,
+        0.02345869690179825
+      ],
+      "c_absmax": 0.030874403193593025
+    },
+    {
+      "module": "encoder.block.0.layer.0.self_attention.k",
+      "a_out": [
+        4,
+        4,
+        8
+      ],
+      "c": [
+        4,
+        4,
+        8
+      ],
+      "n_rows": 4,
+      "n_tokens": 4,
+      "group_ids": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "c_absmax_by_token": [
+        0.030874403193593025,
+        0.010726971551775932,
+        0.0,
+        0.007160147186368704
+      ],
+      "c_absmax_by_row": [
+        0.030874403193593025,
+        0.030874403193593025,
+        0.02345869690179825,
+        0.02345869690179825
+      ],
+      "c_absmax": 0.030874403193593025
+    }
+  ],
+  "c_rows_shape": [
+    4,
+    4,
+    8
+  ],
+  "checks": {
+    "time_count_matches_config": true,
+    "all_time_modules_modulated": true,
+    "zero_skipped": true,
+    "no_group_modulation": true,
+    "per_module_shape_recorded": true,
+    "all_shapes_match_c": true,
+    "group_lora_still_trainable": true
+  },
+  "pass": true
+}

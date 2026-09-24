@@ -1,0 +1,29 @@
+  [PASS] L0_step0_equals_F0_BASE  max_abs=0.0
+  [PASS] FM_step0_equals_F0_BASE  max_abs=0.0
+  [PASS] LM_step0_equals_F0_BASE  max_abs=0.0
+  [PASS] FI_step0_equals_F0_STATE_INIT  max_abs=0.0
+  [PASS] LI_step0_equals_F0_STATE_INIT  max_abs=0.0
+  [PASS] FI_LI_same_tau_init_state_rows  max_abs=0.0
+  [PASS] view_gap_recorded_not_asserted  max_abs=2.1395187377929688
+  -> 7/7
+
+Loading weights:   0%|          | 0/170 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 170/170 [00:00<00:00, 13947.38it/s]
+
+Loading weights:   0%|          | 0/170 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 170/170 [00:00<00:00, 13500.55it/s]
+
+Loading weights:   0%|          | 0/170 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 170/170 [00:00<00:00, 12598.40it/s]
+/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/transient_peft_readiness_v4_20260923/test_initial_views.py:57: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:835.)
+  c_absmax = float(c_rows.abs().max())
+
+Loading weights:   0%|          | 0/170 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 170/170 [00:00<00:00, 13668.51it/s]
+
+Loading weights:   0%|          | 0/170 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 170/170 [00:00<00:00, 12008.95it/s]
+
+Loading weights:   0%|          | 0/170 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 170/170 [00:00<00:00, 13200.87it/s]

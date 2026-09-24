@@ -1,0 +1,42 @@
+{
+  "tests": {
+    "REG_c_is_zero": {
+      "max_abs": 0.0,
+      "pass": true
+    },
+    "beyond_H_c_is_zero": {
+      "token": 6,
+      "valid": 0.0,
+      "raw_start": 65,
+      "H_end": 50,
+      "fully_beyond_H": true,
+      "max_abs": 0.0,
+      "pass": true
+    },
+    "all_masked_patch_c_is_zero": {
+      "valid": 0.0,
+      "max_abs": 0.0,
+      "pass": true
+    },
+    "partial_patch_uses_last_valid": {
+      "last_valid_index": 16,
+      "match": 0.0,
+      "pass": true
+    },
+    "modulator_has_no_bias": {
+      "bias_is_none": true,
+      "c_at_m_zero_max_abs": 0.0,
+      "pass": true
+    },
+    "bias_would_break_neutrality": {
+      "c_at_m_zero_with_bias": 0.30000001192092896,
+      "pass": true,
+      "note": "bias 가 있으면 m=0 에서도 c!=0 이 되므로 bias=False 를 계약으로 둔다"
+    }
+  },
+  "summary": {
+    "pass": 6,
+    "total": 6
+  },
+  "all_pass": true
+}
