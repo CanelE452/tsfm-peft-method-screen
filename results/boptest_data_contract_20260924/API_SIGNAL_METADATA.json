@@ -1,0 +1,270 @@
+{
+  "inputs": {
+    "oveFan_activate": {
+      "Unit": null,
+      "Description": "Activation for Integer signal to control the heat pump evaporator fan either on or off",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "oveFan_u": {
+      "Unit": "1",
+      "Description": "Integer signal to control the heat pump evaporator fan either on or off",
+      "Minimum": 0,
+      "Maximum": 1
+    },
+    "oveHeaPumY_activate": {
+      "Unit": null,
+      "Description": "Activation for Heat pump modulating signal for compressor speed between 0 (not working) and 1 (working at maximum capacity)",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "oveHeaPumY_u": {
+      "Unit": "1",
+      "Description": "Heat pump modulating signal for compressor speed between 0 (not working) and 1 (working at maximum capacity)",
+      "Minimum": 0,
+      "Maximum": 1
+    },
+    "ovePum_activate": {
+      "Unit": null,
+      "Description": "Activation for Integer signal to control the emission circuit pump either on or off",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "ovePum_u": {
+      "Unit": "1",
+      "Description": "Integer signal to control the emission circuit pump either on or off",
+      "Minimum": 0,
+      "Maximum": 1
+    },
+    "oveTSet_activate": {
+      "Unit": null,
+      "Description": "Activation for Zone operative temperature setpoint",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "oveTSet_u": {
+      "Unit": "K",
+      "Description": "Zone operative temperature setpoint",
+      "Minimum": 278.15,
+      "Maximum": 308.15
+    }
+  },
+  "measurements": {
+    "reaCO2RooAir_y": {
+      "Unit": "ppm",
+      "Description": "CO2 concentration in the zone",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "reaCOP_y": {
+      "Unit": "1",
+      "Description": "Heat pump COP",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "reaPFan_y": {
+      "Unit": "W",
+      "Description": "Electrical power of the heat pump evaporator fan",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "reaPHeaPum_y": {
+      "Unit": "W",
+      "Description": "Heat pump electrical power",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "reaPPumEmi_y": {
+      "Unit": "W",
+      "Description": "Emission circuit pump electrical power",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "reaQFloHea_y": {
+      "Unit": "W",
+      "Description": "Floor heating thermal power released to the zone",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "reaQHeaPumCon_y": {
+      "Unit": "W",
+      "Description": "Heat pump thermal power exchanged in the condenser",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "reaQHeaPumEva_y": {
+      "Unit": "W",
+      "Description": "Heat pump thermal power exchanged in the evaporator",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "reaTRet_y": {
+      "Unit": "K",
+      "Description": "Return water temperature from radiant floor",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "reaTSetCoo_y": {
+      "Unit": "K",
+      "Description": "Zone operative temperature setpoint for cooling",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "reaTSetHea_y": {
+      "Unit": "K",
+      "Description": "Zone operative temperature setpoint for heating",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "reaTSup_y": {
+      "Unit": "K",
+      "Description": "Supply water temperature to radiant floor",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "reaTZon_y": {
+      "Unit": "K",
+      "Description": "Zone operative temperature",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaCeiHei_y": {
+      "Unit": "m",
+      "Description": "Cloud cover ceiling height measurement",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaCloTim_y": {
+      "Unit": "s",
+      "Description": "Day number with units of seconds",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaHDifHor_y": {
+      "Unit": "W/m2",
+      "Description": "Horizontal diffuse solar radiation measurement",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaHDirNor_y": {
+      "Unit": "W/m2",
+      "Description": "Direct normal radiation measurement",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaHGloHor_y": {
+      "Unit": "W/m2",
+      "Description": "Global horizontal solar irradiation measurement",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaHHorIR_y": {
+      "Unit": "W/m2",
+      "Description": "Horizontal infrared irradiation measurement",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaLat_y": {
+      "Unit": "rad",
+      "Description": "Latitude of the location",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaLon_y": {
+      "Unit": "rad",
+      "Description": "Longitude of the location",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaNOpa_y": {
+      "Unit": "1",
+      "Description": "Opaque sky cover measurement",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaNTot_y": {
+      "Unit": "1",
+      "Description": "Sky cover measurement",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaPAtm_y": {
+      "Unit": "Pa",
+      "Description": "Atmospheric pressure measurement",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaRelHum_y": {
+      "Unit": "1",
+      "Description": "Outside relative humidity measurement",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaSolAlt_y": {
+      "Unit": "rad",
+      "Description": "Solar altitude angle measurement",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaSolDec_y": {
+      "Unit": "rad",
+      "Description": "Solar declination angle measurement",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaSolHouAng_y": {
+      "Unit": "rad",
+      "Description": "Solar hour angle measurement",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaSolTim_y": {
+      "Unit": "s",
+      "Description": "Solar time",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaSolZen_y": {
+      "Unit": "rad",
+      "Description": "Solar zenith angle measurement",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaTBlaSky_y": {
+      "Unit": "K",
+      "Description": "Black-body sky temperature measurement",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaTDewPoi_y": {
+      "Unit": "K",
+      "Description": "Dew point temperature measurement",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaTDryBul_y": {
+      "Unit": "K",
+      "Description": "Outside drybulb temperature measurement",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaTWetBul_y": {
+      "Unit": "K",
+      "Description": "Wet bulb temperature measurement",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaWinDir_y": {
+      "Unit": "rad",
+      "Description": "Wind direction measurement",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "weaSta_reaWeaWinSpe_y": {
+      "Unit": "m/s",
+      "Description": "Wind speed measurement",
+      "Minimum": null,
+      "Maximum": null
+    }
+  }
+}

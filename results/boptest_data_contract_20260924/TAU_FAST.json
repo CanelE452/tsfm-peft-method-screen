@@ -1,0 +1,41 @@
+{
+  "source": "fast_probe.csv (10초 해상도, ON 20분)",
+  "per_signal": {
+    "reaTSup_y": {
+      "instant_jump_within_one_sample": 5.482692132577654,
+      "slow_part_span_20min": 4.470618381933434,
+      "tau63_s": 90.0,
+      "tau_fit_s": 126.28897335380076,
+      "fit_r2": 0.88818
+    },
+    "reaTRet_y": {
+      "instant_jump_within_one_sample": -1.0142405935711167,
+      "slow_part_span_20min": 1.1141680512763514,
+      "tau63_s": 820.0,
+      "tau_fit_s": 3000.0,
+      "fit_r2": 0.98251
+    },
+    "reaTZon_y": {
+      "instant_jump_within_one_sample": -4.8405022766928596e-05,
+      "slow_part_span_20min": 0.03385699206563686,
+      "tau63_s": 1010.0,
+      "tau_fit_s": 3000.0,
+      "fit_r2": 0.78933
+    },
+    "reaPHeaPum_y": {
+      "instant_jump_within_one_sample": 3289.7673711317975,
+      "slow_part_span_20min": 75.2630467697436,
+      "tau63_s": 540.0,
+      "tau_fit_s": 1161.3817462112156,
+      "fit_r2": 0.96773
+    },
+    "reaQHeaPumCon_y": {
+      "instant_jump_within_one_sample": 14297.74683505635,
+      "slow_part_span_20min": -1350.1652322019909,
+      "tau63_s": 60.0,
+      "tau_fit_s": 50.21447513453702,
+      "fit_r2": 0.99755
+    }
+  },
+  "note": "전환 자체는 표본 1개 안에서 끝나는 계단이다. 그 뒤의 빠른 모드가 tau_fit 이며, 별도로 수 시간 규모의 느린 모드가 있다(transient_response.csv, 4시간에도 미정착)."
+}

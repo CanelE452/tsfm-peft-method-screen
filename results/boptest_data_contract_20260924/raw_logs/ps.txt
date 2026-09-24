@@ -1,0 +1,9 @@
+time="2026-09-24T08:48:15+09:00" level=warning msg="The \"BOPTEST_DASHBOARD_API_KEY\" variable is not set. Defaulting to a blank string."
+time="2026-09-24T08:48:15+09:00" level=warning msg="The \"BOPTEST_DASHBOARD_API_KEY\" variable is not set. Defaulting to a blank string."
+time="2026-09-24T08:48:15+09:00" level=warning msg="The \"BOPTEST_DASHBOARD_USERNAME\" variable is not set. Defaulting to a blank string."
+time="2026-09-24T08:48:15+09:00" level=warning msg="The \"BOPTEST_MESSAGE_TIMEOUT\" variable is not set. Defaulting to a blank string."
+NAME                        IMAGE                                              COMMAND                  SERVICE   CREATED          STATUS          PORTS
+project1-boptest-minio-1    quay.io/minio/minio:RELEASE.2025-04-22T22-12-26Z   "minio server /data …"   minio     12 seconds ago   Up 10 seconds   0.0.0.0:9000-9001->9000-9001/tcp, [::]:9000-9001->9000-9001/tcp
+project1-boptest-redis-1    redis                                              "docker-entrypoint.s…"   redis     12 seconds ago   Up 10 seconds   6379/tcp
+project1-boptest-web-1      project1-boptest-web                               "npm start"              web       11 seconds ago   Up 10 seconds   0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp
+project1-boptest-worker-1   project1-boptest-worker                            "/bin/sh -c '. minic…"   worker    11 seconds ago   Up 10 seconds   

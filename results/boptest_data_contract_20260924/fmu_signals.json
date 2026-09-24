@@ -1,0 +1,542 @@
+{
+  "inputs": [
+    {
+      "name": "oveFan_activate",
+      "causality": "input",
+      "variability": "discrete",
+      "description": "Activation for Integer signal to control the heat pump evaporator fan either on or off",
+      "type": "Boolean",
+      "attrs": {
+        "start": "false"
+      }
+    },
+    {
+      "name": "oveFan_u",
+      "causality": "input",
+      "variability": "continuous",
+      "description": "Integer signal to control the heat pump evaporator fan either on or off",
+      "type": "Real",
+      "attrs": {
+        "unit": "1",
+        "relativeQuantity": "false",
+        "min": "0.0",
+        "max": "1.0",
+        "start": "0.0"
+      }
+    },
+    {
+      "name": "oveHeaPumY_activate",
+      "causality": "input",
+      "variability": "discrete",
+      "description": "Activation for Heat pump modulating signal for compressor speed between 0 (not working) and 1 (working at maximum capacity)",
+      "type": "Boolean",
+      "attrs": {
+        "start": "false"
+      }
+    },
+    {
+      "name": "oveHeaPumY_u",
+      "causality": "input",
+      "variability": "continuous",
+      "description": "Heat pump modulating signal for compressor speed between 0 (not working) and 1 (working at maximum capacity)",
+      "type": "Real",
+      "attrs": {
+        "unit": "1",
+        "relativeQuantity": "false",
+        "min": "0.0",
+        "max": "1.0",
+        "start": "0.0"
+      }
+    },
+    {
+      "name": "ovePum_activate",
+      "causality": "input",
+      "variability": "discrete",
+      "description": "Activation for Integer signal to control the emission circuit pump either on or off",
+      "type": "Boolean",
+      "attrs": {
+        "start": "false"
+      }
+    },
+    {
+      "name": "ovePum_u",
+      "causality": "input",
+      "variability": "continuous",
+      "description": "Integer signal to control the emission circuit pump either on or off",
+      "type": "Real",
+      "attrs": {
+        "unit": "1",
+        "relativeQuantity": "false",
+        "min": "0.0",
+        "max": "1.0",
+        "start": "0.0"
+      }
+    },
+    {
+      "name": "oveTSet_activate",
+      "causality": "input",
+      "variability": "discrete",
+      "description": "Activation for Zone operative temperature setpoint",
+      "type": "Boolean",
+      "attrs": {
+        "start": "false"
+      }
+    },
+    {
+      "name": "oveTSet_u",
+      "causality": "input",
+      "variability": "continuous",
+      "description": "Zone operative temperature setpoint",
+      "type": "Real",
+      "attrs": {
+        "unit": "K",
+        "relativeQuantity": "false",
+        "min": "278.15",
+        "max": "308.15",
+        "start": "0.0"
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "name": "oveFan_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Integer signal to control the heat pump evaporator fan either on or off",
+      "type": "Real",
+      "attrs": {
+        "unit": "1",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "oveHeaPumY_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Heat pump modulating signal for compressor speed between 0 (not working) and 1 (working at maximum capacity)",
+      "type": "Real",
+      "attrs": {
+        "unit": "1",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "ovePum_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Integer signal to control the emission circuit pump either on or off",
+      "type": "Real",
+      "attrs": {
+        "unit": "1",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "oveTSet_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Zone operative temperature setpoint",
+      "type": "Real",
+      "attrs": {
+        "unit": "K",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "reaCO2RooAir_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "CO2 concentration in the zone",
+      "type": "Real",
+      "attrs": {
+        "unit": "ppm",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "reaCOP_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Heat pump COP",
+      "type": "Real",
+      "attrs": {
+        "unit": "1",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "reaPFan_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Electrical power of the heat pump evaporator fan",
+      "type": "Real",
+      "attrs": {
+        "unit": "W",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "reaPHeaPum_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Heat pump electrical power",
+      "type": "Real",
+      "attrs": {
+        "unit": "W",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "reaPPumEmi_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Emission circuit pump electrical power",
+      "type": "Real",
+      "attrs": {
+        "unit": "W",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "reaQFloHea_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Floor heating thermal power released to the zone",
+      "type": "Real",
+      "attrs": {
+        "unit": "W",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "reaQHeaPumCon_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Heat pump thermal power exchanged in the condenser",
+      "type": "Real",
+      "attrs": {
+        "unit": "W",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "reaQHeaPumEva_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Heat pump thermal power exchanged in the evaporator",
+      "type": "Real",
+      "attrs": {
+        "unit": "W",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "reaTRet_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Return water temperature from radiant floor",
+      "type": "Real",
+      "attrs": {
+        "unit": "K",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "reaTSetCoo_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Zone operative temperature setpoint for cooling",
+      "type": "Real",
+      "attrs": {
+        "unit": "K",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "reaTSetHea_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Zone operative temperature setpoint for heating",
+      "type": "Real",
+      "attrs": {
+        "unit": "K",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "reaTSup_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Supply water temperature to radiant floor",
+      "type": "Real",
+      "attrs": {
+        "unit": "K",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "reaTZon_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Zone operative temperature",
+      "type": "Real",
+      "attrs": {
+        "unit": "K",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaCeiHei_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Cloud cover ceiling height measurement",
+      "type": "Real",
+      "attrs": {
+        "unit": "m",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaCloTim_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Day number with units of seconds",
+      "type": "Real",
+      "attrs": {
+        "unit": "s",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaHDifHor_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Horizontal diffuse solar radiation measurement",
+      "type": "Real",
+      "attrs": {
+        "unit": "W/m2",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaHDirNor_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Direct normal radiation measurement",
+      "type": "Real",
+      "attrs": {
+        "unit": "W/m2",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaHGloHor_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Global horizontal solar irradiation measurement",
+      "type": "Real",
+      "attrs": {
+        "unit": "W/m2",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaHHorIR_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Horizontal infrared irradiation measurement",
+      "type": "Real",
+      "attrs": {
+        "unit": "W/m2",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaLat_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Latitude of the location",
+      "type": "Real",
+      "attrs": {
+        "unit": "rad",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaLon_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Longitude of the location",
+      "type": "Real",
+      "attrs": {
+        "unit": "rad",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaNOpa_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Opaque sky cover measurement",
+      "type": "Real",
+      "attrs": {
+        "unit": "1",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaNTot_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Sky cover measurement",
+      "type": "Real",
+      "attrs": {
+        "unit": "1",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaPAtm_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Atmospheric pressure measurement",
+      "type": "Real",
+      "attrs": {
+        "unit": "Pa",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaRelHum_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Outside relative humidity measurement",
+      "type": "Real",
+      "attrs": {
+        "unit": "1",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaSolAlt_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Solar altitude angle measurement",
+      "type": "Real",
+      "attrs": {
+        "unit": "rad",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaSolDec_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Solar declination angle measurement",
+      "type": "Real",
+      "attrs": {
+        "unit": "rad",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaSolHouAng_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Solar hour angle measurement",
+      "type": "Real",
+      "attrs": {
+        "unit": "rad",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaSolTim_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Solar time",
+      "type": "Real",
+      "attrs": {
+        "unit": "s",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaSolZen_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Solar zenith angle measurement",
+      "type": "Real",
+      "attrs": {
+        "unit": "rad",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaTBlaSky_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Black-body sky temperature measurement",
+      "type": "Real",
+      "attrs": {
+        "unit": "K",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaTDewPoi_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Dew point temperature measurement",
+      "type": "Real",
+      "attrs": {
+        "unit": "K",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaTDryBul_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Outside drybulb temperature measurement",
+      "type": "Real",
+      "attrs": {
+        "unit": "K",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaTWetBul_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Wet bulb temperature measurement",
+      "type": "Real",
+      "attrs": {
+        "unit": "K",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaWinDir_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Wind direction measurement",
+      "type": "Real",
+      "attrs": {
+        "unit": "rad",
+        "relativeQuantity": "false"
+      }
+    },
+    {
+      "name": "weaSta_reaWeaWinSpe_y",
+      "causality": "output",
+      "variability": "continuous",
+      "description": "Wind speed measurement",
+      "type": "Real",
+      "attrs": {
+        "unit": "m/s",
+        "relativeQuantity": "false"
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+ mc Pulling 
+ redis Pulling 
+ minio Pulling 
+ redis Pulled 
+ mc Pulled 
+ minio Pulled 
+#13 7.680 Building dependency tree...
+#12 8.130 Building dependency tree...
+#14 8.613 Building dependency tree...
+#13 44.38 invoke-rc.d: policy-rc.d denied execution of start.
+#13 51.50 Building dependency tree...
+#13 51.77   git-man less libcbor0.6 libcurl3-gnutls liberror-perl libfido2-1
+#13 51.83   git git-man less libcbor0.6 libcurl3-gnutls liberror-perl libfido2-1
+#17 13.18 Building dependency tree...
+#17 14.06 Building dependency tree...
+#13 56.16 Get:14 http://archive.ubuntu.com/ubuntu focal/main amd64 liberror-perl all 0.17029-1 [26.5 kB]
+#13 57.91 Selecting previously unselected package liberror-perl.
+#13 57.91 Preparing to unpack .../13-liberror-perl_0.17029-1_all.deb ...
+#13 57.91 Unpacking liberror-perl (0.17029-1) ...
+#13 58.81 Setting up liberror-perl (0.17029-1) ...
+#17 17.39 Building dependency tree...
+#17 18.22 Building dependency tree...
+#24 3.997 npm WARN deprecated superagent@3.8.3: Please upgrade to v7.0.2+ of superagent.  We have fixed numerous issues with streams, form-data, attach(), filesystem errors not bubbling up (ENOENT on attach()), and all tests are now passing.  See the releases tab for more information at <https://github.com/visionmedia/superagent/releases>.
+#29 0.870 WARNING (@babel/preset-env): We noticed you're using the `useBuiltIns` option without declaring a core-js version. Currently, we assume version 2.x when no version is passed. Since this default version will likely change in future versions of Babel, we recommend explicitly setting the core-js version you are using via the `corejs` option.
+#29 0.870 More info about useBuiltIns: https://babeljs.io/docs/en/babel-preset-env#usebuiltins
+#26 44.69 Building wheels for collected packages: msgpack
+#26 44.69   Building wheel for msgpack (pyproject.toml): started
+#26 44.84   Building wheel for msgpack (pyproject.toml): finished with status 'done'
+#26 44.84   Created wheel for msgpack: filename=msgpack-1.0.4-cp311-cp311-linux_x86_64.whl size=15568 sha256=834bb8d8ad9a44910d5c50e3c7e84f7e2e7be656d8f838ca5d8b7a5a6acee2d8
+ project1-boptest-web  Built
+ project1-boptest-provision  Built
+ project1-boptest-worker  Built
+ Network project1-boptest_default  Creating
+ Network project1-boptest_default  Created
+ Container project1-boptest-minio-1  Creating
+ Container project1-boptest-redis-1  Creating
+ Container project1-boptest-redis-1  Created
+ Container project1-boptest-minio-1  Created
+ Container project1-boptest-mc-1  Creating
+ Container project1-boptest-mc-1  Created
+ Container project1-boptest-worker-1  Creating
+ Container project1-boptest-worker-1  Created
+ Container project1-boptest-web-1  Creating
+ Container project1-boptest-web-1  Created
+ Container project1-boptest-provision-1  Creating
+ Container project1-boptest-provision-1  Created
+ Container project1-boptest-minio-1  Starting
+ Container project1-boptest-redis-1  Starting
+ Container project1-boptest-minio-1  Started
+ Container project1-boptest-mc-1  Starting
+ Container project1-boptest-redis-1  Started
+ Container project1-boptest-mc-1  Started
+ Container project1-boptest-worker-1  Starting
+ Container project1-boptest-worker-1  Started
+ Container project1-boptest-web-1  Starting
+ Container project1-boptest-web-1  Started
+ Container project1-boptest-provision-1  Starting
+ Container project1-boptest-provision-1  Started

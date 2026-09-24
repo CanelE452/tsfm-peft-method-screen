@@ -1,0 +1,29 @@
+{
+  "collected_utc": "2026-09-23T16:22:43.345254+00:00",
+  "method": "저장소 얕은 클론 후 FMU(zip) 의 modelDescription.xml 파싱 + 소스 코드 확인. 시뮬레이션 실행 0회.",
+  "source_repo": "https://github.com/ibpsa/project1-boptest",
+  "source_commit": "0f8a467cb1823f005b6512937e9333c65e1e483e",
+  "version_txt": "1.0.0-dev",
+  "clone_path": "/home/minjae/Documents/github/project1-boptest",
+  "clone_size": "811M",
+  "committed_to_this_repo": false,
+  "fmu": "testcases/bestest_hydronic_heat_pump/models/wrapped.fmu",
+  "fmu_sha256_16": "674b9500c1c89fdb",
+  "counts": {
+    "inputs": 8,
+    "outputs": 40
+  },
+  "config": {
+    "name": "bestest_hydronic_heat_pump",
+    "area": 192.0,
+    "start_time": 0.0,
+    "warmup_period": 0.0,
+    "step": 3600.0
+  },
+  "days": {
+    "peak_heat_day": 23,
+    "typical_heat_day": 115
+  },
+  "api_calls_to_boptest_service": 0,
+  "note": "공개 서비스(api.boptest.net)는 여전히 DNS 해석 불가. 이 자료는 소스에서 직접 얻은 것이다."
+}

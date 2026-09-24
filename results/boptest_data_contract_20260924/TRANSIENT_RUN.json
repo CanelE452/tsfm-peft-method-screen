@@ -1,0 +1,41 @@
+{
+  "testcase": "bestest_hydronic_heat_pump",
+  "testid": "81d6af7e-4ae0-492a-bab9-0b4d3f85e3fd",
+  "step_s": 300.0,
+  "start_time_s": 1900800.0,
+  "warmup_s": 86400.0,
+  "peak_heat_day": 23,
+  "schedule": {
+    "hold_off_steps": 24,
+    "hold_on_steps": 48,
+    "pattern": "off-on-off-on-off",
+    "n_steps": 168,
+    "n_transitions": 4
+  },
+  "commanded": [
+    "oveHeaPumY",
+    "ovePum",
+    "oveFan"
+  ],
+  "points": [
+    "time",
+    "reaTZon_y",
+    "reaTSup_y",
+    "reaTRet_y",
+    "reaPHeaPum_y",
+    "reaQHeaPumCon_y",
+    "reaQHeaPumEva_y",
+    "reaQFloHea_y",
+    "reaPPumEmi_y",
+    "reaPFan_y",
+    "reaCOP_y",
+    "reaTSetHea_y",
+    "weaSta_reaWeaTDryBul_y",
+    "oveHeaPumY_u",
+    "ovePum_u",
+    "oveFan_u"
+  ],
+  "n_samples": 1681,
+  "sample_interval_s": 30,
+  "elapsed_wall_s": 1.0
+}
