@@ -1,0 +1,29 @@
+작업 유형: 고정 ZIP 실행·결과 게시. 코드 작성·수정·연구 해석 금지.
+
+목적: 여기서 작성한 코드를 그대로 실행해 학습 객체/저장 객체 동일성, 무개입 optimizer 갱신, native 복원을 확인하고 결과를 GitHub에 게시한다. 본학습이나 새 시뮬레이션은 하지 않는다.
+
+1. 이 ZIP을 저장소 밖의 새 폴더에 압축 해제한다. 이전 ZIP/경로를 덮지 않는다.
+2. CanelE452/tsfm-peft-method-screen의 실제 로컬 루트를 확인해 그곳으로 이동한다. 저장소가 다르면 실행하지 않는다. 임의 pull/rebase/reset/checkout/stash 금지.
+3. 다음 명령을 한 번 실행한다. 압축해제경로만 실제 값으로 바꾼다.
+
+python3 /실제/압축해제경로/transient_owned_v5_20260924/execute.py --repo "$PWD" --publish
+
+4. `.py`, JSON 설정, 초기화, loss, 학습률, seed, 검사 횟수, cutoff, native source를 수정하지 않는다. 패키지 설치/버전 변경/모델 다운로드/자동 재실행 금지.
+5. exit code가 0이 아니어도 성공시키려고 손대지 않는다. 스크립트가 안전하게 가능한 범위에서는 실패 로그도 commit·push한다. Git/인증/기존 staged 변경 때문에 중단했으면 receipt를 그대로 반환한다. 임의 git add . / force push / 다른 파일 commit 금지.
+6. 수치 해석·주제 변경·원인 추측·새 코드 제작은 하지 않는다. 분석과 다음 코드 수정은 ChatGPT에서 한다.
+7. 마지막에는 다음만 전달한다.
+   - 실제 실행 명령과 종료 코드
+   - EXECUTION_RECEIPT.json 위치 또는 내용
+   - commit SHA, push 검증 상태, 결과의 저장소 상대경로
+   - 실패 시 최초 실패 stage와 원시 오류 메시지
+   - 본학습 0 / 새 시뮬레이션 0 / 설치 0인지
+
+예상 결과 경로:
+results/transient_owned_v5_20260924/run_<UTC>/SUMMARY.json
+results/transient_owned_v5_20260924/run_<UTC>/RUN_MANIFEST.json
+results/transient_owned_v5_20260924/run_<UTC>/<L0|FI|FM|LI|LM>/update_trace.json
+results/transient_owned_v5_20260924/run_<UTC>/<arm>/roundtrip.json
+results/transient_owned_v5_20260924/run_<UTC>/data_audit/BOPTEST_AUDIT.json
+
+업로드 허용: 이 패키지 소스와 이 실행의 작은 JSON/CSV/log/MD.
+업로드 금지: 원 모델, checkpoint .pt, 원자료 신규 복제, 인증 정보, 무관한 파일.

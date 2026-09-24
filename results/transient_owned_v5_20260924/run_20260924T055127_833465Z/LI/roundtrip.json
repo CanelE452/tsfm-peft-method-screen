@@ -1,0 +1,37 @@
+{
+  "status": "PASS_INFERENCE_ROUNDTRIP",
+  "pid": 3295810,
+  "checks": {
+    "predictions/19": {
+      "exact": true,
+      "max_abs": 0.0
+    },
+    "predictions/3": {
+      "exact": true,
+      "max_abs": 0.0
+    },
+    "states/19": {
+      "exact": true,
+      "max_abs": 0.0
+    },
+    "states/3": {
+      "exact": true,
+      "max_abs": 0.0
+    }
+  },
+  "optimizer_steps_before_saving": 6,
+  "restored_compact_sha256": "05767389088e1eebd3403503895fc0ec9ff9084f0e1e1e315aedfaf2604dd9d0",
+  "training_resume_claimed": false,
+  "counts": {
+    "model_load": {
+      "START": 1,
+      "COMPLETED": 1,
+      "FAILED": 0
+    },
+    "forward": {
+      "START": 1,
+      "COMPLETED": 1,
+      "FAILED": 0
+    }
+  }
+}

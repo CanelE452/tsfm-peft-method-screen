@@ -1,0 +1,44 @@
+{
+  "status": "PASS_LOCAL_LIFECYCLE",
+  "arm": "LM",
+  "backend_kind": "chronos",
+  "categories": {
+    "lora": {
+      "any_optimizer_delta": true,
+      "any_finite_nonzero_gradient": true
+    },
+    "state": {
+      "any_optimizer_delta": true,
+      "any_finite_nonzero_gradient": true
+    },
+    "modulator": {
+      "any_optimizer_delta": true,
+      "any_finite_nonzero_gradient": true
+    }
+  },
+  "native_frozen_preserved": true,
+  "same_model_saved": true,
+  "counts": {
+    "model_load": {
+      "START": 1,
+      "COMPLETED": 1,
+      "FAILED": 0
+    },
+    "forward": {
+      "START": 20,
+      "COMPLETED": 20,
+      "FAILED": 0
+    },
+    "backward": {
+      "START": 6,
+      "COMPLETED": 6,
+      "FAILED": 0
+    },
+    "optimizer_step": {
+      "START": 6,
+      "COMPLETED": 6,
+      "FAILED": 0
+    }
+  },
+  "scientific_performance_evaluated": false
+}

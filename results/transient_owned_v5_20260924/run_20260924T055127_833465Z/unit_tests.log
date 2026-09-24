@@ -1,0 +1,31 @@
+test_01_zero_B_preserves_linear (transient_v5.selftest.Invariants.test_01_zero_B_preserves_linear) ... ok
+test_02_zero_condition_is_plain_not_F0 (transient_v5.selftest.Invariants.test_02_zero_condition_is_plain_not_F0) ... ok
+test_03_shape_mismatch_fails (transient_v5.selftest.Invariants.test_03_shape_mismatch_fails) ... ok
+test_04_no_missing_condition_silent_skip (transient_v5.selftest.Invariants.test_04_no_missing_condition_silent_skip) ... ok
+test_05_shared_parameter_identity (transient_v5.selftest.Invariants.test_05_shared_parameter_identity) ... ok
+test_06_fixed_state_is_buffer (transient_v5.selftest.Invariants.test_06_fixed_state_is_buffer) ... ok
+test_07_input_tau_gradient (transient_v5.selftest.Invariants.test_07_input_tau_gradient) ... ok
+test_08_masked_values_do_not_change_state (transient_v5.selftest.Invariants.test_08_masked_values_do_not_change_state) ... ok
+test_09_reg_and_fullmask_neutral (transient_v5.selftest.Invariants.test_09_reg_and_fullmask_neutral) ... ok
+test_10_compact_missing_key_rejected (transient_v5.selftest.Invariants.test_10_compact_missing_key_rejected) ... ok
+test_11_compact_extra_key_rejected (transient_v5.selftest.Invariants.test_11_compact_extra_key_rejected) ... ok
+test_12_compact_wrong_shape_rejected (transient_v5.selftest.Invariants.test_12_compact_wrong_shape_rejected) ... ok
+test_13_compact_exact_ownership (transient_v5.selftest.Invariants.test_13_compact_exact_ownership) ... ok
+test_14_group_not_modulated (transient_v5.selftest.Invariants.test_14_group_not_modulated) ... ok
+test_15_future_target_poison (transient_v5.selftest.Invariants.test_15_future_target_poison) ... ok
+test_16_response_recomputed_inside_forward (transient_v5.selftest.Invariants.test_16_response_recomputed_inside_forward) ... ok
+test_17_raw_command_present_all_arms (transient_v5.selftest.Invariants.test_17_raw_command_present_all_arms) ... ok
+test_18_input_gap_is_explicitly_rejected (transient_v5.selftest.Invariants.test_18_input_gap_is_explicitly_rejected) ... ok
+test_19_duplicate_id_rejected (transient_v5.selftest.Invariants.test_19_duplicate_id_rejected) ... ok
+test_20_stale_condition_cleared (transient_v5.selftest.Invariants.test_20_stale_condition_cleared) ... ok
+test_21_loss_value_and_gradient_invariance (transient_v5.selftest.Invariants.test_21_loss_value_and_gradient_invariance) ... ok
+test_22_checkpoint_load_same_object_keys (transient_v5.selftest.Invariants.test_22_checkpoint_load_same_object_keys) ... ok
+test_23_id_reorder_lookup (transient_v5.selftest.Invariants.test_23_id_reorder_lookup) ... ok
+test_24_fixed_response_parameters_not_optimizer_candidates (transient_v5.selftest.Invariants.test_24_fixed_response_parameters_not_optimizer_candidates) ... ok
+test_25_partial_future_patch_uses_last_real_plan (transient_v5.selftest.Invariants.test_25_partial_future_patch_uses_last_real_plan) ... ok
+test_26_data_audit_distinguishes_endpoint_and_residual (transient_v5.selftest.Invariants.test_26_data_audit_distinguishes_endpoint_and_residual) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.201s
+
+OK

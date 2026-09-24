@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "fixed_prediction_cases": [
+    {
+      "extra_rows": 0,
+      "native": 0.4135869565217391,
+      "corrected": 0.4135869565217391,
+      "target_gradient_norm": 0.2904737509655563,
+      "native_gradient_norm": 0.2904737509655563,
+      "padded_horizon_denominator": 8,
+      "observed_horizon": 5
+    },
+    {
+      "extra_rows": 1,
+      "native": 0.20679347826086955,
+      "corrected": 0.4135869565217391,
+      "target_gradient_norm": 0.2904737509655563,
+      "native_gradient_norm": 0.14523687548277814,
+      "padded_horizon_denominator": 8,
+      "observed_horizon": 5
+    },
+    {
+      "extra_rows": 2,
+      "native": 0.1378623188405797,
+      "corrected": 0.4135869565217391,
+      "target_gradient_norm": 0.2904737509655563,
+      "native_gradient_norm": 0.09682458365518543,
+      "padded_horizon_denominator": 8,
+      "observed_horizon": 5
+    },
+    {
+      "extra_rows": 4,
+      "native": 0.08271739130434783,
+      "corrected": 0.4135869565217391,
+      "target_gradient_norm": 0.2904737509655563,
+      "native_gradient_norm": 0.058094750193111264,
+      "padded_horizon_denominator": 8,
+      "observed_horizon": 5
+    }
+  ],
+  "native_chronos_comparison": "PASS"
+}

@@ -1,0 +1,23 @@
+{
+  "returncode": 0,
+  "status": "EXIT_OK",
+  "elapsed_seconds": 3.806304096011445,
+  "peak_child_rss_gib": 1.240264892578125,
+  "command": [
+    "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/bin/python",
+    "-m",
+    "transient_v5.worker",
+    "--mode",
+    "restore",
+    "--backend-json",
+    "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/preflight/backend_resolved.json",
+    "--arm",
+    "FM",
+    "--public",
+    "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/FM",
+    "--private",
+    "/home/minjae/Documents/github/tsfm-peft-method-screen/runs/transient_owned_v5_20260924/run_20260924T055127_833465Z/FM",
+    "--run-config",
+    "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/transient_owned_v5_20260924/RUN_CONFIG.json"
+  ]
+}

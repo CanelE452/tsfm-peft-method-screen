@@ -1,0 +1,23 @@
+{
+  "kind": "READINESS_ONLY_NOT_FORECASTING_EXPERIMENT",
+  "arms": ["L0", "FI", "FM", "LI", "LM"],
+  "device": "cpu",
+  "dtype": "float32",
+  "threads": 2,
+  "steps": 6,
+  "lr": 0.001,
+  "rank": 8,
+  "alpha": 16.0,
+  "tau_init": [4.0, 16.0],
+  "seed": 924510,
+  "max_optimizer_updates": 30,
+  "per_process_timeout_seconds": 1200,
+  "total_timeout_seconds": 3600,
+  "max_process_rss_gib": 8,
+  "min_available_ram_gib": 4,
+  "model_installation_allowed": false,
+  "network_model_download_allowed": false,
+  "simulation_or_research_fit_allowed": false,
+  "retry_allowed": false,
+  "notes": "Six predeclared fixture updates per arm replace the earlier three-step cap; no mid-run LR change or manual parameter injection. If change remains unobservable, return INCONCLUSIVE_UPDATE rather than tune. Float64 log_tau is cast differentiably to FP32 state values; not a physical tau estimate."
+}

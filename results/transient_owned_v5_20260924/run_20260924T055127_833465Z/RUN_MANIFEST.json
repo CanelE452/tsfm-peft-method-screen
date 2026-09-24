@@ -1,0 +1,336 @@
+{
+  "started": "2026-09-24T05:51:27Z",
+  "package_sha256": "839ba9e57d91831c016ca54d8363ecbb1da1b4c4952de0c6a29cda699ce46537",
+  "backend_requested": "chronos",
+  "config": {
+    "kind": "READINESS_ONLY_NOT_FORECASTING_EXPERIMENT",
+    "arms": [
+      "L0",
+      "FI",
+      "FM",
+      "LI",
+      "LM"
+    ],
+    "device": "cpu",
+    "dtype": "float32",
+    "threads": 2,
+    "steps": 6,
+    "lr": 0.001,
+    "rank": 8,
+    "alpha": 16.0,
+    "tau_init": [
+      4.0,
+      16.0
+    ],
+    "seed": 924510,
+    "max_optimizer_updates": 30,
+    "per_process_timeout_seconds": 1200,
+    "total_timeout_seconds": 3600,
+    "max_process_rss_gib": 8,
+    "min_available_ram_gib": 4,
+    "model_installation_allowed": false,
+    "network_model_download_allowed": false,
+    "simulation_or_research_fit_allowed": false,
+    "retry_allowed": false,
+    "notes": "Six predeclared fixture updates per arm replace the earlier three-step cap; no mid-run LR change or manual parameter injection. If change remains unobservable, return INCONCLUSIVE_UPDATE rather than tune. Float64 log_tau is cast differentiably to FP32 state values; not a physical tau estimate."
+  },
+  "baseline_commit": "7cbe663528602136badd6be3779f0d5e7dd64b14",
+  "research_fits": 0,
+  "new_simulation_calls": 0,
+  "model_downloads_allowed": false,
+  "retries": 0,
+  "stages": {
+    "unit_tests": {
+      "returncode": 0,
+      "status": "EXIT_OK",
+      "elapsed_seconds": 1.4070352589478716,
+      "peak_child_rss_gib": 0.5021514892578125,
+      "command": [
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/bin/python",
+        "-m",
+        "unittest",
+        "transient_v5.selftest",
+        "-v"
+      ]
+    },
+    "preflight": {
+      "returncode": 0,
+      "status": "EXIT_OK",
+      "elapsed_seconds": 4.20494470896665,
+      "peak_child_rss_gib": 0.7835350036621094,
+      "command": [
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/bin/python",
+        "-m",
+        "transient_v5.worker",
+        "--mode",
+        "preflight",
+        "--backend-json",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/runs/transient_owned_v5_20260924/run_20260924T055127_833465Z/backend_requested.json",
+        "--public",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/preflight",
+        "--private",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/runs/transient_owned_v5_20260924/run_20260924T055127_833465Z/preflight",
+        "--run-config",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/transient_owned_v5_20260924/RUN_CONFIG.json"
+      ]
+    },
+    "L0": {
+      "returncode": 0,
+      "status": "EXIT_OK",
+      "elapsed_seconds": 8.009239125065506,
+      "peak_child_rss_gib": 1.3569412231445312,
+      "command": [
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/bin/python",
+        "-m",
+        "transient_v5.worker",
+        "--mode",
+        "arm",
+        "--backend-json",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/preflight/backend_resolved.json",
+        "--arm",
+        "L0",
+        "--public",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/L0",
+        "--private",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/runs/transient_owned_v5_20260924/run_20260924T055127_833465Z/L0",
+        "--run-config",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/transient_owned_v5_20260924/RUN_CONFIG.json"
+      ]
+    },
+    "L0_restore": {
+      "returncode": 0,
+      "status": "EXIT_OK",
+      "elapsed_seconds": 4.206282563973218,
+      "peak_child_rss_gib": 1.2333717346191406,
+      "command": [
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/bin/python",
+        "-m",
+        "transient_v5.worker",
+        "--mode",
+        "restore",
+        "--backend-json",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/preflight/backend_resolved.json",
+        "--arm",
+        "L0",
+        "--public",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/L0",
+        "--private",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/runs/transient_owned_v5_20260924/run_20260924T055127_833465Z/L0",
+        "--run-config",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/transient_owned_v5_20260924/RUN_CONFIG.json"
+      ]
+    },
+    "FI": {
+      "returncode": 0,
+      "status": "EXIT_OK",
+      "elapsed_seconds": 8.416465743095614,
+      "peak_child_rss_gib": 1.4322929382324219,
+      "command": [
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/bin/python",
+        "-m",
+        "transient_v5.worker",
+        "--mode",
+        "arm",
+        "--backend-json",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/preflight/backend_resolved.json",
+        "--arm",
+        "FI",
+        "--public",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/FI",
+        "--private",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/runs/transient_owned_v5_20260924/run_20260924T055127_833465Z/FI",
+        "--run-config",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/transient_owned_v5_20260924/RUN_CONFIG.json"
+      ]
+    },
+    "FI_restore": {
+      "returncode": 0,
+      "status": "EXIT_OK",
+      "elapsed_seconds": 4.2058944860473275,
+      "peak_child_rss_gib": 1.2410125732421875,
+      "command": [
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/bin/python",
+        "-m",
+        "transient_v5.worker",
+        "--mode",
+        "restore",
+        "--backend-json",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/preflight/backend_resolved.json",
+        "--arm",
+        "FI",
+        "--public",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/FI",
+        "--private",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/runs/transient_owned_v5_20260924/run_20260924T055127_833465Z/FI",
+        "--run-config",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/transient_owned_v5_20260924/RUN_CONFIG.json"
+      ]
+    },
+    "FM": {
+      "returncode": 0,
+      "status": "EXIT_OK",
+      "elapsed_seconds": 8.616160175995901,
+      "peak_child_rss_gib": 1.3519020080566406,
+      "command": [
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/bin/python",
+        "-m",
+        "transient_v5.worker",
+        "--mode",
+        "arm",
+        "--backend-json",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/preflight/backend_resolved.json",
+        "--arm",
+        "FM",
+        "--public",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/FM",
+        "--private",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/runs/transient_owned_v5_20260924/run_20260924T055127_833465Z/FM",
+        "--run-config",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/transient_owned_v5_20260924/RUN_CONFIG.json"
+      ]
+    },
+    "FM_restore": {
+      "returncode": 0,
+      "status": "EXIT_OK",
+      "elapsed_seconds": 3.806304096011445,
+      "peak_child_rss_gib": 1.240264892578125,
+      "command": [
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/bin/python",
+        "-m",
+        "transient_v5.worker",
+        "--mode",
+        "restore",
+        "--backend-json",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/preflight/backend_resolved.json",
+        "--arm",
+        "FM",
+        "--public",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/FM",
+        "--private",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/runs/transient_owned_v5_20260924/run_20260924T055127_833465Z/FM",
+        "--run-config",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/transient_owned_v5_20260924/RUN_CONFIG.json"
+      ]
+    },
+    "LI": {
+      "returncode": 0,
+      "status": "EXIT_OK",
+      "elapsed_seconds": 7.617872290080413,
+      "peak_child_rss_gib": 1.424591064453125,
+      "command": [
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/bin/python",
+        "-m",
+        "transient_v5.worker",
+        "--mode",
+        "arm",
+        "--backend-json",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/preflight/backend_resolved.json",
+        "--arm",
+        "LI",
+        "--public",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/LI",
+        "--private",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/runs/transient_owned_v5_20260924/run_20260924T055127_833465Z/LI",
+        "--run-config",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/transient_owned_v5_20260924/RUN_CONFIG.json"
+      ]
+    },
+    "LI_restore": {
+      "returncode": 0,
+      "status": "EXIT_OK",
+      "elapsed_seconds": 3.8076721660327166,
+      "peak_child_rss_gib": 1.1665229797363281,
+      "command": [
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/bin/python",
+        "-m",
+        "transient_v5.worker",
+        "--mode",
+        "restore",
+        "--backend-json",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/preflight/backend_resolved.json",
+        "--arm",
+        "LI",
+        "--public",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/LI",
+        "--private",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/runs/transient_owned_v5_20260924/run_20260924T055127_833465Z/LI",
+        "--run-config",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/transient_owned_v5_20260924/RUN_CONFIG.json"
+      ]
+    },
+    "LM": {
+      "returncode": 0,
+      "status": "EXIT_OK",
+      "elapsed_seconds": 7.615579608944245,
+      "peak_child_rss_gib": 1.3528633117675781,
+      "command": [
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/bin/python",
+        "-m",
+        "transient_v5.worker",
+        "--mode",
+        "arm",
+        "--backend-json",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/preflight/backend_resolved.json",
+        "--arm",
+        "LM",
+        "--public",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/LM",
+        "--private",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/runs/transient_owned_v5_20260924/run_20260924T055127_833465Z/LM",
+        "--run-config",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/transient_owned_v5_20260924/RUN_CONFIG.json"
+      ]
+    },
+    "LM_restore": {
+      "returncode": 0,
+      "status": "EXIT_OK",
+      "elapsed_seconds": 3.8054890040075406,
+      "peak_child_rss_gib": 1.1798744201660156,
+      "command": [
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/bin/python",
+        "-m",
+        "transient_v5.worker",
+        "--mode",
+        "restore",
+        "--backend-json",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/preflight/backend_resolved.json",
+        "--arm",
+        "LM",
+        "--public",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/results/transient_owned_v5_20260924/run_20260924T055127_833465Z/LM",
+        "--private",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/runs/transient_owned_v5_20260924/run_20260924T055127_833465Z/LM",
+        "--run-config",
+        "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/transient_owned_v5_20260924/RUN_CONFIG.json"
+      ]
+    }
+  },
+  "counting_scope": "Event counts are native/test-double lifecycle worker operations including failed attempts. Standalone formula/PEFT-parity and unittest operations are separately reported and never perform optimizer steps.",
+  "head_at_start": "9303fe3436c09aa0672bd5cab0ced8a1d61e0ab4",
+  "finished": "2026-09-24T05:52:33Z",
+  "elapsed_seconds": 65.7852286939742,
+  "actual_counts_including_failed_attempts": {
+    "model_load": {
+      "START": 10,
+      "COMPLETED": 10,
+      "FAILED": 0
+    },
+    "forward": {
+      "START": 90,
+      "COMPLETED": 90,
+      "FAILED": 0
+    },
+    "backward": {
+      "START": 30,
+      "COMPLETED": 30,
+      "FAILED": 0
+    },
+    "optimizer_step": {
+      "START": 30,
+      "COMPLETED": 30,
+      "FAILED": 0
+    }
+  },
+  "optimizer_updates_completed": 30,
+  "source_manifest_preserved": true
+}
