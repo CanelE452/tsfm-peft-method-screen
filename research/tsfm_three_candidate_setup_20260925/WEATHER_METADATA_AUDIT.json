@@ -1,0 +1,148 @@
+{
+  "asset_sha256": "34ee981d07313e51da2a50bb600072c8ae4a69cb4b0651f4cb93a069d7a2ba63",
+  "rows": 52696,
+  "channels": [
+    "p (mbar)",
+    "T (degC)",
+    "Tpot (K)",
+    "Tdew (degC)",
+    "rh (%)",
+    "VPmax (mbar)",
+    "VPact (mbar)",
+    "VPdef (mbar)",
+    "sh (g/kg)",
+    "H2OC (mmol/mol)",
+    "rho (g/m**3)",
+    "wv (m/s)",
+    "max. wv (m/s)",
+    "wd (deg)",
+    "rain (mm)",
+    "raining (s)",
+    "SWDR (W/m\ufffd)",
+    "PAR (\ufffdmol/m\ufffd/s)",
+    "max. PAR (\ufffdmol/m\ufffd/s)",
+    "Tlog (degC)",
+    "OT"
+  ],
+  "channel_count": 21,
+  "first_timestamp": "2020-01-01 00:10:00",
+  "last_timestamp": "2021-01-01 00:00:00",
+  "timestamp_duplicates": 1,
+  "timestamp_step_seconds_counts": {
+    "600.0": 52693,
+    "0.0": 1,
+    "6000.0": 1
+  },
+  "split_half_open_row_bounds": {
+    "TRAIN": [
+      0,
+      36887
+    ],
+    "V_SELECT": [
+      36887,
+      38643
+    ],
+    "CAL": [
+      38643,
+      40399
+    ],
+    "PILOT_EVAL": [
+      40399,
+      42156
+    ],
+    "TEST_UNUSED": [
+      42156,
+      52695
+    ]
+  },
+  "trailing_unused_rows": 1,
+  "dev_numeric_rows_read": 42156,
+  "test_numeric_rows_read": 0,
+  "dev_nonfinite_count": 0,
+  "origins": {
+    "2000": {
+      "TRAIN": {
+        "count": 34792,
+        "stride": 1,
+        "unique_dates": 243,
+        "first": 2000,
+        "last": 36791
+      },
+      "V_SELECT": {
+        "count": 1661,
+        "stride": 1,
+        "unique_dates": 12,
+        "first": 36887,
+        "last": 38547
+      },
+      "CAL": {
+        "count": 18,
+        "stride": 96,
+        "unique_dates": 12,
+        "first": 38643,
+        "last": 40275
+      },
+      "PILOT_EVAL": {
+        "count": 18,
+        "stride": 96,
+        "unique_dates": 12,
+        "first": 40399,
+        "last": 42031
+      }
+    },
+    "512": {
+      "TRAIN": {
+        "count": 36280,
+        "stride": 1,
+        "unique_dates": 253,
+        "first": 512,
+        "last": 36791
+      },
+      "V_SELECT": {
+        "count": 1661,
+        "stride": 1,
+        "unique_dates": 12,
+        "first": 36887,
+        "last": 38547
+      },
+      "CAL": {
+        "count": 18,
+        "stride": 96,
+        "unique_dates": 12,
+        "first": 38643,
+        "last": 40275
+      },
+      "PILOT_EVAL": {
+        "count": 18,
+        "stride": 96,
+        "unique_dates": 12,
+        "first": 40399,
+        "last": 42031
+      }
+    }
+  },
+  "neural_model_loads": 0,
+  "training_updates": 0,
+  "predictions": 0,
+  "target_error_scoring": 0,
+  "timestamp_parser": "exact %Y-%m-%d %H:%M:%S; initial dayfirst=True attempt failed before numeric reads, then corrected to actual source schema",
+  "pilot_date_support_pass": true,
+  "timestamp_anomalies": [
+    {
+      "row": 19044,
+      "previous": "2020-05-12 06:00:00",
+      "current": "2020-05-12 06:00:00",
+      "delta_seconds": 0.0,
+      "split": "TRAIN"
+    },
+    {
+      "row": 21514,
+      "previous": "2020-05-29 09:30:00",
+      "current": "2020-05-29 11:10:00",
+      "delta_seconds": 6000.0,
+      "split": "TRAIN"
+    }
+  ],
+  "source_rows_preserved": true,
+  "timestamp_repair_performed": false
+}

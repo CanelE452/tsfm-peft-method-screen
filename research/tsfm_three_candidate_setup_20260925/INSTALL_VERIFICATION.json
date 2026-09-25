@@ -1,0 +1,137 @@
+{
+  "scope": "INSTALLATION_AND_IMPORT_CHECK_ONLY",
+  "completed_utc": "2026-09-25T09:11:32.163174+00:00",
+  "environments": {
+    "msft": {
+      "python": ".cache/tsfm_three_candidate_setup_20260925/envs/msft/bin/python",
+      "imports": {
+        "torch": {
+          "version": "2.4.1+cu121",
+          "file": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/tsfm_three_candidate_setup_20260925/envs/msft/lib/python3.11/site-packages/torch/__init__.py"
+        },
+        "lightning": {
+          "version": "2.4.0",
+          "file": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/tsfm_three_candidate_setup_20260925/envs/msft/lib/python3.11/site-packages/lightning/__init__.py"
+        },
+        "datasets": {
+          "version": "2.17.1",
+          "file": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/tsfm_three_candidate_setup_20260925/envs/msft/lib/python3.11/site-packages/datasets/__init__.py"
+        },
+        "jax": {
+          "version": "0.4.30",
+          "file": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/tsfm_three_candidate_setup_20260925/envs/msft/lib/python3.11/site-packages/jax/__init__.py"
+        },
+        "uni2ts.model.moirai": {
+          "version": null,
+          "file": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/tsfm_three_candidate_setup_20260925/sources/MSFT/src/uni2ts/model/moirai/__init__.py"
+        },
+        "uni2ts.model.multi_scale_moirai": {
+          "version": null,
+          "file": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/tsfm_three_candidate_setup_20260925/sources/MSFT/src/uni2ts/model/multi_scale_moirai/__init__.py"
+        }
+      },
+      "import_stderr": "",
+      "dependency_check": "Using Python 3.11.15 environment at: .cache/tsfm_three_candidate_setup_20260925/envs/msft\nChecked 85 packages in 0.89ms\nAll installed packages are compatible",
+      "freeze_file": "msft.freeze.txt",
+      "package_count": 85,
+      "freeze_replay_dry_run": {
+        "exit_code": 0,
+        "output": "Using Python 3.11.15 environment at: .cache/tsfm_three_candidate_setup_20260925/envs/msft\nChecked 85 packages in 5ms\nWould make no changes"
+      }
+    },
+    "adapts": {
+      "python": ".cache/tsfm_three_candidate_setup_20260925/envs/adapts/bin/python",
+      "imports": {
+        "torch": {
+          "version": "2.4.1+cu121",
+          "file": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/tsfm_three_candidate_setup_20260925/envs/adapts/lib/python3.11/site-packages/torch/__init__.py"
+        },
+        "lightning": {
+          "version": "2.4.0",
+          "file": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/tsfm_three_candidate_setup_20260925/envs/adapts/lib/python3.11/site-packages/lightning/__init__.py"
+        },
+        "datasets": {
+          "version": "2.17.1",
+          "file": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/tsfm_three_candidate_setup_20260925/envs/adapts/lib/python3.11/site-packages/datasets/__init__.py"
+        },
+        "jax": {
+          "version": "0.4.30",
+          "file": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/tsfm_three_candidate_setup_20260925/envs/adapts/lib/python3.11/site-packages/jax/__init__.py"
+        },
+        "uni2ts.model.moirai": {
+          "version": null,
+          "file": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/tsfm_three_candidate_setup_20260925/sources/uni2ts/src/uni2ts/model/moirai/__init__.py"
+        },
+        "transformers": {
+          "version": "4.48.3",
+          "file": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/tsfm_three_candidate_setup_20260925/envs/adapts/lib/python3.11/site-packages/transformers/__init__.py"
+        },
+        "accelerate": {
+          "version": "1.15.0",
+          "file": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/tsfm_three_candidate_setup_20260925/envs/adapts/lib/python3.11/site-packages/accelerate/__init__.py"
+        },
+        "adapts.adapters": {
+          "version": null,
+          "file": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/tsfm_three_candidate_setup_20260925/sources/AdaPTS/src/adapts/adapters.py"
+        },
+        "adapts.adapts": {
+          "version": null,
+          "file": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/tsfm_three_candidate_setup_20260925/sources/AdaPTS/src/adapts/adapts.py"
+        },
+        "adapts.icl.moirai": {
+          "version": null,
+          "file": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/tsfm_three_candidate_setup_20260925/sources/AdaPTS/src/adapts/icl/moirai.py"
+        }
+      },
+      "import_stderr": "",
+      "dependency_check": "Using Python 3.11.15 environment at: .cache/tsfm_three_candidate_setup_20260925/envs/adapts\nChecked 130 packages in 1ms\nAll installed packages are compatible",
+      "freeze_file": "adapts.freeze.txt",
+      "package_count": 131,
+      "unique_package_count": 130,
+      "metadata_duplicate_note": "AdaPTS same version appears as dist-info and editable source egg-info; 131 metadata entries, 130 unique packages.",
+      "freeze_replay_dry_run": {
+        "exit_code": 0,
+        "output": "Using Python 3.11.15 environment at: .cache/tsfm_three_candidate_setup_20260925/envs/adapts\nChecked 130 packages in 9ms\nWould make no changes"
+      }
+    }
+  },
+  "sources": {
+    "MSFT": {
+      "commit": "e848f23a2e3445df3f1c0ecd970d0a2e7ace3dec",
+      "remote": "https://github.com/zqiao11/MSFT.git",
+      "status": "",
+      "path": ".cache/tsfm_three_candidate_setup_20260925/sources/MSFT"
+    },
+    "AdaPTS": {
+      "commit": "8bf57c7ee3b97bfd3f1852ad8dc8d0695a806278",
+      "remote": "https://github.com/abenechehab/AdaPTS.git",
+      "status": "",
+      "path": ".cache/tsfm_three_candidate_setup_20260925/sources/AdaPTS"
+    },
+    "uni2ts": {
+      "commit": "cfd46d4510ed8896f263116f32928eede05b0a75",
+      "remote": "https://github.com/SalesforceAIResearch/uni2ts.git",
+      "status": "",
+      "path": ".cache/tsfm_three_candidate_setup_20260925/sources/uni2ts"
+    }
+  },
+  "existing_environments_unchanged": {
+    ".venv": true,
+    ".venv-channel": true
+  },
+  "training_fits": 0,
+  "optimizer_updates": 0,
+  "model_loads": 0,
+  "model_predictions": 0,
+  "target_error_scoring": 0,
+  "test_numeric_rows_read": 0,
+  "verified_asset_files": [
+    ".cache/tsfm_three_candidate_setup_20260925/hf/models--Salesforce--moirai-1.0-R-small/snapshots/f5bd5d01f0d67de856107d43abdd637380aae0a3/README.md",
+    ".cache/tsfm_three_candidate_setup_20260925/hf/models--Salesforce--moirai-1.0-R-small/snapshots/f5bd5d01f0d67de856107d43abdd637380aae0a3/config.json",
+    ".cache/tsfm_three_candidate_setup_20260925/hf/models--Salesforce--moirai-1.0-R-small/snapshots/f5bd5d01f0d67de856107d43abdd637380aae0a3/model.safetensors",
+    ".cache/tsfm_three_candidate_setup_20260925/hf/models--Salesforce--moirai-1.1-R-small/snapshots/0c24ab99db2c1a70ea2a0fc03bf113329772ac64/README.md",
+    ".cache/tsfm_three_candidate_setup_20260925/hf/models--Salesforce--moirai-1.1-R-small/snapshots/0c24ab99db2c1a70ea2a0fc03bf113329772ac64/config.json",
+    ".cache/tsfm_three_candidate_setup_20260925/hf/models--Salesforce--moirai-1.1-R-small/snapshots/0c24ab99db2c1a70ea2a0fc03bf113329772ac64/model.safetensors",
+    ".cache/tsfm_three_candidate_setup_20260925/hf/datasets--thuml--Time-Series-Library/snapshots/2b66e59ee19dac8f6f19fb5d4997f289fdfea357/weather/weather.csv"
+  ]
+}

@@ -1,0 +1,12 @@
+# Compatibility constraints for isolated installation, not experimental hyperparameters.
+# Uni2TS upstream requires torch<2.5 and NumPy 1.26.
+torch==2.4.1
+lightning==2.4.0
+numpy==1.26.4
+scipy==1.11.4
+jax==0.4.30
+jaxlib==0.4.30
+# datasets 2.17 uses PyExtensionType removed by later PyArrow.
+pyarrow==16.1.0
+huggingface-hub==0.27.1
+transformers==4.48.3
