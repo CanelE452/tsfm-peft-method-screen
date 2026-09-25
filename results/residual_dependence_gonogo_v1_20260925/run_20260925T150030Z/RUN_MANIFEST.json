@@ -1,0 +1,92 @@
+{
+  "run_id": "run_20260925T150030Z",
+  "head": "1425419139dc9a70b12c9b852b06bd00314131aa",
+  "config": {
+    "name": "residual_dependence_gonogo_v1_20260925",
+    "kind": "ACTUAL_PROBABILISTIC_ADAPTATION_GONOGO",
+    "seed": 9251401,
+    "dataset": {
+      "local_path": "data/raw/electricity.txt.gz",
+      "fallback_paths": [
+        ".cache/rollout_uncertainty_peft_v1_20260921/data/electricity.txt.gz",
+        ".cache/residual_feedback_peft_screen_v1_20260922/data/electricity.txt.gz"
+      ],
+      "download_url": "https://raw.githubusercontent.com/laiguokun/multivariate-time-series-data/master/electricity/electricity.txt.gz",
+      "sha256": "3c4c069588198c1fcc95cace7bb69c99922129edfd673b7286661dad20badefa",
+      "usecols": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "frequency": "1h",
+      "context": 336,
+      "horizon": 24,
+      "train_start": 336,
+      "train_stop": 6000,
+      "cal_start": 6000,
+      "cal_stop": 6600,
+      "pilot_start": 6600,
+      "pilot_stop": 7200,
+      "protected_evaluation_start": 7200,
+      "origin_stride": 24
+    },
+    "model": {
+      "id": "amazon/chronos-2",
+      "expected_chronos_version": "2.3.2",
+      "device": "cuda",
+      "dtype": "float32",
+      "quantiles": [
+        0.05,
+        0.1,
+        0.15,
+        0.2,
+        0.25,
+        0.3,
+        0.35,
+        0.4,
+        0.45,
+        0.5,
+        0.55,
+        0.6,
+        0.65,
+        0.7,
+        0.75,
+        0.8,
+        0.85,
+        0.9,
+        0.95
+      ],
+      "batch_size": 64
+    },
+    "paths": {
+      "n_scenarios": 512,
+      "corr_shrinkage": 0.1,
+      "recent_half_life_days": 28.0,
+      "recent_fixed_mix": 0.25,
+      "pit_clip": 0.005,
+      "bootstrap_reps": 2000
+    },
+    "decision": {
+      "dependence_gain_vs_ind_pct": 3.0,
+      "residual_gain_vs_raw_pct": 2.0,
+      "recent_gain_vs_fixed_pct": 1.5,
+      "min_channel_wins": 3,
+      "bootstrap_ci_level": 0.9,
+      "max_coverage_degradation_pp": 3.0
+    },
+    "execution": {
+      "allow_data_download": true,
+      "allow_model_download": true,
+      "allow_model_inference": true,
+      "allow_statistical_fit": true,
+      "allow_backbone_training": false,
+      "allow_lora_training": false,
+      "allow_values_at_or_after_7200": false,
+      "second_seed": false
+    }
+  },
+  "backbone_training": 0,
+  "lora_training": 0,
+  "protected_evaluation_values_access": false
+}

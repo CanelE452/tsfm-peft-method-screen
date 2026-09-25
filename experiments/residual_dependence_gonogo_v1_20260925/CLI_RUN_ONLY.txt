@@ -1,0 +1,38 @@
+작업 유형: 실제 Go/No-Go 고정 실행. CLI는 코드 작성·수정·재설계를 하지 않는다.
+
+이번 작업은 metadata-only PRECHECK가 아니다.
+**실제 Chronos-2 추론, residual dependence fitting, path simulation, CAL/PILOT scoring까지 실행**한다.
+
+명시적 허용:
+- `data/raw/electricity.txt.gz`가 없으면 지정 fallback 탐색, 그래도 없으면 RUN_CONFIG의 공개 URL 다운로드
+- `amazon/chronos-2`가 cache에 없으면 다운로드
+- GPU 추론
+- TRAIN forecast residual을 이용한 PIT calibration / correlation fit
+- CAL/PILOT scenario generation, CRPS/coverage 계산
+- 코드와 결과 commit/push
+
+명시적 금지:
+- 코드/RUN_CONFIG/split/threshold/half-life/shrinkage/scenario 수 수정
+- origin >= 7200의 수치 값을 파싱하거나 점수화
+- Chronos backbone 학습, LoRA 학습
+- 결과 보고 method 추가/조건 변경
+- 성공할 때까지 재실행, 두 번째 seed
+- CLI 자체 결과 해석
+
+실행 절차:
+1. ZIP을 저장소 밖 새 디렉터리에 압축 해제한다.
+2. `CanelE452/tsfm-peft-method-screen` 저장소 루트로 이동한다.
+3. 아래 명령을 정확히 한 번 실행한다.
+
+python3 -B /실제/압축해제경로/residual_dependence_gonogo_v1_20260925/execute.py   --repo "$PWD"   --publish
+
+데이터/모델이 로컬에 없다는 이유로 사전점검 문서만 만들고 끝내지 않는다. 허용된 download를 실제로 시도한다.
+network/CUDA/library 오류는 코드를 고치지 말고 `TECHNICAL_FAILURE`로 게시한다.
+
+완료 후 다음만 전달:
+- exit code
+- commit SHA / push 상태
+- result 상대경로
+- FINAL_DECISION token
+- DEPENDENCE_RELEVANT / RESIDUAL_STRUCTURE_VALUE / ADAPTATION_NEEDED PASS/FAIL
+- protected_evaluation_values_access=false 여부
