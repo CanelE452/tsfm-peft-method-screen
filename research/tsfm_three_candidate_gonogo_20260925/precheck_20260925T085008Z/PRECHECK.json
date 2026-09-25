@@ -1,0 +1,269 @@
+{
+  "status": "PRECHECK_COMPLETE_INPUTS_NOT_READY",
+  "created_utc": "2026-09-25T08:50:08.593008+00:00",
+  "repo": {
+    "pwd": "/home/minjae/Documents/github/tsfm-peft-method-screen",
+    "origin": "https://github.com/CanelE452/tsfm-peft-method-screen.git",
+    "head_before_precheck": "af49ead03f31fbe35d51f5ab3fb2295a09fe0305",
+    "remote_main_before_publication": "af49ead03f31fbe35d51f5ab3fb2295a09fe0305",
+    "branch": "main",
+    "initial_status_porcelain": "",
+    "publication_preference": "Existing CanelE452/tsfm-peft-method-screen/main, including when an attachment names another repository"
+  },
+  "documents": [
+    {
+      "path": "/home/minjae/Downloads/tsfm_three_candidate_gonogo_plan_20260925.md",
+      "sha256": "82b0a55260c3c81d831d8435dad0b3c468048e75055520decb6112b61bf19d47",
+      "bytes": 31092
+    },
+    {
+      "path": "/home/minjae/Downloads/tsfm_three_candidate_gonogo_CLI_20260925.txt",
+      "sha256": "96fa97a03d6aa0d7499cab0e9d9ce6a8d2d1feeba3118c98bf7ed4d8bce76b77",
+      "bytes": 37376
+    }
+  ],
+  "document_interpretation": {
+    "current_scope": "P0 read-only metadata review plus two PRECHECK files; no experiment implementation",
+    "future_10_train_jobs_are_not_current_authorization": true,
+    "embedded_plan_equals_md": true
+  },
+  "environments": [
+    {
+      "python": "3.11.15 (main, Jun  2 2026, 22:26:03) [Clang 22.1.3 ]",
+      "executable": "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/bin/python",
+      "prefix": "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv",
+      "packages": {
+        "torch": {
+          "version": "2.8.0",
+          "path": "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/lib/python3.11/site-packages"
+        },
+        "lightning": {
+          "status": "NOT_INSTALLED"
+        },
+        "pytorch-lightning": {
+          "status": "NOT_INSTALLED"
+        },
+        "uni2ts": {
+          "status": "NOT_INSTALLED"
+        },
+        "chronos-forecasting": {
+          "version": "2.3.2",
+          "path": "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/lib/python3.11/site-packages"
+        }
+      }
+    },
+    {
+      "python": "3.11.15 (main, Jun  2 2026, 22:26:03) [Clang 22.1.3 ]",
+      "executable": "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv-channel/bin/python",
+      "prefix": "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv-channel",
+      "packages": {
+        "torch": {
+          "version": "2.7.1",
+          "path": "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv-channel/lib/python3.11/site-packages"
+        },
+        "lightning": {
+          "status": "NOT_INSTALLED"
+        },
+        "pytorch-lightning": {
+          "status": "NOT_INSTALLED"
+        },
+        "uni2ts": {
+          "status": "NOT_INSTALLED"
+        },
+        "chronos-forecasting": {
+          "status": "NOT_INSTALLED"
+        }
+      }
+    },
+    {
+      "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:16:10) [GCC 11.2.0]",
+      "executable": "/home/minjae/anaconda3/bin/python",
+      "prefix": "/home/minjae/anaconda3",
+      "packages": {
+        "torch": {
+          "version": "2.5.1+cu121",
+          "path": "/home/minjae/anaconda3/lib/python3.13/site-packages"
+        },
+        "lightning": {
+          "status": "NOT_INSTALLED"
+        },
+        "pytorch-lightning": {
+          "status": "NOT_INSTALLED"
+        },
+        "uni2ts": {
+          "status": "NOT_INSTALLED"
+        },
+        "chronos-forecasting": {
+          "version": "2.2.2",
+          "path": "/home/minjae/anaconda3/lib/python3.13/site-packages"
+        }
+      }
+    }
+  ],
+  "environment_check_method": "importlib.metadata only; torch/lightning/uni2ts not imported",
+  "gpu_snapshot": {
+    "name": "NVIDIA GeForce RTX 3080",
+    "driver": "580.178.04",
+    "total_MiB": 10240,
+    "free_MiB": 8956,
+    "used_MiB": 897,
+    "compute_processes": [
+      {
+        "pid": 3743722,
+        "name": "/usr/share/rustdesk/rustdesk",
+        "MiB": 272
+      }
+    ],
+    "limitation": "point-in-time metadata, no model-load or batch fit test"
+  },
+  "search": {
+    "roots": [
+      "/home/minjae/Documents/github/tsfm-peft-method-screen",
+      "/home/minjae/Documents/github/mlmltime",
+      "/home/minjae/Documents/github/forecast-revision-peft",
+      "/home/minjae/Documents/github/timeseries",
+      "/home/minjae/Documents/github/tirex",
+      "/home/minjae/Documents/github/tirex-2",
+      "/home/minjae/Documents/github/intermittent-tsfm-calibration",
+      "/home/minjae/Documents/github/occurrence-magnitude-coupling",
+      "/home/minjae/.cache/huggingface"
+    ],
+    "method": "rg --files --hidden --no-ignore with bounded roots; excludes venvs, node_modules, git objects, pycache and private_auth; relevant git remotes checked separately to depth5",
+    "git_configs_inspected": 8,
+    "source_repo_matches": [],
+    "weather_benchmark_file_matches": [],
+    "moirai_snapshot_file_matches": [],
+    "limits": "Not an exhaustive search of all disks; MISSING means not found in declared scope."
+  },
+  "sources": {
+    "MSFT": {
+      "status": "MISSING_SOURCE",
+      "expected_origin": "https://github.com/zqiao11/MSFT",
+      "expected_pin": "e848f23a2e3445df3f1c0ecd970d0a2e7ace3dec",
+      "actual_commit": null,
+      "official_paths_read_locally": []
+    },
+    "AdaPTS": {
+      "status": "MISSING_SOURCE",
+      "expected_origin": "https://github.com/abenechehab/AdaPTS",
+      "expected_pin": "8bf57c7ee3b97bfd3f1852ad8dc8d0695a806278",
+      "actual_commit": null,
+      "official_paths_read_locally": []
+    }
+  },
+  "snapshots": {
+    "Moirai-1.0-R-small": {
+      "status": "MISSING_CHECKPOINT",
+      "actual_snapshot": null,
+      "config_read": false
+    },
+    "Moirai-1.1-R-small": {
+      "status": "MISSING_CHECKPOINT",
+      "actual_snapshot": null,
+      "config_read": false
+    }
+  },
+  "weather_data": {
+    "status": "MISSING_DATA",
+    "path": null,
+    "origin_url": null,
+    "sha256": null,
+    "timestamp_column": null,
+    "numeric_channels": null,
+    "units": null,
+    "rows": null,
+    "interval": null,
+    "unrelated_weather_paths_not_substituted": [
+      "../timeseries/data/processed/weather_runs.parquet",
+      "../timeseries/data/processed/weather_runs_v2_07utc.parquet",
+      "../timeseries/data/processed/weather_verification.parquet"
+    ],
+    "unrelated_values_read": false
+  },
+  "sample_support": {
+    "status": "UNVERIFIABLE_MISSING_DATA_AND_SOURCE",
+    "N": null,
+    "raw_split_boundaries": null,
+    "origins_by_split": null,
+    "dates_by_split": null,
+    "pilot_eval_min_dates": 8,
+    "pilot_eval_support_verified": false,
+    "not_equivalent_to_insufficient_support": true,
+    "planned_H": 96,
+    "planned_contexts": {
+      "A_C": 2000,
+      "B": 512
+    },
+    "planned_CAL_PILOT_stride": 96,
+    "TEST_numeric_values_read": false
+  },
+  "candidate_precheck": {
+    "A": {
+      "status": "BLOCKED_INPUTS",
+      "blockers": [
+        "MISSING_MSFT_SOURCE",
+        "MISSING_MOIRAI_1_0_SNAPSHOT",
+        "MISSING_WEATHER_BENCHMARK",
+        "NO_MSFT_ENV"
+      ],
+      "qkv_ownership_freeze_Wo_non_lora_modules_verified": false
+    },
+    "B": {
+      "status": "BLOCKED_INPUTS",
+      "blockers": [
+        "MISSING_ADAPTS_SOURCE",
+        "MISSING_MOIRAI_1_1_SNAPSHOT",
+        "MISSING_WEATHER_BENCHMARK",
+        "NO_ADAPTS_ENV"
+      ],
+      "linearAE_forecast_tensor_and_gradient_path_verified": false
+    },
+    "C": {
+      "status": "BLOCKED_INPUTS",
+      "I16_checkpoint": "NOT_FOUND_IN_SCOPE",
+      "scale_prediction_cache": "NOT_FOUND_IN_SCOPE",
+      "native_sample_mean_parity_verified": false,
+      "baseline_cost_if_no_compatible_cache": "one I16 fit shared with A; not executed",
+      "no_claim_of_training_free_readiness": true
+    }
+  },
+  "cache_reuse_contract_unverified": [
+    "source pin",
+    "backbone snapshot",
+    "channels/mode",
+    "L/H/patch/scales",
+    "split/scaler",
+    "seed",
+    "checkpoint policy",
+    "point estimator",
+    "prior TEST/VAL exposure provenance"
+  ],
+  "declared_future_budget_only": {
+    "A_jobs": 4,
+    "B_jobs": 6,
+    "total_jobs": 10,
+    "max_optimizer_updates": 10240,
+    "FM_backward_jobs": 8,
+    "small_head_jobs": 2,
+    "C_CAL_convex_fit": 1,
+    "second_seed_requires_separate_authorization": true
+  },
+  "actual_execution": {
+    "new_runner_files": 0,
+    "model_loads": 0,
+    "model_inference": 0,
+    "training_jobs": 0,
+    "optimizer_updates": 0,
+    "installs": 0,
+    "data_downloads": 0,
+    "model_downloads": 0,
+    "C_CAL_fits": 0,
+    "TEST_scoring": 0,
+    "checkpoint_tensor_loads": 0
+  },
+  "publication_scope": [
+    "PRECHECK.json",
+    "PRECHECK_KO.md"
+  ],
+  "scientific_go_nogo": "NOT_EVALUATED; missing inputs are not scientific failure"
+}
