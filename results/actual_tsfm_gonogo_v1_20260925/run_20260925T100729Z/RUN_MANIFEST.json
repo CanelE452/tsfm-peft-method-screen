@@ -1,0 +1,94 @@
+{
+  "head_at_start": "0952d821832c224138ba677a94d1deb9940209b4",
+  "run_id": "run_20260925T100729Z",
+  "config": {
+    "name": "actual_tsfm_gonogo_v1_20260925",
+    "kind": "ACTUAL_TRAINING_GONOGO",
+    "seed": 925701,
+    "data": {
+      "url": "https://huggingface.co/datasets/thuml/Time-Series-Library/resolve/main/weather/weather.csv?download=true",
+      "context": 96,
+      "horizon": 24,
+      "train_fraction": 0.7,
+      "val_fraction": 0.1,
+      "eval_origins_per_half": 24,
+      "a_channels": 4
+    },
+    "model": {
+      "id": "amazon/chronos-2",
+      "chronos_version_expected": "2.3.2",
+      "dtype": "float32",
+      "device": "cuda",
+      "batch_size": 2
+    },
+    "candidate_a": {
+      "scales": [
+        1,
+        2,
+        4
+      ],
+      "steps": 64,
+      "lr": 0.001,
+      "scale_weight_lr": 0.01,
+      "alpha_over_rank": 2.0,
+      "variants": {
+        "I8": {
+          "mode": "independent",
+          "rank": 8
+        },
+        "S8": {
+          "mode": "shared",
+          "rank": 8
+        },
+        "I2": {
+          "mode": "independent",
+          "rank": 2
+        },
+        "P8": {
+          "mode": "gated_shared",
+          "rank": 8
+        }
+      }
+    },
+    "candidate_b": {
+      "steps": 64,
+      "lr": 0.001,
+      "variants": [
+        "U4",
+        "U8",
+        "R4",
+        "X4",
+        "PCA4_R",
+        "LINEAR"
+      ]
+    },
+    "decision": {
+      "a_accuracy_tolerance_pct": 1.0,
+      "a_param_reduction_min_pct": 40.0,
+      "a_simple_margin_pct": 0.5,
+      "b_accuracy_tolerance_pct": 1.0,
+      "b_runtime_reduction_min_pct": 10.0,
+      "b_simple_margin_pct": 0.5,
+      "c_native_improvement_min_pct": 1.0,
+      "c_simple_margin_pct": 0.5
+    },
+    "limits": {
+      "test_split_access": false,
+      "max_total_optimizer_steps": 640,
+      "allow_data_download": true,
+      "allow_model_download": true,
+      "allow_package_install": false,
+      "allow_lora_training": true,
+      "allow_adapter_training": true,
+      "second_seed": false
+    }
+  },
+  "optimizer_steps_planned": 640,
+  "test_split_numeric_values_parsed": false,
+  "test_split_scored": false,
+  "downloads_explicitly_authorized": {
+    "weather": true,
+    "chronos_2": true
+  },
+  "package_install_allowed": false
+}

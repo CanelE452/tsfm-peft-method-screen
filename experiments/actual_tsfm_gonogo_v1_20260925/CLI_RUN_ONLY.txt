@@ -1,0 +1,40 @@
+작업 유형: 실제 Go/No-Go 고정 실행. 코드 작성·수정 금지.
+
+이전 PRECHECK 지시문은 폐기한다. 이번 작업은 사전점검이 아니라 **실제 학습·추론·평가**다.
+
+명시적 허용:
+- Weather 공개 데이터가 없으면 자동 다운로드
+- amazon/chronos-2가 로컬 cache에 없으면 자동 다운로드
+- GPU 모델 로드
+- backward / optimizer step
+- 실제 LoRA 학습
+- 실제 adapter/linear head 학습
+- CAL/PILOT 평가
+- 고정 실행 코드와 결과 commit/push
+
+금지:
+- 코드/JSON/seed/step/LR/판정 기준 수정
+- 뒤 20% TEST split의 모델 선택·채점
+- 성공할 때까지 재실행
+- 두 번째 seed
+- 결과를 보고 후보/threshold 변경
+- CLI가 새 방법을 구현하거나 결과를 해석함
+
+1. ZIP을 저장소 밖 새 폴더에 푼다.
+2. CanelE452/tsfm-peft-method-screen 저장소 루트로 이동한다.
+3. 아래 명령을 정확히 한 번 실행한다.
+
+python3 -B /실제/압축해제경로/actual_tsfm_gonogo_v1_20260925/execute.py \
+  --repo "$PWD" \
+  --publish
+
+4. 실행 도중 "로컬에 data/model/source가 없다"는 이유만으로 PRECHECK로 종료하지 않는다.
+   이 패키지는 Weather와 Chronos-2의 다운로드를 명시적으로 허용한다.
+5. 실제 dependency import 실패, network 실패, CUDA OOM 같은 기술 오류면 수정하지 말고 FAILURE를 게시한다.
+6. 종료 후 다음만 전달한다.
+   - exit code
+   - commit SHA / push 상태
+   - results 경로
+   - A_DECISION / B_DECISION / C_DECISION
+   - 실제 optimizer step 수
+   - test_split_access=false 인지

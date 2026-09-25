@@ -1,0 +1,40 @@
+{
+  "status": "AUTHOR_LOGIC_VALIDATED_NOT_TARGET_RUNTIME_EXECUTED",
+  "syntax_files": 11,
+  "syntax": {
+    "execute.py": "PASS",
+    "gonogo/__init__.py": "PASS",
+    "gonogo/backend.py": "PASS",
+    "gonogo/candidate_a.py": "PASS",
+    "gonogo/candidate_b.py": "PASS",
+    "gonogo/candidate_c.py": "PASS",
+    "gonogo/data.py": "PASS",
+    "gonogo/lora.py": "PASS",
+    "gonogo/selftest.py": "PASS",
+    "gonogo/suite.py": "PASS",
+    "gonogo/util.py": "PASS"
+  },
+  "unit_test_returncode": 0,
+  "unit_test_stdout": "",
+  "unit_test_stderr": "Spreadsheet runtime warmup failed during python startup\nTraceback (most recent call last):\n  File \"/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py\", line 26, in warm_spreadsheet_runtime_on_startup\n  File \"/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py\", line 785, in warm_spreadsheet_runtime\n  File \"/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py\", line 720, in _warm_feature_flows\n  File \"/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py\", line 704, in _warm_collaboration_flows\n  File \"/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/generated/interface/models.py\", line 32317, in hydrate_crdt_from_proto\n  File \"/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/remote.py\", line 749, in __call__\n  File \"/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/client.py\", line 150, in call\nartifact_tool.rpc.client.RemoteError: hydrateCrdtFromProto requires an empty collaborative document.\ntest_c_mse (gonogo.selftest.Tests.test_c_mse) ... ok\ntest_down_up_shape (gonogo.selftest.Tests.test_down_up_shape) ... ok\ntest_independent_lora_zero_b_preserves (gonogo.selftest.Tests.test_independent_lora_zero_b_preserves) ... ok\ntest_scale_selection_changes_independent_params (gonogo.selftest.Tests.test_scale_selection_changes_independent_params) ... ok\ntest_shared_lora_zero_b_preserves (gonogo.selftest.Tests.test_shared_lora_zero_b_preserves) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.004s\n\nOK\n",
+  "contract_checks": {
+    "cli_allows_data_download": true,
+    "cli_allows_model_download": true,
+    "cli_allows_backward": true,
+    "cli_allows_lora_training": true,
+    "cli_calls_actual_training": true,
+    "optimizer_budget_640": true,
+    "lora_training_allowed": true,
+    "adapter_training_allowed": true,
+    "data_download_allowed": true,
+    "model_download_allowed": true,
+    "suite_runs_A": true,
+    "suite_runs_B": true,
+    "suite_runs_C": true
+  },
+  "actual_weather_download_in_author_runtime": false,
+  "actual_chronos2_training_in_author_runtime": false,
+  "target_runtime_required": "Ubuntu repository .venv with chronos-forecasting 2.3.2 and CUDA",
+  "planned_actual_optimizer_steps_on_success": 640,
+  "note": "Unlike the previous PRECHECK instruction, this package explicitly authorizes downloads and performs real LoRA/adapter training in the target runtime."
+}
