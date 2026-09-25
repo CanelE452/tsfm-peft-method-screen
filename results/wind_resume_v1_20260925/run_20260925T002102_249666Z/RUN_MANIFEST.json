@@ -1,0 +1,81 @@
+{
+  "authorization": "wind-explicit-local-files-after-c085531-once-v1",
+  "run_id": "run_20260925T002102_249666Z",
+  "git_start": {
+    "head": "c085531186fa5d6a7505c2aa690d3d93a4fbcf86",
+    "branch": "main",
+    "dirty_before": ""
+  },
+  "original_config": {
+    "package": "topic_axis_gonogo_v1_20260925",
+    "scope": "THREE_DIFFICULTY_AXES_ZERO_SHOT_PILOT_NOT_PEFT_METHOD_VALIDATION",
+    "topics": [
+      "respiration",
+      "coordinates",
+      "wind"
+    ],
+    "device": "auto",
+    "alphas": [
+      0.01,
+      0.1,
+      1.0,
+      10.0,
+      100.0
+    ],
+    "alpha_family": 0.016666666666666666,
+    "min_contrast_groups": 4,
+    "min_agreement": 0.5,
+    "heuristic_notice": "4 groups and .5 agreement are conservative small-pilot triage choices, not validated scientific thresholds; GO is exploratory only",
+    "topic_timeout_seconds": 900,
+    "download_seconds": 600,
+    "download_bytes_per_topic": 1153433600,
+    "package_install": false,
+    "model_download": false,
+    "new_lora_fit": false,
+    "new_peft_fit": false,
+    "code_retry": false,
+    "acquisition": "official data URLs and pinned EqMotion data only; existing SDWPF csv/archive optional by path",
+    "no_go_meaning": "only this finite-sample proxy task; never absence of all information or impossibility of PEFT"
+  },
+  "original_config_sha256": "3a0e5b8b553879f8075a7e7f40b0321a6a3dbc2cefee6b594aea9680966966e4",
+  "executed_topics": [
+    "wind"
+  ],
+  "process": {
+    "command": [
+      "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/bin/python",
+      "-B",
+      "-m",
+      "triage.worker",
+      "--topic",
+      "wind",
+      "--repo",
+      "/home/minjae/Documents/github/tsfm-peft-method-screen",
+      "--cache",
+      "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/wind_resume_v1_20260925/run_20260925T002102_249666Z/worker_cache",
+      "--public",
+      "/home/minjae/Documents/github/tsfm-peft-method-screen/results/wind_resume_v1_20260925/run_20260925T002102_249666Z/wind",
+      "--config",
+      "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/topic_axis_gonogo_v1_20260925/RUN_CONFIG.json",
+      "--wind-csv",
+      "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/sdwpf_20260925/sdwpf_245days_v1.csv",
+      "--wind-locations",
+      "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/sdwpf_20260925/sdwpf_baidukddcup2022_turb_location.csv"
+    ],
+    "returncode": 0,
+    "timeout": false,
+    "elapsed_s": 7.6284249880118296,
+    "only_topic": "wind"
+  },
+  "elapsed_s": 7.874313234002329,
+  "original_lock_preserved": true,
+  "original_results_and_source_preserved": true,
+  "input_hashes_preserved": true,
+  "failure": null,
+  "scientific_parameters_changed": false,
+  "prior_results_are_not_new_replications": true,
+  "packages_installed_by_launcher": 0,
+  "dataset_downloads_by_launcher": 0,
+  "new_lora_fit": 0,
+  "new_peft_fit": 0
+}

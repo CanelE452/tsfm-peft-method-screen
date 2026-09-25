@@ -1,0 +1,26 @@
+{
+  "command": [
+    "/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/bin/python",
+    "-B",
+    "-m",
+    "triage.worker",
+    "--topic",
+    "wind",
+    "--repo",
+    "/home/minjae/Documents/github/tsfm-peft-method-screen",
+    "--cache",
+    "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/wind_resume_v1_20260925/run_20260925T002102_249666Z/worker_cache",
+    "--public",
+    "/home/minjae/Documents/github/tsfm-peft-method-screen/results/wind_resume_v1_20260925/run_20260925T002102_249666Z/wind",
+    "--config",
+    "/home/minjae/Documents/github/tsfm-peft-method-screen/experiments/topic_axis_gonogo_v1_20260925/RUN_CONFIG.json",
+    "--wind-csv",
+    "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/sdwpf_20260925/sdwpf_245days_v1.csv",
+    "--wind-locations",
+    "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/sdwpf_20260925/sdwpf_baidukddcup2022_turb_location.csv"
+  ],
+  "returncode": 0,
+  "timeout": false,
+  "elapsed_s": 7.6284249880118296,
+  "only_topic": "wind"
+}

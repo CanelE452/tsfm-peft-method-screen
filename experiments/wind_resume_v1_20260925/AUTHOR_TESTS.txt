@@ -1,0 +1,85 @@
+test_01_exclusive_retry_claim (test_resume.Basic.test_01_exclusive_retry_claim) ... ok
+test_02_only_wind_worker (test_resume.Basic.test_02_only_wind_worker) ... ok
+test_03_existing_original_marker_not_used_as_retry_lock (test_resume.Basic.test_03_existing_original_marker_not_used_as_retry_lock) ... ok
+test_04_input_size_check (test_resume.Basic.test_04_input_size_check) ... ok
+test_05_input_name_not_disguised (test_resume.Basic.test_05_input_name_not_disguised) ... ok
+test_06_input_metadata_md5 (test_resume.Basic.test_06_input_metadata_md5) ... ok
+test_07_bad_md5_stops (test_resume.Basic.test_07_bad_md5_stops) ... ok
+test_08_missing_metadata_no_download (test_resume.Basic.test_08_missing_metadata_no_download) ... ok
+test_09_snapshot_detects_change (test_resume.Basic.test_09_snapshot_detects_change) ... ok
+test_10_snapshot_rejects_symlink (test_resume.Basic.test_10_snapshot_rejects_symlink) ... ok
+test_11_reject_renamed_retry_destination (test_resume.Basic.test_11_reject_renamed_retry_destination) ... ok
+test_12_manifest_tamper_detected (test_resume.Basic.test_12_manifest_tamper_detected) ... ok
+test_13_extra_python_file_rejected (test_resume.Basic.test_13_extra_python_file_rejected) ... ok
+test_14_bytecode_not_in_manifest (test_resume.Basic.test_14_bytecode_not_in_manifest) ... ok
+test_15_no_topic_or_retry_override_flags (test_resume.Basic.test_15_no_topic_or_retry_override_flags) ... ok
+test_16_science_config_pin_includes_all_modules (test_resume.Basic.test_16_science_config_pin_includes_all_modules) ... ok
+test_17_full_local_publish_preserves_originals (test_resume.Integration.test_17_full_local_publish_preserves_originals) ... ok
+test_18_second_claim_does_not_run_worker (test_resume.Integration.test_18_second_claim_does_not_run_worker) ... ok
+test_19_blocked_worker_is_published_not_go (test_resume.Integration.test_19_blocked_worker_is_published_not_go) ... ok
+test_20_source_tamper_blocks_before_worker (test_resume.Integration.test_20_source_tamper_blocks_before_worker) ... ok
+test_21_previous_wind_score_prevents_retry (test_resume.Integration.test_21_previous_wind_score_prevents_retry) ... ok
+test_22_runtime_original_mutation_refuses_publish (test_resume.Integration.test_22_runtime_original_mutation_refuses_publish) ... ok
+test_23_missing_data_does_not_consume_authorization (test_resume.Integration.test_23_missing_data_does_not_consume_authorization) ... ok
+test_24_existing_staged_changes_are_not_committed (test_resume.Integration.test_24_existing_staged_changes_are_not_committed) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 1.415s
+
+OK
+{
+  "run": "run_20260925T000721_588538Z",
+  "result": "results/wind_resume_v1_20260925/run_20260925T000721_588538Z",
+  "status": "PUSH_VERIFIED",
+  "worker_returncode": 0,
+  "axis_status": "TEST_DOUBLE_ONLY",
+  "action": "NOT_A_SCIENTIFIC_RESULT",
+  "authorization_marker": "/tmp/tmpypye9bt1/repo/.cache/wind_resume_v1_20260925/wind-explicit-local-files-after-c085531-once-v1.started.json",
+  "parent_run": "results/topic_axis_gonogo_v1_20260925/run_20260924T231708_722756Z",
+  "commit": "a3906f6a0d107c9a13a19c713f0dfa18dd560869",
+  "push_returncode": 0,
+  "stdout": "",
+  "stderr": "To /tmp/tmpypye9bt1/bare.git\n   8016490..a3906f6  HEAD -> main\n",
+  "files": 15
+}
+{
+  "run": "run_20260925T000721_720901Z",
+  "result": "results/wind_resume_v1_20260925/run_20260925T000721_720901Z",
+  "status": "PUSH_VERIFIED",
+  "worker_returncode": 0,
+  "axis_status": "TEST_DOUBLE_ONLY",
+  "action": "NOT_A_SCIENTIFIC_RESULT",
+  "authorization_marker": "/tmp/tmpyc964m3s/repo/.cache/wind_resume_v1_20260925/wind-explicit-local-files-after-c085531-once-v1.started.json",
+  "parent_run": "results/topic_axis_gonogo_v1_20260925/run_20260924T231708_722756Z",
+  "commit": "754654739b11bdaed3faaff74feb29d04588114e",
+  "push_returncode": 0,
+  "stdout": "",
+  "stderr": "To /tmp/tmpyc964m3s/bare.git\n   8016490..7546547  HEAD -> main\n",
+  "files": 15
+}
+{
+  "run": "run_20260925T000721_862753Z",
+  "result": "results/wind_resume_v1_20260925/run_20260925T000721_862753Z",
+  "status": "PUSH_VERIFIED",
+  "worker_returncode": 3,
+  "axis_status": "BLOCKED_MODEL",
+  "action": null,
+  "authorization_marker": "/tmp/tmp9bs_geia/repo/.cache/wind_resume_v1_20260925/wind-explicit-local-files-after-c085531-once-v1.started.json",
+  "parent_run": "results/topic_axis_gonogo_v1_20260925/run_20260924T231708_722756Z",
+  "commit": "9e2b9b13ff8b0e00ad429efc627bb46b37715d7c",
+  "push_returncode": 0,
+  "stdout": "",
+  "stderr": "To /tmp/tmp9bs_geia/bare.git\n   8016490..9e2b9b1  HEAD -> main\n",
+  "files": 15
+}
+{
+  "run": "run_20260925T000722_126180Z",
+  "result": "results/wind_resume_v1_20260925/run_20260925T000722_126180Z",
+  "status": "PUBLISH_REFUSED_INTEGRITY_FAILURE",
+  "worker_returncode": 0,
+  "axis_status": "TEST_DOUBLE_ONLY",
+  "action": "NOT_A_SCIENTIFIC_RESULT",
+  "authorization_marker": "/tmp/tmpnx9tv3hv/repo/.cache/wind_resume_v1_20260925/wind-explicit-local-files-after-c085531-once-v1.started.json",
+  "parent_run": "results/topic_axis_gonogo_v1_20260925/run_20260924T231708_722756Z",
+  "error": "ORIGINAL_STARTED_MARKER_CHANGED"
+}

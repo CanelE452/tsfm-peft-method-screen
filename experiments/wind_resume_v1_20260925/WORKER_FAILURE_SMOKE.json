@@ -1,0 +1,37 @@
+{
+  "process": {
+    "command": [
+      "/opt/pyvenv/bin/python",
+      "-B",
+      "-m",
+      "triage.worker",
+      "--topic",
+      "wind",
+      "--repo",
+      "/tmp/tmpnf307d9x",
+      "--cache",
+      "/tmp/tmpnf307d9x/private",
+      "--public",
+      "/tmp/tmpnf307d9x/wind",
+      "--config",
+      "/mnt/data/wind_resume_author/original/topic_axis_gonogo_v1_20260925/RUN_CONFIG.json",
+      "--wind-csv",
+      "/tmp/tmpnf307d9x/missing_data.csv",
+      "--wind-locations",
+      "/tmp/tmpnf307d9x/missing_locations.csv"
+    ],
+    "returncode": 3,
+    "timeout": false,
+    "elapsed_s": 1.3216670830000226,
+    "only_topic": "wind"
+  },
+  "result": {
+    "topic": "wind",
+    "axis_status": "BLOCKED_DATA_OR_ENVIRONMENT",
+    "reason": "WIND_LOCAL_CSV_AND_LOCATIONS_REQUIRED",
+    "scientific_no_go": false,
+    "neural_fit": 0,
+    "utc": "2026-09-25T00:07:43Z"
+  },
+  "scope": "actual original worker launched, deliberate missing input only; no native forecasting"
+}

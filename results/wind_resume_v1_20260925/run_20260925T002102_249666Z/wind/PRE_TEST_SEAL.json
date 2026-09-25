@@ -1,0 +1,115 @@
+{
+  "created": "2026-09-25T00:21:08Z",
+  "scope": "frozen before TEST forecast scoring; raw data acquisition may include held-out values",
+  "config_sha256": "c30f6f77056ddadb5ece081c25f002ab98d9d22912763a843e11816d4c5fda47",
+  "strata_cuts_train": [
+    0.011174880104118646,
+    0.03155419517470992
+  ],
+  "ridge_hashes": {
+    "RIDGE_RAW": "facb4a80575f4f41d79a6bd53b8d52dbee824c2f6511a9cffc0b166b4e233c27",
+    "RIDGE_STRUCTURE": "903ad3abebd2b34223bc6a132bb296f28aaaf2a2187eff1b21b3a0c6c6e8c023"
+  },
+  "alpha_selection_cal": {
+    "RIDGE_RAW": [
+      {
+        "alpha": 0.01,
+        "cal_group_mean_error": 1.602726692941634
+      },
+      {
+        "alpha": 0.1,
+        "cal_group_mean_error": 1.602429247928902
+      },
+      {
+        "alpha": 1.0,
+        "cal_group_mean_error": 1.5994862888226318
+      },
+      {
+        "alpha": 10.0,
+        "cal_group_mean_error": 1.5735072934934498
+      },
+      {
+        "alpha": 100.0,
+        "cal_group_mean_error": 1.4322698034464245
+      }
+    ],
+    "RIDGE_STRUCTURE": [
+      {
+        "alpha": 0.01,
+        "cal_group_mean_error": 1.756336474450983
+      },
+      {
+        "alpha": 0.1,
+        "cal_group_mean_error": 1.755928547014263
+      },
+      {
+        "alpha": 1.0,
+        "cal_group_mean_error": 1.7520118682693286
+      },
+      {
+        "alpha": 10.0,
+        "cal_group_mean_error": 1.7196392392646724
+      },
+      {
+        "alpha": 100.0,
+        "cal_group_mean_error": 1.540792313928323
+      }
+    ]
+  },
+  "selected_simple_cal": "SIMPLE",
+  "baseline_selection_scores_cal": {
+    "SIMPLE": 1.389342272230736,
+    "RIDGE_RAW": 1.4322698034464245,
+    "RIDGE_STRUCTURE": 1.540792313928323
+  },
+  "nuisance_model_cal_hash": "bad71b93215a657e74b19974740dece63d8be8784cab8b09283208fd64b022d4",
+  "test_identifiers_predeclared": [
+    "day28:t7:o120",
+    "day28:t10:o120",
+    "day29:t7:o48",
+    "day29:t10:o48",
+    "day29:t7:o84",
+    "day29:t10:o84",
+    "day29:t1:o120",
+    "day29:t4:o120",
+    "day29:t7:o120",
+    "day31:t7:o48",
+    "day31:t10:o48",
+    "day31:t7:o120",
+    "day31:t10:o120",
+    "day34:t1:o120",
+    "day34:t4:o120",
+    "day34:t7:o120",
+    "day36:t1:o48",
+    "day36:t4:o48",
+    "day36:t7:o48",
+    "day36:t10:o48",
+    "day36:t7:o84",
+    "day36:t10:o84",
+    "day37:t1:o84",
+    "day37:t4:o84",
+    "day37:t7:o84",
+    "day37:t1:o120",
+    "day37:t4:o120",
+    "day37:t7:o120",
+    "day37:t10:o120",
+    "day38:t1:o120",
+    "day38:t4:o120",
+    "day38:t7:o120",
+    "day38:t10:o120",
+    "day39:t1:o48",
+    "day39:t4:o48",
+    "day39:t7:o48",
+    "day39:t10:o48",
+    "day41:t1:o48",
+    "day41:t4:o48",
+    "day41:t7:o48",
+    "day41:t10:o48",
+    "day41:t1:o120",
+    "day41:t4:o120",
+    "day41:t7:o120",
+    "day41:t10:o120"
+  ],
+  "test_labels_used_for_selection": false,
+  "new_peft_or_lora_fit": 0
+}

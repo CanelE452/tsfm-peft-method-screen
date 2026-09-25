@@ -1,0 +1,35 @@
+{
+  "scope": "Local launcher/immutability/Git publication tests only; no actual WIND forecasting",
+  "unit_and_integration_tests": {
+    "passed": 24,
+    "failed": 0,
+    "skipped": 0
+  },
+  "syntax_checked_python_files": [
+    "resume_core.py",
+    "run.py",
+    "tests/test_resume.py"
+  ],
+  "integration_uses": "temporary repos and local bare origin, synthetic tiny input CSVs and mocked WIND result; never GitHub writes",
+  "actual_original_worker_failure_smoke": {
+    "returncode": 3,
+    "topic": "wind",
+    "axis_status": "BLOCKED_DATA_OR_ENVIRONMENT",
+    "scientific_no_go": false
+  },
+  "native_chronos_execution": "NOT_RUN_IN_AUTHOR_RUNTIME",
+  "full_334MB_wind_dataset_execution": "NOT_RUN_IN_AUTHOR_RUNTIME",
+  "official_server_reverification": "NOT_AVAILABLE: author network DNS lookup failed; runtime uses original fixed-version metadata cache for MD5",
+  "original_package_manifest_sha256": "5ee94ad17414d76bf463a8d6b9ddc879eeeb167f19736f24626ac10ede05f373",
+  "original_source_files_pinned_including_manifest": 22,
+  "earlier_author_test_iteration": {
+    "passed": 23,
+    "error": 1,
+    "cause": "test expected launcher ContractError but unchanged original Git helper raises its own ContractError; fixed expected exception class; no production gate relaxed"
+  },
+  "tested_code_sha256": {
+    "resume_core.py": "cbf679be6fb59d75121e275e7e392d864afbc0e8084d52bff1edf776bb688e24",
+    "run.py": "596c7328f878e9655e0cf997c7829bd32bafa79ffa2cc061a25698bdad82f1e6",
+    "tests/test_resume.py": "aa9c143348811d98398b4831bc6043c41cd55cafbd913c392e3dcff391fc5a3f"
+  }
+}

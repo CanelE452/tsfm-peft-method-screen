@@ -1,0 +1,144 @@
+{
+  "cuts_from_train": [
+    0.011174880104118646,
+    0.03155419517470992
+  ],
+  "estimator_agreement_spearman": 0.8345864661654137,
+  "models": {
+    "SIMPLE": {
+      "group_means": {
+        "day28": 0.3266599294525927,
+        "day29": 1.2957185605761992,
+        "day31": 0.7447261283896736,
+        "day34": 0.7325163636724437,
+        "day36": 0.13286453000103193,
+        "day37": 0.4566625618908916,
+        "day38": 0.6761542646133443,
+        "day39": 0.48313727909825327,
+        "day41": 1.091897680295705
+      },
+      "high_minus_low": {
+        "n_groups": 0,
+        "mean": null,
+        "lower": null,
+        "upper": null
+      },
+      "contrasts": [],
+      "score_error_spearman_descriptive": -0.22677942212825933
+    },
+    "RIDGE_RAW": {
+      "group_means": {
+        "day28": 0.5629861969131771,
+        "day29": 1.1054349609352843,
+        "day31": 0.7464611416809893,
+        "day34": 0.755723394494078,
+        "day36": 0.39313804730948654,
+        "day37": 0.8587652223715201,
+        "day38": 0.4510402549934994,
+        "day39": 1.551373040791808,
+        "day41": 1.1740475625049405
+      },
+      "high_minus_low": {
+        "n_groups": 0,
+        "mean": null,
+        "lower": null,
+        "upper": null
+      },
+      "contrasts": [],
+      "score_error_spearman_descriptive": -0.2734319943622269
+    },
+    "RIDGE_STRUCTURE": {
+      "group_means": {
+        "day28": 1.110091263650205,
+        "day29": 1.1496637642014615,
+        "day31": 0.7894548029192099,
+        "day34": 0.7350887403913332,
+        "day36": 0.4584826283194755,
+        "day37": 0.7291286701561416,
+        "day38": 0.4624831391399817,
+        "day39": 1.817866440634484,
+        "day41": 1.4964318020894756
+      },
+      "high_minus_low": {
+        "n_groups": 0,
+        "mean": null,
+        "lower": null,
+        "upper": null
+      },
+      "contrasts": [],
+      "score_error_spearman_descriptive": -0.2559548978153629
+    },
+    "F0": {
+      "group_means": {
+        "day28": 0.9078804740338069,
+        "day29": 1.089979117762516,
+        "day31": 0.5735363270694687,
+        "day34": 0.6443603335533393,
+        "day36": 0.4677183358568935,
+        "day37": 0.42846071225913407,
+        "day38": 0.31654169978400015,
+        "day39": 0.49100772182876296,
+        "day41": 1.0307503717792497
+      },
+      "high_minus_low": {
+        "n_groups": 0,
+        "mean": null,
+        "lower": null,
+        "upper": null
+      },
+      "contrasts": [],
+      "score_error_spearman_descriptive": -0.3976039464411557
+    }
+  },
+  "label": "pilot_proxy_not_validated_complexity",
+  "adjusted_F0_contrast": {
+    "summary": {
+      "n_groups": 0,
+      "mean": null,
+      "lower": null,
+      "upper": null
+    },
+    "per_group": [],
+    "adjustment_model_hash": "bad71b93215a657e74b19974740dece63d8be8784cab8b09283208fd64b022d4",
+    "nuisances": "context entropy, scale, variation, trend, topic covariate; CAL-only fit"
+  },
+  "selected_simple": "SIMPLE",
+  "simple_benefit": {
+    "n_groups": 9,
+    "mean": 0.0010997551041151301,
+    "lower": -0.1878921184020345,
+    "upper": 0.22387378953622475,
+    "alpha": 0.016666666666666666,
+    "positive_groups": 3,
+    "scope": "exploratory cluster bootstrap; few clusters do not support population proof"
+  },
+  "axis_status": "INCONCLUSIVE_STRATUM_SUPPORT",
+  "action": "HOLD_NO_NEW_ADAPTER",
+  "neural_adaptation_tested": false,
+  "novelty_established": false,
+  "practical_sufficiency": "NOT_ESTABLISHED",
+  "no_go_scope": "only this proxy, task, sample and zero-shot reference",
+  "topic": "wind",
+  "source_kind": "real_public_dataset",
+  "backend_error": null,
+  "native_backend": {
+    "model": "amazon/chronos-2",
+    "snapshot": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+    "device": "cuda",
+    "torch": "2.8.0+cu128",
+    "chronos": "2.3.2",
+    "downloads": 0,
+    "optimizer_steps": 0,
+    "known_future_covariates": false
+  },
+  "model_operations": {
+    "actual_forward_calls": 75,
+    "forecast_windows": 75,
+    "optimizer_updates": 0
+  },
+  "ridge_coefficient_fits": 12,
+  "wall_seconds": 6.561169406981207,
+  "seal_sha256": "550997364fe66efd44c23b047b6997ddab23e18a272ae2861fdde4059dbc4c86",
+  "selection_limit": "GO means a diagnostic axis deserves further LoRA tests, not method novelty or practical value",
+  "estimator_agreement_threshold_status": "predeclared heuristic screening value, NOT literature-established cutoff"
+}
