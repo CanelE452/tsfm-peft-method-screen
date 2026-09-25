@@ -1,0 +1,36 @@
+SELFTEST_PASS
+
+Loading weights:   0%|          | 0/170 [00:00<?, ?it/s]
+Loading weights:  97%|█████████▋| 165/170 [00:00<00:00, 1626.85it/s]
+Loading weights: 100%|██████████| 170/170 [00:00<00:00, 1661.10it/s]
+{
+  "commit": "d331be5add9de458d79bb1d04a20715e6c650f3c",
+  "push_returncode": 0,
+  "stdout": "",
+  "stderr": "To https://github.com/CanelE452/tsfm-peft-method-screen.git\n   1425419..d331be5  HEAD -> main\n"
+}
+Traceback (most recent call last):
+  File "/tmp/residual_dependence_gonogo_20260925_o17twctb/residual_dependence_gonogo_v1_20260925/run.py", line 234, in <module>
+    if __name__=='__main__': raise SystemExit(main())
+                                              ^^^^^^
+  File "/tmp/residual_dependence_gonogo_20260925_o17twctb/residual_dependence_gonogo_v1_20260925/run.py", line 233, in main
+    print(json.dumps(final,indent=2,ensure_ascii=False)); return 0 if final['status']!='TECHNICAL_FAILURE' else 2
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/minjae/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/home/minjae/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/home/minjae/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/home/minjae/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/home/minjae/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/home/minjae/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/minjae/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type bool is not JSON serializable

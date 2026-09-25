@@ -1,0 +1,39 @@
+{
+  "execution_exit_code": 1,
+  "launch_count": 1,
+  "zip_sha256": "ba4d58f99a7324e2dd3596c7888f60b7449abe8f3b0d34201ff4170c31d40453",
+  "package_files_verified_identical": [
+    "AUTHOR_VALIDATION.json",
+    "CLI_RUN_ONLY.txt",
+    "PACKAGE_MANIFEST.json",
+    "README_KO.md",
+    "RUN_CONFIG.json",
+    "execute.py",
+    "run.py"
+  ],
+  "selftest": "PASS",
+  "original_result_commit": "d331be5add9de458d79bb1d04a20715e6c650f3c",
+  "original_result_push_returncode": 0,
+  "saved_token": "STATIC_RESIDUAL_SUFFICIENT",
+  "saved_gates": {
+    "DEPENDENCE_RELEVANT": 1.0,
+    "RESIDUAL_STRUCTURE_VALUE": 1.0,
+    "ADAPTATION_NEEDED": false
+  },
+  "gate_serialization_note": "Original writer serializes numpy scalar true as 1.0 via default=float; original JSON kept unchanged. 1.0 means PASS, False means FAIL. Final console writer has no numpy scalar handler and raises after successful publication.",
+  "case_record_counts": {
+    "CAL_CASES.jsonl": 100,
+    "PILOT_CASES.jsonl": 100
+  },
+  "forecast_cache_sha256_verified": "818f4cd7108dd7faf57f0842375eb658b649f385b160893e8af732133cc94d61",
+  "protected_prefix_shape": [
+    7200,
+    4
+  ],
+  "protected_evaluation_values_access": false,
+  "backbone_training": 0,
+  "lora_training": 0,
+  "second_seed": false,
+  "code_or_config_changes": false,
+  "reruns": 0
+}

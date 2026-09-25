@@ -1,0 +1,16 @@
+{
+  "status": "TECHNICAL_FAILURE",
+  "phase": "POST_PUBLISH_CONSOLE_JSON_SERIALIZATION",
+  "execution_exit_code": 1,
+  "error": "TypeError: Object of type bool is not JSON serializable",
+  "location": "run.py:233 print(json.dumps(final,indent=2,ensure_ascii=False))",
+  "inference_and_statistical_results_saved": true,
+  "original_result_commit": "d331be5add9de458d79bb1d04a20715e6c650f3c",
+  "original_result_push_returncode": 0,
+  "saved_FINAL_DECISION_status": "COMPLETED_GONOGO",
+  "saved_FINAL_DECISION_token": "STATIC_RESIDUAL_SUFFICIENT",
+  "original_results_modified": false,
+  "code_modified": false,
+  "reruns": 0,
+  "protected_evaluation_values_access": false
+}
