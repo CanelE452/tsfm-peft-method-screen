@@ -1,0 +1,29 @@
+{
+  "name": "residual_heterogeneity_diagnosis_v1_20260926",
+  "seed": 9260245,
+  "source_2x2_run": "results/residual_source_2x2_gonogo_v1_20260926/run_20260926T023900Z",
+  "source_2x2_final_git_blob_sha": "35b6d0ca4ad0780c3a049b538c494e6d5e76b22d",
+  "forecast_cache_sha256": "818f4cd7108dd7faf57f0842375eb658b649f385b160893e8af732133cc94d61",
+  "raw_data_path": "data/raw/electricity.txt.gz",
+  "raw_data_sha256": "3c4c069588198c1fcc95cace7bb69c99922129edfd673b7286661dad20badefa",
+  "source_forecast_manifest": "results/residual_dependence_gonogo_v1_20260925/run_20260925T150030Z/RUN_MANIFEST.json",
+  "source_forecast_run": "results/residual_dependence_gonogo_v1_20260925/run_20260925T150030Z",
+  "splits": {
+    "train_start": 336,
+    "train_stop": 6000,
+    "cal_start": 6000,
+    "cal_stop": 6600,
+    "pilot_start": 6600,
+    "pilot_stop": 7200,
+    "stride": 24,
+    "horizon": 24
+  },
+  "analysis": {
+    "corr_shrinkage": 0.10,
+    "pit_clip": 0.005,
+    "lags": [1,2,3,4,5,6,12,23],
+    "bootstrap_reps": 5000,
+    "block_length_days": 3,
+    "ci_level": 0.90
+  }
+}

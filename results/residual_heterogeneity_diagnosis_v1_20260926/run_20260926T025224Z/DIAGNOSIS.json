@@ -1,0 +1,390 @@
+{
+  "status": "COMPLETED_DIAGNOSIS",
+  "diagnosis_token": "HETEROGENEITY_UNEXPLAINED",
+  "channels": [
+    {
+      "channel": 0,
+      "crps_gain_raw_to_resid_fixed_pct": 14.829608085653538,
+      "crps_gain_ci90": [
+        5.258005712216868,
+        25.161705057538843
+      ],
+      "resid_crps_win": true,
+      "pilot_source_target": {
+        "raw_fro": 2.0954244760061695,
+        "resid_fro": 0.7723461326566895,
+        "resid_fro_closer": true,
+        "raw_lag_mae": 0.6052341540630295,
+        "resid_lag_mae": 0.118534140366291,
+        "resid_lag_closer": true
+      },
+      "aggregate_factor": {
+        "raw_source": 15.494756931966874,
+        "resid_source": 3.339736196551582,
+        "pilot_resid_target": 1.732320741661325,
+        "raw_abs_error": 13.762436190305548,
+        "resid_abs_error": 1.6074154548902568,
+        "resid_closer": true
+      },
+      "source_strength": {
+        "raw_mean_abs_offdiag": 0.6039482054986196,
+        "resid_mean_abs_offdiag": 0.12161810436126164,
+        "raw_effective_rank": 5.381938374237175,
+        "resid_effective_rank": 18.114846531954385
+      },
+      "stability": {
+        "raw_train_half_fro": 0.33389401738300445,
+        "resid_train_half_fro": 0.5214568280099084,
+        "raw_train_to_cal_fro": 1.1675520673188926,
+        "resid_train_to_cal_fro": 0.6894900235718195
+      },
+      "marginal": {
+        "pilot_calibrated_pit_mean": 0.45700352733686067,
+        "pilot_calibrated_pit_var": 0.0816685639601977,
+        "pilot_calibrated_pit_ks": 0.09555555555555556,
+        "pilot_pinball": 0.25417789333745056
+      },
+      "pilot_distribution": {
+        "raw_fixed": {
+          "crps": 5.0593953278361266,
+          "c80": 1.0,
+          "w80": 41.964117993964244,
+          "c90": 1.0,
+          "w90": 53.88064727150003
+        },
+        "resid_fixed": {
+          "crps": 4.309106829214163,
+          "c80": 0.72,
+          "w80": 19.91342143656984,
+          "c90": 0.88,
+          "w90": 25.521016408995994
+        },
+        "width90_ratio_resid_over_raw": 0.47365831149721993
+      },
+      "lag_profiles": {
+        "raw_train": {
+          "1": 0.7293712072037583,
+          "2": 0.6678770887865525,
+          "3": 0.659893884415958,
+          "4": 0.6548447334495157,
+          "5": 0.6349367258002182,
+          "6": 0.6186732265873549,
+          "12": 0.5901092262971835,
+          "23": 0.6337049774401863
+        },
+        "resid_train": {
+          "1": 0.36871569057302517,
+          "2": 0.22422317578907044,
+          "3": 0.19887751886244395,
+          "4": 0.18972911291435396,
+          "5": 0.13343577131171927,
+          "6": 0.09175019992507764,
+          "12": 0.0017412538896046433,
+          "23": -0.017982303176597127
+        },
+        "pilot_resid_target": {
+          "1": 0.08662635690885728,
+          "2": 0.1658746256883126,
+          "3": 0.0889520246193166,
+          "4": 0.08758537065180061,
+          "5": 0.04442668782782083,
+          "6": 0.016604614484074402,
+          "12": 0.054401524048665294,
+          "23": -0.19693336675235626
+        }
+      }
+    },
+    {
+      "channel": 1,
+      "crps_gain_raw_to_resid_fixed_pct": -0.6610391053115944,
+      "crps_gain_ci90": [
+        -2.597607052694575,
+        1.7020318233086107
+      ],
+      "resid_crps_win": false,
+      "pilot_source_target": {
+        "raw_fro": 0.6130700725534222,
+        "resid_fro": 0.4263523045848136,
+        "resid_fro_closer": true,
+        "raw_lag_mae": 0.1750851225595194,
+        "resid_lag_mae": 0.03376317303863095,
+        "resid_lag_closer": true
+      },
+      "aggregate_factor": {
+        "raw_source": 10.358368273518908,
+        "resid_source": 6.0842370932249255,
+        "pilot_resid_target": 6.819151478384089,
+        "raw_abs_error": 3.539216795134818,
+        "resid_abs_error": 0.734914385159164,
+        "resid_closer": true
+      },
+      "source_strength": {
+        "raw_mean_abs_offdiag": 0.4022715042092727,
+        "resid_mean_abs_offdiag": 0.22117064024985955,
+        "raw_effective_rank": 7.609616788468751,
+        "resid_effective_rank": 13.079635058527634
+      },
+      "stability": {
+        "raw_train_half_fro": 0.271082222715686,
+        "resid_train_half_fro": 0.4038051477837566,
+        "raw_train_to_cal_fro": 0.44072957259630413,
+        "resid_train_to_cal_fro": 0.4928025233856523
+      },
+      "marginal": {
+        "pilot_calibrated_pit_mean": 0.47791710758377426,
+        "pilot_calibrated_pit_var": 0.08141110009673737,
+        "pilot_calibrated_pit_ks": 0.0630952380952381,
+        "pilot_pinball": 2.8577252918209943
+      },
+      "pilot_distribution": {
+        "raw_fixed": {
+          "crps": 80.79451452678236,
+          "c80": 0.64,
+          "w80": 343.7257638226723,
+          "c90": 0.92,
+          "w90": 457.63742459383616
+        },
+        "resid_fixed": {
+          "crps": 81.32859786275105,
+          "c80": 0.6,
+          "w80": 283.3282146847631,
+          "c90": 0.68,
+          "w90": 371.99059758174894
+        },
+        "width90_ratio_resid_over_raw": 0.8128500371487302
+      },
+      "lag_profiles": {
+        "raw_train": {
+          "1": 0.7613014234191607,
+          "2": 0.621965026775896,
+          "3": 0.5134632810130109,
+          "4": 0.4187244335954034,
+          "5": 0.3514876794141832,
+          "6": 0.3051525742779596,
+          "12": 0.2996126190601571,
+          "23": 0.6069069678312878
+        },
+        "resid_train": {
+          "1": 0.6197855005214091,
+          "2": 0.4445095915956221,
+          "3": 0.3401929739732494,
+          "4": 0.26376142608229247,
+          "5": 0.19617528886473182,
+          "6": 0.17946414586983908,
+          "12": 0.10495237735371128,
+          "23": 0.13223326089980691
+        },
+        "pilot_resid_target": {
+          "1": 0.6015472292116977,
+          "2": 0.4330365470494053,
+          "3": 0.35715671286697326,
+          "4": 0.2825770014295413,
+          "5": 0.19492127284189203,
+          "6": 0.1738060154692039,
+          "12": 0.16266629680562175,
+          "23": 0.27222194923656823
+        }
+      }
+    },
+    {
+      "channel": 2,
+      "crps_gain_raw_to_resid_fixed_pct": -2.5377990163045547,
+      "crps_gain_ci90": [
+        -6.077039252689179,
+        2.8065958933258037
+      ],
+      "resid_crps_win": false,
+      "pilot_source_target": {
+        "raw_fro": 0.7684686813192577,
+        "resid_fro": 0.5267368576162201,
+        "resid_fro_closer": true,
+        "raw_lag_mae": 0.13848127727977333,
+        "resid_lag_mae": 0.060936168950266725,
+        "resid_lag_closer": true
+      },
+      "aggregate_factor": {
+        "raw_source": 9.43536060351431,
+        "resid_source": 5.595088354704427,
+        "pilot_resid_target": 7.02535984277529,
+        "raw_abs_error": 2.4100007607390195,
+        "resid_abs_error": 1.4302714880708631,
+        "resid_closer": true
+      },
+      "source_strength": {
+        "raw_mean_abs_offdiag": 0.3514733584797629,
+        "resid_mean_abs_offdiag": 0.19345665727987782,
+        "raw_effective_rank": 9.677671044207452,
+        "resid_effective_rank": 15.439805318289304
+      },
+      "stability": {
+        "raw_train_half_fro": 1.5256107437216428,
+        "resid_train_half_fro": 0.5192298923000574,
+        "raw_train_to_cal_fro": 1.3517232225870925,
+        "resid_train_to_cal_fro": 0.6420646350241961
+      },
+      "marginal": {
+        "pilot_calibrated_pit_mean": 0.42995590828924163,
+        "pilot_calibrated_pit_var": 0.08669551796484484,
+        "pilot_calibrated_pit_ks": 0.20732804232804236,
+        "pilot_pinball": 0.8048457393771723
+      },
+      "pilot_distribution": {
+        "raw_fixed": {
+          "crps": 29.248816874111657,
+          "c80": 0.6,
+          "w80": 76.33785951391829,
+          "c90": 0.8,
+          "w90": 100.43155866699513
+        },
+        "resid_fixed": {
+          "crps": 29.991093061023584,
+          "c80": 0.44,
+          "w80": 59.4984286689944,
+          "c90": 0.52,
+          "w90": 75.87428179328164
+        },
+        "width90_ratio_resid_over_raw": 0.7554824678651157
+      },
+      "lag_profiles": {
+        "raw_train": {
+          "1": 0.6092365099785877,
+          "2": 0.5371626976633636,
+          "3": 0.4934593562471052,
+          "4": 0.4663491078274323,
+          "5": 0.43781878251987866,
+          "6": 0.3974572778122908,
+          "12": 0.2693885602253062,
+          "23": 0.10465209257458416
+        },
+        "resid_train": {
+          "1": 0.5089753031112071,
+          "2": 0.3666213870809239,
+          "3": 0.28442188491580517,
+          "4": 0.23126870705791633,
+          "5": 0.19600874670656937,
+          "6": 0.1617557427945267,
+          "12": 0.133178950418072,
+          "23": 0.15196143829325331
+        },
+        "pilot_resid_target": {
+          "1": 0.5679675920929258,
+          "2": 0.44837584521178897,
+          "3": 0.3816591972693362,
+          "4": 0.30366027726872497,
+          "5": 0.1954114814716108,
+          "6": 0.14374129582807285,
+          "12": 0.20059834537692856,
+          "23": 0.2430440530581947
+        }
+      }
+    },
+    {
+      "channel": 3,
+      "crps_gain_raw_to_resid_fixed_pct": 7.161201862531857,
+      "crps_gain_ci90": [
+        2.0415873505479625,
+        14.051793956550128
+      ],
+      "resid_crps_win": true,
+      "pilot_source_target": {
+        "raw_fro": 1.052840620034121,
+        "resid_fro": 0.5982943049496904,
+        "resid_fro_closer": true,
+        "raw_lag_mae": 0.31582334944721513,
+        "resid_lag_mae": 0.07774148301532355,
+        "resid_lag_closer": true
+      },
+      "aggregate_factor": {
+        "raw_source": 10.018464913190622,
+        "resid_source": 4.520432403324779,
+        "pilot_resid_target": 3.575292071524338,
+        "raw_abs_error": 6.443172841666284,
+        "resid_abs_error": 0.9451403318004412,
+        "resid_closer": true
+      },
+      "source_strength": {
+        "raw_mean_abs_offdiag": 0.380465259354309,
+        "resid_mean_abs_offdiag": 0.15640913918342336,
+        "raw_effective_rank": 8.287072252512601,
+        "resid_effective_rank": 15.630082449640405
+      },
+      "stability": {
+        "raw_train_half_fro": 0.9665864258337914,
+        "resid_train_half_fro": 0.5462372551799958,
+        "raw_train_to_cal_fro": 0.8235653588650507,
+        "resid_train_to_cal_fro": 0.5662282342451193
+      },
+      "marginal": {
+        "pilot_calibrated_pit_mean": 0.4998165784832452,
+        "pilot_calibrated_pit_var": 0.08946899204638417,
+        "pilot_calibrated_pit_ks": 0.05113756613756615,
+        "pilot_pinball": 8.339328136778715
+      },
+      "pilot_distribution": {
+        "raw_fixed": {
+          "crps": 156.49088372078887,
+          "c80": 0.96,
+          "w80": 1064.396391231028,
+          "c90": 1.0,
+          "w90": 1361.9045284004649
+        },
+        "resid_fixed": {
+          "crps": 145.28425564108318,
+          "c80": 0.84,
+          "w80": 734.5438079402841,
+          "c90": 0.88,
+          "w90": 940.554055894258
+        },
+        "width90_ratio_resid_over_raw": 0.6906167328769541
+      },
+      "lag_profiles": {
+        "raw_train": {
+          "1": 0.722096184775634,
+          "2": 0.5621979095263581,
+          "3": 0.44998881697571996,
+          "4": 0.3576696600061944,
+          "5": 0.3093083907368472,
+          "6": 0.2715051632640514,
+          "12": 0.4084526246612372,
+          "23": 0.5400849793915226
+        },
+        "resid_train": {
+          "1": 0.5408062488609088,
+          "2": 0.35101130956358567,
+          "3": 0.24866065746823535,
+          "4": 0.16398040616897125,
+          "5": 0.11029991887607939,
+          "6": 0.08228085073432236,
+          "12": 0.09537990219562055,
+          "23": 0.07867507078390085
+        },
+        "pilot_resid_target": {
+          "1": 0.4567013773474972,
+          "2": 0.18835818614028207,
+          "3": 0.09913170142026964,
+          "4": 0.08393035902829991,
+          "5": 0.11883232204689405,
+          "6": 0.09652566417891151,
+          "12": 0.056455877313807336,
+          "23": -0.005218553716118212
+        }
+      }
+    }
+  ],
+  "diagnostic_agreement": {
+    "structural_sign_match_count": 2,
+    "dispersion_sign_match_count": 2
+  },
+  "limitations": [
+    "Only 4 channels. Exploratory mechanism diagnosis, not causal proof.",
+    "PILOT residual target correlation is used only post hoc for diagnosis, never for fitting.",
+    "24x24 correlation from 25 PILOT origins is noisy; lag profile and block bootstrap are reported alongside."
+  ],
+  "contracts": {
+    "chronos_inference_count": 0,
+    "training_count": 0,
+    "protected_values_at_or_after_7200_access": false,
+    "forecast_cache_sha256": "818f4cd7108dd7faf57f0842375eb658b649f385b160893e8af732133cc94d61",
+    "raw_sha256": "3c4c069588198c1fcc95cace7bb69c99922129edfd673b7286661dad20badefa"
+  }
+}

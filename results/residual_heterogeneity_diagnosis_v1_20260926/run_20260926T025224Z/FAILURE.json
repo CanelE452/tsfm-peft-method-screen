@@ -1,0 +1,11 @@
+{
+  "status": "TECHNICAL_FAILURE",
+  "phase": "AUTO_PUBLICATION_GIT_WHITESPACE_CHECK",
+  "execution_exit_code": 1,
+  "error": "E: git diff check failed",
+  "cause_verified": "CHANNEL_SUMMARY.csv has five CRLF line endings flagged as trailing whitespace by default git diff --check. No other whitespace errors with cr-at-eol enabled.",
+  "diagnostic_calculation_completed": true,
+  "saved_diagnosis_token": "HETEROGENEITY_UNEXPLAINED",
+  "recovery": "Publish original unchanged code/results using a per-command Git cr-at-eol whitespace setting, retaining other whitespace checks. No rerun or code/config/result modification.",
+  "reruns": 0
+}

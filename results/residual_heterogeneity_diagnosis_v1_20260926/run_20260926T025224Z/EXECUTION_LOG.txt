@@ -1,0 +1,16 @@
+SELFTEST_PASS
+/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/lib/python3.11/site-packages/numpy/lib/_function_base_impl.py:3023: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/minjae/Documents/github/tsfm-peft-method-screen/.venv/lib/python3.11/site-packages/numpy/lib/_function_base_impl.py:3024: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+Traceback (most recent call last):
+  File "/tmp/residual_heterogeneity_20260926_b64fa8qi/residual_heterogeneity_diagnosis_v1_20260926/run.py", line 231, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/tmp/residual_heterogeneity_20260926_b64fa8qi/residual_heterogeneity_diagnosis_v1_20260926/run.py", line 222, in main
+    rc,so,se=git(['diff','--cached','--check'],repo);req(rc==0,'git diff check failed')
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/residual_heterogeneity_20260926_b64fa8qi/residual_heterogeneity_diagnosis_v1_20260926/run.py", line 9, in req
+    if not x: raise E(m)
+              ^^^^^^^^^^
+E: git diff check failed

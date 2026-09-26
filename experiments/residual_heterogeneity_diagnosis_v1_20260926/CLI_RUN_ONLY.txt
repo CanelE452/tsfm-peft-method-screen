@@ -1,0 +1,41 @@
+작업 유형: 기존 2×2 결과의 채널별 이질성 원인 진단. 새 모델/새 방법 개발 금지.
+
+이번 작업은 `RESID_FIXED`가 왜 일부 채널에서만 `RAW_FIXED`보다 좋은지 분석한다.
+ZIP 내부 코드를 수정하지 말고 정확히 한 번 실행한다.
+
+금지:
+- Chronos 재추론
+- backbone/LoRA/adapter 학습
+- 7200 이후 수치 접근
+- half-life/shrinkage 변경
+- 새 threshold 탐색
+- 새 비교군 추가
+- 결과 보고 재실행
+- 기존 2×2 결과 수정
+
+허용:
+- 기존 forecast cache 읽기
+- 기존 RAW 데이터의 첫 7200행/4채널 읽기
+- 기존 CAL/PILOT per-case score 읽기
+- correlation / PIT / pinball / bootstrap 진단
+- 새 diagnosis 결과 commit/push
+
+실행:
+1. ZIP을 저장소 밖 새 폴더에 압축 해제.
+2. CanelE452/tsfm-peft-method-screen 저장소 루트로 이동.
+3. 정확히 한 번:
+
+python3 -B /실제/압축해제경로/residual_heterogeneity_diagnosis_v1_20260926/execute.py \
+  --repo "$PWD" \
+  --publish
+
+완료 후 다음만 전달:
+- exit code
+- commit SHA / push 상태
+- result 상대경로
+- DIAGNOSIS_TOKEN
+- channel 0~3의 RAW→RESID CRPS gain + block CI
+- channel 0~3의 raw/residual source-to-PILOT-target Frobenius distance
+- channel 0~3 aggregate-factor target error
+- calibrated PIT KS
+- chronos_inference_count=0 / training_count=0 / protected_access=false
