@@ -1,0 +1,36 @@
+{
+  "name": "residual_source_2x2_gonogo_v1_20260926",
+  "seed": 9260217,
+  "source_run": "results/residual_dependence_gonogo_v1_20260925/run_20260925T150030Z",
+  "source_final_sha": "52fbd2b4e9f5ff4e5a840d06ec3321fda908d40d",
+  "forecast_cache_sha256": "818f4cd7108dd7faf57f0842375eb658b649f385b160893e8af732133cc94d61",
+  "raw_data_path": "data/raw/electricity.txt.gz",
+  "raw_data_sha256": "3c4c069588198c1fcc95cace7bb69c99922129edfd673b7286661dad20badefa",
+  "splits": {
+    "train_start": 336,
+    "train_stop": 6000,
+    "cal_start": 6000,
+    "cal_stop": 6600,
+    "pilot_start": 6600,
+    "pilot_stop": 7200,
+    "stride": 24,
+    "horizon": 24
+  },
+  "copula": {
+    "n_scenarios": 2048,
+    "corr_shrinkage": 0.10,
+    "recent_half_life_days": 28.0,
+    "recent_prior_mix": 0.25,
+    "pit_clip": 0.005
+  },
+  "bootstrap": {
+    "reps": 5000,
+    "block_length_days": 3,
+    "ci_level": 0.90
+  },
+  "decision": {
+    "source_gain_min_pct": 2.0,
+    "adapt_gain_min_pct": 1.5,
+    "min_channel_wins": 3
+  }
+}

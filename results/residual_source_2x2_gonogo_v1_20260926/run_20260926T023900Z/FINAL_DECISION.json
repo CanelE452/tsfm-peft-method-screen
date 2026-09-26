@@ -1,0 +1,251 @@
+{
+  "status": "COMPLETED_2X2",
+  "token": "INCONCLUSIVE_SOURCE_EFFECT",
+  "gates": {
+    "RESIDUAL_SOURCE_SUPPORTED": false,
+    "RESIDUAL_ADAPTATION_SUPPORTED": false
+  },
+  "cal_summary": {
+    "RAW_FIXED": {
+      "crps": 76.16824229607421,
+      "c80": 0.86,
+      "w80": 470.824815730562,
+      "c90": 0.91,
+      "w90": 601.354340815191
+    },
+    "RAW_RECENT": {
+      "crps": 72.62026364578782,
+      "c80": 0.81,
+      "w80": 370.1626719289918,
+      "c90": 0.88,
+      "w90": 472.61436748811116
+    },
+    "RESID_FIXED": {
+      "crps": 71.83447735683602,
+      "c80": 0.72,
+      "w80": 341.10477827441144,
+      "c90": 0.84,
+      "w90": 434.7328893255404
+    },
+    "RESID_RECENT": {
+      "crps": 71.73964640538794,
+      "c80": 0.7,
+      "w80": 313.01216420028413,
+      "c90": 0.79,
+      "w90": 400.10699183130026
+    },
+    "IND": {
+      "crps": 75.25549410025178,
+      "c80": 0.5,
+      "w80": 156.73498673174538,
+      "c90": 0.54,
+      "w90": 200.9328491916515
+    }
+  },
+  "pilot_summary": {
+    "RAW_FIXED": {
+      "crps": 67.89840261237974,
+      "c80": 0.8,
+      "w80": 381.6060331403956,
+      "c90": 0.93,
+      "w90": 493.4635397331991
+    },
+    "RAW_RECENT": {
+      "crps": 65.43530961679822,
+      "c80": 0.72,
+      "w80": 293.21916892260117,
+      "c90": 0.86,
+      "w90": 377.3623036763241
+    },
+    "RESID_FIXED": {
+      "crps": 65.228263348518,
+      "c80": 0.65,
+      "w80": 274.32096818265296,
+      "c90": 0.74,
+      "w90": 353.48498791957115
+    },
+    "RESID_RECENT": {
+      "crps": 65.22873710789389,
+      "c80": 0.62,
+      "w80": 251.41150697115248,
+      "c90": 0.72,
+      "w90": 321.90474850485424
+    },
+    "IND": {
+      "crps": 69.47255146178932,
+      "c80": 0.45,
+      "w80": 131.18303113089215,
+      "c90": 0.52,
+      "w90": 168.96842779470856
+    }
+  },
+  "contrasts": {
+    "RAW_FIXED_TO_RESID_FIXED": {
+      "cal_gain_pct": 5.6897268580681954,
+      "pilot": {
+        "gain_pct": 3.932550930697324,
+        "ci_low": 0.823039189584827,
+        "ci_high": 7.793218745719673
+      },
+      "pilot_channels": [
+        {
+          "channel": 0,
+          "gain_pct": 14.829608085653538
+        },
+        {
+          "channel": 1,
+          "gain_pct": -0.6610391053115944
+        },
+        {
+          "channel": 2,
+          "gain_pct": -2.5377990163045547
+        },
+        {
+          "channel": 3,
+          "gain_pct": 7.161201862531857
+        }
+      ]
+    },
+    "RAW_RECENT_TO_RESID_RECENT": {
+      "cal_gain_pct": 1.212632943189473,
+      "pilot": {
+        "gain_pct": 0.3156896637520118,
+        "ci_low": -0.7917076914967867,
+        "ci_high": 1.7009789067369452
+      },
+      "pilot_channels": [
+        {
+          "channel": 0,
+          "gain_pct": 8.130914600368655
+        },
+        {
+          "channel": 1,
+          "gain_pct": -0.976992206617298
+        },
+        {
+          "channel": 2,
+          "gain_pct": -1.0038568964734091
+        },
+        {
+          "channel": 3,
+          "gain_pct": 1.0475521549870872
+        }
+      ]
+    },
+    "RESID_FIXED_TO_RESID_RECENT": {
+      "cal_gain_pct": 0.13201314318332635,
+      "pilot": {
+        "gain_pct": -0.0007263099637463774,
+        "ci_low": -0.881299201190126,
+        "ci_high": 1.2714472211350716
+      },
+      "pilot_channels": [
+        {
+          "channel": 0,
+          "gain_pct": -0.7237101955548514
+        },
+        {
+          "channel": 1,
+          "gain_pct": -0.5804267690173242
+        },
+        {
+          "channel": 2,
+          "gain_pct": -0.1710958354218678
+        },
+        {
+          "channel": 3,
+          "gain_pct": 0.3803969463896597
+        }
+      ]
+    },
+    "RAW_FIXED_TO_RAW_RECENT": {
+      "cal_gain_pct": 4.658081299152236,
+      "pilot": {
+        "gain_pct": 3.627615526749416,
+        "ci_low": 0.5883941776769576,
+        "ci_high": 7.4742880724647796
+      },
+      "pilot_channels": [
+        {
+          "channel": 0,
+          "gain_pct": 6.620623955216975
+        },
+        {
+          "channel": 1,
+          "gain_pct": -0.26571450562075505
+        },
+        {
+          "channel": 2,
+          "gain_pct": -1.6923908415035698
+        },
+        {
+          "channel": 3,
+          "gain_pct": 6.535265980335703
+        }
+      ]
+    },
+    "IND_TO_RAW_FIXED": {
+      "cal_gain_pct": -1.2128658601410698,
+      "pilot": {
+        "gain_pct": 2.2658572577046736,
+        "ci_low": -6.868163782500117,
+        "ci_high": 8.34803187781019
+      },
+      "pilot_channels": [
+        {
+          "channel": 0,
+          "gain_pct": -11.524234511029466
+        },
+        {
+          "channel": 1,
+          "gain_pct": 10.606327945624393
+        },
+        {
+          "channel": 2,
+          "gain_pct": 9.844670855542041
+        },
+        {
+          "channel": 3,
+          "gain_pct": -3.9596892328470337
+        }
+      ]
+    },
+    "IND_TO_RESID_FIXED": {
+      "cal_gain_pct": 4.545869752523911,
+      "pilot": {
+        "gain_pct": 6.109302197725859,
+        "ci_low": 1.3408309304618673,
+        "ci_high": 9.301390607577172
+      },
+      "pilot_channels": [
+        {
+          "channel": 0,
+          "gain_pct": 5.014372387481374
+        },
+        {
+          "channel": 1,
+          "gain_pct": 10.015400815670969
+        },
+        {
+          "channel": 2,
+          "gain_pct": 7.5567097993678525
+        },
+        {
+          "channel": 3,
+          "gain_pct": 3.485073968777938
+        }
+      ]
+    }
+  },
+  "contracts": {
+    "chronos_inference_count": 0,
+    "training_count": 0,
+    "forecast_cache": "/home/minjae/Documents/github/tsfm-peft-method-screen/.cache/residual_dependence_gonogo_v1_20260925/run_20260925T150030Z_f0_forecasts.npz",
+    "forecast_cache_sha256": "818f4cd7108dd7faf57f0842375eb658b649f385b160893e8af732133cc94d61",
+    "raw_sha256": "3c4c069588198c1fcc95cace7bb69c99922129edfd673b7286661dad20badefa",
+    "protected_values_at_or_after_7200_access": false,
+    "common_gaussian_draws": true,
+    "same_gaussian_copula_family_for_raw_and_residual": true,
+    "fixed_train_only_for_cal_and_pilot": true
+  }
+}

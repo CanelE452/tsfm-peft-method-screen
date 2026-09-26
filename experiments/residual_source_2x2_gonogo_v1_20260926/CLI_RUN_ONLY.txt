@@ -1,0 +1,39 @@
+작업 유형: 저장된 Chronos 예측 cache를 이용한 RAW/RESIDUAL × FIXED/RECENT 2×2 고정 실행.
+
+이번 작업에서 CLI는 방법을 설계하거나 코드를 수정하지 않는다.
+ZIP 내부 execute.py/run.py를 그대로 실행한다.
+
+핵심:
+- Chronos 재추론 금지
+- backbone/LoRA/adapter 학습 금지
+- 저장 cache SHA256이 정확히 맞아야 실행
+- 기존 run_20260925T150030Z 결과 수정 금지
+- >=7200 수치 접근 금지
+- threshold/half-life/shrinkage/scenario 수 변경 금지
+- 결과 보고 재실행 금지
+- 새로운 비교군 추가 금지
+
+1. ZIP을 저장소 밖 새 폴더에 압축 해제.
+2. CanelE452/tsfm-peft-method-screen 루트로 이동.
+3. 정확히 한 번 실행:
+
+python3 -B /실제/압축해제경로/residual_source_2x2_gonogo_v1_20260926/execute.py \
+  --repo "$PWD" \
+  --publish
+
+cache가 예상 위치에 없으면 `.cache` 아래에서 SHA256
+818f4cd7108dd7faf57f0842375eb658b649f385b160893e8af732133cc94d61
+를 가진 npz를 package 코드가 찾는다.
+
+그 cache도 없으면 Chronos를 다시 돌리지 말고 TECHNICAL_FAILURE로 종료한다.
+
+완료 후 전달:
+- exit code
+- commit SHA / push 상태
+- result 상대경로
+- FINAL_TOKEN
+- RESIDUAL_SOURCE_SUPPORTED PASS/FAIL
+- RESIDUAL_ADAPTATION_SUPPORTED PASS/FAIL
+- RAW_FIXED vs RESID_FIXED PILOT gain + 90% block-bootstrap CI
+- RESID_FIXED vs RESID_RECENT PILOT gain + CI
+- chronos_inference_count=0 / training_count=0 확인
