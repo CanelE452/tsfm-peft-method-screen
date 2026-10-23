@@ -62,18 +62,27 @@ preserves hardlinks, and relocates historical absolute symlinks into this checko
 Keep the parts until restoration succeeds. The archive tool itself uses only the
 standard library and zstd; it does not load pickle/model objects or run experiments.
 
-Rebuild environments from the recorded Python versions and package sets. For the
-main environment, use the existing pinned requirements:
+Rebuild environments from the recorded Python versions and package sets. The
+captured main environment has `transformers==5.17.0`, while the historical
+`requirements-lock.txt` still records `4.57.6`; they are deliberately preserved as
+different records. For the environment present at archival time, use the captured
+portable requirements rather than silently substituting the older lock:
 
 ```bash
-uv venv --python 3.11
-uv pip sync --python .venv/bin/python requirements-lock.txt
+uv venv --python 3.11.15
+uv pip sync --python .venv/bin/python reproducibility/requirements/main.txt
+export PYTHONPATH="$PWD/src${PYTHONPATH:+:$PYTHONPATH}"
 export HF_HOME="$PWD/.reproduction-dependencies/huggingface"
 export HF_HUB_CACHE="$HF_HOME/hub"
 ```
 
-Auxiliary environments have separate freezes; do not replace them with the main
-requirements. Package retrieval, a compatible CUDA stack and suitable hardware
+Auxiliary environments have separate portable captures in
+`reproducibility/requirements/`: `channel.txt` (Python 3.11.15), `adapts.txt`
+(3.11.15), `msft.txt` (3.11.15), and `source-paper.txt` (3.12.13). Run their
+installation from the project root so the preserved editable source checkouts
+resolve. Do not replace them with the main requirements. Original, unmodified
+freeze output remains under `reproducibility/environments/`.
+Package retrieval, a compatible CUDA stack and suitable hardware
 remain environment requirements. The recorded interpreter versions, original
 source bytes and saved predictions support replay, but do not promise bitwise
 identical retraining on a different driver or GPU.
