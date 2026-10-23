@@ -1,0 +1,676 @@
+{
+  "schema_version": 1,
+  "verified": true,
+  "restored_root": "/home/minjae/Documents/github/tsfm-peft-method-screen",
+  "scope": "36 existing evaluation receipts in two completed development cohorts; includes four labeled posthoc coefficient swaps",
+  "prediction_receipts": 36,
+  "metric_scalar_cells": 6480,
+  "additional_recorded_scalar_cells": 16,
+  "finite_target_values": 8847360,
+  "families": [
+    {
+      "family": "channel_phase_balance_20260916",
+      "receipts": 8,
+      "metric_scalar_cells": 1048,
+      "additional_recorded_scalar_cells": 16,
+      "finite_target_values": 1105920,
+      "tolerance_abs_and_rel": 1e-12,
+      "original_receipt_sha256": "f5d9b9077592adeca3e4e91ad08946f363211acb25d273cf3baa160388dd043d",
+      "contract_sha256": "564aa4e768e809bd9aa57e51eb5da4fccfa233d6b69c120ae70e2884cb9f4732",
+      "max_scalar_vs_numpy_or_receipt_abs_error": 5.551115123125783e-17,
+      "max_recorded_metric_abs_error": 3.3306690738754696e-16,
+      "roles": {
+        "selected": 4,
+        "matched_old_epoch": 4
+      },
+      "checks": [
+        {
+          "dataset": "electricity",
+          "seed": 41000,
+          "arm": "BALANCED_LH",
+          "role": "selected",
+          "path": ".cache/channel_phase_balance_20260916/E_00_electricity_41000_BALANCED_LH_16.npz",
+          "shape": [
+            54,
+            32,
+            96
+          ],
+          "finite_target_values": 165888,
+          "mse": 0.2782832353239307,
+          "mae": 0.35361118533144786,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "electricity",
+          "seed": 41000,
+          "arm": "BALANCED_LH",
+          "role": "matched_old_epoch",
+          "path": ".cache/channel_phase_balance_20260916/E_00_electricity_41000_BALANCED_LH_01.npz",
+          "shape": [
+            54,
+            32,
+            96
+          ],
+          "finite_target_values": 165888,
+          "mse": 0.3217427022293644,
+          "mae": 0.38189383389567777,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "electricity",
+          "seed": 41001,
+          "arm": "BALANCED_LH",
+          "role": "selected",
+          "path": ".cache/channel_phase_balance_20260916/E_01_electricity_41001_BALANCED_LH_08.npz",
+          "shape": [
+            54,
+            32,
+            96
+          ],
+          "finite_target_values": 165888,
+          "mse": 0.28173688138016956,
+          "mae": 0.3580261500237164,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "electricity",
+          "seed": 41001,
+          "arm": "BALANCED_LH",
+          "role": "matched_old_epoch",
+          "path": ".cache/channel_phase_balance_20260916/E_01_electricity_41001_BALANCED_LH_03.npz",
+          "shape": [
+            54,
+            32,
+            96
+          ],
+          "finite_target_values": 165888,
+          "mse": 0.3029703911916921,
+          "mae": 0.37593997781414284,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "traffic",
+          "seed": 41000,
+          "arm": "BALANCED_LH",
+          "role": "selected",
+          "path": ".cache/channel_phase_balance_20260916/E_02_traffic_41000_BALANCED_LH_17.npz",
+          "shape": [
+            36,
+            32,
+            96
+          ],
+          "finite_target_values": 110592,
+          "mse": 0.38590845762630666,
+          "mae": 0.32684200184692974,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "traffic",
+          "seed": 41000,
+          "arm": "BALANCED_LH",
+          "role": "matched_old_epoch",
+          "path": ".cache/channel_phase_balance_20260916/E_02_traffic_41000_BALANCED_LH_01.npz",
+          "shape": [
+            36,
+            32,
+            96
+          ],
+          "finite_target_values": 110592,
+          "mse": 0.5092211071594134,
+          "mae": 0.41105849199839534,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "traffic",
+          "seed": 41001,
+          "arm": "BALANCED_LH",
+          "role": "selected",
+          "path": ".cache/channel_phase_balance_20260916/E_03_traffic_41001_BALANCED_LH_18.npz",
+          "shape": [
+            36,
+            32,
+            96
+          ],
+          "finite_target_values": 110592,
+          "mse": 0.3871869517414405,
+          "mae": 0.31966774616876503,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "traffic",
+          "seed": 41001,
+          "arm": "BALANCED_LH",
+          "role": "matched_old_epoch",
+          "path": ".cache/channel_phase_balance_20260916/E_03_traffic_41001_BALANCED_LH_01.npz",
+          "shape": [
+            36,
+            32,
+            96
+          ],
+          "finite_target_values": 110592,
+          "mse": 0.5049074319486706,
+          "mae": 0.41113918607883937,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        }
+      ]
+    },
+    {
+      "family": "channel_basis_pilot_resume_20260915",
+      "receipts": 28,
+      "metric_scalar_cells": 5432,
+      "additional_recorded_scalar_cells": 0,
+      "finite_target_values": 7741440,
+      "tolerance_abs_and_rel": 1e-10,
+      "original_receipt_sha256": "4c330acad855348950cbbcb2ea4162f07560dcd9b71938f61dcd3d53c5a6e34f",
+      "contract_sha256": "8c3de3173402d3bd52c8683e715d27ce1dd0b621dff9f62446ffa500617659d2",
+      "max_scalar_vs_numpy_or_receipt_abs_error": 2.220446049250313e-16,
+      "max_recorded_metric_abs_error": 4.656612873077393e-10,
+      "roles": {
+        "selected": 24,
+        "posthoc_coefficient_swap": 4
+      },
+      "checks": [
+        {
+          "dataset": "electricity",
+          "seed": 40001,
+          "arm": "SPECIFIC",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_00_electricity_40001_SPECIFIC.npz",
+          "shape": [
+            54,
+            64,
+            96
+          ],
+          "finite_target_values": 331776,
+          "mse": 0.7579296676633467,
+          "mae": 0.6587151719553291,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "traffic",
+          "seed": 40001,
+          "arm": "SPECIFIC",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_01_traffic_40001_SPECIFIC.npz",
+          "shape": [
+            36,
+            64,
+            96
+          ],
+          "finite_target_values": 221184,
+          "mse": 1.8449904030485311,
+          "mae": 1.0677428610585091,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "traffic",
+          "seed": 40000,
+          "arm": "SHARED",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_02_traffic_40000_SHARED.npz",
+          "shape": [
+            36,
+            64,
+            96
+          ],
+          "finite_target_values": 221184,
+          "mse": 1.1392162100697496,
+          "mae": 0.7662295205926574,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "traffic",
+          "seed": 40001,
+          "arm": "SHARED",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_03_traffic_40001_SHARED.npz",
+          "shape": [
+            36,
+            64,
+            96
+          ],
+          "finite_target_values": 221184,
+          "mse": 1.407888523411148,
+          "mae": 0.8423860530473465,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "traffic",
+          "seed": 40001,
+          "arm": "SHARED_WIDE",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_04_traffic_40001_SHARED_WIDE.npz",
+          "shape": [
+            36,
+            64,
+            96
+          ],
+          "finite_target_values": 221184,
+          "mse": 0.9742657960948764,
+          "mae": 0.7156619529388739,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "electricity",
+          "seed": 40001,
+          "arm": "SHARED",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_05_electricity_40001_SHARED.npz",
+          "shape": [
+            54,
+            64,
+            96
+          ],
+          "finite_target_values": 331776,
+          "mse": 0.3923346973656047,
+          "mae": 0.4656420873778748,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "electricity",
+          "seed": 40000,
+          "arm": "SPECIFIC",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_06_electricity_40000_SPECIFIC.npz",
+          "shape": [
+            54,
+            64,
+            96
+          ],
+          "finite_target_values": 331776,
+          "mse": 0.7056474274144211,
+          "mae": 0.6285777610607172,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "traffic",
+          "seed": 40000,
+          "arm": "SHARED_WIDE",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_07_traffic_40000_SHARED_WIDE.npz",
+          "shape": [
+            36,
+            64,
+            96
+          ],
+          "finite_target_values": 221184,
+          "mse": 0.9464113208305256,
+          "mae": 0.6746873252053366,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "traffic",
+          "seed": 40000,
+          "arm": "LORA_HEAD",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_08_traffic_40000_LORA_HEAD.npz",
+          "shape": [
+            36,
+            64,
+            96
+          ],
+          "finite_target_values": 221184,
+          "mse": 0.6212362577838221,
+          "mae": 0.5285709834726516,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "electricity",
+          "seed": 40001,
+          "arm": "LORA_HEAD",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_09_electricity_40001_LORA_HEAD.npz",
+          "shape": [
+            54,
+            64,
+            96
+          ],
+          "finite_target_values": 331776,
+          "mse": 0.3332777097262252,
+          "mae": 0.43075082208197557,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "electricity",
+          "seed": 40000,
+          "arm": "SHARED_WIDE",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_10_electricity_40000_SHARED_WIDE.npz",
+          "shape": [
+            54,
+            64,
+            96
+          ],
+          "finite_target_values": 331776,
+          "mse": 0.37275789494970346,
+          "mae": 0.45032955351526754,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "traffic",
+          "seed": 40000,
+          "arm": "GROUP4",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_11_traffic_40000_GROUP4.npz",
+          "shape": [
+            36,
+            64,
+            96
+          ],
+          "finite_target_values": 221184,
+          "mse": 0.8548791115632122,
+          "mae": 0.6299635607301372,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "electricity",
+          "seed": 40000,
+          "arm": "LORA_HEAD",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_12_electricity_40000_LORA_HEAD.npz",
+          "shape": [
+            54,
+            64,
+            96
+          ],
+          "finite_target_values": 331776,
+          "mse": 0.2982447074763445,
+          "mae": 0.3987198876974016,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "electricity",
+          "seed": 40000,
+          "arm": "BASIS4",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_13_electricity_40000_BASIS4.npz",
+          "shape": [
+            54,
+            64,
+            96
+          ],
+          "finite_target_values": 331776,
+          "mse": 0.49941076867559475,
+          "mae": 0.5256737854077559,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "electricity",
+          "seed": 40000,
+          "arm": "BASIS4",
+          "role": "posthoc_coefficient_swap",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_COEFFICIENT_SWAP_13_electricity_40000_BASIS4.npz",
+          "shape": [
+            54,
+            64,
+            96
+          ],
+          "finite_target_values": 331776,
+          "mse": 0.49485909484695073,
+          "mae": 0.5215183841601312,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "electricity",
+          "seed": 40001,
+          "arm": "BASIS4",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_14_electricity_40001_BASIS4.npz",
+          "shape": [
+            54,
+            64,
+            96
+          ],
+          "finite_target_values": 331776,
+          "mse": 0.4751122953354207,
+          "mae": 0.5193096161768832,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "electricity",
+          "seed": 40001,
+          "arm": "BASIS4",
+          "role": "posthoc_coefficient_swap",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_COEFFICIENT_SWAP_14_electricity_40001_BASIS4.npz",
+          "shape": [
+            54,
+            64,
+            96
+          ],
+          "finite_target_values": 331776,
+          "mse": 0.4669369329876896,
+          "mae": 0.5127411302243947,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "traffic",
+          "seed": 40001,
+          "arm": "BASIS4",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_15_traffic_40001_BASIS4.npz",
+          "shape": [
+            36,
+            64,
+            96
+          ],
+          "finite_target_values": 221184,
+          "mse": 1.339395367053134,
+          "mae": 0.8760874615417179,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "traffic",
+          "seed": 40001,
+          "arm": "BASIS4",
+          "role": "posthoc_coefficient_swap",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_COEFFICIENT_SWAP_15_traffic_40001_BASIS4.npz",
+          "shape": [
+            36,
+            64,
+            96
+          ],
+          "finite_target_values": 221184,
+          "mse": 1.2982278169130985,
+          "mae": 0.8615101476847176,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "traffic",
+          "seed": 40001,
+          "arm": "GROUP4",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_16_traffic_40001_GROUP4.npz",
+          "shape": [
+            36,
+            64,
+            96
+          ],
+          "finite_target_values": 221184,
+          "mse": 1.2509285480717518,
+          "mae": 0.8433945674622992,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "electricity",
+          "seed": 40000,
+          "arm": "GROUP4",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_17_electricity_40000_GROUP4.npz",
+          "shape": [
+            54,
+            64,
+            96
+          ],
+          "finite_target_values": 331776,
+          "mse": 0.4131847802172078,
+          "mae": 0.4785888788699473,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "traffic",
+          "seed": 40000,
+          "arm": "SPECIFIC",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_18_traffic_40000_SPECIFIC.npz",
+          "shape": [
+            36,
+            64,
+            96
+          ],
+          "finite_target_values": 221184,
+          "mse": 1.4724750165296308,
+          "mae": 0.9171918934043475,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "traffic",
+          "seed": 40001,
+          "arm": "LORA_HEAD",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_19_traffic_40001_LORA_HEAD.npz",
+          "shape": [
+            36,
+            64,
+            96
+          ],
+          "finite_target_values": 221184,
+          "mse": 0.7024503503186135,
+          "mae": 0.5791252359748993,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "electricity",
+          "seed": 40001,
+          "arm": "GROUP4",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_20_electricity_40001_GROUP4.npz",
+          "shape": [
+            54,
+            64,
+            96
+          ],
+          "finite_target_values": 331776,
+          "mse": 0.42036834714076315,
+          "mae": 0.4778450823121475,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "electricity",
+          "seed": 40001,
+          "arm": "SHARED_WIDE",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_21_electricity_40001_SHARED_WIDE.npz",
+          "shape": [
+            54,
+            64,
+            96
+          ],
+          "finite_target_values": 331776,
+          "mse": 0.4147211039609558,
+          "mae": 0.48471163702394465,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "electricity",
+          "seed": 40000,
+          "arm": "SHARED",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_22_electricity_40000_SHARED.npz",
+          "shape": [
+            54,
+            64,
+            96
+          ],
+          "finite_target_values": 331776,
+          "mse": 0.3830123841891207,
+          "mae": 0.4529978728869434,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "traffic",
+          "seed": 40000,
+          "arm": "BASIS4",
+          "role": "selected",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_23_traffic_40000_BASIS4.npz",
+          "shape": [
+            36,
+            64,
+            96
+          ],
+          "finite_target_values": 221184,
+          "mse": 1.2699305992369618,
+          "mae": 0.8487160226369741,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        },
+        {
+          "dataset": "traffic",
+          "seed": 40000,
+          "arm": "BASIS4",
+          "role": "posthoc_coefficient_swap",
+          "path": ".cache/channel_basis_pilot_resume_20260915/E_COEFFICIENT_SWAP_23_traffic_40000_BASIS4.npz",
+          "shape": [
+            36,
+            64,
+            96
+          ],
+          "finite_target_values": 221184,
+          "mse": 1.2616468119812412,
+          "mae": 0.8470876610604389,
+          "sha256_verified": true,
+          "origins_and_train_scale_verified": true
+        }
+      ]
+    }
+  ],
+  "runtime": {
+    "python": "3.13.9",
+    "numpy": "2.3.5"
+  },
+  "side_effects": {
+    "historical_files_written": 0,
+    "checkpoint_loads": 0,
+    "model_imports": 0,
+    "model_forwards": 0,
+    "optimizer_updates": 0
+  },
+  "limits": [
+    "Does not verify every experiment, checkpoint or training trajectory.",
+    "Recomputes saved-prediction metrics; does not reproduce predictions from model weights.",
+    "Does not change historical FAIL/STOP decisions or establish new scientific evidence."
+  ]
+}

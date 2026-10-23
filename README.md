@@ -1,5 +1,9 @@
 # Seven-candidate TSFM PEFT screen
 
+## Archived reproduction data and results
+
+The 2026-10-23 preservation package contains the exact ignored data, saved predictions, checkpoints and required models. See [download and restore instructions](docs/REPRODUCTION_ARCHIVE_20261023.md), [preservation boundaries](docs/REPRODUCTION_PRESERVATION.md), and the [GitHub Release](https://github.com/CanelE452/tsfm-peft-method-screen/releases/tag/reproducibility-archive-20261023). Local workspaces are removed only after archive and remote verification; ordinary Git cloning does not include these binary assets.
+
 Independent Chronos-2 development screen. Round 0 and Round 1 only; Round 2 requires subsequent user review. See [protocol](docs/MASTER_SCREEN_PROTOCOL.md) and [user specification](docs/USER_PROTOCOL.md).
 
 No prior experiment outputs are used as new evidence. Raw data and cached model weights may be reused with provenance hashes. All source is local to this repository.

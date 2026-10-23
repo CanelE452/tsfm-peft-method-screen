@@ -154,6 +154,42 @@ not a blanket guarantee that every historical finalizer runs unchanged.
 
 ## Verification scope
 
+For a read-only numerical check after restoring the assets, use Python with NumPy:
+
+```bash
+python scripts/verify_preserved_predictions.py --root /path/to/tsfm-restored
+```
+
+This independently accumulates per-channel MSE/MAE with `math.fsum` and checks
+the original scalar, channel and raw-unit metric receipts for 36 evaluation
+records: all eight phase-balance evaluation records and 28 resumed channel-basis
+records. The latter include four explicitly labeled posthoc coefficient swaps.
+It checks 6,480 metric scalar cells, 16 additional original scalar receipts, and
+8,847,360 finite saved target values, plus prediction file SHA-256, evaluation
+origins and TRAIN standard deviations. The original phase-balance tolerance is
+`1e-12` absolute/relative; the channel-basis tolerance is `1e-10`.
+
+The validator imports no experiment/model code and loads no checkpoint. It prints
+its report to stdout; optional `--output /new/report.json` creates a new file and
+refuses to overwrite an existing report. It accepts relative cache paths and
+maps the original absolute project prefix to the supplied restored root. The
+original-side check is recorded in `reproduction/PREDICTION_REPLAY_20261023.json`.
+
+A small existing CPU test subset checks metric weighting/missing targets, channel
+alignment and normalization, RNG preservation, and immutable selection contracts:
+
+```bash
+CUDA_VISIBLE_DEVICES='' python -m pytest -q \
+  tests/test_protocol.py tests/test_priority12_channel_data.py \
+  tests/test_common.py::test_metric_independent_missing_channel_scaling \
+  tests/test_common.py::test_immutable_selection
+```
+
+These six tests passed during preservation. They use NumPy/PyTorch/pytest on CPU
+and do not fit a forecasting model or open a GPU experiment. Reconstructing
+predictions from model weights and checking every historical experiment remain
+outside these selected checks.
+
 Asset checksums, per-file manifests and restored-file verification establish that
 the archived bytes survived upload and download. Loading a split module and
 compiling a translated script establish only dependency and path portability for
