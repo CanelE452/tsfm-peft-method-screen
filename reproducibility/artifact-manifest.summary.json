@@ -1,0 +1,29 @@
+{
+  "source_root": "/home/minjae/Documents/github/tsfm-peft-method-screen",
+  "includes": [
+    ".cache",
+    "data",
+    "runs",
+    "external",
+    ".reproduction-dependencies",
+    "results/intermittent_gonogo_20260922/curves.npz",
+    "results/paper_readiness_20260918/run.log",
+    "results/transient_peft_readiness_v3_20260923/data_access_raw.log",
+    "experiments/transient_difficulty_screen_v1_20260924/AUTHOR_VALIDATION/unit_tests.log",
+    "results/delta_adapter_comparison_20260919/completion_hook.log"
+  ],
+  "excludes": [
+    ".cache/tsfm_three_candidate_setup_20260925/envs",
+    "external/icdm-2026-reproduction/src/.venv"
+  ],
+  "skipped_dirs": [
+    ".git",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    "__pycache__"
+  ],
+  "count": 28613,
+  "file_bytes": 73310977615,
+  "manifest_sha256": "c1d1effa27fbd593a6dc0c596de26aa005f2b9dfde0ad3c23cc9310dfd6136ab"
+}
