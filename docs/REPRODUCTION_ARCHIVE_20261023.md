@@ -47,7 +47,8 @@ git checkout reproducibility-archive-20261023
 gh release download reproducibility-archive-20261023 \
   --repo CanelE452/tsfm-peft-method-screen \
   --pattern 'tsfm-reproduction.tar.zst.part*' \
-  --pattern artifact-manifest.jsonl --pattern SHA256SUMS \
+  --pattern artifact-manifest.jsonl --pattern artifact-manifest.summary.json \
+  --pattern UPLOAD_VERIFICATION.json --pattern SHA256SUMS \
   --dir ../tsfm-assets
 (cd ../tsfm-assets && sha256sum -c SHA256SUMS)
 cmp reproducibility/artifact-manifest.jsonl ../tsfm-assets/artifact-manifest.jsonl
@@ -121,3 +122,24 @@ attached to the release and retained under `reproducibility/` on main.
 Byte preservation and selected replay checks do not mean every historical
 finalizer or fit has been rerun. Preserve the documented FAIL/STOP decisions,
 unexecuted stages and original verification limitations.
+
+## Completed restoration check
+
+The [final restoration receipt](../reproducibility/RESTORE_VERIFICATION.json)
+records successful restoration of all 28,613 artifacts (73,310,977,615 logical
+file bytes) into a fresh actual GitHub source clone at the published source tag.
+Every restored artifact passed the archive tool's inventory checks. All 32 local
+compressed parts matched GitHub's server-computed SHA-256 digests; one complete
+1.9GB part was independently downloaded and used in the restore. The other parts
+were retained local bytes, rather than a second full 59.44GB download.
+
+From the restored checkout, 36 saved prediction receipts and 6,480 metric cells
+plus 16 additional stored scalar cells passed independent numerical replay; six
+CPU tests passed. The relocated five-file M5 dependency check and MOMENT config
+check also passed, without model construction, weight loading or new training.
+The original exact package environments were retained and relocated for these
+checks, so this is not a claim of a fresh dependency installation. Detailed
+[prediction replay](../reproducibility/RESTORED_PREDICTION_REPLAY.json) and
+environment captures are preserved on main. The fixed source tag predates this
+documentation-only receipt commit; use the current main copy of this guide,
+including all metadata download patterns required by SHA256SUMS.

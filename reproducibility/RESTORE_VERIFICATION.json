@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "verified": true,
+  "verified_at_utc": "2026-10-23T05:01:57.976792+00:00",
+  "repository": "CanelE452/tsfm-peft-method-screen",
+  "release_tag": "reproducibility-archive-20261023",
+  "restored_source_commit": "065b8417d0c6a887ddd54ebd15f7d14394e98e70",
+  "fresh_actual_github_source_clone": true,
+  "full_restore": {
+    "verified": true,
+    "artifacts": 28613,
+    "file_bytes": 73310977615,
+    "operation": "restore"
+  },
+  "archive_parts": 32,
+  "compressed_archive_bytes": 59435020510,
+  "archive_transport_verification": {
+    "all_remote_server_sha256_digests_match_local_parts": true,
+    "complete_remote_download_sample_parts": 1,
+    "complete_remote_download_sample_bytes": 1900000000,
+    "restore_input": "Locally retained compressed parts identical to all GitHub asset SHA256 digests; first part replaced by the independently downloaded identical GitHub bytes.",
+    "all_parts_redownloaded": false
+  },
+  "prediction_receipts": 36,
+  "metric_scalar_cells": 6480,
+  "additional_recorded_scalar_cells": 16,
+  "finite_target_values": 8847360,
+  "cpu_tests_passed": 6,
+  "m5_dependency_files_verified": 5,
+  "moment_config_verified": true,
+  "model_weights_loaded": false,
+  "new_model_fits_or_inference": 0,
+  "validation_environments": "Retained original package environments at relocated task-local paths; exact captured versions are published.",
+  "check_commands": {
+    "restored-prediction-replay": {
+      "returncode": 0,
+      "command": [
+        "/home/minjae/Documents/Codex/2026-10-23/timeseries-cleanup/tsfm-venv-main/bin/python",
+        "scripts/verify_preserved_predictions.py",
+        "--root",
+        "/home/minjae/Documents/Codex/2026-10-23/timeseries-cleanup/tsfm-restored",
+        "--output",
+        "/home/minjae/Documents/Codex/2026-10-23/timeseries-cleanup/tsfm-restored-prediction-replay.json"
+      ]
+    },
+    "restored-cpu-tests": {
+      "returncode": 0,
+      "command": [
+        "/home/minjae/Documents/Codex/2026-10-23/timeseries-cleanup/tsfm-venv-main/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "--basetemp",
+        "/home/minjae/Documents/Codex/2026-10-23/timeseries-cleanup/tsfm-pytest-temp",
+        "tests/test_protocol.py",
+        "tests/test_priority12_channel_data.py",
+        "tests/test_common.py::test_metric_independent_missing_channel_scaling",
+        "tests/test_common.py::test_immutable_selection"
+      ]
+    },
+    "restored-m5-loader": {
+      "returncode": 0,
+      "command": [
+        "/home/minjae/Documents/Codex/2026-10-23/timeseries-cleanup/tsfm-venv-main/bin/python",
+        "scripts/run_preserved_m5_experiment.py",
+        "--check-loader",
+        "experiments/service_axis_v2_20260922/decide.py"
+      ]
+    },
+    "restored-moment-config": {
+      "returncode": 0,
+      "command": [
+        "/home/minjae/Documents/Codex/2026-10-23/timeseries-cleanup/tsfm-venv-channel/bin/python",
+        "scripts/run_preserved_experiment.py",
+        "--check-model-config",
+        "scripts/finalize_channel_basis_pilot.py"
+      ]
+    }
+  },
+  "prediction_replay_report": "RESTORED_PREDICTION_REPLAY.json",
+  "limits": [
+    "Existing environments were retained and relocated for these checks; fresh dependency installation and all historical experiment reruns were not performed.",
+    "Future environment recreation uses the exact published interpreter/package captures and requires package availability and compatible hardware.",
+    "Byte preservation and selected saved-result replay do not establish every historical scientific claim or bitwise-identical retraining on different hardware."
+  ]
+}
