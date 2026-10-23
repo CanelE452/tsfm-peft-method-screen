@@ -196,3 +196,40 @@ compiling a translated script establish only dependency and path portability for
 those operations. Neither substitutes for replaying every historical finalizer
 or retraining every run. Existing execution records remain the evidence for the
 original numerical checks, including their documented limitations and errors.
+
+## Build the archived AdaPTS source without its nested Git database
+
+The original AdaPTS environment contained distribution `AdaPTS` version
+`0.1.dev370+g8bf57c7ee`, installed in editable mode from the preserved source.
+Its unchanged `pyproject.toml` obtains the version from `setuptools_scm` and has
+no fallback. Removing the nested `.git/` therefore requires supplying the
+recorded version explicitly when rebuilding the package:
+
+```bash
+SETUPTOOLS_SCM_PRETEND_VERSION_FOR_ADAPTS='0.1.dev370+g8bf57c7ee' \
+  uv pip install --python /path/to/rebuilt-adapts-env/bin/python \
+  --no-deps --editable .cache/tsfm_three_candidate_setup_20260925/sources/AdaPTS
+```
+
+Reconstruct the scientific dependencies from the captured AdaPTS environment
+separately; `--no-deps` deliberately avoids resolving or upgrading those
+dependencies during this local-source installation. The normal isolated build
+will need the source's small build-system requirements. For a separately
+provisioned build environment, the tested tools were setuptools `84.0.0`, wheel
+`0.48.0`, setuptools-scm `10.3.4`, vcs-versioning `2.6.0` and packaging `26.3`.
+
+The package-specific variable and uppercase distribution-name normalization are
+documented by [setuptools-scm](https://setuptools-scm.readthedocs.io/latest/config/#environment-variables).
+This sets build metadata while preserving the archived source bytes; it does not
+fabricate a Git checkout or infer a new version from the surrounding project.
+
+`reproduction/ADAPTS_BUILD_CHECK_20261023.json` records a check on a temporary
+source copy with both `.git/` and cached `*.egg-info` removed. Metadata generation
+without the override failed as expected. With the exact recorded version, a
+45,120-byte wheel built successfully; its metadata reported the original version
+and it contained all 14 package Python source files. Only the five small
+build-tool packages were installed in a temporary environment. Scientific/model
+dependencies were not installed, no model was loaded, and no fit was run.
+The archived source and binary archive were not modified. This verifies package
+building and version metadata, not an AdaPTS experiment or a byte-identical wheel
+across build timestamps and platforms.

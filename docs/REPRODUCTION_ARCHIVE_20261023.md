@@ -82,6 +82,18 @@ Auxiliary environments have separate portable captures in
 installation from the project root so the preserved editable source checkouts
 resolve. Do not replace them with the main requirements. Original, unmodified
 freeze output remains under `reproducibility/environments/`.
+AdaPTS derives its distribution version from Git metadata, which is excluded
+from the evidence payload. Restore that environment with the recorded version
+override (the `.git`-free wheel build was checked):
+
+```bash
+SETUPTOOLS_SCM_PRETEND_VERSION_FOR_ADAPTS='0.1.dev370+g8bf57c7ee' \
+uv pip sync --python .cache/tsfm_three_candidate_setup_20260925/envs/adapts/bin/python \
+  reproducibility/requirements/adapts.txt
+```
+
+Create that Python 3.11.15 environment first. See
+`reproduction/ADAPTS_BUILD_CHECK_20261023.json` and the detailed preservation guide.
 Package retrieval, a compatible CUDA stack and suitable hardware
 remain environment requirements. The recorded interpreter versions, original
 source bytes and saved predictions support replay, but do not promise bitwise

@@ -1,6 +1,6 @@
 # 완료 작업과 검증 기록
 
-[재현 자료 보존 준비] 2026-10-23 사용자 요청에 따라 로컬 시계열 정리 전 원자료·예측 배열·체크포인트·의존 모델을 릴리스 자산으로 보존한다. 원본 실험 코드·판정은 유지하며 새 fit0. [복원 절차](REPRODUCTION_ARCHIVE_20261023.md) · [파일별 SHA256](../reproducibility/artifact-manifest.jsonl) · [M5 의존성·경로 확인](reproduction/PORTABILITY_CHECK_20261023.json). 업로드 검증 완료 여부는 릴리스 영수증으로 구분한다.
+[재현 자료 업로드 검증 완료 / 복원 검산 예정] 2026-10-23 사용자 요청에 따라 로컬 시계열 정리 전 원자료·예측 배열·체크포인트·의존 모델을 릴리스 자산으로 보존한다. 원본 실험 코드·판정은 유지하며 새 fit0. [복원 절차](REPRODUCTION_ARCHIVE_20261023.md) · [파일별 SHA256](../reproducibility/artifact-manifest.jsonl) · [M5 의존성·경로 확인](reproduction/PORTABILITY_CHECK_20261023.json). 28,613개 원본 파일 전체 스트림과 32개 원격 자산 SHA256을 검증했다. 원격 소스 클론의 복원·검산은 최종 영수증으로 구분한다.
 
 [제안 검토] 2026-09-26 채널 압축 잔차 PEFT 주제 제안의 수치·공식 논문 설명·로컬 코드를 대조했다. 기존 R4 PILOT의 U8 대비 MSE8.3425%감소와 latency4.0180%증가를 확인했다. 설치된 Moirai sample의 no_grad 경로와 이전 비교의 서로 다른 배치 RNG를 식별했으며, 미분 가능한 forward·LoRA 대조·LR/step/seed·선택·비용 계약이 아직 필요하다. **새 fit/추론/gradient smoke/채점0**. [검토 및 실행 조건](../research/tsfm_topic_decision_review_20260926/REVIEW_KO.md) · [근거hash](../research/tsfm_topic_decision_review_20260926/EVIDENCE.json). 검토 완료를 학습 승인·실험 성공으로 간주하지 않는다.
 
